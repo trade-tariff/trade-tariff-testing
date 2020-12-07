@@ -1,0 +1,36 @@
+{
+  "name": "trade-tariff-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ansi-styles": "^5.0.0"
+  },
+  "devDependencies": {
+    "cypress": "^6.0.1",
+    "cypress-cucumber-preprocessor": "^2.5.5",
+    "cypress-file-upload": "^4.0.4",
+    "cypress-multi-reporters": "^1.2.4",
+    "mocha": "^7.2.0",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TransformCore/trade-tariff-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TransformCore/trade-tariff-testing/issues"
+  },
+  "homepage": "https://github.com/TransformCore/trade-tariff-testing#readme",
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+}
