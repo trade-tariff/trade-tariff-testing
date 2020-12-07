@@ -19,4 +19,4 @@ Default run is against Live Prod environment.This can be adjusted in cypress.jso
 Running tests can be done with the following commands:
 
 npx cypress open (opens cypress application) 
-npx cypress run --spec */**/filename.js
+npx cypress run --spec /file path/filename.js
