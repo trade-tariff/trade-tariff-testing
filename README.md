@@ -9,8 +9,8 @@ Prerequisites
 	•	npm
 
 
-Download or clone this repo
-install dependencies by running the following command in terminal(from app directory ie.,where packagge.json is located) 
+Download or clone this repo.
+Install dependencies by running the following command in terminal(from app directory ie.,where packagge.json is located) 
 npm install 
 
 Running tests:
