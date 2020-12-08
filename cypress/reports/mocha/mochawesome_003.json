@@ -1,0 +1,226 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-12-07T23:51:33.412Z",
+    "end": "2020-12-07T23:51:47.013Z",
+    "duration": 13601,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c843b1cf-3c2b-4e19-9936-d9ecd25d1c29",
+      "title": "",
+      "fullFile": "cypress/integration/frontend-testing/e2e002.js",
+      "file": "cypress/integration/frontend-testing/e2e002.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+          "title": "importing Mozzarella from Chile ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to trade tariff page ",
+              "fullTitle": "importing Mozzarella from Chile  Navigate to trade tariff page ",
+              "timedOut": null,
+              "duration": 3145,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.gov.uk/trade-tariff');\ncy.wait(1000);\ncy.get('p#get-started > a[role=\\'button\\']').contains('Start now').should('be.visible').click();",
+              "err": {},
+              "uuid": "1aabadf8-07ff-4371-86d8-6ef47b8bd785",
+              "parentUUID": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "enter commodity code for Mozzaarella - 0406103010 and search",
+              "fullTitle": "importing Mozzarella from Chile  enter commodity code for Mozzaarella - 0406103010 and search",
+              "timedOut": null,
+              "duration": 4424,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.js-commodity-picker-select.js-show  input#q').click().type('1704903000');\ncy.wait(3000);\ncy.get('input[name=\\'new_search\\']').click();",
+              "err": {},
+              "uuid": "b02f897c-afd5-47c5-9039-0b3ee660ed7e",
+              "parentUUID": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Commodity information for 0406103010",
+              "fullTitle": "importing Mozzarella from Chile  Commodity information for 0406103010",
+              "timedOut": null,
+              "duration": 456,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(content, {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {
+                "message": "ReferenceError: content is not defined",
+                "estack": "ReferenceError: content is not defined\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:111:17)",
+                "diff": null
+              },
+              "uuid": "50833ce2-606b-49d9-9fec-7054e42bae8b",
+              "parentUUID": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "select Import button",
+              "fullTitle": "importing Mozzarella from Chile  select Import button",
+              "timedOut": null,
+              "duration": 135,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a#tab_import').click();",
+              "err": {},
+              "uuid": "d5718fd0-af80-4683-b78e-b9bcac07f867",
+              "parentUUID": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "footnotes is visible",
+              "fullTitle": "importing Mozzarella from Chile  footnotes is visible",
+              "timedOut": null,
+              "duration": 206,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-module] [role=\\'tabpanel\\']:nth-child(3) .small-table .govuk-table__caption').should('be.visible');",
+              "err": {},
+              "uuid": "bdf18ec2-9402-40aa-bf9e-a99d58111201",
+              "parentUUID": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "forum Section is visible",
+              "fullTitle": "importing Mozzarella from Chile  forum Section is visible",
+              "timedOut": null,
+              "duration": 47,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('li:nth-of-type(9) > .govuk-header__link').should('be.visible');",
+              "err": {},
+              "uuid": "cb8ed3ed-88e4-4aef-a608-8a146f54bb31",
+              "parentUUID": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "select Chile from All countries list",
+              "fullTitle": "importing Mozzarella from Chile  select Chile from All countries list",
+              "timedOut": null,
+              "duration": 5080,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input#import_search_country').click().clear().wait(1000).type('Chile').wait(1000).type('{enter}');\ncy.wait(2000);",
+              "err": {},
+              "uuid": "2d595443-118d-430e-b308-190c2fd351d6",
+              "parentUUID": "92ee18b6-be32-45d6-80cb-968cb5efc16a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1aabadf8-07ff-4371-86d8-6ef47b8bd785",
+            "b02f897c-afd5-47c5-9039-0b3ee660ed7e",
+            "d5718fd0-af80-4683-b78e-b9bcac07f867",
+            "bdf18ec2-9402-40aa-bf9e-a99d58111201",
+            "cb8ed3ed-88e4-4aef-a608-8a146f54bb31",
+            "2d595443-118d-430e-b308-190c2fd351d6"
+          ],
+          "failures": [
+            "50833ce2-606b-49d9-9fec-7054e42bae8b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 13493,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -1,4 +1,3 @@
-
 Feature: As a trader i want to import white chocolate from iceland to XI
 
   Trader in XI would like to import white chocolate from iceland and want to know more information.
@@ -14,6 +13,8 @@ Feature: As a trader i want to import white chocolate from iceland to XI
     And select Iceland from All countries list
     Then Measures for Iceland should be shown
     And following information should shown
+    And i should see
+    Examples:
      |measure           | Value  |
      |VAT standard rate | 20.00 %  |
      |VAT zero rate     |0.00 %    |
