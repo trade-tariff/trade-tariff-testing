@@ -13,17 +13,3 @@ describe('HOTT API Testing',()=> {
         })
     })
 })
-
-//it('4.Response body contains specific text',function(){
-//         expect(response.body.data[0]).to.deep.equal({
-//             "id": "1",
-//             "type": "section",
-//             "attributes": {
-//                 "id": 1,
-//                 "numeral": "I",
-//                 "title": "Live animals; animal products",
-//                 "position": 1,
-//                 "chapter_from": "01",
-//                 "chapter_to": "05",
-//
-//         })

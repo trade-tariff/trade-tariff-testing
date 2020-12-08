@@ -1,0 +1,311 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 10,
+    "passes": 2,
+    "pending": 0,
+    "failures": 8,
+    "start": "2020-12-08T13:27:58.367Z",
+    "end": "2020-12-08T13:28:47.173Z",
+    "duration": 48806,
+    "testsRegistered": 10,
+    "passPercent": 20,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "be64d7cc-e710-4334-8c80-4d3f7eb1aaee",
+      "title": "",
+      "fullFile": "cypress/integration/frontend-testing/e2e002.js",
+      "file": "cypress/integration/frontend-testing/e2e002.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+          "title": "importing Mozzarella from Chile ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to trade tariff page ",
+              "fullTitle": "importing Mozzarella from Chile  Navigate to trade tariff page ",
+              "timedOut": null,
+              "duration": 4012,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(100);\ncy.visit('https://www.gov.uk/trade-tariff');\ncy.wait(100);\ncy.get('p#get-started > a[role=\\'button\\']').contains('Start now').should('be.visible').click();",
+              "err": {},
+              "uuid": "d9a84185-95e0-4507-8a34-4cc83c00c767",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "enter commodity code for Mozzaarella - 0406103010 and search",
+              "fullTitle": "importing Mozzarella from Chile  enter commodity code for Mozzaarella - 0406103010 and search",
+              "timedOut": null,
+              "duration": 2324,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010');\ncy.wait(100);\ncy.get('input[name=\\'new_search\\']').click();",
+              "err": {},
+              "uuid": "f6a7ef79-b9d6-4b65-8632-706f0e7ed919",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Commodity information for 0406103010 is displayed",
+              "fullTitle": "importing Mozzarella from Chile  Commodity information for 0406103010 is displayed",
+              "timedOut": null,
+              "duration": 5200,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.commodity-header.govuk-heading-l').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `.commodity-header.govuk-heading-l`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `.commodity-header.govuk-heading-l`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:112:49)",
+                "diff": null
+              },
+              "uuid": "9e01b4de-40df-400a-b59d-33cf037c78f7",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "chapter notes is visible",
+              "fullTitle": "importing Mozzarella from Chile  chapter notes is visible",
+              "timedOut": null,
+              "duration": 4672,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('div:nth-of-type(1) > .govuk-heading-s').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `div:nth-of-type(1) > .govuk-heading-s`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `div:nth-of-type(1) > .govuk-heading-s`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:115:53)",
+                "diff": null
+              },
+              "uuid": "7c28abd7-748b-4842-afff-57608699a065",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "select Import button",
+              "fullTitle": "importing Mozzarella from Chile  select Import button",
+              "timedOut": null,
+              "duration": 5359,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('a#tab_import').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `a#tab_import`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `a#tab_import`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:118:8)",
+                "diff": null
+              },
+              "uuid": "9a0f3171-93fc-4349-b346-8b2c103e3414",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "select Chile from All countries list",
+              "fullTitle": "importing Mozzarella from Chile  select Chile from All countries list",
+              "timedOut": null,
+              "duration": 4685,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input#import_search_country').click().clear().wait(1000).type('Chile').wait(100).type('{enter}');\ncy.wait(200);",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `input#import_search_country`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `input#import_search_country`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:121:8)",
+                "diff": null
+              },
+              "uuid": "2fc2aebc-279b-4a59-943d-36acfdbc20cd",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "measures for Chile",
+              "fullTitle": "importing Mozzarella from Chile  measures for Chile",
+              "timedOut": null,
+              "duration": 5415,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.small-table > .govuk-table__caption:nth-of-type(1)').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `.small-table > .govuk-table__caption:nth-of-type(1)`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `.small-table > .govuk-table__caption:nth-of-type(1)`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:125:67)",
+                "diff": null
+              },
+              "uuid": "e2dcbcd7-4385-4747-a2fe-1369e834ce32",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Third country duty  measure has value 185.20 EUR / 100 kg",
+              "fullTitle": "importing Mozzarella from Chile  Third country duty  measure has value 185.20 EUR / 100 kg",
+              "timedOut": null,
+              "duration": 5531,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.govuk-table.measures.small-table > tbody > tr:nth-of-type(2) > td:nth-of-type(4)').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `.govuk-table.measures.small-table > tbody > tr:nth-of-type(2) > td:nth-of-type(4)`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `.govuk-table.measures.small-table > tbody > tr:nth-of-type(2) > td:nth-of-type(4)`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:128:97)",
+                "diff": null
+              },
+              "uuid": "dc0efe98-8d6c-409f-809e-c2ac95110e79",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "preferential tariff quota order No:091924 is visible",
+              "fullTitle": "importing Mozzarella from Chile  preferential tariff quota order No:091924 is visible",
+              "timedOut": null,
+              "duration": 5397,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[href=\\'\\\\#import-3738187-order-number-091924\\']').click();\ncy.get('div#popup article > .govuk-table  h2').should('be.visible');\ncy.get('.close [href]').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `[href='\\#import-3738187-order-number-091924']`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `[href='\\#import-3738187-order-number-091924']`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:131:8)",
+                "diff": null
+              },
+              "uuid": "87f04f68-61d1-473e-a037-cb65bf1c6c70",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "footnotes is visible",
+              "fullTitle": "importing Mozzarella from Chile  footnotes is visible",
+              "timedOut": null,
+              "duration": 5167,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-module] [role=\\'tabpanel\\']:nth-child(3) .small-table .govuk-table__caption').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `[data-module] [role='tabpanel']:nth-child(3) .small-table .govuk-table__caption`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `[data-module] [role='tabpanel']:nth-child(3) .small-table .govuk-table__caption`, but never found it.\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/frontend-testing/e2e002.js:136:97)",
+                "diff": null
+              },
+              "uuid": "27665f23-3fc0-4b55-92b1-23e5e56d6873",
+              "parentUUID": "85faa433-5e3d-42e6-9334-5e366fdcafb3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d9a84185-95e0-4507-8a34-4cc83c00c767",
+            "f6a7ef79-b9d6-4b65-8632-706f0e7ed919"
+          ],
+          "failures": [
+            "9e01b4de-40df-400a-b59d-33cf037c78f7",
+            "7c28abd7-748b-4842-afff-57608699a065",
+            "9a0f3171-93fc-4349-b346-8b2c103e3414",
+            "2fc2aebc-279b-4a59-943d-36acfdbc20cd",
+            "e2dcbcd7-4385-4747-a2fe-1369e834ce32",
+            "dc0efe98-8d6c-409f-809e-c2ac95110e79",
+            "87f04f68-61d1-473e-a037-cb65bf1c6c70",
+            "27665f23-3fc0-4b55-92b1-23e5e56d6873"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 47762,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

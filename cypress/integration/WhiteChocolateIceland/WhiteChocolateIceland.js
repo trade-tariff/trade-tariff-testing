@@ -9,7 +9,9 @@
         cy.wait(3000)
         cy.get('input[name=\'new_search\']').click()
     })
+
     When('i select Import button',()=>{
+        debug()
         cy.get('a#tab_import').click()
     })
     When('select Iceland from All countries list',()=>{
@@ -18,8 +20,6 @@
            .type('{enter}')
         cy.wait(2000)
     })
-
-
 
     Then('Commodity information for 1704903000 is displayed',()=>{
         cy.get('.commodity-header.govuk-heading-l').contains('Commodity information for 1704903000').should('be.visible')
@@ -33,6 +33,4 @@
         cy.contains('VAT standard rate').be.eq('20.00 %')
     })
 
-
-    })
 
