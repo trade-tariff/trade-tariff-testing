@@ -12,14 +12,7 @@ Feature: As a trader i want to import white chocolate from iceland to XI
     When i select Import button
     And select Iceland from All countries list
     Then Measures for Iceland should be shown
-    And following information should shown
-    And i should see
-    Examples:
-     |measure           | Value  |
-     |VAT standard rate | 20.00 %  |
-     |VAT zero rate     |0.00 %    |
-     |Third country duty |9.10 % + 45.10 EUR / 100 kg MAX 18.90 % + 16.50 EUR / 100 kg |
-     |Tariff preference  |0.00 % + 43.59 EUR / 100 kg MAX 18.90 % + 16.50 EUR / 100 kg |
+   // And following information should shown
 
 
 
