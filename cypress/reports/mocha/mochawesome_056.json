@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-09T15:44:35.599Z",
+    "end": "2020-12-09T15:44:36.161Z",
+    "duration": 562,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6e9392cf-3241-4622-a83a-5ccf27e09d15",
+      "title": "",
+      "fullFile": "cypress/integration/api-testing/sectionsPage.spec.js",
+      "file": "cypress/integration/api-testing/sectionsPage.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "674ebc85-840f-49ea-bc42-09986348f681",
+          "title": "OTT API Testing - Sections Page v2",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "sections page - response code 200",
+              "fullTitle": "OTT API Testing - Sections Page v2 sections page - response code 200",
+              "timedOut": null,
+              "duration": 232,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('/sections').then(function (response) {\n  expect(response).to.have.property('status', 200);\n});",
+              "err": {},
+              "uuid": "a9098d95-9018-4db2-b185-5fb9b9810c8f",
+              "parentUUID": "674ebc85-840f-49ea-bc42-09986348f681",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": " sections page - response not null",
+              "fullTitle": "OTT API Testing - Sections Page v2  sections page - response not null",
+              "timedOut": null,
+              "duration": 59,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('/sections').then(function (response) {\n  expect(response.body).to.not.be[\"null\"];\n});",
+              "err": {},
+              "uuid": "24890c51-b215-4282-9d4e-7f5abc6953fa",
+              "parentUUID": "674ebc85-840f-49ea-bc42-09986348f681",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "sections page - returns JSON data",
+              "fullTitle": "OTT API Testing - Sections Page v2 sections page - returns JSON data",
+              "timedOut": null,
+              "duration": 155,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('/sections').its('headers').its('content-type').should('include', 'application/json');",
+              "err": {},
+              "uuid": "32dfab22-ce1b-4508-bd58-2cea0d766a89",
+              "parentUUID": "674ebc85-840f-49ea-bc42-09986348f681",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a9098d95-9018-4db2-b185-5fb9b9810c8f",
+            "24890c51-b215-4282-9d4e-7f5abc6953fa",
+            "32dfab22-ce1b-4508-bd58-2cea0d766a89"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 446,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

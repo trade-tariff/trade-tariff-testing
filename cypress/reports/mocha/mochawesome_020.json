@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-09T09:27:43.032Z",
+    "end": "2020-12-09T09:27:43.707Z",
+    "duration": 675,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ebcb80ed-f09c-4b79-8f58-0563f4256fbb",
+      "title": "",
+      "fullFile": "cypress/integration/api-testing/compareSection01.spec.js",
+      "file": "cypress/integration/api-testing/compareSection01.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ee619832-af4e-43e2-a67e-9e1edf92766a",
+          "title": "Validating API response with previous response stored in Json file",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "V2 - Sections page",
+              "fullTitle": "Validating API response with previous response stored in Json file V2 - Sections page",
+              "timedOut": null,
+              "duration": 621,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: \"https://www.trade-tariff.service.gov.uk/api/v2/sections/01\"\n}).then(function (response) {\n  expect(response.status).to.eq(200);\n  console.log(response);\n  console.log(data);\n  expect(response.body).to.deep.equal(data);\n});",
+              "err": {},
+              "uuid": "0723f233-a3d4-4db9-865f-2ddac28dc2ed",
+              "parentUUID": "ee619832-af4e-43e2-a67e-9e1edf92766a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "V1 - Sections page",
+              "fullTitle": "Validating API response with previous response stored in Json file V1 - Sections page",
+              "timedOut": null,
+              "duration": 46,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: \"https://www.trade-tariff.service.gov.uk/api/v2/sections/01\"\n}).then(function (response) {\n  expect(response.status).to.eq(200);\n  console.log(response);\n  console.log(data);\n  expect(response.body).to.deep.equal(data);\n});",
+              "err": {},
+              "uuid": "6d282512-aecb-4719-b665-f9b0e3f35428",
+              "parentUUID": "ee619832-af4e-43e2-a67e-9e1edf92766a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0723f233-a3d4-4db9-865f-2ddac28dc2ed",
+            "6d282512-aecb-4719-b665-f9b0e3f35428"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 667,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
