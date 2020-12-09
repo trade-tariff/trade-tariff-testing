@@ -1,11 +1,12 @@
 # Cypress automation framework
 ----------------------------------------
 ###
-•front end UI testing 
-•API testing 
-•end to end testing 
+
+* front end UI testing 
+* API testing 
+* end to end testing 
 	
-Prerequisites
+**Prerequisites**
 ###
 ```
 •node 
