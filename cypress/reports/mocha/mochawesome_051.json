@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-09T15:20:28.564Z",
+    "end": "2020-12-09T15:20:33.166Z",
+    "duration": 4602,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "84ad4e29-6491-4128-9d24-2878bbc5c2fc",
+      "title": "",
+      "fullFile": "cypress/integration/frontend-testing/mainPage.js",
+      "file": "cypress/integration/frontend-testing/mainPage.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dbd69c1f-1fa4-4445-bdff-e7e40f356f59",
+          "title": "Main Page - start ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Main page ",
+              "fullTitle": "Main Page - start  Main page ",
+              "timedOut": null,
+              "duration": 4463,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.gov.uk/trade-tariff');\ncy.wait(1000);\ncy.get('p#get-started > a[role=\\'button\\']').contains('Start now').should('be.visible').click();\ncy.url().should('include', 'sections', {\n  timeout: 5000\n});\ncy.contains('All sections');\ncy.wait(1000);",
+              "err": {},
+              "uuid": "f1ecb56b-082d-44af-b992-2673ee0b9a93",
+              "parentUUID": "dbd69c1f-1fa4-4445-bdff-e7e40f356f59",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f1ecb56b-082d-44af-b992-2673ee0b9a93"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4463,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

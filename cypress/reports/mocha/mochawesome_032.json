@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-12-09T14:16:10.817Z",
+    "end": "2020-12-09T14:16:11.651Z",
+    "duration": 834,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "88f654e8-667d-47a4-a4e1-89649cd6cf0c",
+      "title": "",
+      "fullFile": "cypress/integration/api-testing/compareSections.js",
+      "file": "cypress/integration/api-testing/compareSections.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "12dd4000-4bc5-4a32-afef-727a4965f0d3",
+          "title": "Session: Fetch a Session, given the ID.",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get sessions by ID - 200",
+              "fullTitle": "Session: Fetch a Session, given the ID. Get sessions by ID - 200",
+              "timedOut": null,
+              "duration": 751,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: \"https://www.trade-tariff.service.gov.uk/api/v2/sections\"\n}).then(function (response) {\n  expect(response.status).to.eq(200);\n  expect(response.body.data[0]).to.deep.equal({\n    id: '1',\n    type: 'section',\n    attributes: {\n      id: 1,\n      numeral: 'I',\n      title: 'Live animals; animal products',\n      position: 1,\n      chapter_from: '01',\n      chapter_to: '05'\n    }\n  });\n  console.log(response);\n  console.log(data);\n  expect(response.body).to.deep.equal(data);\n});",
+              "err": {
+                "message": "AssertionError: expected { Object (data) } to deeply equal { Object (data) }",
+                "estack": "AssertionError: expected { Object (data) } to deeply equal { Object (data) }\n    at Context.eval (https://www.gov.uk/__cypress/tests?p=cypress/integration/api-testing/compareSections.js:133:37)",
+                "diff": ""
+              },
+              "uuid": "f381542c-3fa7-4f54-b903-2bcf750c3cd4",
+              "parentUUID": "12dd4000-4bc5-4a32-afef-727a4965f0d3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f381542c-3fa7-4f54-b903-2bcf750c3cd4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 751,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
