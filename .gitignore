@@ -4,4 +4,4 @@ cypress/screenshots
 cypress/videos
 results/*
 test-results.xml
-reports/*
+cypress/reports/*
