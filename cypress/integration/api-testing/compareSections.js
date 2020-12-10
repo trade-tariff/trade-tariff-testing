@@ -1,5 +1,5 @@
 
-const data = require('/Volumes/SD Storage/QACyprs/cypress/Data/sections.json')
+const data = require('/Users/madhudola/Documents/Engine/trade-tariff-testing/cypress/Data/sections.json')
 
 context('Session: Fetch a Session, given the ID.', () => {
     it('Get sessions by ID - 200', () => {
