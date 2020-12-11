@@ -23,6 +23,7 @@ Default run is against Live Prod environment.This can be adjusted in cypress.jso
 
 Running tests can be done with the following commands:
 ```
-npx cypress open (opens cypress application) 
-npx cypress run --spec "/file path/filename.js"
+Running using Cypress Application :npx cypress open (opens cypress application) 
+Running specific file   :npx cypress run --spec "/file path/filename.js"
+Running all files       :npx cypress run ( runs all files in Integration folder)
 ```
