@@ -1,5 +1,7 @@
 describe('Quotas , P&R suppression - happy path test for (UK version) ',function() {
-    //---------------------------Quotas to be suppressed for XI ---------------------------
+    //-- HOTT-116---------Quotas to be suppressed for XI ---------------------------
+
+
         it('1.Quotas:046 Tariff quota/ceiling', function () {
             cy.visit('https://www.trade-tariff.service.gov.uk/commodities/6301909021#import')
             cy.get('.govuk-tabs__panel')
