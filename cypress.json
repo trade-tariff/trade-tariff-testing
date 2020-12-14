@@ -17,6 +17,6 @@
   "chromeWebSecurity": false,
   "testFiles": [
     "**/*.feature",
-    "**/*.js"
+    "**/*.spec.js"
   ]
 }
