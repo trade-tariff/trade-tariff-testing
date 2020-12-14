@@ -12,11 +12,3 @@ Feature: As a trader i want to import white chocolate from iceland to XI
     When i select Import button
     And select Iceland from All countries list
     Then Measures for Iceland should be shown
-   // And following information should shown
-
-
-
-
-
-
-

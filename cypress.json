@@ -14,5 +14,9 @@
     }
 
   },
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "testFiles": [
+    "**/*.feature",
+    "**/*.spec.js"
+  ]
 }

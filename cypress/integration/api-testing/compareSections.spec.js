@@ -1,5 +1,9 @@
 
-const data = require('/Users/madhudola/Documents/Engine/trade-tariff-testing/cypress/Data/sections.json')
+// const fs = require('fs');
+
+// console.log(process.cwd());
+let data = require('../../Data/sections.json');
+// let data = JSON.parse(rawdata);
 
 context('Session: Fetch a Session, given the ID.', () => {
     it('Get sessions by ID - 200', () => {
