@@ -1,5 +1,5 @@
-const data1 = require('/Users/madhudola/Documents/Engine/trade-tariff-testing/cypress/Data/section_01.json')
-const data2 = require('/Users/madhudola/Documents/Engine/trade-tariff-testing/cypress/Data/section_02.json')
+const data1 = require('../../Data/section_01.json')
+const data2 = require('../../Data/section_02.json')
 
 context('Validating API response with previous response stored in Json file', () => {
 
