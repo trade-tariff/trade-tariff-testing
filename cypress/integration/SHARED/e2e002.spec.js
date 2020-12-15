@@ -1,8 +1,8 @@
 describe('importing Mozzarella from Chile ',function() {
 
     it('Navigate to trade tariff page ', function () {
-       // cy.wait(1000)
-        cy.visit('https://www.gov.uk/trade-tariff')
+       // cy.visit('https://dev.trade-tariff.service.gov.uk')
+       cy.visit('https://www.gov.uk/trade-tariff')
      //   cy.wait(1000)
         cy.get('p#get-started > a[role=\'button\']').contains('Start now').should('be.visible').click()
     })
