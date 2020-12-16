@@ -2,7 +2,6 @@ describe('Quotas , P&R suppression - happy path test for (UK version) ',function
     //-- HOTT-116---------Quotas to be suppressed for XI ---------------------------
 
     Cypress.config('baseUrl', Cypress.config('services')['uk'])
-  //  Cypress.config('baseUrl', Cypress.config('services')['baseUrl'])
 
         it('1.Quotas:046 Tariff quota/ceiling', function () {
             cy.visit('https://www.trade-tariff.service.gov.uk/commodities/6301909021#import')
