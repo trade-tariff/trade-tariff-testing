@@ -22,6 +22,7 @@ describe('importing Mozzarella from Chile ',function() {
 
     it('select Import button',()=> {
         cy.get('a#tab_import').click()
+        cy.get()
     })
 
     it('select Chile from All countries list',()=>{

@@ -17,7 +17,6 @@
     }
 
   },
-
   "chromeWebSecurity": false,
   "testFiles": [
     "**/*.feature",

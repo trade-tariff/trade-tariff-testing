@@ -17,8 +17,8 @@
     "mochawesome-report-generator": "^5.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "legalbasetests": "--spec \"*/**/legalBaseColumn-XI.spec.js\",\"*/**/legalBaseColumn-UK.spec.js\",\"*/**/legalBaseV1api-XI.spec.js\",\"*/**/legalBaseV1api-UK.spec.js\",\"*/**/legalBaseV2api-XI.spec.js\",\"*/**/legalBaseV2api-UK.spec.js\""},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TransformCore/trade-tariff-testing.git"
