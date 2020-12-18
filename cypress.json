@@ -4,7 +4,6 @@
     "xi": "https://dev.trade-tariff.service.gov.uk/xi",
     "uk": "https://dev.trade-tariff.service.gov.uk/uk"
   },
-
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "mochawesome",
@@ -15,11 +14,11 @@
       "html": false,
       "json": true
     }
-
   },
   "chromeWebSecurity": false,
   "testFiles": [
     "**/*.feature",
     "**/*.spec.js"
-  ]
+  ],
+  "projectId": "7p655m"
 }

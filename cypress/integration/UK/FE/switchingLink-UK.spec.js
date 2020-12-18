@@ -1,4 +1,4 @@
-describe('🇬🇧💡 Switching Link ,Forum removed  - (UK version)',function() {
+describe('🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',function() {
     //--- HOTT-96 -------------
     Cypress.config('baseUrl')
 

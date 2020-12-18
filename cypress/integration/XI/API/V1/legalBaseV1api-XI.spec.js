@@ -1,4 +1,4 @@
-describe('⚙️ XI-version v1 api - legal base should be present in the backend API response  API',function() {
+describe('🇪🇺 ⚙️ XI-version v1 api - legal base should be present in the backend API response  API',function() {
 
     Cypress.config('baseUrl', 'https://dev.trade-tariff.service.gov.uk/xi')
 

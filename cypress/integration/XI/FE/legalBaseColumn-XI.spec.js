@@ -1,4 +1,4 @@
-describe(' 💡 Hide Legal base Column - (XI version) ',function() {
+describe('🇪🇺 💡 Hide Legal base Column - (XI version) ',function() {
 //HOT-58 Suppressing Legal Base Column for XI
 
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
