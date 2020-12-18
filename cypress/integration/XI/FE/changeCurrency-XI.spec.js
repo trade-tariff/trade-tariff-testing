@@ -1,4 +1,4 @@
-describe('💡 Change Currency should not be visible  - (XI version)',function() {
+describe('🇪🇺 💡 Change Currency should not be visible  - (XI version)',function() {
     //--- HOTT-161 ---
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 

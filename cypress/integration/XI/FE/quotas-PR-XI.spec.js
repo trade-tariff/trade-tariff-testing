@@ -1,4 +1,4 @@
-describe(' 💡 Quotas , P&R to be suppressed for XI version',function() {
+describe('🇪🇺 💡 Quotas , P&R to be suppressed for XI version',function() {
 
     //----------------Quotas to be suppressed for XI -------------
     Cypress.config('baseUrl', Cypress.config('services')['xi'])

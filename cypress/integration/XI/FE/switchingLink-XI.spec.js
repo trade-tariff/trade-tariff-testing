@@ -1,4 +1,4 @@
-describe('💡 Switching Link ,Forum removed  - (XI version)',function() {
+describe('🇪🇺 💡 Switching Link ,Forum links removed  - (XI version)',function() {
     //--- HOTT-96 -------------
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -21,8 +21,6 @@ describe('💡 Switching Link ,Forum removed  - (XI version)',function() {
             .should('not.have.text', 'Get guidance on this product area:')
             .should('not.have.text', 'Classification of goods')
             .should('not.have.text', 'Discuss this chapter in the forums')
-
-
 
     })
     it('Chapters Page - switching link available,forum links removed', function () {

@@ -1,4 +1,4 @@
-describe('💡 Heading  - (XI version)',function() {
+describe('🇪🇺 💡 Heading  - (XI version)',function() {
     //--- HOTT-82 -------------
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
