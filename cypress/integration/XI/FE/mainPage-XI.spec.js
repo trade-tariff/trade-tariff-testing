@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 Heading  - (XI version)',function() {
+describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function() {
     //--- HOTT-82 -------------
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -17,17 +17,19 @@ describe('🇪🇺 💡 Heading  - (XI version)',function() {
         cy.visit('/sections')
         cy.get('.govuk-header ')
         cy.contains('Search the Tariff')
+        cy.contains('A-Z')
+        cy.contains('Tools')
         cy.contains('Additional code').should('not.exist')
         cy.contains('Certificate').should('not.exist')
         cy.contains('Footnotes').should('not.exist')
         cy.contains('Quotas').should('not.exist')
         cy.contains('CAS').should('not.exist')
-        cy.contains('A-Z')
-     //   cy.contains('Exchange rates')
+        cy.contains('Exchange rates').should('not.exist')
         cy.contains('Forum').should('not.exist')
     })
-    //
+
     it('Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search',function(){
+
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(1000)
         cy.get('input[name=\'new_search\']').click()
@@ -66,7 +68,31 @@ describe('🇪🇺 💡 Heading  - (XI version)',function() {
         cy.get('.small-table > .govuk-table__caption:nth-of-type(1)').should('be.visible')
         cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
     })
+    it('Search the Tariff section',function(){
+        cy.visit('/sections')
+        cy.get('li:nth-of-type(1) > .govuk-header__link').click()
+        cy.get('tariff-search sections-context')
+            .contains('Search the tariff')
 
+    })
+    it('A-Z section',function(){
+        cy.visit('/sections')
+        cy.get('li:nth-of-type(2) > .govuk-header__link').click()
+        cy.contains('A–Z of Classified Goods')
+
+    })
+    it('Tools section',function(){
+        cy.visit('/sections')
+        cy.get('li:nth-of-type(3) > .govuk-header__link').click()
+        cy.contains('Certificate, licenses and documents')
+        cy.contains('Additional codes')
+        cy.contains('Chemicals')
+        cy.get('.govuk-list')
+            .should('be.visible','Search for tariff quotas, including daily updated balances.')
+            .should('be.visible','Search for certificates, licenses and other document codes.')
+            .should('be.visible','Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
+            .should('be.visible','Search the tariff for chemicals by ')
+    })
 
 })
 
