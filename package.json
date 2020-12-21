@@ -7,7 +7,7 @@
     "ansi-styles": "^5.0.0"
   },
   "devDependencies": {
-    "cypress": "^6.0.1",
+    "cypress": "^6.1.0",
     "cypress-cucumber-preprocessor": "^2.5.5",
     "cypress-file-upload": "^4.0.4",
     "cypress-multi-reporters": "^1.2.4",
@@ -18,7 +18,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "legalbasetests": "--spec \"*/**/legalBaseColumn-XI.spec.js\",\"*/**/legalBaseColumn-UK.spec.js\",\"*/**/legalBaseV1api-XI.spec.js\",\"*/**/legalBaseV1api-UK.spec.js\",\"*/**/legalBaseV2api-XI.spec.js\",\"*/**/legalBaseV2api-UK.spec.js\""},
+    "legalbasetests": "--spec \"*/**/legalBaseColumn-XI.spec.js\",\"*/**/legalBaseColumn-UK.spec.js\",\"*/**/legalBaseV1api-XI.spec.js\",\"*/**/legalBaseV1api-UK.spec.js\",\"*/**/legalBaseV2api-XI.spec.js\",\"*/**/legalBaseV2api-UK.spec.js\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TransformCore/trade-tariff-testing.git"

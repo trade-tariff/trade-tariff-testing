@@ -4,12 +4,12 @@
 // console.log(process.cwd());
 let data = require('../../Data/sections.json');
 // let data = JSON.parse(rawdata);
-
+Cypress.config('baseUrl', Cypress.config('services')['xi'])
 context('Session: Fetch a Session, given the ID.', () => {
     it('Get sessions by ID - 200', () => {
         cy.request({
             method: 'GET',
-            url: `https://www.trade-tariff.service.gov.uk/api/v2/sections`,
+            url: `/api/v2/sections`,
         }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body.data[0]).to.deep.equal({

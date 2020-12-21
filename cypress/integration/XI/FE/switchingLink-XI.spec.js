@@ -4,7 +4,6 @@ describe('🇪🇺 💡 Switching Link ,Forum links removed  - (XI version)',fun
 
     it('Sections Page - Forum section removed', function () {
         cy.visit('/sections')
-        cy.contains('Exchange rates')
         cy.contains('Forum').should('not.exist')
     })
 
