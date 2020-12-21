@@ -65,7 +65,31 @@ describe('🇬🇧 💡 Heading  - (UK version)',function() {
         cy.get('.small-table > .govuk-table__caption:nth-of-type(1)').should('be.visible')
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
     })
+    it('Search the Tariff section',function(){
+        cy.visit('/sections')
+        cy.get('li:nth-of-type(1) > .govuk-header__link').click()
+        cy.get('tariff-search sections-context')
+            .contains('Search the tariff')
 
+    })
+    it('A-Z section',function(){
+        cy.visit('/sections')
+        cy.get('li:nth-of-type(2) > .govuk-header__link').click()
+        cy.contains('A–Z of Classified Goods')
+
+    })
+    it('Tools section',function(){
+        cy.visit('/sections')
+        cy.get('li:nth-of-type(3) > .govuk-header__link').click()
+        cy.contains('Certificate, licenses and documents')
+        cy.contains('Additional codes')
+        cy.contains('Chemicals')
+        cy.get('.govuk-list')
+            .should('be.visible','Search for tariff quotas, including daily updated balances.')
+            .should('be.visible','Search for certificates, licenses and other document codes.')
+            .should('be.visible','Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
+            .should('be.visible','Search the tariff for chemicals by ')
+    })
 
 
 })
