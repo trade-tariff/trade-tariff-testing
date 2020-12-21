@@ -90,6 +90,26 @@ describe('🇬🇧 💡 Heading  - (UK version)',function() {
             .should('be.visible','Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
             .should('be.visible','Search the tariff for chemicals by ')
     })
+    //HOTT-164
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ',function(){
+        cy.visit('/sections')
+        cy.get('.govuk-footer')
+        cy.contains('API Documentation')
+        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
+    })
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -page link ',function() {
+        cy.visit('/sections')
+        cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link').click()
+        cy.contains('Summary')
+        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
+    })
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -URL',function(){
+        cy.visit('/terms')
+        cy.contains('Summary')
+        cy.get('.govuk-template ')
+        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
+
+    })
 
 })
