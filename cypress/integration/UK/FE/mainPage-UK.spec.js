@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 Heading  - (UK version)',function() {
+describe('🇬🇧 💡 Main Page - headers ,sections  - (UK version)',function() {
     //--- Headings to be changed for UK -------------
     Cypress.config('baseUrl')
 
@@ -61,16 +61,15 @@ describe('🇬🇧 💡 Heading  - (UK version)',function() {
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
 
     })
-    it.skip('Header text - page - measures for Chile ',function(){
+    it('Header text - page - measures for Chile ',function(){
         cy.get('.small-table > .govuk-table__caption:nth-of-type(1)').should('be.visible')
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
     })
     it('Search the Tariff section',function(){
         cy.visit('/sections')
-        cy.get('li:nth-of-type(1) > .govuk-header__link').click()
-        cy.get('tariff-search sections-context')
+        cy.get('.govuk-header').contains('Search the Tariff').click()
+        cy.get('.govuk-main-wrapper')
             .contains('Search the tariff')
-
     })
     it('A-Z section',function(){
         cy.visit('/sections')

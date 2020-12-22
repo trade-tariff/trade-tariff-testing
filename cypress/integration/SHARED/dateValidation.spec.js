@@ -1,4 +1,4 @@
-describe('validate correct date is displayed on main page',function(){
+describe('Validate correct date is displayed on main page',function(){
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     it('Check correct date is displayed',function(){
