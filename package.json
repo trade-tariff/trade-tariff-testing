@@ -7,7 +7,7 @@
     "ansi-styles": "^5.0.0"
   },
   "devDependencies": {
-    "cypress": "^6.2.0",
+    "cypress": "^6.1.0",
     "cypress-cucumber-preprocessor": "^2.5.5",
     "cypress-file-upload": "^4.0.4",
     "cypress-multi-reporters": "^1.4.0",
