@@ -50,8 +50,4 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
             .should('not.have.text', 'Classification of goods')
             .should('not.have.text', 'Discuss this chapter in the forums')
     })
-    it.skip('Link to Forum removed from API documentation',function(){
-    //https://api.trade-tariff.service.gov.uk/#quick-start
-    })
-
 })

@@ -1,10 +1,9 @@
 describe('importing Mozzarella from Chile ',function() {
 
     it('Navigate to trade tariff page ', function () {
-       // cy.visit('https://dev.trade-tariff.service.gov.uk')
-       cy.visit('https://www.gov.uk/trade-tariff')
-     //   cy.wait(1000)
-        cy.get('p#get-started > a[role=\'button\']').contains('Start now').should('be.visible').click()
+
+        Cypress.config('baseUrl', Cypress.config('services')['xi'])
+        cy.visit('/sections')
     })
     it('enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
@@ -22,7 +21,6 @@ describe('importing Mozzarella from Chile ',function() {
 
     it('select Import button',()=> {
         cy.get('a#tab_import').click()
-        cy.get()
     })
 
     it('select Chile from All countries list',()=>{

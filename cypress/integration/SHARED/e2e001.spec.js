@@ -1,9 +1,9 @@
-describe('end to end test ',function() {
+describe('e2e - smoke test - XI ',function() {
 // live prod service
+    Cypress.config('baseUrl', Cypress.config('services')['xi'])
     it('1.main page ', function () {
-        cy.visit('https://www.gov.uk/trade-tariff')
-        cy.wait(1000)
-        cy.get('p#get-started > a[role=\'button\']').contains('Start now').should('be.visible').click()
+        cy.visit('/sections')
+        cy.get('.govuk-header').contains('The Northern Ireland (EU) Tariff')
         })
 
     it('2.sections page details displayed',function(){
@@ -50,8 +50,9 @@ describe('end to end test ',function() {
        // cy.contains('Footnotes').should('be.visible')
     })
 
-    it('8.forum Section is visible',function(){
-        cy.get('li:nth-of-type(9) > .govuk-header__link').should('be.visible')
+    it('8.forum Section is NOT visible',function(){
+        cy.get('.govuk-header')
+        cy.contains('Forum').should('not.exist')
     })
 
     })
