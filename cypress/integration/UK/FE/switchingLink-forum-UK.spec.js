@@ -49,8 +49,6 @@ describe('🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',function(
             .should('not.have.text', 'Get guidance on this product area:')
             .should('not.have.text', 'Classification of goods')
             .should('not.have.text', 'Discuss this chapter in the forums')
-
     })
-
 
 })

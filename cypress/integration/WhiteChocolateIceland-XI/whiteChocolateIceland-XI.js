@@ -26,3 +26,4 @@
   Then('Measures for Iceland should be shown', () => {
     cy.contains('Measures for Iceland').should('be.visible')
   })
+
