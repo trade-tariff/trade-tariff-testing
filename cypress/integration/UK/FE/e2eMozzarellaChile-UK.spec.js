@@ -1,5 +1,5 @@
-describe('🇪🇺 💡 importing Mozzarella from Chile ',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
+describe('🇬🇧 💡 importing Mozzarella from Chile ',function() {
+    Cypress.config('baseUrl')
 
     it('Navigate to trade tariff page ', function () {
         cy.visit('/sections')
@@ -43,7 +43,7 @@ describe('🇪🇺 💡 importing Mozzarella from Chile ',function() {
             .contains('185.20 EUR / 100 kg')
     })
 
-    it.skip('Preferential tariff quota order No:091924 is visible',function(){
+    it('Preferential tariff quota order No:091924 is visible',function(){
         cy.get('.small-table.measures.govuk-table')
             .contains('Preferential tariff quota')
         cy.get('[href=\'\\#import-3408148-order-number-094591\']').click()

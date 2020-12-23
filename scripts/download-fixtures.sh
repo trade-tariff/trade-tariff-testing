@@ -27,8 +27,8 @@ function download_api() {
 
         for COMM_CODE in $COMM_CODES; do
                 local URL="${BASE_URL}${SERVICE_PREFIX}/${COMMODITY_PATH}/${COMM_CODE}.json"
-                local DIRECTORY="data/${SERVICE}/${VERSION}/"
-                local FILENAME="data/${SERVICE}/${VERSION}/${COMM_CODE}-$(date +%F).json"
+                local DIRECTORY="cypress/Data/${SERVICE}/${VERSION}/"
+                local FILENAME="cypress/Data/${SERVICE}/${VERSION}/${COMM_CODE}-$(date +%F).json"
 
                 mkdir -p $DIRECTORY
                 echo "Downloading $VERSION $SERVICE $COMM_CODE..."
