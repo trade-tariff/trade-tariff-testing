@@ -19,7 +19,7 @@
   "scripts": {
     "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
     "pretests": "npm run clean:reports",
-    "smoketests": "cypress run --spec \"*/**/mainPage-UK.spec.js\",\"*/**/mainPage-XI.spec.js\"",
+    "smoketests": "cypress run --spec \"*/**/smokeTest-UK.spec.js\",\"*/**/smokeTest-XI.spec.js\"",
     "runsmoketests": "npm run pretests && (npm run smoketests || npm run posttests)",
     "alltests": "cypress run",
     "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
