@@ -1,6 +1,6 @@
 describe('🇬🇧 💡 Tools Section - breadcrumbs   - (UK version)',function() {
     // HOTT-94
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
+    Cypress.config('baseUrl')
 
     it('Tools Section in header ', function () {
         cy.visit('/sections')

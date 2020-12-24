@@ -1,11 +1,8 @@
 describe('sections page content validation ',function() {
+    Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
-    it('main page navigation ', function () {
-        cy.visit('https://www.gov.uk/trade-tariff')
-        cy.wait(1000)
-        cy.get('p#get-started > a[role=\'button\']').contains('Start now').should('be.visible').click()
-    })
     it('search the tariff text/box visible',function(){
+        cy.visit('/sections')
         cy.get('.govuk-label').should('be.visible')
         cy.get('.js-commodity-picker-select.js-show  input#q').should('be.visible')
     })

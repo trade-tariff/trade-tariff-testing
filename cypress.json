@@ -1,9 +1,25 @@
 {
-  "baseUrl": "https://dev.trade-tariff.service.gov.uk",
+  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
   "services": {
-    "xi": "https://dev.trade-tariff.service.gov.uk/xi",
-    "uk": "https://dev.trade-tariff.service.gov.uk/uk"
+    "xi": "https://staging.trade-tariff.service.gov.uk/xi",
+    "uk": "https://staging.trade-tariff.service.gov.uk/uk"
   },
+  "commcodes": [
+    "7202118000",
+    "0201100021",
+    "0406103010",
+    "8518400010",
+    "8708701080",
+    "1905319100",
+    "0702000007",
+    "2710124900",
+    "8406810000",
+    "2402100000",
+    "1704903000",
+    "1704907100",
+    "2206001000"
+  ],
+  "fixtures_timestamp": "2020-12-24",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "mochawesome",
@@ -16,6 +32,8 @@
     }
   },
   "chromeWebSecurity": false,
+  "firefoxWebSecurity": false,
+
   "testFiles": [
     "**/*.feature",
     "**/*.spec.js"
