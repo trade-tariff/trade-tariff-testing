@@ -42,7 +42,7 @@ describe('🇬🇧 💡 importing Mozzarella from Chile ',function() {
         cy.get('.small-table.measures.govuk-table')
             .contains('185.20 EUR / 100 kg')
     })
-
+//hott-189 - expand further with otehr commodities and order numbers
     it('Preferential tariff quota order No:091924 is visible',function(){
         cy.get('.small-table.measures.govuk-table')
             .contains('Preferential tariff quota')
