@@ -1,28 +1,28 @@
-describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',function() {
+describe(' 🇬🇧  💡 Terms and Conditions, Cookies ,Privacy links - UK ',function() {
 //  HOTT-192
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
+    Cypress.config('baseUrl')
 
 
-    it('XI - Terms and Conditions ',function(){
+    it('UK - Terms and Conditions -UK',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
             .contains('Terms and conditions').click()
-        cy.title().should('eq','The Northern Ireland (EU) Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
+        cy.title().should('eq','The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
         cy.get('.govuk-main-wrapper')
-              .contains('Terms and conditions')
+            .contains('Terms and conditions')
 
     })
 
-    it('XI - Cookies ',function(){
+    it('UK - Cookies ',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
             .contains('Cookies').click()
-        cy.title().should('eq','The Northern Ireland (EU) Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
+        cy.title().should('eq','The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
         cy.get('.govuk-main-wrapper')
             .contains('Cookies')
 
     })
-    it('XI - Privacy ',function(){
+    it('UK - Privacy ',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link')
             .contains('Privacy').click()
@@ -31,7 +31,7 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
 
     })
     //HOTT-166
-    it('XI - List of supplementary units and their descriptions in imports to be HIDDEN',function(){
+    it('UK - List of supplementary units and their descriptions in imports to be HIDDEN',function(){
         cy.visit('/commodities/9702000010?currency=EUR#import')
         cy.get('.govuk-tabs__panel')
             .contains('What are the main types of tariffs and charges').click()
@@ -40,7 +40,7 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
             .contains('Check a list of supplementary units and their descriptions').should('not.exist')
 
     })
-    it('XI - List of supplementary units and their descriptions in exports to be HIDDEN',function(){
+    it('UK - List of supplementary units and their descriptions in exports to be HIDDEN',function(){
         cy.visit('/commodities/9702000010?currency=EUR#export')
         cy.get('span#details-export-heading')
             .contains('What are the main types of tariffs and charges').click()
