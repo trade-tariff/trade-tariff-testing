@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 importing Mozzarella from Chile ',function() {
+describe('Old UK 🇬🇧 💡 importing Mozzarella from Chile ',function() {
     Cypress.config('baseUrl')
 
     it('Navigate to trade tariff page ', function () {

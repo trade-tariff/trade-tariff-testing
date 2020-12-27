@@ -28,6 +28,12 @@ describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function
         cy.contains('Forum').should('not.exist')
     })
 
+    it('XI - Check correct date is displayed',function(){
+        cy.visit('/sections')
+        cy.get('.govuk-grid-column-full')
+            .contains(Cypress.moment().format('DD MMMM YYYY'))
+    })
+
     it('Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(1000)

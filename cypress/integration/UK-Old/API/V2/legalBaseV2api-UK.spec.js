@@ -1,4 +1,4 @@
-describe('🇬🇧 ⚙ UK version v2 api - legal base should be present in the API response backend API',function() {
+describe('Old UK 🇬🇧 ⚙ UK version v2 api - legal base should be present in the API response backend API',function() {
 
     Cypress.config('baseUrl', 'https://dev.trade-tariff.service.gov.uk')
 

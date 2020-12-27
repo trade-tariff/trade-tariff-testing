@@ -31,8 +31,7 @@ describe('XI - smoke test to cover basic functionality on XI services ',function
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
     })
-    it('XI - Sections Page - Switching link to UK available & works', function () {
-
+    it.skip('XI - Sections Page - Switching link to UK available & works', function () {
         cy.visit('/sections')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -41,5 +40,27 @@ describe('XI - smoke test to cover basic functionality on XI services ',function
         cy.contains('The Online Trade Tariff')
         cy.get('main#content  nav  a').click()
         cy.contains('The Northern Ireland (EU) Tariff')
+    })
+    it.skip('XI - Change date and check if the data shown is same for both XI and UK',function(){
+        cy.visit('/sections')
+        cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
+        cy.get('input#tariff_date_date')
+            .clear()
+            .type('16/12/2020')
+        cy.get('.fields > a[role=\'button\']')
+            .contains('Set date').click()
+
+        cy.contains(' Live animals; animal products')
+        cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
+            .contains('This tariff is for 16 December 2020')
+
+        cy.get('main#content  nav  a').click()
+        cy.contains('The Online Trade Tariff')
+        cy.get('main#content  nav  a').click()
+        cy.contains('The Northern Ireland (EU) Tariff')
+        cy.contains(' Live animals; animal products')
+        cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
+            .contains('This tariff is for 16 December 2020')
+
     })
 })

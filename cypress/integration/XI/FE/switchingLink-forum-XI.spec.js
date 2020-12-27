@@ -7,7 +7,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
         cy.contains('Forum').should('not.exist')
     })
 
-    it('Sections Page - switching link available,forum links removed', function () {
+    it.skip('Sections Page - switching link available,forum links removed', function () {
         cy.visit('/sections')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -22,7 +22,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
             .should('not.have.text', 'Discuss this chapter in the forums')
 
     })
-    it('Chapters Page - switching link available,forum links removed', function () {
+    it.skip('Chapters Page - switching link available,forum links removed', function () {
         cy.visit('/chapters/01')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -36,7 +36,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
             .should('not.have.text', 'Classification of goods')
             .should('not.have.text', 'Discuss this chapter in the forums')
     })
-    it('Headings Page - switching link available,forum links removed', function () {
+    it.skip('Headings Page - switching link available,forum links removed', function () {
         cy.visit('/headings/0101')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -50,7 +50,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
             .should('not.have.text', 'Classification of goods')
             .should('not.have.text', 'Discuss this chapter in the forums')
     })
-    it('Commodity Page',function(){
+    it.skip('Commodity Page',function(){
         cy.visit('/commodities/0406103010')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -60,7 +60,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
         cy.get('.clt.govuk-\\!-font-size-15.govuk-\\!-margin-bottom-7.js-tariff-breadcrumbs.tariff-breadcrumbs > nav  a').click()
         cy.contains('The Northern Ireland (EU) Tariff')
     })
-    it('Tools Page',function(){
+    it.skip('Tools Page',function(){
         cy.visit('/tools')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -70,7 +70,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
         cy.get('.clt.govuk-\\!-font-size-15.govuk-\\!-margin-bottom-7.js-tariff-breadcrumbs.tariff-breadcrumbs > nav  a').click()
         cy.contains('The Northern Ireland (EU) Tariff')
     })
-    it('Quota Search Page',function(){
+    it.skip('Quota Search Page',function(){
         cy.visit('/quota_search')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -80,7 +80,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
         cy.get('.clt.govuk-\\!-font-size-15.govuk-\\!-margin-bottom-7.js-tariff-breadcrumbs.tariff-breadcrumbs > nav  a').click()
         cy.contains('The Northern Ireland (EU) Tariff')
     })
-    it('Certificate Search Page',function(){
+    it.skip('Certificate Search Page',function(){
         cy.visit('/certificate_search')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -90,7 +90,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
         cy.get('.clt.govuk-\\!-font-size-15.govuk-\\!-margin-bottom-7.js-tariff-breadcrumbs.tariff-breadcrumbs > nav  a').click()
         cy.contains('The Northern Ireland (EU) Tariff')
     })
-    it('Additional Code Search Page',function(){
+    it.skip('Additional Code Search Page',function(){
         cy.visit('/additional_code_search')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -100,7 +100,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
         cy.get('.clt.govuk-\\!-font-size-15.govuk-\\!-margin-bottom-7.js-tariff-breadcrumbs.tariff-breadcrumbs > nav  a').click()
         cy.contains('The Northern Ireland (EU) Tariff')
     })
-    it('Chemical Search Page',function(){
+    it.skip('Chemical Search Page',function(){
         cy.visit('/chemical_search')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
@@ -110,7 +110,7 @@ describe('🇪🇺 💡 Switching Link ,Forum and all links removed  - (XI versi
         cy.get('.clt.govuk-\\!-font-size-15.govuk-\\!-margin-bottom-7.js-tariff-breadcrumbs.tariff-breadcrumbs > nav  a').click()
         cy.contains('The Northern Ireland (EU) Tariff')
     })
-    it('A-Z Page',function(){
+    it.skip('A-Z Page',function(){
         cy.visit('/a-z-index/a')
         cy.get('.govuk-main-wrapper')
             .should('be.visible', 'Switch to the ')
