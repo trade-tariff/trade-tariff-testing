@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 Hide Legal base Column , Binding Tariff information link - (UK version) ',function() {
+describe('Old UK 🇬🇧 💡 Hide Legal base Column , Binding Tariff information link - (UK version) ',function() {
 //HOT-58 Suppressing Legal Base Column for UK
 
         Cypress.config(('services')['baseUrl'])

@@ -1,4 +1,4 @@
-describe(' 🇬🇧 💡 Quotas , P&R to be available for UK service ',function() {
+describe('Old UK 🇬🇧 💡 Quotas , P&R to be available for UK service ',function() {
 
     Cypress.config('baseUrl')
    // Cypress.config('baseUrl','https://www.trade-tariff.service.gov.uk')

@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 Validating page titles tags - meta data -UK', function () {
+describe('Old UK 🇬🇧 💡 Validating page titles tags - meta data -UK', function () {
 
     Cypress.config('baseUrl')
 
