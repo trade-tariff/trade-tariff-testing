@@ -27,3 +27,21 @@
     cy.contains('Measures for Iceland').should('be.visible')
   })
 
+  Then('Third Country duty displayed', () => {
+    cy.get('#measure-2051552')
+        cy.contains('Third country duty')
+        cy.contains('9.10 % + 45.10 EUR / 100 kg MAX 18.90 % + 16.50 EUR / 100 kg')
+  })
+    Then('Tariff preference for Iceland is displayed', () => {
+      cy.get('#measure-2972448')
+          cy.contains('0.00 % + 43.59 EUR / 100 kg MAX 18.90 % + 16.50 EUR / 100 kg')
+    })
+
+  Then('VAT rates are displayed',()=>{
+    cy.get('#measure--597452')
+    cy.contains('VAT standard rate')
+    cy.contains('20.00 %')
+    cy.get('#measure--597453')
+    cy.contains('VAT zero rate')
+    cy.contains('0.00 %')
+  })

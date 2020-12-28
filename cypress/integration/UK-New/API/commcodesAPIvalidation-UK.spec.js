@@ -1,6 +1,6 @@
 Cypress.config('baseUrl', Cypress.config('services')['uk'])
 
-context('🇬🇧 ⚙ UK -Validate API response for commodities on V1 and V2 ', () => {
+context('🇬🇧 ⚙ 🆕 UK -Validate API response for commodities on V1 and V2 ', () => {
     it('UK - Validate API response for V2', () => {
         let fixture_timestamp = Cypress.config('fixtures_timestamp');
         let commodity_ids = Cypress.config('commcodes');
