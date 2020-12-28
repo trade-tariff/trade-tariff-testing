@@ -1,8 +1,0 @@
-- Change all switchlink tests in features once switch is activated
-switchingLink-forum-XI.spec.js
-smokeTest-XI.spec.js
-
--
-
-
-

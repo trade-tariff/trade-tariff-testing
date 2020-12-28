@@ -10,7 +10,6 @@ describe('🇪🇺 💡 importing Mozzarella from Chile ',function() {
         cy.wait(1000)
         cy.get('input[name=\'new_search\']').click()
         cy.title().should('contains','0406103010')
-
     })
     it('Commodity information for 0406103010 is displayed',function(){
         cy.get('.govuk-main-wrapper')
@@ -20,7 +19,6 @@ describe('🇪🇺 💡 importing Mozzarella from Chile ',function() {
         cy.get('.govuk-main-wrapper')
             .contains('Chapter notes')
     })
-
     it('Select Import button',()=> {
         cy.get('a#tab_import').click()
         cy.get('.govuk-main-wrapper')
@@ -37,12 +35,10 @@ describe('🇪🇺 💡 importing Mozzarella from Chile ',function() {
         cy.get('.govuk-main-wrapper')
             .contains(' Measures for Chile')
     })
-
     it('Third country duty  measure has value 185.20 EUR / 100 kg',function(){
         cy.get('.small-table.measures.govuk-table')
             .contains('185.20 EUR / 100 kg')
     })
-
     it.skip('Preferential tariff quota order No:091924 is visible',function(){
         cy.get('.small-table.measures.govuk-table')
             .contains('Preferential tariff quota')
@@ -50,7 +46,6 @@ describe('🇪🇺 💡 importing Mozzarella from Chile ',function() {
         cy.get('.tariff-info')
             .contains('Information on the availability of this quota can be obtained from the Rural Payments Agency.')
         cy.get('.close [href]').click()
-
     })
     it('Footnotes is visible',function() {
         cy.get('.govuk-main-wrapper')
