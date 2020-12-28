@@ -1,8 +1,5 @@
 
-// const fs = require('fs');
-
-// console.log(process.cwd());
-let data = require('../../Data/sections.json');
+let data = require('../../../../Data/sections.json');
 // let data = JSON.parse(rawdata);
 Cypress.config('baseUrl', Cypress.config('services')['xi'])
 context('Session: Fetch a Session, given the ID.', () => {
@@ -27,6 +24,6 @@ context('Session: Fetch a Session, given the ID.', () => {
             console.log(response);
             console.log(data);
             expect(response.body).to.deep.equal(data);
-        });
-    });
-});
+        })
+    })
+})

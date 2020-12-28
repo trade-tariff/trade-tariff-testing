@@ -92,4 +92,10 @@ describe('New UK 🇬🇧 💡 🆕 - smoke test to cover basic functionality on
             .contains('This tariff is for 16 December 2020')
 
     })
+    it('UK - Change Currency should not be visible on main page - The Online Trade Tariff', function () {
+        cy.visit('/sections')
+        cy.get('.govuk-grid-row')
+        cy.contains('Change date')
+        cy.contains('Change currency').should('not.exist')
+    })
     })
