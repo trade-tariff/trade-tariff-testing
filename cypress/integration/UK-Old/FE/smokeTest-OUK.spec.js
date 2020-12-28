@@ -30,16 +30,46 @@ describe('Old UK 🇬🇧 💡 - smoke test to cover basic functionality on UK s
             cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
         })
-        it.skip('UK - Sections Page - Switching link to XI available & works', function () {
+        it('UK - Sections Page - Switching link to XI available & works', function () {
             cy.visit('/sections')
+            cy.get('.govuk-header ')
+                .contains('The Online Trade Tariff')
+
+            //check correct text is displayed on banner as per UK - If they are at risk
+            cy.get('.tariff-breadcrumbs')
+                .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland (EU) Tariff.')
+            //click on the XI link and it should navigate to XI version
             cy.get('.govuk-main-wrapper')
-                .should('be.visible', 'Switch to the ')
-                .should('be.visible', 'The Online Trade Tariff')
-            cy.get('main#content  nav  a').click()
-            cy.contains('The Northern Ireland (EU) Tariff')
-            cy.get('main#content  nav  a').click()
-            cy.contains('The Online Trade Tariff')
+                .contains('Northern Ireland (EU) Tariff')
+                .click()
+            cy.get('.govuk-header ')
+                .contains('Northern Ireland (EU) Tariff')
+
+            //click on the XI link and it should navigate to XI version
+            cy.get('.govuk-main-wrapper')
+            cy.contains('Online Tariff')
+                .click()
+            cy.get('.govuk-header ')
+                .contains('The Online Trade Tariff')
+            cy.get('.govuk-main-wrapper')
+                .contains('Northern Ireland (EU) Tariff')
+
         })
+    it('UK - Sections Page - Guidance Link and Page link', function (){
+        cy.visit('/sections')
+        // Guidance link on UK page
+        cy.get('.govuk-main-wrapper')
+            .contains('if your goods are not ‘at risk’ of onward movement to the EU').click()
+        cy.get('.govuk-grid-row')
+            .contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021')
+        cy.log(cy.title())
+        cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
+        //return to UK page
+        cy.go('back')
+        cy.get('.govuk-header ')
+            .contains('The Online Trade Tariff')
+
+    })
     it('UK - Change date and check if the data shown is same for both XI and UK',function(){
         cy.visit('/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
@@ -54,7 +84,7 @@ describe('Old UK 🇬🇧 💡 - smoke test to cover basic functionality on UK s
             .contains('This tariff is for 16 December 2020')
 
         cy.get('main#content  nav  a').click()
-        cy.contains('The Online Trade Tariff')
+        cy.contains('Online Tariff')
         cy.get('main#content  nav  a').click()
         cy.contains('The Online Trade Tariff')
         cy.contains(' Live animals; animal products')
