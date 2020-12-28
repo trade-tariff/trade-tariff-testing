@@ -88,4 +88,10 @@ describe('🇪🇺 💡 XI - smoke test to cover basic functionality on XI servi
             .contains('This tariff is for 16 December 2020')
 
     })
+    it('XI - Change Currency should not be visible on main page - The Northern Ireland (EU) Tariff for the XI', function () {
+        cy.visit('/sections')
+        cy.get('.govuk-grid-row')
+        cy.contains('Change date')
+        cy.contains('Change currency').should('not.exist')
+    })
 })
