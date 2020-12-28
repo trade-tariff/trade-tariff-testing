@@ -27,7 +27,7 @@ Running using Cypress Application :npx cypress open (opens cypress application)
 Running specific file   :npx cypress run --spec "/file path/filename.js"
 Running all files       :npx cypress run ( runs all files in Integration folder)
 Running smoke tests     :npm run smoketests
-
+Running specific folder :npx cypress run --spec "/*/**/XI/**/*spec.js"
 ```
 
 **TO DO**

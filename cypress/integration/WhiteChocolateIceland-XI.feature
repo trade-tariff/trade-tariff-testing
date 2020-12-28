@@ -12,6 +12,10 @@ Feature: As a trader i want to import white chocolate from iceland to XI
     When i select Import button
     And select Iceland from All countries list
     Then Measures for Iceland should be shown
+    And Third Country duty displayed
+    And Tariff preference for Iceland is displayed
+    And VAT rates are displayed
+
 
 
 

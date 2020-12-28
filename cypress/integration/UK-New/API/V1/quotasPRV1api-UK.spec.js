@@ -1,4 +1,4 @@
-describe('🇬🇧 ⚙️ UK- version v1 api Quotas , P&R to be availabe ',function() {
+describe('🇬🇧 ⚙️ 🆕 UK- version v1 api Quotas , P&R to be availabe ',function() {
 
     //----Quotas to be available for UK version  -----
     Cypress.config('baseUrl', Cypress.config('services')['uk'])
