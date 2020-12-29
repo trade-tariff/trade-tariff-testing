@@ -1,7 +1,5 @@
 describe('Old UK 🇬🇧 💡 - Select Commodities and measure details ',function() {
-    Cypress.config(('services')['baseUrl'])
-
-
+    Cypress.config('baseUrl')
     it('Ferro-alloy \n' +'Third country duty should be ad valorem 2.7%\n' +
         '\n' +
         'There is a tariff preference of 0.0% against the European Economic Area (2012)\n' +
@@ -95,15 +93,17 @@ describe('Old UK 🇬🇧 💡 - Select Commodities and measure details ',functi
             .contains('Commodity information for 2203001000')
         cy.get('.govuk-header__content')
             .contains('The Online Trade Tariff')
-        cy.get('#measure-2982608')
+        cy.get('.govuk-tabs__panel')
+       // cy.get('#measure-2982608')
         cy.contains('Supplementary unit')
         cy.contains('l')
-        cy.get('#measure--577480')
-            .contains('EXCISE - FULL, 441, IMPORTED BEER')
-        cy.get('#measure--577480')
-            .contains('Conditions')
-            .click()
-        cy.get('.tariff-info')
+       // cy.get('#measure--577480')
+            cy.contains('EXCISE - FULL, 441, IMPORTED BEER')
+       // cy.get('#measure--577480')
+            cy.get('#measure--574014')
+                .contains('Conditions')
+                .click()
+
         cy.contains('EXCISE - FULL, 441, IMPORTED BEER for All countries')
         cy.contains('E: The quantity or the price per unit declared, as appropriate, is equal or less than the specified maximum, or presentation of the required document')
         cy.contains('5000.00 Gross Production Apply the amount of the action 9.54 GBP / l alc. 100%')
@@ -129,7 +129,7 @@ describe('Old UK 🇬🇧 💡 - Select Commodities and measure details ',functi
             .contains('Commodity information for 2402100000')
         cy.get('.govuk-header__content')
             .contains('The Online Trade Tariff')
-        cy.get('#measure--598022')
+        cy.get('.govuk-tabs__panel')
         cy.contains('EXCISE - FULL, 615, CIGARS')
         cy.contains('305.32 GBP / kg')
     })
