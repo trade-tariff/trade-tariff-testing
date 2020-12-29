@@ -8,5 +8,11 @@ describe('🇪🇺 💡 Change Currency should not be visible  - XI services)',f
         cy.contains('Change date')
         cy.contains('Change currency').should('not.exist')
     })
-
+    it('URL should not contain EUR',function(){
+        cy.visit('/commodities/7202118000?currency=EUR#import')
+        cy.log(cy.url())
+        cy.log(cy.hash())
+        cy.url()
+            cy.contains( 'EUR')
+    })
 })

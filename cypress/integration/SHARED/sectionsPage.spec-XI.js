@@ -51,4 +51,5 @@ describe('sections page content validation ',function() {
         cy.contains('Works of art, collectors\' pieces and antiques')
     })
 
+
 })
