@@ -2,7 +2,6 @@ describe('Old UK 🇬🇧 💡 Hide Legal base Column , Binding Tariff informati
 //HOT-58 Suppressing Legal Base Column for UK
 
         Cypress.config(('services')['baseUrl'])
-    //    Cypress.config('baseUrl','https://www.trade-tariff.service.gov.uk')
 
     // front end
     it('1.Prove that the legal base column has been removed from the import measures tab on UK - commodity 0101210000', function () {

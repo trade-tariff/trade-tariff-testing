@@ -75,13 +75,13 @@ describe('New UK 🇬🇧 💡 🆕 - smoke test to cover basic functionality on
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
             .clear()
-            .type('16/12/2020')
+            .type('07/01/2021')
         cy.get('.fields > a[role=\'button\']')
             .contains('Set date').click()
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 16 December 2020')
+            .contains('This tariff is for 7 January 2021')
 
         cy.get('main#content  nav  a').click()
         cy.contains('Online Tariff')
@@ -89,7 +89,7 @@ describe('New UK 🇬🇧 💡 🆕 - smoke test to cover basic functionality on
         cy.contains('The Online Trade Tariff')
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 16 December 2020')
+            .contains('This tariff is for 7 January 2021')
 
     })
     it('UK - Change Currency should not be visible on main page - The Online Trade Tariff', function () {

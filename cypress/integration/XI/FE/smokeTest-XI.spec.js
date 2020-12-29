@@ -66,18 +66,18 @@ describe('🇪🇺 💡 XI - smoke test to cover basic functionality on XI servi
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
     })
-    it('XI - Change date and check if the data shown is same for both XI and UK',function(){
+    it('XI - Change to future date and check if the data shown is same for both XI and UK',function(){
         cy.visit('/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
             .clear()
-            .type('16/12/2020')
+            .type('07/01/2021')
         cy.get('.fields > a[role=\'button\']')
             .contains('Set date').click()
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 16 December 2020')
+            .contains('This tariff is for 7 January 2021')
 
         cy.get('main#content  nav  a').click()
         cy.contains('The Online Trade Tariff')
@@ -85,7 +85,7 @@ describe('🇪🇺 💡 XI - smoke test to cover basic functionality on XI servi
         cy.contains('The Northern Ireland (EU) Tariff')
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 16 December 2020')
+            .contains('This tariff is for 7 January 2021')
 
     })
     it('XI - Change Currency should not be visible on main page - The Northern Ireland (EU) Tariff for the XI', function () {
