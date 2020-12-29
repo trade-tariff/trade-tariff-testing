@@ -21,7 +21,7 @@
     "1704907100",
     "2206001100"
   ],
-  "fixtures_timestamp": "2020-12-27",
+  "fixtures_timestamp": "2021-01-01",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "mochawesome",
