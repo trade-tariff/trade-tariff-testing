@@ -8,11 +8,10 @@ describe('🇪🇺 💡 Change Currency should not be visible  - XI services)',f
         cy.contains('Change date')
         cy.contains('Change currency').should('not.exist')
     })
-    it('URL should not contain EUR',function(){
-        cy.visit('/commodities/7202118000?currency=EUR#import')
-        cy.log(cy.url())
-        cy.log(cy.hash())
-        cy.url()
-            cy.contains( 'EUR')
+    it('XI shows EUR currency NOT GBP',function(){
+        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
+
+        cy.get('.small-table.measures.govuk-table')
+        cy.contains('12.80 % + 176.80 EUR / 100 kg')
     })
 })

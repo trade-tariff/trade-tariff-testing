@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://dev.trade-tariff.service.gov.uk",
+  "baseUrl": "https://www.trade-tariff.service.gov.uk",
   "services": {
     "xi": "https://dev.trade-tariff.service.gov.uk/xi",
     "uk": "https://dev.trade-tariff.service.gov.uk/uk"

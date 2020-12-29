@@ -111,7 +111,7 @@ describe('Old UK 🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',fu
             .should('not.have.text', 'Classification of goods')
             .should('not.have.text', 'Discuss this chapter in the forums')
     })
-    it('5.Commodity Page',function(){
+    it('5.Commodity Page- switching link available',function(){
         cy.visit('/commodities/0406103010')
         //are we on the right page
         //check header has UK information
@@ -137,7 +137,7 @@ describe('Old UK 🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',fu
 
 
     })
-    it('6.Tools Page',function(){
+    it('6.Tools Page- switching link available',function(){
         cy.visit('/tools')
         //check header has UK information
         cy.get('.govuk-header ')
@@ -161,7 +161,7 @@ describe('Old UK 🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',fu
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('7.Quota Search Page',function(){
+    it('7.Quota Search Page- switching link available',function(){
         cy.visit('/quota_search')
         //check header has UK information
         cy.get('.govuk-header ')
@@ -185,7 +185,7 @@ describe('Old UK 🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',fu
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('8.Certificate Search Page',function(){
+    it('8.Certificate Search Page- switching link available',function(){
         cy.visit('/certificate_search')
         //check header has UK information
         cy.get('.govuk-header ')
@@ -208,7 +208,7 @@ describe('Old UK 🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',fu
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('9.Additional Code Search Page',function(){
+    it('9.Additional Code Search Page- switching link available',function(){
         cy.visit('/additional_code_search')
         //check header has UK information
         cy.get('.govuk-header ')
@@ -231,7 +231,7 @@ describe('Old UK 🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',fu
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('10.Chemical Search Page',function(){
+    it('10.Chemical Search Page- switching link available',function(){
         cy.visit('/chemical_search')
         //check header has UK information
         cy.get('.govuk-header ')
@@ -254,7 +254,7 @@ describe('Old UK 🇬🇧 💡 Switching Link ,Forum removed  - (UK version)',fu
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('11.A-Z Page',function(){
+    it('11.A-Z Page- switching link available',function(){
         cy.visit('/a-z-index/a')
         //check header has UK information
         cy.get('.govuk-header ')

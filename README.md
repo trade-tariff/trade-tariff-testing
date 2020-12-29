@@ -28,6 +28,8 @@ Running specific file   :npx cypress run --spec "/file path/filename.js"
 Running all files       :npx cypress run ( runs all files in Integration folder)
 Running smoke tests     :npm run smoketests
 Running specific folder :npx cypress run --spec "/*/**/XI/**/*spec.js"
+                        :npx cypress run --spec "/*/**/UK-New/**/*spec.js"
+                        :npx cypress run --spec "/*/**/UK-Old/**/*spec.js"
 ```
 
 **TO DO**
