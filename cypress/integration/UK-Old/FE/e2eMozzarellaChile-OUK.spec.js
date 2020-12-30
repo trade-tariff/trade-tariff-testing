@@ -1,4 +1,4 @@
-describe('Old UK 🇬🇧 💡 importing Mozzarella from Chile ',function() {
+describe('Old UK 🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
     Cypress.config('baseUrl')
 
     it('Navigate to trade tariff page ', function () {
@@ -42,7 +42,6 @@ describe('Old UK 🇬🇧 💡 importing Mozzarella from Chile ',function() {
         cy.get('.small-table.measures.govuk-table')
             .contains('185.20 EUR / 100 kg')
     })
-//hott-189 - expand further with otehr commodities and order numbers
     it('Preferential tariff quota order No:091924 is visible',function(){
         cy.get('.small-table.measures.govuk-table')
             .contains('Preferential tariff quota')
@@ -50,7 +49,6 @@ describe('Old UK 🇬🇧 💡 importing Mozzarella from Chile ',function() {
         cy.get('.tariff-info')
             .contains('Information on the availability of this quota can be obtained from the Rural Payments Agency.')
         cy.get('.close [href]').click()
-
     })
     it('Footnotes is visible',function() {
         cy.get('.govuk-main-wrapper')

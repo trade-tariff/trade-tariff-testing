@@ -1,13 +1,13 @@
-describe('Old UK 🇬🇧 💡 - smoke test to cover basic functionality on UK services ',function() {
+describe('🚀 OUK 🇬🇧 💡 - Smoke Test to cover basic functionality on UK services ',function() {
     Cypress.config('baseUrl')
-    it('UK Routing - Correct page + Legal base does not exist ', function () {
+    it('🚀 OUK Routing - Correct page + Legal base does not exist ', function () {
 
         cy.visit('/commodities/0101210000#import')
         cy.contains('The Online Trade Tariff')
         cy.get('.govuk-tabs__panel')
         cy.contains('Legal base').should('not.exist')
     })
-    it('UK - Header Section-Sub sections ', function () {
+    it('🚀 OUK - Header Section-Sub sections ', function () {
         cy.visit('/sections')
         cy.title().should('eq', 'The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
 
@@ -23,14 +23,14 @@ describe('Old UK 🇬🇧 💡 - smoke test to cover basic functionality on UK s
         cy.contains('Exchange rates').should('not.exist')
         cy.contains('Forum').should('not.exist')
     })
-    it('UK - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
+    it('🚀 OUK - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
         cy.visit('/sections')
         cy.get('.govuk-footer')
         cy.contains('API Documentation')
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
     })
-    it('UK - Sections Page - Switching link to XI available & works', function () {
+    it('🚀 OUK - Sections Page - Switching link to XI available & works', function () {
         cy.visit('/sections')
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
@@ -55,7 +55,7 @@ describe('Old UK 🇬🇧 💡 - smoke test to cover basic functionality on UK s
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('UK - Sections Page - Guidance Link and Page link', function () {
+    it('🚀 OUK - Sections Page - Guidance Link and Page link', function () {
         cy.visit('/sections')
         // Guidance link on UK page
         cy.get('.govuk-main-wrapper')
@@ -70,7 +70,7 @@ describe('Old UK 🇬🇧 💡 - smoke test to cover basic functionality on UK s
             .contains('The Online Trade Tariff')
 
     })
-    it('UK - Change date and check if the data shown is same for both XI and UK', function () {
+    it('🚀 OUK - Change date and check if the data shown is same for both XI and UK', function () {
         cy.visit('/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
@@ -92,7 +92,7 @@ describe('Old UK 🇬🇧 💡 - smoke test to cover basic functionality on UK s
             .contains('This tariff is for 7 January 2021')
 
     })
-    it('UK - Change Currency should not be visible on main page - The Online Trade Tariff', function () {
+    it('🚀 OUK - Change Currency should not be visible on main page - The Online Trade Tariff', function () {
         cy.visit('/sections')
         cy.get('.govuk-grid-row')
         cy.contains('Change date')

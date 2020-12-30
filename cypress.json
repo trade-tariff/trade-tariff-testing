@@ -1,5 +1,6 @@
 {
-  "baseUrl": "https://www.trade-tariff.service.gov.uk",
+  "baseUrl": "https://dev.trade-tariff.service.gov.uk",
+
   "services": {
     "xi": "https://dev.trade-tariff.service.gov.uk/xi",
     "uk": "https://dev.trade-tariff.service.gov.uk/uk"
@@ -21,6 +22,18 @@
     "1704907100",
     "2206001100"
   ],
+  
+  "termcodes": [
+    "0302910095",
+    "0303541090",
+    "0303919091"
+  ],
+  "newcodes": [
+    "0302910096",
+    "0303398580",
+    "0303541095"
+  ],
+
   "fixtures_timestamp": "2021-01-01",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
