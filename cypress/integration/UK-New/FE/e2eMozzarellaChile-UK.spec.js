@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 🆕 importing Mozzarella from Chile ',function() {
+describe('🇬🇧 💡 🆕 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
     Cypress.config('baseUrl', Cypress.config('services')['uk'])
 
     it('Navigate to trade tariff page ', function () {
@@ -38,15 +38,17 @@ describe('🇬🇧 💡 🆕 importing Mozzarella from Chile ',function() {
             .contains(' Measures for Chile')
     })
 
-    it('Third country duty  measure has value 185.20 EUR / 100 kg',function(){
+    it('Third country duty  measure has value 154.00 GBP / 100 kg',function(){
         cy.get('.small-table.measures.govuk-table')
-            .contains('185.20 EUR / 100 kg')
+            .contains('154.00 GBP / 100 kg')
     })
 //hott-189 - expand further with otehr commodities and order numbers
-    it('Preferential tariff quota order No:091924 is visible',function(){
+    it('Preferential tariff quota order No:051924 is visible',function(){
         cy.get('.small-table.measures.govuk-table')
             .contains('Preferential tariff quota')
-        cy.get('[href=\'\\#import-3408148-order-number-094591\']').click()
+        cy.get('#measure-20071014')
+            .contains('051924').click()
+      //  cy.get('[href=\'\\#import-3408148-order-number-094591\']').click()
         cy.get('.tariff-info')
             .contains('Information on the availability of this quota can be obtained from the Rural Payments Agency.')
         cy.get('.close [href]').click()
