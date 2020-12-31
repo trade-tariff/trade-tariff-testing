@@ -72,10 +72,10 @@ describe('Old UK 🇬🇧 💡 Quotas , P&R to be available for UK service ',fun
         cy.get('.govuk-tabs__panel')
             .contains('HMI Conformity Certificate (fruit and veg) issued in UK').should('exist')
     })
-    it('8.P&R:CVD - Common Veterinary Entry Document (CVED)', function () {
+    it('8.P&R:CVD - Common Veterinary Entry Document (CVED),Veterinary control', function () {
         cy.visit('/commodities/1605531090#import')
         cy.get('.govuk-tabs__panel')
-            .contains('Common Veterinary Entry Document (CVED)').should('exist')
+            .contains('Veterinary control').should('exist')
     })
     //export
     it('12.P&R:EQC Certificate of Conformity', function () {

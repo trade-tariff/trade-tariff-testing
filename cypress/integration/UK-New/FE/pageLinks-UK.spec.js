@@ -57,7 +57,7 @@ describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK 
             .click()
             .contains('Check a list of supplementary units and their descriptions').should('not.exist')
     })
-    it(' 🆕 UK- Links to Previous and Next Commodity - available',function(){
+    it('🆕 UK- Links to Previous and Next Commodity - available',function(){
         cy.visit('/commodities/2801200000')
         //page contains commodity information
         cy.contains('Commodity information for 2801200000')

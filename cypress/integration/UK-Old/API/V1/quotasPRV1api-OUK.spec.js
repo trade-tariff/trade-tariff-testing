@@ -202,7 +202,7 @@ describe('Old UK 🇬🇧 ⚙️ UK- version v1 api Quotas , P&R to be availabe 
             let measure_types = response.body.import_measures
             let found = false
             for (let i = 0; i < measure_types.length; i++) {
-                if (measure_types[i].measure_type.description == 'Common Veterinary Entry Document (CVED)') {
+                if (measure_types[i].measure_type.description == 'Veterinary control') {
                     found = true
                     break
                 }

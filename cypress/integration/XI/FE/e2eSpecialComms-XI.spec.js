@@ -6,7 +6,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
         'There is a tariff preference of 0.0% against the European Economic Area (2012)\n' +
         '\n' +
         'There are no duties that are expressed in currencies ', function () {
-        cy.visit('/commodities/7202118000#import')
+        cy.visit('/commodities/7202118000?day=1&month=1&year=2021#import')
             .contains('Commodity information for 7202118000')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
@@ -23,7 +23,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
     it('Bison \n Third country duty should be a compound duty of 12.80 % + 176.80 EUR / 100 kg\n' +
         '\n' +
         'Duties are expressed in EUROs',function(){
-        cy.visit('/commodities/0201100021#import')
+        cy.visit('/commodities/0201100021?day=1&month=1&year=2021#import')
             .contains('Commodity information for 0201100021')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
@@ -32,7 +32,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
             cy.contains('12.80 % + 176.80 EUR / 100 kg')
     })
     it('Amplifiers \n also has a supplementary unit measure of p/st',function(){
-        cy.visit('/commodities/8518400010#import')
+        cy.visit('/commodities/8518400010?day=1&month=1&year=2021#import')
             .contains('Commodity information for 8518400010')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
@@ -40,10 +40,11 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
         cy.contains('Supplementary unit')
         cy.contains('p/st')
     })
+
     it('Ceramic tiles \n has anti-dumping measures for China\n' +
         '\n' +
         'Shown by a bold B999 against a Definitive anti-dumping duty measure',function(){
-        cy.visit('/commodities/6907220000?country=CN#import')
+        cy.visit('/commodities/6907220000?country=CN&day=9&month=1&year=2021#import')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
         cy.get('#measure-3600805')
@@ -53,7 +54,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
     it('Sandwich biscuits  \n Check that the third country duty contains Meursing-related components, e.g. check for strings EA and ADSZ\n' +
         '\n' +
         '9.00 % + EA MAX 24.20 % +ADSZ',function(){
-        cy.visit('/commodities/1905319100#import')
+        cy.visit('/commodities/1905319100?day=1&month=1&year=2021#import')
             .contains('Commodity information for 1905319100')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
@@ -69,37 +70,40 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
         '\n' +
         'Check that there are no quotas at all' +
         '\n' ,function(){
-        cy.visit('/commodities/0702000007#import')
+        cy.visit('/commodities/0702000007?day=1&month=1&year=2021#import')
             .contains('Commodity information for 0702000007')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
 
-        cy.get('#measure-3702059')
+        cy.get('#measure-3788666')
         cy.contains('Third country duty')
-        cy.get('#measure-3702059')
+        cy.get('#measure-3788666')
           .contains('Conditions')
             .click()
         cy.get('.tariff-info')
             cy.contains('Third country duty for All countries')
-            cy.contains('Greater than or equal to 67.60 EUR / 100 kg Apply the amount of the action 8.80 %')
-            cy.contains('Greater than or equal to 66.20 EUR / 100 kg Apply the amount of the action 8.80 % + 1.40 EUR / 100 kg')
-            cy.contains('Greater than or equal to 64.90 EUR / 100 kg Apply the amount of the action 8.80 % + 2.70 EUR / 100 kg')
-            cy.contains('Greater than or equal to 63.50 EUR / 100 kg Apply the amount of the action 8.80 % + 4.10 EUR / 100 kg')
-            cy.contains('Greater than or equal to 62.20 EUR / 100 kg Apply the amount of the action 8.80 % + 5.40 EUR / 100 kg')
+            cy.contains('Greater than or equal to 84.60 EUR / 100 kg Apply the amount of the action 8.80 %')
+            cy.contains('Greater than or equal to 82.90 EUR / 100 kg Apply the amount of the action 8.80 % + 1.70 EUR / 100 kg')
+            cy.contains('Greater than or equal to 81.20 EUR / 100 kg Apply the amount of the action 8.80 % + 3.40 EUR / 100 kg')
+            cy.contains('Greater than or equal to 79.50 EUR / 100 kg Apply the amount of the action 8.80 % + 5.10 EUR / 100 kg')
+            cy.contains('Greater than or equal to 77.80 EUR / 100 kg Apply the amount of the action 8.80 % + 6.80 EUR / 100 kg')
             cy.contains('Greater than or equal to 0.00 EUR / 100 kg Apply the amount of the action 8.80 % + 29.80 EUR / 100 kg')
         cy.get('.close [href]').click()
     })
+
+
     it('Beer \n Has multiple excise lines expressed in litres,\n Identical to UK',function(){
-        cy.visit('/commodities/2203001000#import')
+        cy.visit('/commodities/2203001000?day=1&month=1&year=2021#import')
             .contains('Commodity information for 2203001000')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
         cy.get('#measure-2982608')
-        cy.contains('Supplementary unit')
-        cy.contains('l')
-        cy.get('#measure--577480')
+         .contains('Supplementary unit')
+        cy.get('#measure-2982608')
+         .contains('l')
+        cy.get('#measure--574014')
             .contains('EXCISE - FULL, 441, IMPORTED BEER')
-        cy.get('#measure--577480')
+        cy.get('#measure--574014')
             .contains('Conditions')
             .click()
         cy.get('.tariff-info')
@@ -110,7 +114,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
     })
 
     it('Turbines \n Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms',function() {
-        cy.visit('/commodities/8406810000#import')
+        cy.visit('/commodities/8406810000?day=1&month=1&year=2021#import')
             .contains('Commodity information for 8406810000')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')
@@ -123,12 +127,13 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
         cy.contains('C990 Other certificates: End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ')
         cy.get('.close [href]').click()
     })
+
     it('Cheroots \n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK',function(){
-        cy.visit('/commodities/2402100000#import')
+        cy.visit('/commodities/2402100000?day=1&month=1&year=2021#import')
                 .contains('Commodity information for 2402100000')
         cy.get('.govuk-header__content')
                 .contains('The Northern Ireland (EU) Tariff')
-        cy.get('#measure--598022')
+        cy.get('#measure--594556')
             cy.contains('EXCISE - FULL, 615, CIGARS')
             cy.contains('305.32 GBP / kg')
         })
@@ -136,7 +141,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
     it('Piquette (type of wine) -Has a third country duty of:\n' +
         '\n' +
         '1.30 EUR / % vol / hl MIN 7.20 EUR / hl',function(){
-        cy.visit('/commodities/2206001000#import')
+        cy.visit('/commodities/2206001000?day=1&month=1&year=2021#import')
             .contains('Commodity information for 2206001000')
         cy.get('.govuk-header__content')
             .contains('The Northern Ireland (EU) Tariff')

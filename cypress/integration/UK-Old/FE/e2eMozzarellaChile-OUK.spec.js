@@ -39,6 +39,7 @@ describe('Old UK 🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',
     })
 
     it('Third country duty  measure has value 185.20 EUR / 100 kg',function(){
+
         cy.get('.small-table.measures.govuk-table')
             .contains('185.20 EUR / 100 kg')
     })

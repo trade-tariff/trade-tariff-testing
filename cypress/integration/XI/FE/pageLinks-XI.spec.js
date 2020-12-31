@@ -48,7 +48,7 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
             .contains('Check a list of supplementary units and their descriptions').should('not.exist')
 
     })
-    it(' XI- Links to Previous and Next Commodity - available',function(){
+    it('XI- Links to Previous and Next Commodity - available',function(){
         cy.visit('/commodities/2801200000')
         //page contains commodity information
         cy.contains('Commodity information for 2801200000')
