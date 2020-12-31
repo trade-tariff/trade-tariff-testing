@@ -1,9 +1,8 @@
 {
-  "baseUrl": "https://dev.trade-tariff.service.gov.uk",
-
+  "baseUrl": "https://www.trade-tariff.service.gov.uk",
   "services": {
-    "xi": "https://dev.trade-tariff.service.gov.uk/xi",
-    "uk": "https://dev.trade-tariff.service.gov.uk/uk"
+    "xi": "https://www.trade-tariff.service.gov.uk/xi",
+    "uk": "https://www.trade-tariff.service.gov.uk/uk"
   },
   "commcodes": [
     "7202118000",

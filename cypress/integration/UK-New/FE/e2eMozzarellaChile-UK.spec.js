@@ -39,6 +39,7 @@ describe('🇬🇧 💡 🆕 importing Mozzarella 🧀  from Chile 🇨🇱 ',fu
     })
 
     it('Third country duty  measure has value 154.00 GBP / 100 kg',function(){
+        cy.visit('/commodities/0406103010?country=CL&day=9&month=1&year=2021#import')
         cy.get('.small-table.measures.govuk-table')
             .contains('154.00 GBP / 100 kg')
     })

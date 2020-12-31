@@ -2,7 +2,7 @@ describe('🇬🇧 💡 🆕 Check specific quota order details',function(){
     Cypress.config('baseUrl')
 
     it('1.New UK quota numbers post 1 Jan 2021 -054xxx Licensed', function () {
-        cy.visit('/commodities/0201100021?day=1&month=1&year=2021#import')
+        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
         cy.get('.govuk-tabs__panel')
             cy.contains('Non preferential tariff quota')
         cy.get('.table-line')
@@ -13,7 +13,7 @@ describe('🇬🇧 💡 🆕 Check specific quota order details',function(){
     })
 
     it('2.New UK quota numbers post 1 Jan 2021 -052xxx Non-Licensed', function () {
-        cy.visit('/commodities/0201100021?day=1&month=1&year=2021#import')
+        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('Non preferential tariff quota')
         cy.get('.table-line')
@@ -23,7 +23,7 @@ describe('🇬🇧 💡 🆕 Check specific quota order details',function(){
         cy.get('.close [href]').click()
     })
     it('3.New UK quota numbers post 1 Jan 2021 -058xxx Non-Licensed', function () {
-        cy.visit('/commodities/0201100021?day=1&month=1&year=2021#import')
+        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('Non preferential tariff quota')
         cy.get('.table-line')

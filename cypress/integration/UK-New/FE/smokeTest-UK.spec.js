@@ -1,4 +1,4 @@
-describe('🚀  New UK 🇬🇧 💡 🆕 - smoke test to cover basic functionality on UK services ',function(){
+describe('🚀  🆕  UK 🇬🇧 💡 - smoke test to cover basic functionality on UK services ',function() {
     Cypress.config('baseUrl', Cypress.config('services')['uk'])
 
     it('🚀 UK Routing - Correct page + Legal base does not exist ', function () {
@@ -9,7 +9,7 @@ describe('🚀  New UK 🇬🇧 💡 🆕 - smoke test to cover basic functional
     })
     it('🚀 UK - Header Section-Sub sections ', function () {
         cy.visit('/sections')
-        cy.title().should('eq','The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
+        cy.title().should('eq', 'The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
 
         cy.get('.govuk-header ')
         cy.contains('Search the Tariff')
@@ -37,7 +37,7 @@ describe('🚀  New UK 🇬🇧 💡 🆕 - smoke test to cover basic functional
 
         //check correct text is displayed on banner as per UK - If they are at risk
         cy.get('.tariff-breadcrumbs')
-            .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland (EU) Tariff.')
+            .should('have.text', 'From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland (EU) Tariff.')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
@@ -55,7 +55,7 @@ describe('🚀  New UK 🇬🇧 💡 🆕 - smoke test to cover basic functional
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('🚀 UK - Sections Page - Guidance Link and Page link', function (){
+    it('🚀 UK - Sections Page - Guidance Link and Page link', function () {
         cy.visit('/sections')
         // Guidance link on UK page
         cy.get('.govuk-main-wrapper')
@@ -63,14 +63,14 @@ describe('🚀  New UK 🇬🇧 💡 🆕 - smoke test to cover basic functional
         cy.get('.govuk-grid-row')
             .contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021')
         cy.log(cy.title())
-        cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
+        cy.title().should('eq', 'Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
         //return to UK page
         cy.go('back')
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
 
     })
-    it('🚀 UK - Change date and check if the data shown is same for both XI and UK',function(){
+    it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function () {
         cy.visit('/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
@@ -98,4 +98,84 @@ describe('🚀  New UK 🇬🇧 💡 🆕 - smoke test to cover basic functional
         cy.contains('Change date')
         cy.contains('Change currency').should('not.exist')
     })
+    it('🚀 United Kingdom should not be shown in EU country list', function () {
+        cy.visit('/commodities/2403991000?day=3&month=1&year=2021#import')
+        cy.get('.govuk-tabs__panel')
+            .contains('European Union (1013)').click()
+        cy.get('.govuk-list')
+            .contains('European Union (EU)')
+        cy.get('.govuk-list')
+            .contains('United Kingdom (GB)').should('not.exist')
     })
+
+    it('🚀 UK Switching link banner on sections page for Jan 1 2021',function(){
+        cy.visit('/sections?day=11&month=12&year=2020')
+        cy.get('.govuk-header ')
+            .contains('The Online Trade Tariff')
+
+        //check correct text is displayed on banner as per UK - If they are at risk
+        cy.get('.tariff-breadcrumbs')
+            .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland (EU) Tariff.')
+        //click on the XI link and it should navigate to XI version
+        cy.get('.govuk-main-wrapper')
+            .contains('Northern Ireland (EU) Tariff')
+            .click()
+        cy.get('.govuk-header ')
+            .contains('Northern Ireland (EU) Tariff')
+
+        //click on the XI link and it should navigate to XI version
+        cy.get('.govuk-main-wrapper')
+        cy.contains('Online Tariff')
+            .click()
+        cy.get('.govuk-header ')
+            .contains('The Online Trade Tariff')
+        cy.get('.govuk-main-wrapper')
+            .contains('Northern Ireland (EU) Tariff')
+
+        // Guidance link on UK page
+        cy.get('.govuk-main-wrapper')
+            .contains('if your goods are not ‘at risk’ of onward movement to the EU').click()
+        cy.get('.govuk-grid-row')
+            .contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021')
+        cy.log(cy.title())
+        cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
+        //return to UK page
+        cy.go('back')
+        cy.get('.govuk-header ')
+            .contains('The Online Trade Tariff')
+
+    })
+
+    it('🚀 UK quota numbers without defining date  -052xxx Non-Licensed', function () {
+        cy.visit('/commodities/0201100021#import')
+        cy.get('.govuk-tabs__panel')
+        cy.contains('Non preferential tariff quota')
+        cy.get('.table-line')
+        cy.contains('052201').click()
+        cy.get('.tariff-info')
+            .contains('Order number 052201')
+        cy.get('.close [href]').click()
+    })
+
+    it('🚀 UK quota numbers post 1 Jan 2021 -054xxx Licensed', function () {
+        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
+        cy.get('.govuk-tabs__panel')
+        cy.contains('Non preferential tariff quota')
+        cy.get('.table-line')
+        cy.contains('054002').click()
+        cy.get('.tariff-info')
+            .contains('Information on the availability of this quota can be obtained from the Rural Payments Agency.')
+        cy.get('.close [href]').click()
+    })
+
+    it('🚀 UK quota numbers post 1 Jan 2021 -052xxx Non-Licensed', function () {
+        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
+        cy.get('.govuk-tabs__panel')
+        cy.contains('Non preferential tariff quota')
+        cy.get('.table-line')
+        cy.contains('052201').click()
+        cy.get('.tariff-info')
+            .contains('Order number 052201')
+        cy.get('.close [href]').click()
+    })
+})
