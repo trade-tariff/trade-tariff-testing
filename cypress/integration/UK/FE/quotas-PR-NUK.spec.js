@@ -1,9 +1,9 @@
 describe(' 🇬🇧 💡 🆕 Quotas , P&R to be available for UK service ',function() {
 
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
-
+ //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
         it('1.Quotas:046 Tariff quota/ceiling', function () {
-            cy.visit('/commodities/6301909021#import')
+            cy.visit('/commodities/1006209600#import')
             cy.get('.govuk-tabs__panel')
                 .contains('quota').should('exist')
         //    cy.get('.govuk-tabs__panel').should('have.value', 'quota')
@@ -91,7 +91,9 @@ describe(' 🇬🇧 💡 🆕 Quotas , P&R to be available for UK service ',func
 
     it('15.P&R:HSE Health and Safety Executive (imports)', function () {
         cy.visit('/commodities/3102309000#import')
-        cy.get('.govuk-tabs__panel')
+        cy.reload()
+       // cy.get('.govuk-tabs__panel')
+            cy.get('.govuk-template ')
             .contains('Health and Safety Executive (imports)').should('exist')
     })
     it('17.P&R:PHC-Phytosanitary Certificate (import)', function () {
@@ -102,11 +104,13 @@ describe(' 🇬🇧 💡 🆕 Quotas , P&R to be available for UK service ',func
 
     it('18.P&R:PRE Home Office Pre-cursor chemicals', function () {
         cy.visit('/commodities/2915240000#export')
+        cy.reload()
         cy.get('.govuk-tabs__panel')
             .contains('Home Office Pre-cursor chemicals').should('exist')
     })
     it('19.P&R:PRT Home Office Controlled Drugs (import)', function () {
         cy.visit('/commodities/1211500000#import')
+        cy.reload()
         cy.get('.govuk-tabs__panel')
             .contains('Home Office Controlled Drugs (import)').should('exist')
     })

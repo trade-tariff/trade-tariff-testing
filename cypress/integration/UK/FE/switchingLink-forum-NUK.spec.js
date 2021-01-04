@@ -1,6 +1,7 @@
 describe('🇬🇧 💡 🆕 New UK - Switching Link ,Forum removed  - (UK version)',function() {
     //--- HOTT-96 -------------
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
+   // Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
 
     it('1.Sections Page - Forum section removed', function () {
         cy.visit('/sections')
@@ -38,9 +39,9 @@ describe('🇬🇧 💡 🆕 New UK - Switching Link ,Forum removed  - (UK versi
         cy.get('.govuk-main-wrapper')
             .contains('if your goods are not ‘at risk’ of onward movement to the EU').click()
         cy.get('.govuk-grid-row')
-            .contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021')
+            .contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
         cy.log(cy.title())
-        cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
+        cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU - GOV.UK')
         //return to UK page
         cy.go('back')
         cy.get('.govuk-header ')

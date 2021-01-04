@@ -157,7 +157,7 @@ describe('Old UK 🇬🇧 ⚙️ UK- version v1 api Quotas , P&R to be availabe 
             console.log(response.body)
             for (let i = 0; i < measure_types.length; i++) {
                 console.log(measure_types[i].measure_type)
-                if (measure_types[i].measure_type.id == 'CEX') {
+                if (measure_types[i].measure_type.description == 'DCMS Open General Export Licence') {
                     found = true
                     break
                 }

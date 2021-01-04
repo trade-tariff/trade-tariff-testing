@@ -4,7 +4,9 @@ describe('Old UK 🇬🇧 💡 Quotas , P&R to be available for UK service ',fun
    // Cypress.config('baseUrl','https://www.trade-tariff.service.gov.uk')
 
         it('1.Quotas:046 Tariff quota/ceiling', function () {
-            cy.visit('/commodities/6301909021#import')
+
+            cy.visit('/commodities/1006209600#import')
+            cy.reload()
             cy.get('.govuk-tabs__panel')
                 .contains('quota').should('exist')
         //    cy.get('.govuk-tabs__panel').should('have.value', 'quota')

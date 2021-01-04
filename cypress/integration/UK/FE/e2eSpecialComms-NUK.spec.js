@@ -1,6 +1,6 @@
 describe('🇬🇧 💡 🆕 - Select Commodities and measure details ',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
-
+   // Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
     it('Ferro-alloy Third country duty should be ad valorem 0.0% (known from the UK Global Tariff)\n' +
         '\n' +
         'There is no preference against the European Economic Area (2012)\n' +
@@ -103,9 +103,10 @@ describe('🇬🇧 💡 🆕 - Select Commodities and measure details ',function
             .contains('Commodity information for 8406810000')
         cy.get('.govuk-header__content')
             .contains('The Online Trade Tariff')
-        cy.get('#measure-3489354')
+        cy.get('#measure-20123190')
+
         cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
-        cy.get('#measure-3489354')
+        cy.get('#measure-20123190')
             .contains('Conditions').click()
         cy.get('.tariff-info')
         cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms for All countries')
