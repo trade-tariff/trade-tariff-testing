@@ -1,10 +1,12 @@
 describe('🇬🇧 ⚙️ 🆕 UK- version v1 api Quotas , P&R to be availabe ',function() {
 
     //----Quotas to be available for UK version  -----
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
+  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
 
     it('1.Quotas:046 Tariff quota/ceiling - available', function () {
         cy.request('/api/v1/commodities/6301909021#import.json')
+        cy.request('/api/v1/commodities/1006209600#import.json')
             .then((response) => {
                 let measure_types = response.body.import_measures
                 let found = false
@@ -156,7 +158,7 @@ describe('🇬🇧 ⚙️ 🆕 UK- version v1 api Quotas , P&R to be availabe ',
             console.log(response.body)
             for (let i = 0; i < measure_types.length; i++) {
                 console.log(measure_types[i].measure_type)
-                if (measure_types[i].measure_type.id == 'CEX') {
+                if (measure_types[i].measure_type.description == 'DCMS Open General Export Licence') {
                     found = true
                     break
                 }

@@ -1,5 +1,6 @@
 describe('🇬🇧 💡 🆕 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
+ //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
 
     it('Navigate to trade tariff page ', function () {
         cy.visit('/sections')
@@ -51,7 +52,7 @@ describe('🇬🇧 💡 🆕 importing Mozzarella 🧀  from Chile 🇨🇱 ',fu
             .contains('051924').click()
       //  cy.get('[href=\'\\#import-3408148-order-number-094591\']').click()
         cy.get('.tariff-info')
-            .contains('Information on the availability of this quota can be obtained from the Rural Payments Agency.')
+            .contains('Order number 051924')
         cy.get('.close [href]').click()
 
     })

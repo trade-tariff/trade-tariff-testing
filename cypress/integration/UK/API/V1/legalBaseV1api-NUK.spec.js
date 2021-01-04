@@ -1,6 +1,7 @@
 describe('🇬🇧 ⚙️ 🆕 UK version v1 api - legal base should be present in the backend API response  API',function() {
 
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
+   // Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
 
     it('Prove that the data remains in the JSON API (v1) ', () => {
         cy.request('/api/v1/commodities/0101210000.json').then((response) => {

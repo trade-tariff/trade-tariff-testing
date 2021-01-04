@@ -1,11 +1,13 @@
 describe('🇬🇧 ⚙️ 🆕 UK- version v2 api Quotas , P&R to be availabe ',function() {
 
     //----Quotas to be available for UK version  -----
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
-     //   Cypress.config('baseUrl','https://www.trade-tariff.service.gov.uk')
+  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
 
     it('1.Quotas:046 Tariff quota/ceiling - available', function () {
-        cy.request('/api/v2/commodities/6301909021#import.json')
+   //     cy.request('/api/v2/commodities/6301909021#import.json')
+        cy.request('/api/v2/commodities/1006209600#import.json')
+
             .then((response) => {
                 let measure_types = response.body.included
                 let found = false

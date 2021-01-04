@@ -1,7 +1,7 @@
 describe('🇬🇧 💡 🆕 Validating page titles tags - meta data -UK', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
-
+ //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
     it('Landing Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK', function () {
         cy.visit('/sections')
         cy.log(cy.title())

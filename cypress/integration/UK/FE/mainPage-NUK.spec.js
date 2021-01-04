@@ -1,6 +1,7 @@
 describe('🇬🇧 💡 🆕 Main Page - headers ,sections  - (UK version)',function() {
     //--- Headings to be changed for UK -------------
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
+  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
 
     //Page Title
     it('UK - Header text - sections page', function () {
@@ -16,7 +17,7 @@ describe('🇬🇧 💡 🆕 Main Page - headers ,sections  - (UK version)',func
     it('UK - Check correct date is displayed',function(){
         cy.visit('/sections')
         cy.get('.govuk-grid-column-full')
-            .contains(Cypress.moment().format('DD MMMM YYYY'))
+            .contains(Cypress.moment().format('D MMMM YYYY'))
     })
     //Sub sections in headings
     it('UK - Header text - Sub sections on headings banner ', function () {

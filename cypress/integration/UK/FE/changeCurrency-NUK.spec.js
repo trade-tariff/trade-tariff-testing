@@ -1,6 +1,7 @@
 describe('🇬🇧 💡 🆕  Change Currency should not be visible  - New UK services)',function() {
     //--- HOTT-161 ---
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
+  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
     it('🆕 UK - Change Currency should not be visible on main page - The Online Trade Tariff', function () {
         cy.visit('/sections')
         cy.get('.govuk-grid-row')

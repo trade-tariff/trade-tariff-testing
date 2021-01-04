@@ -1,7 +1,7 @@
 describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK ',function() {
 //  HOTT-192
-    Cypress.config('baseUrl', Cypress.config('services')['uk'])
-
+  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    Cypress.config('baseUrl')
 
     it('🆕 UK - Terms and Conditions -UK',function(){
         cy.visit('/sections')
