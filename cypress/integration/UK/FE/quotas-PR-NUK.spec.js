@@ -104,7 +104,7 @@ describe(' 🇬🇧 💡 🆕 Quotas , P&R to be available for UK service ',func
 
     it('18.P&R:PRE Home Office Pre-cursor chemicals', function () {
         cy.visit('/commodities/2915240000#export')
-        cy.reload()
+       // cy.reload()
         cy.get('.govuk-tabs__panel')
             .contains('Home Office Pre-cursor chemicals').should('exist')
     })
