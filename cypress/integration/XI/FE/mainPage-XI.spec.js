@@ -28,7 +28,7 @@ describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function
         cy.contains('Forum').should('not.exist')
     })
 
-    it('XI - Check correct date is displayed',function(){
+    it.skip('XI - Check correct date is displayed',function(){
         cy.visit('/sections')
         cy.get('.govuk-grid-column-full')
             .contains(Cypress.moment().format('DD MMMM YYYY'))

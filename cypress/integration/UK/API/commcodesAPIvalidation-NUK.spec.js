@@ -12,6 +12,8 @@ context('🇬🇧 ⚙ 🆕 UK -Validate API response for commodities on V1 and V
                     url: `/api/v2/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
+                    console.log(JSON.stringify(fixture))
+                    console.log(JSON.stringify(response.body))
                     console.log(fixture)
                     expect(response.body).to.deep.equal(fixture)
                 })
@@ -30,6 +32,8 @@ context('🇬🇧 ⚙ 🆕 UK -Validate API response for commodities on V1 and V
                     url: `/api/v1/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
+                    console.log(JSON.stringify(fixture))
+                    console.log(JSON.stringify(response.body))
                     console.log(fixture)
                     expect(response.body).to.deep.equal(fixture)
                 })

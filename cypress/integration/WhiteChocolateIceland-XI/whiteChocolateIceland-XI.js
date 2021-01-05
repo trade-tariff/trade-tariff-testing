@@ -1,6 +1,6 @@
 
   Given('i am on Trade Tariff main page', () => {
-    cy.visit('https://dev.trade-tariff.service.gov.uk/xi/sections')
+    cy.visit('https://www.trade-tariff.service.gov.uk/xi/sections')
   })
   When('i enter commodity code 1704903000 in search tariff box', () => {
     cy.get('.js-commodity-picker-select.js-show  input#q').click().type('1704903000')
@@ -38,10 +38,12 @@
     })
 
   Then('VAT rates are displayed',()=>{
-    cy.get('#measure--597452')
+    cy.get('.VTS')
+   // cy.get('#measure--597452')
     cy.contains('VAT standard rate')
     cy.contains('20.00 %')
-    cy.get('#measure--597453')
+    cy.get('.VTZ')
+   // cy.get('#measure--597453')
     cy.contains('VAT zero rate')
     cy.contains('0.00 %')
   })

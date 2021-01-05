@@ -1,6 +1,6 @@
-describe(' 🇪🇺 💡 New ,Terminated comm codes from 1st Jan 2021',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-   // Cypress.config('baseUrl')
+describe(' 🇬🇧 💡 New ,Terminated comm codes from 1st Jan 2021',function() {
+   // Cypress.config('baseUrl', Cypress.config('services')['xi'])
+    Cypress.config('baseUrl')
 
 
     it('Terminated comm codes from 01 Jan 2021', function () {
