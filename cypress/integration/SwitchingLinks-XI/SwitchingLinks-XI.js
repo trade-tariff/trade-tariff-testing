@@ -1,5 +1,5 @@
     Given('I am on XI Trade Tariff main page',()=>{
-        cy.visit('https://dev.trade-tariff.service.gov.uk/xi/sections')
+        cy.visit('https://www.trade-tariff.service.gov.uk/xi/sections')
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
         cy.get('.tariff-breadcrumbs')

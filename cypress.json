@@ -33,7 +33,7 @@
     "0303541095"
   ],
 
-  "fixtures_timestamp": "2021-01-01",
+  "fixtures_timestamp": "2020-12-29",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "mochawesome",

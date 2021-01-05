@@ -104,7 +104,10 @@ describe('🇪🇺 💡 Quotas , P&R to be suppressed for XI version',function()
     //export
     it('18.P&R:PRE Home Office Pre-cursor chemicals', function () {
         cy.visit('/commodities/2915240000#export')
+
+        cy.request()
         cy.reload()
+        cy.wait(1000)
         cy.get('.govuk-tabs__panel')
         cy.contains('Home Office Pre-cursor chemicals').should('not.exist')
     })
