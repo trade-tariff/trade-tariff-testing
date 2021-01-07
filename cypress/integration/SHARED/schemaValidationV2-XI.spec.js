@@ -1,6 +1,6 @@
 describe('Basic API checks', () => {
     it('Should return a valid health payload', function () {
-        cy.request('/api/v2/commodities/').then($response => {
+        cy.request('/api/v2/commodities/7202118000').then($response => {
 
             cy.task('validateJsonSchema', {
                 data:           $response.body,

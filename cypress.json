@@ -14,12 +14,11 @@
     "1905319100",
     "0702000007",
     "2203001000",
-    "2710124900",
     "8406810000",
     "2402100000",
     "1704903000",
     "1704907100",
-    "2206001100"
+    "2206001000"
   ],
   "termcodes": [
     "0302910095",
@@ -32,7 +31,7 @@
     "0303541095"
   ],
 
-  "fixtures_timestamp": "2020-12-29",
+  "fixtures_timestamp": "2021-01-07",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "mochawesome",
