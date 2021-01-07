@@ -1,0 +1,20 @@
+name: "E2E Test"
+on: [workflow_dispatch]
+#on: [push]
+jobs:
+  cypress-run:
+    name: E2E on Chrome
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: TransformCore/trade-tariff-testing
+          ref: refs/heads/main
+      - uses: cypress-io/github-action@v2
+        with:
+          quiet: false
+          browser: chrome
+          headless: true
+          spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
