@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@jc21/cypress-jsonschema-validation": "^0.0.1",
     "ansi-styles": "^5.0.0"
   },
   "devDependencies": {
@@ -27,8 +28,8 @@
     "posttests": "npm run combine-reports && npm run generate-report",
     "tests": "npm run pretests && (npm run alltests || npm run posttests)",
     "legalbasetests": "npx cypress run --spec \"*/**/legalBaseColumn-XI.spec.js\",\"*/**/legalBaseColumn-UK.spec.js\",\"*/**/legalBaseV1api-XI.spec.js\",\"*/**/legalBaseV1api-UK.spec.js\",\"*/**/legalBaseV2api-XI.spec.js\",\"*/**/legalBaseV2api-UK.spec.js\"",
-     "xitests":"npx cypress run --spec \"/*/**/XI/**/*spec.js\"",
-     "uktests":"npx cypress run --spec \"/*/**/UK/**/*spec.js\""
+    "xitests": "npx cypress run --spec \"/*/**/XI/**/*spec.js\"",
+    "uktests": "npx cypress run --spec \"/*/**/UK/**/*spec.js\""
   },
   "repository": {
     "type": "git",
@@ -44,5 +45,4 @@
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
   }
-
 }
