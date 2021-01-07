@@ -42,19 +42,6 @@ describe(' 🇬🇧 💡 New ,Terminated comm codes from 1st Jan 2021',function(
 })
 
 
-/*
-"termcodes": [
-    "0302910095",
-    "0303541090",
-    "0303919091"
-
-  "newcodes": [
-    "0302910096",
-    "0303398580",
-    "0303541095"
-  ]
- */
-
 
 
 
