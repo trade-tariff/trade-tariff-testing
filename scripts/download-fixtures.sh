@@ -6,6 +6,10 @@ set -o nounset
 set -o pipefail
 set -o noclobber
 
+
+BASE_URL="https://staging.trade-tariff.service.gov.uk"
+COMM_CODES="7202118000 0201100021 0406103010 8518400010 8708701080 6907220000 1905319100 0702000007 2203001000 8406810000 2402100000 1704903000 1704907100 2206001000"
+
 # This script enables a user to download fixture data for the commodities referenced in the COMM_CODES variables below
 # You can set the BASE_URL variable to download the fixtures from a specified trade-tariff backend
 # Currently the script is configured to enable downloading both V1 and V2 api json payloads.
@@ -18,8 +22,6 @@ set -o noclobber
 # Or you can invoke the script without specifying a date and it will download today's commodities
 # $ script/download-fixtures.sh
 
-BASE_URL="https://dev.trade-tariff.service.gov.uk"
-COMM_CODES="7202118000 0201100021 0406103010 8518400010 8708701080 1905319100 0702000007 2710124900 8406810000 2402100000 1704903000 1704907100 2206001000"
 
 if [ $# -ge 1 ]; then
         DATE="$1"
