@@ -28,15 +28,8 @@ Running specific file   :npx cypress run --spec "/file path/filename.js"
 Running all files       :npx cypress run ( runs all files in Integration folder)
 Running smoke tests     :npm run smoketests
 Running specific folder :npx cypress run --spec "/*/**/XI/**/*spec.js"
-                        :npx cypress run --spec "/*/**/UK-New/**/*spec.js"
-                        :npx cypress run --spec "/*/**/UK-Old/**/*spec.js"
-```
+                        :npx cypress run --spec "/*/**/UK/**/*spec.js"
+                
 
 **TO DO**
 
-After Jan 1st 2021:
-
-- Change all switchlink tests in features once switch is activated
-  switchingLink-forum-XI.spec.js - all 3 services  
-  smokeTest-XI.spec.js - all 3 services  
-  
