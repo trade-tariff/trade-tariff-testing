@@ -168,7 +168,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
     it.skip('🆕 UK Certificate Search : P - Ingredients', function(){
 
     })
-    it.skip('🆕 UK Certificate Search :R - Export refunds', function(){
+    it.skip('🆕 UK Certificate Search : R - Export refunds', function(){
 
     })
     it.skip('🆕 UK Certificate Search : T - T-Document', function(){
