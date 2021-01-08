@@ -1,5 +1,5 @@
 describe('🇪🇺 💡  Certificate Search - XI services)',function() {
-    Cypress.config('baseUrl')
+    Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     it('XI Certificate Search : 9 - National Document', function(){
         cy.visit('/certificate_search')
