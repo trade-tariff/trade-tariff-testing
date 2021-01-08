@@ -168,7 +168,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
     it.skip('XI Certificate Search : P - Ingredients', function(){
 
     })
-    it.skip('XI Certificate Search :R - Export refunds', function(){
+    it.skip('XI Certificate Search : R - Export refunds', function(){
 
     })
     it.skip('XI Certificate Search : T - T-Document', function(){

@@ -275,7 +275,7 @@ describe('🇪🇺  ⚙️ XI-version v1 api Quotas , P&R suppression  ',functio
 
     })
     //export
-    it('18.P&R:PRE Home Office Pre-cursor chemicals - suppressed', function () {
+    it.skip('18.P&R:PRE Home Office Pre-cursor chemicals - suppressed', function () {
         cy.request('/api/v1/commodities/2915240000#export').then((response) => {
             let measure_types = response.body.export_measures
             let found = false
