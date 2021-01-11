@@ -67,7 +67,23 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
     })
 
     it.skip('🆕 UK Certificate Search : D - Anti-dumping/countervailing document', function(){
-
+        cy.visit('/certificate_search')
+        cy.contains('Search by Certificate')
+        let dcerts_ids = ["005", "008", "017"]
+        for (let i = 0; i < dcerts_ids.length; i++) {
+            //select type of certificate from drop down menu
+            cy.get('select#type').select('D - Anti-dumping/countervailing document')
+            cy.get('input#code')
+                .clear()
+                .type(`${dcerts_ids[i]}`)
+            cy.wait(1000)
+            cy.get('form#new_search > input[name=\'new_search\']').click()
+            // check it contains relevant certificate information as requested
+            cy.get('.govuk-heading-l')
+                .contains('Certificate search results')
+            cy.get('.govuk-table')
+            cy.contains(`${dcerts_ids[i]}`)
+        }
 
     })
     it('🆕 UK Certificate Search : E - Export certificate/licence/document from country of origin', function(){
@@ -91,7 +107,15 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it.skip('🆕 UK Certificate Search : H - HANDI, LOOMS certificate', function(){
+    it('🆕 UK Certificate Search : H - HANDI, LOOMS certificate', function(){
+        cy.visit('/certificate_search')
+        cy.contains('Search by Certificate')
+        cy.get('select#type').select('H - HANDI, LOOMS certificate')
+        cy.wait(1000)
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+
+        cy.get('.govuk-heading-l')
+        cy.contains('There are no matching results')
 
     })
 
@@ -115,7 +139,15 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         }
     })
 
-    it.skip('🆕 UK Certificate Search : K - Tariff quota', function(){
+    it('🆕 UK Certificate Search : K - Tariff quota', function(){
+        cy.visit('/certificate_search')
+        cy.contains('Search by Certificate')
+        cy.get('select#type').select('K - Tariff quota')
+        cy.wait(1000)
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+
+        cy.get('.govuk-heading-l')
+        cy.contains('There are no matching results')
 
     })
 
@@ -165,13 +197,37 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it.skip('🆕 UK Certificate Search : P - Ingredients', function(){
+    it('🆕 UK Certificate Search : P - Ingredients', function(){
+        cy.visit('/certificate_search')
+        cy.contains('Search by Certificate')
+        cy.get('select#type').select('P - Ingredients')
+        cy.wait(1000)
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+
+        cy.get('.govuk-heading-l')
+        cy.contains('There are no matching results')
 
     })
-    it.skip('🆕 UK Certificate Search : R - Export refunds', function(){
+    it('🆕 UK Certificate Search : R - Export refunds', function(){
+        cy.visit('/certificate_search')
+        cy.contains('Search by Certificate')
+        cy.get('select#type').select('R - Export refunds')
+        cy.wait(1000)
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+
+        cy.get('.govuk-heading-l')
+        cy.contains('There are no matching results')
 
     })
-    it.skip('🆕 UK Certificate Search : T - T-Document', function(){
+    it('🆕 UK Certificate Search : T - T-Document', function(){
+        cy.visit('/certificate_search')
+        cy.contains('Search by Certificate')
+        cy.get('select#type').select('T - T-Document')
+        cy.wait(1000)
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+
+        cy.get('.govuk-heading-l')
+        cy.contains('There are no matching results')
 
     })
     it('🆕 UK Certificate Search : U - Proofs of origin', function(){
@@ -220,7 +276,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
-        let ycerts_ids = ["Y036","Y058","Y072","Y073","Y076","Y077","Y078","Y079","Y929","Y930","Y945","Y946","Y999"]
+        let ycerts_ids = ["Y036","Y058","Y072","Y073","Y076","Y077","Y078","Y079","Y929","Y930","Y945","Y946","999"]
 
         for (let i = 0; i < ycerts_ids.length; i++) {
             //select type of certificate from drop down menu
@@ -240,7 +296,15 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it.skip('🆕 UK Certificate Search : Z - More certificates', function(){
+    it('🆕 UK Certificate Search : Z - More certificates', function(){
+        cy.visit('/certificate_search')
+        cy.contains('Search by Certificate')
+        cy.get('select#type').select('Z - More certificates')
+        cy.wait(1000)
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+
+        cy.get('.govuk-heading-l')
+        cy.contains('There are no matching results')
 
     })
 
