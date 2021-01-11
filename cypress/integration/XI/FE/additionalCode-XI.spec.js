@@ -65,7 +65,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         }
     })
 
-    it(' XI Additional Code Search :  6 - Agricultural Tables (non-Meursing)', function () {
+    it(' XI Additional Code Search : 6 - Agricultural Tables (non-Meursing)', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -80,7 +80,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
 
     })
 
-    it(' XI Additional Code Search :7 - Agricultural Tables (Meursing)', function () {
+    it(' XI Additional Code Search : 7 - Agricultural Tables (Meursing)', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -116,7 +116,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         }
     })
 
-    it(' XI Additional Code Search :9 - Export Refunds', function () {
+    it(' XI Additional Code Search : 9 - Export Refunds', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -200,7 +200,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
     })
 
 
-    it(' XI Additional Code Search :D - Dual Use', function () {
+    it(' XI Additional Code Search : D - Dual Use', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -216,7 +216,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
     })
 
 
-    it(' XI Additional Code Search :F - Reference prices fishery products', function () {
+    it(' XI Additional Code Search : F - Reference prices fishery products', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -231,7 +231,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
 
     })
 
-    it(' XI Additional Code Search :P - Refund for basic products', function () {
+    it(' XI Additional Code Search : P - Refund for basic products', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
