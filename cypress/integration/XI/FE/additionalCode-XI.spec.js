@@ -1,5 +1,5 @@
 describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
-    Cypress.config('baseUrl')
+    Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     it(' XI Additional Code Search : 2 - Tariff preference', function () {
         cy.visit('/additional_code_search')

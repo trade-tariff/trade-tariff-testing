@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 🆕 Check specific quota order details',function(){
+describe('🇬🇧 💡 Check specific quota order details',function(){
     Cypress.config('baseUrl')
 
     it('1.New UK quota numbers post 1 Jan 2021 -054xxx Licensed', function () {

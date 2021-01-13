@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 🆕 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
+describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
  //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 

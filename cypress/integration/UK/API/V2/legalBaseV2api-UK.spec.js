@@ -1,4 +1,4 @@
-describe('🇬🇧 ⚙  🆕 UK version v2 api - legal base should be present in the API response backend API',function() {
+describe('🇬🇧 ⚙  UK version v2 api - legal base should be present in the API response backend API',function() {
 
  //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')

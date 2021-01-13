@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() {
+describe('🇬🇧 💡 Additional Code Search - UK services)',function() {
     Cypress.config('baseUrl')
 
     it('🆕 UK Additional Code Search : 2 - Tariff preference', function () {
@@ -22,7 +22,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
 
         }
     })
-    it('🆕 UK Additional Code Search : 3 - Prohibition/Restriction/Surveillance', function () {
+    it('UK Additional Code Search : 3 - Prohibition/Restriction/Surveillance', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -43,7 +43,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
 
         }
     })
-    it('🆕 UK Additional Code Search : 4 - Restrictions', function () {
+    it('UK Additional Code Search : 4 - Restrictions', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -65,7 +65,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
         }
     })
 
-    it('🆕 UK Additional Code Search : 6 - Agricultural Tables (non-Meursing)', function () {
+    it('UK Additional Code Search : 6 - Agricultural Tables (non-Meursing)', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -80,7 +80,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
 
     })
 
-    it('🆕 UK Additional Code Search : 7 - Agricultural Tables (Meursing)', function () {
+    it('UK Additional Code Search : 7 - Agricultural Tables (Meursing)', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -94,7 +94,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
             .contains('There are no matching results')
 
     })
-    it('🆕 UK Additional Code Search : 8 - Anti-dumping/countervailing', function () {
+    it('UK Additional Code Search : 8 - Anti-dumping/countervailing', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -116,7 +116,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
         }
     })
 
-    it('🆕 UK Additional Code Search : 9 - Export Refunds', function () {
+    it('UK Additional Code Search : 9 - Export Refunds', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -132,7 +132,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
     })
 
 
-    it('🆕 UK Additional Code Search : A - Anti-dumping/countervailing', function () {
+    it('UK Additional Code Search : A - Anti-dumping/countervailing', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -155,7 +155,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
     })
 
 
-    it('🆕 UK Additional Code Search : B - Anti-dumping/countervailing', function () {
+    it('UK Additional Code Search : B - Anti-dumping/countervailing', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -177,7 +177,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
         }
     })
 
-    it('🆕 UK Additional Code Search : C - Anti-dumping/countervailing', function () {
+    it('UK Additional Code Search : C - Anti-dumping/countervailing', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -200,7 +200,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
     })
 
 
-    it('🆕 UK Additional Code Search : D - Dual Use', function () {
+    it('UK Additional Code Search : D - Dual Use', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -216,7 +216,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
     })
 
 
-    it('🆕 UK Additional Code Search : F - Reference prices fishery products', function () {
+    it('UK Additional Code Search : F - Reference prices fishery products', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -231,7 +231,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
 
     })
 
-    it('🆕 UK Additional Code Search : P - Refund for basic products', function () {
+    it('UK Additional Code Search : P - Refund for basic products', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -246,7 +246,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
 
     })
 
-    it.skip('🆕 UK Additional Code Search : V - VAT', function () {
+    it.skip(' UK Additional Code Search : V - VAT', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
@@ -256,7 +256,7 @@ describe('🇬🇧 💡 🆕  Additional Code Search - UK services)',function() 
         cy.get('form#new_search > input[name=\'new_search\']').click()
 
     })
-    it.skip('🆕 UK Additional Code Search : X - EXCISE', function () {
+    it.skip('UK Additional Code Search : X - EXCISE', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')
 
