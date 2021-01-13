@@ -1,4 +1,4 @@
-describe('🚀  🆕  UK 🇬🇧 💡 - smoke test to cover basic functionality on UK services ',function() {
+describe('🚀  UK 🇬🇧 💡 - smoke test to cover basic functionality on UK services ',function() {
     // Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 

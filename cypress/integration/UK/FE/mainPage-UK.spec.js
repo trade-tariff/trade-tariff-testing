@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 🆕 Main Page - headers ,sections  - (UK version)',function() {
+describe('🇬🇧 💡 Main Page - headers ,sections  - (UK version)',function() {
     //--- Headings to be changed for UK -------------
   //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')

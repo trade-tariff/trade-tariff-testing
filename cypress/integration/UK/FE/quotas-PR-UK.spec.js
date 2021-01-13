@@ -1,4 +1,4 @@
-describe(' 🇬🇧 💡 🆕 Quotas , P&R to be available for UK service ',function() {
+describe(' 🇬🇧 💡 Quotas , P&R to be available for UK service ',function() {
 
  //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')

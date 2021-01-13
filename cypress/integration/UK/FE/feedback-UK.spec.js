@@ -1,8 +1,8 @@
-describe('🇬🇧 💡 🆕 feedback link is available and user is able to send feedback)',function() {
+describe('🇬🇧 💡 feedback link is available and user is able to send feedback)',function() {
 
     Cypress.config('baseUrl')
 
-    it('🆕 UK - All pages- Feedback link available  ', function () {
+    it('UK - All pages- Feedback link available  ', function () {
 
         let pages = ['/sections/1', '/chapters/01', '/headings/0101','/commodities/0101210000',]
 
@@ -13,7 +13,7 @@ describe('🇬🇧 💡 🆕 feedback link is available and user is able to send
         }
     })
 
-    it('🆕 UK - Feedback link works ', function () {
+    it('UK - Feedback link works ', function () {
         cy.visit('/sections')
         cy.get('.govuk-footer__navigation')
         cy.contains('Feedback')
@@ -33,7 +33,7 @@ describe('🇬🇧 💡 🆕 feedback link is available and user is able to send
 
 
     })
-    it('🆕 UK - The UK has left the EU',function(){
+    it('UK - The UK has left the EU',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__row')
         cy.contains('The UK has left the EU')

@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 🆕 - Select Commodities and measure details ',function() {
+describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
    // Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
     it('Ferro-alloy Third country duty should be ad valorem 0.0% (known from the UK Global Tariff)\n' +

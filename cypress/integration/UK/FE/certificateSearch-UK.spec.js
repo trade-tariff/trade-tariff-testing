@@ -1,7 +1,7 @@
-describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() {
+describe('🇬🇧 💡   Certificate Search - UK services)',function() {
     Cypress.config('baseUrl')
 
-    it('🆕 UK Certificate Search : 9 - National Document', function(){
+    it(' UK Certificate Search : 9 - National Document', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -23,7 +23,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         }
     })
 
-    it('🆕 UK Certificate Search : A - Certificate of authenticity', function(){
+    it(' UK Certificate Search : A - Certificate of authenticity', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -46,7 +46,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it('🆕 UK Certificate Search : C - Other certificates', function(){
+    it(' UK Certificate Search : C - Other certificates', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         let ccerts_ids = ["C014", "C015", "C017", "C018", "C052", "C084", "C644", "C652"]
@@ -66,7 +66,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         }
     })
 
-    it.skip('🆕 UK Certificate Search : D - Anti-dumping/countervailing document', function(){
+    it(' UK Certificate Search : D - Anti-dumping/countervailing document', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         let dcerts_ids = ["005", "008", "017"]
@@ -86,7 +86,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         }
 
     })
-    it('🆕 UK Certificate Search : E - Export certificate/licence/document from country of origin', function(){
+    it(' UK Certificate Search : E - Export certificate/licence/document from country of origin', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         let ecerts_ids = ["012", "013", "990"]
@@ -107,7 +107,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it('🆕 UK Certificate Search : H - HANDI, LOOMS certificate', function(){
+    it(' UK Certificate Search : H - HANDI, LOOMS certificate', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         cy.get('select#type').select('H - HANDI, LOOMS certificate')
@@ -119,7 +119,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it('🆕 UK Certificate Search :I - Surveillance certificate/licence/ document issued by one of the Member States', function(){
+    it(' UK Certificate Search :I - Surveillance certificate/licence/ document issued by one of the Member States', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         let icerts_ids = ["004"]
@@ -139,7 +139,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         }
     })
 
-    it('🆕 UK Certificate Search : K - Tariff quota', function(){
+    it(' UK Certificate Search : K - Tariff quota', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         cy.get('select#type').select('K - Tariff quota')
@@ -151,7 +151,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it('🆕 UK Certificate Search : L - Import certificate/licence/document', function(){
+    it(' UK Certificate Search : L - Import certificate/licence/document', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -174,7 +174,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it('🆕 UK Certificate Search : N - UN/EDIFACT certificates', function(){
+    it(' UK Certificate Search : N - UN/EDIFACT certificates', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -197,7 +197,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it('🆕 UK Certificate Search : P - Ingredients', function(){
+    it(' UK Certificate Search : P - Ingredients', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         cy.get('select#type').select('P - Ingredients')
@@ -208,7 +208,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         cy.contains('There are no matching results')
 
     })
-    it('🆕 UK Certificate Search : R - Export refunds', function(){
+    it(' UK Certificate Search : R - Export refunds', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         cy.get('select#type').select('R - Export refunds')
@@ -219,7 +219,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         cy.contains('There are no matching results')
 
     })
-    it('🆕 UK Certificate Search : T - T-Document', function(){
+    it(' UK Certificate Search : T - T-Document', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         cy.get('select#type').select('T - T-Document')
@@ -230,7 +230,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         cy.contains('There are no matching results')
 
     })
-    it('🆕 UK Certificate Search : U - Proofs of origin', function(){
+    it(' UK Certificate Search : U - Proofs of origin', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -251,7 +251,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         }
 
     })
-    it('🆕 UK Certificate Search : X - Export licence', function(){
+    it(' UK Certificate Search : X - Export licence', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -272,11 +272,11 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
         }
     })
 
-    it('🆕 UK Certificate Search : Y - Particular provisions', function () {
+    it(' UK Certificate Search : Y - Particular provisions', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
-        let ycerts_ids = ["Y036","Y058","Y072","Y073","Y076","Y077","Y078","Y079","Y929","Y930","Y945","Y946","999"]
+        let ycerts_ids = ["036","058","072","073","076","077","078","079","929","930","945","946","999"]
 
         for (let i = 0; i < ycerts_ids.length; i++) {
             //select type of certificate from drop down menu
@@ -296,7 +296,7 @@ describe('🇬🇧 💡 🆕  Certificate Search - New UK services)',function() 
 
     })
 
-    it('🆕 UK Certificate Search : Z - More certificates', function(){
+    it(' UK Certificate Search : Z - More certificates', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         cy.get('select#type').select('Z - More certificates')

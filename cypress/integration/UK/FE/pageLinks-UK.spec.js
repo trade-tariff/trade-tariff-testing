@@ -1,9 +1,9 @@
-describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK ',function() {
+describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',function() {
 //  HOTT-192
   //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
-    it('🆕 UK - Terms and Conditions -UK',function(){
+    it('UK - Terms and Conditions -UK',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
             .contains('Terms and conditions').click()
@@ -11,7 +11,7 @@ describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK 
         cy.get('.govuk-main-wrapper')
             .contains('Terms and conditions')
     })
-    it('🆕 UK- Terms and Conditions - New Content',function(){
+    it('UK- Terms and Conditions - New Content',function(){
         cy.visit('/terms?day=1&month=1&year=2021')
         cy.get('.govuk-main-wrapper')
         cy.contains('Trade Tariff users should be aware that in any case where information in the UK Trade Tariff is at variance with that contained in the appropriate legislation, the latter will represent the correct legal position.')
@@ -21,7 +21,7 @@ describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK 
     })
 
 
-    it('🆕 UK - Cookies-navigates to right UK page ',function(){
+    it('UK - Cookies-navigates to right UK page ',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
             .contains('Cookies').click()
@@ -30,7 +30,7 @@ describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK 
             .contains('Cookies')
 
     })
-    it('🆕 UK - Privacy -navigates to right UK page',function(){
+    it('UK - Privacy -navigates to right UK page',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link')
             .contains('Privacy').click()
@@ -39,7 +39,7 @@ describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK 
 
     })
     //HOTT-166
-    it('🆕 UK - List of supplementary units and their descriptions in imports to be HIDDEN',function(){
+    it('UK - List of supplementary units and their descriptions in imports to be HIDDEN',function(){
         cy.visit('/commodities/9702000010?currency=EUR#import')
         cy.get('.govuk-tabs__panel')
             .contains('What are the main types of tariffs and charges').click()
@@ -48,7 +48,7 @@ describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK 
             .contains('Check a list of supplementary units and their descriptions').should('not.exist')
 
     })
-    it('🆕 UK - List of supplementary units and their descriptions in exports to be HIDDEN',function(){
+    it('UK - List of supplementary units and their descriptions in exports to be HIDDEN',function(){
         cy.visit('/commodities/9702000010?currency=EUR#export')
         cy.get('span#details-export-heading')
             .contains('What are the main types of tariffs and charges').click()
@@ -57,7 +57,7 @@ describe(' 🇬🇧 💡 🆕 Terms and Conditions, Cookies ,Privacy links - UK 
             .click()
             .contains('Check a list of supplementary units and their descriptions').should('not.exist')
     })
-    it('🆕 UK- Links to Previous and Next Commodity - available',function(){
+    it('UK- Links to Previous and Next Commodity - available',function(){
         cy.visit('/commodities/2801200000')
         //page contains commodity information
         cy.contains('Commodity information for 2801200000')

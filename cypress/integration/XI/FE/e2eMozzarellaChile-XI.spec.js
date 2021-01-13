@@ -9,6 +9,8 @@ describe('🇪🇺 💡 🧀 importing Mozzarella from Chile ',function() {
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(1000)
         cy.get('input[name=\'new_search\']').click()
+        cy.wait(1000)
+        cy.log(cy.title())
         cy.title().should('contains','0406103010')
     })
     it('Commodity information for 0406103010 is displayed',function(){

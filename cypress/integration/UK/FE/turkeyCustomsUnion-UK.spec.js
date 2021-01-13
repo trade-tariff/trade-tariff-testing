@@ -1,4 +1,4 @@
-describe('🇬🇧💡 🆕 🇹🇷 Turkey Customs Union runs from 01 Jan 2021 - 19th Jan 2021',function(){
+describe('🇬🇧💡 🇹🇷 Turkey Customs Union runs from 01 Jan 2021 - 19th Jan 2021',function(){
   //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
     it('🆕 🇹🇷Turkey Customs Union Duty between 01/01/2021 -19/01/2021 available',function(){
