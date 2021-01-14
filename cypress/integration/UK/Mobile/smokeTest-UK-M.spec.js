@@ -175,7 +175,7 @@ describe('🚀  🆕  UK 🇬🇧 💡 - smoke test to cover basic functionality
         cy.get('.close [href]').click()
     })
 
-    it('🚀 UK quota numbers post 1 Jan 2021 -052xxx Non-Licensed', function () {
+    it.skip('🚀 UK quota numbers post 1 Jan 2021 -052xxx Non-Licensed', function () {
         cy.viewport('iphone-x')
         cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
         cy.get('.govuk-tabs__panel')
@@ -184,6 +184,17 @@ describe('🚀  🆕  UK 🇬🇧 💡 - smoke test to cover basic functionality
         cy.contains('052201').click()
         cy.get('.tariff-info')
             .contains('Order number 052201')
+        cy.get('.close [href]').click()
+
+    })
+    it('🚀 UK quota numbers post 1 Jan 2021 -057xxx Non-Licensed', function () {
+        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
+        cy.get('.govuk-tabs__panel')
+        cy.contains('Preferential tariff quota')
+        cy.get('.table-line')
+        cy.contains('057300').click()
+        cy.get('.tariff-info')
+            .contains('Order number 057300')
         cy.get('.close [href]').click()
     })
 })
