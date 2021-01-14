@@ -3,6 +3,7 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
   //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
+
     it('UK - Terms and Conditions -UK',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
@@ -82,5 +83,6 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.contains('Commodity information for 2801200000')
 
     })
+
 
 })
