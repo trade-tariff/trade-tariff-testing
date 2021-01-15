@@ -1,4 +1,4 @@
-describe('API schema validation', () => {
+describe.skip('API schema validation', () => {
     Cypress.config('baseUrl')
     it('Should return a valid payload and schema should match', function () {
         cy.request('/api/v2/commodities/7202118000').then($response => {

@@ -1,4 +1,4 @@
-describe(' 🍻 ***Test file***',function() {
+describe.skip(' 🍻 ***Test file***',function() {
     Cypress.config('baseUrl', 'https://dev.trade-tariff.service.gov.uk/xi')
 
     it('🍻🍻', function () {
