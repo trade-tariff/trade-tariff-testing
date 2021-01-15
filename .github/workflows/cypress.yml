@@ -1,4 +1,4 @@
-name: "E2E Test"
+name: "e2eTest"
 on: [workflow_dispatch]
 #on: [push]
 jobs:
