@@ -3,7 +3,7 @@ const data2 = require('../../Data/headings_02.json')
 
 context('Validating API response with previous response stored in Json file', () => {
 
-    it('V1 - Sections page', () => {
+    it.skip('V1 - Sections page', () => {
         cy.request({
             method: 'GET',
             url: `https://dev.trade-tariff.service.gov.uk/xi/api/v1/headings/5203#import`,
