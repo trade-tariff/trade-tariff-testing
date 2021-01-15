@@ -1,4 +1,4 @@
-describe('sections page content validation ',function() {
+describe.skip('sections page content validation ',function() {
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     it('search the tariff text/box visible',function(){

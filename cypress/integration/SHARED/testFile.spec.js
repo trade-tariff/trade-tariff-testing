@@ -1,13 +1,15 @@
 
-describe('🇬🇧 💡 Test File)',function() {
+describe.skip('🇬🇧 💡 Test File)',function() {
     Cypress.config('baseUrl')
 
 
     it.skip('GOV.UK Logo', function () {
         cy.visit('/sections')
     //    cy.get('.govuk-header__logotype-text')
-            cy.get('.govuk-header ')
-                cy.contains('GOV.UK').click()
+            cy.get('.govuk-header__logotype-text')
+                cy.wait(3000)
+                    .click()
+          //      cy.contains('GOV.UK').click()
          cy.wait(2000)
         cy.get('.get-started.group')
             .contains('Start now')
