@@ -1,20 +1,49 @@
-name: "E2E Test"
-#on: [workflow_dispatch]
-on: [push]
+name: "e2eTest"
+on: [workflow_dispatch]
+#on: [push]
 jobs:
   cypress-run:
-    name: E2E on Chrome
+    name: "smoke tests"
     runs-on: ubuntu-18.04
     strategy:
-      fail-fast: true
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
-        with:
-          repository: TransformCore/trade-tariff-testing
-          ref: refs/heads/main
+      - run: mkdir -p cypress/reports/mochareports
       - uses: cypress-io/github-action@v2
+        name: "XI smoke tests"
         with:
           quiet: false
           browser: chrome
           headless: true
-          spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-UK.spec.js"
+          spec: "*/**/smokeTest-XI.spec.js"
+      - uses: cypress-io/github-action@v2
+        name: "UK smoke tests"
+        with:
+          quiet: false
+          browser: chrome
+          headless: true
+          spec: "*/**/smokeTest-UK.spec.js"
+      - run: npm run posttests
+      - run: ls -l
+      - uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: ./cypress/reports/mochareports/
+      - run: |
+          DATE=$(date +%d-%m-%Y)
+          mkdir -p docs/$DATE
+          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
+          cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
+          git add docs .
+      - run: |
+           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
+           git config --local user.name "github-actions[bot]"
+           git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
+          force: true
+
