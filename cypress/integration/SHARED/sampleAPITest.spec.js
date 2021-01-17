@@ -1,5 +1,5 @@
-describe.skip(' 🍻 ***Test file***',function() {
-    Cypress.config('baseUrl', 'https://dev.trade-tariff.service.gov.uk/xi')
+describe(' 🍻 ***Test file***',function() {
+    Cypress.config('baseUrl')
 
     it('🍻🍻', function () {
         cy.request('/api/v1/commodities/0101210000.json')

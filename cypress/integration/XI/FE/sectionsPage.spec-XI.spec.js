@@ -1,12 +1,12 @@
-describe.skip('sections page content validation ',function() {
+describe('🇪🇺 💡 🔍 Sections page content validation ',function() {
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
-    it('search the tariff text/box visible',function(){
+    it('Search the tariff text/box visible',function(){
         cy.visit('/sections')
         cy.get('.govuk-label').should('be.visible')
         cy.get('.js-commodity-picker-select.js-show  input#q').should('be.visible')
     })
-    it('top menu section displayed ', function () {
+    it('Top menu section displayed ', function () {
         cy.url().should('include', 'sections', {timeout: 5000})
         cy.visit('/sections')
         cy.get('.govuk-header ')
@@ -21,7 +21,7 @@ describe.skip('sections page content validation ',function() {
         cy.contains('Exchange rates').should('not.exist')
         cy.contains('Forum').should('not.exist')
     })
-    it('all 21 sections titles displayed ', function () {
+    it('All 21 sections titles displayed ', function () {
         cy.url().should('include', 'sections', {timeout: 5000})
         cy.contains('All sections')
         cy.contains('Section title')
