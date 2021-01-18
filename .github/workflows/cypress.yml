@@ -1,6 +1,5 @@
 name: "e2eTest"
-on: [workflow_dispatch]
-#on: [push]
+on: [workflow_dispatch,push]
 jobs:
   cypress-run:
     name: "smoke tests"
