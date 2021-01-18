@@ -17,7 +17,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
         cy.contains('European Union (1013)')
         cy.contains('0.00 %')
     })
-    it('Bison Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Global Tariff) Duties are expressed in GBP',function(){
+    it('Bison 🦬 - Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Global Tariff) Duties are expressed in GBP',function(){
         cy.visit('/commodities/0201100021?day=8&month=1&year=2021#import')
             .contains('Commodity information for 0201100021')
         cy.get('.govuk-header__content')
