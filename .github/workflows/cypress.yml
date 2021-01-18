@@ -15,14 +15,14 @@ jobs:
           quiet: false
           browser: chrome
           headless: true
-          spec: "*/**/smokeTest-XI.spec.js"
+          spec: "/*/**/XI/**/*spec.js"
       - uses: cypress-io/github-action@v2
         name: "UK smoke tests"
         with:
           quiet: false
           browser: chrome
           headless: true
-          spec: "*/**/smokeTest-UK.spec.js"
+          spec: "/*/**/UK/**/*spec.js"
       - run: npm run posttests
       - run: ls -l
       - uses: actions/upload-artifact@v2
