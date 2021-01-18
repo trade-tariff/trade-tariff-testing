@@ -17,8 +17,6 @@ describe('🇬🇧 💡 Quotas)',function() {
         cy.contains('Open')
         cy.contains('Unit')
         cy.contains('Litre (l)')
-
-
         cy.get('.close [href]').click()
     })
 
@@ -40,4 +38,25 @@ describe('🇬🇧 💡 Quotas)',function() {
         cy.contains('Kilogram (kg)')
         cy.get('.close [href]').click()
     })
+    it('Quota information available - New Quota - Eastern and Southern Africa States ', function () {
+        cy.visit('/commodities/1604207094#import')
+        cy.get('.govuk-tabs__panel')
+        cy.contains('Preferential tariff quota')
+        cy.get('.table-line')
+        cy.contains('051618').click()
+        cy.get('.tariff-info').focus()
+            .contains('Order number 051618')
+        cy.contains('Balance')
+        cy.contains('6300.0')
+        cy.contains('Initial amount')
+        cy.contains('6300.0')
+        cy.contains('Status')
+        cy.contains('Open')
+        cy.contains('Unit')
+        cy.contains('Tonne (1000 kg)')
+        cy.get('.close [href]').click()
+    })
+
+
+
 })
