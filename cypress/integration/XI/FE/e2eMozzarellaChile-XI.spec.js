@@ -29,7 +29,7 @@ describe('🇪🇺 💡 🧀 importing Mozzarella from Chile ',function() {
     })
     it('Select Chile from All countries list',()=>{
         cy.get('input#import_search_country').click().clear().wait(1000)
-            .type('Chile').wait(1000)
+            .type('Chile').wait(3000)
             .type('{enter}')
         cy.wait(1000)
     })
