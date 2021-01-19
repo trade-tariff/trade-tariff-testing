@@ -1,4 +1,4 @@
-describe('🚀 🇪🇺 💡 XI - smoke test to cover basic functionality on XI services ',function() {
+describe('🚀 XI 🇪🇺 💡  - smoke test to cover basic functionality on XI services ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 

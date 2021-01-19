@@ -119,7 +119,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
 
     })
 
-    it('XI Certificate Search :I - Surveillance certificate/licence/ document issued by one of the Member States', function () {
+    it('XI Certificate Search : I - Surveillance certificate/licence/ document issued by one of the Member States', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         let icerts_ids = ["004"]

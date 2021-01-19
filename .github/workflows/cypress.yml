@@ -1,9 +1,8 @@
 name: "e2eTest"
-on: [workflow_dispatch]
-#on: [push]
+on: [workflow_dispatch,push]
 jobs:
   cypress-run:
-    name: "smoke tests"
+    name: "e2e tests UK and XI"
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -13,14 +12,14 @@ jobs:
       - uses: cypress-io/github-action@v2
         name: "XI smoke tests"
         with:
-          quiet: false
+          quiet: true
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js"
       - uses: cypress-io/github-action@v2
         name: "UK smoke tests"
         with:
-          quiet: false
+          quiet: true
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-UK.spec.js"
