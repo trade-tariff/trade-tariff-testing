@@ -15,7 +15,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "*/**/smokeTest-XI.spec.js",
+          spec: "*/**/smokeTest-XI.spec.js"
       - uses: cypress-io/github-action@v2
         name: "UK smoke tests"
         with:
