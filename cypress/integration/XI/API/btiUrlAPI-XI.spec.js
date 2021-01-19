@@ -4,7 +4,7 @@ context('🇪🇺 ⚙️ XI - Update bti URL on V1 and V2 ', () => {
     it('XI - Validate API response for V2', () => {
         cy.request({
             method: 'GET',
-            url: '/api/v2/commodities/0204501300'
+            url: '/api/v2/commodities/0202201011'
         }).then((response) => {
             expect(response.status).to.eq(200);
      //       console.log(JSON.stringify(response.body))
@@ -17,7 +17,7 @@ context('🇪🇺 ⚙️ XI - Update bti URL on V1 and V2 ', () => {
     it('XI - Validate API response for V1', () => {
         cy.request({
             method: 'GET',
-            url: '/api/v1/commodities/0204501300'
+            url: '/api/v1/commodities/0202201011'
         }).then((response) => {
             expect(response.status).to.eq(200);
             console.log(JSON.stringify(response.body))
