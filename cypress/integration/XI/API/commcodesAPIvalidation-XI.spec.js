@@ -12,8 +12,8 @@ context('🇪🇺 ⚙️ XI -Validate API response for commodities on V1 and V2 
                     url: `/api/v2/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
-                    console.log(JSON.stringify(fixture))
-                    console.log(JSON.stringify(response.body))
+              //      console.log(JSON.stringify(fixture))
+              //      console.log(JSON.stringify(response.body))
                     expect(response.body).to.deep.equal(fixture)
                 })
             })
@@ -29,7 +29,6 @@ context('🇪🇺 ⚙️ XI -Validate API response for commodities on V1 and V2 
             cy.log(`🇪🇺 ⚙️  for comm code ${commodity_ids[i]}`)
             cy.request(`./api/v2/commodities/${commodity_ids[i]}`).then($response => {
                 expect($response.status).to.eq(200)
-
                 cy.task('validateJsonSchema', {
                     data: $response.body,
                     verbose: true,
@@ -53,7 +52,7 @@ context('🇪🇺 ⚙️ XI -Validate API response for commodities on V1 and V2 
                     url: `/api/v1/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
-                    console.log(fixture)
+           //        console.log(fixture)
                     expect(response.body).to.deep.equal(fixture)
                 })
             })
