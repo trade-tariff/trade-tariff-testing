@@ -4,11 +4,6 @@ describe(' 🍻 ***Test file***',function() {
     it('🍻🍻', function () {
         cy.request('/api/v1/commodities/0101210000.json')
             .then((response) => {
-
-          //      expect(response.status).to.eq(200)
-           //     expect(response.body).not.to.be.null
-            //    expect(response.body.import_measures[29]).to.have.property('legal_acts')
-
                 let import_measures = response.body.import_measures
                 let found = false
                 for (let i = 0; i < import_measures.length; i++) {

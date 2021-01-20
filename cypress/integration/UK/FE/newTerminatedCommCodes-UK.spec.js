@@ -3,7 +3,7 @@ describe(' 🇬🇧 💡 New ,Terminated comm codes from 1st Jan 2021',function(
     Cypress.config('baseUrl')
 
 
-    it('Terminated comm codes from 01 Jan 2021', function () {
+    it.skip('Terminated comm codes from 01 Jan 2021', function () {
         let termcodes_ids = Cypress.config('termcodes');
 
         for (let i = 0; i < termcodes_ids.length; i++) {
@@ -31,7 +31,6 @@ describe(' 🇬🇧 💡 New ,Terminated comm codes from 1st Jan 2021',function(
             cy.wait(3000)
             cy.get('input[name=\'new_search\']').click()
 
-         //   cy.visit(`/commodities/${newcodes_ids[i]}`)
             cy.wait(2000)
             cy.reload()
             cy.contains(`Commodity information for ${newcodes_ids[i]}`)

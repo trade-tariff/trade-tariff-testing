@@ -49,7 +49,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
     it('XI Certificate Search : C - Other certificates', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
-        let ccerts_ids = ["C014", "C015", "C017", "C018", "C052", "C084", "C644", "C652"]
+        let ccerts_ids = ["C014", "C015", "C017", "C018", "C052"]
         for (let i = 0; i < ccerts_ids.length; i++) {
             //select type of certificate from drop down menu
             cy.get('select#type').select('C - Other certificates')
@@ -66,10 +66,10 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
         }
     })
 
-    it.skip('XI Certificate Search : D - Anti-dumping/countervailing document', function () {
+    it('XI Certificate Search : D - Anti-dumping/countervailing document', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
-        let dcerts_ids = ["005", "008", "017"]
+        let dcerts_ids = ["D005", "D017"]
         for (let i = 0; i < dcerts_ids.length; i++) {
             //select type of certificate from drop down menu
             cy.get('select#type').select('D - Anti-dumping/countervailing document')
@@ -78,6 +78,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
                 .type(`${dcerts_ids[i]}`)
             cy.wait(1000)
             cy.get('form#new_search > input[name=\'new_search\']').click()
+            cy.wait(17000)
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
                 .contains('Certificate search results')
@@ -178,7 +179,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
-        let ncerts_ids = ["002", "853", "865", "990", "954"]
+        let ncerts_ids = ["002", "853", "865", "954"]
         for (let i = 0; i < ncerts_ids.length; i++) {
             //select type of certificate from drop down menu
             cy.get('select#type').select('N - UN/EDIFACT certificates')
@@ -251,11 +252,11 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
         }
 
     })
-    it('XI Certificate Search : X - Export licence', function () {
+    it.only('XI Certificate Search : X - Export licence', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
-        let xcerts_ids = ["001", "018", "035"]
+        let xcerts_ids = ["X001", "X018", "X035"]
         for (let i = 0; i < xcerts_ids.length; i++) {
             //select type of certificate from drop down menu
             cy.get('select#type').select('X - Export licence')
