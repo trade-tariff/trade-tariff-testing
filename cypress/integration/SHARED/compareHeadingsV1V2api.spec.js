@@ -11,10 +11,10 @@ context('Validating API response with previous response stored in Json file', ()
             expect(response.status).to.eq(200)
             console.log(JSON.stringify(data1))
             console.log(JSON.stringify(response.body))
-            console.log(response)
-            console.log(data1)
+       //     console.log(response)
+       //     console.log(data1)
             expect(response.body).to.deep.equal(data1)
-
+``
             cy.task('validateJsonSchema', {
                 data:           $response.body,
                 verbose:        true,

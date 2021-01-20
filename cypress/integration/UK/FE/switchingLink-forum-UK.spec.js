@@ -8,7 +8,6 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
         cy.get('.govuk-header ')
         cy.contains('Forum').should('not.exist')
     })
-
     //--
     it('2.Sections Page - Switching link & text available,forum links removed', function () {
         cy.visit('/sections')
@@ -46,14 +45,11 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
         cy.go('back')
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
-
         //other sticky links removed
         cy.get('.govuk-template')
             .should('not.have.text', 'Get guidance on this product area:')
             .should('not.have.text', 'Classification of goods')
             .should('not.have.text', 'Discuss this chapter in the forums')
-
     })
     it('3.Chapters Page - switching link available,forum links removed', function () {
         cy.visit('/chapters/01')
@@ -66,7 +62,6 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -96,7 +91,6 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -105,7 +99,6 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
         //other sticky links removed
         cy.get('.govuk-template ')
             .should('not.have.text', 'Get guidance on this product area:')
@@ -118,15 +111,12 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -135,23 +125,18 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
-
     })
     it('6.Tools Page',function(){
         cy.visit('/tools')
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -160,22 +145,18 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
     })
     it('7.Quota Search Page',function(){
         cy.visit('/quota_search')
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -184,21 +165,18 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
     })
     it('8.Certificate Search Page',function(){
         cy.visit('/certificate_search')
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -207,21 +185,18 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
     })
     it('9.Additional Code Search Page',function(){
         cy.visit('/additional_code_search')
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -230,21 +205,18 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
     })
     it('10.Chemical Search Page',function(){
         cy.visit('/chemical_search')
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -253,21 +225,18 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
     })
     it('11.A-Z Page',function(){
         cy.visit('/a-z-index/a')
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
             .click()
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
-
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
@@ -276,8 +245,5 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
             .contains('The Online Trade Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
-
     })
-
-
 })

@@ -69,7 +69,6 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         cy.go('back')
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
     })
 
     it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function () {
@@ -95,7 +94,6 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
             .contains('This tariff is for 7 January 2021')
-
     })
     it('🚀 UK - Change Currency should not be visible on main page - The Online Trade Tariff', function () {
         cy.visit('/sections')
@@ -112,9 +110,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         //  cy.get('.govuk-list')
         cy.get('#measure-20125860-children-geographical-areas')
             .contains('United Kingdom (GB)').should('not.exist')
-
     })
-
 
     it('🚀 UK Switching link banner on sections page for Jan 1 2021',function(){
         cy.visit('/sections?day=11&month=12&year=2020')
@@ -151,7 +147,6 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         cy.go('back')
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
-
     })
 
     it('🚀 UK quota numbers post 1 Jan 2021 -054xxx Licensed', function () {

@@ -9,7 +9,7 @@ describe('🇬🇧 💡  Change Currency should not be visible  -  UK services)'
         cy.contains('Change currency').should('not.exist')
     })
     it(' UK shows GBP currency NOT EUR',function(){
-        cy.visit('/commodities/0201100021?day=2&month=1&year=2021#import')
+        cy.visit('/commodities/0201100021')
       //  cy.get('#measure-2049567')
         cy.get('.small-table.measures.govuk-table')
         cy.contains('12.00 % + 147.00 GBP / 100 kg')
