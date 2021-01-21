@@ -1,4 +1,4 @@
-describe('🇬🇧 ⚙️ UK API validations', () => {
+describe('🇬🇧 ⚙️ UK Basic API checks', () => {
     Cypress.config('baseUrl')
     // V2 API
     it('UK - V2 - Should return a valid payload and Schema should match', function () {

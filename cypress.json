@@ -51,5 +51,6 @@
     "**/*.feature",
     "**/*.spec.js"
   ],
-  "projectId": "7p655m"
+  "projectId": "7p655m",
+  "parseSpecialCharSequences": false
 }

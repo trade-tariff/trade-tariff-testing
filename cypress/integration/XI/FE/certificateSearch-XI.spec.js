@@ -78,7 +78,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
                 .type(`${dcerts_ids[i]}`)
             cy.wait(1000)
             cy.get('form#new_search > input[name=\'new_search\']').click()
-            cy.wait(17000)
+            cy.wait(7000)
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
                 .contains('Certificate search results')
