@@ -158,12 +158,4 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
         cy.get('span > .govuk-footer__link').should('have.attr', 'href', 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/')
     })
 
-
-
-
-
-
-
-
-
 })

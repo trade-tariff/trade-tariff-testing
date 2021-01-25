@@ -22,7 +22,6 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
 
     })
 
-
     it('UK - Support links - Cookies-navigates to right UK page ', function () {
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
