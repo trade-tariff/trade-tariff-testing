@@ -111,7 +111,7 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.contains('united kingdom').should('not.exist')
     })
 
-    it(' 🚀 XI Switching link banner on sections page for Jan 1 2021', function () {
+    it('🚀 XI Switching link banner on sections page for Jan 1 2021', function () {
         cy.visit('/sections')
         //check header has Xi information
         cy.get('.govuk-header ')

@@ -76,7 +76,7 @@ describe('🇬🇧 ⚙️ UK- version v2 api Quotas , P&R to be availabe ',funct
                 expect(found).to.be.true
             })
     })
-    it('6.Quotas:147 Customs Union Quota - available', function () {
+    it.skip('6.Quotas:147 Customs Union Quota - available', function () {
         cy.request('/api/v2/commodities/1806208012#import.json')
         .then((response) => {
                 let measure_types = response.body.included
@@ -260,7 +260,7 @@ describe('🇬🇧 ⚙️ UK- version v2 api Quotas , P&R to be availabe ',funct
              
     })
     it('17.P&R:PHC-Phytosanitary Certificate (import) - available', function () {
-        cy.request('/api/v2/commodities/0809290000#import.json').then((response) => {
+        cy.request('/api/v2/commodities/1001990013#import.json').then((response) => {
                 let measure_types = response.body.included
                 let found = false
                 for (let i = 0; i < measure_types.length; i++) {
@@ -271,12 +271,11 @@ describe('🇬🇧 ⚙️ UK- version v2 api Quotas , P&R to be availabe ',funct
                 }
                 expect(found).to.be.true
             })
-         
-            
+
     })
     //export
     it('18.P&R:PRE Home Office Pre-cursor chemicals - available', function () {
-        cy.request('/api/v2/commodities/2915240000#export').then((response) => {
+        cy.request('/api/v2/commodities/3004490000#export').then((response) => {
                 let measure_types = response.body.included
                 let found = false
                 for (let i = 0; i < measure_types.length; i++) {

@@ -83,10 +83,17 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
 
     })
 
-    it.skip('Quotas Search - Critical state',function(){
+    it('Quotas Search - Critical state',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
-
+        //Critical State - Yes
+        cy.get('select#critical').select('Yes')
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+        cy.contains('Quota search results')
+        //Critical State - No
+        cy.get('select#critical').select('No')
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+        cy.contains('Quota search results')
 
     })
 
