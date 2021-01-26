@@ -5,38 +5,38 @@ describe(' 🇬🇧 💡 Quotas , P&R to be available for UK service ',function(
         it('1.Quotas:046 Tariff quota/ceiling', function () {
             cy.visit('/commodities/1006209600#import')
             cy.get('.govuk-tabs__panel')
-                .contains('quota').should('exist')
-        //    cy.get('.govuk-tabs__panel').should('have.value', 'quota')
+                .contains('Non preferential tariff quota').should('exist')
+
         })
         it('2.Quotas:122-Non Preferential quota', function () {
             cy.visit('/commodities/1006209600#import')
             cy.get('.govuk-tabs__panel')
-                .contains('quota').should('exist')
+                .contains('Non preferential tariff quota').should('exist')
         })
         it('3.Quotas:123 - Non preferential quota under end use', function () {
             cy.visit('/commodities/1701131000#import')
             cy.get('.govuk-tabs__panel')
-                .contains('quota').should('exist')
+                .contains('Non preferential duty under end-use').should('exist')
         })
         it('4.Quotas:143 Preferential tariff quota', function () {
             cy.visit('/commodities/1601009991#import')
             cy.get('.govuk-tabs__panel')
-                .contains('quota').should('exist')
+                .contains('Preferential tariff quota').should('exist')
         })
         it('5.Quotas:146 Preferential tariff quota under end-use', function () {
             cy.visit('/commodities/0709921000#import')
             cy.get('.govuk-tabs__panel')
                 .contains('quota').should('exist')
         })
-        it('6.Quotas:147 Customs Union Quota', function () {
+        it.skip('6.Quotas:147 Customs Union Quota', function () {
             cy.visit('/commodities/1806208012#import')
             cy.get('.govuk-tabs__panel')
-                .contains('quota').should('exist')
+                .contains('Customs Union Quota').should('exist')
          })
         it('7.Quotas:653 Security based on representative price, reduced under the benefit of a tariff quota', function () {
             cy.visit('/commodities/1701149000#import')
             cy.get('.govuk-tabs__panel')
-                .contains('quota').should('exist')
+                .contains('Preferential tariff quota').should('exist')
         })
     // ---------------------------National Prohibitions and restrictions (P&R)---------------------------
         it('1.P&R:AHC - Animal Health Certificate', function () {
@@ -103,7 +103,7 @@ describe(' 🇬🇧 💡 Quotas , P&R to be available for UK service ',function(
     })
 
     it('18.P&R:PRE Home Office Pre-cursor chemicals', function () {
-        cy.visit('/commodities/2915240000#export')
+        cy.visit('/commodities/3004490000#export')
        // cy.reload()
         cy.get('.govuk-tabs__panel')
             .contains('Home Office Pre-cursor chemicals').should('exist')

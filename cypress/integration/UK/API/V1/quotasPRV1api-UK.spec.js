@@ -75,7 +75,7 @@ describe('🇬🇧 ⚙️ UK- version v1 api Quotas , P&R to be availabe ',funct
                 expect(found).to.be.true
             })
     })
-    it('6.Quotas:147 Customs Union Quota - available', function () {
+    it.skip('6.Quotas:147 Customs Union Quota - available', function () {
         cy.request('/api/v1/commodities/1806208012#import.json')
             .then((response) => {
                 let measure_types = response.body.import_measures
@@ -278,7 +278,7 @@ describe('🇬🇧 ⚙️ UK- version v1 api Quotas , P&R to be availabe ',funct
     })
     //export
     it('18.P&R:PRE Home Office Pre-cursor chemicals - available', function () {
-        cy.request('/api/v1/commodities/2915240000#export').then((response) => {
+        cy.request('/api/v1/commodities/3004490000#export').then((response) => {
             let measure_types = response.body.export_measures
             let found = false
             for (let i = 0; i < measure_types.length; i++) {

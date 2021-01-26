@@ -1,4 +1,4 @@
-describe.skip('🇬🇧 🇪🇺 💡 New Updates test )',function() {
+describe.skip('🇬🇧 🇪🇺 💡 New Updates test',function() {
   //  Cypress.config('baseUrl')
       Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
