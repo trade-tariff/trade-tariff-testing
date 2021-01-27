@@ -252,7 +252,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
         }
 
     })
-    it.only('XI Certificate Search : X - Export licence', function () {
+    it('XI Certificate Search : X - Export licence', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 

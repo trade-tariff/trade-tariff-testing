@@ -33,7 +33,7 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
         cy.contains('Sorry, there is a problem with the search query. Please specify one or more search criteria.')
 
     })
-    it('Quotas Search - Country list - 🇲🇦 Results',function(){
+    it('Quotas Search - Country list - 🇲🇦  Results',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
@@ -46,7 +46,7 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
             .contains(' Morocco (MA)')
 
     })
-    it('Quotas Search - Country list - 🇧🇫 No results',function(){
+    it('Quotas Search - Country list - 🇧🇫  No results',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
@@ -57,7 +57,7 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
          cy.contains('There are no matching results')
 
     })
-    it('Quotas Search - 🇨🇭 Reset to all countries',function(){
+    it('Quotas Search - 🇨🇭  Reset to all countries',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
@@ -122,6 +122,13 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
     it('Quotas Search - Years',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
+        //2021
+        cy.get('select#years_').select('2021')
+        cy.get('select#status').select('Not exhausted')
+        cy.get('form#new_search > input[name=\'new_search\']').click()
+        cy.contains('Quota search results')
+        //2020
+
         cy.get('select#years_').select('2020')
         cy.get('select#status').select('Not exhausted')
         cy.get('form#new_search > input[name=\'new_search\']').click()

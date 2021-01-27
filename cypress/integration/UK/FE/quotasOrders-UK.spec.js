@@ -13,13 +13,13 @@ describe('🇬🇧 💡 Check specific quota order details',function(){
     })
 
     it(' UK quota numbers post 1 Jan 2021 -052xxx Non-Licensed', function () {
-        cy.visit('/commodities/0201100021#import')
+        cy.visit('/commodities/0204501100#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('Non preferential tariff quota')
         cy.get('.table-line')
-        cy.contains('052201').click()
+        cy.contains('052016').click()
         cy.get('.tariff-info')
-            .contains('Order number 052201')
+            .contains('Order number 052016')
         cy.get('.close [href]').click()
     })
     it(' UK quota numbers post 1 Jan 2021 -058xxx Non-Licensed', function () {

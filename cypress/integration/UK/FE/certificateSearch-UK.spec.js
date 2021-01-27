@@ -106,7 +106,6 @@ describe('🇬🇧 💡   Certificate Search - UK services)',function() {
         }
 
     })
-
     it(' UK Certificate Search : H - HANDI, LOOMS certificate', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
@@ -116,10 +115,9 @@ describe('🇬🇧 💡   Certificate Search - UK services)',function() {
 
         cy.get('.govuk-heading-l')
         cy.contains('There are no matching results')
-
     })
 
-    it(' UK Certificate Search :I - Surveillance certificate/licence/ document issued by one of the Member States', function(){
+    it(' UK Certificate Search : I - Surveillance certificate/licence/ document issued by one of the Member States', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         let icerts_ids = ["004"]
@@ -138,7 +136,6 @@ describe('🇬🇧 💡   Certificate Search - UK services)',function() {
             cy.contains(`${icerts_ids[i]}`)
         }
     })
-
     it(' UK Certificate Search : K - Tariff quota', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
