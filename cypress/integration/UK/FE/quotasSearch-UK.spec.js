@@ -13,18 +13,18 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
         cy.get('.govuk-table__head')
             .contains('Order number')
 
-            if (cy.get('.quota-results.govuk-table').contains('057015'))
-            {
-                cy.get('.quota-results.govuk-table')
-                    cy.contains('057015').click()
-                cy.get('.tariff-info')
-                    cy.contains('Order Number')
-                    cy.contains('057015')
-                    cy.contains('Start date')
-                    cy.contains('01/01/2021')
-                cy.get('.close [href]').click()
-            }
-             else{}
+        if (cy.get('.quota-results.govuk-table').contains('057015'))
+        {
+            cy.get('.quota-results.govuk-table')
+            cy.contains('057015').click()
+            cy.get('.tariff-info')
+            cy.contains('Order Number')
+            cy.contains('057015')
+            cy.contains('Start date')
+            cy.contains('01/01/2021')
+            cy.get('.close [href]').click()
+        }
+        else{}
     })
     it('Quotas Search - No Input',function(){
         cy.visit('/quota_search')
@@ -37,9 +37,9 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
-        cy.wait(1000)
+        cy.wait(500)
         cy.get('input#geographical_area_id').type('Morocco (MA)')
-        cy.wait(1000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
         cy.get('.govuk-table__row')
@@ -50,11 +50,11 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
-        cy.wait(1000)
+        cy.wait(500)
         cy.get('input#geographical_area_id').type('Burkina Faso (BF)')
-        cy.wait(1000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
-         cy.contains('There are no matching results')
+        cy.contains('There are no matching results')
 
     })
     it('Quotas Search - 🇨🇭  Reset to all countries',function(){
@@ -67,7 +67,7 @@ describe('🇬🇧 💡 QuotasSearch)',function() {
         //reset to all countries
         cy.get('.reset-country-picker').click()
         cy.wait(200)
-       cy.get('form#new_search > input[name=\'new_search\']').click()
+        cy.get('form#new_search > input[name=\'new_search\']').click()
 
         cy.contains('Sorry, there is a problem with the search query. Please specify one or more search criteria.')
     })

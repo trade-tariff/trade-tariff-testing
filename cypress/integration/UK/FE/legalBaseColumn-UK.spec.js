@@ -14,7 +14,7 @@ describe('🇬🇧 💡 Hide Legal base Column , Binding Tariff information link
 
     it('2.Prove that the legal base column has been removed from the export measures tab on UK - commodity 0101210000', function () {
         cy.visit('/commodities/0101210000#export')
-        cy.wait(1000)
+        cy.wait(500)
         cy.get('.govuk-tabs__panel')
         cy.contains('Legal base').should('not.exist')
     })

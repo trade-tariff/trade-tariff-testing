@@ -1,7 +1,7 @@
 Cypress.config('baseUrl')
 
 context('🇬🇧 ⚙️ UK -Validate API response for commodities on V1 and V2 ', () => {
-    it.skip('UK - Validate API response for V2', () => {
+    it('UK - Validate API response for V2', () => {
         let fixture_timestamp = Cypress.config('fixtures_timestamp');
         let commodity_ids = Cypress.config('commcodes');
 
@@ -12,8 +12,8 @@ context('🇬🇧 ⚙️ UK -Validate API response for commodities on V1 and V2 
                     url: `/api/v2/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
-                    console.log(JSON.stringify(fixture))
-                    console.log(JSON.stringify(response.body))
+                  //  console.log(JSON.stringify(fixture))
+                 //   console.log(JSON.stringify(response.body))
                     expect(response.body).to.deep.equal(fixture)
 
 
@@ -45,7 +45,7 @@ context('🇬🇧 ⚙️ UK -Validate API response for commodities on V1 and V2 
 
 
 
-    it.skip('UK - Validate API response for V1', () => {
+    it('UK - Validate API response for V1', () => {
         let fixture_timestamp = Cypress.config('fixtures_timestamp');
         let commodity_ids = Cypress.config('commcodes');
 
@@ -56,8 +56,8 @@ context('🇬🇧 ⚙️ UK -Validate API response for commodities on V1 and V2 
                     url: `/api/v1/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
-                    console.log(JSON.stringify(fixture))
-                    console.log(JSON.stringify(response.body))
+               //     console.log(JSON.stringify(fixture))
+                //    console.log(JSON.stringify(response.body))
                     expect(response.body).to.deep.equal(fixture)
                 })
             })

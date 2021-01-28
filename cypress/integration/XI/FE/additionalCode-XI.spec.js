@@ -12,7 +12,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
             cy.get('input#code')
                 .clear()
                 .type(`${tpadcodes_ids[i]}`)
-            cy.wait(2000)
+            cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
@@ -33,7 +33,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
             cy.get('input#code')
                 .clear()
                 .type(`${prsadcodes_ids[i]}`)
-            cy.wait(2000)
+            cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
@@ -54,7 +54,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
             cy.get('input#code')
                 .clear()
                 .type(`${radcodes_ids[i]}`)
-            cy.wait(2000)
+            cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
@@ -72,7 +72,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         //select type of certificate from drop down menu
         cy.get('select#type').select('6 - Agricultural Tables (non-Meursing)')
 
-        cy.wait(2000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
@@ -87,7 +87,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         //select type of certificate from drop down menu
         cy.get('select#type').select('7 - Agricultural Tables (Meursing)')
 
-        cy.wait(2000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
@@ -105,7 +105,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
             cy.get('input#code')
                 .clear()
                 .type(`${adadcodes_ids[i]}`)
-            cy.wait(2000)
+            cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
@@ -123,7 +123,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         //select type of certificate from drop down menu
         cy.get('select#type').select('9 - Export Refunds')
 
-        cy.wait(2000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
@@ -143,7 +143,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
             cy.get('input#code')
                 .clear()
                 .type(`${adcadcodes_ids[i]}`)
-            cy.wait(2000)
+            cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
@@ -166,7 +166,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
             cy.get('input#code')
                 .clear()
                 .type(`${badcadcodes_ids[i]}`)
-            cy.wait(2000)
+            cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
@@ -188,7 +188,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
             cy.get('input#code')
                 .clear()
                 .type(`${cadcadcodes_ids[i]}`)
-            cy.wait(2000)
+            cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
@@ -207,7 +207,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         //select type of certificate from drop down menu
         cy.get('select#type').select('D - Dual Use')
 
-        cy.wait(2000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
@@ -223,7 +223,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         //select type of certificate from drop down menu
         cy.get('select#type').select('F - Reference prices fishery products')
 
-        cy.wait(2000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
@@ -238,18 +238,12 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         //select type of certificate from drop down menu
         cy.get('select#type').select('P - Refund for basic products')
 
-        cy.wait(2000)
+        cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('There are no matching results')
 
     })
-
-
-
-
-
-
 
 })
