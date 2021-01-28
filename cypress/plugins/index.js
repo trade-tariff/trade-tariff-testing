@@ -9,5 +9,4 @@
     on('task', JsonSchemaValidation(config));
     // ...
     return config;
-
   }

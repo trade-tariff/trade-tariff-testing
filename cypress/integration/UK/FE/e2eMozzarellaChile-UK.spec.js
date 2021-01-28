@@ -1,5 +1,5 @@
 describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
- //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
     it('Navigate to trade tariff page ', function () {
@@ -8,7 +8,7 @@ describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',functio
     })
     it('Enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(1000)
+        cy.wait(500)
         cy.get('input[name=\'new_search\']').click()
         cy.title().should('contains','0406103010')
 
@@ -29,10 +29,10 @@ describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',functio
         cy.log(cy.title())
     })
     it('Select Chile from All countries list',()=>{
-        cy.get('input#import_search_country').click().clear().wait(1000)
-            .type('Chile').wait(1000)
+        cy.get('input#import_search_country').click().clear().wait(500)
+            .type('Chile').wait(500)
             .type('{enter}')
-        cy.wait(1000)
+        cy.wait(500)
     })
     it("Measures for Chile",function(){
         cy.get('.govuk-main-wrapper')
@@ -50,7 +50,7 @@ describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',functio
             .contains('Preferential tariff quota')
         cy.get('#measure-20071014')
             .contains('051924').click()
-      //  cy.get('[href=\'\\#import-3408148-order-number-094591\']').click()
+        //  cy.get('[href=\'\\#import-3408148-order-number-094591\']').click()
         cy.get('.tariff-info')
             .contains('Order number 051924')
         cy.get('.close [href]').click()
@@ -61,9 +61,4 @@ describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',functio
             .contains('Footnotes')
     })
 })
-
-
-
-
-
 
