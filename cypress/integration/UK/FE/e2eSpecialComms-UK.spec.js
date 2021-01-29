@@ -17,7 +17,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
         cy.contains('European Union (1013)')
         cy.contains('0.00 %')
     })
-    it('Bison 🦬 \n- Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Global Tariff) Duties are expressed in GBP',function(){
+    it(' 🦬 Bison\n- Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Global Tariff) Duties are expressed in GBP',function(){
         cy.visit('/commodities/0201100021#import')
             .contains('Commodity information for 0201100021')
         cy.get('.govuk-header__content')
@@ -26,7 +26,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
         cy.contains('Third country duty')
         cy.contains('12.00 % + 147.00 GBP / 100 kg')
     })
-    it('Amplifiers 🔊 \n also has a supplementary unit measure of p/st',function(){
+    it(' 🔊 Amplifiers\n also has a supplementary unit measure of p/st',function(){
         cy.visit('/commodities/8518400010#import')
             .contains('Commodity information for 8518400010')
         cy.get('.govuk-header__content')
@@ -47,7 +47,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
          //   .contains('Final anti-dumping duty Additional code: B999')
 
     })
-    it('Sandwich biscuits 🍪 \n Check that the third country duty has no Meursing-related components: it should be 8.00%' ,function(){
+    it(' 🍪 Sandwich biscuits\n Check that the third country duty has no Meursing-related components: it should be 8.00%' ,function(){
         cy.visit('/commodities/1905319100#import')
             .contains('Commodity information for 1905319100')
         cy.get('.govuk-header__content')
@@ -58,7 +58,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
         cy.contains('8.00 %')
     })
 
-    it('Cherry Tomatoes 🍅 \n- Check that the duty is a standard ad valorem (8.00%) ,Check that there is no condition against the ad valorem third country duty,Check that there is a single quota for Morocco',function() {
+    it(' 🍅 Cherry Tomatoes\n- Check that the duty is a standard ad valorem (8.00%) ,Check that there is no condition against the ad valorem third country duty,Check that there is a single quota for Morocco',function() {
         cy.visit('/commodities/0702000007?country=MA#import')
             .contains('Commodity information for 0702000007')
         cy.get('.govuk-header__content')
@@ -77,7 +77,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
         cy.contains('051104')
 
     })
-    it('Beer 🍻  \n Has multiple excise lines expressed in litres,\n Identical to UK',function(){
+    it(' 🍺 Beer \n Has multiple excise lines expressed in litres,\n Identical to UK',function(){
         cy.visit('/commodities/2203001000#import')
             .contains('Commodity information for 2203001000')
         cy.get('.govuk-header__content')
@@ -114,7 +114,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
         cy.get('.close [href]').click()
     })
 
-    it('Cheroots 🚬 \n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK',function(){
+    it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK',function(){
         cy.visit('/commodities/2402100000#import')
             .contains('Commodity information for 2402100000')
         cy.get('.govuk-header__content')
@@ -124,7 +124,7 @@ describe('🇬🇧 💡 - Select Commodities and measure details ',function() {
         cy.contains('305.32 GBP / kg')
     })
 
-    it('Piquette 🍷 (type of wine) \n- Has a third country duty of:1.00 GBP/%vol/hl (check the peculiar units)',function(){
+    it(' 🍷 Piquette (type of wine) \n- Has a third country duty of:1.00 GBP/%vol/hl (check the peculiar units)',function(){
         cy.visit('/commodities/2206001000#import')
             .contains('Commodity information for 2206001000')
         cy.get('.govuk-header__content')
