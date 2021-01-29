@@ -20,7 +20,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
             cy.contains('Tariff preference')
             cy.contains('0.00 %')
     })
-    it('Bison 🦬  \n Third country duty should be a compound duty of 12.80 % + 176.80 EUR / 100 kg\n' +
+    it(' 🦬 Bison \n Third country duty should be a compound duty of 12.80 % + 176.80 EUR / 100 kg\n' +
         '\n' +
         'Duties are expressed in EUROs',function(){
         cy.visit('/commodities/0201100021#import')
@@ -31,7 +31,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
             cy.contains('Third country duty')
             cy.contains('12.80 % + 176.80 EUR / 100 kg')
     })
-    it('Amplifiers  🔊 \n also has a supplementary unit measure of p/st',function(){
+    it('  🔊 Amplifiers\n also has a supplementary unit measure of p/st',function(){
         cy.visit('/commodities/8518400010#import')
             .contains('Commodity information for 8518400010')
         cy.get('.govuk-header__content')
@@ -51,7 +51,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
             .contains('Definitive anti-dumping duty Additional code: B999')
 
     })
-    it('Sandwich biscuits  🍪 \n Check that the third country duty contains Meursing-related components, e.g. check for strings EA and ADSZ\n' +
+    it(' 🍪 Sandwich biscuits\n Check that the third country duty contains Meursing-related components, e.g. check for strings EA and ADSZ\n' +
         '\n' +
         '9.00 % + EA MAX 24.20 % +ADSZ',function(){
         cy.visit('/commodities/1905319100#import')
@@ -63,7 +63,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
             cy.contains('9.00 % + EA MAX 24.20 % +ADSZ')
     })
 
-    it('Cherry Tomatoes 🍅  \n Check that there is no directly assigned third country duty\n' +
+    it(' 🍅 Cherry Tomatoes \n Check that there is no directly assigned third country duty\n' +
         '\n' +
         'Check that on clicking on the conditions link, that a conditions popup appears that has a table with 7 rows in it: creative license to do what you need on this one.\n' +
         '\n' +
@@ -90,7 +90,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
     })
 
 
-    it('Beer 🍻 \n Has multiple excise lines expressed in litres,\n Identical to UK',function(){
+    it(' 🍻 Beer\n Has multiple excise lines expressed in litres,\n Identical to UK',function(){
         cy.visit('/commodities/2203001000#import')
             .contains('Commodity information for 2203001000')
         cy.get('.govuk-header__content')
@@ -118,7 +118,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
         cy.get('.close [href]').click()
     })
 
-    it('Cheroots 🚬 \n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK',function(){
+    it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK',function(){
         cy.visit('/commodities/2402100000#import')
                 .contains('Commodity information for 2402100000')
         cy.get('.govuk-header__content')
@@ -128,7 +128,7 @@ describe('🇪🇺 💡 XI - Select Commodities and measure details ',function()
             cy.contains('305.32 GBP / kg')
         })
 
-    it('Piquette 🍷(type of wine) \n-Has a third country duty of:\n' +
+    it(' 🍷 Piquette(type of wine) \n-Has a third country duty of:\n' +
         '\n' +
         '1.30 EUR / % vol / hl MIN 7.20 EUR / hl',function(){
         cy.visit('/commodities/2206001000#import')

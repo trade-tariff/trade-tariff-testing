@@ -7,12 +7,12 @@ describe('🇬🇧 💡   Certificate Search - UK services)',function() {
 
         let ndcerts_ids = ["9100","9103","9104","9105"]
         for (let i = 0; i < ndcerts_ids.length; i++) {
-            //select type of certificate from drop down menu
+
             cy.get('select#type').select('9 - National Document')
             cy.get('input#code')
                 .clear()
                 .type(`${ndcerts_ids[i]}`)
-            cy.wait(500)
+          //  cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')

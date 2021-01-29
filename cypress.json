@@ -1,7 +1,7 @@
 {
-  "baseUrl": "https://www.trade-tariff.service.gov.uk",
+  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
   "services": {
-    "xi": "https://www.trade-tariff.service.gov.uk/xi"
+    "xi": "https://staging.tariff.service.gov.uk/xi"
 
   },
   "commcodes": [
