@@ -1,8 +1,8 @@
-describe('🇬🇧💡random comm code test',function() {
+describe('🇬🇧 💡random comm code test',function() {
 
   Cypress.config('baseUrl')
 
-it('Commodity Search - random codes',function(){
+it('💻 Commodity Search - random codes',function(){
     cy.fixture(`randomcommcodes.csv`).then((fixture) => {
         let randomcommcodes_ids = fixture.split(",")
 

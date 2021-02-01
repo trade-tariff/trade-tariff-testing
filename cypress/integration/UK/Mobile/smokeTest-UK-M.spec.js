@@ -1,5 +1,5 @@
-describe('🚀  🆕  UK 🇬🇧 💡 - smoke test to cover basic functionality on UK services ',function() {
-    // Cypress.config('baseUrl', Cypress.config('services')['uk'])
+describe('🚀 📱 UK 🇬🇧 💡 - smoke test to cover basic functionality on UK services ',function() {
+
     Cypress.config('baseUrl')
 
     it('🚀 UK Routing - Correct page + Legal base does not exist ', function () {
