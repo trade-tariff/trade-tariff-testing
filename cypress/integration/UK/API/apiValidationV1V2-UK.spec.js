@@ -14,7 +14,7 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
     })
 
     it('UK - V2 - Headers,Status,Length,duration', function () {
-        cy.request('/api/v2/commodities/0805220011').as('comments')
+        cy.request('/api/v2/commodities/2007993943').as('comments')
 
         cy.get('@comments')
             .then((response) => {
@@ -25,9 +25,9 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
                 expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'})
                 //response duration less than 300
                 expect(response).to.have.property('duration')
-                expect(response.duration).to.lessThan(200)
+                expect(response.duration).to.lessThan(500)
                 //body length
-                expect(response.body.included).to.have.length(481)
+                expect(response.body.included).to.have.length(477)
             })
     })
     it('UK - V2 - Error codes - 404', function () {
@@ -51,7 +51,7 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
     })
 
     it('UK - V1 - Headers,Status,Length,duration', function () {
-        cy.request('/api/v1/commodities/0805220011').as('comments')
+        cy.request('/api/v1/commodities/2007993943').as('comments')
 
         cy.get('@comments')
             .then((response) => {
@@ -62,7 +62,7 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
                 expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'})
                 //response duration less than 2000
                 expect(response).to.have.property('duration')
-                expect(response.duration).to.lessThan(200)
+                expect(response.duration).to.lessThan(500)
                 //body length
             //    expect(response.body.included).to.have.length(481)
             })

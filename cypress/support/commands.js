@@ -6,7 +6,7 @@ before(() => {
 })
 beforeEach(() => {
     cy.clearCookies()
-   // cy.injectAxe()
+  //  cy.injectAxe()
   //  cy.viewport('iphone-x')
   //  cy.viewport('samsung-note9')
 
