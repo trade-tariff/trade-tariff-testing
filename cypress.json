@@ -1,8 +1,8 @@
 {
-  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
-  "services": {
-    "xi": "https://staging.tariff.service.gov.uk/xi"
 
+  "baseUrl": "https://tariff-frontend-dev.london.cloudapps.digital",
+  "services": {
+    "xi": "https://tariff-frontend-dev.london.cloudapps.digital/xi"
   },
   "commcodes": [
     "7202118000",
@@ -57,5 +57,6 @@
     "**/*.spec.js"
   ],
   "projectId": "7p655m",
-  "parseSpecialCharSequences": false
+  "parseSpecialCharSequences": false,
+  "defaultCommandTimeout": 100000
 }
