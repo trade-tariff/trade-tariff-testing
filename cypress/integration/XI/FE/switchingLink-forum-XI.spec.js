@@ -139,7 +139,7 @@ describe('🇪🇺 💡 Switching Link & text ,Forum and related links removed  
             .contains('Online Tariff')
 
     })
-    it('7.Quota Search Page',function(){
+    it.skip('7.Quota Search Page',function(){
         cy.visit('/quota_search')
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')

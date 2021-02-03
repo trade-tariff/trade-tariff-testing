@@ -19,9 +19,9 @@ describe(' 🇪🇺 💡 New ,Terminated comm codes from 1st Jan 2021',function(
         for (let i = 0; i < newcodes_ids.length; i++) {
             cy.visit('/sections')
             cy.get('.js-commodity-picker-select.js-show  input#q').click().type(`${newcodes_ids[i]}`)
-            cy.wait(500)
+            cy.wait(700)
             cy.get('input[name=\'new_search\']').click()
-            cy.wait(500)
+            cy.wait(700)
             cy.reload()
             cy.contains(`Commodity information for ${newcodes_ids[i]}`)
 

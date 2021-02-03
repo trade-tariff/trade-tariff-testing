@@ -1,5 +1,6 @@
-    Given('I am on XI Trade Tariff main page',()=>{
-        cy.visit('https://www.trade-tariff.service.gov.uk/xi/sections')
+Cypress.config('baseUrl', Cypress.config('services')['xi'])
+Given('I am on XI Trade Tariff main page',()=>{
+        cy.visit('/sections')
         cy.get('.govuk-header ')
             .contains('Northern Ireland (EU) Tariff')
         cy.get('.tariff-breadcrumbs')
@@ -36,7 +37,7 @@
     })
     Then('Guidance Page is displayed',()=>{
         cy.get('.govuk-grid-row')
-            .contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021')
+            .contains(' Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
         cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
     })
 

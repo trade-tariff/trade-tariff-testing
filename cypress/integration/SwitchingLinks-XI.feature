@@ -1,4 +1,4 @@
-Feature: As a trader i want to be able to switch between XI and UK tariffs
+Feature: As a trader i want to be able to switch between XI and UK tariffs 🇪🇺
 
   Trader in XI i would like to switch between XI and UK tariff sites for tariff details
 
@@ -8,6 +8,5 @@ Feature: As a trader i want to be able to switch between XI and UK tariffs
     Then UK version of Trade Tariff page is displayed
     When I click on switch link on UK page
     Then XI version of Trade Tariff page is displayed
-    When I select guidance link on XI page
-    Then Guidance Page is displayed
+
 

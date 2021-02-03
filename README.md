@@ -1,25 +1,23 @@
-# Cypress automation framework
+Cypress automation framework 🔧
 ----------------------------------------
-###
 
 * front end UI testing 
 * API testing 
-* end to end testing 
+* end-to-end testing 
 	
-**Prerequisites**
-###
+** Prerequisites 📚 **
 ```
 •node 
 •npm
 ```
 
 Download or clone this repo.
-Install dependencies by running the following command in terminal(from app directory ie.,where packagge.json is located) 
+Install dependencies by running the following command in terminal (from app directory i.e.,where package.json is located) 
 ```
 npm install 
 ```
-Running tests:
-Default run is against Live Prod environment.This can be adjusted in cypress.json if required.
+Running tests 🧳:
+Default run is against Live Prod environment.This can be configured in cypress.json if required.
 
 Running tests can be done with the following commands:
 ```

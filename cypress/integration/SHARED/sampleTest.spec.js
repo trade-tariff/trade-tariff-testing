@@ -1,4 +1,4 @@
-describe(' 🍻 ***Test file***',function() {
+describe.skip(' 🍻 ***Test file***',function() {
     Cypress.config('baseUrl')
 
     it.skip('🍻🍻', function () {
@@ -56,8 +56,13 @@ describe(' 🍻 ***Test file***',function() {
          .contains('Containing less than 70 % by weight of sugar').click()
             cy.contains('Commodity information for 2007993943')
 
-
-
+    })
+    it('XI quota search page 404',function(){
+        cy.request({method: 'GET', url: '//api/v2/quota_search', failOnStatusCode: false}).as('comments')
+        cy.get('@comments')
+            .then((response) => {
+                expect(response.status).to.eq(404)
+            })
     })
 
 })
