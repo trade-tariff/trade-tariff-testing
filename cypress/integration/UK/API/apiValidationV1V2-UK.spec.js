@@ -1,10 +1,9 @@
 describe('🇬🇧 ⚙️ UK Basic API checks', () => {
     Cypress.config('baseUrl')
-    // V2 API
+    // V2 API *****************************************************
     it('UK - V2 - Should return a valid payload and Schema should match', function () {
         cy.request('/api/v2/commodities/7202118000').then($response => {
             expect($response.status).to.eq(200)
-
             cy.task('validateJsonSchema', {
                 data: $response.body,
                 verbose: true,
@@ -30,18 +29,17 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
                 expect(response.body.included).to.have.length(477)
             })
     })
-    it('UK - V2 - Error codes - 404', function () {
+    it('🚫 UK - V2 - Error codes - 404', function () {
         cy.request({method: 'GET', url: '/api/v2/commodities/08052200110000', failOnStatusCode: false}).as('comments')
         cy.get('@comments')
             .then((response) => {
                 expect(response.status).to.eq(404)
             })
     })
-    // V1 API
+    // V1 API *****************************************************
     it('UK - V1 - Should return a valid payload and Schema should match', function () {
         cy.request('/api/v1/commodities/7202118000').then($response => {
             expect($response.status).to.eq(200)
-
             cy.task('validateJsonSchema', {
                 data: $response.body,
                 verbose: true,
@@ -67,7 +65,7 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
             //    expect(response.body.included).to.have.length(481)
             })
     })
-    it('UK - V1 - Error codes - 404', function () {
+    it('🚫 UK - V1 - Error codes - 404', function () {
         cy.request({method: 'GET', url: '/api/v1/commodities/08052200110000', failOnStatusCode: false}).as('comments')
         cy.get('@comments')
             .then((response) => {

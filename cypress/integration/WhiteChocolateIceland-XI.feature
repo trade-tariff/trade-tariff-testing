@@ -1,4 +1,4 @@
-Feature: As a trader i want to import white chocolate from iceland to XI
+Feature: As a trader i want to import 🍫 white chocolate from iceland to XI 🇪🇺
 
   Trader in XI would like to import white chocolate from iceland and want to know more information.
 

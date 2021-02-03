@@ -1,6 +1,5 @@
 describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',function() {
     //--- HOTT-96 -------------
-   // Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
     it('1.Sections Page - Forum section removed', function () {
@@ -146,25 +145,14 @@ describe('🇬🇧 💡 UK - Switching Link ,Forum removed  - (UK version)',func
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland (EU) Tariff')
     })
-    it('7.Quota Search Page',function(){
+    it('7.🚫 Quota Search Page',function(){
         cy.visit('/quota_search')
         //check header has UK information
         cy.get('.govuk-header ')
             .contains('The Online Trade Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-            .contains('Northern Ireland (EU) Tariff')
-            .click()
-        cy.get('.govuk-header ')
-            .contains('Northern Ireland (EU) Tariff')
-        //click on the XI link and it should navigate to XI version
-        cy.get('.govuk-main-wrapper')
-        cy.contains('Online Tariff')
-            .click()
-        cy.get('.govuk-header ')
-            .contains('The Online Trade Tariff')
-        cy.get('.govuk-main-wrapper')
-            .contains('Northern Ireland (EU) Tariff')
+            .contains('Northern Ireland (EU) Tariff').should('not.exist')
     })
     it('8.Certificate Search Page',function(){
         cy.visit('/certificate_search')

@@ -1,6 +1,6 @@
-
+Cypress.config('baseUrl', Cypress.config('services')['xi'])
   Given('i am on Trade Tariff main page', () => {
-    cy.visit('https://www.trade-tariff.service.gov.uk/xi/sections')
+    cy.visit('/sections')
   })
   When('i enter commodity code 1704903000 in search tariff box', () => {
     cy.get('.js-commodity-picker-select.js-show  input#q').click().type('1704903000')
