@@ -12,3 +12,9 @@ beforeEach(() => {
   //  cy.viewport('samsung-note9')
 
 })
+
+Cypress.Commands.add("checkPageAlly",(path)=>{
+   cy.visit(path);
+   cy.injectAxe();
+   cy.checkA11y(null,null,callback);
+})
