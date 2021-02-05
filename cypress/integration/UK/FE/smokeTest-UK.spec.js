@@ -102,7 +102,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         cy.contains('Change currency').should('not.exist')
     })
     it('🚀 UK - United Kingdom should not be shown in EU country list', function () {
-        cy.visit('/commodities/2403991000?day=3&month=1&year=2021#import')
+        cy.visit('/commodities/2403991000#import')
         cy.get('.govuk-tabs__panel')
             .contains('European Union (1013)').click()
         cy.get('.govuk-list')
