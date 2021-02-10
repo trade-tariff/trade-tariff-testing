@@ -36,7 +36,7 @@
 
   ],
  "accessibility": true,
-  "fixtures_timestamp": "2021-01-07",
+  "fixtures_timestamp": "2021-02-09",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "mochawesome",
