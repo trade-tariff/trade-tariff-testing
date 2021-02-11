@@ -145,4 +145,12 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
             .contains('Northern Ireland (EU) Tariff')
 
     })
+    it('Enter commodity code for Mozzaarella - 0406103010 and search',function(){
+        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.title().should('contains','0406103010')
+        cy.get('.govuk-main-wrapper')
+            .contains('Commodity information for 0406103010')
+    })
 })
