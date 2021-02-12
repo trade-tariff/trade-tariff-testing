@@ -14,6 +14,11 @@ describe('🇬🇧 💡 Main Page - headers ,sections  - (UK version)',function(
         cy.get('.govuk-header').should('be.visible', 'GOV.UK')
     })
 
+    it('Sections Page - Forum section removed', function () {
+        cy.visit('/sections')
+        cy.get('.govuk-header ')
+        cy.contains('Forum').should('not.exist')
+    })
     it.skip('UK - Check correct date is displayed',function(){
         cy.visit('/sections')
         cy.get('.govuk-grid-column-full')
