@@ -1,8 +1,8 @@
 {
   "baseUrl": "https://www.trade-tariff.service.gov.uk",
   "services": {
-    "xi": "https://www.trade-tariff.service.gov.uk/xi"
-
+    "xi": "https://www.trade-tariff.service.gov.uk/xi",
+    "dutycalculator" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/duty-calculator/123123/import-date#"
   },
   "commcodes": [
     "7202118000",

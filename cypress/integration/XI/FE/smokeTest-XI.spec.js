@@ -145,7 +145,10 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
             .contains('Northern Ireland (EU) Tariff')
 
     })
-    it('Enter commodity code for Mozzaarella - 0406103010 and search',function(){
+    it('🚀Enter commodity code for Mozzaarella - Sections page and search',function(){
+        cy.visit('/sections')
+        cy.get('.govuk-label')
+            .contains('Search the Northern Ireland tariff for \'at risk\' goods')
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(500)
         cy.get('input[name=\'new_search\']').click()
@@ -153,4 +156,39 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.get('.govuk-main-wrapper')
             .contains('Commodity information for 0406103010')
     })
+    it('🚀 Enter commodity code for Mozzaarella - Sections/selecting chapter number and search',function(){
+        cy.visit('/sections/4')
+        cy.get('.govuk-label')
+            .contains('Search the Northern Ireland tariff for \'at risk\' goods')
+        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.title().should('contains','0406103010')
+        cy.get('.govuk-main-wrapper')
+            .contains('Commodity information for 0406103010')
+    })
+    it('🚀 Enter commodity code for Mozzaarella - Chapters and search',function(){
+        cy.visit('chapters/20')
+        cy.get('.govuk-label')
+            .contains('Search the Northern Ireland tariff for \'at risk\' goods')
+        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.title().should('contains','0406103010')
+        cy.get('.govuk-main-wrapper')
+            .contains('Commodity information for 0406103010')
+    })
+    it('🚀 Enter commodity code for Mozzaarella - Headings and search',function(){
+        cy.visit('headings/2003')
+        cy.get('.govuk-label')
+            .contains('Search the Northern Ireland tariff for \'at risk\' goods')
+        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.title().should('contains','0406103010')
+        cy.get('.govuk-main-wrapper')
+            .contains('Commodity information for 0406103010')
+    })
+
+
 })

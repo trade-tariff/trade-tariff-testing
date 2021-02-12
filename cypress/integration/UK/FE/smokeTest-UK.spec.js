@@ -4,16 +4,16 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
 
     it('🚀 UK Routing - Correct page + Legal base does not exist ', function () {
         cy.visit('/commodities/0101210000#import')
-        cy.contains('The Online Trade Tariff')
+        cy.contains('UK Global Online Tariff')
         cy.get('.govuk-tabs__panel')
         cy.contains('Legal base').should('not.exist')
     })
     it('🚀 UK - Header Section-Sub sections ', function () {
         cy.visit('/sections')
-        cy.title().should('eq', 'The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
 
+        cy.title().should('eq', 'UK Global Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
         cy.get('.govuk-header ')
-        cy.contains('Search the Tariff')
+        cy.contains('Search or browse the Tariff')
         cy.contains('A-Z')
         cy.contains('Tools')
         cy.contains('Additional code').should('not.exist')
@@ -34,26 +34,26 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
     it('🚀 UK - Sections Page - Switching link to XI available & works', function () {
         cy.visit('/sections')
         cy.get('.govuk-header ')
-            .contains('The Online Trade Tariff')
+            .contains('UK Global Online Tariff')
 
         //check correct text is displayed on banner as per UK - If they are at risk
         cy.get('.tariff-breadcrumbs')
-            .should('have.text', 'From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland (EU) Tariff.')
+            .should('have.text', 'From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-            .contains('Northern Ireland (EU) Tariff')
+            .contains('Northern Ireland Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('Northern Ireland (EU) Tariff')
+            .contains('Northern Ireland Online Tariff')
 
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('The Online Trade Tariff')
+            .contains('UK Global Online Tariff')
         cy.get('.govuk-main-wrapper')
-            .contains('Northern Ireland (EU) Tariff')
+            .contains('Northern Ireland Online Tariff')
 
     })
     it('🚀 UK - Sections Page - Guidance Link and Page link', function () {
@@ -68,7 +68,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         //return to UK page
         cy.go('back')
         cy.get('.govuk-header ')
-            .contains('The Online Trade Tariff')
+            .contains('UK Global Online Tariff')
     })
 
     it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function () {
@@ -146,7 +146,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         //return to UK page
         cy.go('back')
         cy.get('.govuk-header ')
-            .contains('The Online Trade Tariff')
+            .contains('UK Global Online Tariff')
     })
 
     it('🚀 UK quota numbers post 1 Jan 2021 -054xxx Licensed', function () {
@@ -170,7 +170,10 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
             .contains('Order number 057300')
         cy.get('.close [href]').click()
     })
-    it('Enter commodity code for Mozzaarella - 0406103010 and search',function(){
+    it('🚀Enter commodity code for Mozzaarella - Sections page and search',function(){
+        cy.visit('/sections')
+        cy.get('.govuk-label')
+            .contains('Search the UK Global Online Tariff')
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(500)
         cy.get('input[name=\'new_search\']').click()
@@ -178,4 +181,39 @@ describe('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK
         cy.get('.govuk-main-wrapper')
             .contains('Commodity information for 0406103010')
     })
+    it('🚀 Enter commodity code for Mozzaarella - Sections/selecting chapter number and search',function(){
+        cy.visit('/sections/4')
+        cy.get('.govuk-label')
+            .contains('Search the UK Global Online Tariff')
+        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.title().should('contains','0406103010')
+        cy.get('.govuk-main-wrapper')
+            .contains('Commodity information for 0406103010')
+    })
+    it('🚀 Enter commodity code for Mozzaarella - Chapters and search',function(){
+        cy.visit('chapters/20')
+        cy.get('.govuk-label')
+            .contains('Search the UK Global Online Tariff')
+        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.title().should('contains','0406103010')
+        cy.get('.govuk-main-wrapper')
+            .contains('Commodity information for 0406103010')
+    })
+    it('🚀 Enter commodity code for Mozzaarella - Headings and search',function(){
+        cy.visit('headings/2003')
+        cy.get('.govuk-label')
+            .contains('Search the UK Global Online Tariff')
+        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.title().should('contains','0406103010')
+        cy.get('.govuk-main-wrapper')
+            .contains('Commodity information for 0406103010')
+    })
+
+
 })

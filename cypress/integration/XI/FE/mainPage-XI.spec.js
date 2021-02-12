@@ -28,6 +28,13 @@ describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function
         cy.contains('Forum').should('not.exist')
     })
 
+    it('Sections Page - Forum section removed', function () {
+        cy.visit('/sections')
+        cy.get('.govuk-header ')
+        cy.contains('Forum').should('not.exist')
+    })
+    //--
+
     it.skip('XI - Check correct date is displayed',function(){
         cy.visit('/sections')
         cy.get('.govuk-grid-column-full')
