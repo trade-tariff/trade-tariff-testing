@@ -28,7 +28,7 @@ describe('🇬🇧 💡 Main Page - headers ,sections  - (UK version)',function(
     it('UK - Header text - Sub sections on headings banner ', function () {
         cy.visit('/sections')
         cy.get('.govuk-header ')
-        cy.contains('Search the Tariff')
+        cy.contains('Search the UK Global Online Tariff')
         cy.contains('Additional code').should('not.exist')
         cy.contains('Certificate').should('not.exist')
         cy.contains('Footnotes').should('not.exist')
@@ -55,18 +55,10 @@ describe('🇬🇧 💡 Main Page - headers ,sections  - (UK version)',function(
         cy.get('div:nth-of-type(1) > .govuk-heading-s').should('be.visible')
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
     })
-    it('UK - Header text - page - select Export button',()=> {
-        cy.get('a#tab_export').click()
-        cy.get('div#import > .govuk-heading-m').contains('Import measures and restrictions')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
-    })
-    it('UK - Header text - page - select Import button',()=> {
-        cy.get('a#tab_import').click()
-        cy.get('div#import > .govuk-heading-m').contains('Import measures and restrictions')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
-    })
+
 
     it('UK - Header text - page - select Chile from All countries list',()=>{
+        cy.get('a#tab_import').click()
         cy.get('input#import_search_country').click().clear().wait(500)
             .type('Chile').wait(500)
             .type('{enter}')
@@ -79,9 +71,9 @@ describe('🇬🇧 💡 Main Page - headers ,sections  - (UK version)',function(
     })
     it('UK - Search the Tariff section',function(){
         cy.visit('/sections')
-        cy.get('.govuk-header').contains('Search the Tariff').click()
+        cy.get('.govuk-header').contains('Search or browse the Tariff').click()
         cy.get('.govuk-main-wrapper')
-            .contains('Search the tariff')
+            .contains('Search the UK Global Online Tariff')
     })
     it('UK - A-Z section',function(){
         cy.visit('/sections')

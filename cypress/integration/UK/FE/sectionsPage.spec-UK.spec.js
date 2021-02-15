@@ -10,7 +10,7 @@ describe('🇬🇧 💡 🔍 Sections page content validation ',function() {
         cy.url().should('include', 'sections', {timeout: 5000})
         cy.visit('/sections')
         cy.get('.govuk-header ')
-        cy.contains('Search the Tariff')
+        cy.contains('Search or browse the Tariff')
         cy.contains('A-Z')
         cy.contains('Tools')
         cy.contains('Additional code').should('not.exist')
