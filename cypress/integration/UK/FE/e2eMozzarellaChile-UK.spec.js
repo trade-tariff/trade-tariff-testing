@@ -1,10 +1,10 @@
 describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
-    //   Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    
     Cypress.config('baseUrl')
 
     it('Navigate to trade tariff page ', function () {
         cy.visit('/sections')
-            .contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+            cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
     })
     it('Enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
@@ -61,4 +61,3 @@ describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',functio
             .contains('Footnotes')
     })
 })
-

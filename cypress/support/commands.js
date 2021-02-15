@@ -21,8 +21,10 @@ Cypress.Commands.add("checkPageAlly",(path)=>{
 
 //UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add("MainPageUK",()=>{
+    cy.visit('/sections')
    //check header has UK information
    cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+    cy.title().should('eq', 'UK Global Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
    cy.get('.govuk-header ')
        .contains('UK Global Online Tariff')
    //check correct text is displayed on banner as per UK - If they are at risk
@@ -38,7 +40,24 @@ Cypress.Commands.add("MainPageUK",()=>{
 
 
 //XI Checks main page title , sections , content and switching link available , search section
-
+Cypress.Commands.add("MainPageXI",()=>{
+    cy.visit('/sections')
+    //check header has UK information
+    cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
+    cy.title().should('eq', 'Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
+    cy.get('.govuk-header ')
+        .contains('Northern Ireland Online Tariff')
+    //check correct text is displayed on banner as per UK - If they are at risk
+    cy.get('.tariff-breadcrumbs')
+        .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Global Online Tariff.')
+        cy.get('.tariff-breadcrumbs').contains('UK Global Online Tariff')
+        //Search the tariff section
+    cy.get('.govuk-label')
+        .contains('Search the Northern Ireland Online Tariff')
+    cy.get('.govuk-header__link')
+        .contains('Search or browse the Tariff').click()
+    cy.contains('All sections')
+ })
 
 
 //Duty Calculator main page

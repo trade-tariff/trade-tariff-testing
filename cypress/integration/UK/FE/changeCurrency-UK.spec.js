@@ -4,6 +4,7 @@ describe('🇬🇧 💡  Change Currency should not be visible  -  UK services)'
     Cypress.config('baseUrl')
     it('UK - Change Currency should not be visible on main page - The Online Trade Tariff', function () {
         cy.visit('/sections')
+        cy.MainPageUK()
         cy.get('.govuk-grid-row')
         cy.contains('Change date')
         cy.contains('Change currency').should('not.exist')
