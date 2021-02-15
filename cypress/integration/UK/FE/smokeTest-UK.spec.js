@@ -82,7 +82,8 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
         cy.wait(500)
-        cy.get('input[name=\'new_search\']').click().wait(500)
+        cy.get('input[name=\'new_search\']').click()
+        cy.wait(500)
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - code search
@@ -94,6 +95,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
         cy.get('.js-commodity-picker-select').click().type('3808941000')
         cy.wait(500)
         cy.get('input[name=\'new_search\']').click()
+        cy.wait(500)
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
