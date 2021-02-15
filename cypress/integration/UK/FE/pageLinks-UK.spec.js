@@ -8,7 +8,9 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
             .contains('Terms and conditions').click()
-        cy.title().should('eq', 'The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
+            cy.log(cy.title())
+        cy.title().should('eq', 'UK Global Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
+    
         cy.get('.govuk-main-wrapper')
             .contains('Terms and conditions')
     })
@@ -26,8 +28,8 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
             .contains('Cookies').click()
-        cy.title().should('eq', 'The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
-        cy.get('.govuk-main-wrapper')
+            cy.title().should('eq', 'UK Global Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
+            cy.get('.govuk-main-wrapper')
             .contains('Cookies')
 
     })

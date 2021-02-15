@@ -1,4 +1,4 @@
-describe.skip(' 🍻 ***Test file***',function() {
+describe(' 🍻 ***Test file***',function() {
     Cypress.config('baseUrl')
 
     it.skip('🍻🍻', function () {
@@ -18,7 +18,7 @@ describe.skip(' 🍻 ***Test file***',function() {
                 })
 
             })
-    it('🍭 API - V2 - Headers,Status,Length,duration', function () {
+    it.skip('🍭 API - V2 - Headers,Status,Length,duration', function () {
         cy.request('/api/v2/commodities/2007993946').as('comments')
 
         cy.get('@comments')
@@ -64,5 +64,5 @@ describe.skip(' 🍻 ***Test file***',function() {
                 expect(response.status).to.eq(404)
             })
     })
-
+    
 })
