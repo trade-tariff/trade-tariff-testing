@@ -1,4 +1,4 @@
-describe('🧮 Duty Calculator main page ',function() {
+describe.skip('🧮 Duty Calculator main page ',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycalculator'])
 // skip some tests if the pack gets bigger
     it(' ➕📅  Valid Date', function () {
