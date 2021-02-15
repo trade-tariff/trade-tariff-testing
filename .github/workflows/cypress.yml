@@ -1,8 +1,8 @@
-name: "e2eTest"
+name: "smokeTest"
 on: [workflow_dispatch]
 jobs:
   cypress-run:
-    name: "e2e tests UK and XI"
+    name: "smoke tests - UK and XI"
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
