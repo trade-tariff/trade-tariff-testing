@@ -1,7 +1,7 @@
 name: "smokeTest"
 on:
   schedule:
-    - cron: "00 11 * * *"
+    - cron: "45 11 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
+      allow_failure: true
     steps:
       - run: date
       - uses: actions/checkout@v2
