@@ -1,7 +1,7 @@
 name: "smokeTest"
 on:
   schedule:
-    - cron: '00 07 * * *'
+    - cron: '10 34 * * *'
   workflow_dispatch
 
 jobs:
