@@ -81,19 +81,19 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
         cy.get('.govuk-label').contains('Search the UK Global Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.wait(500)
+        cy.wait(300)
         cy.get('input[name=\'new_search\']').click()
         cy.wait(500)
         cy.contains('Search results for ‘gherkins’')
     })
-    //Commodity Search functionality - code search
+    //Commodity Search functionality - comm code search
     it('🚀 UK - Search Commodity by code ', function () {
         cy.visit('/sections')
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
             .contains('Search the UK Global Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(500)
+        cy.wait(300)
         cy.get('input[name=\'new_search\']').click()
         cy.wait(500)
         cy.contains('Commodity information for 3808941000')
