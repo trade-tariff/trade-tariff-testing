@@ -7,9 +7,9 @@ jobs:
   cypress-run:
     name: "smoke tests - UK and XI"
     runs-on: ubuntu-18.04
+    allow_failure: true
     strategy:
       fail-fast: false
-      allow_failure: true
     steps:
       - run: date
       - uses: actions/checkout@v2
