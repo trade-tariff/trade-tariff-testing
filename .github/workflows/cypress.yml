@@ -1,7 +1,7 @@
 name: "smokeTest"
 on:
   schedule:
-    - cron: "45 06 * * *"
+    - cron: "15 09 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
