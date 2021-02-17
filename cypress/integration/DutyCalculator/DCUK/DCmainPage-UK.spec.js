@@ -12,7 +12,7 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
     })
-    it('📅 Invalid date - Past Date -> enter valid date ', function () {
+    it('📅 Invalid date - Past Date -> Date persists -> enter valid date ', function () {
         cy.visit('/')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('11')
@@ -25,13 +25,14 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-error-message')
         .contains('Enter a valid future date')
 
-        // check year can be entered in YY format rather than YYYY?
-
         // 30th February ?
 
         //date entered persists after error message only if valid format date and in past *
+        cy.get('#wizard-steps-import-date-import-date-field-error') .should('have.value', '11')
+        cy.get('#wizard_steps_import_date_import_date_2i') .should('have.value', '12')
+        cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2020')
 
-        //   cy.get('#wizard-steps-import-date-import-date-field-error').click().contains('11')
+
 
 
         //check if it allows user to enter correct date ( leap year 2024)
@@ -110,7 +111,6 @@ describe('🧮 Duty Calculator main page ',function() {
 /*
 To-do list :
 Commodity details test cases
-persisted date test case
 check text color: #d4351c
 
 
