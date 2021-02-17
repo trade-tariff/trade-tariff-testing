@@ -2,8 +2,8 @@ describe('🧮 Duty Calculator main page ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
-// skip some tests if the pack gets bigger
-    it(' ➕📅  Valid Date', function () {
+    // skip some tests if the pack gets bigger
+    it('📅  Valid Date', function () {
         cy.visit('/')
         cy.DCMainPage()
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('29')
@@ -12,9 +12,9 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
     })
-    it('➖📅 Invalid date - Past Date ', function () {
+    it('📅 Invalid date - Past Date -> enter valid date ', function () {
         cy.visit('/')
-
+        cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('11')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
         cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2020')
@@ -25,9 +25,13 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-error-message')
         .contains('Enter a valid future date')
 
+        // check year can be entered in YY format rather than YYYY?
 
-        //date entered persists after error message
-     //   cy.get('#wizard-steps-import-date-import-date-field-error').click().contains('11')
+        // 30th February ?
+
+        //date entered persists after error message only if valid format date and in past *
+
+        //   cy.get('#wizard-steps-import-date-import-date-field-error').click().contains('11')
 
 
         //check if it allows user to enter correct date ( leap year 2024)
@@ -39,8 +43,9 @@ describe('🧮 Duty Calculator main page ',function() {
 
 
     })
-    it('➖📅 Invalid date - No Date ', function () {
+    it('📅 No Date ', function () {
         cy.visit('/')
+        cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -48,8 +53,9 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-error-message')
         cy.contains('Enter a valid future date')
     })
-    it('➖📅 Invalid date - Text  ', function () {
+    it('📅 Invalid date - Text  ', function () {
         cy.visit('/')
+        cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('dd')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('mm')
         cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('yyyy')
@@ -66,17 +72,24 @@ describe('🧮 Duty Calculator main page ',function() {
             .contains('Search or browse the Tariff').click()
         cy.wait(500)
         cy.MainPageUK()
+        //DC main page
         cy.visit('/')
+        cy.contains('Trade Tariff Duty Calculator')
         cy.get('.govuk-header__navigation ')
         cy.contains('A-Z').click()
         cy.contains('A–Z of Classified Goods')
+        cy.contains('UK Global Online Tariff')
+        //DC main page
         cy.visit('/')
+        cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Tools').click()
+        cy.contains('UK Global Online Tariff')
         cy.contains('Tariff tools')
 
     })
-    it('🔖 Commodity Details ',function(){
+    it.skip('🔖 Commodity Details ',function(){
         cy.visit('/')
+        cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Back').click()
         //☀️ Validate commodity page
         cy.visit('/')
@@ -94,4 +107,13 @@ describe('🧮 Duty Calculator main page ',function() {
 
     })
 })
-//check text color: #d4351c
+/*
+To-do list :
+Commodity details test cases
+persisted date test case
+check text color: #d4351c
+
+
+
+
+ */

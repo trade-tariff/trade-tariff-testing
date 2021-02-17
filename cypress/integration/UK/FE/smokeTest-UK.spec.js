@@ -4,7 +4,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
 
     //Main Page
     it('🚀 UK - Main Page Validation',function(){
-     //   cy.visit('/sections')
+       cy.visit('/sections')
         cy.MainPageUK();
     })
     //Legal base tests
@@ -81,9 +81,9 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
         cy.get('.govuk-label').contains('Search the UK Global Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.wait(300)
+        cy.wait(400)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.wait(700)
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
@@ -95,7 +95,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
         cy.get('.js-commodity-picker-select').click().type('3808941000')
         cy.wait(300)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.wait(700)
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
@@ -112,7 +112,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
             .contains('Andorra (AD)')
 
         // no GB - United Kingdom (excluding Northern Ireland) (GB)
-        cy.get('input#import_search_country').click().clear().wait(500).type('(GB)').wait(900)
+        cy.get('input#import_search_country').click().clear().wait(500).type('(GB)').wait(600)
         cy.get("[id='import_search_country__listbox']")
             .contains('No results found')
 

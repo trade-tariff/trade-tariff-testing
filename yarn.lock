@@ -835,6 +835,11 @@
   dependencies:
     "any-observable" "^0.3.0"
 
+"@types/node@12.12.50":
+  "integrity" "sha512-5ImO01Fb8YsEOYpV+aeyGYztcYcjGsBvN4D7G5r1ef2cuQOpymjWNQi5V0rKHE6PC2ru3HkoUr/Br2/8GUA84w=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-12.12.50.tgz"
+  "version" "12.12.50"
+
 "@types/sinonjs__fake-timers@^6.0.1":
   "integrity" "sha512-dIPoZ3g5gcx9zZEszaxLSVTvMReD3xxyyDnQUjA6IYDG9Ba2AV0otMPs+77sG9ojB4Qr2N2Vk5RnKeuA0X/0bg=="
   "resolved" "https://registry.npmjs.org/@types/sinonjs__fake-timers/-/sinonjs__fake-timers-6.0.2.tgz"
@@ -1984,14 +1989,15 @@
     "debug" "^4.1.1"
     "lodash" "^4.17.15"
 
-"cypress@^3 || ^4 || ^5 || ^6", "cypress@^6.4.0":
-  "integrity" "sha512-SrsPsZ4IBterudkoFYBvkQmXOVxclh1/+ytbzpV8AH/D2FA+s2Qy5ISsaRzOFsbQa4KZWoi3AKwREmF1HucYkg=="
-  "resolved" "https://registry.npmjs.org/cypress/-/cypress-6.4.0.tgz"
-  "version" "6.4.0"
+"cypress@^3 || ^4 || ^5 || ^6", "cypress@^6.5.0":
+  "integrity" "sha512-ol/yTAqHrQQpYBjxLlRSvZf4DOb9AhaQNVlwdOZgJcBHZOOa52/p/6/p3PPcvzjWGOMG6Yq0z4G+jrbWyk/9Dg=="
+  "resolved" "https://registry.npmjs.org/cypress/-/cypress-6.5.0.tgz"
+  "version" "6.5.0"
   dependencies:
     "@cypress/listr-verbose-renderer" "^0.4.1"
     "@cypress/request" "^2.88.5"
     "@cypress/xvfb" "^1.2.4"
+    "@types/node" "12.12.50"
     "@types/sinonjs__fake-timers" "^6.0.1"
     "@types/sizzle" "^2.3.2"
     "arch" "^2.1.2"
@@ -2004,7 +2010,7 @@
     "commander" "^5.1.0"
     "common-tags" "^1.8.0"
     "dayjs" "^1.9.3"
-    "debug" "^4.1.1"
+    "debug" "4.3.2"
     "eventemitter2" "^6.4.2"
     "execa" "^4.0.2"
     "executable" "^4.1.1"
@@ -2099,10 +2105,10 @@
   dependencies:
     "ms" "^2.1.1"
 
-"debug@^4.1.0", "debug@^4.1.1":
-  "integrity" "sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ=="
-  "resolved" "https://registry.npmjs.org/debug/-/debug-4.3.1.tgz"
-  "version" "4.3.1"
+"debug@^4.1.0", "debug@^4.1.1", "debug@4.3.2":
+  "integrity" "sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw=="
+  "resolved" "https://registry.npmjs.org/debug/-/debug-4.3.2.tgz"
+  "version" "4.3.2"
   dependencies:
     "ms" "2.1.2"
 
