@@ -1,7 +1,7 @@
 name: "smokeTest"
 on:
   schedule:
-    - cron: "15 09 * * *"
+    - cron: "00 07 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
@@ -21,7 +21,6 @@ jobs:
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js"
-          continue-on-error: true
       - uses: cypress-io/github-action@v2
         name: "UK smoke tests"
         with:
@@ -29,7 +28,6 @@ jobs:
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-UK.spec.js"
-          continue-on-error: true
       - run: npm run posttests
       - run: ls -l
       - uses: actions/upload-artifact@v2

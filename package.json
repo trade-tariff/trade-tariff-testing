@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "axe-core": "^4.1.1",
-    "cypress": "^6.4.0",
+    "cypress": "^6.5.0",
     "cypress-axe": "^0.12.1",
     "cypress-cucumber-preprocessor": "^2.5.5",
     "cypress-file-upload": "^4.0.4",

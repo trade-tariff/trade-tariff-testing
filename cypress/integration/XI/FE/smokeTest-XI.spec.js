@@ -4,6 +4,7 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
 
     //Main Page
     it('🚀 XI - Main Page Validation', function () {
+        cy.visit('/sections')
         cy.MainPageXI();
     })
     //Legal base tests
@@ -55,7 +56,7 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.wait(300)
+        cy.wait(400)
         cy.get('input[name=\'new_search\']').click()
         cy.wait(700)
         cy.contains('Search results for ‘gherkins’')
