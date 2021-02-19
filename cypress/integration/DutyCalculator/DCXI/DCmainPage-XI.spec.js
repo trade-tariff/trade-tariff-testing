@@ -1,4 +1,4 @@
-describe('🧮 Duty Calculator main page ',function() {
+describe('🧮 🇪🇺 Duty Calculator main page ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycalxi'])
 

@@ -1,6 +1,4 @@
 
-
-
 describe('🧮 Duty Calculator main page ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
@@ -8,6 +6,7 @@ describe('🧮 Duty Calculator main page ',function() {
     // skip some tests if the pack gets bigger
     it('📅  Valid Date', function () {
         cy.visit('/')
+        cy.contains('Trade Tariff Duty Calculator')
         cy.DCMainPage()
         cy.ValidDate()
         cy.contains('Continue').click()
