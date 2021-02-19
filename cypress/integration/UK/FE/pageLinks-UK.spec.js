@@ -107,7 +107,6 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', '/feedback')
     })
 
-
     //Help Section
 
    it('UK - Help - Finding commodity codes for imports or exports',function(){
@@ -128,7 +127,6 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.contains('Import and export')
         cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/topic/business-tax/import-export')
     })
-
 
     //Related information
     it('UK - Related information - UK Trade Tariff: Volume 1 – background information for importers and exporters',function(){
@@ -153,7 +151,6 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
     })
 
     // OGL link
-
     it('UK - Open Government Licence v3.0',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__meta.govuk-footer__row')

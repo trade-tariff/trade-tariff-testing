@@ -48,7 +48,9 @@ describe('🇪🇺 💡 Country Selection - hjid tests ',function() {
             .contains('No results found')
 
     })
-
+// XI Present
+// GB Present
+// no XU
 
     it('🇭🇹 Haiti exclusion 🚫 - CARIFORUM',function(){
     let commoditycodes_ids = ["0707000599","0302311000","8902001000","9603210000","7901121000","6602000010","4901910000"]
