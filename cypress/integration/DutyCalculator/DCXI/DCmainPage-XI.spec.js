@@ -1,15 +1,14 @@
-
-
-
 describe('🧮 Duty Calculator main page ',function() {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    Cypress.config('baseUrl', Cypress.config('services')['dutycalxi'])
 
     // skip some tests if the pack gets bigger
     it('📅  Valid Date', function () {
         cy.visit('/')
         cy.DCMainPage()
-        cy.ValidDate()
+        cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('29')
+        cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('04')
+        cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2021')
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
     })
@@ -32,6 +31,9 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('#wizard-steps-import-date-import-date-field-error') .should('have.value', '11')
         cy.get('#wizard_steps_import_date_import_date_2i') .should('have.value', '12')
         cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2020')
+
+
+
 
         //check if it allows user to enter correct date ( leap year 2024)
         cy.get('input[name=\'wizard_steps_import_date[import_date(3i)]\']').click().clear().type('29')
@@ -70,51 +72,49 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-header__link')
             .contains('Search or browse the Tariff').click()
         cy.wait(500)
-        cy.MainPageUK()
+        cy.MainPageXI()
         //DC main page
         cy.visit('/')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('.govuk-header__navigation ')
         cy.contains('A-Z').click()
         cy.contains('A–Z of Classified Goods')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('Northern Ireland Online Tariff')
         //DC main page
         cy.visit('/')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Tools').click()
-        cy.contains('UK Global Online Tariff')
+        cy.contains('Northern Ireland Online Tariff')
         cy.contains('Tariff tools')
 
     })
     it('🔖 Commodity Details ',function(){
         cy.visit('/')
         cy.contains('Trade Tariff Duty Calculator')
-        //Back button - GDS style back link
         cy.contains('Back').click()
-        //Validate commodity page
-        cy.contains('Commodity information for 1704101000')
-
-
+        //☀️ Validate commodity page
         cy.visit('/')
         //About this commodity code
-    
+       // cy.get('.govuk-details__summary-text')
+
         cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('About this commodity code').click()
         cy.get('.govuk-details__text')
         cy.contains('Commodity code')
         cy.contains('1704101000')
-        cy.contains('Containing less than 60 % by weight of sucrose (including invert sugar expressed as sucrose')
+        cy.contains('Containing less than 60|% by weight of sucrose (including invert sugar expressed as sucrose)')
         
         cy.contains('View commodity 1704101000').click()
         //☀️ Validate commodity page
         cy.contains('Commodity information for 1704101000')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('Northern Ireland Online Tariff')
         cy.go(-1)
         cy.contains('Trade Tariff Duty Calculator')
 
 
 
     })
-    
 })
-//check text color: #d4351c
+/*
+check text color: #d4351c
+ */

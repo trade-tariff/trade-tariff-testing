@@ -1,4 +1,4 @@
-name: "smokeTest"
+name: " 🚀 smokeTest"
 on:
   schedule:
     - cron: "00 07 * * *"
@@ -12,7 +12,14 @@ jobs:
       fail-fast: false
     steps:
       - run: date
-      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+        name: "UK smoke tests"
+        with:
+          quiet: true
+          browser: chrome
+          headless: true
+          spec: "*/**/smokeTest-UK.spec.js"
+          - uses: actions/checkout@v2
       - run: mkdir -p cypress/reports/mochareports
       - uses: cypress-io/github-action@v2
         name: "XI smoke tests"
@@ -21,13 +28,6 @@ jobs:
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js"
-      - uses: cypress-io/github-action@v2
-        name: "UK smoke tests"
-        with:
-          quiet: true
-          browser: chrome
-          headless: true
-          spec: "*/**/smokeTest-UK.spec.js"
       - run: npm run posttests
       - run: ls -l
       - uses: actions/upload-artifact@v2
