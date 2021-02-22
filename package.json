@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@jc21/cypress-jsonschema-validation": "^0.0.1",
+    "@jc21/cypress-swagger-validation": "^0.1.0",
     "ansi-styles": "^5.0.0"
   },
   "devDependencies": {

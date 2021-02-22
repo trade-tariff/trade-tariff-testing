@@ -1,10 +1,10 @@
 
 describe('🧮 📱 UK 🇬🇧 💡 Duty Calculator Smoke ',function() {
-
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-// iphone
+   
+// iphone 
     it('📱 iphone - e2e journey ', function () {
-        cy.viewport('iphone-x')
+        cy.viewport('iphone-6', 'landscape')
         cy.visit('/')
         cy.contains('Trade Tariff Duty Calculator')
 

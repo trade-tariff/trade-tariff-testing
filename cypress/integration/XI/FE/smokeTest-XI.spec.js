@@ -1,5 +1,6 @@
-describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI services ',function() {
 
+describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI services ',function() {
+   
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     //Main Page
@@ -56,9 +57,9 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.wait(500)
+        cy.wait(300)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.wait(500)
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
@@ -68,9 +69,9 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.get('.govuk-label')
             .contains('Search the Northern Ireland Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(500)
+        cy.wait(300)
         cy.get('input[name=\'new_search\']').click()
-            cy.wait(700)
+            cy.wait(500)
         cy.contains('Commodity information for 3808941000')
     })
 
@@ -144,5 +145,22 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
             .contains('This tariff is for 7 April 2021')
     })
+    it(`🚀 XI - Mobile - nav-bar validation`,function(){
+        
+        const sizes = ['iphone-6','samsung-note9']
+            for (let i=0 ;i<sizes.length ;i++){
+                cy.viewport(`${sizes[i]}`)
+   
+                cy.visit('/sections')
+                cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
+                cy.get('.govuk-header__menu-button').click()
+                cy.contains('A-Z')
+                cy.contains('Tools')
+                cy.contains('Search or browse the Tariff').click()
+                cy.contains('All sections')
+
+            }
+        
+})
 
 })
