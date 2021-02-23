@@ -15,11 +15,12 @@ jobs:
       - run: mkdir -p cypress/reports/mochareports
       - uses: cypress-io/github-action@v2
         name: "UK smoke tests"
+        continue-on-error: true
         with:
           quiet: true
           browser: chrome
           headless: true
-          continue-on-error: true
+          
           spec: "*/**/smokeTest-UK.spec.js"
       - uses: cypress-io/github-action@v2
         name: "XI smoke tests"
