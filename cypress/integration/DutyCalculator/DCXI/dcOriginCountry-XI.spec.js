@@ -10,7 +10,7 @@ describe('🧮 🇪🇺 Duty Calculator Origin Country selection page ',function
         cy.contains('Which part of the UK are you importing into?')
 
        //select England ,Scotland or Wales (GB)
-       cy.get('#wizard-steps-import-destination-import-destination-1-field').check()
+       cy.get('#wizard-steps-import-destination-import-destination-gb-field').check()
        cy.contains('Continue').click()
         cy.contains('Which country are the goods dispatched from?')
         cy.contains('The duty you are charged may be dependent on the country of dispatch of the goods being imported.')
@@ -37,7 +37,7 @@ describe('🧮 🇪🇺 Duty Calculator Origin Country selection page ',function
         cy.contains('Which part of the UK are you importing into?')
 
        //select England ,Scotland or Wales (GB)
-       cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
+       cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
        cy.contains('Continue').click()
         cy.contains('Which country are the goods dispatched from?')
         cy.contains('The duty you are charged may be dependent on the country of dispatch of the goods being imported.')
@@ -58,7 +58,7 @@ describe('🧮 🇪🇺 Duty Calculator Origin Country selection page ',function
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
         //select England ,Scotland or Wales (GB)
-       cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
+       cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
        cy.contains('Continue').click()
         cy.contains('Which country are the goods dispatched from?')
         cy.contains('The duty you are charged may be dependent on the country of dispatch of the goods being imported.')

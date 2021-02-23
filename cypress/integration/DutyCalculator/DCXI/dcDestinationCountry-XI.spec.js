@@ -14,9 +14,9 @@ describe('🧮 🇪🇺 Duty Calculator Country selection page ',function() {
 
 
         //select England ,Scotland or Wales (GB)
-        cy.get('#wizard-steps-import-destination-import-destination-1-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-gb-field').check()
 
-        cy.get('#wizard-steps-import-destination-import-destination-1-field')
+        cy.get('#wizard-steps-import-destination-import-destination-gb-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -24,8 +24,8 @@ describe('🧮 🇪🇺 Duty Calculator Country selection page ',function() {
 
 
         //Northern Ireland
-        cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
-        cy.get('#wizard-steps-import-destination-import-destination-2-field')
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -46,8 +46,8 @@ describe('🧮 🇪🇺 Duty Calculator Country selection page ',function() {
         cy.contains('Which part of the UK are you importing into?')
 
         //Northern Ireland
-        cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
-        cy.get('#wizard-steps-import-destination-import-destination-2-field')
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')

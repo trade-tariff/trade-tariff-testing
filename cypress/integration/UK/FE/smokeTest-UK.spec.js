@@ -233,7 +233,5 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
                 cy.contains('All sections')
 
             }
-        
-    
 })
 })

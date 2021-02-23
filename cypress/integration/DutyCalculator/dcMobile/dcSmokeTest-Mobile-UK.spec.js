@@ -21,8 +21,8 @@ describe('🧮 📱 UK 🇬🇧 💡 Duty Calculator Smoke ',function() {
         cy.contains('Which part of the UK are you importing into?')
 
         //Northern Ireland
-        cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
-        cy.get('#wizard-steps-import-destination-import-destination-2-field')
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -69,8 +69,8 @@ it('📱 android - e2e journey ', function () {
     cy.contains('Which part of the UK are you importing into?')
 
     //Northern Ireland
-    cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
-    cy.get('#wizard-steps-import-destination-import-destination-2-field')
+    cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+    cy.get('#wizard-steps-import-destination-import-destination-xi-field')
         .parent()
         .find('input')
         .should('be.checked')

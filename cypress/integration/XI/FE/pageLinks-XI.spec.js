@@ -6,7 +6,7 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
             .contains('Terms and conditions').click()
-        cy.title().should('eq', 'The Northern Ireland (EU) Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
+        cy.title().should('eq', 'Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
         cy.get('.govuk-main-wrapper')
             .contains('Terms and conditions')
     })
@@ -15,7 +15,7 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
             .contains('Cookies').click()
-        cy.title().should('eq','The Northern Ireland (EU) Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK')
+        cy.title().should('eq','Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
         cy.get('.govuk-main-wrapper')
             .contains('Cookies')
 
