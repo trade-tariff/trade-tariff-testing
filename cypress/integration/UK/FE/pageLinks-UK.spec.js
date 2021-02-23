@@ -187,9 +187,40 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
 
       //  cy.get('.govuk-\!-font-size-16.govuk-details__text >.govuk-link').should('have.attr', 'href','https://www.gov.uk/government/publications/notice-826-tariff-preferences-imports/notice-826-tariff-preferences-imports')
 
-
     })
 
+    //export measures page static links
+    //What are the main types  of tariff and charges
+    it('UK - Export page links Supplementary Unit ,VAT,Third country duty,Tariff preference',function(){
+        cy.visit('/commodities/4421999910#export')
+        cy.contains('What are the main types of tariffs and charges').click()
+
+        cy.contains('Supplementary unit').click()
+        cy.contains('This is used when an additional measurement unit is needed, for example, the weight as well as the quantity of the products. The importer might need to declare this information. The product might not be allowed into the UK if the supplementary unit is not given.')
+
+        //VAT 
+        cy.contains('Value Added Tax (VAT)').click()
+        cy.contains('VAT is a national tax charged in addition to any other duties that apply.')
+        cy.get('.govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad')
+
+        //Third country duty 
+        cy.contains('Third country duty').click()
+        cy.contains('A third country duty is the duty payable in the absence of any other type of tariff measure.')
+        //Tariff preference 
+        cy.contains('Tariff preference').click()
+        cy.contains('A tariff preference means that you pay a lower or nil rate of import duty on your goods. To qualify, goods must meet the rules of origin.')
+
+        // change this validation to href link check 
+        cy.contains('tariff preference').click()
+        cy.contains('Check if you can claim a preferential rate of duty')
+        cy.go('back')
+        cy.contains('Commodity information for 2009909500')
+
+      //  cy.get('.govuk-\!-font-size-16.govuk-details__text >.govuk-link').should('have.attr', 'href','https://www.gov.uk/government/publications/notice-826-tariff-preferences-imports/notice-826-tariff-preferences-imports')
+
+
+    })
+   
 })
 
 
