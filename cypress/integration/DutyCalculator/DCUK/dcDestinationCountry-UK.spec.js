@@ -11,18 +11,18 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
         cy.contains('Which part of the UK are you importing into?')
 
         // Select Northern Ireland
-        cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         //Verify if NI button is selected 
-        cy.get('#wizard-steps-import-destination-import-destination-2-field')
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')
 
            
         //select England ,Scotland or Wales (GB)
-        cy.get('#wizard-steps-import-destination-import-destination-1-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-gb-field').check()
         //Verify if GB button is selected 
-        cy.get('#wizard-steps-import-destination-import-destination-1-field')
+        cy.get('#wizard-steps-import-destination-import-destination-gb-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -32,7 +32,7 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
           cy.go('back')
             cy.contains('Which part of the UK are you importing into?')
             //UK selection is persisted
-            cy.get('#wizard-steps-import-destination-import-destination-1-field')
+            cy.get('#wizard-steps-import-destination-import-destination-gb-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -57,9 +57,9 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
         cy.contains('Which part of the UK are you importing into?')
 
         //Northern Ireland
-        cy.get('#wizard-steps-import-destination-import-destination-2-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         // verify NI is selected
-        cy.get('#wizard-steps-import-destination-import-destination-2-field')
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -71,7 +71,7 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
             cy.contains('Back').click()
             cy.contains('Which part of the UK are you importing into?')
             //UK selection is persisted
-            cy.get('#wizard-steps-import-destination-import-destination-2-field')
+            cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')

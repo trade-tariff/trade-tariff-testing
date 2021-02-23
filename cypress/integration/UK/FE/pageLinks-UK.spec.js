@@ -176,8 +176,10 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.contains('Third country duty').click()
         cy.contains('A third country duty is the duty payable in the absence of any other type of tariff measure.')
         //Tariff preference 
+        
         cy.contains('Tariff preference').click()
         cy.contains('A tariff preference means that you pay a lower or nil rate of import duty on your goods. To qualify, goods must meet the rules of origin.')
+     //   cy.get('govuk-details__summary').should('have.attr', 'href','https://www.gov.uk/government/publications/notice-826-tariff-preferences-imports/notice-826-tariff-preferences-imports')
 
         // change this validation to href link check 
         cy.contains('tariff preference').click()
@@ -185,8 +187,8 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.go('back')
         cy.contains('Commodity information for 2009909500')
 
-      //  cy.get('.govuk-\!-font-size-16.govuk-details__text >.govuk-link').should('have.attr', 'href','https://www.gov.uk/government/publications/notice-826-tariff-preferences-imports/notice-826-tariff-preferences-imports')
-
+     
+        
     })
 
     //export measures page static links
@@ -216,7 +218,7 @@ describe(' 🇬🇧 💡 Terms and Conditions, Cookies ,Privacy links - UK ',fun
         cy.go('back')
         cy.contains('Commodity information for 2009909500')
 
-      //  cy.get('.govuk-\!-font-size-16.govuk-details__text >.govuk-link').should('have.attr', 'href','https://www.gov.uk/government/publications/notice-826-tariff-preferences-imports/notice-826-tariff-preferences-imports')
+     //   cy.get('.govuk-tabs__panel .govuk-link').should('have.attr', 'href','https://www.gov.uk/government/publications/notice-826-tariff-preferences-imports/notice-826-tariff-preferences-imports')
 
 
     })
