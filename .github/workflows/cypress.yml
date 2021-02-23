@@ -7,7 +7,6 @@ jobs:
   cypress-run:
     name: "smoke tests - UK and XI"
     runs-on: ubuntu-18.04
-    continue-on-error: true
     strategy:
       fail-fast: false
     steps:
@@ -20,6 +19,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
+          continue-on-error: true
           spec: "*/**/smokeTest-UK.spec.js"
       - uses: cypress-io/github-action@v2
         name: "XI smoke tests"
