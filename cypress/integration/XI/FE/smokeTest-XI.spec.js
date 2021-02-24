@@ -57,6 +57,7 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
+        cy.get('li#q__option--0')
         cy.wait(400)
         cy.get('input[name=\'new_search\']').click()
         cy.wait(500)
@@ -69,6 +70,7 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.get('.govuk-label')
             .contains('Search the Northern Ireland Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
+        cy.get('li#q__option--0')
         cy.wait(400)
         cy.get('input[name=\'new_search\']').click()
             cy.wait(500)

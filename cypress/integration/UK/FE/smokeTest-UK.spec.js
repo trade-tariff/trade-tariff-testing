@@ -75,7 +75,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
         cy.get('.close [href]').click()
     })
     //Commodity Search functionality - text search
-    it.only('🚀 UK - Search Commodity by name ', function () {
+    it('🚀 UK - Search Commodity by name ', function () {
         cy.visit('/sections')
         //changed on 11/02/2021
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
@@ -93,7 +93,7 @@ describe('🚀  UK 🇬🇧 💡 - Smoke tests to cover basic functionality on U
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
-    it.only('🚀 UK - Search Commodity by code ', function () {
+    it('🚀 UK - Search Commodity by code ', function () {
         cy.visit('/sections')
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
