@@ -7,7 +7,6 @@ describe('🧮 📱 UK 🇬🇧 💡 Duty Calculator Smoke ',function() {
         cy.viewport('iphone-6', 'landscape')
         cy.visit('/')
         cy.contains('Trade Tariff Duty Calculator')
-
         //Search the tariff section
     
         cy.get('.govuk-header__menu-button').click()
