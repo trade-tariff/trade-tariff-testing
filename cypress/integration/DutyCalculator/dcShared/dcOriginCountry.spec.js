@@ -18,21 +18,23 @@ describe('🧮 Duty Calculator Origin Country selection page ',function() {
         cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
 
         //select country from list 
-        cy.get('input#wizard-steps-country-of-origin-geographical-area-id-field')
-
+       
+        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
         .click().clear().wait(500)
         .type('United Kingdom (Northern Ireland)').wait(500)
-        cy.get('#wizard-steps-country-of-origin-geographical-area-id-field__listbox').wait(500)
-      //  .type('{enter}')
+      
         cy.contains('Continue').click()
         cy.contains('There is no import duty to pay')
         cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.')
-        cy.contains('Find out more about trading and moving goods in and out of Northern Ireland(opens in a new window).')
+        cy.contains('Find out more about trading and moving goods in and out of Northern Ireland (opens in a new window).')
         cy.get('.govuk-grid-row .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland')
 
       //Back button - GDS style back link
       cy.contains('Back').click()
       cy.contains('Which country are the goods dispatched from?')
+
+      //validate country of origin selected has persisted - Northern Ireland is displayed 
+      cy.get('#wizard-steps-country-of-origin-country-of-origin-field').should('contain','United Kingdom (Northern Ireland)')
 
 
     })
@@ -46,6 +48,8 @@ describe('🧮 Duty Calculator Origin Country selection page ',function() {
         cy.contains('Which part of the UK are you importing into?')
 
        //select England ,Scotland or Wales (GB)
+       cy.contains('England, Scotland or Wales (GB)')
+       cy.contains('Northern Ireland or other EU member states')
        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
        cy.contains('Continue').click()
         cy.contains('Which country are the goods dispatched from?')
@@ -54,7 +58,7 @@ describe('🧮 Duty Calculator Origin Country selection page ',function() {
         cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
 
         //select country from list 
-        cy.get('input#wizard-steps-country-of-origin-geographical-area-id-field').clear().type('United Kingdom (Northern Ireland)')
+        cy.get('#wizard-steps-country-of-origin-country-of-origin-field').clear().type('United Kingdom (Northern Ireland)')
       //  cy.contains('Continue').click()
 
       // Placeholder for next page 
