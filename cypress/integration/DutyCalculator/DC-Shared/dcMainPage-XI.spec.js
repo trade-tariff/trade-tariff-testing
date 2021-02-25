@@ -33,8 +33,6 @@ describe('🧮 🇪🇺 Duty Calculator main page ',function() {
         cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2020')
 
 
-
-
         //check if it allows user to enter correct date ( leap year 2024)
         cy.get('input[name=\'wizard_steps_import_date[import_date(3i)]\']').click().clear().type('29')
         cy.get('input[name=\'wizard_steps_import_date[import_date(2i)]\']').click().clear().type('02')
