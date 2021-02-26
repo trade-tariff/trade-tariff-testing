@@ -1,11 +1,12 @@
 {
-  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
+  "baseUrl": "https://www.trade-tariff.service.gov.uk",
   "services": {
-    "xi": "https://www.trade-tariff.service.gov.uk/xi",
-    "dutycal" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/uk/duty-calculator/1704101000/import-date#",
-    "dutycalxi" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/xi/duty-calculator/1704101000/import-date#"
+    "xi": "https://www.trade-tariff.service.gov.uk/xi/",
+    "dutycal" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/uk/duty-calculator/",
+    "dutycalxi" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/xi/duty-calculator/"
 
   },
+  
   "commcodes": [
     "7202118000",
     "0201100021",
@@ -50,9 +51,11 @@
       "json": true
     }
   },
+  
+  
   "chromeWebSecurity": false,
   "firefoxWebSecurity": false,
-
+  
   "testFiles": [
     "**/*.feature",
     "**/*.spec.js"

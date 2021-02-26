@@ -1,11 +1,16 @@
 
 describe('🧮 Duty Calculator main page ',function() {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    let country = ["dutycal","dutycalxi"]
+    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
+    for (let i =0;i<country.length;i++){
+        console.log(i)
+    Cypress.config('baseUrl', Cypress.config('services')[`${country[i]}`])
+    console.log(Cypress.config('baseUrl', Cypress.config('services')[`${country[i]}`]))
 
     // skip some tests if the pack gets bigger
     it('📅  Valid Date', function () {
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.DCMainPage()
         cy.ValidDate()
@@ -13,7 +18,7 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Which part of the UK are you importing into?')
     })
     it('📅 Invalid date - Past Date -> Date persists -> enter valid date ', function () {
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('11')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
@@ -42,7 +47,7 @@ describe('🧮 Duty Calculator main page ',function() {
 
     })
     it('📅 No Date ', function () {
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
@@ -52,7 +57,7 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Enter a valid future date')
     })
     it('📅 Invalid date - Text  ', function () {
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('dd')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('mm')
@@ -65,28 +70,28 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Enter a valid future date')
     })
     it('🔗 Verify Page links ',function(){
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.get('.govuk-header__link')
             .contains('Search or browse the Tariff').click()
         cy.wait(500)
         cy.MainPageUK()
         //DC main page
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('.govuk-header__navigation ')
         cy.contains('A-Z').click()
         cy.contains('A–Z of Classified Goods')
-        cy.contains('UK Global Online Tariff')
+        cy.contains(`${pagetitles[i]}`)
         //DC main page
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Tools').click()
-        cy.contains('UK Global Online Tariff')
+        cy.contains(`${pagetitles[i]}`)
         cy.contains('Tariff tools')
 
     })
     it('🔖 Commodity Details ',function(){
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         //Back button - GDS style back link
         cy.contains('Back').click()
@@ -94,7 +99,7 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Commodity information for 1704101000')
 
 
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         //About this commodity code
     
         cy.get('.govuk-details > .govuk-details__summary')
@@ -107,13 +112,13 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('View commodity 1704101000').click()
         //☀️ Validate commodity page
         cy.contains('Commodity information for 1704101000')
-        cy.contains('UK Global Online Tariff')
+        cy.contains(`${pagetitles[i]}`)
         cy.go(-1)
         cy.contains('Trade Tariff Duty Calculator')
 
 
 
     })
-    
+}
 })
 //check text color: #d4351c
