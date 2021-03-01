@@ -19,10 +19,11 @@ describe('EU to Northern Ireland - All EU countries ',function(){
 
             cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
             .click().clear().wait(500)
-            .type(`${EU_countries[i]}`).wait(500)
-            cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
-           // .contains(`${EU_countries[i]}`)
-            .select(`${EU_countries[i]}`)
+            .type(`${EU_countries[i]}`).wait(500).click(3)
+          //  cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
+          //  cy.get("ul#wizard-steps-country-of-origin-country-of-origin-field__listbox > li[role='option']")
+          //  .contains(`${EU_countries[i]}`)
+           // .select(`${EU_countries[i]}`)
           
             cy.contains('Continue').click()
             cy.contains('There is no import duty to pay')

@@ -11,13 +11,7 @@ beforeEach(() => {
   //  cy.viewport('iphone-x')
   //  cy.viewport('samsung-note9')
 })
-/*
-Cypress.Commands.add("checkPageAlly",(path)=>{
-   cy.visit(path);
-   cy.injectAxe();
-   cy.checkA11y(null,null,callback);
-})
-*/
+
 // ******* Custom Commands *******
 
 //UK Checks main page title , sections , content and switching link available , search section
@@ -87,3 +81,36 @@ Cypress.Commands.add("ValidDate",()=>{
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
         cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2022')
 })
+
+//**** AXE related commands - accessibility testing **** 
+const severityIndicators = {
+    minor: '⚪',
+    moderate: '🟡',
+    serious: '🟠',
+    critical: '🔴',
+}
+function callback(violations){
+    violations.forEach(violation =>{
+        const nodes = Cypress.$(violation.nodes.map(node=>node.target).joint(','))
+        Cypress.log({
+            name: `${severityIndicators[violation.impact]}) ALLY`,
+            consoleProps: () => violation,
+            $el: nodes,
+            message: `[${violation.help}](${violation.helpUrl})`
+        })
+
+        violation.nodes.forEach(({target})=>{
+            Cypress.log({
+                name: '🔧',
+                consoleProps: ()=> violation,
+                $el: Cypress.$(target.join(',')),
+                message: target
+            })
+        })
+    })
+}
+Cypress.Commands.add("checkPageAlly",(path)=>{
+    cy.visit(path);
+    cy.injectAxe();
+    cy.checkA11y(null,null,callback);
+ })
