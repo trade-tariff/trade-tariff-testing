@@ -3,7 +3,7 @@ describe('🧮 Duty Calculator Origin Country selection page ',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('ESW (GB) ', function () {
-        cy.visit('/')
+        cy.visit('/1704101000/country-of-origin')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -41,7 +41,7 @@ describe('🧮 Duty Calculator Origin Country selection page ',function() {
 
 
     it('Northern Ireland ', function () {
-        cy.visit('/')
+        cy.visit('/1704101000/country-of-origin')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
