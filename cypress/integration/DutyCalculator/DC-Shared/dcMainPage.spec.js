@@ -10,7 +10,7 @@ describe('🧮 Duty Calculator main page ',function() {
 
     // skip some tests if the pack gets bigger
     it('📅  Valid Date', function () {
-        cy.visit('/1704101000/import-date#')
+        cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.DCMainPage()
         cy.ValidDate()
@@ -18,7 +18,7 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Which part of the UK are you importing into?')
     })
     it('📅 Invalid date - Past Date -> Date persists -> enter valid date ', function () {
-        cy.visit('/1704101000/import-date#')
+        cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('11')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
@@ -47,7 +47,7 @@ describe('🧮 Duty Calculator main page ',function() {
 
     })
     it('📅 No Date ', function () {
-        cy.visit('/1704101000/import-date#')
+        cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
@@ -57,7 +57,7 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Enter a valid future date')
     })
     it('📅 Invalid date - Text  ', function () {
-        cy.visit('/1704101000/import-date#')
+        cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('dd')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('mm')
@@ -69,29 +69,29 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-error-message')
         cy.contains('Enter a valid future date')
     })
-    it('🔗 Verify Page links ',function(){
-        cy.visit('/1704101000/import-date#')
+    it.only('🔗 Verify Page links ',function(){
+        cy.visit('/0702000007/import-date#')
         cy.get('.govuk-header__link')
             .contains('Search or browse the Tariff').click()
         cy.wait(500)
-        cy.MainPageUK()
+      //  cy.MainPageUK()
         //DC main page
         cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('.govuk-header__navigation ')
         cy.contains('A-Z').click()
         cy.contains('A–Z of Classified Goods')
-        cy.contains(`${pagetitles[i]}`)
+        cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
         //DC main page
-        cy.visit('/1704101000/import-date#')
+        cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Tools').click()
-        cy.contains(`${pagetitles[i]}`)
+        cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
         cy.contains('Tariff tools')
 
     })
-    it('🔖 Commodity Details ',function(){
-        cy.visit('/1704101000/import-date#')
+    it.only('🔖 Commodity Details ',function(){
+        cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         //Back button - GDS style back link
         cy.contains('Back').click()
@@ -99,20 +99,20 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('Commodity information for 1704101000')
 
 
-        cy.visit('/1704101000/import-date#')
+        cy.visit('/0702000007/import-date#')
         //About this commodity code
     
         cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('About this commodity code').click()
         cy.get('.govuk-details__text')
         cy.contains('Commodity code')
-        cy.contains('1704101000')
-        cy.contains('Containing less than 60 % by weight of sucrose (including invert sugar expressed as sucrose')
+        cy.contains('0702000007')
+        cy.contains('Cherry tomatoes')
         
         cy.contains('View commodity 1704101000').click()
         //☀️ Validate commodity page
         cy.contains('Commodity information for 1704101000')
-        cy.contains(`${pagetitles[i]}`)
+        cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
         cy.go(-1)
         cy.contains('Trade Tariff Duty Calculator')
 

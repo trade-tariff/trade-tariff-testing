@@ -1,5 +1,3 @@
-
-
 before(() => {
    //   cy.injectAxe()
   //  cy.clearCookies()
@@ -12,14 +10,15 @@ beforeEach(() => {
   //  cy.injectAxe()
   //  cy.viewport('iphone-x')
   //  cy.viewport('samsung-note9')
-
 })
-
+/*
 Cypress.Commands.add("checkPageAlly",(path)=>{
    cy.visit(path);
    cy.injectAxe();
    cy.checkA11y(null,null,callback);
 })
+*/
+// ******* Custom Commands *******
 
 //UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add("MainPageUK",()=>{

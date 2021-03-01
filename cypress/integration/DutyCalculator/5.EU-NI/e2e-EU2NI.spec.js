@@ -2,7 +2,7 @@ describe('EU to Northern Ireland ',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e EU to NI ',function(){
-        cy.visit('/')
+        cy.visit('/1704101000/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()

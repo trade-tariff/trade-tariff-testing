@@ -4,10 +4,11 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
 
 // skip some tests if the pack gets bigger
     it('Import destination GB', function () {
-        cy.visit('/')
+        cy.visit('0702000007/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
+
         cy.contains('Which part of the UK are you importing into?')
 
         // Select Northern Ireland
@@ -17,8 +18,6 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
             .parent()
             .find('input')
             .should('be.checked')
-
-           
         //select England ,Scotland or Wales (GB)
         cy.get('#wizard-steps-import-destination-import-destination-gb-field').check()
         //Verify if GB button is selected 
@@ -50,12 +49,12 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
 
     })
     it('Import destination - Northern Ireland', function () {
-        cy.visit('/')
+        cy.visit('0702000007/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
-        cy.contains('Which part of the UK are you importing into?')
 
+        cy.contains('Which part of the UK are you importing into?')
         //Northern Ireland
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         // verify NI is selected
@@ -90,10 +89,10 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
 
     })
     it('Error - No country selected',function(){
-        cy.visit('/')
+        cy.visit('0702000007/import-destination')
         cy.contains('Trade Tariff Duty Calculator')
-        cy.ValidDate()
-        cy.contains('Continue').click()
+      //  cy.ValidDate()
+       // cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
@@ -104,11 +103,9 @@ describe('🧮 Duty Calculator Desination Country selection page ',function() {
 
     })
     it('Explore the Topic : Other static page links',function(){
-        cy.visit('/')
+        cy.visit('0702000007/import-destination')
         cy.contains('Trade Tariff Duty Calculator')
         // replace date selection with second page in URL
-        cy.ValidDate()
-        cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
 
         cy.contains('Explore the topic')
