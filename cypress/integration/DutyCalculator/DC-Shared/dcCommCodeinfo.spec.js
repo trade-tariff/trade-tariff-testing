@@ -2,7 +2,7 @@ describe('Commodity code information on all pages consistent',function(){
 
 //check comm code information on every page is rendered correctly 
 Cypress.config('baseUrl', Cypress.config('services')['dutycalxi'])
-let pages = ['import-date#','import-destination','country-of-origin','customs-value']
+let pages = ['import-date#','import-destination','country-of-origin','customs-value','trader-scheme']
 
 it(`Commodity Information on all pages is consistent`,function(){
 
