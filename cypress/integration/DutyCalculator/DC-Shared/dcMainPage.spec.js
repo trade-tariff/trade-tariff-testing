@@ -1,9 +1,9 @@
 
 describe('🧮 Duty Calculator main page ',function() {
 
-    let country = ["dutycal","dutycalxi"]
+    let country = ["dutycalxi","dutycal"]
     let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
-    for (let i =0;i<country.length;i++){
+    for (let i = 0;i<country.length;i++){
         console.log(i)
     Cypress.config('baseUrl', Cypress.config('services')[`${country[i]}`])
     console.log(Cypress.config('baseUrl', Cypress.config('services')[`${country[i]}`]))
@@ -96,7 +96,7 @@ describe('🧮 Duty Calculator main page ',function() {
         //Back button - GDS style back link
         cy.contains('Back').click()
         //Validate commodity page
-        cy.contains('Commodity information for 1704101000')
+        cy.contains('Commodity information for 0702000007')
 
 
         cy.visit('/0702000007/import-date#')
@@ -109,9 +109,9 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('0702000007')
         cy.contains('Cherry tomatoes')
         
-        cy.contains('View commodity 1704101000').click()
+        cy.contains('View commodity 0702000007').click()
         //☀️ Validate commodity page
-        cy.contains('Commodity information for 1704101000')
+        cy.contains('Commodity information for 0702000007')
         cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
         cy.go(-1)
         cy.contains('Trade Tariff Duty Calculator')
