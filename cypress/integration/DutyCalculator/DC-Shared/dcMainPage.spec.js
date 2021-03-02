@@ -1,12 +1,6 @@
 
 describe('🧮 Duty Calculator main page ',function() {
-
-    let country = ["dutycalxi","dutycal"]
-    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
-    for (let i = 0;i<country.length;i++){
-        console.log(i)
-    Cypress.config('baseUrl', Cypress.config('services')[`${country[i]}`])
-    console.log(Cypress.config('baseUrl', Cypress.config('services')[`${country[i]}`]))
+    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     // skip some tests if the pack gets bigger
     it('📅  Valid Date', function () {
@@ -69,7 +63,7 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-error-message')
         cy.contains('Enter a valid future date')
     })
-    it.only('🔗 Verify Page links ',function(){
+    it('🔗 Verify Page links ',function(){
         cy.visit('/0702000007/import-date#')
         cy.get('.govuk-header__link')
             .contains('Search or browse the Tariff').click()
@@ -81,16 +75,16 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-header__navigation ')
         cy.contains('A-Z').click()
         cy.contains('A–Z of Classified Goods')
-        cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
+        cy.get('.govuk-header ').contains(`UK Global Online Tariff`)
         //DC main page
         cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Tools').click()
-        cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
+        cy.get('.govuk-header ').contains(`UK Global Online Tariff`)
         cy.contains('Tariff tools')
 
     })
-    it.only('🔖 Commodity Details ',function(){
+    it('🔖 Commodity Details ',function(){
         cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         //Back button - GDS style back link
@@ -112,13 +106,13 @@ describe('🧮 Duty Calculator main page ',function() {
         cy.contains('View commodity 0702000007').click()
         //☀️ Validate commodity page
         cy.contains('Commodity information for 0702000007')
-        cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
+        cy.get('.govuk-header ').contains(`UK Global Online Tariff`)
         cy.go(-1)
         cy.contains('Trade Tariff Duty Calculator')
 
 
 
     })
-}
+
 })
 //check text color: #d4351c

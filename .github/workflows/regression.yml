@@ -1,5 +1,7 @@
 name: "Regression Pack"
 on:
+  schedule:
+    - cron: "00 07 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
@@ -27,9 +29,9 @@ jobs:
           path: ./cypress/reports/mochareports/
       - run: |
           DATE=$(date +%d-%m-%Y)
-          mkdir -p docs1/$DATE
-          cp -r ./cypress/reports/mochareports/*  docs1/$DATE/
-          cp ./cypress/reports/mochareports/report.html docs1/$DATE/index.html
+          mkdir -p docs/$DATE
+          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
+          cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
           git add docs .
       - run: |
            git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"

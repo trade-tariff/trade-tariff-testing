@@ -5,7 +5,7 @@ describe('🧮 📱 UK 🇬🇧 💡 Duty Calculator Smoke ',function() {
 // iphone 
     it('📱 iphone - e2e journey ', function () {
         cy.viewport('iphone-6', 'landscape')
-        cy.visit('/')
+        cy.visit('/1704101000/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         //Search the tariff section
     
@@ -52,7 +52,7 @@ describe('🧮 📱 UK 🇬🇧 💡 Duty Calculator Smoke ',function() {
 //android
 it('📱 android - e2e journey ', function () {
     cy.viewport('samsung-note9')
-    cy.visit('/')
+    cy.visit('/1704101000/import-date')
     cy.contains('Trade Tariff Duty Calculator')
 
     //Search the tariff section

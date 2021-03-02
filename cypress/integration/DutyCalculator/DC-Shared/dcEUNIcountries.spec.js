@@ -1,4 +1,5 @@
-describe('EU to Northern Ireland - All EU countries ',function(){
+// rework on this !! 
+describe.skip('EU to Northern Ireland - All EU countries ',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e EU to NI all EU countries ',function(){
