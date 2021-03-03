@@ -1,4 +1,4 @@
-describe('Northern Ireland to United Kingdom ',function(){
+describe('| e2e-NI2GB | Northern Ireland to United Kingdom |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e NI to UK ',function(){

@@ -1,4 +1,4 @@
-describe('Final Use - page ',function() {
+describe('🧮 | dcFinalUse | Final Use - page ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 

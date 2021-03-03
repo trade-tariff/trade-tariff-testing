@@ -1,5 +1,5 @@
 
-describe.skip('🧮 Duty Calculator main page ',function() {
+describe.skip('🧮 | dcTest | Duty Calculator main page ',function() {
 
     let country = ["dutycal","dutycalxi"]
     
@@ -14,8 +14,6 @@ describe.skip('🧮 Duty Calculator main page ',function() {
         cy.get('.govuk-header__link')
             .contains('Search or browse the Tariff').click()
         cy.wait(500)
-      //  cy.MainPageUK()
-        //DC main page
         cy.visit('/1704101000/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('.govuk-header__navigation ')

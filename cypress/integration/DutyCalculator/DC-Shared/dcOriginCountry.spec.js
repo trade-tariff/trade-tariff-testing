@@ -1,4 +1,4 @@
-describe('🧮 Duty Calculator Origin Country selection page ',function() {
+describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
@@ -34,7 +34,7 @@ describe('🧮 Duty Calculator Origin Country selection page ',function() {
       cy.contains('Which country are the goods dispatched from?')
 
       //validate country of origin selected has persisted - Northern Ireland is displayed 
-      cy.get('#wizard-steps-country-of-origin-country-of-origin-field').should('contain','United Kingdom (Northern Ireland)')
+      cy.get('#wizard-steps-country-of-origin-country-of-origin-field__listbox').should('contain','United Kingdom (Northern Ireland)')
 
 
     })
@@ -58,7 +58,7 @@ describe('🧮 Duty Calculator Origin Country selection page ',function() {
         cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
 
         //select country from list 
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field').clear().type('United Kingdom (Northern Ireland)')
+        cy.get('#wizard-steps-country-of-origin-country-of-origin-field').clear().type('United Kingdom(Northern Ireland)')
       //  cy.contains('Continue').click()
 
       // Placeholder for next page 

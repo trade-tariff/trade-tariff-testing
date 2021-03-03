@@ -1,4 +1,4 @@
-describe('💷  UK Trader Scheme page ',function() {
+describe('💷  | dcTraderScheme | UK Trader Scheme page ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
