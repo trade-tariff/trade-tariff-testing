@@ -1,5 +1,5 @@
 
-describe('🧮 📱 UK 🇬🇧 💡 Duty Calculator Smoke ',function() {
+describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke ',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
    
 // iphone 

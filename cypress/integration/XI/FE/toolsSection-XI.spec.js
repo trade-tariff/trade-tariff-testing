@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 Tools Section - breadcrumbs   - (XI version)',function() {
+describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI version)',function() {
     // HOTT-94
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -14,11 +14,12 @@ describe('🇪🇺 💡 Tools Section - breadcrumbs   - (XI version)',function()
     })
     it('breadcrumbs - Quotas ', function () {
         cy.visit('/tools')
-        cy.get('.govuk-list')
-            .contains('Quotas').click()
-        cy.contains('Search the Quotas')
-        cy.get('.govuk-breadcrumbs')
-            .contains('Quotas')
+        // XI not to have quotas 
+     //   cy.get('.govuk-list')
+     //       .contains('Quotas').click()
+     //   cy.contains('Search the Quotas')
+     //   cy.get('.govuk-breadcrumbs')
+     //       .contains('Quotas')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
         cy.contains('Tariff tools')

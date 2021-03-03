@@ -1,4 +1,4 @@
-describe(' 🇪🇺 💡 🔍 Search the Tariff - XI ',function() {
+describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 

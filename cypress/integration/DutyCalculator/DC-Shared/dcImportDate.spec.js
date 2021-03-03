@@ -1,5 +1,5 @@
 
-describe('🧮 Duty Calculator main page ',function() {
+describe('🧮 | dcImportDate | Duty Calculator main page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     // skip some tests if the pack gets bigger
