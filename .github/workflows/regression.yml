@@ -1,11 +1,11 @@
-name: "Regression Pack"
+name: "📝 Regression Pack"
 on:
   schedule:
     - cron: "00 07 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
-    name: "Regression Tests - UK and XI"
+    name: "📝 Regression Tests - UK and XI"
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
