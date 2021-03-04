@@ -2043,7 +2043,16 @@
     "debug" "^4.1.1"
     "lodash" "^4.17.15"
 
-"cypress@^3 || ^4 || ^5 || ^6", "cypress@^6.6.0":
+"cypress-tags@^0.0.20":
+  "integrity" "sha512-svGX0EmUopPQyGJJFjnVmB9O9r61Rz3ugPhPeY1xMYWwLGWEkhNCQEjdlgScOjh1mJZQJhBKUa8Scs7C184HVA=="
+  "resolved" "https://registry.npmjs.org/cypress-tags/-/cypress-tags-0.0.20.tgz"
+  "version" "0.0.20"
+  dependencies:
+    "@cypress/browserify-preprocessor" "^3.0.1"
+    "cypress" "^6.5.0"
+    "through" "^2.3.8"
+
+"cypress@^3 || ^4 || ^5 || ^6", "cypress@^6.5.0", "cypress@^6.6.0":
   "integrity" "sha512-+Xx3Zn653LJHUsCb9h1Keql2jlazbr1ROmbY6DFJMmXKLgXP4ez9cE403W93JNGRbZK0Tng3R/oP8mvd9XAPVg=="
   "resolved" "https://registry.npmjs.org/cypress/-/cypress-6.6.0.tgz"
   "version" "6.6.0"

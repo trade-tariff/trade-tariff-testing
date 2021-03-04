@@ -6,7 +6,8 @@
   "dependencies": {
     "@jc21/cypress-jsonschema-validation": "^0.0.1",
     "@jc21/cypress-swagger-validation": "^0.1.0",
-    "ansi-styles": "^5.0.0"
+    "ansi-styles": "^5.0.0",
+    "cypress-tags": "^0.0.20"
   },
   "devDependencies": {
     "axe-core": "^4.1.1",
@@ -34,7 +35,9 @@
     "tests": "npm run pretests && (npm run alltests || npm run posttests)",
     "legalbasetests": "npx cypress run --spec \"*/**/legalBaseColumn-XI.spec.js\",\"*/**/legalBaseColumn-UK.spec.js\",\"*/**/legalBaseV1api-XI.spec.js\",\"*/**/legalBaseV1api-UK.spec.js\",\"*/**/legalBaseV2api-XI.spec.js\",\"*/**/legalBaseV2api-UK.spec.js\"",
     "xitests": "npx cypress run --spec \"/*/**/XI/**/*spec.js\"",
-    "uktests": "npx cypress run --spec \"/*/**/UK/**/*spec.js\""
+    "uktests": "npx cypress run --spec \"/*/**/UK/**/*spec.js\"",
+    "dctests": "cypress run --spec \"/*/**/DutyCalculator/**/*spec.js\" --browser chrome --headless"
+  
   },
   "repository": {
     "type": "git",
