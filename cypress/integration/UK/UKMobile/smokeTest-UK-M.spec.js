@@ -1,7 +1,6 @@
-describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | - smoke test to cover basic functionality on UK services ',function() {
+describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |',function() {
 
     Cypress.config('baseUrl')
-
 
     //Main Page
     it('🚀 UK - Main Page Validation',function(){

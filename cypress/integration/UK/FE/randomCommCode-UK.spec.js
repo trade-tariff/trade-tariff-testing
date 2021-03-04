@@ -1,4 +1,4 @@
-describe('🇬🇧 💡random comm code test',function() {
+describe('🇬🇧 💡 | randomCommCode-UK  | random comm code test |',function() {
 
   Cypress.config('baseUrl')
 

@@ -1,5 +1,5 @@
 
-describe.skip('🧮 | dcTest | Duty Calculator main page ',function() {
+describe.skip('🧮 | dcTest | Duty Calculator main page |',function() {
 
     let country = ["dutycal","dutycalxi"]
     

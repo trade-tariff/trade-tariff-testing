@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 Country Selection - hjid tests ',function() {
+describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |',function() {
 
     Cypress.config('baseUrl')
 

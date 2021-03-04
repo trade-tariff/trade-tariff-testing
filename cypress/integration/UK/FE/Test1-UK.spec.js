@@ -1,4 +1,4 @@
-describe.skip('🚀  UK 🇬🇧 💡 - Smoke test to cover basic functionality on UK services ',function() {
+describe.skip('🚀  UK 🇬🇧 💡 | Test1-UK | Smoke test to cover basic functionality on UK services |',function() {
     // Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
