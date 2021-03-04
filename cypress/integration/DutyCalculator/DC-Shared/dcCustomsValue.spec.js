@@ -1,4 +1,4 @@
-describe('💰 | dcCustomsValue | Customs / Monetary Value calculation page |',function() {
+describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 

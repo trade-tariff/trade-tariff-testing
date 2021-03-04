@@ -6,7 +6,7 @@ module.exports = (on, config) => {
   on('task', JsonSchemaValidation(config))
   const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
   on('task', SwaggerValidation(config));
+ 
   return config
 
 }
-

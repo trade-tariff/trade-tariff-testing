@@ -1,4 +1,4 @@
-describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI ',function() {
+describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -43,7 +43,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI ',functi
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.js-commodity-picker-select').click().type('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf')
         cy.wait(700)
-        cy.get('input[name=\'new_search\']').click()
+        cy.get('input[name=\'new_search\']').wait(200).click()
         cy.contains('Search results for ‘sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf’')
         cy.contains('There are no results matching your query.')
         cy.get('.govuk-header__link')
@@ -64,8 +64,4 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI ',functi
         cy.get('.govuk-label')
             .contains('NI exports to')
     })
-
-
-
-
 })

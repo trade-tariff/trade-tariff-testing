@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function() {
+describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI version) |',function() {
     //--- HOTT-82 -------------
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -16,7 +16,7 @@ describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function
     it('Header text - Page -sections -Sub sections on headings banner ', function () {
         cy.visit('/sections')
         cy.get('.govuk-header ')
-        cy.contains('Search the Tariff')
+        cy.contains('Search or browse the Tariff')
         cy.contains('A-Z')
         cy.contains('Tools')
         cy.contains('Additional code').should('not.exist')
@@ -43,8 +43,8 @@ describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function
 
     it('Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(1000)
-        cy.get('input[name=\'new_search\']').click()
+        cy.wait(500)
+        cy.get('input[name=\'new_search\']').wait(500).click()
         cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
 
     })
@@ -58,17 +58,17 @@ describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function
     })
     it('Header text - page - select Export button',()=> {
         cy.get('a#tab_export').click()
-        cy.get('div#import > .govuk-heading-m').contains('Import measures and restrictions')
+        cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
         cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
     })
     it('Header text - page - select Import button',()=> {
         cy.get('a#tab_import').click()
-        cy.get('div#import > .govuk-heading-m').contains('Import measures and restrictions')
+        cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
         cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
     })
     it('Header text - page - select Chile from All countries list',()=>{
-        cy.get('input#import_search_country').click().clear().wait(1000)
-            .type('Chile').wait(1000)
+        cy.get('input#import_search_country').click().clear().wait(700)
+            .type('Chile').wait(700)
             .type('{enter}')
         cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
     })
@@ -78,9 +78,9 @@ describe('🇪🇺 💡 Main Page ,headings ,sections   - (XI version)',function
     })
     it('Search the Tariff section',function(){
         cy.visit('/sections')
-        cy.get('.govuk-header').contains('Search the Tariff').click()
+        cy.get('.govuk-header').contains('Search or browse the Tariff').click()
         cy.get('.govuk-main-wrapper')
-            .contains('Search the tariff')
+            .contains('Search the Northern Ireland Online Tariff')
     })
     it('A-Z section',function(){
         cy.visit('/sections')

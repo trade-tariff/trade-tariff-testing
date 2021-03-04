@@ -1,9 +1,9 @@
 
-describe('🧮 | dcImportDate | Duty Calculator main page |',function() {
+describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     // skip some tests if the pack gets bigger
-    it('📅  Valid Date', function () {
+    it('📅 Valid Date', function () {
         cy.visit('/0702000007/import-date#')
         cy.contains('Trade Tariff Duty Calculator')
         cy.DCMainPage()
