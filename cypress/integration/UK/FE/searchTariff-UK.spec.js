@@ -1,4 +1,4 @@
-describe(' 🇬🇧 💡 🔍 Search the Tariff - UK ',function() {
+describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',function() {
 
     Cypress.config('baseUrl')
 

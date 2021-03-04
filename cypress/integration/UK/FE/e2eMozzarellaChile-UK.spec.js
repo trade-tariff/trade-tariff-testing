@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 importing Mozzarella 🧀  from Chile 🇨🇱 ',function() {
+describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  from Chile 🇨🇱 |',function() {
     
     Cypress.config('baseUrl')
 

@@ -1,4 +1,4 @@
-describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page ',function() {
+describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page |',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 

@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 feedback link is available and user is able to send feedback)',function() {
+describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is able to send feedback |',function() {
 
     Cypress.config('baseUrl')
 

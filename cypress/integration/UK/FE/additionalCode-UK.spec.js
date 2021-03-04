@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 Additional Code Search - UK services)',function() {
+describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK services |',function() {
     Cypress.config('baseUrl')
 
     it('UK Additional Code Search : 2 - Tariff preference', function () {

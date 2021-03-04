@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 UK - Switching Links ',function() {
+describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
     //--- HOTT-96 -------------
     Cypress.config('baseUrl')
 

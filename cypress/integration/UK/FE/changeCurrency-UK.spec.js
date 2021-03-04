@@ -1,4 +1,4 @@
-describe('🇬🇧 💡  Change Currency should not be visible  -  UK services)',function() {
+describe('🇬🇧 💡 | changeCurrency-UK | Change Currency should not be visible  -  UK services |',function() {
     //--- HOTT-161 ---
   //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
