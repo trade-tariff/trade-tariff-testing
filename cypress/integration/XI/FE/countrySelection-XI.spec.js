@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 Country Selection - hjid tests ',function() {
+describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     it('XI Country Selection -import ',function(){
@@ -51,7 +51,7 @@ describe('🇪🇺 💡 Country Selection - hjid tests ',function() {
 // XI Present
 // GB Present
 // no XU
-    it('🇭🇹 Haiti exclusion 🚫 - CARIFORUM',function(){
+    it.skip('🇭🇹 Haiti exclusion 🚫 - CARIFORUM',function(){
     let commoditycodes_ids = ["0707000599","0302311000","8902001000","9603210000","7901121000","6602000010","4901910000"]
         let measurecodes_ids = ["20079770","20079766","20079851","20079857","20079841","20079829","20079812"]
         for (let i = 0; i < commoditycodes_ids.length; i++) {

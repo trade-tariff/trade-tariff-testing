@@ -1,4 +1,4 @@
-describe('🇬🇧 ⚙️ UK Basic API checks', () => {
+describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () => {
     Cypress.config('baseUrl')
     // V2 API *****************************************************
     it('UK - V2 - Should return a valid payload and Schema should match', function () {
@@ -24,9 +24,9 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
                 expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'})
                 //response duration less than 300
                 expect(response).to.have.property('duration')
-                expect(response.duration).to.lessThan(500)
+                expect(response.duration).to.lessThan(1000)
                 //body length
-                expect(response.body.included).to.have.length(477)
+                expect(response.body.included).to.have.length(481)
             })
     })
     it('🚫 UK - V2 - Error codes - 404', function () {
@@ -60,7 +60,7 @@ describe('🇬🇧 ⚙️ UK Basic API checks', () => {
                 expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'})
                 //response duration less than 2000
                 expect(response).to.have.property('duration')
-                expect(response.duration).to.lessThan(500)
+                expect(response.duration).to.lessThan(1000)
                 //body length
             //    expect(response.body.included).to.have.length(481)
             })

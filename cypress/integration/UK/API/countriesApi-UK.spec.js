@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 UK Country Selection ',function() {
+describe.skip('🇬🇧 💡 | countriesApi-UK | UK Country Selection |',function() {
 
     Cypress.config('baseUrl')
 
