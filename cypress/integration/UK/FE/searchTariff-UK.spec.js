@@ -12,8 +12,9 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
         cy.get('.govuk-label').contains('Search the UK Global Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.wait(500)
+        cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
+        cy.wait(300)
         cy.contains('Search results for ‘gherkins’')
     })
 
@@ -23,8 +24,9 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
         cy.get('.govuk-label')
             .contains('Search the UK Global Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(500)
+        cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
+        cy.wait(300)
         cy.contains('Commodity information for 3808941000')
     })
 
@@ -34,8 +36,9 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
         cy.get('.govuk-label')
             .contains('Search the UK Global Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('38089410')
-        cy.wait(500)
+        cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
+        cy.wait(300)
         cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
     it('UK - Search unknown commodity ', function () {

@@ -8,8 +8,9 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
     })
     it('Enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(500)
+        cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
+        cy.wait(300)
         cy.title().should('contains','0406103010')
 
     })
@@ -19,7 +20,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
     })
     it('Chapter notes is visible',function(){
         cy.get('.govuk-main-wrapper')
-            .contains('Chapter notes')
+            cy.contains('Chapter notes')
     })
 
     it('Select Import button',()=> {
