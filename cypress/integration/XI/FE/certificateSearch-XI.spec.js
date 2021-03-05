@@ -1,4 +1,4 @@
-describe('🇪🇺 💡  Certificate Search - XI services)',function() {
+describe('🇪🇺 💡 |certificateSearch-XI | Certificate Search - XI services |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     it('XI Certificate Search : 9 - National Document', function () {
@@ -231,11 +231,11 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
         cy.contains('There are no matching results')
 
     })
-    it('XI Certificate Search : U - Proofs of origin', function () {
+    it.only('XI Certificate Search : U - Proofs of origin', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
-        let ucerts_ids = ["003", "004", "059", "062"]
+        let ucerts_ids = ["004", "059", "062"]
         for (let i = 0; i < ucerts_ids.length; i++) {
             //select type of certificate from drop down menu
             cy.get('select#type').select('U - Proofs of origin')
@@ -244,6 +244,7 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
                 .type(`${ucerts_ids[i]}`)
             cy.wait(500)
             cy.get('form#new_search > input[name=\'new_search\']').click()
+            cy.wait(900)
             // check it contains relevant certificate information as requested
             cy.get('.govuk-heading-l')
                 .contains('Certificate search results')
@@ -252,11 +253,11 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
         }
 
     })
-    it('XI Certificate Search : X - Export licence', function () {
+    it.only('XI Certificate Search : X - Export licence', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
-        let xcerts_ids = ["X001", "X018", "X035"]
+        let xcerts_ids = ["X018", "X035"]
         for (let i = 0; i < xcerts_ids.length; i++) {
             //select type of certificate from drop down menu
             cy.get('select#type').select('X - Export licence')
@@ -273,11 +274,11 @@ describe('🇪🇺 💡  Certificate Search - XI services)',function() {
         }
     })
 
-    it('XI Certificate Search : Y - Particular provisions', function () {
+    it.only('XI Certificate Search : Y - Particular provisions', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
-        let ycerts_ids = ["Y036", "Y058", "Y072", "Y073", "Y076", "Y077", "Y078", "Y079", "Y929", "Y930", "Y945", "Y946", "Y999"]
+        let ycerts_ids = ["Y058", "Y072", "Y073", "Y076", "Y077", "Y078", "Y079", "Y929", "Y930", "Y945", "Y946"]
 
         for (let i = 0; i < ycerts_ids.length; i++) {
             //select type of certificate from drop down menu

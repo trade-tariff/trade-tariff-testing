@@ -1,4 +1,4 @@
-describe('🇪🇺 ⚙️ XI Basic API checks', () => {
+describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () => {
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
     // V2 API
     it('XI - V2 - Should return a valid payload and Schema should match', function () {
@@ -27,7 +27,7 @@ describe('🇪🇺 ⚙️ XI Basic API checks', () => {
                 expect(response).to.have.property('duration')
                 expect(response.duration).to.lessThan(2000)
                 //body length
-                expect(response.body.included).to.have.length(1002)
+                expect(response.body.included).to.have.length(511)
             })
     })
     it('XI - V2 - Error codes - 404', function () {

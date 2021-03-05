@@ -1,4 +1,4 @@
-describe('🇪🇺 XI Country Selection ',function() {
+describe.skip('🇪🇺 | countriesApi-XI | XI Country Selection |',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 

@@ -33,7 +33,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.contains('Sorry, there is a problem with the search query. Please specify one or more search criteria.')
 
     })
-    it('Quotas Search - Country list - 🇲🇦  Results',function(){
+    it.only('Quotas Search - Country list - 🇲🇦  Results',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
@@ -43,10 +43,10 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
         cy.get('.govuk-table__row')
-            .contains(' Morocco (MA)')
+            .contains('Morocco (MA)')
 
     })
-    it('Quotas Search - Country list - 🇧🇫  No results',function(){
+    it.only('Quotas Search - Country list - 🇧🇫  No results',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
