@@ -1,5 +1,5 @@
 
-describe('UK 🇬🇧 | axeTest-UK | Accessibility tests on UK services ',function() {
+describe.skip('UK 🇬🇧 | axeTest-UK | Accessibility tests on UK services ',function() {
 
     Cypress.config('baseUrl')
 
