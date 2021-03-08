@@ -1,4 +1,4 @@
-name: " 💻 | Regression Pack |"
+name: " ✏️ | Regression Pack |"
 on:
   schedule:
     - cron: "00 05 * * *"

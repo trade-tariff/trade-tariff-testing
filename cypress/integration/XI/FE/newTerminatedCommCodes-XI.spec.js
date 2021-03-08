@@ -1,4 +1,4 @@
-describe(' 🇪🇺 💡 New ,Terminated comm codes from 1st Jan 2021',function() {
+describe.skip(' 🇪🇺 💡 New ,Terminated comm codes from 1st Jan 2021',function() {
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     it.skip('Terminated comm codes from 01 Jan 2021', function () {
