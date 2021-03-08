@@ -34,7 +34,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
         cy.wait(500)
     })
     it("Measures for Chile",function(){
-        cy.get('.govuk-main-wrapper')
+        cy.get('.govuk-table__caption')
             .contains('Measures for Chile')
     })
     it('Third country duty  measure has value 185.20 EUR / 100 kg',function(){
