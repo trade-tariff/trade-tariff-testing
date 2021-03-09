@@ -12,3 +12,4 @@ describe('📑 | dcTradeRemedies | Trade remedies page |',function() {
         
         
     })
+})
