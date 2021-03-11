@@ -35,8 +35,8 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
         cy.contains('How will these goods be processed after import?')
 
         // selection is persisted 
-       // cy.go(-1)
-        cy.contains('Back').click()
+        cy.go(-1)
+        
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']")
             .parent()
             .find('input')
@@ -44,12 +44,11 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
 
         //Select No, this import will not be for final use in the United Kingdom
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
-        cy.contains('Continue').click()
-        //Certificate of Origin page 
-        cy.contains('Do you have a valid Certificate of Origin?')
-        cy.contains('Back').click()
+        cy.contains('Continue').click().wait(500)
+        cy.log(cy.title())
+        
         // selection is persisted 
-       // cy.go(-1)
+        cy.go(-1)
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']")
             .parent()
             .find('input')

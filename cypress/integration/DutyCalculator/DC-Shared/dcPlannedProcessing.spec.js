@@ -39,7 +39,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
             cy.visit('/1704101000/planned-processing')
             cy.contains('How will these goods be processed after import?')
 
-            //Select - The goods will be sold to an end-user without any processing
+            // 1 .Select - The goods will be sold to an end-user without any processing
             cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
             cy.contains('Continue').click()
             // selection is persisted 
@@ -49,7 +49,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
                 .find('input')
                 .should('be.checked')
     
-            //Select - The importer had a total annual turnover of less than £500,000 in its most recent complete financial year
+            //2.Select - The importer had a total annual turnover of less than £500,000 in its most recent complete financial year
             cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field").check()
             cy.contains('Continue').click()
             // selection is persisted 
@@ -59,7 +59,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
                 .find('input')
                 .should('be.checked')
 
-            // Select - The goods will undergo commercial processing for one of these purposes
+            // 3.Select - The goods will undergo commercial processing for one of these purposes
             cy.get("#wizard-steps-planned-processing-planned-processing-commercial-processing-field").check()
             cy.contains('Continue').click()
             // selection is persisted 
@@ -69,9 +69,11 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
                 .find('input')
                 .should('be.checked')
 
-            // Select - The goods will be processed for commercial purposes other than those listed above
+            //4. Select - The goods will be processed for commercial purposes other than those listed above
             cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
             cy.contains('Continue').click()
+
+         
             // selection is persisted 
             cy.go(-1)
             cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field")

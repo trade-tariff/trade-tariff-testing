@@ -41,14 +41,17 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
 
 
         // 🚫 Non processing - No
-                    // Select - The goods will be processed for commercial purposes other than those listed above
-                    cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
-                    cy.contains('Continue').click()
+        // Select - The goods will be processed for commercial purposes other than those listed above
+        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.contains('Continue').click()
         //  🚫 Certified as UK Origin
         cy.contains('Do you have a valid Certificate of Origin?')
         //Select Yes, valid Certificate of Origin
         cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
         cy.contains('Continue').click()
+
+        //Monetary value page 
+        cy.contains('What is the monetary value of this import?')
                     
         // ** Results Page *** 
             
