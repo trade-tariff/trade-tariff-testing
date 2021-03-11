@@ -10,6 +10,7 @@
     "cypress-tags": "^0.0.20"
   },
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.3.6",
     "axe-core": "^4.1.1",
     "cypress": "^6.6.0",
     "cypress-axe": "^0.12.2",
@@ -37,7 +38,6 @@
     "xitests": "npx cypress run --spec \"/*/**/XI/**/*spec.js\"",
     "uktests": "npx cypress run --spec \"/*/**/UK/**/*spec.js\"",
     "dctests": "cypress run --spec \"/*/**/DutyCalculator/**/*spec.js\" --browser chrome --headless"
-  
   },
   "repository": {
     "type": "git",

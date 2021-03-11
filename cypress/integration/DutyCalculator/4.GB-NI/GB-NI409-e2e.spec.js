@@ -1,12 +1,12 @@
-// 🚫 Trade Remedies - ✅ 0% MFN EU tariff - ✅ Not at Risk - Import Duty 0% 
-// Comm Code : 1212210000
+// ✅  Trade Remedies - 
+// Comm code : 0303149011
 
-describe('| 401-e2e.spec | GB to NI route 🚎 01 - 🚫 Trade Remedies - ✅ 0% MFN EU tariff - ✅ Not at Risk - Import Duty 0% |',function(){
+describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e GB to NI ',function(){
         //select future date 
-        cy.visit('/1212210000/import-date')
+        cy.visit('/0303149011/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -27,8 +27,23 @@ describe('| 401-e2e.spec | GB to NI route 🚎 01 - 🚫 Trade Remedies - ✅ 0%
          .click()
         cy.contains('Continue').click()
 
-        // Not at Risk , Import duty is 0% - ** Show Results ** 
+        // Interstitial Message 
+        cy.contains('EU duties apply to this import')
+        cy.get('.govuk-button').click()
+
+        // At Risk
+
+        // EU duties apply
+
+        //Whats the monetary value?
+
+        //How many kilos/litres ?
+
+        //Confirm
+
+        //Show Results 
 
 
     })
+
 })

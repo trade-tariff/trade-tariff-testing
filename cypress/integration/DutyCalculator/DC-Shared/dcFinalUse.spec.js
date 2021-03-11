@@ -8,8 +8,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         
         cy.contains('Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom')
-        cy.contains('No, this import will not be for final use in the United Kingdom')
-        
+        cy.contains('No, this import will not be for final use in the United Kingdom')       
     })
      //error messages - nothing is entered 
      it('No Values Entered',function(){
@@ -25,15 +24,19 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
   
     })
     it('User makes a selection',function(){
-        cy.visit('/0702000007/final-use')
+        cy.visit('/1704101000/final-use')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
         cy.contains('Continue').click()
 
+        //planned-processing page
+        cy.contains('How will these goods be processed after import?')
+
         // selection is persisted 
-        cy.go(-1)
+       // cy.go(-1)
+        cy.contains('Back').click()
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']")
             .parent()
             .find('input')
@@ -42,17 +45,17 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
         //Select No, this import will not be for final use in the United Kingdom
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
         cy.contains('Continue').click()
+        //Certificate of Origin page 
+        cy.contains('Do you have a valid Certificate of Origin?')
+        cy.contains('Back').click()
         // selection is persisted 
-        cy.go(-1)
+       // cy.go(-1)
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']")
             .parent()
             .find('input')
             .should('be.checked')
-
-
     })
 
-   
     it('Explore the Topic : Other static page links',function(){
         cy.visit('/0702000007/final-use')
         //main page title
@@ -65,7 +68,5 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
         cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
         cy.go(-1)
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-
-
     })
 })

@@ -10,13 +10,6 @@ describe('🚀  UK 🇬🇧 💡 | smokeTest-UK | Smoke tests to cover basic fun
        cy.visit('/sections')
         cy.MainPageUK();
     })
-    //Legal base tests
-    it('🚀 UK - Legal base column suppressed ', function () {
-        cy.visit('/commodities/0101210000#import')
-        cy.contains('UK Global Online Tariff')
-        cy.get('.govuk-tabs__panel')
-        cy.contains('Legal base').should('not.exist')
-    })
     //switching link works
     it('🚀 UK - Main Page - Switching link to XI available & works', function () {
         cy.visit('/sections')
