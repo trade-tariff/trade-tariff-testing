@@ -2,7 +2,7 @@
 // Comm Code : 1212210000
 
 describe('| GB-NI401-e2e.spec | GB to NI route 🚎 01 - 🚫 Trade Remedies - ✅ 0% MFN EU tariff - ✅ Not at Risk - Import Duty 0% |',function(){
-    Cypress.config('baseUrl', Cypress.config('services')['dutycalxi'])
+    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e GB to NI ',function(){
         //select future date 
