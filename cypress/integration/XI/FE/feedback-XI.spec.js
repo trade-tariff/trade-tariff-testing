@@ -1,4 +1,4 @@
-describe('🇪🇺 💡| feedback-XI | feedback link is available and user is able to send feedback)',function() {
+describe.skip('🇪🇺 💡| feedback-XI | feedback link is available and user is able to send feedback)',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
     it('XI - All pages- Feedback link available  ', function () {
