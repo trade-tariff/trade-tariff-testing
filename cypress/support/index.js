@@ -17,7 +17,6 @@
 import './commands'
 import 'cypress-axe'
 import 'cypress-fill-command'
-import '@shelex/cypress-allure-plugin'
 //require('@shelex/cypress-allure-plugin');
 
 // Alternatively you can use CommonJS syntax:

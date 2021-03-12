@@ -6,9 +6,6 @@ module.exports = (on, config) => {
   on('task', JsonSchemaValidation(config))
   const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
   on('task', SwaggerValidation(config))
-  const allureWriter = require('@shelex/cypress-allure-plugin/writer');
-  allureWriter(on, config);
-
   return config
 
 }

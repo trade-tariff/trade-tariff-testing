@@ -3,6 +3,8 @@ node_modules
 cypress/screenshots
 cypress/videos
 results/*
+allure-results/*
+allure-report/*
 test-results.xml
 cypress/reports/*
 cypress/mochawesome-report/assets
