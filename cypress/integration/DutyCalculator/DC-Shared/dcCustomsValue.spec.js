@@ -3,12 +3,12 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
-        cy.visit('/0702000007/customs-value')
+        cy.visit('/0407191900/customs-value')
         //main page title
         cy.contains('What is the monetary value of this import?')
         cy.contains('The import duty charged for this commodity code is dependent on the monetary value of the goods being imported.')
         cy.contains('Duties are typically levied against the full cost of the goods plus the shipping and insurance costs. If you are calculating the import value using FOB (Free on board) rather than CIF (Cost, Insurance, and Freight), then please leave the \'cost of shipping\' and \'cost of insurance\' fields empty. Read more about the valuation of imported goods for customs purposes, VAT and trade statistics.')
-        //static page links
+        //static page links - valuation of imported goods for customs purposes, VAT and trade statistics.
         cy.get('form#new_wizard_steps_customs_value  .govuk-link').click()
         cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics')
         cy.go('back')

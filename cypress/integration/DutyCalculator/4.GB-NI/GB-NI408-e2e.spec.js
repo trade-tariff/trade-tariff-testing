@@ -37,9 +37,15 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
         cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
         cy.contains('Continue').click()
 
-            // *** Page Validation ***
-            
-
+        //Monetary value page 
+        cy.contains('What is the monetary value of this import?')
+        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
+        cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
+        cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
+        cy.contains('Continue').click()
+        
+        //Page 12 ??
+        cy.contains('Enter import quantity')
 
     })
 })
