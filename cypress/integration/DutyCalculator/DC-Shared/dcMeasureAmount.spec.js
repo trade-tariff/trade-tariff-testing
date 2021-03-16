@@ -33,6 +33,12 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
         cy.visit('/9102990000/measure-amount')
         cy.contains('How many items will you be importing?')
         cy.contains('Enter the number of items')
+
+        //4.Thousands of items
+        cy.visit('/0407191900/measure-amount')
+        cy.contains('How many items will you be importing?')
+        cy.contains('Enter the value in thousands of items')
+
         
 
     })
@@ -59,9 +65,9 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
         cy.get('#wizard-steps-measure-amount-dap-error')
             .contains('Enter a valid import quantity. Enter the value in decatonnes (10,000 kg), corrected according to polarisation')
 
-         //2.Commodity with litres
-         cy.visit('/2208401100/measure-amount')
-         cy.contains('Enter import quantity')
+        //2.Commodity with litres
+        cy.visit('/2208401100/measure-amount')
+        cy.contains('Enter import quantity')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -72,7 +78,31 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
             .contains('Enter a valid import quantity. This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)')
         cy.get('#wizard-steps-measure-amount-hlt-error')
             .contains('Enter a valid import quantity. Enter the value in hectolitres (100 litres)')
-    
+
+        //3.Commodity in items
+        cy.visit('/9102990000/measure-amount')
+        cy.contains('How many items will you be importing?')
+        cy.contains('Enter the number of items')
+        cy.contains('Continue').click()
+        cy.get('.govuk-error-summary')
+        cy.contains('There is a problem')
+        cy.contains('Enter a valid import quantity. Enter the number of items')   
+        cy.get('#wizard-steps-measure-amount-nar-error')
+            .contains('Enter a valid import quantity. Enter the number of items')
+
+
+        
+        //4.Commodity in thousands of items
+        cy.visit('/0407191900/measure-amount')
+        cy.contains('Enter import quantity')
+        cy.contains('Continue').click()
+        cy.get('.govuk-error-summary')
+        cy.contains('There is a problem')
+        cy.contains('Enter a valid import quantity. Enter the value in thousands of items')
+        
+        cy.get('#wizard-steps-measure-amount-mil-error')
+            .contains('Enter a valid import quantity. Enter the value in thousands of items')
+        
 
   
     })
@@ -121,7 +151,30 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
            .contains('Enter a numeric import quantity. This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)')
        cy.get('#wizard-steps-measure-amount-hlt-error')
            .contains('Enter a numeric import quantity. Enter the value in hectolitres (100 litres)')
-   
+
+         //3.Commodity in items
+         cy.visit('/9102990000/measure-amount')
+         cy.contains('How many items will you be importing?')
+         cy.contains('Enter the number of items')
+         cy.get('#wizard-steps-measure-amount-nar-field').click().type('text')
+         cy.contains('Continue').click()
+         cy.get('.govuk-error-summary')
+         cy.contains('There is a problem')
+         cy.contains('Enter a numeric import quantity. Enter the number of items')   
+         cy.get('#wizard-steps-measure-amount-nar-error')
+             .contains('Enter a numeric import quantity. Enter the number of items')
+  
+         //4.Commodity in thousands of items
+         cy.visit('/0407191900/measure-amount')
+         cy.contains('Enter import quantity')
+         cy.get('#wizard-steps-measure-amount-mil-field').click().type('text')
+         cy.contains('Continue').click()
+         cy.get('.govuk-error-summary')
+         cy.contains('There is a problem')
+         cy.contains('Enter a numeric import quantity. Enter the value in thousands of items')
+         
+         cy.get('#wizard-steps-measure-amount-mil-error')
+             .contains('Enter a numeric import quantity. Enter the value in thousands of items')
   
     })
      //error messages - zero values entered 
@@ -166,29 +219,63 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
            .contains('Enter an import quantity value greater than zero. This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)')
        cy.get('#wizard-steps-measure-amount-hlt-error')
            .contains('Enter an import quantity value greater than zero. Enter the value in hectolitres (100 litres)')
-   
+
+    //3.Commodity in items
+    cy.visit('/9102990000/measure-amount')
+    cy.contains('How many items will you be importing?')
+    cy.contains('Enter the number of items')
+    cy.get('#wizard-steps-measure-amount-nar-field').click().type('0')
+    cy.contains('Continue').click()
+    cy.get('.govuk-error-summary')
+    cy.contains('There is a problem')
+    cy.contains('Enter an import quantity value greater than zero. Enter the number of items')   
+    cy.get('#wizard-steps-measure-amount-nar-error')
+        .contains('Enter an import quantity value greater than zero. Enter the number of items')
+
+    //4.Commodity in thousands of items
+    cy.visit('/0407191900/measure-amount')
+    cy.contains('Enter import quantity')
+    cy.get('#wizard-steps-measure-amount-mil-field').click().type('0')
+    cy.contains('Continue').click()
+    cy.get('.govuk-error-summary')
+    cy.contains('There is a problem')
+    cy.contains('Enter an import quantity value greater than zero. Enter the value in thousands of items')
+    
+    cy.get('#wizard-steps-measure-amount-mil-error')
+        .contains('Enter an import quantity value greater than zero. Enter the value in thousands of items')
+
   
     })
     //Valid values entered 
     it('Valid values Entered',function(){
         //1.Commodity with Kilos 
-        cy.visit('/1701141000/measure-amount')
+    cy.visit('/1701141000/measure-amount')
         //main page title 
-        cy.contains('Enter import quantity')
+    cy.contains('Enter import quantity')
+    cy.get('#wizard-steps-measure-amount-dtn-field').click().type('1.01')
+    cy.get('#wizard-steps-measure-amount-dtnr-field').click().type('2.02')
+    cy.get('#wizard-steps-measure-amount-tne-field').click().type('3.03')
+    cy.get('#wizard-steps-measure-amount-dap-field').click().type('4.04')
+    cy.contains('Continue').click()
 
-        cy.get('#wizard-steps-measure-amount-dtn-field').click().type('1.01')
-        cy.get('#wizard-steps-measure-amount-dtnr-field').click().type('2.02')
-        cy.get('#wizard-steps-measure-amount-tne-field').click().type('3.03')
-        cy.get('#wizard-steps-measure-amount-dap-field').click().type('4.04')
-
-        cy.contains('Continue').click()
-
-        //2.Commodity with litres
-        cy.visit('/2208401100/measure-amount')
-        cy.contains('Enter import quantity')
-        cy.get('#wizard-steps-measure-amount-asvx-field').click().type('2.00')
-        cy.get('#wizard-steps-measure-amount-hlt-field').click().type('500.00')
-        cy.contains('Continue').click()
+    //2.Commodity with litres
+    cy.visit('/2208401100/measure-amount')
+    cy.contains('Enter import quantity')
+    cy.get('#wizard-steps-measure-amount-asvx-field').click().type('2.00')
+    cy.get('#wizard-steps-measure-amount-hlt-field').click().type('500.00')
+    cy.contains('Continue').click()
+    //3.Commodity in items
+    cy.visit('/9102990000/measure-amount')
+    cy.contains('How many items will you be importing?')
+    cy.contains('Enter the number of items')
+    cy.get('#wizard-steps-measure-amount-nar-field').click().type('545454.0')
+    cy.contains('Continue').click()
+    //4.Commodity in thousands of items
+    cy.visit('/0407191900/measure-amount')
+    cy.contains('Enter import quantity')
+    cy.get('#wizard-steps-measure-amount-mil-field').click().type('04324.545')
+    cy.contains('Continue').click()
+    
 
 
        

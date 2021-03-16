@@ -60,7 +60,7 @@ describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () =>
                 expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'})
                 //response duration less than 2000
                 expect(response).to.have.property('duration')
-                expect(response.duration).to.lessThan(1000)
+                expect(response.duration).to.lessThan(1500)
                 //body length
             //    expect(response.body.included).to.have.length(481)
             })

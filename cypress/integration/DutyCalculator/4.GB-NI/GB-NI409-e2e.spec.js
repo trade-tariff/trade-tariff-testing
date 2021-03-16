@@ -1,4 +1,4 @@
-// ✅  Trade Remedies - 
+// ✅  Trade Remedies - ℹ️ 
 // Comm code : 0303149011
 
 describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
@@ -6,7 +6,7 @@ describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',
 
     it('e2e GB to NI ',function(){
         //select future date 
-        cy.visit('/0303149011/import-date')
+        cy.visit('/1518009129/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -27,21 +27,33 @@ describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',
          .click()
         cy.contains('Continue').click()
 
-        // Interstitial Message 
+        // ℹ️ Interstitial Message - EU duties apply
         cy.contains('EU duties apply to this import')
         cy.get('.govuk-button').click()
 
-        // At Risk
+         //💰 Whats the monetary value?
+        cy.contains('What is the monetary value of this import?')
+        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('4567.001')
+         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('1213.43')
+         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('5.434')
+         cy.contains('Continue').click()
 
-        // EU duties apply
+        // ⚖️ How many kilos/litres ? Page 12
+        cy.contains('Enter import quantity')
+        cy.get('#wizard-steps-measure-amount-tnei-field').clear().type('25.786')
+        cy.contains('Continue').click()
 
-        //Whats the monetary value?
+        //Confirm Page - Page 17 
+        cy.contains('Check your answers')
+        cy.get('.govuk-grid-column-three-quarters')
+        cy.contains('Commodity code')
+        cy.contains('Date of import')
+        cy.contains('Destination')
+        cy.contains('Country of dispatch')
+        cy.contains('Customs value')
+        cy.contains('Import quantity')
 
-        //How many kilos/litres ?
-
-        //Confirm
-
-        //Show Results 
+        //Show Results - Page 18 
 
 
     })
