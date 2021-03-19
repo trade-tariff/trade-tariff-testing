@@ -2069,10 +2069,10 @@
     "cypress" "^6.5.0"
     "through" "^2.3.8"
 
-"cypress@^3 || ^4 || ^5 || ^6", "cypress@^6.5.0", "cypress@^6.7.1":
-  "integrity" "sha512-MC9yt1GqpL4WVDQ0STI89K+PdLeC3T3NuAb2N61d6vYGR9pJy8w3Fqe0OWZwaRTJtg9eAyHXPGmFsyKeNQ3tmg=="
-  "resolved" "https://registry.npmjs.org/cypress/-/cypress-6.7.1.tgz"
-  "version" "6.7.1"
+"cypress@^3 || ^4 || ^5 || ^6", "cypress@^6.5.0", "cypress@^6.8.0":
+  "integrity" "sha512-W2e9Oqi7DmF48QtOD0LfsOLVq6ef2hcXZvJXI/E3PgFNmZXEVwBefhAxVCW9yTPortjYA2XkM20KyC4HRkOm9w=="
+  "resolved" "https://registry.npmjs.org/cypress/-/cypress-6.8.0.tgz"
+  "version" "6.8.0"
   dependencies:
     "@cypress/listr-verbose-renderer" "^0.4.1"
     "@cypress/request" "^2.88.5"

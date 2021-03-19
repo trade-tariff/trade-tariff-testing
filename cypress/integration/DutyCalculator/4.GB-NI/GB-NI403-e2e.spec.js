@@ -1,12 +1,12 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - ✅ Certified as UK origin
-// Comm code :0702000007
+// Comm code :1701141000
 
 describe('| GB-NI403-e2e.spec | GB to NI route 🚐 03  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - ✅ Certified as UK origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e GB to NI ',function(){
         //select future date 
-        cy.visit('/0702000007/import-date')
+        cy.visit('/1701141000/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
