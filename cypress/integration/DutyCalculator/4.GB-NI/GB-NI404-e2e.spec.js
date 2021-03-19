@@ -1,12 +1,12 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - 🚫  Certified as UK origin
-// Comm code :0702000007
+// Comm code :1701141000
 
 describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - 🚫 Certified as UK origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e GB to NI ',function(){
         //select future date 
-        cy.visit('/1704101000/import-date')
+        cy.visit('/1701141000/import-date')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -52,12 +52,42 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
 
          //Import Quantity 
          cy.contains('Enter import quantity')
-         cy.get('#wizard-steps-measure-amount-dtn-field').clear().type('5000.50')
-         cy.contains('Continue').click()
+         // Measure amount page 
+        cy.contains('Enter import quantity')
+        cy.get('#wizard-steps-measure-amount-dtn-field').clear().type('12.50')
+        cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type('23.98')
+        cy.get('#wizard-steps-measure-amount-tne-field').clear().type('72.56')
+        cy.get('#wizard-steps-measure-amount-dap-field').clear().type('87.25')
+        cy.contains('Continue').click()
 
-        // Summary Page - Page holder 
+        //Check your answers page 
+        cy.contains('Check your answers')
+        cy.get('.govuk-grid-column-three-quarters')
+        cy.contains('Commodity code')
+        cy.contains('Date of import')
+        cy.contains('Destination')
+        cy.contains('Country of dispatch')
+        cy.contains('Trader scheme')
+        cy.contains('Final use')
+        cy.contains('Certificate of origin')
+        cy.contains('Customs value')
+        cy.contains('Import quantity')
+        // check values entered 
+        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00')
+        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
+        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('United Kingdom (Northern Ireland)')
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom')
+        cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Yes')
+        cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No')
+        cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('No')
+        cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('£10002.240954')
+        cy.contains('12.50 x 100 kg')
+        cy.contains('23.98 x 100 kg')
+        cy.contains('72.56 tonnes')
+        cy.contains('87.25 x 10,000 kg')
+        cy.contains('Calculate import duties').click()
 
-
+    //Final Page 
 
     })
 })
