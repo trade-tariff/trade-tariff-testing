@@ -1,7 +1,6 @@
 name: " 💰 | Duty Calculator Regression Pack |"
 on:
   schedule:
-    - cron: "00 07 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:

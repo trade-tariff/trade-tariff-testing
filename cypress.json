@@ -2,8 +2,7 @@
   "baseUrl": "https://www.trade-tariff.service.gov.uk",
   "services": {
     "xi": "https://www.trade-tariff.service.gov.uk/xi/",
-    "dutycal" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/uk/duty-calculator/",
-    "dutycalxi" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/xi/duty-calculator/"
+    "dutycal" : "https://tariff-duty-calculator-dev.london.cloudapps.digital/duty-calculator"
 
   },
   

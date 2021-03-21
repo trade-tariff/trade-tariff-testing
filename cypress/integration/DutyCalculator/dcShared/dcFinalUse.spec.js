@@ -3,7 +3,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
-        cy.visit('/0702000007/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         
@@ -12,7 +12,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     })
      //error messages - nothing is entered 
      it('No Values Entered',function(){
-        cy.visit('/0702000007/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title 
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         cy.contains('Continue').click()
@@ -24,7 +24,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
   
     })
     it('User makes a selection',function(){
-        cy.visit('/1704101000/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
@@ -56,7 +56,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     })
 
     it('Explore the Topic : Other static page links',function(){
-        cy.visit('/0702000007/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         
