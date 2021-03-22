@@ -4,9 +4,14 @@
 describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Non processing |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
-    it('e2e GB to NI ',function(){
+    let country = ["uk","xi"]
+    
+    for (let i =0;i<country.length;i++){
+        console.log(i)
+
+    it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -42,14 +47,12 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
         cy.contains('Continue').click()
         cy.wait(100)
 
-        // ✅ Non processing - Yes 
-        
+        // ✅ Non processing - Yes        
         //Select - The importer had a total annual turnover of less than £500,000 in its most recent complete financial year
         cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field").check()
         cy.contains('Continue').click()
         cy.wait(100)
          // duty page validation  ***
-
          cy.contains('There is no import duty to pay')
          cy.contains('There is no import duty to pay because:')
          cy.contains('You are transporting goods from England, Scotland or Wales to Northern Ireland')
@@ -57,7 +60,6 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
          cy.contains('Your import is for sale to, or final use by, end-consumers located in Northern Ireland')
          cy.contains('The importer had a total annual turnover of less than £500,000 in its most recent complete financial year')
          cy.contains('You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.')
-
 
         // selection is persisted 
         cy.go(-1)
@@ -71,6 +73,6 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
         cy.contains('Start again').click()
         cy.contains('When will the goods be imported?')
 
-
     })
+}
 })

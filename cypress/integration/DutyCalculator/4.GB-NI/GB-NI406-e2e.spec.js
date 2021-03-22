@@ -4,10 +4,12 @@
 
 describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫  Non processing - 🚫 Certified as UK Origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-
-    it('e2e GB to NI ',function(){
+    let country = ["uk","xi"] 
+    for (let i =0;i<country.length;i++){
+        console.log(i)
+    it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -58,10 +60,10 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
                     
         // Measure amount page 
         cy.contains('Enter import quantity')
-        cy.get('#wizard-steps-measure-amount-dtn-field').clear().type('12.50')
+     //   cy.get('#wizard-steps-measure-amount-dtn-field').clear().type('12.50')
         cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type('23.98')
-        cy.get('#wizard-steps-measure-amount-tne-field').clear().type('72.56')
-        cy.get('#wizard-steps-measure-amount-dap-field').clear().type('87.25')
+     //   cy.get('#wizard-steps-measure-amount-tne-field').clear().type('72.56')
+     //   cy.get('#wizard-steps-measure-amount-dap-field').clear().type('87.25')
         cy.contains('Continue').click()
 
         //Check your answers page 
@@ -97,6 +99,6 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
     //Final Page 
         
             
-
     })
+}
 })

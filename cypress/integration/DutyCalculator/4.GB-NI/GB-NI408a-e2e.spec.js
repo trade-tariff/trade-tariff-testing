@@ -1,12 +1,12 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
-// Comm code :0702000007 - Commodity with no measure units 
+// Comm code :7202118000 - Commodity with no measure units 
 
 describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e GB to NI ',function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
