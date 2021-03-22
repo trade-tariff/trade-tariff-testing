@@ -1,12 +1,15 @@
 // ✅  Trade Remedies - ℹ️ 
-// Comm code : 0303149011
+// Comm code : 0303149011 + no measure units 
 
 describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    let country = ["uk","xi"] 
+    for (let i =0;i<country.length;i++){
+        console.log(i)
 
-    it('e2e GB to NI ',function(){
+    it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0303149011')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0303149011`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -54,18 +57,14 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0303 14 90 11')
         cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
         cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('United Kingdom (Northern Ireland)')
-        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom')
-        
-        cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5785.865000000001')
-        
-        
-        
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom')       
+        cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5785.865000000001')     
         cy.contains('Calculate import duties').click()
 
     //Final Page 
 
 
-
     })
+}
 
 })

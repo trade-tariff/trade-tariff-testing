@@ -2,9 +2,8 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
-// skip some tests if the pack gets bigger
     it('Import destination GB', function () {
-        cy.visit('0702000007/import-date')
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -49,7 +48,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
     })
     it('Import destination - Northern Ireland', function () {
-        cy.visit('0702000007/import-date')
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -76,7 +75,6 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
             .should('be.checked')
 
         // check back button takes user back to date selection and date is persisted ?
-
         //  cy.go('back')
         //Back button - GDS style back link
         cy.contains('Back').click()
@@ -89,7 +87,8 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
     })
     it('Error - No country selected',function(){
-        cy.visit('0702000007/import-destination')
+       
+     //   cy.visit('/import-destination')
         cy.contains('Trade Tariff Duty Calculator')
       //  cy.ValidDate()
        // cy.contains('Continue').click()

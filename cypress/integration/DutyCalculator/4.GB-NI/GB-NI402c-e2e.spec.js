@@ -3,10 +3,14 @@
 
 describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Non processing |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    let country = ["uk","xi"]
+    
+    for (let i =0;i<country.length;i++){
+        console.log(i)
 
-    it('e2e GB to NI ',function(){
+    it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -44,8 +48,7 @@ describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
         cy.wait(100)
 
         // ✅ Non processing - Yes 
-        // 3rd Option is selected
-        // Select - The goods will undergo commercial processing for one of these purposes
+        // 3rd Option is selected - The goods will undergo commercial processing for one of these purposes
         cy.get("#wizard-steps-planned-processing-planned-processing-commercial-processing-field").check()
         cy.contains('Continue').click()
         cy.wait(100)
@@ -71,7 +74,6 @@ describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
         cy.wait(100)
         cy.contains('Start again').click()
         cy.contains('When will the goods be imported?')
-
-
     })
+}
 })

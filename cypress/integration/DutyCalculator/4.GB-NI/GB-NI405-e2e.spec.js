@@ -4,10 +4,12 @@
 
 describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫  Non processing - ✅ Certified as UK Origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-
-    it('e2e GB to NI ',function(){
+    let country = ["uk","xi"] 
+    for (let i =0;i<country.length;i++){
+        console.log(i)
+    it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -67,9 +69,11 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
             .should('be.checked')
         
         cy.contains('Continue').click()
-        cy.wait(1000)
+        cy.wait(200)
+        cy.contains('There is no import duty to pay')
         cy.contains('Start again').click()
         cy.contains('When will the goods be imported?')
 
     })
+}
 })

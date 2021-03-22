@@ -3,10 +3,14 @@
 
 describe('| GB-NI403-e2e.spec | GB to NI route 🚐 03  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - ✅ Certified as UK origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    let country = ["uk","xi"]
+    
+    for (let i =0;i<country.length;i++){
+        console.log(i)
 
-    it('e2e GB to NI ',function(){
+    it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -38,14 +42,15 @@ describe('| GB-NI403-e2e.spec | GB to NI route 🚐 03  - 🚫 Trade Remedies - 
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
         cy.contains('Continue').click()
 
-
         // ✅ Certified as UK origin
         //Select Yes, valid Certificate of Origin
         cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
         cy.contains('Continue').click()
 
-            // *** Page Validation ***
-
-
+        //page validation - no import duty to pay 
+        cy.contains('There is no import duty to pay')
+        cy.contains('Start again').click()
+        cy.contains('When will the goods be imported?')
     })
+}
 })

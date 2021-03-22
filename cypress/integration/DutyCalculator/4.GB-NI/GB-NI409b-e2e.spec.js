@@ -1,12 +1,15 @@
 // ✅  Trade Remedies - ℹ️ 
-// Comm code : 1518009129
+// Comm code : 1518009129 + with measure units 
 
 describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    let country = ["uk","xi"] 
+    for (let i =0;i<country.length;i++){
+        console.log(i)
 
-    it('e2e GB to NI ',function(){
+    it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=1518009129')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1518009129`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -68,7 +71,7 @@ describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',
     //Final Page 
 
 
-
     })
+}
 
 })
