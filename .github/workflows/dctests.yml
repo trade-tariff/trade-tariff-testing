@@ -1,7 +1,5 @@
 name: " 💰 | Duty Calculator Regression Pack |"
-on:
-  schedule:
-  workflow_dispatch:
+on: [workflow_dispatch]
 jobs:
   cypress-run:
     name: "💰 Duty Calculator Regression Tests"
