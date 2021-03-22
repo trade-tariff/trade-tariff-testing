@@ -26,10 +26,10 @@ jobs:
           path: ./cypress/reports/mochareports/
       - run: |
           DATE=$(date +%d-%m-%Y)
-          mkdir -p 2/$DATE
-          cp -r ./cypress/reports/mochareports/*  docs2/$DATE/
-          cp ./cypress/reports/mochareports/report.html docs2/$DATE/index.html
-          git add docs2 .
+          mkdir -p docs/$DATE
+          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
+          cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
+          git add docs .
       - run: |
            git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
            git config --local user.name "github-actions[bot]"
