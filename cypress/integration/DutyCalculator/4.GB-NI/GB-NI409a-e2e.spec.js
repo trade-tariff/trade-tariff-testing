@@ -6,7 +6,7 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
 
     it('e2e GB to NI ',function(){
         //select future date 
-        cy.visit('/0303149011/import-date')
+        cy.visit('/import-date?referred_service=uk&commodity_code=0303149011')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -22,7 +22,7 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
          .click().clear().wait(500)
          .type('United Kingdom').wait(500)
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field__option--2')
+        
          .click()
         cy.contains('Continue').click()
 

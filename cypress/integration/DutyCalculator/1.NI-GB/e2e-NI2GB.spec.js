@@ -2,7 +2,7 @@ describe('| e2e-NI2GB | Northern Ireland to United Kingdom |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e NI to UK ',function(){
-        cy.visit('/1704101000/import-date#')
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
