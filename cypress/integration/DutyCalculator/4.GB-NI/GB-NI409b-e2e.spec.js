@@ -59,8 +59,8 @@ describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',
      //   Check values 
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1518 00 91 29')
         cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
-        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('United Kingdom (Northern Ireland)')
-        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom')
+        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5785.865000000001')
         cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('25.786 tonnes')

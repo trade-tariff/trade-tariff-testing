@@ -27,7 +27,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
          .click().clear().wait(500)
          .type('United Kingdom').wait(500)
          .click()
-        cy.contains('Continue').click()
+         cy.contains('Continue').click()
 
         // ✅  Trader Scheme Registered - Yes 
         cy.contains('Are you registered with the UK Trader Scheme?')
@@ -57,10 +57,10 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
          cy.contains('Enter import quantity')
          // Measure amount page 
         
-        cy.get('#wizard-steps-measure-amount-dtn-field').clear().type('12.50')
+     //   cy.get('#wizard-steps-measure-amount-dtn-field').clear().type('12.50')
         cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type('23.98')
-        cy.get('#wizard-steps-measure-amount-tne-field').clear().type('72.56')
-        cy.get('#wizard-steps-measure-amount-dap-field').clear().type('87.25')
+     //   cy.get('#wizard-steps-measure-amount-tne-field').clear().type('72.56')
+    //    cy.get('#wizard-steps-measure-amount-dap-field').clear().type('87.25')
         cy.contains('Continue').click()
 
         //Check your answers page 
@@ -78,16 +78,16 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
         // check values entered 
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00')
         cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
-        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('United Kingdom (Northern Ireland)')
-        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom')
+        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Yes')
         cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No')
         cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('No')
         cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('£10002.240954')
-        cy.contains('12.50 x 100 kg')
+       // cy.contains('12.50 x 100 kg')
         cy.contains('23.98 x 100 kg')
-        cy.contains('72.56 tonnes')
-        cy.contains('87.25 x 10,000 kg')
+        //cy.contains('72.56 tonnes')
+        //cy.contains('87.25 x 10,000 kg')
         cy.contains('Calculate import duties').click()
 
     //Final Page 
