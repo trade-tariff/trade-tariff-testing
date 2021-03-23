@@ -3,8 +3,22 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
-        cy.visit('/0702000007/trader-scheme')
-        //main page title
+        cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
+        cy.contains('Trade Tariff Duty Calculator')
+        cy.DCMainPage()
+        cy.ValidDate()
+        cy.contains('Continue').click()
+        cy.contains('Which part of the UK are you importing into?')
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.contains('Continue').click()
+        cy.contains('Which country are the goods dispatched from?')
+        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
+        .click().clear()
+        .type('United Kingdom (excluding Northern Ireland)').wait(500)
+      cy.contains('Continue').click()
+
+
+        //trader page 
         cy.contains('Are you registered with the UK Trader Scheme?')
         cy.contains('If you are importing goods or sale to, or final use by, end consumers located in the UK and you are a trader authorised under the UK Trader Scheme, then your goods may be treated as being \'not at risk\' of further movement into the EU and are not subject to EU import duties.')
         
@@ -16,11 +30,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.get('p > .govuk-link').click()
         cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland')
         cy.go('back')
-    })
-    it('User makes a selection',function(){
-        cy.visit('/0702000007/trader-scheme')
-        //main page title
-        cy.contains('Are you registered with the UK Trader Scheme?')
+    
         //Select Yes, I am registered with the UK Trader Scheme
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
         cy.contains('Continue').click()
@@ -41,17 +51,9 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
             .parent()
             .find('input')
             .should('be.checked')
-
-
-
-
-    })
-
-    //error messages - nothing is entered 
-    it('No Values Entered',function(){
-        cy.visit('/0702000007/trader-scheme')
-        //main page title
-        cy.contains('Are you registered with the UK Trader Scheme?')
+        cy.go(-1)
+        cy.contains('Continue').click()
+    // empty values 
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -59,18 +61,10 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.get('#wizard-steps-trader-scheme-trader-scheme-error')
             .contains('Select one of the two options')
 
-    
-    })
-    it('Explore the Topic : Other static page links',function(){
-        cy.visit('/0702000007/trader-scheme')
-        //main page title
-        cy.contains('Are you registered with the UK Trader Scheme?')
+    //static links on page 
         
         cy.contains('Explore the topic')
         cy.contains('Apply for authorisation for the UK trader scheme').click()
-
-       
-        //https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland-from-1-january-2021
         cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland')
         cy.go(-1)
         cy.contains('Are you registered with the UK Trader Scheme?')

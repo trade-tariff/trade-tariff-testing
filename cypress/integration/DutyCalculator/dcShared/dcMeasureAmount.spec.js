@@ -2,7 +2,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
-    it('Page Validation', function () {
+    it.only('Page Validation', function () {
         // 1.Commodity with Kilos 
         cy.visit('/1701141000/measure-amount')
         // 1701141000 For refining
