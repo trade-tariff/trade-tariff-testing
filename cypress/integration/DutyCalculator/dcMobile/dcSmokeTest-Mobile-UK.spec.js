@@ -1,11 +1,13 @@
 
 describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-   
-// iphone 
-    it('📱 iphone - e2e journey ', function () {
+    let country = ["uk","xi"] 
+    for (let i =0;i<country.length;i++){
+        console.log(i)
+    // iphone 
+    it(`📱 iphone - e2e journey ${country[i]}`, function () {
         cy.viewport('iphone-6', 'landscape')
-        cy.visit('/1704101000/import-date')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains('Trade Tariff Duty Calculator')
         //Search the tariff section
     
@@ -34,12 +36,12 @@ describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
         cy.contains('About this commodity code').click()
         cy.get('.govuk-details__text')
         cy.contains('Commodity code')
-        cy.contains('1704101000')
-        cy.contains('Containing less than 60 % by weight of sucrose (including invert sugar expressed as sucrose')
+        cy.contains('0702000007')
+        cy.contains('Cherry tomatoes')
         
-        cy.contains('View commodity 1704101000').click()
+        cy.contains('View commodity 0702000007').click()
         //☀️ Validate commodity page
-        cy.contains('Commodity information for 1704101000')
+        cy.contains('Commodity information for 0702000007')
         cy.contains('UK Global Online Tariff')
         cy.go(-1)
         cy.contains('Trade Tariff Duty Calculator')
@@ -50,9 +52,9 @@ describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
     })
 
 //android
-it('📱 android - e2e journey ', function () {
+it(`📱 android - e2e journey ${country[i]} `, function () {
     cy.viewport('samsung-note9')
-    cy.visit('/1704101000/import-date')
+    cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
     cy.contains('Trade Tariff Duty Calculator')
 
     //Search the tariff section
@@ -82,12 +84,12 @@ it('📱 android - e2e journey ', function () {
     cy.contains('About this commodity code').click()
     cy.get('.govuk-details__text')
     cy.contains('Commodity code')
-    cy.contains('1704101000')
-    cy.contains('Containing less than 60 % by weight of sucrose (including invert sugar expressed as sucrose')
+    cy.contains('0702000007')
+    cy.contains('Cherry tomatoes')
     
-    cy.contains('View commodity 1704101000').click()
+    cy.contains('View commodity 0702000007').click()
     //☀️ Validate commodity page
-    cy.contains('Commodity information for 1704101000')
+    cy.contains('Commodity information for 0702000007')
     cy.contains('UK Global Online Tariff')
     cy.go(-1)
     cy.contains('Trade Tariff Duty Calculator')
@@ -95,8 +97,8 @@ it('📱 android - e2e journey ', function () {
 
     //select country of Origin from drop down 
 
-
     
 })
+    }
 
 })

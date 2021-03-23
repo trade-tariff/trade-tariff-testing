@@ -18,9 +18,9 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
             .find('input')
             .should('be.checked')
         //select England ,Scotland or Wales (GB)
-        cy.get('#wizard-steps-import-destination-import-destination-gb-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
         //Verify if GB button is selected 
-        cy.get('#wizard-steps-import-destination-import-destination-gb-field')
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -30,7 +30,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
           cy.go('back')
             cy.contains('Which part of the UK are you importing into?')
             //UK selection is persisted
-            cy.get('#wizard-steps-import-destination-import-destination-gb-field')
+            cy.get('#wizard-steps-import-destination-import-destination-uk-field')
             .parent()
             .find('input')
             .should('be.checked')
@@ -86,13 +86,13 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
 
     })
-    it('Error - No country selected',function(){
-       
-     //   cy.visit('/import-destination')
-        cy.contains('Trade Tariff Duty Calculator')
-      //  cy.ValidDate()
-       // cy.contains('Continue').click()
-        cy.contains('Which part of the UK are you importing into?')
+    it('Error - No country selected',function(){   
+     cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+     cy.contains('Trade Tariff Duty Calculator')
+     cy.ValidDate()
+     cy.contains('Continue').click()
+
+     cy.contains('Which part of the UK are you importing into?')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -102,9 +102,11 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
     })
     it('Explore the Topic : Other static page links',function(){
-        cy.visit('0702000007/import-destination')
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
-        // replace date selection with second page in URL
+        cy.ValidDate()
+        cy.contains('Continue').click()
+
         cy.contains('Which part of the UK are you importing into?')
 
         cy.contains('Explore the topic')
