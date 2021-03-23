@@ -63,10 +63,10 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Customs value')
         
      //   cy.get('.govuk-summary-list__value')
-        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0702 00 00 07')
+        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('7202 11 80 00')
         cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
-        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('United Kingdom (Northern Ireland)')
-        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom')
+        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('No')
         cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No')
         cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('£10002.240954')
