@@ -1,14 +1,55 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.27.0
+  slack: circleci/slack@4.1
 
-jobs:
-  build:
-    docker:
-      - image: cimg/node:14.10.1 # the primary container, where your job's commands are run
-    steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
-
-workflow:
-  - build
+workflows:
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 5 * * *"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - cypress/run:
+          context: trade-tariff
+          name: "UK Smoke tests"
+          executor: cypress/browsers-chrome77
+          browser: chrome
+          store_artifacts: true
+          spec: "*/**/smokeTest-UK.spec.js"
+          post-steps:
+            - run: mkdir -p cypress/reports/mochareports
+            - run: npm run combine-reports && npm run generate-report
+            - store_test_results:
+                path: cypress/results
+            - store_artifacts:
+                path: cypress/reports
+            - slack/notify:
+                channel: tariffs-etl
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "text": {
+                          "type": "mrkdwn",
+                          "text": "UK Smoke tests"
+                        },
+                        "accessory": {
+                          "type": "button",
+                          "text": {
+                            "type": "plain_text",
+                            "text": "Report",
+                            "emoji": true
+                          },
+                          "value": "click_me_123",
+                          "url": "https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
+                          "action_id": "button-action"
+                        }
+                      }
+                    ]
+                  }
+                event: always
