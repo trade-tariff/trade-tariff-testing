@@ -3,17 +3,16 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
-        cy.visit('/0702000007/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         
         cy.contains('Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom')
-        cy.contains('No, this import will not be for final use in the United Kingdom')
-        
+        cy.contains('No, this import will not be for final use in the United Kingdom')       
     })
      //error messages - nothing is entered 
      it('No Values Entered',function(){
-        cy.visit('/0702000007/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title 
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         cy.contains('Continue').click()
@@ -25,15 +24,19 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
   
     })
     it('User makes a selection',function(){
-        cy.visit('/0702000007/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
         cy.contains('Continue').click()
 
+        //planned-processing page
+        cy.contains('How will these goods be processed after import?')
+
         // selection is persisted 
         cy.go(-1)
+        
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']")
             .parent()
             .find('input')
@@ -41,20 +44,19 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
 
         //Select No, this import will not be for final use in the United Kingdom
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
-        cy.contains('Continue').click()
+        cy.contains('Continue').click().wait(500)
+        cy.log(cy.title())
+        
         // selection is persisted 
         cy.go(-1)
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']")
             .parent()
             .find('input')
             .should('be.checked')
-
-
     })
 
-   
     it('Explore the Topic : Other static page links',function(){
-        cy.visit('/0702000007/final-use')
+        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
         
@@ -65,7 +67,5 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
         cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
         cy.go(-1)
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-
-
     })
 })

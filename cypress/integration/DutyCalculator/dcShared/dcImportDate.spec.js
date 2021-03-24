@@ -1,18 +1,23 @@
 
 describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+// /import-date?referred_service=uk&commodity_code=0702000007
+    let country = ["uk","xi"]
+    
+    for (let i =0;i<country.length;i++){
+        console.log(i)
 
-    // skip some tests if the pack gets bigger
     it('📅 Valid Date', function () {
-        cy.visit('/0702000007/import-date#')
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.DCMainPage()
         cy.ValidDate()
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
     })
+
     it('📅 Invalid date - Past Date -> Date persists -> enter valid date ', function () {
-        cy.visit('/0702000007/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('11')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
@@ -41,7 +46,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
 
     })
     it('📅 No Date ', function () {
-        cy.visit('/0702000007/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
@@ -51,7 +56,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         cy.contains('Enter a valid future date')
     })
     it('📅 Invalid date - Text  ', function () {
-        cy.visit('/0702000007/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('dd')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('mm')
@@ -64,20 +69,20 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         cy.contains('Enter a valid future date')
     })
     it('🔗 Verify Page links ',function(){
-        cy.visit('/0702000007/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=0702000007')
         cy.get('.govuk-header__link')
             .contains('Search or browse the Tariff').click()
         cy.wait(500)
       //  cy.MainPageUK()
         //DC main page
-        cy.visit('/1704101000/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=1704101000')
         cy.contains('Trade Tariff Duty Calculator')
         cy.get('.govuk-header__navigation ')
         cy.contains('A-Z').click()
         cy.contains('A–Z of Classified Goods')
         cy.get('.govuk-header ').contains(`UK Global Online Tariff`)
         //DC main page
-        cy.visit('/0702000007/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         cy.contains('Tools').click()
         cy.get('.govuk-header ').contains(`UK Global Online Tariff`)
@@ -85,7 +90,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
 
     })
     it('🔖 Commodity Details ',function(){
-        cy.visit('/0702000007/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
         //Back button - GDS style back link
         cy.contains('Back').click()
@@ -93,7 +98,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         cy.contains('Commodity information for 0702000007')
 
 
-        cy.visit('/0702000007/import-date#')
+        cy.visit('import-date?referred_service=${country[i]}&commodity_code=0702000007')
         //About this commodity code
     
         cy.get('.govuk-details > .govuk-details__summary')
@@ -108,11 +113,10 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         cy.contains('Commodity information for 0702000007')
         cy.get('.govuk-header ').contains(`UK Global Online Tariff`)
         cy.go(-1)
-        cy.contains('Trade Tariff Duty Calculator')
-
-
+        cy.contains('Trade Tariff Duty Calculator')    
 
     })
+}
 
 })
 //check text color: #d4351c

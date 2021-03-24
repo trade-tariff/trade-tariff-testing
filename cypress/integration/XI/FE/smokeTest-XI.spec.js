@@ -9,14 +9,6 @@ describe('🚀 XI 🇪🇺 💡  - Smoke test to cover basic functionality on XI
         cy.visit('/sections')
         cy.MainPageXI();
     })
-    //Legal base tests
-    it('🚀 XI - Legal base column suppressed', function () {
-        
-        cy.visit('/commodities/0101210000#import')
-        cy.contains('Northern Ireland Online Tariff')
-        cy.get('.govuk-tabs__panel')
-        cy.contains('Legal base').should('not.exist')
-    })
     //switching link works
     it('🚀 XI - Main Page - Switching link to UK available & works', function () {
         cy.visit('/sections')

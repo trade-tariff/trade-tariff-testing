@@ -1,15 +1,15 @@
 
-describe.skip('UK 🇬🇧 | axeTest-UK | Accessibility tests on UK services ',function() {
+describe('UK 🇬🇧 | Duty Calculator axeTest-UK | Accessibility tests on UK services ',function() {
 
-    Cypress.config('baseUrl')
+    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
-    it(' UK - Main Page ',function(){
-        cy.visit('/sections')
+    it.only(' DC UK - Main Page ',function(){
+        cy.visit('/0702000007/import-date')
         cy.injectAxe()
         cy.checkA11y()
     })
     it(' UK - Chapters page ',function(){
-        cy.visit('/chapters/01')
+        cy.visit('/0702000007/certificate-of-origin')
         cy.injectAxe()
         cy.checkA11y()
     })
