@@ -1,7 +1,7 @@
 // ✅  Trade Remedies - ℹ️ 
-// Comm code : 1518009129 + with measure units 
+// Comm code : 0304829010 + with measure units 
 
-describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
+describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
     for (let i =0;i<country.length;i++){
@@ -9,7 +9,7 @@ describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',
 
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1518009129`)
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.ValidDate()
         cy.contains('Continue').click()
@@ -43,29 +43,24 @@ describe('| GB-NI409-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',
 
         // ⚖️ How many kilos/litres ? Page 12
         cy.contains('Enter import quantity')
-        cy.get('#wizard-steps-measure-amount-tnei-field').clear().type('25.786')
+      //  cy.get('#wizard-steps-measure-amount-tnei-field').clear().type('25.786')
         cy.contains('Continue').click()
 
         //Confirm Page - Page 17 
-        cy.contains('Check your answers')
-        
+        cy.contains('Check your answers')   
         cy.contains('Commodity code')
         cy.contains('Date of import')
         cy.contains('Destination')
         cy.contains('Country of dispatch')
         cy.contains('Customs value')
-        cy.contains('Import quantity')
-
+     //   cy.contains('Import quantity')
      //   Check values 
-        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1518 00 91 29')
+        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10')
         cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
         cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
-        
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5785.865000000001')
-        cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('25.786 tonnes')
-        
-        
+      //  cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('25.786 tonnes') 
         cy.contains('Calculate import duties').click()
 
     //Final Page 
