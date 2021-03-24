@@ -3,6 +3,15 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
+
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.ValidDate()
+        cy.contains('Continue').click()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        //Verify if NI button is selected 
+        
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
+          cy.contains('Continue').click()
         cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
@@ -12,6 +21,15 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     })
      //error messages - nothing is entered 
      it('No Values Entered',function(){
+
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.ValidDate()
+        cy.contains('Continue').click()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        //Verify if NI button is selected 
+        
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
+          cy.contains('Continue').click()
         cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title 
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
@@ -24,6 +42,14 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
   
     })
     it('User makes a selection',function(){
+
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.ValidDate()
+        cy.contains('Continue').click()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
+          cy.contains('Continue').click()
+
         cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
@@ -33,7 +59,6 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
 
         //planned-processing page
         cy.contains('How will these goods be processed after import?')
-
         // selection is persisted 
         cy.go(-1)
         
@@ -56,6 +81,16 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     })
 
     it('Explore the Topic : Other static page links',function(){
+
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.ValidDate()
+        cy.contains('Continue').click()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        //Verify if NI button is selected 
+        
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
+          cy.contains('Continue').click()
+
         cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
         //main page title
         cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
