@@ -3,7 +3,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
-        cy.visit('/0407191900/customs-value')
+        cy.visit('/customs-value?referred_service=uk&commodity_code=0407191900')
         //main page title
         cy.contains('What is the monetary value of this import?')
         cy.contains('The import duty charged for this commodity code is dependent on the monetary value of the goods being imported.')
@@ -17,15 +17,12 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics')
         cy.go('back')
 
-
         // value in GBP of goods being imported ?
         cy.contains('What is the value in GBP of the goods being imported?')
 
         // shipping cost ?
         cy.contains('What is the shipping cost?')
         cy.contains('Only costs up to the place of introduction of the imported goods into the UK border need to be included.')
-
-
 
         //cost of insuring the goods ?
         cy.contains('What is the cost of insuring the goods?')
@@ -35,8 +32,17 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
     //error messages - nothing is entered 
     it('No Values Entered',function(){
-        cy.visit('/0702000007/customs-value')
+
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.ValidDate()
+        cy.contains('Continue').click()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        //Verify if NI button is selected 
         
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
+          cy.contains('Continue').click()
+          
+        cy.visit('/customs-value?referred_service=uk&commodity_code=0702000007')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -56,11 +62,19 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.contains('Enter a numeric monetary value')
     })
 
-
-
         //enter characters in shipping /insurance costs and leave Goods value as blank 
     it('Enter  non-numeric values in shipping cost and insurane cost',function(){
-        cy.visit('/0702000007/customs-value')
+
+        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.ValidDate()
+        cy.contains('Continue').click()
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        //Verify if NI button is selected 
+        
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
+          cy.contains('Continue').click()
+
+        cy.visit('/customs-value?referred_service=uk&commodity_code=0702000007')
   
         cy.get('input#wizard-steps-customs-value-monetary-value-field').clear()
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('puffins')
@@ -96,7 +110,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
     })
     it('Enter valid goods value + £0.00 shipping and insurance costs',function(){
-        cy.visit('/0702000007/customs-value')
+        cy.visit('/customs-value?referred_service=uk&commodity_code=0702000007')
          //enter negative value in Goods value 
          cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('0.01')
          cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type(' ')

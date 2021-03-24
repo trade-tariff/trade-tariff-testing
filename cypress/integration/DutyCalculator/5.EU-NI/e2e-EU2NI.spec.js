@@ -1,9 +1,12 @@
 describe('| e2e-EU2NI |EU to Northern Ireland |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    let country = ["uk","xi"] 
+    for (let i =0;i<country.length;i++){
+        console.log(i)
 
-    it('e2e EU to NI ',function(){
-        cy.visit('/1704101000/import-date#')
-        cy.contains('Trade Tariff Duty Calculator')
+
+    it(`e2e EU to NI ${country[i]}`,function(){
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
         cy.ValidDate()
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
@@ -24,7 +27,7 @@ describe('| e2e-EU2NI |EU to Northern Ireland |',function(){
         cy.contains('Continue').click()
         cy.contains('There is no import duty to pay')
         cy.contains('There is no import duty to pay when importing goods into Northern Ireland from a European Union member state.')
-        
 
     })
+}
 })
