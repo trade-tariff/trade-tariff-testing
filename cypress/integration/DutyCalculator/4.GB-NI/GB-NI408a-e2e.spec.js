@@ -71,9 +71,50 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No')
         cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('£10002.240954')
         
-        cy.contains('Calculate import duties').click()
+    //confirm
+         cy.get('.govuk-button').click()
 
-    //Final Page 
+    //duty page
+        cy.contains('Import duty calculation')
+        cy.contains('You are importing commodity')
+        cy.contains('from United Kingdom (excluding Northern Ireland) on')
+        cy.contains('31 December 2022')
+        cy.contains('7202 11 80 00').click()
+        cy.contains('Commodity information for 7202118000')
+        cy.go(-1)
+    //keys
+        cy.get('.govuk-details > .govuk-details__summary')
+        cy.contains('About this commodity code').click()
+        cy.get('.govuk-details__text')
+        cy.contains('Origin:')
+        cy.contains('Commodity:')
+        cy.contains('Import date:')
+        cy.contains('Valuation of import:')
+    //values
+        cy.contains('7202 11 80 00')
+        cy.contains('Other')
+        cy.contains('31 December 2022')
+        cy.contains('£10002.240954')
+  
+    //information 
+        cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
+       cy.get('.govuk-table__row')
+        cy.contains('Data')
+        cy.contains('Calculation')
+        cy.contains('Value')
+    //first row
+        cy.contains('Valuation for import')
+        cy.contains('Value of goods + freight + insurance costs')
+        cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10002.240954')
+    //import duty 
+        cy.contains('Import duty Third country duty (xi)')
+        cy.contains('2.7% * £10002.240954')
+        cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06050575800003')
+    //Last row 
+        cy.contains('Duty Total')
+        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06050575800003')
+
+
 
     })
 })
