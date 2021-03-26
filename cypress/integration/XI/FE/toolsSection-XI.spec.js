@@ -4,7 +4,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
 
     it('Tools Section in header ', function () {
         cy.visit('/sections')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
             .contains('Tools').click()
         cy.contains('Tariff tools')
         cy.contains('Certificate, licenses and documents')
@@ -25,7 +25,8 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.get('a#proposition-name')
+        .contains('Northern Ireland Online Tariff')
     })
 
     it('breadcrumbs - Certificates ,licences and documents', function () {
@@ -36,6 +37,10 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
         cy.contains('Tariff tools')
+        cy.get('.govuk-breadcrumbs__list')
+            .contains('Home').click()
+        cy.get('a#proposition-name')
+        .contains('Northern Ireland Online Tariff')
 
     })
     it('breadcrumbs - Additional codes', function () {
@@ -46,6 +51,10 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
         cy.contains('Tariff tools')
+        cy.get('.govuk-breadcrumbs__list')
+            .contains('Home').click()
+        cy.get('a#proposition-name')
+        .contains('Northern Ireland Online Tariff')
 
     })
     it('breadcrumbs - Chemicals', function () {
@@ -56,6 +65,10 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
         cy.contains('Tariff tools')
+        cy.get('.govuk-breadcrumbs__list')
+            .contains('Home').click()
+        cy.get('a#proposition-name')
+        .contains('Northern Ireland Online Tariff')
 
     })
 })

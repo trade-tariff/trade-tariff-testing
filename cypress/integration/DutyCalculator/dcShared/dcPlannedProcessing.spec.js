@@ -4,7 +4,14 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
 
 
         it('Page Validation', function () {
-            cy.visit('/1704101000/planned-processing')
+            cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+            cy.ValidDate()
+            cy.contains('Continue').click()
+            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
+            cy.contains('Continue').click()
+
+            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
+            
         //main page title
             cy.contains('How will these goods be processed after import?')
         
@@ -24,7 +31,13 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
 
          //error messages - nothing is entered 
          it('No Values Entered',function(){
-            cy.visit('/1704101000/planned-processing')
+            cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+            cy.ValidDate()
+            cy.contains('Continue').click()
+            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
+            cy.contains('Continue').click()
+
+            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
             cy.contains('How will these goods be processed after import?')
             //main page title 
             cy.contains('Continue').click()
@@ -36,7 +49,13 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
       
         })
         it('User makes a selection',function(){
-            cy.visit('/1704101000/planned-processing')
+            cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+            cy.ValidDate()
+            cy.contains('Continue').click()
+            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
+            cy.contains('Continue').click()
+
+            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
             cy.contains('How will these goods be processed after import?')
 
             // 1 .Select - The goods will be sold to an end-user without any processing
@@ -84,7 +103,13 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     
        
         it('Explore the Topic : Other static page links',function(){
-            cy.visit('/1704101000/planned-processing')
+            cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+            cy.ValidDate()
+            cy.contains('Continue').click()
+            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
+            cy.contains('Continue').click()
+
+            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
             cy.contains('How will these goods be processed after import?')
 
             cy.contains('Explore the topic')

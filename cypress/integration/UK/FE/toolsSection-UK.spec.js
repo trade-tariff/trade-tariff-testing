@@ -25,7 +25,7 @@ describe('🇬🇧 💡 | toolsSection-UK | Tools Section - breadcrumbs   - (UK 
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
     })
 
     it('breadcrumbs - Certificates ,licences and documents', function () {

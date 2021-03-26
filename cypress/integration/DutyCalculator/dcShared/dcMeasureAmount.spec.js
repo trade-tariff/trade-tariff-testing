@@ -8,6 +8,10 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
         cy.contains('Continue').click()
+        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
+        .click().clear().wait(100)
+        .type('United Kingdom (excluding Northern Ireland)').wait(500)
+        cy.contains('Continue').click()
 
         // 1.Commodity with Kilos 
         cy.visit('/measure-amount?referred_service=uk&commodity_code=1701141000')  
