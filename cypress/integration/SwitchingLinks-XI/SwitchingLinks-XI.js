@@ -2,7 +2,7 @@ Cypress.config('baseUrl', Cypress.config('services')['xi'])
 Given('I am on XI Trade Tariff main page',()=>{
         cy.visit('/sections')
         cy.get('.govuk-header ')
-            .contains('Northern Ireland (EU) Tariff')
+            .contains('Northern Ireland Online Tariff')
         cy.get('.tariff-breadcrumbs')
             .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the Online Tariff.')
     })
@@ -20,15 +20,15 @@ Given('I am on XI Trade Tariff main page',()=>{
 
     When('I click on switch link on UK page',()=>{
         cy.get('.govuk-main-wrapper')
-            .contains('Northern Ireland (EU) Tariff').click()
+            .contains('Northern Ireland Online Tariff').click()
     })
 
 
     Then('XI version of Trade Tariff page is displayed',()=>{
         cy.get('.govuk-header ')
-            .contains('Northern Ireland (EU) Tariff')
-        cy.get('.tariff-breadcrumbs')
-            .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the Online Tariff.')
+            .contains('Northern Ireland Online Tariff')
+        cy.get('.tariff-breadcrumbs ')
+            .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Global Online Tariff.')
     })
 
     When('I select guidance link on XI page',()=>{
