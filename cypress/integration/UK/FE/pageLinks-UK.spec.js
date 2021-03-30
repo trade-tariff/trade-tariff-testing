@@ -195,7 +195,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
 
     //export measures page static links
     //What are the main types  of tariff and charges
-    it.only('UK - Export page links Supplementary Unit ,VAT,Third country duty,Tariff preference',function(){
+    it('UK - Export page links Supplementary Unit ,VAT,Third country duty,Tariff preference',function(){
         cy.visit('/commodities/4421999910#export').wait(500)
         cy.get('span#details-export-heading')
         .contains('What are the main types of tariffs and charges').click()
