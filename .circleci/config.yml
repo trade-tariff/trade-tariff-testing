@@ -15,11 +15,11 @@ workflows:
     jobs:
       - cypress/run:
           context: trade-tariff
-          name: "UK Smoke tests"
+          name: "UK & XI Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
           store_artifacts: true
-          spec: "*/**/smokeTest-UK.spec.js"
+          spec: "*/**/smokeTestUKXI.spec.js"
           post-steps:
             - run: mkdir -p cypress/reports/mochareports
             - run: npm run combine-reports && npm run generate-report
