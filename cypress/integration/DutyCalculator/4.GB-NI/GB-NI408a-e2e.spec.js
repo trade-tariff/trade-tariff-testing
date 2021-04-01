@@ -105,15 +105,23 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     //first row
         cy.contains('Valuation for import')
         cy.contains('Value of goods + freight + insurance costs')
-        cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10002.240954')
+        cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
     //import duty 
         cy.contains('Import duty Third country duty (xi)')
-        cy.contains('2.7% * £10002.240954')
-        cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06050575800003')
+        cy.contains('2.7% * £10,002.24')
+        cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06')
     //Last row 
         cy.contains('Duty Total')
-        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06050575800003')
+        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06')
 
+
+    // Exchange Rate 
+        let exrate = 0.85209
+        cy.contains(`Please note - the current page uses an exchange rate of ${exrate} GBP to EUR.`)
+        
+        cy.log(`${exrate}`)
+        cy.contains('More about this exchange rate').click()
+        cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
 
 
     })

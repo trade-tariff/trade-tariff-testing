@@ -100,47 +100,48 @@ describe('🚀  UK 🇬🇧 💡 | smokeTest-UK | Smoke tests to cover basic fun
     //Country selection - imports
     it('🚀 UK - Country Selection - imports ',function(){
         cy.visit('/commodities/0208909800#import')
+         // no XU
+         cy.get('input#import_search_country').click().clear().wait(200).type('\(XU)').wait(500)
+         cy.get("[id='import_search_country__listbox']")
+             //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
+             .contains('No results found')
         // no XI
-        cy.get('input#import_search_country').click().clear().wait(200).type('(XI)').wait(500)
+        cy.get('input#import_search_country').click().clear().wait(200).type('\(XI)').wait(500)
         cy.get("[id='import_search_country__listbox']")
             .contains('No results found')
 
         //Andorra should be present
-        cy.get('input#import_search_country').click().clear().wait(200).type('(AD)').wait(500)
+        cy.get('input#import_search_country').click().clear().wait(200).type('\(AD)').wait(500)
         cy.get("[id='import_search_country__listbox']")
             .contains('Andorra (AD)')
 
         // no GB - United Kingdom (excluding Northern Ireland) (GB)
-        cy.get('input#import_search_country').click().clear().wait(200).type('(GB)').wait(500)
+        cy.get('input#import_search_country').click().clear().wait(200).type('\(GB)').wait(500)
         cy.get("[id='import_search_country__listbox']")
             .contains('No results found')
 
-        // no XU
-        cy.get('input#import_search_country').click().clear().wait(200).type('(XU)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
-            //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
-            .contains('No results found')
+       
     })
     //Country selection - imports
     it('🚀 UK - Country Selection - exports ',function(){
         cy.visit('/commodities/0208909800#export')
         // no XI
-        cy.get('input#export_search_country').click().clear().wait(500).type('(XI)').wait(500)
+        cy.get('input#export_search_country').click().clear().wait(500).type('\(XI)').wait(500)
         cy.get("[id='export_search_country__listbox']")
             .contains('No results found')
 
         //Andorra should be present
-        cy.get('input#export_search_country').click().clear().wait(500).type('(AD)').wait(500)
+        cy.get('input#export_search_country').click().clear().wait(500).type('\(AD)').wait(500)
         cy.get("[id='export_search_country__listbox']")
             .contains('Andorra (AD)')
 
         // no GB - United Kingdom (excluding Northern Ireland) (GB)
-        cy.get('input#export_search_country').click().clear().wait(500).type('(GB)').wait(500)
+        cy.get('input#export_search_country').click().clear().wait(500).type('\(GB)').wait(500)
         cy.get("[id='export_search_country__listbox']")
             .contains('No results found')
 
         // no XU
-        cy.get('input#export_search_country').click().clear().wait(500).type('XU').wait(500)
+        cy.get('input#export_search_country').click().clear().wait(500).type('\(XU)').wait(500)
         cy.get("[id='export_search_country__listbox']")
             //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
             .contains('No results found')
