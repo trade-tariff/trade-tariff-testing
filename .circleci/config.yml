@@ -15,7 +15,7 @@ workflows:
     jobs:
       - cypress/run:
           context: trade-tariff
-          name: "UK & XI Smoke tests"
+          name: "🚀 UK & XI Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
           store_artifacts: true
@@ -36,7 +36,7 @@ workflows:
                         "type": "section",
                         "text": {
                           "type": "mrkdwn",
-                          "text": "UK Smoke tests"
+                          "text": " 🚀 UK & XI Smoke tests"
                         },
                         "accessory": {
                           "type": "button",

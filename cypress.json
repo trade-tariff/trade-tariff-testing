@@ -59,6 +59,7 @@
   "testFiles": [
     "**/*.feature",
     "**/*.spec.js"
+    
   ],
   "projectId": "7p655m",
   "parseSpecialCharSequences": false

@@ -16,7 +16,7 @@ describe(' 🇬🇧 💡 | quotas-PR-UK | Quotas , P&R to be available for UK se
         it('3.Quotas:123 - Non preferential quota under end use', function () {
             cy.visit('/commodities/1701131000#import')
             cy.get('.govuk-tabs__panel')
-                .contains('Non preferential duty under end-use').should('exist')
+                .contains('Non preferential duty under authorised use').should('exist')
         })
         it('4.Quotas:143 Preferential tariff quota', function () {
             cy.visit('/commodities/1601009991#import')

@@ -80,9 +80,64 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
         cy.contains('230.98 x 100 kg')
      //   cy.contains('72.56 tonnes')
      //   cy.contains('87.25 x 10,000 kg')
-        cy.contains('Calculate import duties').click()
+        
 
-    //Final Page 
+     //confirm
+     cy.get('.govuk-button').click()
+
+    //Final Page - duty page
+     cy.contains('Import duty calculation')
+     cy.contains('You are importing commodity')
+     cy.contains('from United Kingdom (excluding Northern Ireland) on')
+     cy.contains('31 December 2022')
+     cy.contains('1701 14 10 00').click()
+     cy.contains('Commodity information for 1701141000')
+     cy.go(-1)
+ //keys
+     cy.get('.govuk-details > .govuk-details__summary')
+     cy.contains('About this commodity code').click()
+     cy.get('.govuk-details__text')
+     cy.contains('Origin:')
+     cy.contains('Commodity:')
+     cy.contains('Import date:')
+     cy.contains('Valuation of import:')
+ //values
+     cy.contains('1701 14 10 00')
+     cy.contains('For refining')
+     cy.contains('31 December 2022')
+     cy.contains('£10002.240954')
+
+ //information 
+     cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
+    cy.get('.govuk-table__row')
+     cy.contains('Data')
+     cy.contains('Calculation')
+     cy.contains('Value')
+ //first row
+     cy.contains('Valuation for import')
+     cy.contains('Value of goods + freight + insurance costs')
+     cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
+ //import duty 
+     cy.contains('Import duty Third country duty (xi)')
+     cy.contains('Import quantity')
+     cy.contains('230.98 x 100 kg')
+     cy.contains('33.90 EUR / 100 kg std qual * 230.98')
+     cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£6,672.05')
+ //Last row 
+     cy.contains('Duty Total')
+     cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£6,672.05')
+
+
+ // Exchange Rate 
+     let exrate = 0.85209
+     cy.contains(`Please note - the current page uses an exchange rate of ${exrate} GBP to EUR.`)
+     
+     cy.log(`${exrate}`)
+     cy.contains('More about this exchange rate').click()
+     cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+
+
+
 
     })
 }

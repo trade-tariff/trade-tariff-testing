@@ -172,8 +172,11 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         //VAT 
         cy.contains('Value Added Tax (VAT)').click()
         cy.contains('VAT is a national tax charged in addition to any other duties that apply.')
-        cy.get('.govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad')
-
+        cy.get("[aria-hidden] [role='group']:nth-of-type(2) .govuk-link").click()
+        cy.contains('Paying VAT on imports from outside the UK to Great Britain and from outside the EU to Northern Ireland')
+        cy.go(-1)
+     //   cy.get('.govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad')
+     cy.contains('What are the main types of tariffs and charges').click()
         //Third country duty 
         cy.contains('Third country duty').click()
         cy.contains('A third country duty is the duty payable in the absence of any other type of tariff measure.')
@@ -187,15 +190,13 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         cy.contains('tariff preference').click()
         cy.contains('Check if you can claim a preferential rate of duty')
         cy.go('back')
-        cy.contains('Commodity information for 2009909500')
-
-     
+        cy.contains('Commodity information for 2009909500')     
         
     })
 
     //export measures page static links
     //What are the main types  of tariff and charges
-    it('UK - Export page links Supplementary Unit ,VAT,Third country duty,Tariff preference',function(){
+    it.only('UK - Export page links Supplementary Unit ,VAT,Third country duty,Tariff preference',function(){
         cy.visit('/commodities/4421999910#export').wait(500)
         cy.get('span#details-export-heading')
         .contains('What are the main types of tariffs and charges').click()
@@ -208,9 +209,15 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         //VAT 
         cy.get('span#details-export-vat-heading')
         .contains('Value Added Tax (VAT)').click()
-        cy.contains('VAT is a national tax charged in addition to any other duties that apply.')
-        cy.get('.govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad')
+        cy.contains('VAT is a national tax charged in addition to any other duties that apply.')  
 
+
+
+        cy.get('.govuk-details__text').contains('VAT is').click()
+    
+    // cy.contains('What are the main types of tariffs and charges').click()
+        cy.get('.govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad')
+        cy.contains('What are the main types of tariffs and charges').click()
         //Third country duty 
         cy.get('span#details-export-third-country-heading')
         .contains('Third country duty').click()
