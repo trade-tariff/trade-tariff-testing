@@ -11,6 +11,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/
+      - run: npm install
       - run: mkdir -p cypress/reports/mochareports
       - run: npm run combine-reports && npm run generate-report
       - store_test_results:
@@ -29,7 +30,10 @@ workflows:
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestUKXI.spec.js"
-      - generate-report
+      - generate-report:
+          requires:
+            - "🚀 UK & XI Smoke tests"
+       
 
   nightly:
     triggers:
