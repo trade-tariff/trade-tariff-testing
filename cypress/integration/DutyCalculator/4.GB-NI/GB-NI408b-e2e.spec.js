@@ -105,7 +105,7 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
      cy.contains('1701 14 10 00')
      cy.contains('For refining')
      cy.contains('31 December 2022')
-     cy.contains('£10002.240954')
+     cy.contains('£10,002.24')
 
  //information 
      cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
@@ -122,23 +122,42 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
      cy.contains('Import quantity')
      cy.contains('230.98 x 100 kg')
      cy.contains('33.90 EUR / 100 kg std qual * 230.98')
-     cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£6,672.05')
- //Last row 
-     cy.contains('Duty Total')
-     cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£6,672.05')
-
-
+    
  // Exchange Rate 
-     let exrate = 0.85209
-     cy.contains(`Please note - the current page uses an exchange rate of ${exrate} GBP to EUR.`)
-     
-     cy.log(`${exrate}`)
-     cy.contains('More about this exchange rate').click()
-     cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+    cy.request({
+        method: 'GET',
+        url: `https://dev.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
+    }).then((response) => {
+        expect(response.status).to.eq(200)  
+     //   console.log(JSON.stringify(response.body)) 
+    let exchangerate = response.body.data[49].attributes.rate
+    console.log(`${exchangerate}`)
+       
+    cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
+    cy.log(`${exchangerate}`)
+    cy.contains('More about this exchange rate').click()
+    cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+    
+    const formatter = new Intl.NumberFormat('en-UK',{
+        style: 'currency',
+        currency: 'GBP',
+        minimumFractionDigits: 2
+    })
 
 
-
+ //   let impvalue = ((230.98*33.90)*exchangerate).toFixed(2)
+    let impvalue = ((230.98*33.90)*exchangerate)
+    console.log(formatter.format(`${impvalue}`))
+    let finimpvalue = formatter.format(`${impvalue}`)
+    console.log(`${finimpvalue}`)
+    cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains(`${finimpvalue}`)
+    //Last row 
+    cy.contains('Duty Total')
+    cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains(`${finimpvalue}`)
 
     })
+
+    })
+    
 }
 })
