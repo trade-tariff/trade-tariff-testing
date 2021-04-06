@@ -30,6 +30,7 @@ workflows:
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestUKXI.spec.js"
+          attach-workspace: true
       - generate-report:
           requires:
             - "🚀 UK & XI Smoke tests"
