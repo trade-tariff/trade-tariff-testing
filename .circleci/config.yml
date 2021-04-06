@@ -3,7 +3,33 @@ orbs:
   cypress: cypress-io/cypress@1.27.0
   slack: circleci/slack@4.1
 
+jobs:
+  generate-report:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: mkdir -p cypress/reports/mochareports
+      - run: npm run combine-reports && npm run generate-report
+      - store_test_results:
+          path: cypress/results
+      - store_artifacts:
+          path: cypress/reports
+
+      
 workflows:
+  test:
+    jobs:
+      - cypress/run:
+          context: trade-tariff
+          name: "🚀 UK & XI Smoke tests"
+          executor: cypress/browsers-chrome77
+          browser: chrome
+          store_artifacts: true
+          spec: "*/**/smokeTestUKXI.spec.js"
+      - generate-report
+
   nightly:
     triggers:
       - schedule:
