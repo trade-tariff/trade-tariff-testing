@@ -6,7 +6,7 @@ orbs:
 jobs:
   generate-report:
     docker:
-      - image: cimg/base:2021.04
+      - image: cimg/node:15.11.0
     steps:
       - attach_workspace:
           at: ~/
