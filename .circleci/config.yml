@@ -34,7 +34,7 @@ workflows:
           spec: "*/**/smokeTestUKXI.spec.js"
           post-steps:
             - run: pwd
-            - run: ls -lr cypress/reports/
+            - run: ls -lr cypress/reports/mocha
             - store_test_results:
                 path: cypress/reports/mocha
       - generate-report:
