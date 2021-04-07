@@ -23,16 +23,20 @@ jobs:
 workflows:
   test:
     jobs:
+      - cypress/install
       - cypress/run:
+          requires:
+            - cypress/install
           context: trade-tariff
-          name: "🚀 UK & XI Smoke tests"
+          attach-workspace: true
+          name: "UK Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestUKXI.spec.js"
       - generate-report:
           requires:
-            - "🚀 UK & XI Smoke tests"
+            - "UK Smoke tests"
        
 
   nightly:
