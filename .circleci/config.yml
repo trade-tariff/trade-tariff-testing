@@ -29,14 +29,14 @@ workflows:
             - cypress/install
           context: trade-tariff
           attach-workspace: true
-          name: "UK Smoke tests"
+          name: "UK/XI Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestUKXI.spec.js"
       - generate-report:
           requires:
-            - "UK Smoke tests"
+            - "UK/XI Smoke tests"
        
 
   nightly:
