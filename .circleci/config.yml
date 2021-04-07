@@ -35,6 +35,10 @@ workflows:
           post-steps:
             - run: pwd
             - run: ls -lr cypress/reports/mocha
+            - persist_to_workspace:
+                root: ~/
+                paths:
+                  - cypress/reports/
             - store_test_results:
                 path: cypress/reports/mocha
       - generate-report:
