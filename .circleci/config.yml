@@ -33,14 +33,10 @@ workflows:
           store_artifacts: true
           spec: "*/**/smokeTestUKXI.spec.js"
           post-steps:
-            - run: pwd
-            - run: ls -lr cypress/reports/mocha
             - persist_to_workspace:
                 root: ~/
                 paths:
                   - project/cypress/reports/
-            - store_test_results:
-                path: cypress/reports/mocha
       - generate-report:
           requires:
             - "UK/XI Smoke tests"
