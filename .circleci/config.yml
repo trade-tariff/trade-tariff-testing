@@ -14,8 +14,6 @@ jobs:
       - run: npm install
       - run: mkdir -p cypress/reports/mochareports
       - run: npm run combine-reports && npm run generate-report
-      - store_test_results:
-          path: cypress/results
       - store_artifacts:
           path: cypress/reports
 
@@ -34,6 +32,9 @@ workflows:
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestUKXI.spec.js"
+          post-steps:
+            - store_test_results:
+                path: cypress/results
       - generate-report:
           requires:
             - "UK/XI Smoke tests"
