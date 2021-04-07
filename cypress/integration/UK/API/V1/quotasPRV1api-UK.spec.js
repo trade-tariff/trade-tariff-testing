@@ -39,7 +39,7 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
                 let measure_types = response.body.import_measures
                 let found = false
                 for (let i = 0; i < measure_types.length; i++) {
-                    if (measure_types[i].measure_type.description == 'Non preferential tariff quota under end-use') {
+                    if (measure_types[i].measure_type.description == 'Non preferential tariff quota under authorised use') {
                         found = true
                         break
                     }
@@ -67,7 +67,7 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
                 let measure_types = response.body.import_measures
                 let found = false
                 for (let i = 0; i < measure_types.length; i++) {
-                    if (measure_types[i].measure_type.description == 'Preferential tariff quota under end-use') {
+                    if (measure_types[i].measure_type.description == 'Preferential tariff quota under authorised use') {
                         found = true
                         break
                     }
