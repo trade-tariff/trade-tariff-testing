@@ -11,12 +11,11 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/
-      - run: npm install
+     # - run: npm install
       - run: mkdir -p cypress/reports/mochareports
       - run: npm run combine-reports && npm run generate-report
       - store_artifacts:
           path: cypress/reports
-
       
 workflows:
   test:
