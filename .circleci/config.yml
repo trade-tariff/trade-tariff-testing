@@ -34,7 +34,7 @@ workflows:
           spec: "*/**/smokeTestUKXI.spec.js"
           post-steps:
             - store_test_results:
-                path: cypress/results
+                path: /cypress/reports/mocha/
       - generate-report:
           requires:
             - "UK/XI Smoke tests"
@@ -61,8 +61,6 @@ workflows:
             - run: npm run combine-reports && npm run generate-report
             - store_test_results:
                 path: cypress/results
-            - store_artifacts:
-                path: cypress/reports
             - slack/notify:
                 channel: tariffs-etl
                 custom: |
