@@ -38,7 +38,7 @@ workflows:
             - persist_to_workspace:
                 root: ~/
                 paths:
-                  - cypress/reports/
+                  - project/cypress/reports/
             - store_test_results:
                 path: cypress/reports/mocha
       - generate-report:
