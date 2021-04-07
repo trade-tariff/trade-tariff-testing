@@ -34,7 +34,7 @@ workflows:
           spec: "*/**/smokeTestUKXI.spec.js"
           post-steps:
             - store_test_results:
-                path: /cypress/reports/mocha/
+                path: cypress/reports/mocha/
       - generate-report:
           requires:
             - "UK/XI Smoke tests"
