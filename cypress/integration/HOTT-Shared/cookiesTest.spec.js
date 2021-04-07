@@ -36,21 +36,23 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
       
       it('Accept Cookies ,Hide Banner',function(){
         cy.visit('/sections')
-        cy.get('.govuk-button.cookie_accept_all').wait(200).click().wait(200)
+        cy.get('.govuk-button.cookie_accept_all').wait(400).click().wait(200)
         cy.contains('Hide this message').click()
         cy.getCookie('cookies_policy').should('have.property','value','%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%2C%22remember_settings%22%3A%22true%22%7D');
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
+        cy.clearCookies()
       })
       
       
       it('Reject Cookies ,Hide Banner',function(){
-        cy.clearCookies()
+       // cy.clearCookies()
         cy.visit('/sections')
-        cy.get('.govuk-button.cookie_reject_all').wait(200).click().wait(500)
-        cy.contains('Hide this message').click()
+        cy.get('.govuk-button.cookie_reject_all').wait(100).click()
+        cy.contains('Hide this message').click().wait(200)
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22false%22%2C%22remember_settings%22%3A%22false%22%7D')
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
+        cy.clearCookies()
 
       })
 
@@ -70,7 +72,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%7D')
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
 
-
+        cy.clearCookies()
       })
       it('View Cookies - No / Yes - combinations ',function(){
         cy.clearCookies()

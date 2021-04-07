@@ -84,7 +84,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.go(-1)
     //keys
         cy.get('.govuk-details > .govuk-details__summary')
-        cy.contains('About this commodity code').click()
+        cy.contains('Details of your trade').click()
         cy.get('.govuk-details__text')
         cy.contains('Origin:')
         cy.contains('Commodity:')
@@ -94,10 +94,10 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('7202 11 80 00')
         cy.contains('Other')
         cy.contains('31 December 2022')
-        cy.contains('£10002.240954')
+        cy.contains('£10,002.24')
   
     //information 
-        cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
+    //    cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
        cy.get('.govuk-table__row')
         cy.contains('Data')
         cy.contains('Calculation')
@@ -107,21 +107,29 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Value of goods + freight + insurance costs')
         cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
     //import duty 
-        cy.contains('Import duty Third country duty (xi)')
+        cy.contains('Import duty Third-country duty (XI)')
         cy.contains('2.7% * £10,002.24')
         cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06')
     //Last row 
         cy.contains('Duty Total')
         cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06')
 
-
-    // Exchange Rate 
-        let exrate = 0.85209
-        cy.contains(`Please note - the current page uses an exchange rate of ${exrate} GBP to EUR.`)
+        // Exchange Rate 
+        cy.request({
+            method: 'GET',
+            url: `https://dev.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
+        }).then((response) => {
+            expect(response.status).to.eq(200)  
+            console.log(JSON.stringify(response.body)) 
+        let exchangerate = response.body.data[49].attributes.rate
+        console.log(`${exchangerate}`)
         
-        cy.log(`${exrate}`)
+        cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
+        cy.log(`${exchangerate}`)
         cy.contains('More about this exchange rate').click()
         cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+
+    })
 
 
     })
