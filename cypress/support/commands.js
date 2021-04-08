@@ -114,3 +114,4 @@ Cypress.Commands.add("checkPageAlly",(path)=>{
     cy.injectAxe();
     cy.checkA11y(null,null,callback);
  })
+ //

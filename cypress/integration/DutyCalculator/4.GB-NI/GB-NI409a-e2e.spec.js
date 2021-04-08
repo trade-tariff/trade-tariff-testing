@@ -22,12 +22,8 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
 
         //select United Kingdom as country of Origin
          //select country from list       
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-         .click().clear().wait(500)
-         .type('United Kingdom').wait(500)
-        
-         .click()
-        cy.contains('Continue').click()
+         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+         cy.contains('Continue').click()
 
         // ℹ️ Interstitial Message - EU duties apply
         cy.contains('EU duties apply to this import')
@@ -59,9 +55,12 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5785.865000000001')     
-        cy.contains('Calculate import duties').click()
+        cy.get('.govuk-button').click()
 
-    //Final Page 
+     //Final Page 
+     cy.contains('Import duty calculation')
+     cy.contains('Option 1: Third-country duty')
+     cy.contains('Option 2: Tariff preference')
 
 
     })

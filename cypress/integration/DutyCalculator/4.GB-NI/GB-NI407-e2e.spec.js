@@ -22,10 +22,7 @@ describe('| GB-NI407-e2e.spec | GB to NI route 🚐 07 - 🚫 Trade Remedies - �
         cy.contains('Which country are the goods dispatched from?')
 
         //select United Kingdom as country of Origin       
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-         .click().clear().wait(500)
-         .type('United Kingdom').wait(500)
-         .click()
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
         // 🚫 Trader Scheme Registered - Yes 

@@ -12,10 +12,8 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         //origin
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-        .click().clear().wait(500)
-        .type('United Kingdom').wait(500)
-        .click()
+      //  cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
         //trader scheme
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()

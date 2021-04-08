@@ -22,10 +22,7 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
         cy.contains('Which country are the goods dispatched from?')
 
         //select United Kingdom as country of Origin       
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-         .click().clear().wait(500)
-         .type('United Kingdom').wait(500)
-         .click()
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
         // ✅  Trader Scheme Registered - Yes 
@@ -96,8 +93,10 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
      //   cy.contains('87.25 x 10,000 kg')
         cy.get('.govuk-button').click()
 
-    //Final Page 
-        
+     //Final Page 
+     cy.contains('Import duty calculation')
+     cy.contains('Option 1: Third-country duty')
+     cy.contains('Option 2: Tariff preference')
             
     })
 }

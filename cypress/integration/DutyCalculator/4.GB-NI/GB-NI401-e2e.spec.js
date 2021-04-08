@@ -21,10 +21,7 @@ describe('| GB-NI401-e2e.spec | GB to NI route 🚎 01 - 🚫 Trade Remedies - �
         cy.contains('Continue').click()
         cy.contains('Which country are the goods dispatched from?')
     //select United Kingdom as country of Origin       
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-         .click().clear().wait(500)
-         .type('United Kingdom (excluding Northern Ireland)').wait(500)
-         .click()
+         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
     // Not at Risk , Import duty is 0% - ** Show Results ** 
