@@ -1,4 +1,4 @@
-describe('🇬🇧 ⚙️ UK- version v2 api Quotas , P&R to be availabe ',function() {
+describe('🇬🇧 ⚙️ | quotasPRV2api-UK | UK- version v2 api Quotas , P&R to be availabe ',function() {
 
     //----Quotas to be available for UK version  -----
   //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
@@ -40,7 +40,7 @@ describe('🇬🇧 ⚙️ UK- version v2 api Quotas , P&R to be availabe ',funct
                 let measure_types = response.body.included
                 let found = false
                 for (let i = 0; i < measure_types.length; i++) {
-                    if (measure_types[i].attributes.description == 'Non preferential tariff quota under end-use') {
+                    if (measure_types[i].attributes.description == 'Non preferential tariff quota under authorised use') {
                         found = true
                         break
                     }
@@ -68,7 +68,7 @@ describe('🇬🇧 ⚙️ UK- version v2 api Quotas , P&R to be availabe ',funct
                 let measure_types = response.body.included
                 let found = false
                 for (let i = 0; i < measure_types.length; i++) {
-                    if (measure_types[i].attributes.description == 'Preferential tariff quota under end-use') {
+                    if (measure_types[i].attributes.description == 'Preferential tariff quota under authorised use') {
                         found = true
                         break
                     }

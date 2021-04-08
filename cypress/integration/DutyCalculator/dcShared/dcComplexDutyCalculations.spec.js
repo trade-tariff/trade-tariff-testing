@@ -5,24 +5,21 @@ describe('| dcComplexDutyCalculations | calculating complex duties |',function()
     it('Calculate compound duties ', function () {
 
         //import date
-        cy.visit('/import-date?referred_service=uk&commodity_code=2401103510')
+        cy.visit('/import-date?referred_service=uk&commodity_code=2903898045')
         cy.ValidDate()
         cy.contains('Continue').click()
         //destination
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         //origin
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-        .click().clear().wait(500)
-        .type('United Kingdom').wait(500)
-        .click()
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
         //trader scheme
-      //  cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-      cy.get('.govuk-button').click()
+        //  cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+        cy.get('.govuk-button').click()
         //certificate
-     //   cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
-      // cy.contains('Continue').click()
+        //   cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
+        // cy.contains('Continue').click()
         //monetary value
         cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('500.00')
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('250.00')

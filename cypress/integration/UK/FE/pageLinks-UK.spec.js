@@ -212,12 +212,11 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         cy.contains('VAT is a national tax charged in addition to any other duties that apply.')  
 
 
-
-        cy.get('.govuk-details__text').contains('VAT is').click()
+    //    cy.get("[//body/div[2]/main[1]/article[1]/div[2]/div[3]/details[1]/div[1]/details[2]/div[1]/a[1]").click()
     
     // cy.contains('What are the main types of tariffs and charges').click()
-        cy.get('.govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad')
-        cy.contains('What are the main types of tariffs and charges').click()
+    //    cy.get("//body/div[2]/main[1]/article[1]/div[2]/div[3]/details[1]/div[1]/details[2]/div[1]/a[1]").should('have.attr', 'href', 'https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad')
+   //     cy.contains('What are the main types of tariffs and charges').click()
         //Third country duty 
         cy.get('span#details-export-third-country-heading')
         .contains('Third country duty').click()

@@ -21,14 +21,10 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
         cy.contains('Continue').click()
         cy.contains('Which country are the goods dispatched from?')
 
-        //select United Kingdom as country of Origin       
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-         .click().clear().wait(500)
-         .type('United Kingdom').wait(500)
+        //select United Kingdom as country of Origin    
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+        cy.contains('Continue').click()   
         
-         .click()
-        cy.contains('Continue').click()
-
         // 🚫 Trader Scheme Registered - Yes 
         cy.contains('Are you registered with the UK Trader Scheme?')
         //Select Yes, I am registered with the UK Trader Scheme
@@ -95,7 +91,7 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
      cy.go(-1)
  //keys
      cy.get('.govuk-details > .govuk-details__summary')
-     cy.contains('About this commodity code').click()
+     cy.contains('Details of your trade').click()
      cy.get('.govuk-details__text')
      cy.contains('Origin:')
      cy.contains('Commodity:')
@@ -108,7 +104,7 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
      cy.contains('£10,002.24')
 
  //information 
-     cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
+     cy.contains('See below for the options for paying duties on this import:')
     cy.get('.govuk-table__row')
      cy.contains('Data')
      cy.contains('Calculation')
@@ -118,7 +114,7 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
      cy.contains('Value of goods + freight + insurance costs')
      cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
  //import duty 
-     cy.contains('Import duty Third country duty (xi)')
+     cy.contains('Import duty Third-country duty (XI)')
      cy.contains('Import quantity')
      cy.contains('230.98 x 100 kg')
      cy.contains('33.90 EUR / 100 kg std qual * 230.98')
@@ -156,6 +152,10 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
     cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains(`${finimpvalue}`)
 
     })
+    //Final Page 
+    cy.contains('Import duty calculation')
+    cy.contains('Option 1: Third-country duty')
+    cy.contains('Option 2: Tariff preference')
 
     })
     

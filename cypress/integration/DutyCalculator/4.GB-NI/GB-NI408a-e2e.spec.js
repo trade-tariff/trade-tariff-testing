@@ -19,11 +19,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Which country are the goods dispatched from?')
 
         //select United Kingdom as country of Origin       
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-         .click().clear().wait(500)
-         .type('United Kingdom').wait(500)
-       
-         .click()
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
         // 🚫 Trader Scheme Registered - Yes 
@@ -124,10 +120,14 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         let exchangerate = response.body.data[49].attributes.rate
         console.log(`${exchangerate}`)
         
-        cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
+     //   cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
         cy.log(`${exchangerate}`)
         cy.contains('More about this exchange rate').click()
         cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+        //Final Page 
+        cy.contains('Import duty calculation')
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference')
 
     })
 

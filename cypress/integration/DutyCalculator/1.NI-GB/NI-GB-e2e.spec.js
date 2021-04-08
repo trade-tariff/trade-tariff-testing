@@ -19,7 +19,7 @@ describe('| e2e-NI2GB | Northern Ireland to United Kingdom |',function(){
         //select country from list 
         cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
         .click().clear()
-        .type('United Kingdom (Northern Ireland)').wait(500)
+        .type('Northern Ireland').wait(500)
       
         cy.contains('Continue').click()
         cy.contains('There is no import duty to pay')
