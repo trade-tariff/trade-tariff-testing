@@ -7,16 +7,13 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
 
     //import date
         cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
 //destination
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
 //origin
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-        .click().clear().wait(500)
-        .type('United Kingdom').wait(500)
-        .click()
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 //trader scheme
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
@@ -67,7 +64,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
         cy.contains('United Kingdom (excluding Northern Ireland')
         cy.contains('No')
         cy.contains('No')
-        cy.contains('£10002.240954')
+        cy.contains('£10,002.24')
         cy.contains('12.50 x 100 kg')
       //  cy.contains('23.98 x 100 kg')
      //   cy.contains('72.56 tonnes')

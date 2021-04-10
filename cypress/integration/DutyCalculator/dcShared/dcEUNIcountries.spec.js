@@ -4,7 +4,7 @@ describe.skip('| dcEUNIcountries | EU to Northern Ireland - All EU countries |',
 
     it('e2e EU to NI all EU countries ',function(){
         cy.visit('/import-date?referred_service=uk&commodity_code=1212210000')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()

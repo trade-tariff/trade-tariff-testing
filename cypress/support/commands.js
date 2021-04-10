@@ -76,7 +76,7 @@ Cypress.Commands.add("MainPageXI",()=>{
          cy.contains('About this commodity code')
 })
 //DC Valid date 
-Cypress.Commands.add("ValidDate",()=>{
+Cypress.Commands.add("validDate",()=>{
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('31')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
         cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2022')

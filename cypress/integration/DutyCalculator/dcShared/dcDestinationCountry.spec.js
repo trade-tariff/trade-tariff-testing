@@ -5,7 +5,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     it('Import destination GB', function () {
         cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
 
         cy.contains('Which part of the UK are you importing into?')
@@ -50,7 +50,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     it('Import destination - Northern Ireland', function () {
         cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
 
         cy.contains('Which part of the UK are you importing into?')
@@ -89,7 +89,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     it('Error - No country selected',function(){   
      cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
      cy.contains('Trade Tariff Duty Calculator')
-     cy.ValidDate()
+     cy.validDate( )
      cy.contains('Continue').click()
 
      cy.contains('Which part of the UK are you importing into?')
@@ -104,7 +104,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     it('Explore the Topic : Other static page links',function(){
         cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.contains('Trade Tariff Duty Calculator')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
 
         cy.contains('Which part of the UK are you importing into?')
