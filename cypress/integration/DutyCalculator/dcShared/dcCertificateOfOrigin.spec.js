@@ -6,19 +6,15 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |',functi
         cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.DCMainPage()
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         //Destination
         cy.contains('Which part of the UK are you importing into?')
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         // Origin
-        cy.contains('Which country are the goods dispatched from?')
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-        .click().clear()
-        .type('United Kingdom (excluding Northern Ireland)').wait(500)
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
-
         //Trader Scheme
         cy.contains('Are you registered with the UK Trader Scheme?')
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()

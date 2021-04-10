@@ -6,17 +6,14 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
 
 //import date
     cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
-    cy.ValidDate()
+    cy.validDate( )
     cy.contains('Continue').click()
 //destination
     cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
     cy.contains('Continue').click()
 //origin
-    cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-    .click().clear().wait(500)
-    .type('United Kingdom').wait(500)
-    .click()
-    cy.contains('Continue').click()
+    cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+    cy.contains('Continue').click()     
 //trader scheme
     cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
     cy.contains('Continue').click()
@@ -43,7 +40,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
     cy.go(-1)
 //keys
     cy.get('.govuk-details > .govuk-details__summary')
-    cy.contains('About this commodity code').click()
+    cy.contains('Details of your trade').click()
     cy.get('.govuk-details__text')
     cy.contains('Origin:')
     cy.contains('Commodity:')
@@ -53,10 +50,10 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
     cy.contains('7202 11 80 00')
     cy.contains('Other')
     cy.contains('31 December 2022')
-    cy.contains('£10002.240954')
+    cy.contains('£10,002.24')
   
 //information 
-    cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
+    cy.contains('Third-country duty')
     cy.get('.govuk-table__row')
     cy.contains('Data')
     cy.contains('Calculation')
@@ -64,14 +61,14 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
     //first row
     cy.contains('Valuation for import')
     cy.contains('Value of goods + freight + insurance costs')
-    cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10002.240954')
+    cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
     //import duty 
-    cy.contains('Import duty Third country duty (xi)')
-    cy.contains('2.7% * £10002.240954')
-    cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06050575800003')
+    cy.contains('Import duty Third-country duty (XI)')
+    cy.contains('2.7% * £10,002.24')
+    cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06')
     //Last row 
     cy.contains('Duty Total')
-    cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06050575800003')
+    cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06')
 
 
 

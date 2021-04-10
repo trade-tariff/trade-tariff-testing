@@ -5,7 +5,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
 
         it('Page Validation', function () {
             cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.ValidDate()
+            cy.validDate( )
             cy.contains('Continue').click()
             cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
             cy.contains('Continue').click()
@@ -32,7 +32,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
          //error messages - nothing is entered 
          it('No Values Entered',function(){
             cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.ValidDate()
+            cy.validDate( )
             cy.contains('Continue').click()
             cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
             cy.contains('Continue').click()
@@ -50,7 +50,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
         })
         it('User makes a selection',function(){
             cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.ValidDate()
+            cy.validDate( )
             cy.contains('Continue').click()
             cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
             cy.contains('Continue').click()
@@ -104,7 +104,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
        
         it('Explore the Topic : Other static page links',function(){
             cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.ValidDate()
+            cy.validDate( )
             cy.contains('Continue').click()
             cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
             cy.contains('Continue').click()

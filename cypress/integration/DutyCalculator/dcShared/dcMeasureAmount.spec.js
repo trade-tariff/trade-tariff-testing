@@ -4,13 +4,11 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
 
     it('1.Page Validation', function () {
         cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
         cy.contains('Continue').click()
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-        .click().clear().wait(100)
-        .type('United Kingdom (excluding Northern Ireland)').wait(500)
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
         // 1.Commodity with Kilos 
@@ -52,7 +50,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
      //error messages - nothing is entered 
      it.only('2.No Values Entered',function(){
         cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
         cy.contains('Continue').click()
@@ -118,7 +116,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     //error messages - wrong values entered 
     it('3.Text Entered',function(){
         cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
         cy.contains('Continue').click()
@@ -194,7 +192,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
      //error messages - zero values entered 
      it('4.Zeros Entered',function(){
         cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
         cy.contains('Continue').click()
@@ -272,7 +270,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     //Valid values entered 
     it('5.Valid values Entered',function(){
         cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
         cy.contains('Continue').click()

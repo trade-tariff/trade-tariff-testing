@@ -34,7 +34,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
     it('No Values Entered',function(){
 
         cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         //Verify if NI button is selected 
@@ -66,7 +66,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
     it('Enter  non-numeric values in shipping cost and insurane cost',function(){
 
         cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         //Verify if NI button is selected 

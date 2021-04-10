@@ -12,7 +12,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains('Trade Tariff Duty Calculator')
         cy.DCMainPage()
-        cy.ValidDate()
+        cy.validDate( )
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
     })

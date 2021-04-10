@@ -1,7 +1,7 @@
-//🇻🇳 Vietnam to  🇬🇧 GB 
-// Comm code :0702000007 - no Measure Units 
+//🇨🇳 China to  🇬🇧 GB 
+// Comm code :0304829010 - no Measure Units 
 
-describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',function(){
+describe('|RoW-GB202-e2e.spec |🇨🇳 China to  🇬🇧 GB   | 202-e2e.spec | ',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     let country = ["uk"]
@@ -9,11 +9,11 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
     for (let i =0;i<country.length;i++){
         console.log(i)
 
-    it(`e2e RoW to GB - ${country[i]}`,function(){
+    it(`e2e RoW to GB 🇨🇳 China to  🇬🇧 GB - ${country[i]}`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
+        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
         cy.contains('Trade Tariff Duty Calculator')
-        cy.ValidDate()
+        cy.validDate()
         cy.contains('Continue').click()
         cy.wait(100)
         cy.contains('Which part of the UK are you importing into?')
@@ -27,7 +27,7 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
         //select country from list 
         cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
         .click().clear()
-        .type('Vietnam').wait(500)
+        .type('China').wait(500)
         cy.contains('Continue').click()
         //Monetary value page 
         cy.contains('What is the monetary value of this import?')
@@ -35,9 +35,6 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
-
-
-
         //intersitiary page - to be removed 
         cy.contains('Continue').click()
     //Check your answers page 
@@ -51,10 +48,10 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
         cy.contains('Customs value')
         
 //   cy.get('.govuk-summary-list__value')
-        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0702 00 00 07')
+        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10')
         cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
         cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)')
-        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Vietnam')
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('China')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£10,002.24')
  
     //confirm
@@ -63,10 +60,10 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
         //Final Page - duty page
         cy.contains('Import duty calculation')
         cy.contains('You are importing commodity')
-        cy.contains('rom Vietnam on 31 December 2022.')
+        cy.contains('from China on 31 December 2022.')
         
-        cy.contains('0702 00 00 07').click()
-        cy.contains('Commodity information for 0702000007')
+        cy.contains('0304 82 90 10').click()
+        cy.contains('Commodity information for 0304829010')
         cy.go(-1)
         //keys
         cy.get('.govuk-details > .govuk-details__summary')
@@ -77,13 +74,13 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
         cy.contains('Import date:')
         cy.contains('Valuation of import:')
         //values
-        cy.contains('0702 00 00 07')
-        cy.contains('Cherry tomatoes')
+        cy.contains('0304 82 90 10')
+        cy.contains('0304 82 90 10 Of the species Oncorhynchus mykiss')
         cy.contains('31 December 2022')
         cy.contains('£10,002.24')
 
         //information 
-        cy.contains('See below for the options for paying duties on this import:')
+       
         cy.get('.govuk-table__row')
         cy.contains('Data')
         cy.contains('Calculation')
@@ -94,7 +91,7 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
         cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
         //import duty 
         cy.contains('Import duty Third-country duty (UK)')
-        cy.contains('8.0% * £10,002.24')
+        cy.contains('12.0% * £10,002.24')
 
         // Exchange Rate 
         cy.request({
@@ -113,16 +110,16 @@ describe('🇻🇳 Vietnam to  🇬🇧 GB  | 201-e2e.spec | RoW to GB route |',
 
         
 
-        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£800.18')
+        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£1,200.27')
         //Last row 
         cy.contains('Duty Total')
-        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£0.00')
+
 
         })
         //Final Page 
         cy.contains('Import duty calculation')
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Option 2: Tariff preference')
+       
 
 })
 

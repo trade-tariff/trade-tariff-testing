@@ -1,7 +1,7 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
 // Comm code :1701141000
 
-describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |',function(){
+describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
     for (let i =0;i<country.length;i++){
@@ -71,7 +71,7 @@ describe('| GB-NI408-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - �
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('No')
         cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No')
-        cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('£10002.240954')
+        cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('£10,002.24')
       //  cy.contains('12.50 x 100 kg')
         cy.contains('230.98 x 100 kg')
      //   cy.contains('72.56 tonnes')
