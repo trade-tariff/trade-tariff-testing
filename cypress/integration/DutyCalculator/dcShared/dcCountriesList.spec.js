@@ -21,12 +21,12 @@ let country = ["uk","xi"]
     cy.contains('Continue').click()
     cy.contains('Which country are the goods dispatched from?')
 
-    let countries = ['QU', 'QR', 'EU', 'QZ', 'QV', 'QW', 'QY', 'QX', 'QP', 'XU', 'IO', 'QS', 'XI', 'QQ', 'ZB', 'ZD', 'ZF', 'ZG', 'ZE', 'ZH', 'ZN', 'ZU', 'GG', 'JE']
+    let countries = ["European Union","Guernsey"]
     for ( var i=0 ;i<countries.length;i++)
     {
 
     cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-     .clear().wait(100).type(`(${countries[i]})`).wait(200)
+     .clear().wait(100).type(`${countries[i]}`).wait(200)
     cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
             .contains('No results found')
     }
