@@ -1,5 +1,5 @@
 
-describe('UK 🇬🇧 | Duty Calculator axeTest-UK | Accessibility tests on UK services ',function() {
+describe.skip('UK 🇬🇧 | Duty Calculator axeTest-UK | Accessibility tests on UK services ',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 

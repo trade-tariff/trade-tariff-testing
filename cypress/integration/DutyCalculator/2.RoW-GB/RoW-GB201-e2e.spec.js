@@ -35,8 +35,7 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
-        //intersitiary page - to be removed 
-        cy.contains('Continue').click()
+        
     //Check your answers page 
         cy.contains('Check your answers')
     //  cy.get('.govuk-grid-column-three-quarters')
