@@ -4,13 +4,14 @@
 describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
+    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
     for (let i =0;i<country.length;i++){
         console.log(i)
 
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.validDate()
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
@@ -88,7 +89,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
      cy.contains('31 December 2022')
      cy.contains('1701 14 10 00').click()
      cy.contains('Commodity information for 1701141000')
-     cy.go(-1)
+     cy.get('.govuk-back-link').click()
  //keys
      cy.get('.govuk-details > .govuk-details__summary')
      cy.contains('Details of your trade').click()

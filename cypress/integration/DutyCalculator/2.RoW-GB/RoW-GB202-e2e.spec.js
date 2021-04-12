@@ -12,7 +12,7 @@ describe('|RoW-GB202-e2e.spec |🇨🇳 China to  🇬🇧 GB   | 202-e2e.spec |
     it(`e2e RoW to GB 🇨🇳 China to  🇬🇧 GB - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains('UK Global Online Tariff')
         cy.validDate()
         cy.contains('Continue').click()
         cy.wait(100)
@@ -63,7 +63,7 @@ describe('|RoW-GB202-e2e.spec |🇨🇳 China to  🇬🇧 GB   | 202-e2e.spec |
         
         cy.contains('0304 82 90 10').click()
         cy.contains('Commodity information for 0304829010')
-        cy.go(-1)
+        cy.get('.govuk-back-link').click()
         //keys
         cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()

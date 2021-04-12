@@ -5,12 +5,14 @@
 describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫  Non processing - ✅ Certified as UK Origin |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
+    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
+
     for (let i =0;i<country.length;i++){
         console.log(i)
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+       cy.contains(`${pagetitles[i]}`)
         cy.validDate()
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
@@ -50,13 +52,13 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
         cy.contains('Continue').click()
                     
         //Calculate import duties page 
+        //page validation - no import duty to pay 
         cy.contains('There is no import duty to pay')
         cy.contains('There is no import duty to pay because:')
         cy.contains('You are transporting goods from England, Scotland or Wales to Northern Ireland')
         cy.contains('You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin')
-        cy.contains('You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.')
+        cy.contains('You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.')
 
-        cy.wait(1000)
 
         // selection is persisted 
         cy.go(-1)

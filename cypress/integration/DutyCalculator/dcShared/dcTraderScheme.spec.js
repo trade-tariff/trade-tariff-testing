@@ -4,7 +4,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
 
     it('Page Validation', function () {
         cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains('UK Global Online Tariff')
         cy.DCMainPage()
         cy.validDate( )
         cy.contains('Continue').click()

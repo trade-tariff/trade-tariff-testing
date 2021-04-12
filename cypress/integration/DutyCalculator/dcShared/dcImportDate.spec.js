@@ -10,7 +10,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
 
     it(`📅 Valid Date ${country[i]}`, function () {
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.DCMainPage()
         cy.validDate( )
         cy.contains('Continue').click()
@@ -19,7 +19,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
 
     it(`📅 Invalid date - Past Date -> Date persists -> enter valid date ${country[i]}`, function () {
         cy.visit(`import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('11')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
         cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2020')
@@ -48,7 +48,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
     })
     it(`📅 No Date ${country[i]}`, function () {
         cy.visit(`import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -58,7 +58,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
     })
     it(`📅 Invalid date - Text ${country[i]} `, function () {
         cy.visit(`import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('dd')
         cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('mm')
         cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('yyyy')
@@ -77,7 +77,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
       //  cy.MainPageUK()
         //DC main page
         cy.visit(`import-date?referred_service=${country[i]}&commodity_code=1704101000`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         
         cy.get('.govuk-header__navigation')
         cy.contains('A-Z').click()
@@ -86,7 +86,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
         //DC main page
         cy.visit(`import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.contains('Tools').click()
         cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
         cy.contains('Tariff tools')
@@ -94,7 +94,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
     })
     it(`🔖 Commodity Details ${country[i]}`,function(){
         cy.visit(`import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         //Back button - GDS style back link
         cy.contains('Back').click()
         //Validate commodity page
@@ -112,8 +112,9 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         //☀️ Validate commodity page
         cy.contains('Commodity information for 0702000007')
         cy.get('.govuk-header ').contains(`${pagetitles[i]}`)
-        cy.go(-1)
-        cy.contains('Trade Tariff Duty Calculator')    
+        cy.get('.govuk-back-link').click()
+        cy.contains('When will the goods be imported?')
+        cy.contains(`${pagetitles[i]}`)    
 
     })
 }

@@ -7,7 +7,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     it('e2e GB to NI ',function(){
         //select future date 
         cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains('UK Global Online Tariff')
         cy.validDate()
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
@@ -40,12 +40,6 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
         
-        //Page 12
-        // Measure amount page 
-        cy.contains('Enter import quantity')
-        cy.contains('The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.')        
-        cy.contains('Continue').click()
-
         //Check your answers page 
         cy.contains('Check your answers')
         cy.get('.govuk-grid-column-three-quarters')
@@ -65,7 +59,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('No')
         cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No')
-        cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('£10002.240954')
+        cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('£10,002.24')
         
     //confirm
          cy.get('.govuk-button').click()
@@ -77,7 +71,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('31 December 2022')
         cy.contains('7202 11 80 00').click()
         cy.contains('Commodity information for 7202118000')
-        cy.go(-1)
+        cy.get('.govuk-back-link').click()
     //keys
         cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()

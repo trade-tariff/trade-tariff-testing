@@ -5,6 +5,7 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     let country = ["uk","xi"]
+    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
     
     for (let i =0;i<country.length;i++){
         console.log(i)
@@ -12,7 +13,7 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
     it(`e2e RoW to GB 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.validDate()
         cy.contains('Continue').click()
         cy.wait(100)
@@ -59,11 +60,11 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
         //Final Page - duty page
         cy.contains('Import duty calculation')
         cy.contains('You are importing commodity')
-        cy.contains('rom Vietnam on 31 December 2022.')
+        cy.contains('from Vietnam on 31 December 2022.')
         
         cy.contains('0702 00 00 07').click()
         cy.contains('Commodity information for 0702000007')
-        cy.go(-1)
+        cy.get('.govuk-back-link').click()
         //keys
         cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()

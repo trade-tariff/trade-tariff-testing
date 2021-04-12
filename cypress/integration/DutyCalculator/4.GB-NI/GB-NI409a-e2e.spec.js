@@ -4,13 +4,14 @@
 describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
+    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
     for (let i =0;i<country.length;i++){
         console.log(i)
 
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0303149011`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.validDate()
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
@@ -35,11 +36,6 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
          cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('1213.43')
          cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('5.434')
          cy.contains('Continue').click()
-
-        // ⚖️ How many kilos/litres ? Page 12
-        cy.contains('Enter import quantity')
-        cy.contains('The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.')   
-        cy.contains('Continue').click()
 
         //Confirm Page - Page 17 
         cy.contains('Check your answers')
