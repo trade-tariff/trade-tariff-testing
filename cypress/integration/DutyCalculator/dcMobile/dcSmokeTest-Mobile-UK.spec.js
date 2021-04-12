@@ -8,7 +8,7 @@ describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
     it(`📱 iphone - e2e journey ${country[i]}`, function () {
         cy.viewport('iphone-6', 'landscape')
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains('UK Global Online Tariff')
         //Search the tariff section
     
         cy.get('.govuk-header__menu-button').click()
@@ -44,7 +44,7 @@ describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
         cy.contains('Commodity information for 0702000007')
         cy.contains('UK Global Online Tariff')
         cy.go(-1)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains('UK Global Online Tariff')
         cy.contains('Which country are the goods dispatched from?')
 
     //select country of Origin from drop down 
@@ -55,7 +55,7 @@ describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
 it(`📱 android - e2e journey ${country[i]} `, function () {
     cy.viewport('samsung-note9')
     cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-    cy.contains('Trade Tariff Duty Calculator')
+    cy.contains('UK Global Online Tariff')
 
     //Search the tariff section
 
@@ -92,7 +92,7 @@ it(`📱 android - e2e journey ${country[i]} `, function () {
     cy.contains('Commodity information for 0702000007')
     cy.contains('UK Global Online Tariff')
     cy.go(-1)
-    cy.contains('Trade Tariff Duty Calculator')
+    cy.contains('UK Global Online Tariff')
     cy.contains('Which country are the goods dispatched from?')
 
     //select country of Origin from drop down 

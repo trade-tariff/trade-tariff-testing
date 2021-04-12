@@ -4,7 +4,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
 
     it('ESW (GB) ', function () {
       cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-      cy.contains('Trade Tariff Duty Calculator')
+      cy.contains('UK Global Online Tariff')
       cy.validDate( )
       cy.contains('Continue').click()
       cy.contains('Which part of the UK are you importing into?')
@@ -30,7 +30,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     })
     it('Northern Ireland ', function () {
       cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-      cy.contains('Trade Tariff Duty Calculator')
+      cy.contains('UK Global Online Tariff')
       cy.validDate( )
       cy.contains('Continue').click()
       cy.contains('Which part of the UK are you importing into?')
@@ -56,7 +56,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     })
     it('No country selected',function(){
       cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-      cy.contains('Trade Tariff Duty Calculator')
+      cy.contains('UK Global Online Tariff')
       cy.validDate( )
       cy.contains('Continue').click()
       cy.contains('Which part of the UK are you importing into?')

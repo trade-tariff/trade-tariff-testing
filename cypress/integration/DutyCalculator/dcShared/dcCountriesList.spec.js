@@ -12,7 +12,7 @@ let country = ["uk","xi"]
  it(`Autocomplete excluded countries list - ${country[i]} `,function(){
     //select future date 
     cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
-    cy.contains('Trade Tariff Duty Calculator')
+    cy.contains('UK Global Online Tariff')
     cy.validDate( )
     cy.contains('Continue').click()
     cy.contains('Which part of the UK are you importing into?')
@@ -21,7 +21,7 @@ let country = ["uk","xi"]
     cy.contains('Continue').click()
     cy.contains('Which country are the goods dispatched from?')
 
-    let countries = ["European Union","Guernsey"]
+    let countries = ["European Union","Guernsey","Jersey","High seas (Maritime domain outside of territorial waters)","Stores and provisions","Stores and provisions within the framework of intra-EU trade","Stores and provisions within the framework of trade with Third Countries","Countries and territories not specified","Countries and territories not specified within the framework of intra-EU trade","Countries and territories not specified within the framework of trade with third countries","Countries and territories not specified for commercial or military reasons","Countries and territories not specified for commercial or military reasons in the framework of intra-EU trade","Countries and territories not specified for commercial or military reasons in the framework of trade with third countries","Belgian Continental Shelf","Danish Continental Shelf","Irish Continental Shelf","French Continental Shelf","German Continental Shelf","Netherlands Continental Shelf","Norwegian Continental Shelf","United Kingdom Continental Shelf"]
     for ( var i=0 ;i<countries.length;i++)
     {
 
@@ -35,7 +35,7 @@ let country = ["uk","xi"]
 it(`United Kingdom (Northern Ireland) included in countries list - ${country[i]}`,function(){
     //select future date 
     cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
-    cy.contains('Trade Tariff Duty Calculator')
+    cy.contains('UK Global Online Tariff')
     cy.validDate( )
     cy.contains('Continue').click()
     cy.contains('Which part of the UK are you importing into?')

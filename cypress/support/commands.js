@@ -57,8 +57,8 @@ Cypress.Commands.add("MainPageXI",()=>{
 
 //Duty Calculator main page
    Cypress.Commands.add("DCMainPage",()=>{
-   cy.get('.govuk-header__content')
-       .contains('Trade Tariff Duty Calculator')
+ //  cy.get('.govuk-header__content')
+  //     .contains('UK Global Online Tariff')
        cy.get('.govuk-header__navigation ')
        cy.contains('Search or browse the Tariff')
        cy.contains('A-Z')

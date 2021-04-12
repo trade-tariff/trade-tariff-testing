@@ -5,6 +5,7 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     let country = ["uk","xi"]
+    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
     
     for (let i =0;i<country.length;i++){
         console.log(i)
@@ -12,7 +13,7 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
-        cy.contains('Trade Tariff Duty Calculator')
+        cy.contains(`${pagetitles[i]}`)
         cy.validDate()
         cy.contains('Continue').click()
         cy.wait(100)
