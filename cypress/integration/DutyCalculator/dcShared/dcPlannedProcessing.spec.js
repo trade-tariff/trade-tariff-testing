@@ -48,7 +48,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
                 .contains('Select one of the available options')
       
         })
-        it('User makes a selection',function(){
+        it.only('User makes a selection',function(){
             cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
             cy.validDate( )
             cy.contains('Continue').click()
@@ -58,6 +58,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
             cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
             cy.contains('How will these goods be processed after import?')
 
+            
             // 1 .Select - The goods will be sold to an end-user without any processing
             cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
             cy.contains('Continue').click()
