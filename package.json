@@ -12,7 +12,7 @@
   "devDependencies": {
     "allure-commandline": "^2.13.8",
     "axe-core": "^4.1.1",
-    "cypress": "^6.8.0",
+    "cypress": "7.1.0",
     "cypress-axe": "^0.12.2",
     "cypress-cucumber-preprocessor": "^2.5.5",
     "cypress-dark": "^1.7.14",

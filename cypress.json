@@ -1,8 +1,9 @@
 {
-  "baseUrl": "https://www.trade-tariff.service.gov.uk",
+  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
   "services": {
-    "xi": "https://www.trade-tariff.service.gov.uk/xi/",
-    "dutycal" : "https://tariff-duty-calculator-staging.london.cloudapps.digital/duty-calculator/"
+    "xi": "https://staging.trade-tariff.service.gov.uk/xi/",
+    "dutycal" : "https://staging.trade-tariff.service.gov.uk/duty-calculator"
+    
 
   },
   

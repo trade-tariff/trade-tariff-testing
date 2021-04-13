@@ -73,7 +73,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Commodity information for 7202118000')
         cy.get('.govuk-back-link').click()
     //keys
-        cy.get('.govuk-details > .govuk-details__summary')
+     //   cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()
         cy.get('.govuk-details__text')
         cy.contains('Origin:')

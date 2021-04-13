@@ -113,12 +113,12 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
             cy.contains('How will these goods be processed after import?')
 
             cy.contains('Explore the topic')
-            cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click()
+            cy.contains('Additional requirements for when you bring goods into Northern Ireland for processing').click()
        
-            //https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland-from-1-january-2021
-            cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
             cy.go(-1)
-            cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
+            cy.contains('Apply to pay less duty on goods you import for specific uses').click()
+          
+            cy.contains('Apply to pay less duty on goods you import for specific uses')
     
     
         })
