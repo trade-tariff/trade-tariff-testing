@@ -15,6 +15,14 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
         cy.visit('/measure-amount?referred_service=uk&commodity_code=1701141000')  
         // 1701141000 For refining
         cy.contains('Enter import quantity')
+        //explore this topic
+        cy.contains('Explore the topic')
+        cy.contains('Valuation of imported goods for customs purposes, VAT and trade statistics').click()
+        cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics')
+        cy.go(-1)
+        cy.contains('Enter import quantity')
+
+
         cy.contains('The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.')
 
         cy.contains('What is the weight of the goods you will be importing?')
@@ -48,7 +56,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     })
     
      //error messages - nothing is entered 
-     it.only('2.No Values Entered',function(){
+     it('2.No Values Entered',function(){
         cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
         cy.validDate( )
         cy.contains('Continue').click()
