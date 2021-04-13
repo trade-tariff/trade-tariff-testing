@@ -65,7 +65,7 @@ it(`📱 android - e2e journey ${country[i]} `, function () {
     cy.contains('Search or browse the Tariff').click()
     cy.contains('All sections')
     cy.go('back')
-    cy.ValidDate()
+    cy.validDate()
     cy.contains('Continue').click()
     cy.contains('Which part of the UK are you importing into?')
 

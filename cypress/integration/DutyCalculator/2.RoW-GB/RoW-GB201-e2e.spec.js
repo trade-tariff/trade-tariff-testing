@@ -66,7 +66,7 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
         cy.contains('Commodity information for 0702000007')
         cy.get('.govuk-back-link').click()
         //keys
-        cy.get('.govuk-details > .govuk-details__summary')
+     //   cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()
         cy.get('.govuk-details__text')
         cy.contains('Origin:')
@@ -96,7 +96,7 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
         // Exchange Rate 
         cy.request({
         method: 'GET',
-        url: `https://dev.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
+        url: `https://staging.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
         }).then((response) => {
         expect(response.status).to.eq(200)  
         //   console.log(JSON.stringify(response.body)) 
