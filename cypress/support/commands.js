@@ -75,12 +75,7 @@ Cypress.Commands.add("MainPageXI",()=>{
          cy.contains('Continue')
          cy.contains('About this commodity code')
 })
-//DC Valid date 
-Cypress.Commands.add("validDate",()=>{
-        cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('31')
-        cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
-        cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2022')
-})
+
 
 //**** AXE related commands - accessibility testing **** 
 const severityIndicators = {
@@ -114,4 +109,97 @@ Cypress.Commands.add("checkPageAlly",(path)=>{
     cy.injectAxe();
     cy.checkA11y(null,null,callback);
  })
- //
+ /*
+1.Date - Done 
+2.Destination
+3.Origin
+4.customs 
+5.quantity
+6.Calculate duty 
+7.Duty page 
+
+ */
+//DC Valid date 
+Cypress.Commands.add("validDate",()=>{
+    cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('31')
+    cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
+    cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2022')
+})
+//Enter Date 
+Cypress.Commands.add("enterDate",(date)=>{
+    cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type(date.day)
+    cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type(date.month)
+    cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type(date.year)
+    cy.contains('Continue').click()
+})
+//select GB Destination
+Cypress.Commands.add("selectDestinationGB",(destination)=>{
+    cy.contains('Which part of the UK are you importing into?')
+    cy.get('#wizard-steps-import-destination-import-destination-uk-field').check(destination)
+    cy.wait(100)
+    cy.contains('Continue').click()    
+})
+
+//select GB Destination
+Cypress.Commands.add("selectDestinationXI",(destination)=>{
+    cy.contains('Which part of the UK are you importing into?')
+    cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+    cy.wait(100)
+    cy.contains('Continue').click()    
+})
+
+Cypress.Commands.add("selectSourceGB",(source)=>{
+    cy.contains('Which country are the goods dispatched from?')
+    cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+    cy.contains('Continue').click()   
+})
+Cypress.Commands.add("selectSourceXI",(source)=>{
+    cy.contains('Which country are the goods dispatched from?')
+    cy.get('input#wizard-steps-country-of-origin-country-of-origin-eu-field').click()
+    cy.contains('Continue').click()   
+})
+Cypress.Commands.add("traderSchemeYes",()=>{
+    cy.contains('Are you registered with the UK Trader Scheme?')
+    cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+    cy.contains('Continue').click()
+})
+Cypress.Commands.add("traderSchemeNo",()=>{
+    cy.contains('Are you registered with the UK Trader Scheme?')
+    cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+    cy.contains('Continue').click()
+})
+Cypress.Commands.add("certificateYes",()=>{
+    cy.contains('Do you have a valid Certificate of Origin?')
+    cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
+    cy.contains('Continue').click()
+})
+Cypress.Commands.add("certificateNo",()=>{
+    cy.contains('Do you have a valid Certificate of Origin?')
+    cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
+    cy.contains('Continue').click()
+})
+//enter monetary value
+Cypress.Commands.add("monetaryValue",(monvalue)=>{
+    cy.contains('What is the monetary value of this import?')
+    cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type(monvalue.monetary)
+    cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type(monvalue.shipping)
+    cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type(monvalue.cost)
+    cy.contains('Continue').click()
+})
+//enter quantity
+Cypress.Commands.add("quantity",(quant)=>{
+    cy.contains('Enter import quantity')
+    cy.get('#wizard-steps-measure-amount-dtn-field').clear().type(quant.deci)
+    cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type(quant.deca)
+    cy.get('#wizard-steps-measure-amount-tne-field').clear().type(quant.tonne)
+    cy.get('#wizard-steps-measure-amount-dap-field').clear().type(quant.dap)
+    cy.contains('Continue').click()
+})
+
+
+
+
+
+
+
+
