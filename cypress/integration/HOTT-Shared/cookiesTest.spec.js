@@ -16,6 +16,13 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.visit('/sections')
         cy.getCookie('cookies_policy').should('eq', null)
         cy.getCookie('cookies_preferences_set').should('eq', null)
+        //search function enabled
+        cy.get('.js-commodity-picker-select').click().type('3808941000')
+        cy.wait(750)
+        cy.get('input[name=\'new_search\']').click()
+        cy.wait(300)
+        cy.contains('Commodity information for 3808941000')
+
       })
 
       it('Cookies on all pages',function(){
@@ -40,6 +47,12 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.contains('Hide this message').click()
         cy.getCookie('cookies_policy').should('have.property','value','%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%2C%22remember_settings%22%3A%22true%22%7D');
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
+        //search function enabled
+        cy.get('.js-commodity-picker-select').click().type('3808941000')
+        cy.wait(750)
+        cy.get('input[name=\'new_search\']').click()
+        cy.wait(300)
+        cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
       })
       
@@ -52,6 +65,12 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22false%22%2C%22remember_settings%22%3A%22false%22%7D')
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
+        //search function enabled
+        cy.get('.js-commodity-picker-select').click().type('3808941000')
+        cy.wait(750)
+        cy.get('input[name=\'new_search\']').click()
+        cy.wait(300)
+        cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
 
       })
@@ -71,6 +90,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%7D')
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
+        
 
         cy.clearCookies()
       })

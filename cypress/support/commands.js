@@ -78,7 +78,7 @@ Cypress.Commands.add("MainPageXI",()=>{
 
 
 //**** AXE related commands - accessibility testing **** 
-const severityIndicators = {
+/* const severityIndicators = {
     minor: '⚪',
     moderate: '🟡',
     serious: '🟠',
@@ -108,7 +108,7 @@ Cypress.Commands.add("checkPageAlly",(path)=>{
     cy.visit(path);
     cy.injectAxe();
     cy.checkA11y(null,null,callback);
- })
+ })*/
  /*
 1.Date - Done 
 2.Destination
