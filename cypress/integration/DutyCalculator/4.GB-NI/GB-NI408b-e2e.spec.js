@@ -8,7 +8,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     for (let i =0;i<country.length;i++){
         console.log(i)
 
-    it(`e2e GB to NI - ${country[i]}`,function(){
+    it(`🖊️ e2e GB to NI - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains(`${pagetitles[i]}`)
@@ -89,9 +89,12 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
      cy.contains('31 December 2022')
      cy.contains('1701 14 10 00').click()
      cy.contains('Commodity information for 1701141000')
+     cy.wait(500)
      cy.get('.govuk-back-link').click()
+     
+     
+     
  //keys
- //    cy.get('.govuk-details > .govuk-details__summary')
      cy.contains('Details of your trade').click()
      cy.get('.govuk-details__text')
      cy.contains('Origin:')
@@ -121,6 +124,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
      cy.contains('33.90 EUR / 100 kg std qual * 230.98')
     
  // Exchange Rate 
+ /*
     cy.request({
         method: 'GET',
         url: `https://dev.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
@@ -129,36 +133,25 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
      //   console.log(JSON.stringify(response.body)) 
     let exchangerate = response.body.data[49].attributes.rate
     console.log(`${exchangerate}`)
-       
-    cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
-    cy.log(`${exchangerate}`)
-    cy.contains('More about this exchange rate').click()
-    cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
-    
-    const formatter = new Intl.NumberFormat('en-UK',{
-        style: 'currency',
-        currency: 'GBP',
-        minimumFractionDigits: 2
-    })
-
+    */   
+  //  cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
+  //  cy.log(`${exchangerate}`)
+    cy.contains('More about this exchange rate')
+ //   cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.'
 
  //   let impvalue = ((230.98*33.90)*exchangerate).toFixed(2)
-    let impvalue = ((230.98*33.90)*exchangerate)
-    console.log(formatter.format(`${impvalue}`))
-    let finimpvalue = formatter.format(`${impvalue}`)
-    console.log(`${finimpvalue}`)
-    cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains(`${finimpvalue}`)
-    //Last row 
+  
     cy.contains('Duty Total')
-    cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains(`${finimpvalue}`)
-
-    })
-    //Final Page 
+   
     cy.contains('Import duty calculation')
     cy.contains('Option 1: Third-country duty')
     cy.contains('Option 2: Tariff preference')
 
+
     })
+    //Final Page 
+   
+
     
 }
 })
