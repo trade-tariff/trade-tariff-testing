@@ -13,7 +13,6 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0303149011`)
         cy.contains(`${pagetitles[i]}`)
         cy.validDate()
-        cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
 
         //select NI as country of destination

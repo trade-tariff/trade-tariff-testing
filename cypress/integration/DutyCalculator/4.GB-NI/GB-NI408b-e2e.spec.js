@@ -13,7 +13,6 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains(`${pagetitles[i]}`)
         cy.validDate()
-        cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
         // check URL 
 

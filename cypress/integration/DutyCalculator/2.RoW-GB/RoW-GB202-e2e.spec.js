@@ -14,7 +14,6 @@ describe('|RoW-GB202-e2e.spec |🇨🇳 China to  🇬🇧 GB   | 202-e2e.spec |
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
         cy.contains('UK Global Online Tariff')
         cy.validDate()
-        cy.contains('Continue').click()
         cy.wait(100)
         cy.contains('Which part of the UK are you importing into?')
 

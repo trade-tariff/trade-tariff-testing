@@ -18,7 +18,6 @@ describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
         cy.contains('All sections')
         cy.go('back')
         cy.validDate()
-        cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
 
         //Northern Ireland
