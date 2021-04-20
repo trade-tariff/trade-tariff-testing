@@ -9,7 +9,6 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.contains('UK Global Online Tariff')
         cy.validDate()
-        cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
         // check URL 
 

@@ -134,9 +134,9 @@ Cypress.Commands.add("enterDate",(date)=>{
     cy.contains('Continue').click()
 })
 
-Cypress.Commands.add("selectDestination",(destination, origin)=>{
+Cypress.Commands.add("selectDestination",(destination)=>{
     cy.contains('Which part of the UK are you importing into?')
-    if (origin === 'xi') {
+    if (destination === 'xi') {
       cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
     } else {
       cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
@@ -145,53 +145,80 @@ Cypress.Commands.add("selectDestination",(destination, origin)=>{
     cy.contains('Continue').click()
 })
 
+Cypress.Commands.add("selectOrigin",(origin)=>{
+    cy.contains('Which country are the goods dispatched from?')
+    if(origin === 'gb'){
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+    }else {
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-eu-field').click()
+    }
+    cy.contains('Continue').click()   
+})
 
-Cypress.Commands.add("selectSourceGB",(source)=>{
+Cypress.Commands.add("OriginList",(origin)=>{
     cy.contains('Which country are the goods dispatched from?')
-    cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-    cy.contains('Continue').click()   
-})
-Cypress.Commands.add("selectSourceXI",(source)=>{
-    cy.contains('Which country are the goods dispatched from?')
-    cy.get('input#wizard-steps-country-of-origin-country-of-origin-eu-field').click()
-    cy.contains('Continue').click()   
-})
-Cypress.Commands.add("traderSchemeYes",()=>{
-    cy.contains('Are you registered with the UK Trader Scheme?')
-    cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+    cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
+    .click().clear().type(origin.value).wait(500)
     cy.contains('Continue').click()
 })
-Cypress.Commands.add("traderSchemeNo",()=>{
-    cy.contains('Are you registered with the UK Trader Scheme?')
-    cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+Cypress.Commands.add("traderScheme",(selection)=>{
+    cy.contains('Are you authorised under the UK Trader Scheme?')
+    if(selection === 'yes'){
+        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+    }
+    else{
+        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+    }  
     cy.contains('Continue').click()
 })
-Cypress.Commands.add("certificateYes",()=>{
+
+Cypress.Commands.add("certificate",(selection)=>{
     cy.contains('Do you have a valid Certificate of Origin?')
-    cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
-    cy.contains('Continue').click()
-})
-Cypress.Commands.add("certificateNo",()=>{
-    cy.contains('Do you have a valid Certificate of Origin?')
-    cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
+    if(selection === 'yes'){
+        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
+    }
+    else
+    {
+        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
+    }
     cy.contains('Continue').click()
 })
 //enter monetary value
 Cypress.Commands.add("monetaryValue",(monvalue)=>{
-    cy.contains('What is the monetary value of this import?')
+    cy.contains('What is the customs value of this import?')
     cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type(monvalue.monetary)
     cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type(monvalue.shipping)
     cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type(monvalue.cost)
     cy.contains('Continue').click()
 })
 //enter quantity
-Cypress.Commands.add("quantity",(quant)=>{
+Cypress.Commands.add("quantity",(values)=>{
     cy.contains('Enter import quantity')
-    cy.get('#wizard-steps-measure-amount-dtn-field').clear().type(quant.deci)
-    cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type(quant.deca)
-    cy.get('#wizard-steps-measure-amount-tne-field').clear().type(quant.tonne)
-    cy.get('#wizard-steps-measure-amount-dap-field').clear().type(quant.dap)
+    if(values === 'tonnes'){
+        //tonnes
+        cy.get('#wizard-steps-measure-amount-tne-field').clear().type(values.tonnes)
+        }
+    else if (values === 'deci') {
+        //decitonnes
+        cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type(values.deci)
+        } 
+    else if (values === 'deca') {
+        //decatonnes
+        cy.get('#wizard-steps-measure-amount-dap-field').clear().type(values.deca)
+        } 
+  //  else {
+  //        cy.get('#wizard-steps-measure-amount-dtn-field').clear().type(values.decap)
+  //      } 
     cy.contains('Continue').click()
+})
+
+
+Cypress.Commands.add("confirmPage",()=>{
+    cy.contains('Check your answers')
+    cy.get('.govuk-button').click()
+})
+Cypress.Commands.add("dutyPage",()=>{
+    cy.contains('Import duty calculation')
 })
 
 
