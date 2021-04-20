@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://www.trade-tariff.service.gov.uk",
+  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
   "services": {
     "xi": "https://www.trade-tariff.service.gov.uk/xi/",
     "dutycal" : "https://staging.trade-tariff.service.gov.uk/duty-calculator"
@@ -57,9 +57,9 @@
   "chromeWebSecurity": false,
   "firefoxWebSecurity": false,
   
-  "testFiles": [
-    "**/*.feature",
-    "**/*.spec.js"
+  "testFiles": [ 
+    "**/*.spec.js",
+    "**/*.feature"
     
   ],
   "projectId": "7p655m",

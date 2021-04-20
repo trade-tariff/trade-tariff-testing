@@ -5,7 +5,7 @@ Cypress automation framework 🔧
 * API testing 
 * end-to-end testing 
 	
-** Prerequisites 📚 **
+** Prerequisites📚 **
 ```
 •node 
 •npm
