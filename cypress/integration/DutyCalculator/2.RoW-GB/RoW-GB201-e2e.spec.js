@@ -62,9 +62,11 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
         cy.contains('You are importing commodity')
         cy.contains('from Vietnam on 31 December 2022.')
         
-        cy.contains('0702 00 00 07').click()
-        cy.contains('Commodity information for 0702000007')
-        cy.get('.govuk-back-link').click()
+     //   cy.contains('0702 00 00 07').click()
+     //   cy.contains('Commodity information for 0702000007')
+       
+     //   cy.get('.govuk-back-link').click()
+     //   cy.go(-1)
         //keys
      //   cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()
@@ -103,7 +105,7 @@ describe('|RoW-GB201-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
         let exchangerate = response.body.data[49].attributes.rate
         console.log(`${exchangerate}`)
         
-        cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
+        cy.contains(`Please note - the current page uses an exchange rate of`) 
         cy.log(`${exchangerate}`)
         cy.contains('More about this exchange rate').click()
         cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')

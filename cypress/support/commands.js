@@ -124,6 +124,7 @@ Cypress.Commands.add("validDate",()=>{
     cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('31')
     cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
     cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2022')
+    cy.contains('Continue').click()
 })
 //Enter Date 
 Cypress.Commands.add("enterDate",(date)=>{
@@ -132,21 +133,18 @@ Cypress.Commands.add("enterDate",(date)=>{
     cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type(date.year)
     cy.contains('Continue').click()
 })
-//select GB Destination
-Cypress.Commands.add("selectDestinationGB",(destination)=>{
+
+Cypress.Commands.add("selectDestination",(destination, origin)=>{
     cy.contains('Which part of the UK are you importing into?')
-    cy.get('#wizard-steps-import-destination-import-destination-uk-field').check(destination)
+    if (origin === 'xi') {
+      cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+    } else {
+      cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
+    }
     cy.wait(100)
-    cy.contains('Continue').click()    
+    cy.contains('Continue').click()
 })
 
-//select GB Destination
-Cypress.Commands.add("selectDestinationXI",(destination)=>{
-    cy.contains('Which part of the UK are you importing into?')
-    cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-    cy.wait(100)
-    cy.contains('Continue').click()    
-})
 
 Cypress.Commands.add("selectSourceGB",(source)=>{
     cy.contains('Which country are the goods dispatched from?')

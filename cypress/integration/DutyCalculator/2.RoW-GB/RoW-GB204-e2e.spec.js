@@ -7,13 +7,13 @@ describe('|RoW-GB204-e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  | 201-e2e.spe
         //select future date 
         cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
         cy.wait(700)
-        cy.enterDate({day:'01',month:'03',year:'2040'})
-        cy.selectDestinationXI()
+        cy.validDate()
+        cy.selectDestination('null','uk')
         cy.selectSourceGB()
         cy.traderSchemeNo()
         cy.certificateNo()
         cy.monetaryValue({monetary:'500.00',shipping:'100.00',cost:'250.00'})
-        cy.quantity({deca:'1'})
+        cy.quantity({deci:'1'})
     })
 
  })
