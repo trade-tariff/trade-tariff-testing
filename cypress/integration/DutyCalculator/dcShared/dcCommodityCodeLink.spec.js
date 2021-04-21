@@ -1,4 +1,4 @@
-describe('Duty Calculation link on commodities',function(){
+describe('| dcCommodityCodeLink | Duty Calculation link on commodities',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     
     let country = ["uk","xi"] 
@@ -14,7 +14,7 @@ describe('Duty Calculation link on commodities',function(){
         cy.get('.govuk-details  .govuk-link').click()
         cy.contains(`Commodity information for ${commcodes[i]}`)
         cy.contains(`${pagetitles[i]}`)
-        cy.contains('Use our new step-by-step guide to work out')
+        cy.contains('Use our tariff duty calculator to work out the')
         cy.contains(`duties applicable to the import of commodity ${commcodes[i]} into the ${destination[i]}`)
         cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
         cy.contains('When will the goods be imported?')
