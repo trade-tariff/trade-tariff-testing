@@ -12,31 +12,19 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-       cy.contains(`${pagetitles[i]}`)
-        cy.validDate()
-        cy.contains('Which part of the UK are you importing into?')
-        // check URL 
-
-        //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
-
-        //select United Kingdom as country of Origin       
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-        cy.contains('Continue').click()
+        cy.contains(`${pagetitles[i]}`)
         
-        // ✅  Trader Scheme Registered - Yes 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-        cy.contains('Continue').click()
+        //date
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('gb')
+        // ✅ Trader Scheme Registered - Yes 
+        cy.traderScheme('yes')
 
         // ✅  Final use in NI - Yes 
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-        //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
-        cy.contains('Continue').click()
+        cy.finalUse('yes')
 
 
         // 🚫 Non processing - No
@@ -45,10 +33,7 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
         cy.contains('Continue').click()
 
         // ✅ Certified as UK Origin
-        cy.contains('Do you have a valid Certificate of Origin?')
-        //Select Yes, valid Certificate of Origin
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
-        cy.contains('Continue').click()
+        cy.certificate('yes')
                     
         //Calculate import duties page 
         //page validation - no import duty to pay 
@@ -58,17 +43,6 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
         cy.contains('You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin')
         cy.contains('You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.')
 
-
-        // selection is persisted 
-        cy.go(-1)
-        cy.get("#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field")
-            .parent()
-            .find('input')
-            .should('be.checked')
-        
-        cy.contains('Continue').click()
-        cy.wait(200)
-        cy.contains('There is no import duty to pay')
         cy.contains('Start again').click()
         cy.contains('When will the goods be imported?')
 

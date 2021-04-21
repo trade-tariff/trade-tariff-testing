@@ -8,32 +8,22 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         //select future date 
         cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.contains('UK Global Online Tariff')
+
+        //date
         cy.validDate()
-
-        //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
-
-        //select United Kingdom as country of Origin       
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-        cy.contains('Continue').click()
-
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('gb')
         // 🚫 Trader Scheme Registered - No
         cy.traderScheme('no')
+    
+        //  🚫 Certified as UK Origin
+        cy.certificate('no')
 
-        // 🚫 Certified as UK origin
-        //Select Yes, valid Certificate of Origin
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
-        cy.contains('Continue').click()
-
-        //Monetary value page 
-        cy.contains('What is the customs value of this import?')
-        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
-        cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
-        cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
-        cy.contains('Continue').click()
-        
+       // Monetary value page 
+       cy.monetaryValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
+       
         //Check your answers page 
         cy.contains('Check your answers')
         cy.get('.govuk-grid-column-three-quarters')
@@ -65,7 +55,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('31 December 2021')
         cy.contains('7202 11 80 00').click()
         cy.contains('Commodity information for 7202118000')
-        cy.get('.govuk-back-link').click().wait(200)
+        cy.wait(200).get('.govuk-back-link').click().wait(300)
     //keys
      //   cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()
@@ -98,22 +88,15 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Duty Total')
         cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06')
 
-        // Exchange Rate 
-        cy.request({
-            method: 'GET',
-            url: `https://dev.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
-        }).then((response) => {
-            expect(response.status).to.eq(200)  
-            console.log(JSON.stringify(response.body)) 
-        
         //Final Page 
         cy.exchangeRate()
-        cy.contains('Import duty calculation')
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Option 2: Tariff preference')
-
-    })
+        cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)')
+        cy.contains('Option 3: Claiming a waiver – Exchange rate')
 
 
     })
 })
+
+
+

@@ -22,7 +22,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
         //origin GB
         cy.selectOrigin('gb')
 
-        // ✅  Trader Scheme Registered - Yes 
+        // ✅ Trader Scheme Registered - Yes 
         cy.traderScheme('yes')
 
         // 🚫 Final use in NI

@@ -2,27 +2,22 @@
 describe('🧮 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
+    let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
     for (let i =0;i<country.length;i++){
         console.log(i)
     // iphone 
     it(`📱 iphone - e2e journey ${country[i]}`, function () {
         cy.viewport('iphone-6', 'landscape')
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
-        cy.contains('UK Global Online Tariff')
-        //Search the tariff section
-    
+        cy.contains(`${pagetitles[i]}`)
+        cy.validDate()
         cy.get('.govuk-header__menu-button').click()
         cy.contains('A-Z')
         cy.contains('Tools')
-        cy.contains('Search or browse the Tariff').click()
-        cy.contains('All sections')
-        cy.go('back')
-        cy.validDate()
-        cy.contains('Which part of the UK are you importing into?')
+        cy.contains('Search or browse the Tariff')
 
         //Northern Ireland
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')
