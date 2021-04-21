@@ -14,7 +14,12 @@ describe('|RoW-GB204-e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  | 201-e2e.spe
         cy.quantity({tne:'1',dtnr:'1',dap:'1'})
         cy.confirmPage()
         cy.dutyPage()
-
+    
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - Singapore')
+        cy.contains('Option 3: Non-preferential quota 057713')
+        cy.contains('Option 4: Non-preferential tariff quota under end-use 054320')
+    
     })
 
  })

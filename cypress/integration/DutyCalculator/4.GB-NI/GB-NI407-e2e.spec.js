@@ -8,33 +8,22 @@ describe('| GB-NI407-e2e.spec | GB to NI route 🚐 07 - 🚫 Trade Remedies - �
     for (let i =0;i<country.length;i++){
         console.log(i)
 
-    it(`e2e GB to NI - ${country[i]}`,function(){
+    it(`e2e GB to NI 🍅 - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains(`${pagetitles[i]}`)
+
+        //date
         cy.validDate()
-        cy.contains('Which part of the UK are you importing into?')
-        // check URL 
-
-        //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
-
-        //select United Kingdom as country of Origin       
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-        cy.contains('Continue').click()
-
-        // 🚫 Trader Scheme Registered - Yes 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-        cy.contains('Continue').click()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('gb')
+        // 🚫 Trader Scheme Registered - no
+        cy.traderScheme('no')
 
         // ✅ Certified as UK origin
-        //Select Yes, valid Certificate of Origin
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
-        cy.contains('Continue').click()
+        cy.certificate('yes')
 
         //page validation - no import duty to pay 
         cy.contains('There is no import duty to pay')
