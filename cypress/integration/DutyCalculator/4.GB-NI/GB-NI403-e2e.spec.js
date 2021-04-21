@@ -13,35 +13,24 @@ describe('| GB-NI403-e2e.spec | GB to NI route 🚐 03  - 🚫 Trade Remedies - 
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains(`${pagetitles[i]}`)
+
+        //valid Date
         cy.validDate()
-        cy.contains('Which part of the UK are you importing into?')
-        // check URL 
 
-        //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
+        //destination XI
+        cy.selectDestination('xi')
 
-        //select United Kingdom as country of Origin       
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-        cy.contains('Continue').click()
+        //origin GB
+        cy.selectOrigin('gb')
 
         // ✅  Trader Scheme Registered - Yes 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-        cy.contains('Continue').click()
+        cy.traderScheme('yes')
 
         // 🚫 Final use in NI
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-        //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
-        cy.contains('Continue').click()
+        cy.finalUse('no')
 
         // ✅ Certified as UK origin
-        //Select Yes, valid Certificate of Origin
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
-        cy.contains('Continue').click()
+        cy.certificate('yes')
 
         //page validation - no import duty to pay 
         cy.contains('There is no import duty to pay')

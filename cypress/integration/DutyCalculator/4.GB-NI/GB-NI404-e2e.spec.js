@@ -13,52 +13,31 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains(`${pagetitles[i]}`)
+        //valid date
         cy.validDate()
-        cy.contains('Which part of the UK are you importing into?')
-        // check URL 
 
-        //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
+        //destination XI
+        cy.selectDestination('xi')
 
-        //select United Kingdom as country of Origin       
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-        cy.contains('Continue').click()
+        //origin GB
+        cy.selectOrigin('gb')
 
         // ✅  Trader Scheme Registered - Yes 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-        cy.contains('Continue').click()
+        cy.traderScheme('yes')
 
         // 🚫 Final use in NI
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-        //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
-        cy.contains('Continue').click()
+        cy.finalUse('no')
 
         // 🚫 Certified as UK origin
-        //Select Yes, valid Certificate of Origin
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
-        cy.contains('Continue').click()
+        cy.certificate('no')
 
-        // Import Duty page 
-        cy.contains('What is the monetary value of this import?')
-        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
-        cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
-        cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
-        cy.contains('Continue').click()
+        //customs value
+        cy.monetaryValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
 
-         //Import Quantity 
-         cy.contains('Enter import quantity')
-         // Measure amount page 
-        
-     //   cy.get('#wizard-steps-measure-amount-dtn-field').clear().type('12.50')
-        cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type('23.98')
-     //   cy.get('#wizard-steps-measure-amount-tne-field').clear().type('72.56')
-    //    cy.get('#wizard-steps-measure-amount-dap-field').clear().type('87.25')
-        cy.contains('Continue').click()
+        //quantity
+        cy.quantity({dtnr:'23.98'})
+
+        cy.confirmPage()
 
         //Check your answers page 
         cy.contains('Check your answers')
@@ -74,7 +53,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
         cy.contains('Import quantity')
         // check values entered 
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00')
-        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
+        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2021')
         cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Yes')
@@ -88,9 +67,15 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
         cy.get('.govuk-button').click()
 
         //Final Page 
-        cy.contains('Import duty calculation')
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Option 2: Tariff preference')
+        cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)')
+        cy.contains('Option 3: Claiming a waiver – Exchange rate')
+
+
+
+       
+        
+        
 
     })
 }

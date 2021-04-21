@@ -10,11 +10,8 @@ describe('|RoW-GB204-e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  | 201-e2e.spe
         cy.validDate()
         cy.selectDestination('gb')
         cy.OriginList({value:'Singapore'})
-     //   cy.selectOrigin('gb')
-     //   cy.traderScheme('no')
-    //    cy.certificate('no')
         cy.monetaryValue({monetary:'500.00',shipping:'100.00',cost:'250.00'})
-        cy.quantity(null,{tonnes:1,deci:'1',deca:'1'})
+        cy.quantity({tne:'1',dtnr:'1',dap:'1'})
         cy.confirmPage()
         cy.dutyPage()
 

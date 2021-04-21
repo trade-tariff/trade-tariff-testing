@@ -9,12 +9,12 @@ describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
     for (let i =0;i<country.length;i++){
         console.log(i)
 
-    it(`e2e GB to NI - ${country[i]}`,function(){
+    it(`e2e GB to NI 🧁  - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains(`${pagetitles[i]}`)
         cy.validDate()
-        cy.wait(100)
+        
         cy.contains('Which part of the UK are you importing into?')
         // check URL 
 
@@ -29,18 +29,10 @@ describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
         cy.contains('Continue').click()
 
         // ✅  Trader Scheme Registered - Yes 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-        cy.contains('Continue').click()
-        cy.wait(100)
-
+        cy.traderScheme('yes')
+         
         // ✅  Final use in NI - Yes 
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-        //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
-        cy.contains('Continue').click()
-        cy.wait(100)
+        cy.finalUse('yes')
 
         // ✅ Non processing - Yes 
         // 3rd Option is selected - The goods will undergo commercial processing for one of these purposes

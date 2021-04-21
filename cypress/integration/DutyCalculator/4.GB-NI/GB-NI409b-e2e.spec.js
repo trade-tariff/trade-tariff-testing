@@ -25,11 +25,11 @@ describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
          cy.contains('Continue').click()
 
         // ℹ️ Interstitial Message - EU duties apply
-        cy.contains('EU duties apply to this import')
+        cy.contains('Duties apply to this import')
         cy.get('.govuk-button').click()
 
          //💰 Whats the monetary value?
-        cy.contains('What is the monetary value of this import?')
+        cy.contains('What is the customs value of this import?')
         cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('4567.001')
          cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('1213.43')
          cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('5.434')
@@ -45,7 +45,7 @@ describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
      //   cy.contains('Import quantity')
      //   Check values 
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10')
-        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
+        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2021')
         cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5,785.87')

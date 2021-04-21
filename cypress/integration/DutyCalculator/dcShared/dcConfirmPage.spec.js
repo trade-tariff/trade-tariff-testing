@@ -33,7 +33,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
      //   cy.get('.govuk-button').click()
     
     //Monetary value page 
-    //    cy.contains('What is the monetary value of this import?')
+    //    cy.contains('What is the customs value of this import?')
     //    cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
     //    cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
     //    cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
@@ -59,7 +59,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
         cy.contains('Import quantity')
      //   cy.get('.govuk-summary-list__value')
         cy.contains('1701 14 10 00')
-        cy.contains('31 December 2022')
+        cy.contains('31 December 2021')
         cy.contains('Northern Ireland')
         cy.contains('United Kingdom (excluding Northern Ireland')
         cy.contains('No')
@@ -95,7 +95,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
         cy.go(-1)
         
         cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
-        cy.contains('What is the monetary value of this import?')
+        cy.contains('What is the customs value of this import?')
         cy.go(-1)
 
         cy.get('div:nth-of-type(8) > .govuk-summary-list__actions > .govuk-link').click()

@@ -9,8 +9,6 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.contains('UK Global Online Tariff')
         cy.validDate()
-        cy.contains('Which part of the UK are you importing into?')
-        // check URL 
 
         //select NI as country of destination
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
@@ -21,11 +19,8 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
-        // 🚫 Trader Scheme Registered - Yes 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-        cy.contains('Continue').click()
+        // 🚫 Trader Scheme Registered - No
+        cy.traderScheme('no')
 
         // 🚫 Certified as UK origin
         //Select Yes, valid Certificate of Origin
@@ -33,7 +28,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Continue').click()
 
         //Monetary value page 
-        cy.contains('What is the monetary value of this import?')
+        cy.contains('What is the customs value of this import?')
         cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
@@ -53,7 +48,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         
      //   cy.get('.govuk-summary-list__value')
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('7202 11 80 00')
-        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2022')
+        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2021')
         cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('No')
@@ -67,10 +62,10 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Import duty calculation')
         cy.contains('You are importing commodity')
         cy.contains('from United Kingdom (excluding Northern Ireland) on')
-        cy.contains('31 December 2022')
+        cy.contains('31 December 2021')
         cy.contains('7202 11 80 00').click()
         cy.contains('Commodity information for 7202118000')
-        cy.get('.govuk-back-link').click()
+        cy.get('.govuk-back-link').click().wait(200)
     //keys
      //   cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('Details of your trade').click()
@@ -82,7 +77,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     //values
         cy.contains('7202 11 80 00')
         cy.contains('Other')
-        cy.contains('31 December 2022')
+        cy.contains('31 December 2021')
         cy.contains('£10,002.24')
   
     //information 
@@ -110,14 +105,9 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         }).then((response) => {
             expect(response.status).to.eq(200)  
             console.log(JSON.stringify(response.body)) 
-        let exchangerate = response.body.data[49].attributes.rate
-        console.log(`${exchangerate}`)
         
-     //   cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
-        cy.log(`${exchangerate}`)
-        cy.contains('More about this exchange rate').click()
-        cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
         //Final Page 
+        cy.exchangeRate()
         cy.contains('Import duty calculation')
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference')

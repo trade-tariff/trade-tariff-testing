@@ -37,7 +37,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Continue').click()
 
         //Monetary value page 
-        cy.contains('What is the monetary value of this import?')
+        cy.contains('What is the customs value of this import?')
         cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
@@ -85,7 +85,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
      cy.contains('Import duty calculation')
      cy.contains('You are importing commodity')
      cy.contains('from United Kingdom (excluding Northern Ireland) on')
-     cy.contains('31 December 2022')
+     cy.contains('31 December 2021')
      cy.contains('1701 14 10 00').click()
      cy.contains('Commodity information for 1701141000')
      cy.wait(500)
@@ -103,11 +103,11 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
  //values
      cy.contains('1701 14 10 00')
      cy.contains('For refining')
-     cy.contains('31 December 2022')
+     cy.contains('31 December 2021')
      cy.contains('£10,002.24')
 
  //information 
-     cy.contains('See below for the options for paying duties on this import:')
+     cy.contains('Details of your trade')
     cy.get('.govuk-table__row')
      cy.contains('Data')
      cy.contains('Calculation')
