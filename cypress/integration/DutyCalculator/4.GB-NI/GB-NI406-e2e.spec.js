@@ -49,7 +49,7 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
         cy.contains('Continue').click()
 
         //Monetary value page 
-        cy.contains('What is the monetary value of this import?')
+        cy.contains('What is the customs value of this import?')
         cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')

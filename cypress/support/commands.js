@@ -123,7 +123,7 @@ Cypress.Commands.add("checkPageAlly",(path)=>{
 Cypress.Commands.add("validDate",()=>{
     cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('31')
     cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
-    cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2022')
+    cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2021')
     cy.contains('Continue').click()
 })
 //Enter Date 
@@ -173,7 +173,7 @@ Cypress.Commands.add("traderScheme",(selection)=>{
 })
 
 Cypress.Commands.add("certificate",(selection)=>{
-    cy.contains('Do you have a valid Certificate of Origin?')
+    cy.contains('Do you have a valid proof of preferential origin?')
     if(selection === 'yes'){
         cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
     }
@@ -191,24 +191,24 @@ Cypress.Commands.add("monetaryValue",(monvalue)=>{
     cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type(monvalue.cost)
     cy.contains('Continue').click()
 })
+
 //enter quantity
-Cypress.Commands.add("quantity",(values)=>{
+Cypress.Commands.add("quantity",(measureUnits)=>{
     cy.contains('Enter import quantity')
-    if(values === 'tonnes'){
-        //tonnes
-        cy.get('#wizard-steps-measure-amount-tne-field').clear().type(values.tonnes)
-        }
-    else if (values === 'deci') {
-        //decitonnes
-        cy.get('#wizard-steps-measure-amount-dtnr-field').clear().type(values.deci)
-        } 
-    else if (values === 'deca') {
-        //decatonnes
-        cy.get('#wizard-steps-measure-amount-dap-field').clear().type(values.deca)
-        } 
-  //  else {
-  //        cy.get('#wizard-steps-measure-amount-dtn-field').clear().type(values.decap)
-  //      } 
+    for (let [key, value] of Object.entries(measureUnits)) {
+      cy.get(`#wizard-steps-measure-amount-${key}-field`).clear().type(value)
+    }
+    cy.contains('Continue').click()
+  })
+
+  //final use
+Cypress.Commands.add("finalUse",(value)=>{
+    cy.contains('Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?')
+    if (value === 'yes'){
+        cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()    
+    }else{
+        cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
+    }
     cy.contains('Continue').click()
 })
 
@@ -219,6 +219,11 @@ Cypress.Commands.add("confirmPage",()=>{
 })
 Cypress.Commands.add("dutyPage",()=>{
     cy.contains('Import duty calculation')
+})
+Cypress.Commands.add('exchangeRate',()=>{
+    cy.contains('Please note - the current page uses an exchange rate of ') 
+    cy.contains('More about this exchange rate').click()
+    cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
 })
 
 

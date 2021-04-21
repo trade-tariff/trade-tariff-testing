@@ -5,7 +5,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
     it('Page Validation', function () {
         cy.visit('/customs-value?referred_service=uk&commodity_code=0407191900')
         //main page title
-        cy.contains('What is the monetary value of this import?')
+        cy.contains('What is the customs value of this import?')
         cy.contains('The import duty charged for this commodity code is dependent on the monetary value of the goods being imported.')
         cy.contains('Duties are typically levied against the full cost of the goods plus the shipping and insurance costs. If you are calculating the import value using FOB (Free on board) rather than CIF (Cost, Insurance, and Freight), then please leave the \'cost of shipping\' and \'cost of insurance\' fields empty. Read more about the valuation of imported goods for customs purposes, VAT and trade statistics.')
         //static page links - valuation of imported goods for customs purposes, VAT and trade statistics.

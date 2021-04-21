@@ -35,7 +35,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         cy.contains('Import duty calculation')
         cy.contains('You are importing commodity')
         cy.contains('from United Kingdom (excluding Northern Ireland) on')
-        cy.contains('31 December 2022')
+        cy.contains('31 December 2021')
         cy.contains('7202 11 80 00').click()
         cy.contains('Commodity information for 7202118000')
         cy.go(-1)

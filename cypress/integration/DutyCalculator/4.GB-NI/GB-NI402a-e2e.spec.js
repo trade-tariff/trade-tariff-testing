@@ -9,41 +9,21 @@ describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
     for (let i =0;i<country.length;i++){
         console.log(i)
 
-    it(`e2e GB to NI - ${country[i]}`,function(){
+    it(`e2e GB to NI 🧁 - ${country[i]}`,function(){
         //select future date 
         cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains(`${pagetitles[i]}`)
         cy.validDate()
-        cy.wait(100)
-        cy.contains('Which part of the UK are you importing into?')
-        // check URL 
+        //NI Destination
+        cy.selectDestination('xi')
+        //United Kingdom as country of Origin       
+        cy.selectOrigin('gb')
+        //✅  Trader Scheme Registered - Yes 
+        cy.traderScheme('yes')
+        //✅  Final use in NI - Yes 
+        cy.finalUse('yes')
 
-        //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.contains('Continue').click()
-        cy.wait(100)
-        cy.contains('Which country are the goods dispatched from?')
-
-        //select United Kingdom as country of Origin       
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-        cy.contains('Continue').click()
-
-        // ✅  Trader Scheme Registered - Yes 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
-        cy.contains('Continue').click()
-        cy.wait(100)
-
-        // ✅  Final use in NI - Yes 
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-        //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
-        cy.contains('Continue').click()
-        cy.wait(100)
-
-        // ✅ Non processing - Yes 
-        // First Option selected 
+        //✅ Non processing - Yes - First Option selected 
         //Select - The goods will be sold to an end-user without any processing
         cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
         cy.contains('Continue').click()
