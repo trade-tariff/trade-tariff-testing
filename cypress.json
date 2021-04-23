@@ -2,9 +2,8 @@
   "baseUrl": "https://www.trade-tariff.service.gov.uk",
   "services": {
     "xi": "https://www.trade-tariff.service.gov.uk/xi/",
-    "dutycal" : "https://staging.trade-tariff.service.gov.uk/duty-calculator"
+    "dutycal" : "https://dev.trade-tariff.service.gov.uk/duty-calculator"
     
-
   },
   
   "commcodes": [

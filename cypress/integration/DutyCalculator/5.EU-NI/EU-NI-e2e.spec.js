@@ -4,9 +4,9 @@ describe('| EU-NI-e2e |EU to Northern Ireland |',function(){
     for (let i =0;i<country.length;i++){
         console.log(i)
 
-
+        // new link /uk/0702000007/import-date
     it(`e2e EU to NI ${country[i]}`,function(){
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
+        cy.visit(`${country[i]}/1212210000/import-date`)
 
         //date
         cy.validDate()

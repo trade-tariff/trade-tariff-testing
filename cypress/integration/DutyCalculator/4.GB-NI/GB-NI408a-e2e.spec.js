@@ -6,7 +6,8 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
 
     it('e2e GB to NI ',function(){
         //select future date 
-        cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
+        cy.visit('/uk/7202118000/import-date')
+    //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.contains('UK Global Online Tariff')
 
         //date
@@ -22,7 +23,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.certificate('no')
 
        // Monetary value page 
-       cy.monetaryValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
+       cy.customsValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
        
         //Check your answers page 
         cy.contains('Check your answers')

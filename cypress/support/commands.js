@@ -184,7 +184,7 @@ Cypress.Commands.add("certificate",(selection)=>{
     cy.contains('Continue').click()
 })
 //enter monetary value
-Cypress.Commands.add("monetaryValue",(monvalue)=>{
+Cypress.Commands.add("customsValue",(monvalue)=>{
     cy.contains('What is the customs value of this import?')
     cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type(monvalue.monetary)
     cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type(monvalue.shipping)

@@ -1,7 +1,7 @@
 //🇻🇳 Vietnam to  🇬🇧 GB 
 // Comm code :0702000007 - no Measure Units 
 
-describe('|RoW-GB203-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',function(){
+describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     let country = ["uk","xi"]
@@ -10,9 +10,10 @@ describe('|RoW-GB203-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
     for (let i =0;i<country.length;i++){
         console.log(i)
 
-    it(`e2e RoW to GB 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`,function(){
+    it(`🍅 - e2e RoW to GB 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
+        cy.visit(`${country[i]}/0702000007/import-date`)
+      //  cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         //page title 
         cy.contains(`${pagetitles[i]}`)
         //enter valid date
@@ -22,7 +23,7 @@ describe('|RoW-GB203-e2e.spec | China to 🇬🇧 GB  | 201-e2e.spec | ',functio
         //select Vietnam as Origin
         cy.OriginList({value:'Vietnam'})
         //customs value
-        cy.monetaryValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
+        cy.customsValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
 
         
     //Check your answers page 
