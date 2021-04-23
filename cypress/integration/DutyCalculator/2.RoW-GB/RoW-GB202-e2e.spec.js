@@ -11,7 +11,8 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
 
     it(`e2e RoW to GB 🐠 - 🇹🇷 Turkey to  🇬🇧 GB  - ${country[i]}`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
+        cy.visit(`${country[i]}/0304829010/import-date`)
+     //   cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
         cy.validDate()
         cy.wait(100)
         cy.contains('Which part of the UK are you importing into?')

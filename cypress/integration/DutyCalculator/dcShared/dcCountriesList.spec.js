@@ -2,11 +2,9 @@
 describe('| dcCountriesList | RoW to GB - Exclude certain countries from the autocompleting country list |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
-//QU', 'QR', 'EU', 'QZ', 'QV', 'QW', 'QY', 'QX', 'QP', 'XU', 'IO', 'QS', 'XI', 'QQ', 'ZB', 'ZD', 'ZF', 'ZG', 'ZE', 'ZH', 'ZN', 'ZU', 'GG', 'JE'
-
-let country = ["uk","xi"]
+let country = ["xi"]
     
-    for (let i =0;i<country.length;i++){
+    for (let i =0 ;i<country.length; i++){
         console.log(i)
 
  it(`Autocomplete excluded countries list - ${country[i]} `,function(){

@@ -2,7 +2,7 @@ describe('| NI-GB-e2e | Northern Ireland to GB United Kingdom |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e NI to GB ',function(){
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit('/uk/0702000007/import-date')
         cy.contains('UK Global Online Tariff')
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')

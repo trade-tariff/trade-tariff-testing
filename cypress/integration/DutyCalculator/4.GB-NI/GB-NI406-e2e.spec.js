@@ -10,7 +10,8 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
         console.log(i)
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
+        cy.visit(`${country[i]}/1701141000/import-date`)
+     //   cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
         cy.contains(`${pagetitles[i]}`)
          //date
          cy.validDate()
@@ -31,7 +32,7 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
          cy.certificate('no')
 
         // Monetary value page 
-        cy.monetaryValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
+        cy.customsValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
               
         // Measure amount page 
         cy.quantity({dtnr:'23.98'})

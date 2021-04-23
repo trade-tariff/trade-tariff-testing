@@ -11,7 +11,8 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
         console.log(i)
     it(`e2e GB to NI - ${country[i]}`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
+        cy.visit(`${country[i]}/0702000007/import-date`)
+     //   cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains(`${pagetitles[i]}`)
         
         //date

@@ -12,7 +12,7 @@ describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e
 
     it(`e2e RoW to GB - 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
+        cy.visit(`${country[i]}/0702000007/import-date`)
         cy.contains(`${pagetitles[i]}`)
         cy.validDate()
         cy.wait(100)
