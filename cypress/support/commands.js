@@ -12,6 +12,8 @@ beforeEach(() => {
   //  cy.viewport('samsung-note9')
 })
 
+
+
 // ******* Custom Commands *******
 
 //UK Checks main page title , sections , content and switching link available , search section
