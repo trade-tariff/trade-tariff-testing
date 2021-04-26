@@ -7,11 +7,13 @@
     "@jc21/cypress-jsonschema-validation": "^0.0.1",
     "@jc21/cypress-swagger-validation": "^0.1.0",
     "ansi-styles": "^5.0.0",
+    "cypress-lighthouse": "^0.1.0",
     "cypress-tags": "^0.0.20"
   },
   "devDependencies": {
     "allure-commandline": "^2.13.8",
     "cypress": "^7.1.0",
+    "cypress-audit": "^0.3.0",
     "cypress-cucumber-preprocessor": "^2.5.5",
     "cypress-dark": "^1.7.14",
     "cypress-file-upload": "^4.0.4",

@@ -83,7 +83,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
         cy.go(-1)
         
         cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click()
-        cy.contains('Which country are the goods dispatched from?')
+        cy.contains('Which country are the goods coming from?')
         cy.go(-1)
         
         cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click()

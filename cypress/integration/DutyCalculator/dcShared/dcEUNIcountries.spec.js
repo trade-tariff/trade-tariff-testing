@@ -3,12 +3,13 @@ describe.skip('| dcEUNIcountries | EU to Northern Ireland - All EU countries |',
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('e2e EU to NI all EU countries ',function(){
-        cy.visit('/import-date?referred_service=uk&commodity_code=1212210000')
+        cy.visit('uk/1212210000/import-date')
+    //    cy.visit('/import-date?referred_service=uk&commodity_code=1212210000')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
+        cy.contains('Which country are the goods coming from?')
         //Northern Ireland
         cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
         .click().clear().wait(100)

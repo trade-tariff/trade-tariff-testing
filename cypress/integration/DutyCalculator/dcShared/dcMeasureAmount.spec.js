@@ -3,7 +3,8 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('1.Page Validation', function () {
-        cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+        cy.visit('uk/1701141000/import-date')
+     //   cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
@@ -57,7 +58,8 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     
      //error messages - nothing is entered 
      it('2.No Values Entered',function(){
-        cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+        cy.visit('uk/1701141000/import-date')
+     //   cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
@@ -123,7 +125,8 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     })
     //error messages - wrong values entered 
     it('3.Text Entered',function(){
-        cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+        cy.visit('uk/1701141000/import-date')
+     //   cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
@@ -199,7 +202,8 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     })
      //error messages - zero values entered 
      it('4.Zeros Entered',function(){
-        cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+        cy.visit('uk/1701141000/import-date')
+    //    cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
@@ -277,7 +281,8 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
 
     //Valid values entered 
     it('5.Valid values Entered',function(){
-        cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
+        cy.visit('uk/1701141000/import-date')
+    //    cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
@@ -312,11 +317,6 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
     cy.contains('Enter import quantity')
     cy.get('#wizard-steps-measure-amount-mil-field').click().type('04324.545')
     cy.contains('Continue').click()
-    
-
-
-       
-  
     })
 
 })

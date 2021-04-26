@@ -2,22 +2,18 @@
 describe('| dcCountriesList | RoW to GB - Exclude certain countries from the autocompleting country list |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
-let country = ["xi"]
-    
-    for (let i =0 ;i<country.length; i++){
-        console.log(i)
-
- it(`Autocomplete excluded countries list - ${country[i]} `,function(){
+ it(`Autocomplete excluded countries list - `,function(){
     //select future date 
-    cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
+    
+    cy.visit(`uk/1212210000/import-date`)
     cy.contains('UK Global Online Tariff')
-    cy.validDate( )
-    cy.contains('Continue').click()
+    cy.validDate()
+    
     cy.contains('Which part of the UK are you importing into?')
     //select NI as country of destination
     cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
     cy.contains('Continue').click()
-    cy.contains('Which country are the goods dispatched from?')
+    cy.contains('Which country are the goods coming from?')
 
     let countries = ["European Union","Guernsey","Jersey","High seas (Maritime domain outside of territorial waters)","Stores and provisions","Stores and provisions within the framework of intra-EU trade","Stores and provisions within the framework of trade with Third Countries","Countries and territories not specified","Countries and territories not specified within the framework of intra-EU trade","Countries and territories not specified within the framework of trade with third countries","Countries and territories not specified for commercial or military reasons","Countries and territories not specified for commercial or military reasons in the framework of intra-EU trade","Countries and territories not specified for commercial or military reasons in the framework of trade with third countries","Belgian Continental Shelf","Danish Continental Shelf","Irish Continental Shelf","French Continental Shelf","German Continental Shelf","Netherlands Continental Shelf","Norwegian Continental Shelf","United Kingdom Continental Shelf"]
     for ( var i=0 ;i<countries.length;i++)
@@ -30,18 +26,19 @@ let country = ["xi"]
     }
 
 })
-it(`United Kingdom (Northern Ireland) included in countries list - ${country[i]}`,function(){
+it(`United Kingdom (Northern Ireland) included in countries list `,function(){
     //select future date 
-    cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
+    cy.visit(`uk/1212210000/import-date`)
+  //  cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
     cy.contains('UK Global Online Tariff')
     cy.validDate( )
-    cy.contains('Continue').click()
+    
     cy.contains('Which part of the UK are you importing into?')
     //select NI as country of destination
     cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
     cy.contains('Continue').click()
-    cy.contains('Which country are the goods dispatched from?')
-//select United Kingdom as country of Origin 
+    cy.contains('Which country are the goods coming from?')
+
    
     cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
      .click().clear().wait(500)
@@ -49,5 +46,5 @@ it(`United Kingdom (Northern Ireland) included in countries list - ${country[i]}
      cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
      .contains('United Kingdom (Northern Ireland)')
 })
-    }
+    
 })

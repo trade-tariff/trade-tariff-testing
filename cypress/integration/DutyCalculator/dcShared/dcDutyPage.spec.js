@@ -5,7 +5,8 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
     it('Final Duty Calculation page', function () {
 
 //import date
-    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
+    cy.visit('uk/7202118000/import-date')
+ //   cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
     cy.validDate( )
     cy.contains('Continue').click()
 //destination
@@ -69,9 +70,5 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
     //Last row 
     cy.contains('Duty Total')
     cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06')
-
-
-
-
     })
 })

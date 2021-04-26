@@ -22,7 +22,7 @@ describe('| EU-NI-e2e |EU to Northern Ireland |',function(){
 
         //Back Button on page 
         cy.get('.govuk-back-link').click()
-        cy.contains('Which country are the goods dispatched from?')
+        cy.contains('Which country are the goods coming from?')
 
         cy.contains('Continue').click()
 

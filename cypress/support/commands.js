@@ -12,6 +12,8 @@ beforeEach(() => {
   //  cy.viewport('samsung-note9')
 })
 
+
+
 // ******* Custom Commands *******
 
 //UK Checks main page title , sections , content and switching link available , search section
@@ -68,7 +70,7 @@ Cypress.Commands.add("MainPageXI",()=>{
           .contains('Calculate import duties')
       cy.get('.govuk-form-group')
          cy.contains('When will the goods be imported?')
-         cy.contains('As duties and quotas change over time, it may be important to enter the proposed import date. For example, 27 3 2021')
+         cy.contains('As duties and quotas change over time, it may be important to enter the proposed import date. Enter a date from 1st January 2021 or later in the format 27 3 2021.')
          cy.contains('Day')
          cy.contains('Month')
          cy.contains('Year')
@@ -121,6 +123,7 @@ Cypress.Commands.add("checkPageAlly",(path)=>{
  */
 //DC Valid date 
 Cypress.Commands.add("validDate",()=>{
+    cy.contains('When will the goods be imported?')
     cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('31')
     cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
     cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2021')
@@ -128,6 +131,7 @@ Cypress.Commands.add("validDate",()=>{
 })
 //Enter Date 
 Cypress.Commands.add("enterDate",(date)=>{
+    cy.contains('When will the goods be imported?')
     cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type(date.day)
     cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type(date.month)
     cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type(date.year)
@@ -146,7 +150,7 @@ Cypress.Commands.add("selectDestination",(destination)=>{
 })
 
 Cypress.Commands.add("selectOrigin",(origin)=>{
-    cy.contains('Which country are the goods dispatched from?')
+    cy.contains('Which country are the goods coming from?')
     if(origin === 'gb'){
         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
     }else {
@@ -155,8 +159,8 @@ Cypress.Commands.add("selectOrigin",(origin)=>{
     cy.contains('Continue').click()   
 })
 
-Cypress.Commands.add("OriginList",(origin)=>{
-    cy.contains('Which country are the goods dispatched from?')
+Cypress.Commands.add("originList",(origin)=>{
+    cy.contains('Which country are the goods coming from?')
     cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
     .click().clear().type(origin.value).wait(500)
     cy.contains('Continue').click()

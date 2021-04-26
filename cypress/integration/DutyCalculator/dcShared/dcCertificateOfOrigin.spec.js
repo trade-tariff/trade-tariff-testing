@@ -3,7 +3,8 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |',functi
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it.only('Page Validation', function () {
-        cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
+        cy.visit('uk/0702000007/import-date')
+     //   cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
         cy.contains('UK Global Online Tariff')
         cy.DCMainPage()
         cy.validDate( )

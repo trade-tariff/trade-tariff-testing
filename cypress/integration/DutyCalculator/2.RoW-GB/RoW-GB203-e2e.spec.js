@@ -21,7 +21,7 @@ describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ',fun
         //select GB as country of destination
         cy.selectDestination('gb')
         //select Vietnam as Origin
-        cy.OriginList({value:'Vietnam'})
+        cy.originList({value:'Vietnam'})
         //customs value
         cy.customsValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
 
