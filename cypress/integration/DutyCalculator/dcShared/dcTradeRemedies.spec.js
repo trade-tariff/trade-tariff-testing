@@ -3,7 +3,8 @@ describe('📑 | dcTradeRemedies | Trade remedies page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit('uk/0702000007/import-date')
+   //     cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         

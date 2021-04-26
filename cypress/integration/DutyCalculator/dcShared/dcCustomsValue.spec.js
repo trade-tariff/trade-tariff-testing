@@ -2,8 +2,14 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
-    it('Page Validation', function () {
-        cy.visit('/customs-value?referred_service=uk&commodity_code=0407191900')
+    it.only('Page Validation', function () {
+        cy.visit('uk/0407191900/import-date')
+        cy.validDate()
+        cy.selectDestination('xi')
+        cy.selectOrigin('gb')
+        
+
+        cy.visit('/customs-value')
         //main page title
         cy.contains('What is the customs value of this import?')
         cy.contains('The import duty charged for this commodity code is dependent on the monetary value of the goods being imported.')
@@ -32,8 +38,8 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
     //error messages - nothing is entered 
     it('No Values Entered',function(){
-
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit('uk/0702000007/import-date')
+    //    cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
         cy.validDate( )
         cy.contains('Continue').click()
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()

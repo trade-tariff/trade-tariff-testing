@@ -3,12 +3,12 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
     it('Import destination GB', function () {
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit(`uk/0702000007/import-date`)
         cy.contains('UK Global Online Tariff')
         cy.validDate( )
-        cy.contains('Continue').click()
 
         cy.contains('Which part of the UK are you importing into?')
+        cy.contains('The duty you are charged may be dependent on the part of the UK to which you are importing.')
 
         // Select Northern Ireland
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
@@ -24,36 +24,33 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
             .parent()
             .find('input')
             .should('be.checked')
-            //continue to next page
-          cy.contains('Continue').click()
-          cy.contains('Which country are the goods dispatched from?')
-          cy.go('back')
-            cy.contains('Which part of the UK are you importing into?')
-            //UK selection is persisted
-            cy.get('#wizard-steps-import-destination-import-destination-uk-field')
+        //continue to next page
+        cy.contains('Continue').click()
+        cy.contains('Which country are the goods coming from?')
+        cy.go('back')
+        cy.contains('Which part of the UK are you importing into?')
+        //UK selection is persisted
+        cy.get('#wizard-steps-import-destination-import-destination-uk-field')
             .parent()
             .find('input')
             .should('be.checked')
 
-        // check back button takes user back to date selection and date is persisted ?
-       // cy.go('back')
-        //Back button - GDS style back link
         cy.contains('Back').click()
         cy.contains('When will the goods be imported?')
         //date entered persists after error message only if valid format date and in past *
         cy.get('#wizard_steps_import_date_import_date_3i') .should('have.value', '31')
         cy.get('#wizard_steps_import_date_import_date_2i') .should('have.value', '12')
-        cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2022')
+        cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2021')
 
 
     })
     it('Import destination - Northern Ireland', function () {
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit(`uk/0702000007/import-date`)
         cy.contains('UK Global Online Tariff')
         cy.validDate( )
-        cy.contains('Continue').click()
 
         cy.contains('Which part of the UK are you importing into?')
+        cy.contains('The duty you are charged may be dependent on the part of the UK to which you are importing.')
         //Northern Ireland
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         // verify NI is selected
@@ -62,51 +59,46 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
             .find('input')
             .should('be.checked')
             //continue to next page
-          cy.contains('Continue').click()
-          cy.contains('Which country are the goods dispatched from?')
-            //  cy.go('back')
+        cy.contains('Continue').click()
+        cy.contains('Which country are the goods coming from?')
+        
           //Back button - GDS style back link
-            cy.contains('Back').click()
-            cy.contains('Which part of the UK are you importing into?')
+        cy.contains('Back').click()
+        cy.contains('Which part of the UK are you importing into?')
             //UK selection is persisted
-            cy.get('#wizard-steps-import-destination-import-destination-xi-field')
+        cy.get('#wizard-steps-import-destination-import-destination-xi-field')
             .parent()
             .find('input')
             .should('be.checked')
 
-        // check back button takes user back to date selection and date is persisted ?
-        //  cy.go('back')
-        //Back button - GDS style back link
         cy.contains('Back').click()
-        cy.contains('When will the goods be imported?')
         //date entered persists after error message only if valid format date and in past *
+        cy.contains('When will the goods be imported?')
+        
         cy.get('#wizard_steps_import_date_import_date_3i') .should('have.value', '31')
         cy.get('#wizard_steps_import_date_import_date_2i') .should('have.value', '12')
-        cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2022')
+        cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2021')
 
 
     })
     it('Error - No country selected',function(){   
-     cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-     cy.contains('UK Global Online Tariff')
-     cy.validDate( )
-     cy.contains('Continue').click()
-
-     cy.contains('Which part of the UK are you importing into?')
+        cy.visit(`uk/0702000007/import-date`)
+        cy.contains('UK Global Online Tariff')
+        cy.validDate( )
+        cy.contains('Which part of the UK are you importing into?')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
         cy.contains('Select a destination')
         cy.get('.govuk-error-message')
-            .contains('Select a destination')
+                .contains('Select a destination')
 
     })
     it('Explore the Topic : Other static page links',function(){
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
+        cy.visit(`uk/0702000007/import-date`)
         cy.contains('UK Global Online Tariff')
         cy.validDate( )
-        cy.contains('Continue').click()
-
+    
         cy.contains('Which part of the UK are you importing into?')
 
         cy.contains('Explore the topic')

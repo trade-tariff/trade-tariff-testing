@@ -19,7 +19,7 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         //select NI as country of destination
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
+        cy.contains('Which country are the goods coming from?')
 
         //select United Kingdom as country of Origin
          //select country from list       

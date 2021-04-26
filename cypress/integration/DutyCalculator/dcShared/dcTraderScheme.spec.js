@@ -3,7 +3,8 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
     it('Page Validation', function () {
-        cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
+        cy.visit('uk/0702000007/import-date')
+    //    cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
         cy.contains('UK Global Online Tariff')
         cy.DCMainPage()
         cy.validDate( )
@@ -11,7 +12,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.contains('Which part of the UK are you importing into?')
         cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
+        cy.contains('Which country are the goods coming from?')
         
         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()

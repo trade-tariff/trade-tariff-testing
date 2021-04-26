@@ -21,7 +21,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
         cy.contains('Continue').click()
         cy.wait(100)
-        cy.contains('Which country are the goods dispatched from?')
+        cy.contains('Which country are the goods coming from?')
 
         //select country from list 
         cy.get('#wizard-steps-country-of-origin-country-of-origin-field')

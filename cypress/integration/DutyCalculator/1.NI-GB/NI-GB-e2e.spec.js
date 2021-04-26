@@ -8,26 +8,22 @@ describe('| NI-GB-e2e | Northern Ireland to GB United Kingdom |',function(){
         cy.contains('Which part of the UK are you importing into?')
 
        //select England ,Scotland or Wales (GB)
-        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
-        cy.contains('Continue').click()
-        cy.contains('Which country are the goods dispatched from?')
-        cy.contains('The duty you are charged may be dependent on the country of dispatch of the goods being imported.')
+        cy.selectDestination('gb')
+        cy.contains('Which country are the goods coming from?')
+        cy.contains('The duty you are charged may be dependent on the country from which the goods are coming.')
         cy.contains('Enter the country of dispatch:')
         cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
 
         //select country from list 
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-        .click().clear()
-        .type('Northern Ireland').wait(500)
+        cy.originList({value:'Northern Ireland'})
       
-        cy.contains('Continue').click()
         cy.contains('There is no import duty to pay')
         cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.')
         cy.contains('Find out more about trading and moving goods in and out of Northern Ireland (opens in a new window).')
         cy.get('.govuk-grid-row .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland')
         //Back Button on page 
         cy.get('.govuk-back-link').click()
-        cy.contains('Which country are the goods dispatched from?')
+        cy.contains('Which country are the goods coming from?')
 
         cy.contains('Continue').click()
 

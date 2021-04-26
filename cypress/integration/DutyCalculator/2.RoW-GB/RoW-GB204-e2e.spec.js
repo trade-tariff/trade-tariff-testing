@@ -10,7 +10,7 @@ describe('|RoW-GB205-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  | 201-e2
         cy.wait(700)
         cy.validDate()
         cy.selectDestination('gb')
-        cy.OriginList({value:'Afghanistan'})
+        cy.originList({value:'Afghanistan'})
         cy.customsValue({monetary:'500.00',shipping:'100.00',cost:'250.00'})
       //  cy.quantity({tne:'1',dtnr:'1',dap:'1'})
         cy.confirmPage()

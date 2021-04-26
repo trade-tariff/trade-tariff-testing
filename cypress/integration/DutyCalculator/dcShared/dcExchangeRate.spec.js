@@ -5,7 +5,8 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
     it('Exchange rate', function () {
 
         //import date
-        cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
+        cy.visit('uk/7202118000/import-date')
+    //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.validDate( )
         cy.contains('Continue').click()
         //destination

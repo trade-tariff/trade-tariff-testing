@@ -11,7 +11,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.MainPageUK();
     })
     //switching link works
-    it('🚀 UK - Main Page - Switching link to XI available & works', function () {
+    it('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function () {
         cy.visit('/sections')
         cy.get('.govuk-header ')
             .contains('UK Global Online Tariff')
@@ -33,7 +33,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
     })
     // UK not to be in EU country list
-    it('🚀 UK - United Kingdom should not be shown in EU country list', function () {
+    it('🚀 UK 🇬🇧 - United Kingdom should not be shown in EU country list', function () {
         cy.visit('/commodities/2403991000#import')
         cy.get('.govuk-tabs__panel')
             .contains('European Union (1013)').click()
@@ -45,7 +45,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
 
     //Licensed quotas
-    it('🚀 UK - quota numbers - 054xxx Licensed', function () {
+    it('🚀 UK 🇬🇧 - quota numbers - 054xxx Licensed', function () {
         cy.visit('/commodities/0201100021#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('Non preferential tariff quota')
@@ -56,7 +56,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('.close [href]').click()
     })
     // Non Licensed quotas
-    it('🚀 UK - quota numbers - 057xxx Non-Licensed', function () {
+    it('🚀 UK 🇬🇧 - quota numbers - 057xxx Non-Licensed', function () {
         cy.visit('/commodities/0201100021#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('Preferential tariff quota')
@@ -67,7 +67,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('.close [href]').click()
     })
     //Commodity Search functionality - text search
-    it('🚀 UK - Search Commodity by name ', function () {
+    it('🚀 UK 🇬🇧 - Search Commodity by name ', function () {
         cy.visit('/sections')
         //changed on 11/02/2021
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
@@ -85,7 +85,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
-    it('🚀 UK - Search Commodity by code ', function () {
+    it('🚀 UK 🇬🇧 - Search Commodity by code ', function () {
         cy.visit('/sections')
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
@@ -98,7 +98,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
-    it('🚀 UK - Country Selection - imports ',function(){
+    it('🚀 UK 🇬🇧 - Country Selection - imports ',function(){
         cy.visit('/commodities/0208909800#import')
         // no XI
         cy.get('input#import_search_country').click().clear().wait(200).type('(XI)').wait(500)
@@ -122,7 +122,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('No results found')
     })
     //Country selection - imports
-    it('🚀 UK - Country Selection - exports ',function(){
+    it('🚀 UK 🇬🇧 - Country Selection - exports ',function(){
         cy.visit('/commodities/0208909800#export')
         // no XI
         cy.get('input#export_search_country').click().clear().wait(500).type('(XI)').wait(500)
@@ -147,7 +147,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
     })
     //Date picker working and persists on UK XI sites
-    it('🚀 UK - Change date and verify if the data shown is same for both XI and UK', function () {
+    it('🚀 UK 🇬🇧 - Change date and verify if the data shown is same for both XI and UK', function () {
         cy.visit('/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
@@ -172,7 +172,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('This tariff is for 7 April 2021')
     })
     // UK not in EU country list
-    it('🚀 UK - United Kingdom should not be shown in EU country list', function () {
+    it('🚀 UK 🇬🇧 - United Kingdom should not be shown in EU country list', function () {
         cy.visit('/commodities/2403991000#import')
         cy.get('.govuk-tabs__panel')
             .contains('European Union (1013)').click()
@@ -183,7 +183,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('United Kingdom (GB)').should('not.exist')
     })
     // Quota Search using order number
-    it('🚀 UK - Quotas Search - Order Number',function(){
+    it('🚀 UK 🇬🇧 - Quotas Search - Order Number',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('input#order_number')
@@ -194,7 +194,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
     })
     // Quota Search using Commodity number
-    it('🚀 UK - Quotas Search - Commodity Code',function(){
+    it('🚀 UK 🇬🇧 - Quotas Search - Commodity Code',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('input#goods_nomenclature_item_id')
@@ -212,7 +212,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
                 .should('contain','Order Number','057015','Start date','01/01/2021')
             cy.get('.close [href]').click()
     })
-    it(`🚀 UK - Mobile - nav-bar validation`,function(){
+    it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`,function(){
 
         const sizes = ['iphone-6','samsung-note9']
         
@@ -226,9 +226,37 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
                 cy.contains('Tools')
                 cy.contains('Search or browse the Tariff').click()
                 cy.contains('All sections')
-
             }
+    
 })
+    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`,function(){
+        cy.visit('/uk/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('gb')
+        cy.originList({value:'Northern Ireland'})
+
+    })
+    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`,function(){
+        cy.visit('/uk/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('gb')
+        cy.originList({value:'Singapore'})
+    
+    })
+    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( GB to NI ) 406`,function(){
+        cy.visit('/uk/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('xi')
+        cy.selectDestination('uk')
+    
+    })
+    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( EU to NI )`,function(){
+        cy.visit('/uk/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('xi')
+        cy.selectDestination('eu')
+    
+    })
 
 //XI tests 
 
@@ -239,7 +267,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.MainPageXI();
     })
     //switching link works
-    it('🚀 XI - Main Page - Switching link to UK available & works', function () {
+    it('🚀 XI 🇪🇺 - Main Page - Switching link to UK available & works', function () {
         cy.visit('xi/sections')
         cy.get('.govuk-header ')
             .contains('Northern Ireland Online Tariff')
@@ -259,7 +287,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('UK Global Online Tariff')
     })
     // UK not to be in EU country list
-    it('🚀 XI - United Kingdom should NOT be shown in EU country list', function () {
+    it('🚀 XI 🇪🇺 - United Kingdom should NOT be shown in EU country list', function () {
         cy.visit('xi/commodities/2403991000#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('European Economic Area (2012)')
@@ -270,7 +298,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('United Kingdom (GB)').should('not.exist')
     })
     //Commodity Search functionality - text search
-    it('🚀 XI - Search Commodity by name ', function () {
+    it('🚀 XI 🇪🇺 - Search Commodity by name ', function () {
         cy.visit('xi/sections')
         //changed on 11/02/2021
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
@@ -287,7 +315,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
-    it('🚀 XI - Search Commodity by code ', function () {
+    it('🚀 XI 🇪🇺 - Search Commodity by code ', function () {
         cy.visit('xi/sections')
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
@@ -300,7 +328,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.contains('Commodity information for 3808941000')
     })
 
-    it('🚀 XI - Country Selection -import ', function () {
+    it('🚀 XI 🇪🇺 - Country Selection -import ', function () {
         cy.visit('xi/commodities/0208909800#import')
         // XI Present
         cy.get('input#import_search_country').click().clear().wait(500).type('(XI)').wait(500)
@@ -323,7 +351,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('No results found')
 
     })
-    it('🚀 XI - Country Selection -export ', function () {
+    it('🚀 XI 🇪🇺 - Country Selection -export ', function () {
         cy.visit('xi/commodities/0208909800#export')
         // XI Present
         cy.get('input#export_search_country').click().clear().wait(500)
@@ -347,7 +375,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('No results found')
     })
     //Date picker working and persists on UK XI sites
-    it('🚀 XI - Change Date and check if the data shown is same for both XI and UK', function () {
+    it('🚀 XI 🇪🇺 - Change Date and check if the data shown is same for both XI and UK', function () {
         cy.visit('xi/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
@@ -370,7 +398,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
             .contains('This tariff is for 7 April 2021')
     })
-    it(`🚀 XI - Mobile - nav-bar validation`,function(){
+    it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`,function(){
         
         const sizes = ['iphone-6','samsung-note9']
             for (let i=0 ;i<sizes.length ;i++){
