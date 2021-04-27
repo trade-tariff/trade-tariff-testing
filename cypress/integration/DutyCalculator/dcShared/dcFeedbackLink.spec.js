@@ -6,7 +6,8 @@ describe('| dcFeedbackLink | Feedback link on Duty Calculator page |',function()
 
     it(`Feedback link on ${country[i]} services`,function(){
         //select future date 
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
+        cy.visit(`${country[i]}/7202118000/import-date`)
+      //  cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
         cy.contains('UK Global Online Tariff')
         cy.contains('This is a Beta service - your feedback will help us to improve it.')
         cy.get('.govuk-phase-banner__text > .govuk-link').click()

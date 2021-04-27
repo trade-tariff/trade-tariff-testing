@@ -27,8 +27,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
-        //measure amount
-        cy.contains('Continue').click()
+        
         //confirm
         cy.get('.govuk-button').click()
 
@@ -69,7 +68,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         let exchangerate = response.body.data[49].attributes.rate
         console.log(`${exchangerate}`)
         
-        cy.contains(`Please note - the current page uses an exchange rate of ${exchangerate} GBP to EUR.`) 
+        cy.contains(`Please note - the current page uses an exchange rate of`) 
         cy.log(`${exchangerate}`)
         cy.contains('More about this exchange rate').click()
         cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')

@@ -5,20 +5,22 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
 
         it('Page Validation', function () {
             cy.visit('uk/1701141000/import-date')
-       //     cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.validDate( )
-            cy.contains('Continue').click()
-            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
-            cy.contains('Continue').click()
+       
+            cy.validDate()
+            //NI Destination
+            cy.selectDestination('xi')
+            //United Kingdom as country of Origin       
+            cy.selectOrigin('gb')
+            // Trader Scheme Registered - Yes 
+            cy.traderScheme('yes')
+            // Final use in NI - Yes 
+            cy.finalUse('yes')
 
-            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
-            
-        //main page title
-            cy.contains('How will these goods be processed after import?')
+            cy.contains('How will these goods be processed after they are moved into Northern Ireland?')
         
-            cy.contains('Your import will be treated as not at risk, and will therefore not be subject to EU import duties, if you can verify that your goods will not be subject to further processing after import, or will be processed according to strict guidelines.')
-            cy.contains('The goods will be sold to an end-user without any processing')
-            cy.contains('The importer had a total annual turnover of less than £500,000 in its most recent complete financial year')
+            cy.contains('If your goods are for sale to, or final use by, end consumers in the United Kingdom, you may be able to declare goods as not ‘at risk’, and pay no duty on those goods. You will not be able to declare your goods not ‘at risk’, if your goods are for commercial processing in Northern Ireland, unless they meet one of the exemptions.')
+            cy.contains('If the importer had a total annual turnover of less than £500,000 in its most recent complete financial year, then select this option to move on')
+            cy.contains('Alternatively, if the turnover exceeds this threshold, please select one of the following three options to identify the processing that will be carried on the goods on arrival in Northern Ireland.')
             cy.contains('The goods will undergo commercial processing for one of these purposes:')
     
             cy.contains('the sale of food to end consumers in the UK')
@@ -31,17 +33,19 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     })
 
          //error messages - nothing is entered 
-         it('No Values Entered',function(){
+        it('No Values Entered',function(){
             cy.visit('uk/1701141000/import-date')
-       //     cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.validDate( )
-            cy.contains('Continue').click()
-            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
-            cy.contains('Continue').click()
-
-            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
-            cy.contains('How will these goods be processed after import?')
-            //main page title 
+       
+            cy.validDate()
+            //NI Destination
+            cy.selectDestination('xi')
+            //United Kingdom as country of Origin       
+            cy.selectOrigin('gb')
+            // Trader Scheme Registered - Yes 
+            cy.traderScheme('yes')
+            // Final use in NI - Yes 
+            cy.finalUse('yes')
+           
             cy.contains('Continue').click()
             cy.get('.govuk-error-summary')
             cy.contains('Select one of the available options')
@@ -50,17 +54,19 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
                 .contains('Select one of the available options')
       
         })
-        it.only('User makes a selection',function(){
+        it('User makes a selection',function(){
             cy.visit('uk/1701141000/import-date')
-      //      cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.validDate( )
-            cy.contains('Continue').click()
-            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
-            cy.contains('Continue').click()
-
-            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
-            cy.contains('How will these goods be processed after import?')
-
+       
+            cy.validDate()
+            //NI Destination
+            cy.selectDestination('xi')
+            //United Kingdom as country of Origin       
+            cy.selectOrigin('gb')
+            // Trader Scheme Registered - Yes 
+            cy.traderScheme('yes')
+            // Final use in NI - Yes 
+            cy.finalUse('yes')
+            cy.contains('How will these goods be processed after they are moved into Northern Ireland?')
             
             // 1 .Select - The goods will be sold to an end-user without any processing
             cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
@@ -108,14 +114,17 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
        
         it('Explore the Topic : Other static page links',function(){
             cy.visit('uk/1701141000/import-date')
-        //    cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
-            cy.validDate( )
-            cy.contains('Continue').click()
-            cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
-            cy.contains('Continue').click()
-
-            cy.visit('/planned-processing?referred_service=uk&commodity_code=1701141000')
-            cy.contains('How will these goods be processed after import?')
+       
+            cy.validDate()
+            //NI Destination
+            cy.selectDestination('xi')
+            //United Kingdom as country of Origin       
+            cy.selectOrigin('gb')
+            // Trader Scheme Registered - Yes 
+            cy.traderScheme('yes')
+            // Final use in NI - Yes 
+            cy.finalUse('yes')
+            cy.contains('How will these goods be processed after they are moved into Northern Ireland?')
 
             cy.contains('Explore the topic')
             cy.contains('Additional requirements for when you bring goods into Northern Ireland for processing').click()
