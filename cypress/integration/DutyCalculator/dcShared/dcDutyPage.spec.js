@@ -26,8 +26,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
     cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
     cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
     cy.contains('Continue').click()
-//measure amount
-    cy.contains('Continue').click()
+
 //confirm
     cy.get('.govuk-button').click()
 

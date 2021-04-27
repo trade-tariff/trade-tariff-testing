@@ -8,7 +8,8 @@ describe('| dcCommodityCodeLink | Duty Calculation link on commodities',function
     for (let i =0;i<country.length;i++){
 
     it(`Duty Calculator link on Commodity page ${country[i]} `,function(){
-        cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=${commcodes[i]}`)
+        cy.visit(`${country[i]}/${commcodes[i]}/import-date`)
+    //    cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=${commcodes[i]}`)
         cy.contains(`${pagetitles[i]}`)
         cy.contains('About this commodity code').click()
         cy.get('.govuk-details  .govuk-link').click()

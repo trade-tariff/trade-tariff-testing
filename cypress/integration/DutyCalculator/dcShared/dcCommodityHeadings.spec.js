@@ -11,7 +11,7 @@ describe('🇬🇧 💡 | dcCommodityheadings.spec | Commodities which are also 
         cy.get('.js-commodity-picker-select').click().type(`${comms[i]}`)
         cy.wait(950)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(400)
         cy.contains(`Commodity information for ${comms[i]}`)
         cy.contains('Duty calculation').should('not.exist')
         }
