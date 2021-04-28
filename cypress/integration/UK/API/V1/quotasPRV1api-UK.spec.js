@@ -215,7 +215,7 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
     })
     //export
     it('🟩 12.P&R:EQC Certificate of Conformity - available', function () {
-        cy.request('/api/v1/commodities/0709939000#export').then((response) => {
+        cy.request('/api/v1/commodities/0805220020#export').then((response) => {
             let measure_types = response.body.export_measures
             let found = false
             for (let i = 0; i < measure_types.length; i++) {

@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 Switching Link & text ,Forum and related links removed  - (XI version)',function() {
+describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and related links removed  - (XI version)',function() {
     //--- HOTT-96 ,HOTT- 163 -------------
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -26,12 +26,12 @@ describe('🇪🇺 💡 Switching Link & text ,Forum and related links removed  
             .contains('UK Global Online Tariff')
         // Guidance link on XI page
         cy.get('.govuk-main-wrapper')
-            .contains('if your goods are not ‘at risk’ of onward movement to the EU').click()
-        cy.get('.govuk-grid-row')
-            .contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU ')
-        cy.log(cy.title())
-        cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU - GOV.UK')
-        //return to Xi page
+        .contains('if your goods are not ‘at risk’ of onward movement to the EU').click()
+    cy.contains("Declaring goods you bring into Northern Ireland 'not at risk’ of moving to the EU")
+    
+    cy.log(cy.title())
+    cy.title().should('eq',"Declaring goods you bring into Northern Ireland 'not at risk’ of moving to the EU - GOV.UK")
+    //return to UK page
         cy.go('back')
         cy.get('.govuk-header ')
             .contains('Northern Ireland Online Tariff')

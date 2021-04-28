@@ -35,9 +35,11 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
         cy.contains('1 x 100 kg')
       
     // Check Change Links
+    
         cy.get('div:nth-of-type(1) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
         cy.go(-1)
+        
 
         cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('When will the goods be imported?')
