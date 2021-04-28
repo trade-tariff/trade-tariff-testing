@@ -19,14 +19,14 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
 
 
         //trader page 
-        cy.contains('Are you registered with the UK Trader Scheme?')
-        cy.contains('If you are importing goods or sale to, or final use by, end consumers located in the UK and you are a trader authorised under the UK Trader Scheme, then your goods may be treated as being \'not at risk\' of further movement into the EU and are not subject to EU import duties.')
+        cy.contains('Are you authorised under the UK Trader Scheme?')
+        cy.contains("If you are moving goods into Northern Ireland which are for sale to, or final use by, end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare your goods as being 'not at risk' where the requirements are met. A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.")
         
-        cy.contains('Yes, I am registered with the UK Trader Scheme')
-        cy.contains('No, I am not registered with the UK Trader Scheme')
+        cy.contains('Yes, I am authorised under the UK Trader Scheme')
+        cy.contains('No, I am not authorised under the UK Trader Scheme')
         
         //static page links
-        cy.contains('If you are not yet registered with the Scheme, then ')
+        cy.contains('If you are not yet authorised, then you can find out more about applying for authorisation for the UK Trader Scheme. ')
         cy.get('p > .govuk-link').click()
         cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland')
         cy.go('back')
@@ -66,9 +66,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.contains('Explore the topic')
         cy.contains('Apply for authorisation for the UK trader scheme').click()
         cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland')
-        cy.go(-1)
-        cy.contains('Are you registered with the UK Trader Scheme?')
-
+        
 
     })
 })

@@ -4,35 +4,41 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
 
     it('Page Validation', function () {
 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-        cy.validDate( )
-        cy.contains('Continue').click()
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        //Verify if NI button is selected 
-        
-        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
-          cy.contains('Continue').click()
-        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
-        //main page title
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
-        
-        cy.contains('Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom')
-        cy.contains('No, this import will not be for final use in the United Kingdom')       
+      cy.visit('uk/0702000007/import-date')
+
+      cy.validDate()
+
+      //destination XI
+      cy.selectDestination('xi')
+
+      //origin GB
+      cy.selectOrigin('gb')
+
+      // ✅ Trader Scheme Registered - Yes 
+      cy.traderScheme('yes')
+
+      //main page title
+      cy.contains('Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?')
+      
+      cy.contains('Yes, I am moving these goods into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom')
+      cy.contains('No, these goods will not be for final use in the United Kingdom')       
     })
      //error messages - nothing is entered 
      it('No Values Entered',function(){
 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-        cy.validDate( )
-        cy.contains('Continue').click()
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        //Verify if NI button is selected 
-        
-        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
-          cy.contains('Continue').click()
-        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
-        //main page title 
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
+        cy.visit('uk/0702000007/import-date')
+
+        cy.validDate()
+
+        //destination XI
+        cy.selectDestination('xi')
+
+        //origin GB
+        cy.selectOrigin('gb')
+
+        // ✅ Trader Scheme Registered - Yes 
+        cy.traderScheme('yes')
+ 
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -43,22 +49,24 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     })
     it('User makes a selection',function(){
 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-        cy.validDate( )
-        cy.contains('Continue').click()
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
-          cy.contains('Continue').click()
+        cy.visit('uk/0702000007/import-date')
 
-        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
-        //main page title
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
+        cy.validDate()
+
+        //destination XI
+        cy.selectDestination('xi')
+
+        //origin GB
+        cy.selectOrigin('gb')
+
+        // ✅ Trader Scheme Registered - Yes 
+        cy.traderScheme('yes')
         //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
         cy.contains('Continue').click()
 
         //planned-processing page
-        cy.contains('How will these goods be processed after import?')
+        cy.contains('How will these goods be processed after they are moved into Northern Ireland?')
         // selection is persisted 
         cy.go(-1)
         
@@ -82,25 +90,25 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
 
     it('Explore the Topic : Other static page links',function(){
 
-        cy.visit('/import-date?referred_service=uk&commodity_code=0702000007')
-        cy.validDate( )
-        cy.contains('Continue').click()
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
-        //Verify if NI button is selected 
-        
-        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()    
-          cy.contains('Continue').click()
+      cy.visit('uk/0702000007/import-date')
 
-        cy.visit('/final-use?referred_service=uk&commodity_code=0702000007')
-        //main page title
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
+      cy.validDate()
+
+      //destination XI
+      cy.selectDestination('xi')
+
+      //origin GB
+      cy.selectOrigin('gb')
+
+      // ✅ Trader Scheme Registered - Yes 
+      cy.traderScheme('yes')
         
-        cy.contains('Explore the topic')
-        cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click()
-   
-        //https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland-from-1-january-2021
-        cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
-        cy.go(-1)
-        cy.contains('Is your import for sale to, or final use by, end-consumers located in the United Kingdom?')
+      cy.contains('Explore the topic')
+      cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click()
+  
+      //https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland-from-1-january-2021
+      cy.contains("Declaring goods you bring into Northern Ireland 'not at risk’ of moving to the EU")
+      cy.go(-1)
+      cy.contains('Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?')
     })
 })
