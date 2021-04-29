@@ -31,7 +31,7 @@ describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ',fun
         cy.contains('Commodity code')
         cy.contains('Date of import')
         cy.contains('Destination')
-        cy.contains('Country of dispatch')
+        cy.contains('Coming from')
         cy.contains('Customs value')
     
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0702 00 00 07')

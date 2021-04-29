@@ -42,7 +42,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.contains('Commodity code')
         cy.contains('Date of import')
         cy.contains('Destination')
-        cy.contains('Country of dispatch')
+        cy.contains('Coming from')
         cy.contains('Customs value')
         
 //   cy.get('.govuk-summary-list__value')

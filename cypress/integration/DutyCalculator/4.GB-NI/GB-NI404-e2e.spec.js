@@ -46,7 +46,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
         cy.contains('Commodity code')
         cy.contains('Date of import')
         cy.contains('Destination')
-        cy.contains('Country of dispatch')
+        cy.contains('Coming from')
         cy.contains('Trader scheme')
         cy.contains('Final use')
         cy.contains('Certificate of origin')
