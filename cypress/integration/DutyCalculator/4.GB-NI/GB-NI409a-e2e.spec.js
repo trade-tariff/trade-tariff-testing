@@ -42,7 +42,7 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         cy.contains('Commodity code')
         cy.contains('Date of import')
         cy.contains('Destination')
-        cy.contains('Country of dispatch')
+        cy.contains('Coming from')
         cy.contains('Customs value')
         
      //   Check values 

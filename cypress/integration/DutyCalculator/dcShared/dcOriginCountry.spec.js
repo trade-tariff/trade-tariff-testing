@@ -16,7 +16,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     cy.contains('Which country are the goods coming from?')
     
     cy.contains('The duty you are charged may be dependent on the country from which the goods are coming.')
-    cy.contains('Enter the country of dispatch:')
+    cy.contains('Where are the goods coming from?')
     cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
 
       //select country from list 

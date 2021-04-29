@@ -31,9 +31,8 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.contains('Search the Quotas')
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Sorry, there is a problem with the search query. Please specify one or more search criteria.')
-
     })
-    it.only('Quotas Search - Country list - 🇲🇦  Results',function(){
+    it('Quotas Search - Country list - 🇲🇦  Results',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
@@ -44,9 +43,8 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.contains('Quota search results')
         cy.get('.govuk-table__row')
             .contains('Morocco (MA)')
-
     })
-    it.only('Quotas Search - Country list - 🇧🇫  No results',function(){
+    it('Quotas Search - Country list - 🇧🇫  No results',function(){
         cy.visit('/quota_search')
         cy.contains('Search the Quotas')
         cy.get('.js-quota-country-picker').click()
@@ -55,7 +53,6 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('There are no matching results')
-
     })
     it('Quotas Search - 🇨🇭  Reset to all countries',function(){
         cy.visit('/quota_search')
@@ -80,7 +77,6 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
         cy.get('.govuk-table__row').contains('057140')
-
     })
 
     it('Quotas Search - Critical state',function(){
@@ -94,7 +90,6 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.get('select#critical').select('No')
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
-
     })
 
     it('Quotas Search - Status',function(){
@@ -116,7 +111,6 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.get('select#status').select('Not exhausted')
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
-
     })
 
     it('Quotas Search - Years',function(){
@@ -128,13 +122,10 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
         //2020
-
         cy.get('select#years_').select('2020')
         cy.get('select#status').select('Not exhausted')
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
-
-
     })
 
 })

@@ -19,7 +19,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
         cy.contains('Commodity code')
         cy.contains('Date of import')
         cy.contains('Destination')
-        cy.contains('Country of dispatch')
+        cy.contains('Coming from')
         cy.contains('Trader scheme')
         cy.contains('Certificate of origin')
         cy.contains('Customs value')
