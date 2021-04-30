@@ -78,7 +78,7 @@ describe(' 🇬🇧 💡 | quotas-PR-UK | Quotas , P&R to be available for UK se
     })
     //export
     it('12.P&R:EQC Certificate of Conformity', function () {
-        cy.visit('/commodities/0709939000#export')
+        cy.visit('/commodities/0805220020#export')
         cy.get('.govuk-tabs__panel')
             .contains('Certificate of Conformity').should('exist')
     })

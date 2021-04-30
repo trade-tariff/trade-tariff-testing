@@ -231,7 +231,7 @@ describe('🇪🇺 💡 |certificateSearch-XI | Certificate Search - XI services
         cy.contains('There are no matching results')
 
     })
-    it.only('XI Certificate Search : U - Proofs of origin', function () {
+    it('XI Certificate Search : U - Proofs of origin', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -253,7 +253,7 @@ describe('🇪🇺 💡 |certificateSearch-XI | Certificate Search - XI services
         }
 
     })
-    it.only('XI Certificate Search : X - Export licence', function () {
+    it('XI Certificate Search : X - Export licence', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 
@@ -274,7 +274,7 @@ describe('🇪🇺 💡 |certificateSearch-XI | Certificate Search - XI services
         }
     })
 
-    it.only('XI Certificate Search : Y - Particular provisions', function () {
+    it('XI Certificate Search : Y - Particular provisions', function () {
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
 

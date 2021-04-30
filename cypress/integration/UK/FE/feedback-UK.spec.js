@@ -3,9 +3,7 @@ describe.skip('🇬🇧 💡 | feedback-UK | feedback link is available and user
     Cypress.config('baseUrl')
 
     it('UK - All pages- Feedback link available  ', function () {
-
         let pages = ['/sections/1', '/chapters/01', '/headings/0101','/commodities/0101210000',]
-
         for (let i = 0; i < pages.length; i++) {
             cy.visit(`${pages[i]}`)
             cy.get('.govuk-footer__navigation')
@@ -13,7 +11,7 @@ describe.skip('🇬🇧 💡 | feedback-UK | feedback link is available and user
         }
     })
 
-    it.only('UK - Feedback link works ', function () {
+    it('UK - Feedback link works ', function () {
         cy.visit('/sections')
         cy.get('.govuk-footer__navigation')
         cy.contains('Feedback')
