@@ -7,7 +7,6 @@
     "@jc21/cypress-jsonschema-validation": "^0.0.1",
     "@jc21/cypress-swagger-validation": "^0.1.0",
     "ansi-styles": "^5.0.0",
-    "cypress-lighthouse": "^0.1.0",
     "cypress-tags": "^0.0.20"
   },
   "devDependencies": {
