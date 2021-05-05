@@ -1199,8 +1199,6 @@
   "integrity" "sha512-4paN7RivvU3Rzju1vGSHWPjO8Y0rI6droWvSFKI6dvEQ4mvoV0zGojnlzVRfI6N8zISo6VERXt3coIuVmzuvNg=="
   "resolved" "https://registry.npmjs.org/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-1.0.2.tgz"
   "version" "1.0.2"
-  dependencies:
-    "chokidar" "^2.0.4"
   optionalDependencies:
     "chokidar" "^2.0.4"
 
@@ -1734,7 +1732,6 @@
     "anymatch" "^2.0.0"
     "async-each" "^1.0.1"
     "braces" "^2.3.2"
-    "fsevents" "^1.2.7"
     "glob-parent" "^3.1.0"
     "inherits" "^2.0.3"
     "is-binary-path" "^1.0.0"
@@ -1753,7 +1750,6 @@
   dependencies:
     "anymatch" "~3.1.1"
     "braces" "~3.0.2"
-    "fsevents" "~2.1.1"
     "glob-parent" "~5.1.0"
     "is-binary-path" "~2.1.0"
     "is-glob" "~4.0.1"
@@ -1848,7 +1844,6 @@
   "resolved" "https://registry.npmjs.org/cli-table3/-/cli-table3-0.6.0.tgz"
   "version" "0.6.0"
   dependencies:
-    "colors" "^1.1.2"
     "object-assign" "^4.1.0"
     "string-width" "^4.2.0"
   optionalDependencies:
@@ -2863,7 +2858,6 @@
     "estraverse" "^4.2.0"
     "esutils" "^2.0.2"
     "optionator" "^0.8.1"
-    "source-map" "~0.6.1"
   optionalDependencies:
     "source-map" "~0.6.1"
 
@@ -4146,8 +4140,6 @@
   "integrity" "sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss="
   "resolved" "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz"
   "version" "4.0.0"
-  dependencies:
-    "graceful-fs" "^4.1.6"
   optionalDependencies:
     "graceful-fs" "^4.1.6"
 
@@ -4156,7 +4148,6 @@
   "resolved" "https://registry.npmjs.org/jsonfile/-/jsonfile-6.1.0.tgz"
   "version" "6.1.0"
   dependencies:
-    "graceful-fs" "^4.1.6"
     "universalify" "^2.0.0"
   optionalDependencies:
     "graceful-fs" "^4.1.6"
@@ -6979,7 +6970,6 @@
   "resolved" "https://registry.npmjs.org/z-schema/-/z-schema-4.2.3.tgz"
   "version" "4.2.3"
   dependencies:
-    "commander" "^2.7.1"
     "lodash.get" "^4.4.2"
     "lodash.isequal" "^4.5.0"
     "validator" "^12.0.0"

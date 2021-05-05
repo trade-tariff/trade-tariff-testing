@@ -4,11 +4,37 @@ orbs:
   slack: circleci/slack@4.1
 
 workflows:
+  debug:
+    jobs:
+      - cypress/run:
+          context: trade-tariff
+          name: "🚀 UK & XI Smoke tests"
+          executor: cypress/browsers-chrome77
+          browser: chrome
+          store_artifacts: true
+          spec: "*/**/smokeTestUKXI.spec.js"
+          post-steps:
+            - store_test_results:
+                path: cypress/results
+            - store_artifacts:
+                path: cypress/reports
+            - slack/notify:
+                channel: tariffs-etl
+                event: fail
+                template: basic_fail_1
+            - slack/notify:
+                channel: tariffs-etl
+                event: pass
+                template: basic_success_1
+          filters:
+            branches:
+              only:
+                - debug-cron
+
   nightly:
     triggers:
       - schedule:
-#          cron: "0 5 * * *"
-          cron: "10 10 * * *"
+          cron: "0 5 * * *"
           filters:
             branches:
               only:
@@ -22,35 +48,15 @@ workflows:
           store_artifacts: true
           spec: "*/**/smokeTestUKXI.spec.js"
           post-steps:
-            - run: mkdir -p cypress/reports/mochareports
-            - run: npm run combine-reports && npm run generate-report
             - store_test_results:
                 path: cypress/results
             - store_artifacts:
                 path: cypress/reports
             - slack/notify:
                 channel: tariffs-etl
-                custom: |
-                  {
-                    "blocks": [
-                      {
-                        "type": "section",
-                        "text": {
-                          "type": "mrkdwn",
-                          "text": " 🚀 UK & XI Smoke tests"
-                        },
-                        "accessory": {
-                          "type": "button",
-                          "text": {
-                            "type": "plain_text",
-                            "text": "Report",
-                            "emoji": true
-                          },
-                          "value": "click_me_123",
-                          "url": "https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
-                          "action_id": "button-action"
-                        }
-                      }
-                    ]
-                  }
-                event: always
+                event: fail
+                template: basic_fail_1
+            - slack/notify:
+                channel: tariffs-etl
+                event: pass
+                template: basic_success_1

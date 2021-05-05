@@ -1,7 +1,7 @@
 
 describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests to cover basic functionality on UK & XI services |',function() {
-    
- 
+
+
     // Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
@@ -215,10 +215,10 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`,function(){
 
         const sizes = ['iphone-6','samsung-note9']
-        
+
             for (let i=0 ;i<sizes.length ;i++){
                 cy.viewport(`${sizes[i]}`)
-   
+
                 cy.visit('/sections')
                 cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
                 cy.get('.govuk-header__menu-button').click()
@@ -227,9 +227,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
                 cy.contains('Search or browse the Tariff').click()
                 cy.contains('All sections')
             }
-    
+
 })
-// Duty Calculator tests 
+// Duty Calculator tests
     it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`,function(){
         cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
@@ -242,28 +242,28 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({value:'Singapore'})
-    
+
     })
     it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`,function(){
         cy.visit('/duty-calculator/xi/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('uk')
-    
+
     })
     it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`,function(){
         cy.visit('/duty-calculator/xi/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('eu')
-    
+
     })
 
-//XI tests 
+//XI tests
 
     //Main Page
     it('🚀 XI 🇪🇺 - Main Page Validation', function () {
-        
+
         cy.visit('xi/sections')
         cy.MainPageXI();
     })
@@ -400,11 +400,11 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('This tariff is for 7 April 2021')
     })
     it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`,function(){
-        
+
         const sizes = ['iphone-6','samsung-note9']
             for (let i=0 ;i<sizes.length ;i++){
                 cy.viewport(`${sizes[i]}`)
-   
+
                 cy.visit('xi/sections')
                 cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
                 cy.get('.govuk-header__menu-button').click()
@@ -414,7 +414,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
                 cy.contains('All sections')
 
             }
-        
+
 })
 
 

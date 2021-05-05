@@ -19,13 +19,11 @@ import './commands'
 import 'cypress-fill-command'
 //require('@shelex/cypress-allure-plugin');
 //import ‘cypress-audit/commands’
-import 'cypress-lighthouse';
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
     return false
   })
-  
-  
-  
+
+
