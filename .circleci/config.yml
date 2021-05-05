@@ -25,7 +25,21 @@ workflows:
             - slack/notify:
                 channel: tariffs-etl
                 event: pass
-                template: basic_success_1
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "*Smoke tests passed*",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
           filters:
             branches:
               only:
