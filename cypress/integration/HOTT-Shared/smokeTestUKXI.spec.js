@@ -229,32 +229,33 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             }
     
 })
-    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`,function(){
-        cy.visit('/uk/0702000007/import-date')
+// Duty Calculator tests 
+    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`,function(){
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({value:'Northern Ireland'})
 
     })
-    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`,function(){
-        cy.visit('/uk/0702000007/import-date')
+    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`,function(){
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({value:'Singapore'})
     
     })
-    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( GB to NI ) 406`,function(){
-        cy.visit('/uk/0702000007/import-date')
+    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`,function(){
+        cy.visit('/duty-calculator/xi/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
-        cy.selectDestination('uk')
+        cy.selectOrigin('uk')
     
     })
-    it.skip(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( EU to NI )`,function(){
-        cy.visit('/uk/0702000007/import-date')
+    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`,function(){
+        cy.visit('/duty-calculator/xi/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
-        cy.selectDestination('eu')
+        cy.selectOrigin('eu')
     
     })
 
