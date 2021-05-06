@@ -1,4 +1,4 @@
-describe('Performance Metrics for DC ', () => {
+describe.skip('Performance Metrics for DC ', () => {
   before(function () {
     cy.lighthouse('https://staging.trade-tariff.service.gov.uk/duty-calculator/uk/0702000007/import-date').as('results')
     

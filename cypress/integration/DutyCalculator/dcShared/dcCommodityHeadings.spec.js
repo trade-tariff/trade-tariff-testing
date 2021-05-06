@@ -1,8 +1,6 @@
 describe('🇬🇧 💡 | dcCommodityheadings.spec | Commodities which are also headings to be supressed on DC  -  UK services |',function() {
     Cypress.config('baseUrl')
 
-
-
     it('UK - Duty calculator link to be suppressed on commodities which are also headings ', function () {
         let comms = ["0409000000","0510000000","8804000000","2509000000","2802000000","3101000000","3914000000","4004000000","4812000000","5001000000","4112000000","4705000000"]
         for (let i=0;i<comms.length;i++)
@@ -28,9 +26,9 @@ describe('🇬🇧 💡 | dcCommodityheadings.spec | Commodities which are also 
     it('UK - Duty calculator link to be available on commodities ', function () {
         cy.visit('/sections')
         cy.get('.js-commodity-picker-select').click().type('8803100010')
-        cy.wait(950)
+        cy.wait(1000)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(500)
         cy.contains('Commodity information for 8803100010')
         cy.contains('Duty calculation').should('exist') 
     })
