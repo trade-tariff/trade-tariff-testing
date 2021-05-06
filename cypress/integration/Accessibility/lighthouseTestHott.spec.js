@@ -1,4 +1,4 @@
-describe('Performance Metrics for HOTT ', () => {
+describe.skip('Performance Metrics for HOTT ', () => {
   before(function () {
     cy.lighthouse('https://www.trade-tariff.service.gov.uk/sections').as('results')
   })
