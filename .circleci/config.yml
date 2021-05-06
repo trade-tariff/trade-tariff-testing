@@ -33,7 +33,7 @@ workflows:
                         "fields": [
                           {
                             "type": "plain_text",
-                            "text": "*Smoke tests passed*",
+                            "text": "*Smoke tests passed* :white_check_mark:",
                             "emoji": true
                           }
                         ]
@@ -81,7 +81,7 @@ workflows:
                         "fields": [
                           {
                             "type": "plain_text",
-                            "text": "*Smoke tests passed*",
+                            "text": "*Smoke tests passed* :white_check_mark:",
                             "emoji": true
                           }
                         ]
