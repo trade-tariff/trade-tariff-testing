@@ -1,5 +1,5 @@
 
-describe('|RoW-GB205-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  | 201-e2e.spec | ',function(){
+describe('|RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     
 
@@ -19,9 +19,10 @@ describe('|RoW-GB205-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  | 201-e2
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Third-country duty')
         cy.contains('Option 3: Tariff preference - GSP – Least Developed Countries')
-        cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
-        cy.contains('Option 5: Airworthiness tariff suspension')
-    
+        cy.contains('Option 4: Autonomous tariff suspension')
+        cy.contains('Option 5: Autonomous tariff suspension')
+        cy.contains('Option 6: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
+        cy.contains('Option 7: Airworthiness tariff suspension')
     })
 
  })
