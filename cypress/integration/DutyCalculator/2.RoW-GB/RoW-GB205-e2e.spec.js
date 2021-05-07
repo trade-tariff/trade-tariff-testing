@@ -1,5 +1,5 @@
 
-describe('|RoW-GB204-e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  | 201-e2e.spec | ',function(){
+describe('|RoW-GB205-e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     
 
