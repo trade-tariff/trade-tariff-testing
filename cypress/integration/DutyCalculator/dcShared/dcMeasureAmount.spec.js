@@ -2,6 +2,20 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |',function() {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
 
+    it('Commodity with Kilos',function(){
+        cy.visit('uk/1701141000/import-date')
+
+    })
+    it('Commodity with Litres',function(){
+
+    })
+    it('Commodity with Items',function(){
+        
+    })
+    it('Commodity with Thousands of Items',function(){
+        
+    })
+
     it('1.Page Validation', function () {
         cy.visit('uk/1701141000/import-date')
      //   cy.visit('/import-date?referred_service=uk&commodity_code=1701141000')
