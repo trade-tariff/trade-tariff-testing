@@ -11,9 +11,6 @@ beforeEach(() => {
   //  cy.viewport('iphone-x')
   //  cy.viewport('samsung-note9')
 })
-
-
-
 // ******* Custom Commands *******
 
 //UK Checks main page title , sections , content and switching link available , search section
@@ -228,6 +225,12 @@ Cypress.Commands.add('exchangeRate',()=>{
     cy.contains('Please note - the current page uses an exchange rate of ') 
     cy.contains('More about this exchange rate').click()
     cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+})
+Cypress.Commands.add('additionalCode',(addcode)=>{
+    cy.contains('Describe your goods in more detail')
+    cy.get('select').select(addcode.code)
+    cy.contains('Continue').click()
+
 })
 
 
