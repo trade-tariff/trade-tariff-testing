@@ -34,6 +34,8 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
+
+        cy.additionalCode({code:'B964'})
         
     //Check your answers page 
         cy.contains('Check your answers')
@@ -45,12 +47,14 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.contains('Coming from')
         cy.contains('Customs value')
         
+        
 //   cy.get('.govuk-summary-list__value')
         cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10')
-        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2021')
-        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)')
-        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Turkey')
-        cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£10,002.24')
+        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('B964')
+        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 December 2021')
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)')
+        cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Turkey')
+        cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('£10,002.24')
  
     //confirm
         cy.get('.govuk-button').click()
@@ -73,7 +77,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.contains('Valuation of import:')
         //values
         cy.contains('0304 82 90 10')
-        cy.contains('0304 82 90 10 Of the species Oncorhynchus mykiss')
+        cy.contains('0304 82 90 10 (B964) Of the species Oncorhynchus mykiss')
         cy.contains('31 December 2021')
         cy.contains('£10,002.24')
 
@@ -91,7 +95,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.contains('Import duty Third-country duty (UK)')
         cy.contains('12.0% * £10,002.24')
 
-        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£1,200.27')
+        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£690.15')
         //Last row 
         cy.contains('Duty Total')
 
@@ -99,9 +103,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.contains('Import duty calculation')
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - Turkey')
-        cy.contains('There are trade defence measures applicable for the import of this commodity from certain companies. Please view the commodity page for more information.')
-       
-
+        cy.contains('Definitive countervailing duty (UK)')
 })
 
 }
