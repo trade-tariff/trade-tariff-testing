@@ -47,7 +47,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     })
 
     it('UK - Header text - Page - Commodity information for 0406103010 is displayed',function(){
-        cy.get('.commodity-header.govuk-heading-l').should('be.visible')
+    //    cy.get('.commodity-header.govuk-heading-l').should('be.visible')
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
     })
 
