@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI version)',function() {
+describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI version)', function () {
     // HOTT-94
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -15,17 +15,17 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
     it('breadcrumbs - Quotas ', function () {
         cy.visit('/tools')
         // XI not to have quotas 
-     //   cy.get('.govuk-list')
-     //       .contains('Quotas').click()
-     //   cy.contains('Search the Quotas')
-     //   cy.get('.govuk-breadcrumbs')
-     //       .contains('Quotas')
+        //   cy.get('.govuk-list')
+        //       .contains('Quotas').click()
+        //   cy.contains('Search for quotas')
+        //   cy.get('.govuk-breadcrumbs')
+        //       .contains('Quotas')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-       cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
     })
 
     it('breadcrumbs - Certificates ,licences and documents', function () {
@@ -38,7 +38,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-       cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
 
     })
     it('breadcrumbs - Additional codes', function () {
@@ -51,7 +51,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-       cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
 
     })
     it('breadcrumbs - Chemicals', function () {
@@ -64,7 +64,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-       cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
 
     })
 })

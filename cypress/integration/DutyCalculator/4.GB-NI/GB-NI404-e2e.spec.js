@@ -42,7 +42,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
 
         //Check your answers page 
         cy.contains('Check your answers')
-        cy.get('.govuk-grid-column-three-quarters')
+         
         cy.contains('Commodity code')
         cy.contains('Date of import')
         cy.contains('Destination')

@@ -1,13 +1,13 @@
 
-describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests to cover basic functionality on UK & XI services |',function() {
+describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests to cover basic functionality on UK & XI services |', function () {
 
 
     // Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
     //Main Page
-    it('🚀 UK 🇬🇧 - Main Page Validation',function(){
-       cy.visit('/sections')
+    it('🚀 UK 🇬🇧 - Main Page Validation', function () {
+        cy.visit('/sections')
         cy.MainPageUK();
     })
     //switching link works
@@ -81,7 +81,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('li#q__option--0')
         cy.wait(400)
         cy.get('input[name=\'new_search\']').click()
-      //  cy.wait(500)
+        //  cy.wait(500)
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
@@ -98,7 +98,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
-    it('🚀 UK 🇬🇧 - Country Selection - imports ',function(){
+    it('🚀 UK 🇬🇧 - Country Selection - imports ', function () {
         cy.visit('/commodities/0208909800#import')
         // no XI
         cy.get('input#import_search_country').click().clear().wait(200).type('(XI)').wait(500)
@@ -122,7 +122,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('No results found')
     })
     //Country selection - imports
-    it('🚀 UK 🇬🇧 - Country Selection - exports ',function(){
+    it('🚀 UK 🇬🇧 - Country Selection - exports ', function () {
         cy.visit('/commodities/0208909800#export')
         // no XI
         cy.get('input#export_search_country').click().clear().wait(500).type('(XI)').wait(500)
@@ -183,9 +183,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .contains('United Kingdom (GB)').should('not.exist')
     })
     // Quota Search using order number
-    it('🚀 UK 🇬🇧 - Quotas Search - Order Number',function(){
+    it('🚀 UK 🇬🇧 - Quotas Search - Order Number', function () {
         cy.visit('/quota_search')
-        cy.contains('Search the Quotas')
+        cy.contains('Search for quotas')
         cy.get('input#order_number')
             .click().clear().type('057140')
         cy.get('form#new_search > input[name=\'new_search\']').click()
@@ -194,9 +194,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
     })
     // Quota Search using Commodity number
-    it('🚀 UK 🇬🇧 - Quotas Search - Commodity Code',function(){
+    it('🚀 UK 🇬🇧 - Quotas Search - Commodity Code', function () {
         cy.visit('/quota_search')
-        cy.contains('Search the Quotas')
+        cy.contains('Search for quotas')
         cy.get('input#goods_nomenclature_item_id')
             .click()
             .clear()
@@ -206,52 +206,52 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('.govuk-table__head')
             .contains('Order number')
 
-            cy.get('.quota-results.govuk-table')
-            cy.contains('057015').click()
-            cy.get('.tariff-info')
-                .should('contain','Order Number','057015','Start date','01/01/2021')
-            cy.get('.close [href]').click()
+        cy.get('.quota-results.govuk-table')
+        cy.contains('057015').click()
+        cy.get('.tariff-info')
+            .should('contain', 'Order Number', '057015', 'Start date', '01/01/2021')
+        cy.get('.close [href]').click()
     })
-    it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`,function(){
+    it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`, function () {
 
-        const sizes = ['iphone-6','samsung-note9']
+        const sizes = ['iphone-6', 'samsung-note9']
 
-            for (let i=0 ;i<sizes.length ;i++){
-                cy.viewport(`${sizes[i]}`)
+        for (let i = 0; i < sizes.length; i++) {
+            cy.viewport(`${sizes[i]}`)
 
-                cy.visit('/sections')
-                cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
-                cy.get('.govuk-header__menu-button').click()
-                cy.contains('A-Z')
-                cy.contains('Tools')
-                cy.contains('Search or browse the Tariff').click()
-                cy.contains('All sections')
-            }
+            cy.visit('/sections')
+            cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
+            cy.get('.govuk-header__menu-button').click()
+            cy.contains('A-Z')
+            cy.contains('Tools')
+            cy.contains('Search or browse the Tariff').click()
+            cy.contains('All sections')
+        }
 
-})
-// Duty Calculator tests
-    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`,function(){
+    })
+    // Duty Calculator tests
+    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
         cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('gb')
-        cy.originList({value:'Northern Ireland'})
+        cy.originList({ value: 'Northern Ireland' })
 
     })
-    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`,function(){
+    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
         cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('gb')
-        cy.originList({value:'Singapore'})
+        cy.originList({ value: 'Singapore' })
 
     })
-    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`,function(){
+    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
         cy.visit('/duty-calculator/xi/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('uk')
 
     })
-    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`,function(){
+    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function () {
         cy.visit('/duty-calculator/xi/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
@@ -259,7 +259,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
     })
 
-//XI tests
+    //XI tests
 
     //Main Page
     it('🚀 XI 🇪🇺 - Main Page Validation', function () {
@@ -325,7 +325,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('li#q__option--0')
         cy.wait(400)
         cy.get('input[name=\'new_search\']').click()
-            cy.wait(500)
+        cy.wait(500)
         cy.contains('Commodity information for 3808941000')
     })
 
@@ -399,23 +399,23 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
             .contains('This tariff is for 7 April 2021')
     })
-    it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`,function(){
+    it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`, function () {
 
-        const sizes = ['iphone-6','samsung-note9']
-            for (let i=0 ;i<sizes.length ;i++){
-                cy.viewport(`${sizes[i]}`)
+        const sizes = ['iphone-6', 'samsung-note9']
+        for (let i = 0; i < sizes.length; i++) {
+            cy.viewport(`${sizes[i]}`)
 
-                cy.visit('xi/sections')
-                cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-                cy.get('.govuk-header__menu-button').click()
-                cy.contains('A-Z')
-                cy.contains('Tools')
-                cy.contains('Search or browse the Tariff').click()
-                cy.contains('All sections')
+            cy.visit('xi/sections')
+            cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
+            cy.get('.govuk-header__menu-button').click()
+            cy.contains('A-Z')
+            cy.contains('Tools')
+            cy.contains('Search or browse the Tariff').click()
+            cy.contains('All sections')
 
-            }
+        }
 
-})
+    })
 
 
 

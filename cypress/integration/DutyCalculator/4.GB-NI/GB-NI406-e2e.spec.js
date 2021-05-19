@@ -40,7 +40,7 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
 
         //Check your answers page 
         cy.contains('Check your answers')
-        cy.get('.govuk-grid-column-three-quarters')
+         
      //   cy.get('.govuk-summary-list__key')
         cy.contains('Commodity code')
         cy.contains('Date of import')

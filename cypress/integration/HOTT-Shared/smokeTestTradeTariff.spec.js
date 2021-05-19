@@ -1,5 +1,5 @@
 
-describe('🚀 Trade Tariff Smoke Tests | UK & XI | Smoke tests for UK & XI services |',function() {
+describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for UK & XI services |',function() {
 
     Cypress.config('baseUrl')
 
@@ -183,7 +183,7 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Smoke tests for UK & XI serv
     // Quota Search using order number
     it('🚀 UK 🇬🇧 - Quotas Search - Order Number',function(){
         cy.visit('/quota_search')
-        cy.contains('Search the Quotas')
+        cy.contains('Search for quotas')
         cy.get('input#order_number')
             .click().clear().type('057140')
         cy.get('form#new_search > input[name=\'new_search\']').click()
@@ -194,7 +194,7 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Smoke tests for UK & XI serv
     // Quota Search using Commodity number
     it('🚀 UK 🇬🇧 - Quotas Search - Commodity Code',function(){
         cy.visit('/quota_search')
-        cy.contains('Search the Quotas')
+        cy.contains('Search for quotas')
         cy.get('input#goods_nomenclature_item_id')
             .click()
             .clear()

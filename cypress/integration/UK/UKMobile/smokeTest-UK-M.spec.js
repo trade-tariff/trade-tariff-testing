@@ -1,9 +1,9 @@
-describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |',function() {
+describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |', function () {
 
     Cypress.config('baseUrl')
 
     //Main Page
-    it('🚀 UK - Main Page Validation',function(){
+    it('🚀 UK - Main Page Validation', function () {
         cy.viewport('iphone-x')
         cy.visit('/sections')
         //check header has UK information
@@ -13,12 +13,12 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
             .contains('UK Global Online Tariff')
         //check correct text is displayed on banner as per UK - If they are at risk
         cy.get('.tariff-breadcrumbs')
-            .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
+            .should('have.text', 'From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
         //Search the tariff section
         cy.get('.govuk-label')
             .contains('Search the UK Global Online Tariff')
         cy.get('.govuk-header__menu-button').click()
-            cy.contains('Search or browse the Tariff').click()
+        cy.contains('Search or browse the Tariff').click()
         cy.contains('All sections')
     })
     //Legal base tests
@@ -120,7 +120,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
-    it('🚀 UK - Country Selection - imports ',function(){
+    it('🚀 UK - Country Selection - imports ', function () {
         cy.viewport('iphone-x')
         cy.visit('/commodities/0208909800#import')
         // no XI
@@ -145,7 +145,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
             .contains('No results found')
     })
     //Country selection - exports
-    it('🚀 UK - Country Selection - exports ',function(){
+    it('🚀 UK - Country Selection - exports ', function () {
         cy.viewport('iphone-x')
         cy.visit('/commodities/0208909800#export')
         // no XI
@@ -209,10 +209,10 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
             .contains('United Kingdom (GB)').should('not.exist')
     })
     // Quota Search using order number
-    it('🚀 UK - Quotas Search - Order Number',function(){
+    it('🚀 UK - Quotas Search - Order Number', function () {
         cy.viewport('iphone-x')
         cy.visit('/quota_search')
-        cy.contains('Search the Quotas')
+        cy.contains('Search for quotas')
         cy.get('input#order_number')
             .click().clear().type('057140')
         cy.get('form#new_search > input[name=\'new_search\']').click()
@@ -221,10 +221,10 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
 
     })
     // Quota Search using Commodity number
-    it('🚀 UK - Quotas Search - Commodity Code',function(){
+    it('🚀 UK - Quotas Search - Commodity Code', function () {
         cy.viewport('iphone-x')
         cy.visit('/quota_search')
-        cy.contains('Search the Quotas')
+        cy.contains('Search for quotas')
         cy.get('input#goods_nomenclature_item_id')
             .click()
             .clear()
@@ -237,7 +237,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.get('.quota-results.govuk-table')
         cy.contains('057015').click()
         cy.get('.tariff-info')
-            .should('contain','Order Number','057015','Start date','01/01/2021')
+            .should('contain', 'Order Number', '057015', 'Start date', '01/01/2021')
         cy.get('.close [href]').click()
     })
 

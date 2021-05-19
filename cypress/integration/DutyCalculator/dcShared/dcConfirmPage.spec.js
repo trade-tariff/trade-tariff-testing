@@ -14,7 +14,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |',function() {
 
             
         cy.contains('Check your answers')
-        cy.get('.govuk-grid-column-three-quarters')
+         
      //   cy.get('.govuk-summary-list__key')
         cy.contains('Commodity code')
         cy.contains('Date of import')
