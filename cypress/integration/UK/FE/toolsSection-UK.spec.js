@@ -1,6 +1,6 @@
-describe('🇬🇧 💡 | toolsSection-UK | Tools Section - breadcrumbs   - (UK version) |',function() {
+describe('🇬🇧 💡 | toolsSection-UK | Tools Section - breadcrumbs   - (UK version) |', function () {
     // HOTT-94
-  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
+    //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
     it('Tools Section in header ', function () {
@@ -17,7 +17,7 @@ describe('🇬🇧 💡 | toolsSection-UK | Tools Section - breadcrumbs   - (UK 
         cy.visit('/tools')
         cy.get('.govuk-list')
             .contains('Quotas').click()
-        cy.contains('Search the Quotas')
+        cy.contains('Search for quotas')
         cy.get('.govuk-breadcrumbs')
             .contains('Quotas')
         cy.get('.govuk-breadcrumbs__list')
