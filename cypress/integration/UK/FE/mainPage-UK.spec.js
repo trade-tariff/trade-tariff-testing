@@ -19,11 +19,6 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.get('.govuk-header ')
         cy.contains('Forum').should('not.exist')
     })
-    it.skip('UK - Check correct date is displayed',function(){
-        cy.visit('/sections')
-        cy.get('.govuk-grid-column-full')
-            .contains(Cypress.moment().format('DD MMMM YYYY'))
-    })
     //Sub sections in headings
     it('UK - Header text - Sub sections on headings banner ', function () {
         cy.visit('/sections')
@@ -48,19 +43,10 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
 
     it('UK - Header text - Page - Commodity information for 0406103010 is displayed',function(){
     //    cy.get('.commodity-header.govuk-heading-l').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
-    })
-
-    it('UK - Header text - Page - chapter notes is visible',function(){
-        cy.get('div:nth-of-type(1) > .govuk-heading-s').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
-    })
-
-
-    it('UK - Header text - page - select Chile from All countries list',()=>{
+        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')   
         cy.get('a#tab_import').click()
-        cy.get('input#import_search_country').click().clear().wait(500)
-            .type('Chile').wait(500)
+        cy.get('input#import_search_country').click().clear().wait(400)
+            .type('Chile').wait(600)
             .type('{enter}')
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
 

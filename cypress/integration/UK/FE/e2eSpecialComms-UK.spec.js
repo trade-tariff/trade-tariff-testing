@@ -58,14 +58,13 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.contains('8.00 %')
     })
 
-    it(' 🍅 Cherry Tomatoes\n- Check that the duty is a standard ad valorem (8.00%) ,Check that there is no condition against the ad valorem third country duty,Check that there is a single quota for Morocco',function() {
+    it(' 🍅 Cherry Tomatoes 🇲🇦 \n- Check that the duty is a standard ad valorem (8.00%) ,Check that there is no condition against the ad valorem third country duty,Check that there is a single quota for Morocco',function() {
         cy.visit('/commodities/0702000007?country=MA#import')
             .contains('Commodity information for 0702000007')
         cy.get('.govuk-header__content')
             .contains('UK Global Online Tariff')
-        cy.get('#measure-20001033')
         cy.contains('Third country duty')
-        cy.contains('8.00 %')
+        cy.contains('14.00 %')
       //  cy.get('#measure-20097244')
         cy.get('.govuk-tabs__panel')
         cy.contains('Preferential tariff quota')
