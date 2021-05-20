@@ -11,13 +11,16 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
             .contains('Terms and conditions')
     })
 
-    it('XI - Cookies -navigates to right UK page',function(){
+    it('XI - Cookies -navigates to right XI page',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
             .contains('Cookies').click()
         cy.title().should('eq','Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
         cy.get('.govuk-main-wrapper')
             .contains('Cookies')
+        cy.get('.govuk-breadcrumbs__list')
+            .contains('Home').click()
+        cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
 
     })
     it('XI - Privacy-navigates to right UK page ',function(){
