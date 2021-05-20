@@ -145,18 +145,18 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
 
     })
     //Date picker working and persists on UK XI sites
-    it('🚀 UK 🇬🇧 - Change date and verify if the data shown is same for both XI and UK', function () {
+    it('🚀 UK 🇬🇧 - (past date) Change date and verify if the data shown is same for both XI and UK', function () {
         cy.visit('/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
             .clear()
-            .type('07/04/2021')
+            .type('28/02/2020')
         cy.get('.fields > a[role=\'button\']')
             .contains('Set date').click()
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 28 February 2020')
 
         cy.get('main#content  nav  a')
             .contains('Northern Ireland Online Tariff').click()
@@ -167,7 +167,7 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 28 February 2020')
     })
     // UK not in EU country list
     it('🚀 UK 🇬🇧 - United Kingdom should not be shown in EU country list', function () {
@@ -337,17 +337,17 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
             .contains('No results found')
     })
     //Date picker working and persists on UK XI sites
-    it('🚀 XI 🇪🇺 - Change Date and check if the data shown is same for both XI and UK', function () {
+    it('🚀 XI 🇪🇺 - ( future date) Change Date and check if the data shown is same for both XI and UK', function () {
         cy.visit('xi/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
             .clear()
-            .type('07/04/2021')
+            .type('31/12/2021')
         cy.get('.fields > a[role=\'button\']')
             .contains('Set date').click()
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 31 December 2021')
         cy.get('main#content  nav  a')
             .contains('Online Tariff').click()
         cy.contains('UK Global Online Tariff')
@@ -356,7 +356,7 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
             .click()
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 31 December 2021')
     })
     it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`,function(){
 

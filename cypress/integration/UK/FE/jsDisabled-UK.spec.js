@@ -15,6 +15,6 @@ Cypress.Commands.overwrite('visit', (orig, url, options = {}) => {
   })
   
   it.skip('JS disabled test', () => {
-    cy.visit('https://dev.trade-tariff.service.gov.uk/commodities/0702000007#import', { script: false })
+    cy.visit('https://staging.trade-tariff.service.gov.uk/commodities/0702000007#import', { script: false })
     cy.get('h1').contains('JavaScript is disabled')
   })
