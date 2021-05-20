@@ -1,5 +1,5 @@
 before(() => {
-   //   cy.injectAxe()
+//   cy.injectAxe()
   //  cy.clearCookies()
  //   cy.viewport('iphone-x')
   //  cy.viewport('samsung-note9')
