@@ -38,7 +38,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
 
     })
     it('breadcrumbs - Additional codes', function () {
@@ -51,7 +51,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
 
     })
     it('breadcrumbs - Chemicals', function () {
@@ -64,7 +64,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-        cy.contains('Trade Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
 
     })
 })
