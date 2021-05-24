@@ -11,6 +11,7 @@ describe('🇪🇺 💡 A-Z - XI services)',function() {
             cy.contains('A–Z of Classified Goods')
             cy.get('.govuk-table__caption')
                 .contains(`${AZ_ids[i]}`)
+            cy.contains('Commodity').should('not.exist')
         }
 
     })

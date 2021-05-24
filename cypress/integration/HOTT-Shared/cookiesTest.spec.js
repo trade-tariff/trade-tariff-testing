@@ -60,7 +60,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
       it('Reject Cookies ,Hide Banner',function(){
        // cy.clearCookies()
         cy.visit('/sections')
-        cy.get('.govuk-button.cookie_reject_all').wait(100).click()
+        cy.get('.govuk-button.cookie_reject_all').wait(200).click()
         cy.contains('Hide this message').click().wait(200)
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22false%22%2C%22remember_settings%22%3A%22false%22%7D')

@@ -12,14 +12,9 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
         cy.contains('Chemicals')
 
     })
-    it('breadcrumbs - Quotas ', function () {
+    it('breadcrumbs - No Quotas ', function () {
         cy.visit('/tools')
         // XI not to have quotas 
-        //   cy.get('.govuk-list')
-        //       .contains('Quotas').click()
-        //   cy.contains('Search for quotas')
-        //   cy.get('.govuk-breadcrumbs')
-        //       .contains('Quotas')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
         cy.contains('Tariff tools')
