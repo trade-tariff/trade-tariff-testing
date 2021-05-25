@@ -1,11 +1,12 @@
-describe('| NI-GB-e2e | Northern Ireland to GB United Kingdom |',function(){
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-   // Cypress.config('baseUrl')
+describe('| NI-GB102-e2e | XI to GB using Duty cal Link |',function(){
+    
+    Cypress.config('baseUrl')
 
     it('e2e NI to GB ',function(){
-        console.log(Cypress.config('baseUrl', Cypress.config('services')['dutycal']))
-        cy.visit('/uk/0702000007/import-date')
+        
+        cy.visit('/commodities/1516209821')
         cy.contains('UK Global Online Tariff')
+        cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')
 
