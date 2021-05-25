@@ -1,7 +1,7 @@
 // ✅  Trade Remedies - ℹ️ 
 // Comm code : 0304829010 + with measure units 
 
-describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |',function(){
+describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies + Copy text |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
     let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
@@ -51,12 +51,20 @@ describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
         cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5,785.87')
       //  cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('25.786 tonnes') 
-      cy.get('.govuk-button').click()
+        cy.get('.govuk-button').click()
 
-      //Final Page 
+
+      //Final Page + Copy text 
       cy.contains('Import duty calculation')
       cy.contains('Option 1: Third-country duty')
+      cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union with the UK. It can also be referred to as the Most Favoured Nation (MFN) rate.')
       cy.contains('Option 2: Tariff preference')
+      cy.contains('A tariff preference is the rate available if a free trade agreement or another arrangement is in place between the UK and an overseas country. Goods will need to comply with the rules of origin to benefit from this rate and you will need to provide evidence of compliance with your shipment.')
+      cy.contains(' Option 3: Claiming a waiver – Exchange rate')
+      cy.contains('A claim for a customs duty waiver for duty on goods that would otherwise incur “at risk” tariffs is provided as “de minimis aid”. The maximum allowance for most sectors is €200,000 across a rolling three tax year period. This allowance includes all de minimis aid you have claimed over a 3 tax year period.')
+      cy.contains('This type of aid is measured in euros, so it is important to convert any aid received in pound sterling into euros. You can use this exchange rate tool to calculate the applicable euro equivalent of the value of the aid for the month you were awarded the aid.')
+
+
     })
 }
 
