@@ -2,7 +2,7 @@ describe('| NI-GB102-e2e | XI to GB using Duty cal Link |',function(){
     
     Cypress.config('baseUrl')
 
-    it('e2e NI to GB ',function(){
+    it('e2e NI to GB',tags:['@hello'],function(){
         
         cy.visit('/commodities/1516209821')
         cy.contains('UK Global Online Tariff')

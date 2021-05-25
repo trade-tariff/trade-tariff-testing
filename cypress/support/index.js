@@ -19,6 +19,7 @@ import './commands'
 import 'cypress-fill-command'
 //require('@shelex/cypress-allure-plugin');
 //import ‘cypress-audit/commands’
+require('cypress-grep')()
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
