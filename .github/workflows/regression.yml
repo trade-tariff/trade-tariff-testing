@@ -43,4 +43,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           force: true
-
+      -run: npx cypress run --record --key ${{ secrets.RECORD_KEY }} --spec "/*/**/CypressDashboardTest.spec.js"
