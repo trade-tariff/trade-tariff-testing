@@ -16,10 +16,7 @@ jobs:
         name: "Cypress Dashboard"
         continue-on-error: true
         with:
-          record: true
-          quiet: true
-          browser: chrome
-          headless: true       
+          record: true    
           spec: "/*/**/CypressDashboardTest.spec.js"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
