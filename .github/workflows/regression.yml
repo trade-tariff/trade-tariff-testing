@@ -12,6 +12,17 @@ jobs:
     steps:
       - run: date
       - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+        name: "Cypress Dashboard"
+        continue-on-error: true
+        with:
+          record: true
+          quiet: true
+          browser: chrome
+          headless: true       
+          spec: "/*/**/CypressDashboardTest.spec.js"
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
       - run: mkdir -p cypress/reports/mochareports
       - uses: cypress-io/github-action@v2
         name: "All tests"
@@ -43,4 +54,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           force: true
-      - run: npx cypress run --record --key ${{ secrets.RECORD_KEY }} --spec "/*/**/CypressDashboardTest.spec.js"
+
+     
