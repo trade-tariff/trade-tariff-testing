@@ -9,7 +9,6 @@ describe('| NI-GB102-e2e | XI to GB using Duty cal Link |',function(){
         cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')
-
        //select England ,Scotland or Wales (GB)
         cy.selectDestination('gb')
         cy.contains('Which country are the goods coming from?')

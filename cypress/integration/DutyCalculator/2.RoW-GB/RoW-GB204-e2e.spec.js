@@ -17,9 +17,7 @@ describe('|RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |',funct
         cy.additionalCode({code:'2701'})
         cy.confirmPage()
         cy.dutyPage()
-    
         cy.contains('Option 1: Third-country duty')
-       
         cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries')
         cy.contains('Option 3: Autonomous tariff suspension')
         cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
