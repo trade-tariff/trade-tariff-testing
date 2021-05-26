@@ -2,32 +2,126 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
 // Duty Calculator tests
-it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
-    cy.visit('/uk/0702000007/import-date')
-    cy.validDate()
-    cy.selectDestination('gb')
-    cy.originList({ value: 'Northern Ireland' })
+    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
+        cy.visit('/uk/1516209821/import-date')
+     //   cy.visit('/commodities/1516209821')
+        cy.validDate()
+        cy.contains('Which part of the UK are you importing into?')
+        //select England ,Scotland or Wales (GB)
+        cy.selectDestination('gb')
+        cy.contains('Which country are the goods coming from?')
+        cy.contains('The duty you are charged may be dependent on the country from which the goods are coming.')
+        cy.contains('Where are the goods coming from?')
+        cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
 
-})
-it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
-    cy.visit('/uk/0702000007/import-date')
-    cy.validDate()
-    cy.selectDestination('gb')
-    cy.originList({ value: 'Singapore' })
+        //select country from list 
+        cy.originList({ value: 'Northern Ireland' })
 
-})
-it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
-    cy.visit('/xi/0702000007/import-date')
-    cy.validDate()
-    cy.selectDestination('xi')
-    cy.selectOrigin('uk')
+        cy.contains('There is no import duty to pay')
+        cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.')
+        cy.contains('Find out more about trading and moving goods in and out of Northern Ireland (opens in a new window).')
+        cy.get('.govuk-grid-row .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland')
+        //Back Button on page 
+        cy.get('.govuk-back-link').click()
+        cy.contains('Which country are the goods coming from?')
+        cy.contains('Continue').click()
+        //Start again button 
+        cy.get('.govuk-button').click()
+        cy.contains('When will the goods be imported?')
+    })
+    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
+        //select future date 
+        cy.visit(`uk/3926909790/import-date`)
+        //   cy.visit(`/import-date?referred_service=uk&commodity_code=3926909790`)
+        cy.wait(700)
+        cy.validDate()
+        cy.selectDestination('gb')
+        cy.originList({ value: 'Afghanistan' })
+        cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
+        cy.additionalCode({ code: '2601' })
+        cy.additionalCode({ code: '2701' })
+        cy.confirmPage()
+        cy.dutyPage()
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries')
+        cy.contains('Option 3: Autonomous tariff suspension')
+        cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
+        cy.contains('Option 5: Airworthiness tariff suspension')
+        })
+    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
+        cy.visit('/xi/1701141000/import-date')
 
-})
-it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function () {
-    cy.visit('/xi/0702000007/import-date')
-    cy.validDate()
-    cy.selectDestination('xi')
-    cy.selectOrigin('eu')
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('gb')
+        // ✅ Trader Scheme Registered - Yes 
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUse('yes')
+        // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
+        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.contains('Continue').click()
+        //  🚫 Certified as UK Origin
+        cy.certificate('no')
+        // Monetary value page 
+        cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' })
+        // Measure amount page 
+        cy.quantity({ dtnr: '23.98' })
+        //Check your answers page 
+        cy.contains('Check your answers')
 
-})
-})
+        //   cy.get('.govuk-summary-list__key')
+        cy.contains('Commodity code')
+        cy.contains('Date of import')
+        cy.contains('Destination')
+        cy.contains('Coming from')
+        cy.contains('Trader scheme')
+        cy.contains('Final use')
+        cy.contains('Processing')
+        cy.contains('Certificate of origin')
+        cy.contains('Customs value')
+        cy.contains('Import quantity')
+        //   cy.get('.govuk-summary-list__value')
+        cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00')
+        cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2021')
+        cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland')
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)')
+        cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Yes')
+        cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('Yes')
+        cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('Commercial purposes')
+        cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('No')
+        cy.get('div:nth-of-type(9) > .govuk-summary-list__value').contains('£10,002.24')
+
+        cy.contains('23.98 x 100 kg')
+
+        cy.get('.govuk-button').click()
+
+        //Final Page 
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)')
+        cy.contains('Option 3: Claiming a waiver – Exchange rate')
+
+
+    })
+    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function () {
+        cy.visit('/xi/1212210000/import-date')
+        cy.validDate()
+        cy.selectDestination('xi')
+        cy.selectOrigin('eu')
+        cy.contains('There is no import duty to pay')
+        cy.contains('There is no import duty to pay when importing goods into Northern Ireland from a European Union member state.')
+
+        //Back Button on page 
+        cy.get('.govuk-back-link').click()
+        cy.contains('Which country are the goods coming from?')
+
+        cy.contains('Continue').click()
+
+        //Start again button 
+        cy.get('.govuk-button').click()
+        cy.contains('When will the goods be imported?')
+
+    })
+    })
