@@ -26,8 +26,8 @@ jobs:
           path: ./cypress/reports/mochareports/
       - run: |
           DATE=$(date +%d-%m-%Y)
-          mkdir -p docs/$DATE
-          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
+          mkdir -p docs2/$DATE
+          cp -r ./cypress/reports/mochareports/*  docs2/$DATE/
           cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
           git add docs .
       - run: |
