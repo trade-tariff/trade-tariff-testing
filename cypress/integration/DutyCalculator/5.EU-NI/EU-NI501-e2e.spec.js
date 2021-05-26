@@ -1,4 +1,4 @@
-describe('| EU-NI-e2e |EU to Northern Ireland |',function(){
+describe('| EU-NI501-e2e.spec |EU to Northern Ireland |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk","xi"] 
     for (let i =0;i<country.length;i++){
