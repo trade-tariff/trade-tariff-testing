@@ -6,6 +6,12 @@ describe.skip('cypress dashboard', function () {
     it('dashboard from GHA', function () {
         console.log(`${todaysDate}`)
         cy.visit(`https://trade-tariff.github.io/trade-tariff-testing/${todaysDate}/`)
+            cy.get('body').should('have.class', 'finished-loading');
+            cy.percySnapshot();
+
+            cy.get('button').click();
+            cy.percySnapshot('Clicked button');
+    
      //   cy.wait(5000)
      //   cy.scrollTo('bottom', { easing: 'linear' })
      
