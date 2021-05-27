@@ -1,4 +1,4 @@
-describe('| NI-GB102-e2e | XI to GB using Duty cal Link |',function(){
+describe('| *NI-GB102--e2e | XI to GB using Duty cal Link |',function(){
     
     Cypress.config('baseUrl')
 
