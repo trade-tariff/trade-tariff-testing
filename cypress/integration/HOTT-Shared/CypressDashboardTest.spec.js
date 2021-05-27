@@ -9,8 +9,10 @@ describe('cypress dashboard',function(){
         cy.wait(2000)
         cy.get("li[title='Failed']  .material-icons.quick-summary--circle-icon---1HDS7.quick-summary--icon---TW1oG").click()
         cy.wait(2000)
-        //   cy.scrollTo(0, 2000) //
-        cy.scrollTo('bottom')
+        cy.scrollTo('bottom', { easing: 'linear' })
+        cy.wait(2000)
+        
+       // cy.scrollTo('bottom')
     })
     
 })

@@ -44,7 +44,7 @@ jobs:
           branch: reports
           force: true
       - uses: cypress-io/github-action@v2
-        name: "Cypress Dashboard"
+        name: " Cypress Dashboard "
         continue-on-error: true
         with:
           record: true    
