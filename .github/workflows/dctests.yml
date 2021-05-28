@@ -9,16 +9,17 @@ jobs:
     steps:
       - run: date
       - uses: actions/checkout@v2
-      - run: mkdir -p cypress/reports/mochareports
       - uses: cypress-io/github-action@v2
         name: "DC tests"
         continue-on-error: true
         with:
+          record: true
           quiet: true
           browser: chrome
           headless: true       
           spec: "*/**/DutyCalculator/*spec.js"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
           force: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
 
