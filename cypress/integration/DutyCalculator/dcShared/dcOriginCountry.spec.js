@@ -52,6 +52,21 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     // Placeholder for next page 
 
   })
+  it.skip('RoW Option',function(){
+    cy.visit(`uk/0702000007/import-date`)
+    cy.contains('UK Global Online Tariff')
+    cy.validDate()
+    //destination
+    cy.selectDestination('xi')
+    //origin
+    cy.selectOrigin('other')
+    //select country from list 
+    cy.contains('Countries outside of GB and European Union')
+    cy.contains('Where are the goods coming from?')
+    cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
+    cy.otherOriginList({ value: 'Israel' })
+
+  })
   it('No country selected ',function(){
     cy.visit(`uk/0702000007/import-date`)
     cy.contains('UK Global Online Tariff')
@@ -72,13 +87,13 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     cy.get('.govuk-error-message')
         .contains('Enter a valid origin for this import')
 
-
     //change destination to GB
     cy.get('.govuk-back-link').click()
     cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
     cy.contains('Continue').click()
     cy.contains('Which country are the goods coming from?')
     cy.contains('Continue').click()
+    cy.wait(1000)
     cy.get('.govuk-error-summary')
     cy.contains('There is a problem')
     cy.contains('Enter a valid origin for this import')
@@ -86,4 +101,29 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
         .contains('Enter a valid origin for this import')   
 
   })
+  it.skip('ROW - No country selected - club this with |No country selected| test case after Row-NI implemented', function () {
+    cy.visit(`uk/0702000007/import-date`)
+    cy.contains('UK Global Online Tariff')
+    cy.validDate()
+    cy.contains('Which part of the UK are you importing into?')
+    //select Northern Ireland as destination
+    cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+    cy.contains('Continue').click()
+    cy.contains('Which country are the goods coming from?')
+    cy.contains('The duty you are charged may be dependent on the country from which the goods are coming.')
+    cy.contains('Continue').click()
+    cy.get('.govuk-error-summary')
+    cy.contains('There is a problem')
+    cy.contains('Enter a valid origin for this import')
+    cy.get('.govuk-error-message')
+      .contains('Enter a valid origin for this import')
+    //select RoW and continue 
+    cy.selectOrigin('other')
+    cy.get('.govuk-error-summary')
+    cy.contains('There is a problem')
+    cy.contains('Enter a valid origin for this import')
+    cy.get('.govuk-error-message')
+      .contains('Enter a valid origin for this import')
+  })
+
 })
