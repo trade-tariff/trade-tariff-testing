@@ -2,7 +2,7 @@
 describe('| dcCountriesList | RoW to GB - Exclude certain countries from the autocompleting country list |',function(){
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
 
- it(`Autocomplete excluded countries list - `,function(){
+ it(`RoW - GB - Autocomplete excluded countries list - `,function(){
     //select future date 
     
     cy.visit(`uk/1212210000/import-date`)
@@ -26,7 +26,7 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
     }
 
 })
-it(`United Kingdom (Northern Ireland) included in countries list `,function(){
+it(`RoW - GB - United Kingdom (Northern Ireland) included in countries list `,function(){
     //select future date 
     cy.visit(`uk/1212210000/import-date`)
   //  cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
@@ -46,5 +46,29 @@ it(`United Kingdom (Northern Ireland) included in countries list `,function(){
      cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
      .contains('United Kingdom (Northern Ireland)')
 })
+  it.skip('RoW to NI - Exclude EU countries ', function () {
+    cy.visit('uk/1212210000/import-date')
+    //date
+    cy.validDate()
+    //destination
+    cy.selectDestination('xi')
+    //origin
+    cy.selectOrigin('other')
+
+    //select EU countries and validate  
+    let EU_countries = ["Bobcat", "Austria", "Belgium", "Bulgaria", "Cyprus", "Czechia", "Germany", "Denmark", "Estonia", "European Union", "Finland", "France", "Greece", "Croatia", "Hungary", "Italy", "Lithuania", "Luxembourg", "Latvia", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Sweden", "Slovenia", "Slovakia"]
+
+    for (let i = 0; i < EU_countries.length; i++) {
+
+      cy.get('#wizard-steps-country-of-origin-other-country-of-origin-field')
+        .click().clear().wait(100)
+        .type(`${EU_countries[i]}`).wait(100).click()
+      cy.get("[id='wizard-steps-country-of-origin-other-country-of-origin-field__listbox']")
+        .contains('No results found')
+      cy.contains('Continue').click()
+    }
+
+
+  })
     
 })
