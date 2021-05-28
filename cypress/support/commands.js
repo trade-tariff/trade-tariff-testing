@@ -150,8 +150,12 @@ Cypress.Commands.add("selectOrigin",(origin)=>{
     cy.contains('Which country are the goods coming from?')
     if(origin === 'gb'){
         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-    }else {
+    }
+    else if(origin === 'eu') {
         cy.get('input#wizard-steps-country-of-origin-country-of-origin-eu-field').click()
+    }
+    else {
+        cy.get('input#wizard-steps-country-of-origin-country-of-origin-other-field').click()
     }
     cy.contains('Continue').click()   
 })
@@ -162,6 +166,13 @@ Cypress.Commands.add("originList",(origin)=>{
     .click().clear().type(origin.value).wait(500)
     cy.contains('Continue').click()
 })
+Cypress.Commands.add("otherOriginList", (otherorigin) => {
+    cy.contains('Which country are the goods coming from?')
+    cy.get('#wizard-steps-country-of-origin-other-country-of-origin-field')
+        .click().clear().type(otherorigin.value).wait(500)
+    cy.contains('Continue').click()
+})
+
 Cypress.Commands.add("traderScheme",(selection)=>{
     cy.contains('Are you authorised under the UK Trader Scheme?')
     if(selection === 'yes'){

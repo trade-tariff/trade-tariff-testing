@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 | a-z-UK | A-Z - UK services |',function() {
+describe('🇬🇧 💡 | A-Z - UK services |',function() {
     Cypress.config('baseUrl')
 
     it('All links accessible', function () {
