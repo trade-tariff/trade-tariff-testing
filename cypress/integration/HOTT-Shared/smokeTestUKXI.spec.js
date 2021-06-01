@@ -63,7 +63,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('.table-line')
         cy.contains('057300').click()
         cy.get('.tariff-info')
-            .contains('Order number 057300')
+            .contains('Quota 057300')
         cy.get('.close [href]').click()
     })
     //Commodity Search functionality - text search
@@ -295,7 +295,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
             .click()
         cy.get('.govuk-list')
             .contains('European Union (EU)')
-        cy.get('.govuk-list')
+        cy.get('.2012')
             .contains('United Kingdom (GB)').should('not.exist')
     })
     //Commodity Search functionality - text search
