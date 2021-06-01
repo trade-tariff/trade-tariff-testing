@@ -61,7 +61,7 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
         cy.get('.table-line')
         cy.contains('057300').click()
         cy.get('.tariff-info')
-            .contains('Order number 057300')
+            .contains('Quota 057300')
         cy.get('.close [href]').click()
     })
     //Commodity Search functionality - text search
