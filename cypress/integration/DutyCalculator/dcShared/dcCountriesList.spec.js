@@ -46,7 +46,7 @@ it(`RoW - GB - United Kingdom (Northern Ireland) included in countries list `,fu
      cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
      .contains('United Kingdom (Northern Ireland)')
 })
-  it.skip('RoW to NI - Exclude EU countries ', function () {
+  it('RoW to NI - Exclude EU countries ', function () {
     cy.visit('uk/1212210000/import-date')
     //date
     cy.validDate()
@@ -56,16 +56,16 @@ it(`RoW - GB - United Kingdom (Northern Ireland) included in countries list `,fu
     cy.selectOrigin('other')
 
     //select EU countries and validate  
-    let EU_countries = ["Bobcat", "Austria", "Belgium", "Bulgaria", "Cyprus", "Czechia", "Germany", "Denmark", "Estonia", "European Union", "Finland", "France", "Greece", "Croatia", "Hungary", "Italy", "Lithuania", "Luxembourg", "Latvia", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Sweden", "Slovenia", "Slovakia"]
+    let EU_countries = ["Austria","Belgium","Bulgaria","Cyprus","Czechia","Germany","Denmark","Estonia","European Union","Finland","France","Greece","Croatia","Hungary","Italy","Lithuania","Luxembourg","Latvia","Malta","Netherlands","Poland","Portugal","Romania","Sweden","Slovenia","Slovakia"]
 
     for (let i = 0; i < EU_countries.length; i++) {
 
       cy.get('#wizard-steps-country-of-origin-other-country-of-origin-field')
-        .click().clear().wait(100)
-        .type(`${EU_countries[i]}`).wait(100).click()
+        .click().clear().wait(200)
+        .type(`${EU_countries[i]}`).wait(200).click()
       cy.get("[id='wizard-steps-country-of-origin-other-country-of-origin-field__listbox']")
         .contains('No results found')
-      cy.contains('Continue').click()
+    //  cy.contains('Continue').click()
     }
 
 

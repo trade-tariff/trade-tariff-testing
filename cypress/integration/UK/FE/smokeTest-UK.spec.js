@@ -63,7 +63,7 @@ describe('🚀  UK 🇬🇧 💡 | smokeTest-UK | Smoke tests to cover basic fun
         cy.get('.table-line')
         cy.contains('057300').click()
         cy.get('.tariff-info')
-            .contains('Order number 057300')
+            .contains('quota 057300')
         cy.get('.close [href]').click()
     })
     //Commodity Search functionality - text search
