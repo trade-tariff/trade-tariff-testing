@@ -6,7 +6,8 @@ describe('UK 🇬🇧 XI 🇪🇺 | measureGrouping- UK & XI | validate if measu
     it('Northern Ireland - VAT and Excise , Custom Duties ,Trade remedies ,EU import controls ,UK import controls', function () {
         cy.visit('/xi/commodities/0304829010#import')
         cy.contains('VAT and excise').click()
-     //   cy.get('.govuk-link').should('have.attr', 'href','https://staging.trade-tariff.service.gov.uk/xi/commodities/0304829010#customs_duties')
+        cy.get(' li.govuk-link').its('href').should('include', '#vat_excise')
+     //   cy.get('.govuk-link').should('have.attr', 'href','https://staging.trade-tariff.service.gov.uk/xi/commodities/0304829010#vat_excise')
         cy.contains('Customs duties').click()
         cy.contains('Trade remedies').click()
         cy.contains('EU import controls').click()
