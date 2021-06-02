@@ -11,8 +11,6 @@ describe('Cypress Dashboard',function(){
         cy.wait(2000)
         cy.scrollTo('bottom', { easing: 'linear' })
         cy.wait(2000)
-        
-       // cy.scrollTo('bottom')
     })
     
 })
