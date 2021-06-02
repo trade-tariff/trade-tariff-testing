@@ -17,7 +17,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "cypress/integration/DutyCalculator/dcShared/dcSmokeTestCI.spec.js"
+          spec: "cypress/integration/DutyCalculator/**/*spec.js"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
 
