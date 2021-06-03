@@ -168,9 +168,14 @@ Cypress.Commands.add("originList",(origin)=>{
 })
 Cypress.Commands.add("otherOriginList", (otherorigin) => {
     cy.contains('Which country are the goods coming from?')
-    cy.get('#wizard-steps-country-of-origin-other-country-of-origin-field')
-        .click().clear().type(otherorigin.value).wait(500)
+    cy.get('#wizard-steps-country-of-origin-other-country-of-origin-field').click().clear().type(otherorigin.value).wait(500)
     cy.contains('Continue').click()
+})
+Cypress.Commands.add("dutiesApply",()=>{
+    cy.contains('Duties apply to this import')
+    cy.wait(100)
+    cy.get('.govuk-button').click()
+
 })
 
 Cypress.Commands.add("traderScheme",(selection)=>{
