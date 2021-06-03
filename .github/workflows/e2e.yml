@@ -1,9 +1,9 @@
-name: "Duty Calculator Smoke Test"
+name: "💨 Duty Cal smoke test"
 on: [workflow_dispatch]
 #on: [push]
 jobs:
   cypress-run:
-    name: DC Smoke on Chrome
+    name:💨 DC Smoke on Chrome
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: true
