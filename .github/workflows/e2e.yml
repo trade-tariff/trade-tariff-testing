@@ -1,9 +1,9 @@
-name: "E2E Test"
+name: "Duty Calculator Smoke Test"
 on: [workflow_dispatch]
 #on: [push]
 jobs:
   cypress-run:
-    name: E2E on Chrome
+    name: DC Smoke on Chrome
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: true
@@ -17,4 +17,4 @@ jobs:
           quiet: false
           browser: chrome
           headless: true
-          spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
+          spec: "cypress/integration/DutyCalculator/dcShared/dcSmokeTestCI.spec.js"

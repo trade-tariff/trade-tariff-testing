@@ -15,7 +15,19 @@ describe('| Row-NI302-e2e.spec | RoW to Northern Ireland ',function(){
                 cy.selectOrigin('other')
                 //select country from list 
                 cy.otherOriginList({ value: 'Turkey' })
-        
+                //Duties apply
+                cy.dutiesApply()
+                //customs value
+                cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
+                //additional code
+                cy.additionalCode({ code: 'B968' })
+                
+                cy.confirmPage()
+                cy.dutyPage()
+                cy.contains('Option 1: Third-country duty')
+                cy.contains('Option 2: Tariff preference - Turkey')
+
+
     })
 }
 })
