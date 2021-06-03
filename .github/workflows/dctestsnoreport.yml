@@ -1,0 +1,20 @@
+name: " 💰 | Duty Calculator Regression Pack Without Reporting |"
+on: [workflow_dispatch]
+jobs:
+  cypress-run:
+    name: "💰 Duty Calculator Regression Tests"
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+    steps:
+      - run: date
+      - uses: actions/checkout@v2
+      - run: mkdir -p cypress/reports/mochareports
+      - uses: cypress-io/github-action@v2
+        name: "All DC tests"
+        continue-on-error: true
+        with:
+          quiet: true
+          browser: chrome
+          headless: true       
+          spec: "*/**/DutyCalculator/*spec.js"
