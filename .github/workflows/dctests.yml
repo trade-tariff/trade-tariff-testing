@@ -1,4 +1,4 @@
-name: " 💰 | Duty Calculator Regression Pack |"
+name: " 💰📊 | Duty Calculator Regression Pack |"
 on: [workflow_dispatch]
 jobs:
   cypress-run:

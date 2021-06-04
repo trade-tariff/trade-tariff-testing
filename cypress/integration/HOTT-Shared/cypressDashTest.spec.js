@@ -2,6 +2,7 @@ describe('Cypress Dashboard',function(){
     const dayjs = require('dayjs')
     const todaysDate = dayjs().format('DD-MM-YYYY')
     it('Cypress Dashboard from GHA',function(){
+        cy.wait(10000)
         console.log(`${todaysDate}`)
         cy.visit(`https://trade-tariff.github.io/trade-tariff-testing/${todaysDate}/`)
         cy.wait(5000)

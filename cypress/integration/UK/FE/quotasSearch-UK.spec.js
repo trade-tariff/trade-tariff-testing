@@ -18,10 +18,10 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
             cy.get('.quota-results.govuk-table')
             cy.contains('057015').click()
             cy.get('.tariff-info')
-            cy.contains('Order Number')
+            cy.contains('Quota 057015')
             cy.contains('057015')
-            cy.contains('Start date')
-            cy.contains('01/01/2021')
+            cy.contains('Start and end dates')
+            cy.contains('1 January 2021 to 31 December 2021')
             cy.get('.close [href]').click()
         }
         else{}
