@@ -102,7 +102,7 @@ describe('🇪🇺 💡 Quotas , P&R to be suppressed for XI version',function()
         cy.contains('Phytosanitary Certificate (import)').should('not.exist')
     })
     //export
-    it.skip('🚫 18.P&R:PRE Home Office Pre-cursor chemicals', function () {
+    it('🚫 18.P&R:PRE Home Office Pre-cursor chemicals', function () {
         cy.visit('/commodities/2915240000#export')
 
         cy.request()

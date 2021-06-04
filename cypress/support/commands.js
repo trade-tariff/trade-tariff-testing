@@ -175,7 +175,11 @@ Cypress.Commands.add("dutiesApply",()=>{
     cy.contains('Duties apply to this import')
     cy.wait(100)
     cy.get('.govuk-button').click()
-
+})
+Cypress.Commands.add("euDutiesApply", () => {
+    cy.contains('EU duties apply to this import')
+    cy.wait(100)
+    cy.get('.govuk-button').click()
 })
 
 Cypress.Commands.add("traderScheme",(selection)=>{

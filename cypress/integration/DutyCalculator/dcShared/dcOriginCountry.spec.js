@@ -52,7 +52,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     // Placeholder for next page 
 
   })
-  it.skip('RoW Option',function(){
+  it('RoW Option',function(){
     cy.visit(`uk/0702000007/import-date`)
     cy.contains('UK Global Online Tariff')
     cy.validDate()
@@ -99,13 +99,8 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     cy.contains('Enter a valid origin for this import')
     cy.get('.govuk-error-message')
         .contains('Enter a valid origin for this import')   
-
-  })
-  it.skip('ROW - No country selected - club this with |No country selected| test case after Row-NI implemented', function () {
-    cy.visit(`uk/0702000007/import-date`)
-    cy.contains('UK Global Online Tariff')
-    cy.validDate()
-    cy.contains('Which part of the UK are you importing into?')
+    //Change destination to NI 
+    cy.get('.govuk-back-link').click()
     //select Northern Ireland as destination
     cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
     cy.contains('Continue').click()
