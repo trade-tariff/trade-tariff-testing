@@ -17,4 +17,4 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/DutyCalculator/*spec.js"
+          spec: "cypress/integration/DutyCalculator/**/*spec.js"
