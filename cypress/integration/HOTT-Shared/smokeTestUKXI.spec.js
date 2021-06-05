@@ -209,7 +209,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('.quota-results.govuk-table')
         cy.contains('057015').click()
         cy.get('.tariff-info')
-            .should('contain', 'Order Number', '057015', 'Start date', '01/01/2021')
+            .should('contain', 'Quota', '057015', 'Start date', '01/01/2021')
         cy.get('.close [href]').click()
     })
     it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`, function () {
