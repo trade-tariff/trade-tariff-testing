@@ -56,68 +56,23 @@ Cypress.Commands.add("MainPageXI",()=>{
 
 //Duty Calculator main page
    Cypress.Commands.add("DCMainPage",()=>{
- //  cy.get('.govuk-header__content')
-  //     .contains('UK Global Online Tariff')
-       cy.get('.govuk-header__navigation ')
-       cy.contains('Search or browse the Tariff')
-       cy.contains('A-Z')
-       cy.contains('Tools')
-     //  cy.contains('Latest News')
-       cy.get('.govuk-caption-xl')
-          .contains('Calculate import duties')
-      cy.get('.govuk-form-group')
-         cy.contains('When will the goods be imported?')
-         cy.contains('As duties and quotas change over time, it may be important to enter the proposed import date. Enter a date from 1st January 2021 or later in the format 27 3 2021.')
-         cy.contains('Day')
-         cy.contains('Month')
-         cy.contains('Year')
-         cy.contains('Continue')
-         cy.contains('About this commodity code')
+    cy.get('.govuk-header__navigation ')
+    cy.contains('Search or browse the Tariff')
+    cy.contains('A-Z')
+    cy.contains('Tools')
+    //  cy.contains('Latest News')
+    cy.get('.govuk-caption-xl')
+        .contains('Calculate import duties')
+    cy.get('.govuk-form-group')
+        cy.contains('When will the goods be imported?')
+        cy.contains('As duties and quotas change over time, it may be important to enter the proposed import date. Enter a date from 1st January 2021 or later in the format 27 3 2021.')
+        cy.contains('Day')
+        cy.contains('Month')
+        cy.contains('Year')
+        cy.contains('Continue')
+        cy.contains('About this commodity code')
 })
 
-
-//**** AXE related commands - accessibility testing **** 
-/* const severityIndicators = {
-    minor: '⚪',
-    moderate: '🟡',
-    serious: '🟠',
-    critical: '🔴',
-}
-function callback(violations){
-    violations.forEach(violation =>{
-        const nodes = Cypress.$(violation.nodes.map(node=>node.target).joint(','))
-        Cypress.log({
-            name: `${severityIndicators[violation.impact]}) ALLY`,
-            consoleProps: () => violation,
-            $el: nodes,
-            message: `[${violation.help}](${violation.helpUrl})`
-        })
-
-        violation.nodes.forEach(({target})=>{
-            Cypress.log({
-                name: '🔧',
-                consoleProps: ()=> violation,
-                $el: Cypress.$(target.join(',')),
-                message: target
-            })
-        })
-    })
-}
-Cypress.Commands.add("checkPageAlly",(path)=>{
-    cy.visit(path);
-    cy.injectAxe();
-    cy.checkA11y(null,null,callback);
- })*/
- /*
-1.Date - Done 
-2.Destination
-3.Origin
-4.customs 
-5.quantity
-6.Calculate duty 
-7.Duty page 
-
- */
 //DC Valid date 
 Cypress.Commands.add("validDate",()=>{
     cy.contains('When will the goods be imported?')
@@ -222,12 +177,22 @@ Cypress.Commands.add("quantity",(measureUnits)=>{
     cy.contains('Continue').click()
   })
 
-  //final use
+  //final use UK
 Cypress.Commands.add("finalUse",(value)=>{
     cy.contains('Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?')
     if (value === 'yes'){
         cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()    
     }else{
+        cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
+    }
+    cy.contains('Continue').click()
+})
+//final use NI
+Cypress.Commands.add("finalUseNI", (value) => {
+    cy.contains('Are your goods for sale to, or final use by, end-consumers located in the Northern Ireland?')
+    if (value === 'yes') {
+        cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
+    } else {
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
     }
     cy.contains('Continue').click()
