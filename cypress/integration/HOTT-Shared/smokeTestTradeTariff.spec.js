@@ -204,11 +204,13 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
         cy.get('.govuk-table__head')
             .contains('Order number')
 
-            cy.get('.quota-results.govuk-table')
-            cy.contains('057015').click()
-            cy.get('.tariff-info')
-                .should('contain','Order Number','057015','Start date','01/01/2021')
-            cy.get('.close [href]').click()
+        cy.get('.quota-results.govuk-table')
+        cy.contains('057015').click()
+        cy.get('.tariff-info').contains('Quota order number')
+        cy.get('.tariff-info').contains('057015')
+        cy.get('.tariff-info').contains('Start and end dates')
+        cy.get('.tariff-info').contains('1 January 2021 to 31 December 2021')
+        cy.get('.close [href]').click()
     })
     it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`,function(){
 
@@ -262,8 +264,8 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
             .click()
         cy.get('.govuk-list')
             .contains('European Union (EU)')
-        cy.get('.govuk-list')
-            .contains('United Kingdom (GB)').should('not.exist')
+        cy.get('.govuk-list').should('not.have.value', 'United Kingdom(GB)')
+      
     })
     //Commodity Search functionality - text search
     it('🚀 XI 🇪🇺 - Search Commodity by name ', function () {
