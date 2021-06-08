@@ -1,7 +1,7 @@
- // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - 🚫 UK Trader Scheme 
-describe('| RoW-NI303-e2e.spec | RoW (Greenland) to Northern Ireland ', function () {
+ // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
+describe('| RoW-NI305-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI |', function () {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    it('RoW 🇬🇱 to NI',function(){
+    it('RoW 🇲🇦 (Morocco) to Northern Ireland',function(){
         cy.visit('uk/0702000007/import-date')
         //date
         cy.validDate()
@@ -10,11 +10,13 @@ describe('| RoW-NI303-e2e.spec | RoW (Greenland) to Northern Ireland ', function
         //origin
         cy.selectOrigin('other')
         //select country from list 
-        cy.wait(700)
-        cy.otherOriginList({ value: 'Greenland' })
-        cy.wait(700)
+        cy.wait(300)
+        cy.otherOriginList({ value: 'Morocco' })
+        cy.wait(300)
         //Trader Scheme
-        cy.traderScheme('no')
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUseNI('no')
         //Duties Apply 
         cy.euDutiesApply()
         //customs value
@@ -24,7 +26,7 @@ describe('| RoW-NI303-e2e.spec | RoW (Greenland) to Northern Ireland ', function
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Option 2: Tariff preference - OCTs (Overseas Countries and Territories)')
+        cy.contains('Option 2: Tariff preference - Morocco')
         
     })
 })

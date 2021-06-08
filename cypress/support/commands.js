@@ -197,8 +197,6 @@ Cypress.Commands.add("finalUseNI", (value) => {
     }
     cy.contains('Continue').click()
 })
-
-
 Cypress.Commands.add("confirmPage",()=>{
     cy.contains('Check your answers')
     cy.get('.govuk-button').click()
@@ -216,6 +214,21 @@ Cypress.Commands.add('additionalCode',(addcode)=>{
     cy.get('select').select(addcode.code)
     cy.contains('Continue').click()
 
+})
+Cypress.Commands.add('plannedXI',(options)=>{
+    cy.contains('How will these goods be processed after they are moved into Northern Ireland?')
+    if (options === 'acceptable1') {
+        cy.get("input#wizard-steps-planned-processing-planned-processing-annual-turnover-field").check()
+    } else if (options === 'acceptable2'){
+        cy.get("input#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
+    } else if (options === 'acceptable3') {
+        cy.get("input#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
+    }
+    else {
+        cy.get("input#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+    }
+
+    cy.contains('Continue').click()
 })
 
 
