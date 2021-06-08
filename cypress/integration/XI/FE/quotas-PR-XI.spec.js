@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 Quotas , P&R to be suppressed for XI version',function() {
+describe('🇪🇺 💡 Quotas to be suppressed for XI version ,P&R to be available',function() {
 
     //----------------Quotas to be suppressed for XI -------------
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
@@ -41,10 +41,12 @@ describe('🇪🇺 💡 Quotas , P&R to be suppressed for XI version',function()
         cy.contains('quota').should('not.exist')
     })
     // ---------------------------National Prohibitions and restrictions (P&R)---------------------------
-    it('🚫 1.P&R:AHC - Animal Health Certificate', function () {
+    it.only('✅ 1.P&R:AHC - Animal Health Certificate', function () {
         cy.visit('/commodities/6403990510#import')
-        cy.get('.govuk-tabs__panel')
-        cy.contains('Animal Health Certificate').should('not.exist')
+        cy.contains('Animal Health Certificate')
+        cy.get('#measure-20087633').contains('Conditions').click()
+        cy.contains('Animal Health Certificate for All countries')
+
     })
     it('🚫 2.P&R:AIL - Health and Safety Executive Import Licensing Firearms and Ammunition', function () {
         cy.visit('/commodities/9305200010#import')
