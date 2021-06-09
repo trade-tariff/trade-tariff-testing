@@ -61,7 +61,7 @@ describe('🚀  UK 🇬🇧 💡 | smokeTest-UK | Smoke tests to cover basic fun
         cy.get('.table-line')
         cy.contains('057300').click()
         cy.get('.tariff-info')
-            .contains('quota 057300')
+            .contains('Quota 057300')
         cy.get('.close [href]').click()
     })
     //Commodity Search functionality - text search
@@ -193,7 +193,7 @@ describe('🚀  UK 🇬🇧 💡 | smokeTest-UK | Smoke tests to cover basic fun
 
     })
     // Quota Search using Commodity number
-    it('🚀 UK - Quotas Search - Commodity Code', function () {
+    it.only('🚀 UK - Quotas Search - Commodity Code', function () {
         cy.visit('/quota_search')
         cy.contains('Search for quotas')
         cy.get('input#goods_nomenclature_item_id')
@@ -208,7 +208,10 @@ describe('🚀  UK 🇬🇧 💡 | smokeTest-UK | Smoke tests to cover basic fun
         cy.get('.quota-results.govuk-table')
         cy.contains('057015').click()
         cy.get('.tariff-info')
-            .should('contain', 'Order Number', '057015', 'Start date', '01/01/2021')
+        cy.contains('Quota order number')
+        cy.contains('057015')
+        cy.contains('Start and end dates')
+        cy.contains('1 January 2021 to 31 December 2021')
         cy.get('.close [href]').click()
     })
     it(`🚀 UK - Mobile - nav-bar validation`, function () {

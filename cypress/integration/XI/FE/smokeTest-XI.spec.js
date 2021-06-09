@@ -33,11 +33,10 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI.spec | Smoke test to cover basic 
     it('🚀 XI - United Kingdom should NOT be shown in EU country list', function () {
         cy.visit('/commodities/2403991000#import')
         cy.get('.govuk-tabs__panel')
-        cy.contains('European Economic Area (2012)')
-            .click()
+            .contains('European Economic Area (2012)').click()
         cy.get('.govuk-list')
             .contains('European Union (EU)')
-        cy.get('.govuk-list')
+        cy.get('#measure-3625193')
             .contains('United Kingdom (GB)').should('not.exist')
     })
     //Commodity Search functionality - text search
