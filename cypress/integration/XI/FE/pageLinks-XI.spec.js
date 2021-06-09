@@ -1,4 +1,4 @@
-describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',function() {
+describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Privacy links - XI ',function() {
 //  HOTT-192
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
@@ -23,7 +23,7 @@ describe(' 🇪🇺 💡 Terms and Conditions, Cookies ,Privacy links - XI ',fun
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
 
     })
-    it('XI - Privacy-navigates to right UK page ',function(){
+    it.only('XI - Privacy-navigates to right UK page ',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link')
             .contains('Privacy').click()

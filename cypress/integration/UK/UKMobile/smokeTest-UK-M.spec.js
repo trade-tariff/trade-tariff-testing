@@ -86,7 +86,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.get('.table-line')
         cy.contains('057300').click()
         cy.get('.tariff-info')
-            .contains('quota 057300')
+            .contains('Quota 057300')
         cy.get('.close [href]').click()
     })
     //Commodity Search functionality - text search
@@ -237,7 +237,10 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.get('.quota-results.govuk-table')
         cy.contains('057015').click()
         cy.get('.tariff-info')
-            .should('contain', 'Order Number', '057015', 'Start date', '01/01/2021')
+        cy.contains('Quota order number')
+        cy.contains('057015')
+        cy.contains('Start and end dates')
+        cy.contains('1 January 2021 to 31 December 2021')
         cy.get('.close [href]').click()
     })
 
