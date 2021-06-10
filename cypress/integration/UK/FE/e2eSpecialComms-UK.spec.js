@@ -67,14 +67,12 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.contains('14.00 %')
         //  cy.get('#measure-20097244')
         cy.get('.govuk-tabs__panel')
-        cy.contains('Preferential tariff quota')
+        cy.contains('Non preferential tariff quota')
         cy.contains('Order No')
         cy.get('.table-line')
-        cy.contains('051104').click()
-        cy.get('.tariff-info')
-        //      .contains('quota 051104')
+        cy.contains('050094').click()
         cy.get('.close [href]').click()
-        cy.contains('051104')
+        cy.contains('050094')
 
     })
     it(' 🍺 Beer \n Has multiple excise lines expressed in litres,\n Identical to UK', function () {

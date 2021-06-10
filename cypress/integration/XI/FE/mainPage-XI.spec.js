@@ -35,11 +35,7 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     })
     //--
 
-    it.skip('XI - Check correct date is displayed',function(){
-        cy.visit('/sections')
-        cy.get('.govuk-grid-column-full')
-            .contains(Cypress.moment().format('DD MMMM YYYY'))
-    })
+    
 
     it('Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
@@ -73,7 +69,8 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
         cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
     })
     it('Header text - page - measures for Chile ',function(){
-        cy.get('.small-table > .govuk-table__caption:nth-of-type(1)').should('be.visible')
+        cy.get('.govuk-tabs__panel')
+            .contains('Measures and restrictions for importing goods into Northern Ireland')
         cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
     })
     it('Search the Tariff section',function(){
