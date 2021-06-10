@@ -9,7 +9,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.wait(700)
         cy.log(cy.title())
         cy.title().should('contains','0406103010')
     })
@@ -34,8 +34,8 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
         cy.wait(500)
     })
     it("Measures for Chile",function(){
-        cy.get('.govuk-table__caption')
-            .contains('Measures for Chile')
+        cy.get('.govuk-tabs__panel')
+            .contains('Measures and restrictions for importing goods into Northern Ireland')
     })
     it('Third country duty  measure has value 185.20 EUR / 100 kg',function(){
         cy.get('.small-table.measures.govuk-table')

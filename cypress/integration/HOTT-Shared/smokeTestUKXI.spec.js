@@ -8,6 +8,28 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.visit('/sections')
         cy.MainPageUK();
     })
+    //Date Picker validation
+    it('🚀 UK 🇬🇧 - Check Calendar is functioning', function () {
+        cy.visit('/sections')
+        cy.wait(300)
+        //select Change Date and OK with current date
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('button#search-datepicker-button  path').click()
+        cy.contains('OK').click()
+        //select Change Date and CANCEL 
+        cy.get('button#search-datepicker-button  path').click()
+        cy.contains('Cancel').click()
+        //select Change Date and change months and years 
+        cy.get('button#search-datepicker-button  path').click()
+        cy.get(".nextMonth").click()
+        cy.get(".nextMonth").click()
+        cy.get(".nextYear").click()
+        cy.get(".prevMonth").click()
+        cy.get(".prevYear").click()
+        cy.get("tr:nth-of-type(2) > td:nth-of-type(7) > .dateButton").click()
+        cy.get(".fields > a[role='button']").click()
+
+    })
     //switching link works
     it('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function () {
         cy.visit('/sections')
@@ -264,6 +286,27 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
         cy.visit('xi/sections')
         cy.MainPageXI();
+    })
+    it('🚀 XI 🇪🇺 - Check Calendar is functioning', function () {
+        cy.visit('xi/sections')
+        cy.wait(300)
+        //select Change Date and OK with current date
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('button#search-datepicker-button  path').click()
+        cy.contains('OK').click()
+        //select Change Date and CANCEL 
+        cy.get('button#search-datepicker-button  path').click()
+        cy.contains('Cancel').click()
+        //select Change Date and change months and years 
+        cy.get('button#search-datepicker-button  path').click()
+        cy.get(".nextMonth").click()
+        cy.get(".nextMonth").click()
+        cy.get(".nextYear").click()
+        cy.get(".prevMonth").click()
+        cy.get(".prevYear").click()
+        cy.get("tr:nth-of-type(2) > td:nth-of-type(7) > .dateButton").click()
+        cy.get(".fields > a[role='button']").click()
+
     })
     //switching link works
     it('🚀 XI 🇪🇺 - Main Page - Switching link to UK available & works', function () {
