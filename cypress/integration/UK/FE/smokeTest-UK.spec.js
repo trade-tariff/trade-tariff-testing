@@ -193,7 +193,7 @@ describe('🚀  UK 🇬🇧 💡 | smokeTest-UK | Smoke tests to cover basic fun
 
     })
     // Quota Search using Commodity number
-    it.only('🚀 UK - Quotas Search - Commodity Code', function () {
+    it('🚀 UK - Quotas Search - Commodity Code', function () {
         cy.visit('/quota_search')
         cy.contains('Search for quotas')
         cy.get('input#goods_nomenclature_item_id')
