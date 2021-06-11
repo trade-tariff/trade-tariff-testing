@@ -196,7 +196,7 @@ describe('🇬🇧 ⚙️ | quotasPRV2api-UK | UK- version v2 api Quotas , P&R t
          
             
     })
-    it.only('8.P&R:CVD - Common Veterinary Entry Document (CVED) - available', function () {
+    it('8.P&R:CVD - Common Veterinary Entry Document (CVED) - available', function () {
         cy.request('/api/v2/commodities/1605531090#import.json').then((response) => {
                 let measure_types = response.body.included
                 let found = false
