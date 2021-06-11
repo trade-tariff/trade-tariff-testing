@@ -67,7 +67,7 @@ describe('VAT final page calculations', function () {
         cy.contains('Import duty (VATZ)')
 
     })
-    it.only(`XI service - No Option available - one rate GB-NI `, function () {
+    it(`XI service - No Option available - one rate GB-NI `, function () {
         cy.visit('uk/0709996010/import-date')
         cy.validDate()
         cy.selectDestination('xi')
