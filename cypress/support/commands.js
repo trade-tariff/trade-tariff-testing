@@ -230,6 +230,26 @@ Cypress.Commands.add('plannedXI',(options)=>{
 
     cy.contains('Continue').click()
 })
+Cypress.Commands.add('vat',(options)=>{
+    cy.contains('Which VAT rate is applicable to your trade?')
+    if(options === '5'){
+        cy.get('input#wizard-steps-vat-vat-vatr-field').click()
+        cy.contains('Continue').click()
+    }
+    else if (options === '0'){
+        cy.get('input#wizard-steps-vat-vat-vatz-field').click()
+        cy.contains('Continue').click()
+    }
+    else if (options === '20'){
+        cy.get('input#wizard-steps-vat-vat-vat-field').click()
+        cy.contains('Continue').click()
+    }
+    else {
+        cy.get('input#wizard-steps-vat-vat-vate-field').click()
+        cy.contains('Continue').click()
+    }
+    
+})
 
 
 
