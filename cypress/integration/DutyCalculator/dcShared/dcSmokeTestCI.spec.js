@@ -31,6 +31,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
     })
     it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
         //select future date 
+        //select future date 
         cy.visit(`uk/3926909790/import-date`)
         //   cy.visit(`/import-date?referred_service=uk&commodity_code=3926909790`)
         cy.wait(700)
@@ -38,16 +39,49 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         cy.selectDestination('gb')
         cy.originList({ value: 'Afghanistan' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
+        //  cy.quantity({tne:'1',dtnr:'1',dap:'1'})
         cy.additionalCode({ code: '2601' })
-     //   cy.additionalCode({ code: '2701' })
+        cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
+        cy.contains('VAT (UK)')
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries')
-      //  cy.contains('Option 3: Autonomous tariff suspension')
+        //   cy.contains('Option 3: Autonomous tariff suspension')
         cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Option 4: Airworthiness tariff suspension')
         })
+    it('🚀 UK 🇬🇧 - RoW 🇲🇦 (Morocco) to Northern Ireland - ( RoW-NI ) 303b ', function () {
+        cy.visit('uk/0702000007/import-date')
+        //date
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('other')
+        //select country from list 
+        cy.wait(300)
+        cy.otherOriginList({ value: 'Morocco' })
+        cy.wait(300)
+        //Trader Scheme
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUseNI('yes')
+        //Planned processing - commercial 
+        cy.plannedXI('acceptable2')
+
+        //Duties Apply 
+        cy.euDutiesApply()
+        //customs value
+        cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
+        //Import Quantity 
+        cy.quantity({ dtn: '230.98' })
+        cy.confirmPage()
+        cy.dutyPage()
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - Morocco')
+
+    })
     it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
         cy.visit('/xi/1701141000/import-date')
 
