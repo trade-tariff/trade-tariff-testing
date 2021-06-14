@@ -18,8 +18,10 @@ describe('| Row-NI301-e2e.spec |RoW to Northern Ireland ',function(){
         cy.wait(700)
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
+        cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
+        cy.contains('VAT (UK)')
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - Israel')
 

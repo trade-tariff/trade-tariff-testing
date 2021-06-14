@@ -17,7 +17,6 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
-
         //trader page 
         cy.contains('Are you authorised under the UK Trader Scheme?')
         cy.contains("If you are moving goods into Northern Ireland which are for sale to, or final use by, end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare your goods as being 'not at risk' where the requirements are met. A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.")
@@ -62,10 +61,9 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
             .contains('Select one of the two options')
 
     //static links on page 
-        
         cy.contains('Explore the topic')
         cy.contains('Apply for authorisation for the UK trader scheme').click()
-        cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland') 
+        cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland')
 
     })
     it('RoW - NI Page Validation',function(){
@@ -110,13 +108,12 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']")
             .parent()
             .find('input')
-            .should('be.checked')
-       
-        cy.get('.govuk-back-link').click().wait(300)
-         
+            .should('be.checked')    
         //static links on page 
         cy.contains('Explore the topic')
         cy.contains('Apply for authorisation for the UK trader scheme').click()
-        cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland')   
+        cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland')
+         
+       
     })
 })

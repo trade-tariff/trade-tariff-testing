@@ -86,8 +86,11 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('2.7% * £10,002.24')
         cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06')
     //Last row 
+        cy.contains('VAT')
         cy.contains('Duty Total')
-        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06')
+        
+        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£2,000.45')
+        cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£2,270.51')
 
         //Final Page 
         cy.exchangeRate()

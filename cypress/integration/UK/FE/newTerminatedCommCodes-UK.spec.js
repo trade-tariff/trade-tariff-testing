@@ -10,7 +10,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
 
             cy.visit('/sections')
             cy.get('.js-commodity-picker-select.js-show  input#q').click().type(`${termcodes_ids[i]}`)
-            cy.wait(500)
+            cy.wait(700)
             cy.get('input[name=\'new_search\']').click()
             cy.contains('Choose the commodity code below that best matches your goods to see more information')
 
