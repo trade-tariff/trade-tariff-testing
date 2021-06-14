@@ -15,6 +15,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |',function(){
     cy.get('#wizard-steps-additional-code-additional-code-error')
         .contains('Specify a valid additional code')
     cy.additionalCode({code:'2600'})
+    cy.vat('20')
     cy.confirmPage()
     cy.dutyPage()
     cy.contains('Option 1: Third-country duty')

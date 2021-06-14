@@ -15,6 +15,7 @@ describe('|RoW-GB206-e2e.spec | additional codes |',function(){
         cy.customsValue({monetary:'500.00',shipping:'100.00',cost:'250.00'})
         cy.quantity({tnei:'1'})
         cy.additionalCode({code:'C999'})
+        cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
     
@@ -27,6 +28,7 @@ describe('|RoW-GB206-e2e.spec | additional codes |',function(){
         cy.get('.govuk-back-link').click().wait(700)
         cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
         cy.additionalCode({code:`${addCodes[i]}`})
+        cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
         cy.contains(`1516 20 98 21 (${addCodes[i]})`)
@@ -43,6 +45,7 @@ describe('|RoW-GB206-e2e.spec | additional codes |',function(){
         cy.quantity({tnei:'1'})
         cy.additionalCode({code:'B999'})
         cy.additionalCode({code:'B999'})
+        cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
     

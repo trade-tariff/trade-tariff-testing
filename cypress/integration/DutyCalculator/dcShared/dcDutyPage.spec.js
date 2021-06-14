@@ -66,8 +66,9 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |',function() {
     cy.contains('Import duty Third-country duty (XI)')
     cy.contains('2.7% * £10,002.24')
     cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06')
+    cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£2,000.45')
     //Last row 
     cy.contains('Duty Total')
-    cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£270.06')
+    cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£2,270.51')
     })
 })

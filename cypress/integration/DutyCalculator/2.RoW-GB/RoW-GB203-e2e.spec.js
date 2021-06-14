@@ -75,11 +75,11 @@ describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ',fun
         cy.contains('Import duty Third-country duty (UK)')
         cy.contains('8.0% * £10,002.24')
         
-
-        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£800.18')
+        cy.contains('Import duty (VATZ)')
+        cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£800.18')
         //Last row 
         cy.contains('Duty Total')
-        cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£0.00')
+        cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£0.00')
         //Final Page 
         cy.contains('Import duty calculation')
         cy.contains('Option 1: Third-country duty')
