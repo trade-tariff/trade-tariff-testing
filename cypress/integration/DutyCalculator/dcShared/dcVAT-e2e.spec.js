@@ -55,7 +55,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.contains('Import duty (VATE)')
 
     })
-    it.only(`UK service - No Option available - one rate  🇮🇱 RoW-GB`, function () {
+    it(`UK service - No Option available - one rate  🇮🇱 RoW-GB`, function () {
         cy.visit('uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('gb')
@@ -71,7 +71,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
 
 
     })
-    it.only(`XI service - No Option available - one rate GB-NI `, function () {
+    it(`XI service - No Option available - one rate GB-NI `, function () {
         cy.visit('uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
