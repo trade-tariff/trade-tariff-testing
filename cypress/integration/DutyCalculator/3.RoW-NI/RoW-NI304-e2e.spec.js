@@ -19,6 +19,8 @@ describe('| RoW-NI304-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
         cy.finalUseNI('yes')
         //Planned processing - commercial 
         cy.plannedXI('commercial')
+     //   cy.contains('Duties cannot currently be calculated')
+
     /*
         //Duties Apply 
         cy.euDutiesApply()
