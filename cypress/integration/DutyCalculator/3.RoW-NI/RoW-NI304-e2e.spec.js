@@ -1,5 +1,5 @@
  // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
-describe('| RoW-NI304-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Processing|', function () {
+describe('| RoW-NI304-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫 Processing|', function () {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     it('RoW 🇲🇦 (Morocco) to Northern Ireland',function(){
         cy.visit('uk/0702000007/import-date')
@@ -19,7 +19,11 @@ describe('| RoW-NI304-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
         cy.finalUseNI('yes')
         //Planned processing - commercial 
         cy.plannedXI('commercial')
-     //   cy.contains('Duties cannot currently be calculated')
+        cy.contains('Duties cannot currently be calculated')
+        cy.contains("We're currently unable to calculate the duties applicable to your import.")
+        cy.contains("The functionality to calculate the duties applicable to your circumstances is under construction.")
+        cy.contains("Find out more about trading and moving goods in and out of Northern Ireland.")
+        cy.get("a[target='_blank']").should('have.attr', 'href', "https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland")
 
     /*
         //Duties Apply 
