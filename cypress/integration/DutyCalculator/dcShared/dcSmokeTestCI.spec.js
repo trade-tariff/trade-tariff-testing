@@ -51,8 +51,8 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Option 4: Airworthiness tariff suspension')
         })
-    it('🚀 UK 🇬🇧 - RoW 🇲🇦 (Morocco) to Northern Ireland - ( RoW-NI ) 303b ', function () {
-        cy.visit('uk/0702000007/import-date')
+    it('🚀 XI 🇪🇺 - Duty Calculator e2e - ( RoW to NI ) 303b ', function () {
+        cy.visit('xi/0702000007/import-date')
         //date
         cy.validDate()
         //destination
