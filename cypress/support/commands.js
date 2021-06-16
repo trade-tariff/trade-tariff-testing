@@ -200,8 +200,10 @@ Cypress.Commands.add("finalUseNI", (value) => {
 Cypress.Commands.add("confirmPage",()=>{
     cy.contains('Check your answers')
     cy.get('.govuk-button').click()
+    cy.wait(200)
 })
 Cypress.Commands.add("dutyPage",()=>{
+    cy.wait(200)
     cy.contains('Import duty calculation')
 })
 Cypress.Commands.add('exchangeRate',()=>{

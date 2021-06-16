@@ -31,7 +31,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
 
     })
     //HOTT-166
-    it('XI - List of supplementary units and their descriptions in imports to be HIDDEN',function(){
+    it.skip('XI - List of supplementary units and their descriptions in imports to be HIDDEN',function(){
         cy.visit('/commodities/9702000010?currency=EUR#import')
         cy.get('.govuk-tabs__panel')
             .contains('What are the main types of tariffs and charges').click()

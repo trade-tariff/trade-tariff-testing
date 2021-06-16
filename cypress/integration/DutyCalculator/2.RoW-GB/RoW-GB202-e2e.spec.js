@@ -57,7 +57,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('£10,002.24')
  
     //confirm
-        cy.get('.govuk-button').click()
+        cy.get('.govuk-button').click().wait(200)
 
         //Final Page - duty page
         cy.contains('Import duty calculation')
