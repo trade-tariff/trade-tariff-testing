@@ -1,4 +1,4 @@
-describe.skip('💷 💶  exchange rate test ',function(){
+describe.skip('| dcTest | 💷 💶  exchange rate test |',function(){
   it('API response for GBP',function(){
     cy.request({
       method: 'GET',

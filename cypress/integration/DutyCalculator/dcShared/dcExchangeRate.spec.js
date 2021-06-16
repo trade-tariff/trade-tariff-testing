@@ -69,7 +69,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         console.log(`${exchangerate}`)
         
         cy.contains(`Please note - the current page uses an exchange rate of`) 
-        cy.log(`${exchangerate}`)
+        cy.log(parseFloat(`${exchangerate.toFixed(4)}`))
         cy.contains('More about this exchange rate').click()
         cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
 

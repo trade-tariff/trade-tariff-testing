@@ -51,10 +51,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
 
     })
-    it('UK - Header text - page - measures for Chile ',function(){
-        cy.get('.small-table > .govuk-table__caption:nth-of-type(1)').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
-    })
+
     it('UK - Search the Tariff section',function(){
         cy.visit('/sections')
         cy.get('.govuk-header').contains('Search or browse the Tariff').click()
