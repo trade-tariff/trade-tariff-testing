@@ -69,6 +69,8 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
 
         //Final Page 
         cy.contains('Option 1: Third-country duty')
+        cy.contains('Third-country duty (EU)')
+        cy.contains('Zero rate')
         cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)')
         cy.contains('Option 3: Claiming a waiver – Exchange rate')
 

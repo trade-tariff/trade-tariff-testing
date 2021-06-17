@@ -1,4 +1,4 @@
-describe('Multiple VAT rate validations',function(){
+describe('Multiple VAT rate validations', function () {
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     it(`UK service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
         cy.visit('uk/8716109800/import-date')
@@ -11,7 +11,7 @@ describe('Multiple VAT rate validations',function(){
         cy.contains('There are 3 VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document VAT rates on different goods and services (opens in new browser window).')
         cy.contains('VAT reduced rate 5%')
         cy.contains('VAT zero rate')
-        cy.contains('Value added tax (20.0%)')
+        cy.contains('Value added tax (20.00%)')
         // empty values 
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
@@ -56,11 +56,11 @@ describe('Multiple VAT rate validations',function(){
             .parent()
             .find('input')
             .should('be.checked')
-        //Select third option - Value added tax (20.0%)
+        //Select third option - Value added tax (20.00%)
         cy.get('input#wizard-steps-vat-vat-vat-field').click()
         cy.contains('Continue').click()
         cy.contains('Applicable VAT rate')
-        cy.contains('Value added tax (20.0%)')
+        cy.contains('Value added tax (20.00%)')
         //Using Back link 
         cy.get('.govuk-back-link').click().wait(300)
         cy.contains('Which VAT rate is applicable to your trade?')
@@ -76,7 +76,7 @@ describe('Multiple VAT rate validations',function(){
         cy.get('div:nth-of-type(6) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Which VAT rate is applicable to your trade?')
     })
-    
+
     it(`XI service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
         cy.visit('xi/2934999090/import-date')
         cy.validDate()
@@ -88,7 +88,7 @@ describe('Multiple VAT rate validations',function(){
         cy.contains('Which VAT rate is applicable to your trade?')
         cy.contains('There are 2 VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document VAT rates on different goods and services (opens in new browser window).')
         cy.contains('VAT zero rate')
-        cy.contains('Value added tax (20.0%)')
+        cy.contains('Value added tax (20.00%)')
         // empty values 
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
