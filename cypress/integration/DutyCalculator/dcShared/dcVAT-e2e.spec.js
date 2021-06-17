@@ -11,8 +11,8 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.vat('5')
         cy.contains('VAT reduced rate 5%')
         cy.get('.govuk-button').click()
-        cy.contains('VAT (UK)')
-        cy.contains('Import duty (VATR)')
+        cy.contains('VAT')
+        cy.contains('Reduced rate')
     })
     it(`XI service - 20% - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
         cy.visit('xi/8716109800/import-date')
@@ -24,7 +24,9 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.vat('20')
         cy.contains('Value added tax (20.0%)')
         cy.get('.govuk-button').click()
-        cy.contains('VAT (UK)')
+        cy.contains('VAT')
+        cy.contains('Standard rate')
+
     
     })
     it(`UK service - 0% - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
@@ -37,8 +39,8 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.vat('0')
         cy.contains('VAT zero rate')
         cy.get('.govuk-button').click()
-        cy.contains('VAT (UK)')
-        cy.contains('Import duty (VATZ)')
+        cy.contains('VAT')
+        cy.contains('Zero rate')
 
     })
     it(`UK service - Exempt - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
@@ -51,8 +53,8 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.vat('exempt')
         cy.contains('VAT exempt')
         cy.get('.govuk-button').click()
-        cy.contains('VAT (UK)')
-        cy.contains('Import duty (VATE)')
+        cy.contains('VAT')
+        cy.contains('VAT exempt')
 
     })
     it(`UK service - No Option available - one rate  🇮🇱 RoW-GB`, function () {
@@ -63,8 +65,8 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
     
         cy.get('.govuk-button').click()
-        cy.contains('VAT (UK)')
-        cy.contains('Import duty (VATZ)')
+        cy.contains('VAT')
+        cy.contains('Zero rate')
         cy.get('.govuk-back-link').click().wait(200)
         cy.get('.govuk-back-link').click()
         cy.contains('What is the customs value of this import?')
@@ -86,8 +88,8 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtn: '230.98' })
         cy.get('.govuk-button').click()
-        cy.contains('VAT (XI)')
-        cy.contains('Import duty (VATZ)')
+        cy.contains('VAT')
+        cy.contains('Zero rate')
         
         cy.get('.govuk-back-link').click().wait(200)
         cy.get('.govuk-back-link').click()
