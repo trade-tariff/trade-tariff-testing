@@ -93,7 +93,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
         //import duty 
         cy.contains('Import duty Third-country duty (UK)')
-        cy.contains('12.0% * £10,002.24')
+        cy.contains('12.00% * £10,002.24')
 
         cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£690.15')
         //Last row 

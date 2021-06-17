@@ -22,12 +22,12 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         //VAT Page
         cy.vat('20')
-        cy.contains('Value added tax (20.0%)')
+        cy.contains('Value added tax (20.00%)')
         cy.get('.govuk-button').click()
         cy.contains('VAT')
         cy.contains('Standard rate')
 
-    
+
     })
     it(`UK service - 0% - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
         cy.visit('uk/8716109800/import-date')
@@ -63,7 +63,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.selectDestination('gb')
         cy.originList({ value: 'Greenland' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
-    
+
         cy.get('.govuk-button').click()
         cy.contains('VAT')
         cy.contains('Zero rate')
@@ -84,13 +84,13 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.traderScheme('no')
         cy.contains('EU duties apply to this import')
         cy.get('.govuk-button').click()
-      //  cy.certificate('no')
+        //  cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtn: '230.98' })
         cy.get('.govuk-button').click()
         cy.contains('VAT')
         cy.contains('Zero rate')
-        
+
         cy.get('.govuk-back-link').click().wait(200)
         cy.get('.govuk-back-link').click()
         cy.contains('Enter import quantity')
