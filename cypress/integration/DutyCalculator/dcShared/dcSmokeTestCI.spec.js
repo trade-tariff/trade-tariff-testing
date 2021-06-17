@@ -44,7 +44,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
-        cy.contains('VAT (UK)')
+        cy.contains('VAT')
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries')
         //   cy.contains('Option 3: Autonomous tariff suspension')
