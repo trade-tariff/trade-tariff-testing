@@ -37,8 +37,9 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link')
             .contains('Privacy').click()
-        cy.get('.direction-ltr')
-            .contains('Privacy notice')
+        cy.contains('Privacy notice')
+        cy.get('.govuk-breadcrumbs__link').click()
+        cy.contains('UK Global Online Tariff')
 
     })
 

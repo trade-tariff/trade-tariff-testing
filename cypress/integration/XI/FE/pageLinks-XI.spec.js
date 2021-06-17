@@ -23,11 +23,14 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
 
     })
-    it('XI - Privacy-navigates to right UK page ',function(){
+    it('XI - Privacy-navigates to right XI page ',function(){
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link')
             .contains('Privacy').click()
         cy.contains('Privacy notice')
+        cy.get('.govuk-breadcrumbs__link').click()
+        cy.contains('Northern Ireland Online Tariff')
+
 
     })
     //HOTT-166
