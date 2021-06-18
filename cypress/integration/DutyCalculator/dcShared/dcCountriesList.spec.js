@@ -20,7 +20,7 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
     {
 
     cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
-     .clear().wait(100).type(`${countries[i]}`).wait(200)
+     .clear().wait(100).type(`${countries[i]}`).wait(300)
     cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
             .contains('No results found')
     }

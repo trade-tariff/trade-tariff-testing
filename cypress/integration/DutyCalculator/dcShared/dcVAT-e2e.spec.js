@@ -22,7 +22,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         //VAT Page
         cy.vat('20')
-        cy.contains('Value added tax (20.00%)')
+        cy.contains('Value added tax (20.0%)')
         cy.get('.govuk-button').click()
         cy.contains('VAT')
         cy.contains('Standard rate')
