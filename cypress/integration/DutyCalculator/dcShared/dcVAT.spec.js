@@ -11,7 +11,7 @@ describe('Multiple VAT rate validations', function () {
         cy.contains('There are 3 VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document VAT rates on different goods and services (opens in new browser window).')
         cy.contains('VAT reduced rate 5%')
         cy.contains('VAT zero rate')
-        cy.contains('Value added tax (20.00%)')
+        cy.contains('Value added tax (20.0%)')
         // empty values 
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
@@ -60,7 +60,7 @@ describe('Multiple VAT rate validations', function () {
         cy.get('input#wizard-steps-vat-vat-vat-field').click()
         cy.contains('Continue').click()
         cy.contains('Applicable VAT rate')
-        cy.contains('Value added tax (20.00%)')
+        cy.contains('Value added tax (20.0%)')
         //Using Back link 
         cy.get('.govuk-back-link').click().wait(300)
         cy.contains('Which VAT rate is applicable to your trade?')
@@ -88,7 +88,7 @@ describe('Multiple VAT rate validations', function () {
         cy.contains('Which VAT rate is applicable to your trade?')
         cy.contains('There are 2 VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document VAT rates on different goods and services (opens in new browser window).')
         cy.contains('VAT zero rate')
-        cy.contains('Value added tax (20.00%)')
+        cy.contains('Value added tax (20.0%)')
         // empty values 
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')

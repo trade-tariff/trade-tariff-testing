@@ -64,7 +64,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function () {
         cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24')
         //import duty 
         cy.contains('Import duty Third-country duty (EU)')
-        cy.contains('2.7% * £10,002.24')
+        cy.contains('2.70% * £10,002.24')
         cy.get('tr:nth-of-type(2) > td:nth-of-type(3)').contains('£270.06')
         cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£2,000.45')
         //Last row 
