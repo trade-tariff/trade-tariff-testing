@@ -70,5 +70,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function () {
         //Last row 
         cy.contains('Duty Total')
         cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£2,270.51')
+        cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.')
+
     })
 })

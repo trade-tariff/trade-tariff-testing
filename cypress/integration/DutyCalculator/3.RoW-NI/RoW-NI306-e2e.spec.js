@@ -25,6 +25,7 @@ describe('| RoW-NI306-e2e.spec | RoW (Greenland) to Northern Ireland ', function
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - OCTs (Overseas Countries and Territories)')
+        cy.contains('Third-country duty (EU)')
         
     })
 })
