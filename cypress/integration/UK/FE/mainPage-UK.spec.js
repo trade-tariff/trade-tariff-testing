@@ -6,7 +6,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     //Page Title
     it('UK - Header text - sections page', function () {
         cy.visit('/sections')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
+        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
     })
     //Gov Logo
     it('UK - GOV.UK logo ',function (){
@@ -35,20 +35,21 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     })
     it('UK - Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search',function(){
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(500)
+        cy.wait(600)
         cy.get('input[name=\'new_search\']').click()
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
+        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
+        
 
     })
 
     it('UK - Header text - Page - Commodity information for 0406103010 is displayed',function(){
     //    cy.get('.commodity-header.govuk-heading-l').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')   
+        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')   
         cy.get('a#tab_import').click()
         cy.get('input#import_search_country').click().clear().wait(400)
             .type('Chile').wait(600)
             .type('{enter}')
-        cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
+        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
 
     })
 
@@ -97,5 +98,10 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
     })
+    it('UK -  Footnotes tab ', function () {
+        cy.visit('/commodities/4101203000')
+        cy.get('a#tab_footnotes').click()
+        cy.contains('Footnotes for commodity 4101203000')
 
+    })
 })

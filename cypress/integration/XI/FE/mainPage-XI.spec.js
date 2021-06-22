@@ -3,9 +3,9 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     Cypress.config('baseUrl', Cypress.config('services')['xi'])
 
     //Page Title
-    it('Header text - Page- sections - The Northern Ireland (EU) Tariff for the XI', function () {
+    it('Header text - Page- sections - Northern Ireland Online Tariff', function () {
         cy.visit('/sections')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
     //Gov Logo
     it('Header text - GOV.UK logo ', function () {
@@ -41,37 +41,38 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(500)
         cy.get('input[name=\'new_search\']').wait(500).click()
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
+        
 
     })
     it('Header text - Page - Commodity information for 0406103010 is displayed',function(){
         cy.get('.commodity-header.govuk-heading-l').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
     it('Header text - Page - chapter notes is visible',function(){
         cy.get('div:nth-of-type(1) > .govuk-heading-s').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
     it('Header text - page - select Export button',()=> {
         cy.get('a#tab_export').click()
         cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
     it('Header text - page - select Import button',()=> {
         cy.get('a#tab_import').click()
         cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
     it('Header text - page - select Chile from All countries list',()=>{
         cy.get('input#import_search_country').click().clear().wait(700)
             .type('Chile').wait(700)
             .type('{enter}')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
     it('Header text - page - measures for Chile ',function(){
         cy.get('.govuk-tabs__panel')
             .contains('Measures and restrictions for importing goods into Northern Ireland')
-        cy.get('.govuk-header').should('be.visible', 'The Northern Ireland (EU) Tariff for the XI')
+        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
     it('Search the Tariff section',function(){
         cy.visit('/sections')
@@ -111,11 +112,17 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
         cy.contains('Summary')
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
     })
-        it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -URL',function(){
-        cy.visit('/terms')
-        cy.contains('Summary')
-        cy.get('.govuk-template ')
-        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -URL',function(){
+    cy.visit('/terms')
+    cy.contains('Summary')
+    cy.get('.govuk-template ')
+    cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
+
+    })
+    it('XI - Footnotes tab ',function(){
+        cy.visit('/commodities/4101203000')
+        cy.get('a#tab_footnotes').click()
+        cy.contains('Footnotes for commodity 4101203000')
 
     })
 
