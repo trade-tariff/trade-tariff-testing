@@ -1,6 +1,5 @@
 describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK version)|',function() {
     //--- Headings to be changed for UK -------------
-  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
     Cypress.config('baseUrl')
 
     //Page Title
@@ -98,10 +97,22 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
     })
-    it('UK -  Footnotes tab ', function () {
+    it('UK - Footnotes tab ', function () {
         cy.visit('/commodities/4101203000')
+        cy.contains('TN701').should('not.be.visible')
+        //Import Tab
+        cy.get('a#tab_import').click()
+        cy.contains('TN701').should('not.be.visible')
+        //Export Tab
+        cy.get('a#tab_export').click()
+        cy.contains('TN701').should('not.be.visible')
+        //Footnotes Tab 
         cy.get('a#tab_footnotes').click()
         cy.contains('Footnotes for commodity 4101203000')
+        cy.contains('TN701')
+        //Overview Tab does not contain Footnotes
+        cy.get('a#tab_overview').click()
+        cy.contains('TN701').should('not.be.visible')
 
     })
 })

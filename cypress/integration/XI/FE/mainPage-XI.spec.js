@@ -121,8 +121,21 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     })
     it('XI - Footnotes tab ',function(){
         cy.visit('/commodities/4101203000')
+     
+        cy.contains('TN701').should('not.be.visible')
+        //Import Tab
+        cy.get('a#tab_import').click()
+        cy.contains('TN701').should('not.be.visible')
+        //Export Tab
+        cy.get('a#tab_export').click()
+        cy.contains('TN701').should('not.be.visible')
+        //Footnotes Tab 
         cy.get('a#tab_footnotes').click()
         cy.contains('Footnotes for commodity 4101203000')
+        cy.contains('TN701')
+        //Overview Tab does not contain Footnotes
+        cy.get('a#tab_overview').click()
+        cy.contains('TN701').should('not.be.visible')
 
     })
 
