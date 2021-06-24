@@ -1,10 +1,10 @@
-describe('🇬🇧 🇪🇺 💡 | Privacy Notice |', function () {
+describe('🇬🇧 🇪🇺 💡 | Privacy Notice for UK and XI |', function () {
     Cypress.config('baseUrl')
-
+    let country = ["uk", "xi"]
+    let titles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    
     it('Privacy - link works', function () {
-        let country = ["uk","xi"]
-        let titles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
-        for(let i=0 ; i< country.length;i++){
+        for (let i = 0; i < country.length; i++) {
             cy.visit(`${country[i]}/sections`)
             cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link').click()
             cy.contains('Privacy notice')
@@ -15,10 +15,11 @@ describe('🇬🇧 🇪🇺 💡 | Privacy Notice |', function () {
         }
     })
     it('Privacy - Page content and links',function(){
-        cy.visit('/sections')
+        for (let i = 0; i < country.length; i++) {
+        cy.visit(`${country[i]}/sections`)
         cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link').click()
         cy.contains('Privacy notice')
-        cy.contains('UK Global Online Tariff')
+        cy.contains(`${titles[i]}`)
 
         //related content and links 
         //about gov uk
@@ -53,15 +54,18 @@ describe('🇬🇧 🇪🇺 💡 | Privacy Notice |', function () {
         cy.get("p:nth-of-type(24) > a[target='_blank']").should("have.attr", "href", "https://www.gov.uk/eu-eea" )
         //accounts trial 
         cy.get("p:nth-of-type(36) > a[target='_blank']").should("have.attr", "href", "https://www.gov.uk/government/publications/govuk-accounts-trial-full-privacy-notice-and-accessibility-statement")
-
+        }
     
     })
     it('Privacy - All pages ',function(){
-        let pages = ['/sections/1', '/chapters/01', '/headings/0101', '/commodities/0101210000',]
-        for (let i = 0; i < pages.length; i++) {
-            cy.visit(`${pages[i]}`)
+        for (let i = 0; i < country.length; i++) {
+            let pages = [`${country[i]}/sections/1`, `${country[i]}/chapters/01`, `${country[i]}/headings/0101`, `${country[i]}/commodities/0101210000`, `${country[i]}/a-z-index/a`, `${country[i]}/tools`]
+        for (let j = 0; j < pages.length; j++) {
+            cy.visit(`${pages[j]}`)
             cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link').contains('Privacy')
         }
+    }
     })
+
     
 })
