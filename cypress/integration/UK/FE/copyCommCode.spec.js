@@ -1,4 +1,4 @@
-describe.skip('🇬🇧 💡 | copyCommCode | Copy comm code  |', function () {
+describe.skip('🇬🇧 💡 | copyCommCode | Copy comm code UK and XI  |', function () {
     Cypress.config('baseUrl')
 
     it('Copy commod code and paste ', function () {
@@ -15,9 +15,6 @@ describe.skip('🇬🇧 💡 | copyCommCode | Copy comm code  |', function () {
    //     cy.get('input[name=\'new_search\']').click()
    //     cy.wait(500)
    //     cy.contains('Commodity information for 0201100021')
-
-    })
-    it('Copy comm code on headings page and paste',function(){
 
     })
 
