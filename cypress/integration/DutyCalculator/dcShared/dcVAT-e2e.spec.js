@@ -96,6 +96,46 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.contains('Enter import quantity')
 
     })
+    it.only(`XI service - Multiple VAT rates 🇮🇱 RoW-XI`, function () {
+        cy.visit('uk/8716109800/import-date')
+        cy.validDate()
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('other')
+        //select country from list 
+    
+        cy.otherOriginList({ value: 'Israel' })
+        //Trader Scheme
+        cy.traderScheme('no')
+        cy.euDutiesApply() 
+        cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+        //VAT Page
+        cy.vat('20')
+        cy.contains('VAT')
+        cy.contains('Standard rate')
+        
+        //Change to different VAT rate 
+        cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.contains('Which VAT rate is applicable to your trade?')
+        //VAT Page
+        cy.vat('0')
+        cy.contains('VAT zero rate')
+        cy.get('.govuk-button').click()
+        cy.contains('VAT')
+        cy.contains('Zero rate')
+        //Change to different VAT rate 
+        cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.contains('Which VAT rate is applicable to your trade?')
+        //VAT Page
+        cy.vat('5')
+        cy.contains('VAT reduced rate 5%')
+        cy.get('.govuk-button').click()
+        cy.contains('VAT')
+        cy.contains('Reduced rate')
+
+
+    })
+
 
 
 })
