@@ -4,7 +4,7 @@ Nepal - GB = £240.00
 Nepal - NI = £247.00
 Δ MFN = £7.00
 */
-describe('| Row-NI304.spec.js | Δ MFN < 3% of Import duties = GB import duties apply | ', function () {
+describe('| Row-NI304.spec.js | Δ MFN < 3% of Import duties = UK import duties apply | ', function () {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     let country = ["uk", "xi"]
@@ -47,7 +47,6 @@ describe('| Row-NI304.spec.js | Δ MFN < 3% of Import duties = GB import duties 
             //destination
             cy.selectDestination('gb')
             //origin
-            //select country from list 
             cy.wait(300)
             cy.originList({ value: 'Nepal' })
             //customs value

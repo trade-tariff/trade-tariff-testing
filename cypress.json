@@ -2,7 +2,9 @@
   "baseUrl": "https://staging.trade-tariff.service.gov.uk",
   "services": {
     "xi": "https://staging.trade-tariff.service.gov.uk/xi/",
-    "dutycal" : "https://staging.trade-tariff.service.gov.uk/duty-calculator"
+//    "dutycal" : "https://staging.trade-tariff.service.gov.uk/duty-calculator",
+    "dutycal": "http://localhost:3002/duty-calculator"
+
     
   },
   
