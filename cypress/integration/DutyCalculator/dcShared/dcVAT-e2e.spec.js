@@ -96,7 +96,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.contains('Enter import quantity')
 
     })
-    it.only(`XI service - Multiple VAT rates 🇮🇱 RoW-XI`, function () {
+    it(`XI service - Multiple VAT rates 🇮🇱 RoW-XI`, function () {
         cy.visit('uk/8716109800/import-date')
         cy.validDate()
         cy.selectDestination('xi')
@@ -111,9 +111,11 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
         //VAT Page
         cy.vat('20')
+        cy.contains('Value added tax (20.0%)')
+        cy.get('.govuk-button').click()
         cy.contains('VAT')
         cy.contains('Standard rate')
-        
+        cy.get('.govuk-back-link').click().wait(200)
         //Change to different VAT rate 
         cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Which VAT rate is applicable to your trade?')
@@ -123,6 +125,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.get('.govuk-button').click()
         cy.contains('VAT')
         cy.contains('Zero rate')
+        cy.get('.govuk-back-link').click().wait(200)
         //Change to different VAT rate 
         cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Which VAT rate is applicable to your trade?')
@@ -132,9 +135,64 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.get('.govuk-button').click()
         cy.contains('VAT')
         cy.contains('Reduced rate')
+    })
+    it('XI service - Multiple VAT rates - GB to NI ', function () {
+        //select future date 
+        cy.visit(`xi/8716109800/import-date`)
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('gb')
+        // ✅ Trader Scheme Registered - Yes 
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUse('yes')
+        // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
+        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.contains('Continue').click()
+        //  🚫 Certified as UK Origin
+        cy.certificate('no')
+        // Monetary value page 
+        cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' })
+
+
+        //VAT Page
+        cy.vat('20')
+        cy.contains('Value added tax (20.0%)')
+        cy.get('.govuk-button').click()
+        cy.contains('VAT')
+        cy.contains('Standard rate')
+        cy.get('.govuk-back-link').click().wait(200)
+        //Change to different VAT rate 
+        cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.contains('Which VAT rate is applicable to your trade?')
+        //VAT Page
+        cy.vat('0')
+        cy.contains('VAT zero rate')
+        cy.get('.govuk-button').click()
+        cy.contains('VAT')
+        cy.contains('Zero rate')
+        cy.get('.govuk-back-link').click().wait(200)
+        //Change to different VAT rate 
+        cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.contains('Which VAT rate is applicable to your trade?')
+        //VAT Page
+        cy.vat('5')
+        cy.contains('VAT reduced rate 5%')
+        cy.get('.govuk-button').click()
+        cy.contains('VAT')
+        cy.contains('Reduced rate')
+
+        //Final Page 
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)')
+        cy.contains('Option 3: Claiming a waiver – Exchange rate')
+
 
 
     })
+
 
 
 
