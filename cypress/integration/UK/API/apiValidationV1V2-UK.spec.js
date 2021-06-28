@@ -26,7 +26,7 @@ describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () =>
                 expect(response).to.have.property('duration')
                 expect(response.duration).to.lessThan(1600)
                 //body length
-                expect(response.body.included).to.have.length(499)
+                expect(response.body.included).to.have.length(491)
             })
     })
     it('🚫 UK - V2 - Error codes - 404', function () {

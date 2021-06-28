@@ -4,14 +4,15 @@ Nepal - GB = £240.00
 Nepal - NI = £247.00
 Δ MFN = £7.00
 */
-describe('| Row-NI304.spec.js | Δ MFN < 3% of Import duties = UK import duties apply | ', function () {
+//STOP PAGE for Production
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    let country = ["uk", "xi"]
-    for (let i = 0; i < country.length; i++) {
-        it(`RoW 🇳🇵(Nepal) to NI ${country[i]} service`, function () {
-            cy.visit(`${country[i]}/9503002110/import-date`)
+describe('| Row-NI304.spec.js | STOP Page - Δ MFN < 3% of Import duties = UK import duties apply | ', function () {
 
+    Cypress.config('baseUrl', Cypress.config('services')['prod'])
+        it('RoW 🇳🇵(Nepal) - GB',function(){
+            cy.visit('/commodities/9503002110')
+            cy.contains('UK Global Online Tariff')
+            cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
             //date
             cy.validDate()
             //destination
@@ -28,36 +29,10 @@ describe('| Row-NI304.spec.js | Δ MFN < 3% of Import duties = UK import duties 
             cy.finalUseNI('yes')
             //Planned processing - commercial 
             cy.plannedXI('commercial')
-            //customs value
-            cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
-
-            cy.confirmPage()
-            cy.dutyPage()
-            cy.contains('Option 1: Third-country duty')
-            cy.contains('Third-country duty (UK)')
-            cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.')
-        
-        })
-    }
-        it('RoW 🇳🇵(Nepal) - GB',function(){
-            cy.visit(`uk/9503002110/import-date`)
-
-            //date
-            cy.validDate()
-            //destination
-            cy.selectDestination('gb')
-            //origin
-            cy.wait(300)
-            cy.originList({ value: 'Nepal' })
-            //customs value
-            cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
-            cy.wait(300)
-            //Trader Scheme
-            cy.confirmPage()
-            cy.dutyPage()
-            cy.contains('Option 1: Third-country duty')
-            cy.contains('Third-country duty (UK)')
-            cy.contains("A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.")
+            //STOP Page 
+            cy.contains("Duties cannot currently be calculated")
+            cy.contains("We're currently unable to calculate the duties applicable to your import.")
+            cy.contains("The functionality to calculate the duties applicable to your circumstances is under construction.")
 
         })
 })
