@@ -27,7 +27,7 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
                 expect(response).to.have.property('duration')
                 expect(response.duration).to.lessThan(2000)
                 //body length
-                expect(response.body.included).to.have.length(502)
+                expect(response.body.included).to.have.length(511)
             })
     })
     it('XI - V2 - Error codes - 404', function () {
