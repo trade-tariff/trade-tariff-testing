@@ -3,10 +3,8 @@
   "services": {
     "xi": "https://www.trade-tariff.service.gov.uk/xi/",
     "dutycal" : "https://www.trade-tariff.service.gov.uk/duty-calculator",
-    "prod": "https://www.trade-tariff.service.gov.uk/"
+    "docker": "http://localhost:3000/duty-calculator"
     
-    
-
     
   },
   
