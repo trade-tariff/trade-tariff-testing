@@ -21,9 +21,9 @@ India - NI = £247.00
 */
 describe('| Row-NI304b.spec.js | Quantity | Δ MFN < 3% of Import duties = UK import duties apply , Δ MFN > 3% of Import duties = EU import duties apply | ', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    Cypress.config('baseUrl', Cypress.config('services')['docker'])
     
-    it(`RoW - 🇮🇳(India) to NI  service`, function () {
+    it(`RoW - 🇮🇳 (India) to NI  service`, function () {
             cy.visit(`xi/1509102090/import-date`)
 
             //date
