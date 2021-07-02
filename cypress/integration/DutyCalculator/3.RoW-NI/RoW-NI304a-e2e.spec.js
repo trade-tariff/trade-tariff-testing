@@ -4,7 +4,7 @@ Nepal - GB = £240.00
 Nepal - NI = £247.00
 Δ MFN = £7.00
 */
-describe('| Row-NI304a.spec.js | Ad Valorem | Δ MFN < 3% of Import duties = UK import duties apply | ', function () {
+describe('| Row-NI304a.spec.js | Delta Route | Ad Valorem | Δ MFN < 3% of Import duties = UK import duties apply | ', function () {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
    
