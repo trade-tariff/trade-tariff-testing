@@ -183,7 +183,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
 
        cy.get("#details-export-content-0281f1a7-6233-477b-9025-b67a53caef9f")
         .contains('tariff preference').click()
-        cy.contains('Check if you can claim a preferential rate of duty')
+        cy.contains('Pay less Customs Duty on goods from a country with a UK trade agreement')
         cy.go('back')
         cy.contains('Commodity information for 4421999910')
 

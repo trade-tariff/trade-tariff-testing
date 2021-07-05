@@ -1,7 +1,7 @@
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅ Measure Units
 // 1509102090 22nd December 2021 
 // Multiple Additional Codes 
-describe('| Row-NI304c.spec.js |🔼 Delta Route | Multiple Additional Codes , UK = 2 codes , XI = None | ', function () {
+describe('| Row-NI304c.spec.js | 🔼 Delta Route | Multiple Additional Codes , UK = 2 codes , XI = None | ', function () {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     
