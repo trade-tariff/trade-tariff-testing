@@ -36,7 +36,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
         // 30th February ?
 
         //date entered persists after error message only if valid format date and in past *
-        cy.get('#wizard-steps-import-date-import-date-field-error') .should('have.value', '11')
+        cy.get('#steps-import-date-import-date-field-error') .should('have.value', '11')
         cy.get('#wizard_steps_import_date_import_date_2i') .should('have.value', '12')
         cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2020')
 

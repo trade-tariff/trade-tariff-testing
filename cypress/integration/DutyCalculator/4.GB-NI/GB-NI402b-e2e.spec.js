@@ -21,13 +21,13 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
         // check URL 
 
         //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         cy.wait(100)
         cy.contains('Which country are the goods coming from?')
 
         //select United Kingdom as country of Origin       
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+        cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
         
         // ✅  Trader Scheme Registered - Yes 
@@ -38,7 +38,7 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
 
         // ✅ Non processing - Yes        
         //Select - The importer had a total annual turnover of less than £500,000 in its most recent complete financial year
-        cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field").check()
+        cy.get("#steps-planned-processing-planned-processing-annual-turnover-field").check()
         cy.contains('Continue').click()
         cy.wait(100)
          // duty page validation  ***
@@ -52,7 +52,7 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
 
         // selection is persisted 
         cy.go(-1)
-        cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field")
+        cy.get("#steps-planned-processing-planned-processing-annual-turnover-field")
             .parent()
             .find('input')
             .should('be.checked')

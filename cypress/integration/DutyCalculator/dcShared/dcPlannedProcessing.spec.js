@@ -33,45 +33,45 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
         cy.get('.govuk-error-summary')
         cy.contains('Select one of the available options')
         
-        cy.get('#wizard-steps-planned-processing-planned-processing-error')
+        cy.get('#steps-planned-processing-planned-processing-error')
             .contains('Select one of the available options')
 
         // 1 .Select - The goods will be sold to an end-user without any processing
-        cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
+        cy.get("#steps-planned-processing-planned-processing-without-any-processing-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field")
+        cy.get("#steps-planned-processing-planned-processing-without-any-processing-field")
             .parent()
             .find('input')
             .should('be.checked')
 
         //2.Select - The importer had a total annual turnover of less than £500,000 in its most recent complete financial year
-        cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field").check()
+        cy.get("#steps-planned-processing-planned-processing-annual-turnover-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field")
+        cy.get("#steps-planned-processing-planned-processing-annual-turnover-field")
             .parent()
             .find('input')
             .should('be.checked')
 
         // 3.Select - The goods will undergo commercial processing for one of these purposes
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-processing-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-processing-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-processing-field")
+        cy.get("#steps-planned-processing-planned-processing-commercial-processing-field")
             .parent()
             .find('input')
             .should('be.checked')
 
         //4. Select - The goods will be processed for commercial purposes other than those listed above
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field")
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field")
             .parent()
             .find('input')
             .should('be.checked')
@@ -116,46 +116,46 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
         cy.get('.govuk-error-summary')
         cy.contains('Select one of the available options')
 
-        cy.get('#wizard-steps-planned-processing-planned-processing-error')
+        cy.get('#steps-planned-processing-planned-processing-error')
             .contains('Select one of the available options')
 
         // 1 .Select - The goods will be sold to an end-user without any processing
-        cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
+        cy.get("#steps-planned-processing-planned-processing-without-any-processing-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field")
+        cy.get("#steps-planned-processing-planned-processing-without-any-processing-field")
             .parent()
             .find('input')
             .should('be.checked')
 
         //2.Select - The importer had a total annual turnover of less than £500,000 in its most recent complete financial year
-        cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field").check()
+        cy.get("#steps-planned-processing-planned-processing-annual-turnover-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-annual-turnover-field")
+        cy.get("#steps-planned-processing-planned-processing-annual-turnover-field")
             .parent()
             .find('input')
             .should('be.checked')
 
         // 3.Select - The goods will undergo commercial processing for one of these purposes
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-processing-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-processing-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-processing-field")
+        cy.get("#steps-planned-processing-planned-processing-commercial-processing-field")
             .parent()
             .find('input')
             .should('be.checked')
 
         //4. Select - The goods will be processed for commercial purposes other than those listed above
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
         cy.contains('Continue').click()
     /*    
         // selection is persisted 
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field")
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field")
             .parent()
             .find('input')
             .should('be.checked')

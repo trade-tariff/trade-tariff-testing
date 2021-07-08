@@ -22,7 +22,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
       cy.get('.govuk-error-summary')
       cy.contains('There is a problem')
       cy.contains('Select one of the two options')
-      cy.get('#wizard-steps-final-use-final-use-error')
+      cy.get('#steps-final-use-final-use-error')
           .contains('Select one of the two options')
   
       //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
@@ -81,7 +81,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     cy.get('.govuk-error-summary')
     cy.contains('There is a problem')
     cy.contains('Select one of the two options')
-    cy.get('#wizard-steps-final-use-final-use-error')
+    cy.get('#steps-final-use-final-use-error')
       .contains('Select one of the two options')
 
     //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom

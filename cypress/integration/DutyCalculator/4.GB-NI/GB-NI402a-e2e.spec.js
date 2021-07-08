@@ -26,7 +26,7 @@ describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
 
         //✅ Non processing - Yes - First Option selected 
         //Select - The goods will be sold to an end-user without any processing
-        cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
+        cy.get("#steps-planned-processing-planned-processing-without-any-processing-field").check()
         cy.contains('Continue').click()
         cy.wait(100)
          // duty page validation 
@@ -42,7 +42,7 @@ describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
         // selection is persisted 
         cy.contains('Back').click()
         cy.wait(100)
-        cy.get("#wizard-steps-planned-processing-planned-processing-without-any-processing-field")
+        cy.get("#steps-planned-processing-planned-processing-without-any-processing-field")
             .parent()
             .find('input')
             .should('be.checked')

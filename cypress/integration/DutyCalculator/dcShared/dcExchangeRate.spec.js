@@ -10,22 +10,22 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         cy.validDate( )
         cy.contains('Continue').click()
         //destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         //origin
-      //  cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+      //  cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
+        cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
         //trader scheme
         cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
         cy.contains('Continue').click()
         //certificate
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
+        cy.get("input#steps-certificate-of-origin-certificate-of-origin-no-field").check()
         cy.contains('Continue').click()
         //monetary value
-        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
-        cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
-        cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
+        cy.get('input#steps-customs-value-monetary-value-field').clear().type('5000.50')
+        cy.get('input#steps-customs-value-shipping-cost-field').clear().type('455.7533')
+        cy.get('input#steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
         
         //confirm
