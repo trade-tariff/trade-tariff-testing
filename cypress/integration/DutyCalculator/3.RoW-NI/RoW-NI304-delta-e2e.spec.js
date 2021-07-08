@@ -6,9 +6,9 @@ Nepal - NI = £247.00
 */
 //STOP PAGE for Production 
 
-describe('| Row-NI304-delta.spec.js | 🔼 Delta Route | STOP Page - Δ MFN < 3% of Import duties = UK import duties apply | ', function () {
+describe.skip('| Row-NI304-delta.spec.js | 🔼 Delta Route | STOP Page - Δ MFN < 3% of Import duties = UK import duties apply | ', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    Cypress.config('baseUrl')
         it('RoW 🇳🇵(Nepal) - XI',function(){
             cy.visit('/commodities/9503002110')
             cy.contains('UK Global Online Tariff')
