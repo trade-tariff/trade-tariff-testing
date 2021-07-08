@@ -76,17 +76,17 @@ Cypress.Commands.add("MainPageXI",()=>{
 //DC Valid date 
 Cypress.Commands.add("validDate",()=>{
     cy.contains('When will the goods be imported?')
-    cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('31')
-    cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
-    cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2021')
+    cy.get('#steps_import_date_import_date_3i').click().clear().type('31')
+    cy.get('#steps_import_date_import_date_2i').click().clear().type('12')
+    cy.get('#steps_import_date_import_date_1i').click().clear().type('2021')
     cy.contains('Continue').click()
 })
 //Enter Date 
 Cypress.Commands.add("enterDate",(date)=>{
     cy.contains('When will the goods be imported?')
-    cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type(date.day)
-    cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type(date.month)
-    cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type(date.year)
+    cy.get('#steps_import_date_import_date_3i').click().clear().type(date.day)
+    cy.get('#steps_import_date_import_date_2i').click().clear().type(date.month)
+    cy.get('#steps_import_date_import_date_1i').click().clear().type(date.year)
     cy.contains('Continue').click()
 })
 
@@ -140,10 +140,10 @@ Cypress.Commands.add("euDutiesApply", () => {
 Cypress.Commands.add("traderScheme",(selection)=>{
     cy.contains('Are you authorised under the UK Trader Scheme?')
     if(selection === 'yes'){
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+        cy.get("div:nth-of-type(1) > input[name='steps_trader_scheme[trader_scheme]']").check()
     }
     else{
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+        cy.get("div:nth-of-type(2) > input[name='steps_trader_scheme[trader_scheme]']").check()
     }  
     cy.contains('Continue').click()
 })
@@ -181,9 +181,9 @@ Cypress.Commands.add("quantity",(measureUnits)=>{
 Cypress.Commands.add("finalUse",(value)=>{
     cy.contains('Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?')
     if (value === 'yes'){
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()    
+        cy.get("div:nth-of-type(1) > input[name='steps_final_use[final_use]']").check()    
     }else{
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
+        cy.get("div:nth-of-type(2) > input[name='steps_final_use[final_use]']").check()
     }
     cy.contains('Continue').click()
 })
@@ -191,9 +191,9 @@ Cypress.Commands.add("finalUse",(value)=>{
 Cypress.Commands.add("finalUseNI", (value) => {
     cy.contains('Are your goods for sale to, or final use by, end-consumers located in the Northern Ireland?')
     if (value === 'yes') {
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
+        cy.get("div:nth-of-type(1) > input[name='steps_final_use[final_use]']").check()
     } else {
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
+        cy.get("div:nth-of-type(2) > input[name='steps_final_use[final_use]']").check()
     }
     cy.contains('Continue').click()
 })
