@@ -23,7 +23,7 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
     
-    it(`RoW - 🇮🇳 (India) to NI  service`, function () {
+    it(`RoW - 🇮🇳 (India) to NI  service | Measure Units |`, function () {
             cy.visit(`xi/1509102090/import-date`)
 
             //date
