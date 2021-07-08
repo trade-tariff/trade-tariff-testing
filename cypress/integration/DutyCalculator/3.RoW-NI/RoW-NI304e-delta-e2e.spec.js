@@ -3,7 +3,7 @@
 describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK and EU  | ', function () {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    it('RoW 🇨🇦 (Canada) - GB |UK - yes, EU - no|', function () {
+    it('RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no |', function () {
         cy.visit('xi/0102291010/import-date')
         //date
         cy.validDate()
@@ -36,7 +36,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
         cy.contains("UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.")
     })
     //
-    it('RoW 🇹🇷(Turkey) - GB |UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU', function () {
+    it('RoW 🇹🇷(Turkey) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU |', function () {
         cy.visit('xi/0102291010/import-date')
         //date
         cy.validDate()
