@@ -10,11 +10,11 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.validDate( )
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         cy.contains('Which country are the goods coming from?')
         
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+        cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
 
         //trader page 
@@ -57,7 +57,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
         cy.contains('Select one of the two options')
-        cy.get('#wizard-steps-trader-scheme-trader-scheme-error')
+        cy.get('#steps-trader-scheme-trader-scheme-error')
             .contains('Select one of the two options')
 
     //static links on page 
@@ -88,7 +88,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
         cy.contains('Select one of the two options')
-        cy.get('#wizard-steps-trader-scheme-trader-scheme-error')
+        cy.get('#steps-trader-scheme-trader-scheme-error')
             .contains('Select one of the two options')
 
         //Select Yes, I am registered with the UK Trader Scheme

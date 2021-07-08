@@ -18,21 +18,21 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
         cy.contains('Which part of the UK are you importing into?')
 
         //select GB as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
+        cy.get('#steps-import-destination-import-destination-uk-field').check()
         cy.contains('Continue').click()
         cy.wait(100)
         cy.contains('Which country are the goods coming from?')
 
         //select country from list 
-        cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
+        cy.get('#steps-country-of-origin-country-of-origin-field')
         .click().clear()
         .type('Turkey').wait(500)
         cy.contains('Continue').click()
         //Monetary value page 
         cy.contains('What is the customs value of this import?')
-        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('5000.50')
-        cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('455.7533')
-        cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('4545.987654')
+        cy.get('input#steps-customs-value-monetary-value-field').clear().type('5000.50')
+        cy.get('input#steps-customs-value-shipping-cost-field').clear().type('455.7533')
+        cy.get('input#steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
 
         cy.additionalCode({code:'B964'})

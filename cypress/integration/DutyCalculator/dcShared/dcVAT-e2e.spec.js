@@ -149,7 +149,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         // ✅  Final use in NI - Yes 
         cy.finalUse('yes')
         // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
         cy.contains('Continue').click()
         //  🚫 Certified as UK Origin
         cy.certificate('no')

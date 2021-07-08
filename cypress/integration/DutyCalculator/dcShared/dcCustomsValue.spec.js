@@ -54,12 +54,12 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.get('.govuk-error-summary')
         .contains('Enter a valid monetary value')
 
-        cy.get('span#wizard-steps-customs-value-monetary-value-error').contains('Enter a valid monetary value')
+        cy.get('span#steps-customs-value-monetary-value-error').contains('Enter a valid monetary value')
         cy.get('.govuk-back-link').click()
         cy.contains('Continue').click()
         
         //enter non-numeric value in goods value
-        cy.get('input#wizard-steps-customs-value-monetary-value-field').type('dolphins nose')
+        cy.get('input#steps-customs-value-monetary-value-field').type('dolphins nose')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -80,9 +80,9 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         //Customs value page
         cy.contains('What is the customs value of this import?')
   
-        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear()
-        cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('puffins')
-        cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('Seawise Giant')
+        cy.get('input#steps-customs-value-monetary-value-field').clear()
+        cy.get('input#steps-customs-value-shipping-cost-field').clear().type('puffins')
+        cy.get('input#steps-customs-value-insurance-cost-field').clear().type('Seawise Giant')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -91,9 +91,9 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.contains('Enter a numeric insurance cost or leave the field blank')
 
         //enter negative value in Goods value 
-        cy.get('input#wizard-steps-customs-value-monetary-value-field-error').clear().type('-999')
-        cy.get('input#wizard-steps-customs-value-shipping-cost-field-error').clear().type('-999')
-        cy.get('input#wizard-steps-customs-value-insurance-cost-field-error').clear().type('-999')
+        cy.get('input#steps-customs-value-monetary-value-field-error').clear().type('-999')
+        cy.get('input#steps-customs-value-shipping-cost-field-error').clear().type('-999')
+        cy.get('input#steps-customs-value-insurance-cost-field-error').clear().type('-999')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -103,7 +103,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
 
         //enter zero value goods 
-        cy.get('input#wizard-steps-customs-value-monetary-value-field-error').clear().type('0')
+        cy.get('input#steps-customs-value-monetary-value-field-error').clear().type('0')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -123,9 +123,9 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.certificate('no')
         //Customs value page
         cy.contains('What is the customs value of this import?')
-         cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('0.01')
-         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type(' ')
-         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type(' ')
+         cy.get('input#steps-customs-value-monetary-value-field').clear().type('0.01')
+         cy.get('input#steps-customs-value-shipping-cost-field').clear().type(' ')
+         cy.get('input#steps-customs-value-insurance-cost-field').clear().type(' ')
          cy.contains('Continue').click()
         cy.contains('Enter import quantity')
     })

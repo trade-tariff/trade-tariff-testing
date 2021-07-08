@@ -11,7 +11,7 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
     
     cy.contains('Which part of the UK are you importing into?')
     //select NI as country of destination
-    cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
+    cy.get('#steps-import-destination-import-destination-uk-field').check()
     cy.contains('Continue').click()
     cy.contains('Which country are the goods coming from?')
 
@@ -19,9 +19,9 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
     for ( var i=0 ;i<countries.length;i++)
     {
 
-    cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
+    cy.get('#steps-country-of-origin-country-of-origin-field')
      .clear().wait(100).type(`${countries[i]}`).wait(300)
-    cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
+    cy.get("[id='steps-country-of-origin-country-of-origin-field__listbox']")
             .contains('No results found')
     }
 
@@ -35,15 +35,15 @@ it(`RoW - GB - United Kingdom (Northern Ireland) included in countries list `,fu
     
     cy.contains('Which part of the UK are you importing into?')
     //select NI as country of destination
-    cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
+    cy.get('#steps-import-destination-import-destination-uk-field').check()
     cy.contains('Continue').click()
     cy.contains('Which country are the goods coming from?')
 
    
-    cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
+    cy.get('#steps-country-of-origin-country-of-origin-field')
      .click().clear().wait(500)
      .type('United Kingdom (Northern Ireland)').wait(500)
-     cy.get("[id='wizard-steps-country-of-origin-country-of-origin-field__listbox']")
+     cy.get("[id='steps-country-of-origin-country-of-origin-field__listbox']")
      .contains('United Kingdom (Northern Ireland)')
 })
   it('RoW to NI - Exclude EU countries ', function () {
@@ -60,10 +60,10 @@ it(`RoW - GB - United Kingdom (Northern Ireland) included in countries list `,fu
 
     for (let i = 0; i < EU_countries.length; i++) {
 
-      cy.get('#wizard-steps-country-of-origin-other-country-of-origin-field')
+      cy.get('#steps-country-of-origin-other-country-of-origin-field')
         .click().clear().wait(200)
         .type(`${EU_countries[i]}`).wait(200).click()
-      cy.get("[id='wizard-steps-country-of-origin-other-country-of-origin-field__listbox']")
+      cy.get("[id='steps-country-of-origin-other-country-of-origin-field__listbox']")
         .contains('No results found')
     //  cy.contains('Continue').click()
     }

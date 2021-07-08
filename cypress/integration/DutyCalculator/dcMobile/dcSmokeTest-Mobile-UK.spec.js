@@ -50,7 +50,7 @@ describe('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
 
 
         // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
         cy.contains('Continue').click()
         cy.get('.govuk-header__menu-button').click()
         cy.contains('A-Z')
@@ -148,7 +148,7 @@ it(`📱 android - e2e journey `, function () {
 
 
         // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
         cy.contains('Continue').click()
         cy.get('.govuk-header__menu-button').click()
         cy.contains('A-Z')

@@ -17,13 +17,13 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
         cy.contains('Which part of the UK are you importing into?')
 
         //select NI as country of destination
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+        cy.get('#steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         cy.contains('Which country are the goods coming from?')
 
         //select United Kingdom as country of Origin
          //select country from list       
-         cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+         cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
          cy.contains('Continue').click()
 
         // ℹ️ Interstitial Message - EU duties apply
@@ -32,9 +32,9 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
 
          //💰 Whats the monetary value?
         cy.contains('What is the customs value of this import?')
-        cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type('4567.001')
-         cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type('1213.43')
-         cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type('5.434')
+        cy.get('input#steps-customs-value-monetary-value-field').clear().type('4567.001')
+         cy.get('input#steps-customs-value-shipping-cost-field').clear().type('1213.43')
+         cy.get('input#steps-customs-value-insurance-cost-field').clear().type('5.434')
          cy.contains('Continue').click()
 
         //Confirm Page - Page 17 

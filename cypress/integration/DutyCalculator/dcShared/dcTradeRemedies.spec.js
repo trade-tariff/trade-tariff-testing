@@ -6,9 +6,9 @@ describe('📑 | dcTradeRemedies | Trade remedies page |',function() {
         cy.visit('uk/0702000007/import-date')
         cy.validDate( )
         cy.contains('Continue').click()
-        cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()         
+        cy.get('#steps-import-destination-import-destination-xi-field').check()         
         cy.contains('Continue').click()
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+        cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
         cy.visit('/trade-remedies?referred_service=uk&commodity_code=0702000007')
         

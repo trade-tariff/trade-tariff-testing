@@ -93,9 +93,9 @@ Cypress.Commands.add("enterDate",(date)=>{
 Cypress.Commands.add("selectDestination",(destination)=>{
     cy.contains('Which part of the UK are you importing into?')
     if (destination === 'xi') {
-      cy.get('#wizard-steps-import-destination-import-destination-xi-field').check()
+      cy.get('#steps-import-destination-import-destination-xi-field').check()
     } else {
-      cy.get('#wizard-steps-import-destination-import-destination-uk-field').check()
+      cy.get('#steps-import-destination-import-destination-uk-field').check()
     }
     cy.wait(100)
     cy.contains('Continue').click()
@@ -104,26 +104,26 @@ Cypress.Commands.add("selectDestination",(destination)=>{
 Cypress.Commands.add("selectOrigin",(origin)=>{
     cy.contains('Which country are the goods coming from?')
     if(origin === 'gb'){
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-gb-field').click()
+        cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
     }
     else if(origin === 'eu') {
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-eu-field').click()
+        cy.get('input#steps-country-of-origin-country-of-origin-eu-field').click()
     }
     else {
-        cy.get('input#wizard-steps-country-of-origin-country-of-origin-other-field').click()
+        cy.get('input#steps-country-of-origin-country-of-origin-other-field').click()
     }
     cy.contains('Continue').click()   
 })
 
 Cypress.Commands.add("originList",(origin)=>{
     cy.contains('Which country are the goods coming from?')
-    cy.get('#wizard-steps-country-of-origin-country-of-origin-field')
+    cy.get('#steps-country-of-origin-country-of-origin-field')
     .click().clear().type(origin.value).wait(500)
     cy.contains('Continue').click()
 })
 Cypress.Commands.add("otherOriginList", (otherorigin) => {
     cy.contains('Which country are the goods coming from?')
-    cy.get('#wizard-steps-country-of-origin-other-country-of-origin-field').click().clear().type(otherorigin.value).wait(500)
+    cy.get('#steps-country-of-origin-other-country-of-origin-field').click().clear().type(otherorigin.value).wait(500)
     cy.contains('Continue').click()
 })
 Cypress.Commands.add("dutiesApply",()=>{
@@ -151,20 +151,20 @@ Cypress.Commands.add("traderScheme",(selection)=>{
 Cypress.Commands.add("certificate",(selection)=>{
     cy.contains('Do you have a valid proof of preferential origin?')
     if(selection === 'yes'){
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
+        cy.get("input#steps-certificate-of-origin-certificate-of-origin-yes-field").check()
     }
     else
     {
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
+        cy.get("input#steps-certificate-of-origin-certificate-of-origin-no-field").check()
     }
     cy.contains('Continue').click()
 })
 //enter monetary value
 Cypress.Commands.add("customsValue",(monvalue)=>{
     cy.contains('What is the customs value of this import?')
-    cy.get('input#wizard-steps-customs-value-monetary-value-field').clear().type(monvalue.monetary)
-    cy.get('input#wizard-steps-customs-value-shipping-cost-field').clear().type(monvalue.shipping)
-    cy.get('input#wizard-steps-customs-value-insurance-cost-field').clear().type(monvalue.cost)
+    cy.get('input#steps-customs-value-monetary-value-field').clear().type(monvalue.monetary)
+    cy.get('input#steps-customs-value-shipping-cost-field').clear().type(monvalue.shipping)
+    cy.get('input#steps-customs-value-insurance-cost-field').clear().type(monvalue.cost)
     cy.contains('Continue').click()
 })
 
@@ -172,7 +172,7 @@ Cypress.Commands.add("customsValue",(monvalue)=>{
 Cypress.Commands.add("quantity",(measureUnits)=>{
     cy.contains('Enter import quantity')
     for (let [key, value] of Object.entries(measureUnits)) {
-      cy.get(`#wizard-steps-measure-amount-${key}-field`).clear().type(value)
+      cy.get(`#steps-measure-amount-${key}-field`).clear().type(value)
     }
     cy.contains('Continue').click()
   })
@@ -220,14 +220,14 @@ Cypress.Commands.add('additionalCode',(addcode)=>{
 Cypress.Commands.add('plannedXI',(options)=>{
     cy.contains('How will these goods be processed after they are moved into Northern Ireland?')
     if (options === 'acceptable1') {
-        cy.get("input#wizard-steps-planned-processing-planned-processing-annual-turnover-field").check()
+        cy.get("input#steps-planned-processing-planned-processing-annual-turnover-field").check()
     } else if (options === 'acceptable2'){
-        cy.get("input#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
+        cy.get("input#steps-planned-processing-planned-processing-without-any-processing-field").check()
     } else if (options === 'acceptable3') {
-        cy.get("input#wizard-steps-planned-processing-planned-processing-without-any-processing-field").check()
+        cy.get("input#steps-planned-processing-planned-processing-without-any-processing-field").check()
     }
     else {
-        cy.get("input#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.get("input#steps-planned-processing-planned-processing-commercial-purposes-field").check()
     }
 
     cy.contains('Continue').click()
@@ -235,19 +235,19 @@ Cypress.Commands.add('plannedXI',(options)=>{
 Cypress.Commands.add('vat',(options)=>{
     cy.contains('Which VAT rate is applicable to your trade?')
     if(options === '5'){
-        cy.get('input#wizard-steps-vat-vat-vatr-field').click()
+        cy.get('input#steps-vat-vat-vatr-field').click()
         cy.contains('Continue').click()
     }
     else if (options === '0'){
-        cy.get('input#wizard-steps-vat-vat-vatz-field').click()
+        cy.get('input#steps-vat-vat-vatz-field').click()
         cy.contains('Continue').click()
     }
     else if (options === '20'){
-        cy.get('input#wizard-steps-vat-vat-vat-field').click()
+        cy.get('input#steps-vat-vat-vat-field').click()
         cy.contains('Continue').click()
     }
     else {
-        cy.get('input#wizard-steps-vat-vat-vate-field').click()
+        cy.get('input#steps-vat-vat-vate-field').click()
         cy.contains('Continue').click()
     }
     

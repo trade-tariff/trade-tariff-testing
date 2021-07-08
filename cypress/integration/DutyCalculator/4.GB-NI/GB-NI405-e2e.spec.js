@@ -30,7 +30,7 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
 
         // 🚫 Non processing - No
         // Select - The goods will be processed for commercial purposes other than those listed above
-        cy.get("#wizard-steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
         cy.contains('Continue').click()
 
         // ✅ Certified as UK Origin

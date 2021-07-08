@@ -19,22 +19,22 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |',functi
         cy.contains('No, I do not have a valid Certificate of Origin')
     
         //Select Yes, valid Certificate of Origin
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field").check()
+        cy.get("input#steps-certificate-of-origin-certificate-of-origin-yes-field").check()
         cy.contains('Continue').click()
 
         //selection is persisted 
         cy.go(-1)
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-yes-field")
+        cy.get("input#steps-certificate-of-origin-certificate-of-origin-yes-field")
             .parent()
             .find('input')
             .should('be.checked')
 
         //Select No,valid Certificate of Origin
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field").check()
+        cy.get("input#steps-certificate-of-origin-certificate-of-origin-no-field").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.go(-1)
-        cy.get("input#wizard-steps-certificate-of-origin-certificate-of-origin-no-field")
+        cy.get("input#steps-certificate-of-origin-certificate-of-origin-no-field")
             .parent()
             .find('input')
             .should('be.checked')
@@ -46,7 +46,7 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |',functi
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
         cy.contains('Select one of the two options')
-        cy.get('#wizard-steps-certificate-of-origin-certificate-of-origin-error')
+        cy.get('#steps-certificate-of-origin-certificate-of-origin-error')
             .contains('Select one of the two options')
     })
     
