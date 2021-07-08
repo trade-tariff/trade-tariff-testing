@@ -17,7 +17,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
         //trader scheme
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+        cy.get("div:nth-of-type(2) > input[name='steps_trader_scheme[trader_scheme]']").check()
         cy.contains('Continue').click()
         //certificate
         cy.get("input#steps-certificate-of-origin-certificate-of-origin-no-field").check()

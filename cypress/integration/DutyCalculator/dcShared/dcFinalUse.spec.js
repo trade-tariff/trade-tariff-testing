@@ -26,7 +26,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
           .contains('Select one of the two options')
   
       //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
-      cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
+      cy.get("div:nth-of-type(1) > input[name='steps_final_use[final_use]']").check()
       cy.contains('Continue').click()
 
       //planned-processing page
@@ -34,19 +34,19 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
       // selection is persisted 
       cy.get('.govuk-back-link').click().wait(300)
       
-      cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']")
+      cy.get("div:nth-of-type(1) > input[name='steps_final_use[final_use]']")
           .parent()
           .find('input')
           .should('be.checked')
 
       //Select No, this import will not be for final use in the United Kingdom
-      cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
+      cy.get("div:nth-of-type(2) > input[name='steps_final_use[final_use]']").check()
       cy.contains('Continue').click().wait(500)
       cy.log(cy.title())
       
       // selection is persisted 
       cy.get('.govuk-back-link').click().wait(300)
-      cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']")
+      cy.get("div:nth-of-type(2) > input[name='steps_final_use[final_use]']")
           .parent()
           .find('input')
           .should('be.checked')
@@ -85,7 +85,7 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
       .contains('Select one of the two options')
 
     //Select Yes, I am importing this good into Northern Ireland for its sale to, or final use by, end-consumers located in the United Kingdom
-    cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']").check()
+    cy.get("div:nth-of-type(1) > input[name='steps_final_use[final_use]']").check()
     cy.contains('Continue').click()
 
     //planned-processing page
@@ -93,19 +93,19 @@ describe('🧮 | dcFinalUse | Final Use - page |',function() {
     // selection is persisted 
     cy.get('.govuk-back-link').click().wait(300)
 
-    cy.get("div:nth-of-type(1) > input[name='wizard_steps_final_use[final_use]']")
+    cy.get("div:nth-of-type(1) > input[name='steps_final_use[final_use]']")
       .parent()
       .find('input')
       .should('be.checked')
 
     //Select No, this import will not be for final use in the United Kingdom
-    cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']").check()
+    cy.get("div:nth-of-type(2) > input[name='steps_final_use[final_use]']").check()
     cy.contains('Continue').click().wait(500)
     cy.log(cy.title())
 
     // selection is persisted 
     cy.get('.govuk-back-link').click().wait(300)
-    cy.get("div:nth-of-type(2) > input[name='wizard_steps_final_use[final_use]']")
+    cy.get("div:nth-of-type(2) > input[name='steps_final_use[final_use]']")
       .parent()
       .find('input')
       .should('be.checked')
