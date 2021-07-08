@@ -1,6 +1,6 @@
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - 🚫 Measure Units
 /* 9503002110 22nd December 2021 
-Nepal - GB = £240.00
+Nepal - XI = £240.00
 Nepal - NI = £247.00
 Δ MFN = £7.00
 */
@@ -39,7 +39,7 @@ describe('| Row-NI304a-delta.spec.js | 🔼 Delta Route | Ad Valorem | Δ MFN < 
         })
     
     //Ad Valorem - delta mfn 3% 
-    it('RoW 🇧🇹 (Bhutan) - GB | Ad Valorem - delta mfn < 3% = UK |',function(){
+    it('RoW 🇧🇹 (Bhutan) - XI | Ad Valorem - delta mfn < 3% = UK |',function(){
         let comm = ["0303531000","9503002110"]
         for (let i = 0 ; i < comm.length;i++)
         {
@@ -71,7 +71,7 @@ describe('| Row-NI304a-delta.spec.js | 🔼 Delta Route | Ad Valorem | Δ MFN < 
         }
         })
     //Ad Valorem - delta mfn 3% 
-        it('RoW 🇱🇰 (Sri lanka) - GB | Ad Valorem - delta mfn > 3% = EU |', function () {
+        it('RoW 🇱🇰 (Sri lanka) - XI | Ad Valorem - delta mfn > 3% = EU |', function () {
             cy.visit(`uk/5905003000/import-date`)
             //date
             cy.validDate()
@@ -97,7 +97,7 @@ describe('| Row-NI304a-delta.spec.js | 🔼 Delta Route | Ad Valorem | Δ MFN < 
             cy.contains('Third-country duty (EU)')
             cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
 })
-        it('RoW 🇹🇭 (Thailand) - GB | Ad Valorem - delta mfn > 3% = EU |', function () {
+        it('RoW 🇹🇭 (Thailand) - XI | Ad Valorem - delta mfn > 3% = EU |', function () {
             cy.visit(`uk/1302120000/import-date`)
             //date
             cy.validDate()

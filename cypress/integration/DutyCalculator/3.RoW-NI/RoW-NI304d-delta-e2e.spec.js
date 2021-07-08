@@ -2,7 +2,7 @@
 describe('| Row-NI304d-delta.spec.js | 🔼 Delta Route | more than one measure amounts on UK and XI service | ', function () {
 
     Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    it('RoW 🇦🇪 (United Arab Emirates) - GB', function () {
+    it('RoW 🇦🇪 (United Arab Emirates) - XI', function () {
         cy.visit('uk/1701141000/import-date')
         //date
         cy.validDate()
