@@ -17,7 +17,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
         cy.contains('You can read more about the methods and how to calculate the customs value of your goods here: Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics.')
         //static page links - valuation of imported goods for customs purposes, VAT and trade statistics.
-        cy.get('form#new_wizard_steps_customs_value  .govuk-link').click()
+        cy.get('form#new_steps_customs_value  .govuk-link').click()
         cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics')
         cy.go('back')
         //Explore the topic

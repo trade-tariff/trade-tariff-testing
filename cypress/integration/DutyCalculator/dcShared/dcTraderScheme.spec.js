@@ -31,22 +31,22 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.go('back')
     
         //Select Yes, I am registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+        cy.get("div:nth-of-type(1) > input[name='steps_trader_scheme[trader_scheme]']").check()
         cy.contains('Continue').click()
 
         // selection is persisted 
         cy.go(-1)
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']")
+        cy.get("div:nth-of-type(1) > input[name='steps_trader_scheme[trader_scheme]']")
             .parent()
             .find('input')
             .should('be.checked')
 
         //Select No,I am not registered with the UK Trader Scheme
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']").check()
+        cy.get("div:nth-of-type(2) > input[name='steps_trader_scheme[trader_scheme]']").check()
         cy.contains('Continue').click()
         // selection is persisted 
         cy.go(-1)
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']")
+        cy.get("div:nth-of-type(2) > input[name='steps_trader_scheme[trader_scheme]']")
             .parent()
             .find('input')
             .should('be.checked')
@@ -95,7 +95,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         cy.traderScheme('yes')
         // selection is persisted     
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("div:nth-of-type(1) > input[name='wizard_steps_trader_scheme[trader_scheme]']")
+        cy.get("div:nth-of-type(1) > input[name='steps_trader_scheme[trader_scheme]']")
             .parent()
             .find('input')
             .should('be.checked')
@@ -105,7 +105,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |',function() {
         // selection is persisted 
         
         cy.get('.govuk-back-link').click().wait(300)
-        cy.get("div:nth-of-type(2) > input[name='wizard_steps_trader_scheme[trader_scheme]']")
+        cy.get("div:nth-of-type(2) > input[name='steps_trader_scheme[trader_scheme]']")
             .parent()
             .find('input')
             .should('be.checked')    

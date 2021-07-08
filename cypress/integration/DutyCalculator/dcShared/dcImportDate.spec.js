@@ -23,9 +23,9 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
     it(`📅 Invalid date - Past Date -> Date persists -> enter valid date ${country[i]}`, function () {
         cy.visit(`${country[i]}/0702000007/import-date`)
         cy.contains(`${pagetitles[i]}`)
-        cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('11')
-        cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('12')
-        cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('2020')
+        cy.get('#steps_import_date_import_date_3i').click().clear().type('11')
+        cy.get('#steps_import_date_import_date_2i').click().clear().type('12')
+        cy.get('#steps_import_date_import_date_1i').click().clear().type('2020')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
@@ -37,13 +37,13 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
 
         //date entered persists after error message only if valid format date and in past *
         cy.get('#steps-import-date-import-date-field-error') .should('have.value', '11')
-        cy.get('#wizard_steps_import_date_import_date_2i') .should('have.value', '12')
-        cy.get('#wizard_steps_import_date_import_date_1i') .should('have.value', '2020')
+        cy.get('#steps_import_date_import_date_2i') .should('have.value', '12')
+        cy.get('#steps_import_date_import_date_1i') .should('have.value', '2020')
 
         //check if it allows user to enter correct date ( leap year 2024)
-        cy.get('input[name=\'wizard_steps_import_date[import_date(3i)]\']').click().clear().type('29')
-        cy.get('input[name=\'wizard_steps_import_date[import_date(2i)]\']').click().clear().type('02')
-        cy.get('input[name=\'wizard_steps_import_date[import_date(1i)]\']').click().clear().type('3024')
+        cy.get('input[name=\'steps_import_date[import_date(3i)]\']').click().clear().type('29')
+        cy.get('input[name=\'steps_import_date[import_date(2i)]\']').click().clear().type('02')
+        cy.get('input[name=\'steps_import_date[import_date(1i)]\']').click().clear().type('3024')
         cy.contains('Continue').click()
         cy.contains('Which part of the UK are you importing into?')
 
@@ -62,9 +62,9 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |',function() {
     it(`📅 Invalid date - Text ${country[i]} `, function () {
         cy.visit(`${country[i]}/0702000007/import-date`)
         cy.contains(`${pagetitles[i]}`)
-        cy.get('#wizard_steps_import_date_import_date_3i').click().clear().type('dd')
-        cy.get('#wizard_steps_import_date_import_date_2i').click().clear().type('mm')
-        cy.get('#wizard_steps_import_date_import_date_1i').click().clear().type('yyyy')
+        cy.get('#steps_import_date_import_date_3i').click().clear().type('dd')
+        cy.get('#steps_import_date_import_date_2i').click().clear().type('mm')
+        cy.get('#steps_import_date_import_date_1i').click().clear().type('yyyy')
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('There is a problem')
