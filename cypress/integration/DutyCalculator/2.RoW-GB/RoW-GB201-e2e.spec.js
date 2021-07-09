@@ -3,7 +3,7 @@
 // explain what this test will achieve 
 
 describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e.spec | ', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
 
     let country = ["uk", "xi"]
     let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
@@ -13,7 +13,7 @@ describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e
 
         it(`e2e RoW to GB - 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`, function () {
             //select future date 
-            cy.visit(`${country[i]}/0702000007/import-date`)
+            cy.visit(`/duty-calculator/${country[i]}/0702000007/import-date`)
             cy.contains(`${pagetitles[i]}`)
             cy.validDate()
 

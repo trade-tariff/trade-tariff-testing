@@ -1,10 +1,10 @@
 describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
 
-// Duty Calculator tests
+    // Duty Calculator tests
     it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
         cy.visit('/uk/1516209821/import-date')
-     //   cy.visit('/commodities/1516209821')
+        //   cy.visit('/commodities/1516209821')
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')
         //select England ,Scotland or Wales (GB)
@@ -50,9 +50,9 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         //   cy.contains('Option 3: Autonomous tariff suspension')
         cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Option 4: Airworthiness tariff suspension')
-        })
+    })
     it('🚀 XI 🇪🇺 - Duty Calculator e2e - ( RoW to NI ) 303b ', function () {
-        cy.visit('xi/0702000007/import-date')
+        cy.visit('/duty-calculator/xi/0702000007/import-date')
         //date
         cy.validDate()
         //destination
@@ -158,4 +158,4 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         cy.contains('When will the goods be imported?')
 
     })
-    })
+})

@@ -1,10 +1,8 @@
-describe('| NI-GB101-e2e | Northern Ireland to GB United Kingdom |',function(){
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-   // Cypress.config('baseUrl')
-
-    it('e2e NI to GB ',function(){
-        console.log(Cypress.config('baseUrl', Cypress.config('services')['dutycal']))
-        cy.visit('/uk/0702000007/import-date')
+describe('| NI-GB101-e2e | Northern Ireland to GB United Kingdom |', function () {
+    Cypress.config('baseUrl')
+    it('e2e NI to GB ', function () {
+        
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.contains('UK Global Online Tariff')
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')
@@ -17,7 +15,7 @@ describe('| NI-GB101-e2e | Northern Ireland to GB United Kingdom |',function(){
         cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.')
 
         //select country from list 
-        cy.originList({value:'Northern Ireland'})
+        cy.originList({ value: 'Northern Ireland' })
       
         cy.contains('There is no import duty to pay')
         cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.')

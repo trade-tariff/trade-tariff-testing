@@ -2,9 +2,9 @@
 //1701141000 - 
 describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK and EU  | ', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
     it('RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no |', function () {
-        cy.visit('xi/0102291010/import-date')
+        cy.visit('/duty-calculator/xi/0102291010/import-date')
         //date
         cy.validDate()
         //destination
@@ -19,13 +19,13 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
         cy.traderScheme('yes')
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
-        //Planned processing - commercial 
-        cy.plannedXI('commercial')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
 
         //Import Quantity 
-        cy.quantity({ dtn: '100'})
+        cy.quantity({ dtn: '100' })
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
@@ -37,7 +37,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     })
     //
     it('RoW 🇹🇷(Turkey) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU |', function () {
-        cy.visit('xi/0102291010/import-date')
+        cy.visit('/duty-calculator/xi/0102291010/import-date')
         //date
         cy.validDate()
         //destination
@@ -52,8 +52,8 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
         cy.traderScheme('yes')
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
-        //Planned processing - commercial 
-        cy.plannedXI('commercial')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
 

@@ -1,15 +1,11 @@
 
 describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |',function(){
-    Cypress.config('baseUrl')
-    
-
+   
     it(`e2e RoW to GB 🇸🇬 Singapore  to 🇬🇧 GB`,function(){
         cy.visit('/xi/commodities/1701141000')
         cy.contains('Northern Ireland Online Tariff')
         cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
-        //select future date 
-     //   cy.visit(`uk/1701141000/import-date`)
-       
+    
         cy.wait(700)
         cy.validDate()
         cy.selectDestination('gb')

@@ -1,8 +1,8 @@
 describe('|dcVAT-e2e|VAT final page calculations|', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
 
     it(`UK service - 5% - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
-        cy.visit('uk/8716109800/import-date')
+        cy.visit('/duty-calculator/uk/8716109800/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Israel' })
@@ -15,7 +15,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.contains('Reduced rate')
     })
     it(`XI service - 20% - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
-        cy.visit('xi/8716109800/import-date')
+        cy.visit('/duty-calculator/xi/8716109800/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Israel' })
@@ -30,7 +30,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
 
     })
     it(`UK service - 0% - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
-        cy.visit('uk/8716109800/import-date')
+        cy.visit('/duty-calculator/uk/8716109800/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Israel' })
@@ -44,7 +44,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
 
     })
     it(`UK service - Exempt - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
-        cy.visit('uk/3002120000/import-date')
+        cy.visit('/duty-calculator/uk/3002120000/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Israel' })
@@ -58,7 +58,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
 
     })
     it(`UK service - No Option available - one rate  🇮🇱 RoW-GB`, function () {
-        cy.visit('uk/0702000007/import-date')
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Greenland' })
@@ -74,7 +74,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
 
     })
     it(`XI service - No Option available - one rate GB-NI `, function () {
-        cy.visit('uk/0702000007/import-date')
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         //origin
@@ -97,17 +97,17 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
 
     })
     it(`XI service - Multiple VAT rates 🇮🇱 RoW-XI`, function () {
-        cy.visit('uk/8716109800/import-date')
+        cy.visit('/duty-calculator/uk/8716109800/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         //origin
         cy.selectOrigin('other')
         //select country from list 
-    
+
         cy.otherOriginList({ value: 'Israel' })
         //Trader Scheme
         cy.traderScheme('no')
-        cy.euDutiesApply() 
+        cy.euDutiesApply()
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
         //VAT Page
         cy.vat('20')

@@ -1,10 +1,10 @@
-describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |',function() {
+describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
 
     it('Page Validation - RoW-GB ', function () {
-        cy.visit('uk/1701141000/import-date')
-    
+        cy.visit('/duty-calculator/uk/1701141000/import-date')
+
         cy.validDate()
         //NI Destination
         cy.selectDestination('xi')
@@ -27,12 +27,12 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
         cy.contains('not for profit activities in NI, where there is no subsequent sale of the processed good by the importer')
         cy.contains('the final use of animal feed on premises located in NI by the importer.')
         cy.contains('The goods will be processed for commercial purposes other than those listed above')
-    
-    //no values entered - error message    
+
+        //no values entered - error message    
         cy.contains('Continue').click()
         cy.get('.govuk-error-summary')
         cy.contains('Select one of the available options')
-        
+
         cy.get('#steps-planned-processing-planned-processing-error')
             .contains('Select one of the available options')
 
@@ -75,15 +75,15 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
             .parent()
             .find('input')
             .should('be.checked')
-    //explore the topic
+        //explore the topic
         cy.contains('Explore the topic')
         cy.contains('Additional requirements for when you bring goods into Northern Ireland for processing').click()
         cy.go(-1)
-        cy.contains('Apply to pay less duty on goods you import for specific uses').click()    
+        cy.contains('Apply to pay less duty on goods you import for specific uses').click()
         cy.contains('Apply to pay less duty on goods you import for specific uses')
     })
     it('Page Validation - RoW-NI ', function () {
-        cy.visit('xi/1701141000/import-date')
+        cy.visit('/duty-calculator/xi/1701141000/import-date')
 
         cy.validDate()
         //NI Destination
@@ -152,14 +152,14 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
         //4. Select - The goods will be processed for commercial purposes other than those listed above
         cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
         cy.contains('Continue').click()
-    /*    
-        // selection is persisted 
-        cy.get('.govuk-back-link').click().wait(300)
-        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field")
-            .parent()
-            .find('input')
-            .should('be.checked')
-    */
+        /*    
+            // selection is persisted 
+            cy.get('.govuk-back-link').click().wait(300)
+            cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field")
+                .parent()
+                .find('input')
+                .should('be.checked')
+        */
         cy.go(-3)
         //explore the topic
         cy.contains('Explore the topic')
@@ -168,4 +168,4 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
         cy.contains('Apply to pay less duty on goods you import for specific uses').click()
         cy.contains('Apply to pay less duty on goods you import for specific uses')
     })
-    })
+})

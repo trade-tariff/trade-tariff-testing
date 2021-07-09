@@ -2,10 +2,10 @@
 
 describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK and EU  | ', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    
+    //
+
     it('RoW 🇵🇪 (Peru) - XI | 112 Autonomous tariff suspension | UK Tariff |', function () {
-        cy.visit('xi/2903898045/import-date')
+        cy.visit('/duty-calculator/xi/2903898045/import-date')
         //date
         cy.validDate()
         //destination
@@ -20,8 +20,8 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.traderScheme('yes')
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
-        //Planned processing - commercial 
-        cy.plannedXI('commercial')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
         cy.confirmPage()
@@ -36,7 +36,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
 
         cy.contains('Option 3: Autonomous tariff suspension')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
-        
+
         cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
@@ -46,7 +46,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
     //
 
     it('RoW 🇦🇩 (Andorra) - XI | 115 Autonomous suspension under end-use | UK Tariff |', function () {
-        cy.visit('xi/3824999252/import-date')
+        cy.visit('/duty-calculator/xi/3824999252/import-date')
         //date
         cy.validDate()
         //destination
@@ -61,8 +61,8 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.traderScheme('yes')
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
-        //Planned processing - commercial 
-        cy.plannedXI('commercial')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
         cy.confirmPage()
@@ -87,7 +87,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
 
     })
     it('RoW 🇫🇴 (Faroe Islands) - XI |117 Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms ,119 Airworthiness tariff suspension | EU Tariff , UK Tariff  |', function () {
-        cy.visit('xi/3824609100/import-date')
+        cy.visit('/duty-calculator/xi/3824609100/import-date')
         //date
         cy.validDate()
         //destination
@@ -102,8 +102,8 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.traderScheme('yes')
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
-        //Planned processing - commercial 
-        cy.plannedXI('commercial')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
         //Import Quantity 
@@ -125,7 +125,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.contains('Option 4: Airworthiness tariff suspension')
         cy.contains('Airworthiness tariff suspension (UK)')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
-    //UK Tariffs 
+        //UK Tariffs 
         cy.get('.govuk-back-link').click()
         cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
         //Import Quantity 
@@ -151,5 +151,5 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
 
     })
 
-    
+
 })

@@ -284,11 +284,11 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     //Main Page
     it('🚀 XI 🇪🇺 - Main Page Validation', function () {
 
-        cy.visit('xi/sections')
+        cy.visit('/duty-calculator/xi/sections')
         cy.MainPageXI();
     })
     it('🚀 XI 🇪🇺 - Check Calendar is functioning', function () {
-        cy.visit('xi/sections')
+        cy.visit('/duty-calculator/xi/sections')
         cy.wait(300)
         //select Change Date and OK with current date
         cy.get(" .js-show.text > a[role='button']").click()
@@ -310,7 +310,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     //switching link works
     it('🚀 XI 🇪🇺 - Main Page - Switching link to UK available & works', function () {
-        cy.visit('xi/sections')
+        cy.visit('/duty-calculator/xi/sections')
         cy.get('.govuk-header ')
             .contains('Northern Ireland Online Tariff')
 
@@ -330,7 +330,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     // UK not to be in EU country list
     it('🚀 XI 🇪🇺 - United Kingdom should NOT be shown in EU country list', function () {
-        cy.visit('xi/commodities/2403991000#import')
+        cy.visit('/duty-calculator/xi/commodities/2403991000#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('European Economic Area (2012)')
             .click()
@@ -341,7 +341,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     //Commodity Search functionality - text search
     it('🚀 XI 🇪🇺 - Search Commodity by name ', function () {
-        cy.visit('xi/sections')
+        cy.visit('/duty-calculator/xi/sections')
         //changed on 11/02/2021
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
@@ -358,7 +358,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     //Commodity Search functionality - comm code search
     it('🚀 XI 🇪🇺 - Search Commodity by code ', function () {
-        cy.visit('xi/sections')
+        cy.visit('/duty-calculator/xi/sections')
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
             .contains('Search the Northern Ireland Online Tariff')
@@ -371,7 +371,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
 
     it('🚀 XI 🇪🇺 - Country Selection -import ', function () {
-        cy.visit('xi/commodities/0208909800#import')
+        cy.visit('/duty-calculator/xi/commodities/0208909800#import')
         // XI Present
         cy.get('input#import_search_country').click().clear().wait(500).type('(XI)').wait(500)
         cy.get("[id='import_search_country__listbox']")
@@ -394,7 +394,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
     })
     it('🚀 XI 🇪🇺 - Country Selection -export ', function () {
-        cy.visit('xi/commodities/0208909800#export')
+        cy.visit('/duty-calculator/xi/commodities/0208909800#export')
         // XI Present
         cy.get('input#export_search_country').click().clear().wait(500)
             .type('(XI)').wait(500)
@@ -418,7 +418,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     //Date picker working and persists on UK XI sites
     it('🚀 XI 🇪🇺 - Change Date and check if the data shown is same for both XI and UK', function () {
-        cy.visit('xi/sections')
+        cy.visit('/duty-calculator/xi/sections')
         cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
         cy.get('input#tariff_date_date')
             .clear()
@@ -446,7 +446,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         for (let i = 0; i < sizes.length; i++) {
             cy.viewport(`${sizes[i]}`)
 
-            cy.visit('xi/sections')
+            cy.visit('/duty-calculator/xi/sections')
             cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
             cy.get('.govuk-header__menu-button').click()
             cy.contains('A-Z')

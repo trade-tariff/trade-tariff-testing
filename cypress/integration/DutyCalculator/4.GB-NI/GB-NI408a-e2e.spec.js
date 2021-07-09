@@ -2,11 +2,11 @@
 // Comm code :7202118000 - Commodity with no measure units 
 
 describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
 
     it('e2e GB to NI ', function () {
         //select future date 
-        cy.visit('/uk/7202118000/import-date')
+        cy.visit('/duty-calculator//uk/7202118000/import-date')
         //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.contains('UK Global Online Tariff')
 

@@ -1,7 +1,7 @@
 describe('Multiple VAT rate validations', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
     it(`UK service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
-        cy.visit('uk/8716109800/import-date')
+        cy.visit('/duty-calculator/uk/8716109800/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Israel' })
@@ -78,7 +78,7 @@ describe('Multiple VAT rate validations', function () {
     })
 
     it(`XI service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
-        cy.visit('xi/2934999090/import-date')
+        cy.visit('/duty-calculator/xi/2934999090/import-date')
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Israel' })

@@ -1,19 +1,19 @@
-describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
+describe('💷 💶 | dcExchangeRate | Validating exchange rates |', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
+    //
 
     it('Exchange rate', function () {
 
         //import date
-        cy.visit('uk/7202118000/import-date')
-    //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
-        cy.validDate( )
+        cy.visit('/duty-calculator/uk/7202118000/import-date')
+        //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
+        cy.validDate()
         cy.contains('Continue').click()
         //destination
         cy.get('#steps-import-destination-import-destination-xi-field').check()
         cy.contains('Continue').click()
         //origin
-      //  cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
+        //  cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
         cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click()
         cy.contains('Continue').click()
         //trader scheme
@@ -27,7 +27,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         cy.get('input#steps-customs-value-shipping-cost-field').clear().type('455.7533')
         cy.get('input#steps-customs-value-insurance-cost-field').clear().type('4545.987654')
         cy.contains('Continue').click()
-        
+
         //confirm
         cy.get('.govuk-button').click()
 
@@ -48,9 +48,9 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
         cy.contains('Import date:')
         cy.contains('Valuation of import:')
         //values
-    
+
         //information 
-     //   cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
+        //   cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.')
         cy.get('.govuk-table__row')
         cy.contains('Data')
         cy.contains('Calculation')
@@ -63,18 +63,18 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |',function() {
             method: 'GET',
             url: `https://staging.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
         }).then((response) => {
-            expect(response.status).to.eq(200)  
-            console.log(JSON.stringify(response.body)) 
-        let exchangerate = response.body.data[49].attributes.rate
-        console.log(`${exchangerate}`)
-        
-        cy.contains(`Please note - the current page uses an exchange rate of`) 
-        cy.log(parseFloat(`${exchangerate.toFixed(4)}`))
-        cy.contains('More about this exchange rate').click()
-        cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+            expect(response.status).to.eq(200)
+            console.log(JSON.stringify(response.body))
+            let exchangerate = response.body.data[49].attributes.rate
+            console.log(`${exchangerate}`)
 
-    })
-            
+            cy.contains(`Please note - the current page uses an exchange rate of`)
+            cy.log(parseFloat(`${exchangerate.toFixed(4)}`))
+            cy.contains('More about this exchange rate').click()
+            cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+
+        })
+
     })
 
 })
