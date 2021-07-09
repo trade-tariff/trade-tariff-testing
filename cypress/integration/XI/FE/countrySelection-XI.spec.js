@@ -1,8 +1,6 @@
 describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it('XI Country Selection -import ',function(){
-        cy.visit('/commodities/0208909800#import')
+        cy.visit('/xi/commodities/0208909800#import')
         // XI Present
         cy.get('input#import_search_country').click().clear().wait(500).type('XI').wait(500)
         cy.get("[id='import_search_country__listbox']")
@@ -25,7 +23,7 @@ describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |'
 
     })
     it('XI Country Selection -export ',function(){
-        cy.visit('/commodities/0208909800#export')
+        cy.visit('/xi/commodities/0208909800#export')
         // XI Present
         cy.get('input#export_search_country').click().clear().wait(500)
             .type('XI').wait(500)

@@ -1,11 +1,7 @@
 {
-  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
   "services": {
-    "xi": "https://staging.trade-tariff.service.gov.uk/xi/",
-    "dutycal" : "https://staging.trade-tariff.service.gov.uk/duty-calculator",
+    "dutycal" : "https://dev.trade-tariff.service.gov.uk/duty-calculator",
     "docker": "http://localhost:3000/duty-calculator"
-    
-    
   },
   
   "commcodes": [

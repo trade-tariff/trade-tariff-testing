@@ -1,10 +1,7 @@
 describe.skip('🇪🇺 | countriesApi-XI | XI Country Selection |',function() {
-
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it('XI - Should return a valid payload and Schema should match', function () {
         cy.readFile(`./cypress/Data/xi/countriesXI.json`).then((fixturexi) => {
-        cy.request('/geographical_areas.json').then($response => {
+        cy.request('/xi/geographical_areas.json').then($response => {
             console.log(JSON.stringify(fixturexi))
             console.log(JSON.stringify($response.body))
             expect($response.status).to.eq(200)

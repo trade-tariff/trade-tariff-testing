@@ -1,8 +1,6 @@
 describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from Chile |',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it('Navigate to trade tariff page ', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
             .contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
     
     //Enter commodity code for Mozzaarella - 0406103010 and search',function(){

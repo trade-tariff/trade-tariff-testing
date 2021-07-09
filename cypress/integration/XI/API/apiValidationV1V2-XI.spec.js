@@ -1,8 +1,7 @@
 describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () => {
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
     // V2 API
     it('XI - V2 - Should return a valid payload and Schema should match', function () {
-        cy.request('/api/v2/commodities/7202118000').then($response => {
+        cy.request('/xi/api/v2/commodities/7202118000').then($response => {
             expect($response.status).to.eq(200)
 
             cy.task('validateJsonSchema', {
@@ -14,7 +13,7 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
     })
 
     it('XI - V2 - Headers,Status,Length,duration', function () {
-        cy.request('/api/v2/commodities/0805220011').as('comments')
+        cy.request('/xi/api/v2/commodities/0805220011').as('comments')
 
         cy.get('@comments')
             .then((response) => {
@@ -31,7 +30,7 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
             })
     })
     it('XI - V2 - Error codes - 404', function () {
-        cy.request({method: 'GET', url: '/api/v2/commodities/08052200110000', failOnStatusCode: false}).as('comments')
+        cy.request({method: 'GET', url: '/xi/api/v2/commodities/08052200110000', failOnStatusCode: false}).as('comments')
         cy.get('@comments')
             .then((response) => {
                 expect(response.status).to.eq(404)
@@ -39,7 +38,7 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
     })
     // V1 API
     it('XI - V1 - Should return a valid payload and Schema should match', function () {
-        cy.request('/api/v1/commodities/7202118000').then($response => {
+        cy.request('/xi/api/v1/commodities/7202118000').then($response => {
             expect($response.status).to.eq(200)
 
             cy.task('validateJsonSchema', {
@@ -51,7 +50,7 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
     })
 
     it('XI - V1 - Headers,Status,Length,duration', function () {
-        cy.request('/api/v1/commodities/0805220011').as('comments')
+        cy.request('/xi/api/v1/commodities/0805220011').as('comments')
 
         cy.get('@comments')
             .then((response) => {
@@ -68,7 +67,7 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
             })
     })
     it('XI - V1 - Error codes - 404', function () {
-        cy.request({method: 'GET', url: '/api/v1/commodities/08052200110000', failOnStatusCode: false}).as('comments')
+        cy.request({method: 'GET', url: '/xi/api/v1/commodities/08052200110000', failOnStatusCode: false}).as('comments')
         cy.get('@comments')
             .then((response) => {
                 expect(response.status).to.eq(404)

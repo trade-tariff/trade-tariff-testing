@@ -1,9 +1,7 @@
 describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Privacy links - XI ',function() {
 //  HOTT-192
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it('XI - Terms and Conditions-navigates to right UK page ',function() {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
             .contains('Terms and conditions').click()
         cy.title().should('eq', 'Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
@@ -12,7 +10,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     })
 
     it('XI - Cookies -navigates to right XI page',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
             .contains('Cookies').click()
         cy.title().should('eq','Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
@@ -24,7 +22,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
 
     })
     it('XI - Privacy-navigates to right XI page ',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link')
             .contains('Privacy').click()
         cy.contains('Privacy notice')
@@ -35,7 +33,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     })
     //HOTT-166
     it.skip('XI - List of supplementary units and their descriptions in imports to be HIDDEN',function(){
-        cy.visit('/commodities/9702000010?currency=EUR#import')
+        cy.visit('/xi/commodities/9702000010?currency=EUR#import')
         cy.get('.govuk-tabs__panel')
             .contains('What are the main types of tariffs and charges').click()
         cy.get('span#details-import-supplementary-unit-heading')
@@ -44,7 +42,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
 
     })
     it('XI - List of supplementary units and their descriptions in exports to be HIDDEN',function(){
-        cy.visit('/commodities/9702000010?currency=EUR#export')
+        cy.visit('/xi/commodities/9702000010?currency=EUR#export')
         cy.get('span#details-export-heading')
             .contains('What are the main types of tariffs and charges').click()
         cy.get('span#details-export-supplementary-unit-heading')
@@ -54,7 +52,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
 
     })
     it('XI- Links to Previous and Next Commodity - available',function(){
-        cy.visit('/commodities/2801200000')
+        cy.visit('/xi/commodities/2801200000')
         //page contains commodity information
         cy.contains('Commodity information for 2801200000')
         //validate page has previous and next commodity links with commodity name at the bottom
@@ -82,7 +80,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
 
     //The UK has left the EU
     it('XI - The UK has left the EU - Check the new rules for January 2021 ', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.contains('The UK has left the EU')
         cy.contains('Check the new rules for January 2021')
         cy.get('.govuk-footer__navigation .govuk-footer__row:nth-of-type(1) [target]').should('have.attr', 'href', 'https://www.gov.uk/transition') // no page load!
@@ -90,21 +88,21 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     })
 
     it('XI - Contact - Ask HMRC for advice on classifying your goods', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('Ask HMRC for advice on classifying your goods')
         cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods') // no page load!
 
     })
     it('XI - Contact - Imports and exports: general enquiries', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('Imports and exports: general enquiries')
         cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/government/organisations/hm-revenue-customs/contact/customs-international-trade-and-excise-enquiries') // no page load!
 
     })
     it('XI - Contact - Feedback', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('Feedback')
         cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', '/xi/feedback')
@@ -113,19 +111,19 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     //Help Section
 
     it('XI - Help - Finding commodity codes for imports or exports',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('Finding commodity codes for imports or exports')
         cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports')
     })
     it('XI - Help - Using the Trade Tariff tool to find a commodity code',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('Using the Trade Tariff tool to find a commodity code')
         cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/guidance/using-the-trade-tariff-tool-to-find-a-commodity-code')
     })
     it('XI - Help - Import and export',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('Import and export')
         cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/topic/business-tax/import-export')
@@ -134,21 +132,21 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
 
     //Related information
     it('XI - Related information - UK Trade Tariff: Volume 1 – background information for importers and exporters',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('UK Trade Tariff: Volume 1 – background information for importers and exporters')
         cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-trade-tariff-volume-1')
     })
 
     it('XI - Related information - UK Trade Tariff: Volume 3 – procedures, codes and declaration entry details',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('UK Trade Tariff: Volume 1 – background information for importers and exporters')
         cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-trade-tariff-volume-3')
     })
 
     it('XI - Related information - API Documentation',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('API Documentation')
         cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', 'https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api')
@@ -157,7 +155,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     // OGL link
 
     it('XI - Open Government Licence v3.0',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__meta.govuk-footer__row')
         cy.contains('Open Government Licence v3.0')
         cy.get('span > .govuk-footer__link').should('have.attr', 'href', 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/')

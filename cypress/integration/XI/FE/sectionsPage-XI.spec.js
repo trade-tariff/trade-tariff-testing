@@ -1,14 +1,12 @@
 describe('🇪🇺 💡 🔍 | sectionsPage-XI |Sections page content validation ',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it('Search the tariff text/box visible',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-label').should('be.visible')
         cy.get('.js-commodity-picker-select.js-show  input#q').should('be.visible')
     })
     it('Top menu section displayed ', function () {
         cy.url().should('include', 'sections', {timeout: 5000})
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-header ')
         cy.contains('Search or browse the Tariff')
         cy.contains('A-Z')

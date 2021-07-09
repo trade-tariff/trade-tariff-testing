@@ -1,6 +1,5 @@
-Cypress.config('baseUrl', Cypress.config('services')['xi'])
 Given('I am on XI Trade Tariff main page',()=>{
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-header ')
             .contains('Northern Ireland Online Tariff')
         cy.get('.tariff-breadcrumbs')

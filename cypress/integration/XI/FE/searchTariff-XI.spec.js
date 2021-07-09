@@ -1,9 +1,6 @@
 describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |',function() {
-
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it('XI - Search Commodity by name ', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         //changes made on 11/02/2021
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         //changes made on 11/02/2021
@@ -20,7 +17,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |',funct
     })
 
     it('XI - Search Commodity by code ', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
             .contains('Search the Northern Ireland Online Tariff')
@@ -33,7 +30,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |',funct
 
 
     it('XI - Search Commodity by heading code - displays headings page', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.js-commodity-picker-select').click().type('38089410')
         cy.wait(750)
@@ -41,7 +38,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |',funct
         cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
     it('XI - Search unknown commodity ', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.js-commodity-picker-select').click().type('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf')
         cy.wait(900)
@@ -53,14 +50,14 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |',funct
         cy.contains('All sections')
     })
     it('XI - Import tab - text',function(){
-        cy.visit('commodities/2009909500#import')
+        cy.visit('/xi/commodities/2009909500#import')
         cy.get('.govuk-heading-m')
             .contains('Measures and restrictions for exporting goods from Northern Ireland')
         cy.get('.govuk-label')
             .contains('NI imports from')
     })
     it('XI - Export tab - text',function(){
-        cy.visit('commodities/2009909500#export')
+        cy.visit('/xi/commodities/2009909500#export')
         cy.get('.govuk-heading-m')
             .contains('Measures and restrictions for exporting goods from Northern Ireland')
         cy.get('.govuk-label')

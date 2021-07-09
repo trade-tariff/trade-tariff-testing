@@ -1,8 +1,6 @@
 describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it(' XI Additional Code Search : 2 - Tariff preference', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         let tpadcodes_ids = ["2500","2501"]
@@ -23,7 +21,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         }
     })
     it(' XI Additional Code Search : 3 - Prohibition/Restriction/Surveillance', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         let prsadcodes_ids = ["3000","3002"]
@@ -44,7 +42,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
         }
     })
     it(' XI Additional Code Search : 4 - Restrictions', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         let radcodes_ids = ["4008","4010"]
@@ -66,7 +64,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
     })
 
     it(' XI Additional Code Search : 6 - Agricultural Tables (non-Meursing)', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         //select type of certificate from drop down menu
@@ -81,7 +79,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
     })
 
     it(' XI Additional Code Search : 7 - Agricultural Tables (Meursing)', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         //select type of certificate from drop down menu
@@ -95,7 +93,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
 
     })
     it(' XI Additional Code Search : 8 - Anti-dumping/countervailing', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         let adadcodes_ids = ["8042","8044"]
@@ -117,7 +115,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
     })
 
     it(' XI Additional Code Search : 9 - Export Refunds', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         //select type of certificate from drop down menu
@@ -133,7 +131,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
 
 
     it(' XI Additional Code Search : A - Anti-dumping/countervailing', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         let adcadcodes_ids = ["057","097"]
@@ -156,7 +154,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
 
 
     it(' XI Additional Code Search : B - Anti-dumping/countervailing', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         let badcadcodes_ids = ["001","002"]
@@ -178,7 +176,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
     })
 
     it(' XI Additional Code Search : C - Anti-dumping/countervailing', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         let cadcadcodes_ids = ["046","047"]
@@ -201,7 +199,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
 
 
     it(' XI Additional Code Search : D - Dual Use', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         //select type of certificate from drop down menu
@@ -217,7 +215,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
 
 
     it(' XI Additional Code Search : F - Reference prices fishery products', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         //select type of certificate from drop down menu
@@ -232,7 +230,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)',function() {
     })
 
     it(' XI Additional Code Search : P - Refund for basic products', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
 
         //select type of certificate from drop down menu
