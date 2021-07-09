@@ -27,7 +27,7 @@ describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Co
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
         //additional codes
-        cy.additionalCode({ code: '2600' })
+        cy.additionalCode({ uk: '2600' })
         // Import Quantity 1.0 gives UK tariffs 
         cy.vat('20')
         cy.confirmPage()
@@ -58,7 +58,7 @@ describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Co
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
         //additional codes
-        cy.additionalCode({ code: '2501' })
+        cy.additionalCode({ xi: '2501' })
 
         cy.confirmPage()
         cy.contains('2906 11 00 00 (2501)')
@@ -79,7 +79,7 @@ describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Co
         cy.get('.govuk-back-link').click()
         cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
         //additional codes
-        cy.additionalCode({ code: '2500' })
+        cy.additionalCode({ xi: '2500' })
 
         cy.confirmPage()
         cy.contains('2906 11 00 00 (2500)')

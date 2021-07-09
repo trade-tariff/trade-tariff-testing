@@ -13,7 +13,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', function () {
       cy.get('.govuk-error-summary').contains('There is a problem')
       cy.contains('Specify a valid additional code')
       cy.get('.govuk-error-message').contains('Specify a valid additional code')
-      cy.additionalCode({ code: '2600' })
+      cy.additionalCode({ uk: '2600' })
       cy.vat('20')
       cy.confirmPage()
       cy.dutyPage()
