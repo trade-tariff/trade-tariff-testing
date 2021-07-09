@@ -35,7 +35,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
             cy.get('input#steps-customs-value-insurance-cost-field').clear().type('4545.987654')
             cy.contains('Continue').click()
 
-            cy.additionalCode({ code: 'B964' })
+            cy.additionalCode({ uk: 'B964'})
 
             //Check your answers page 
             cy.contains('Check your answers')

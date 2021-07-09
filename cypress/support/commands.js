@@ -217,7 +217,7 @@ Cypress.Commands.add('additionalCode',(addcode)=>{
     cy.contains('Describe your goods in more detail')
 
     for (let [key, value] of Object.entries(addcode)) {
-        cy.get(`select#steps-additional-code-additional-code-${key}-field`).select(value.code)
+        cy.get(`select#steps-additional-code-additional-code-${key}-field`).select(value)
     }
     cy.contains('Continue').click()
 })

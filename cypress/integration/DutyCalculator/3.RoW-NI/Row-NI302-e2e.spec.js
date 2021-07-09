@@ -19,8 +19,9 @@ describe('| Row-NI302-e2e.spec | RoW to Northern Ireland ', function () {
             //customs value
             cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
             //additional code
-            cy.additionalCode({ code: 'B977' })
-          //  cy.additionalCode({ addcode: 'B977' })
+            cy.additionalCode({ uk: 'B977', xi: 'B966' })
+            
+          
 
             cy.confirmPage()
             cy.dutyPage()
