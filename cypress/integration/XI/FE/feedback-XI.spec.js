@@ -1,6 +1,4 @@
 describe.skip('🇪🇺 💡| feedback-XI | feedback link is available and user is able to send feedback)',function() {
-
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
     it('XI - All pages- Feedback link available  ', function () {
 
         let pages = ['/sections/1', '/chapters/01', '/headings/0101','/commodities/0101210000',]
@@ -13,7 +11,7 @@ describe.skip('🇪🇺 💡| feedback-XI | feedback link is available and user 
     })
 
     it('XI - Feedback link works ', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__navigation')
         cy.contains('Feedback')
             .click()
@@ -35,7 +33,7 @@ describe.skip('🇪🇺 💡| feedback-XI | feedback link is available and user 
 
     })
     it('XI - The UK has left the EU',function(){
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-footer__row')
         cy.contains('The UK has left the EU')
     })

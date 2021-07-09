@@ -1,9 +1,7 @@
 describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI version)', function () {
     // HOTT-94
-    Cypress.config('baseUrl', Cypress.config('services')['xi'])
-
     it('Tools Section in header ', function () {
-        cy.visit('/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
             .contains('Tools').click()
         cy.contains('Tariff tools')
@@ -13,7 +11,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
 
     })
     it('breadcrumbs - No Quotas ', function () {
-        cy.visit('/tools')
+        cy.visit('/xi/tools')
         // XI not to have quotas 
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
@@ -24,7 +22,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
     })
 
     it('breadcrumbs - Certificates ,licences and documents', function () {
-        cy.visit('/certificate_search')
+        cy.visit('/xi/certificate_search')
         cy.contains('Search by Certificate')
         cy.get('.govuk-breadcrumbs')
             .contains('Certificate')
@@ -37,7 +35,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
 
     })
     it('breadcrumbs - Additional codes', function () {
-        cy.visit('/additional_code_search')
+        cy.visit('/xi/additional_code_search')
         cy.contains('Search by Additional Code')
         cy.get('.govuk-breadcrumbs')
             .contains('Additional codes')
@@ -50,7 +48,7 @@ describe('🇪🇺 💡 | toolsSection-XI |Tools Section - breadcrumbs   - (XI v
 
     })
     it('breadcrumbs - Chemicals', function () {
-        cy.visit('/chemical_search')
+        cy.visit('/xi/chemical_search')
         cy.contains('Search by Chemical')
         cy.get('.govuk-breadcrumbs')
             .contains('Chemicals')

@@ -42,7 +42,10 @@
     "uktests": "npx cypress run --spec \"/*/**/UK/**/*spec.js\"",
     "dctests": "cypress run --spec \"/*/**/DutyCalculator/**/*spec.js\" --browser chrome --headless --reporter mocha-allure-reporter",
     "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report",
-    "test:allure": "npm run dctests && npm run report:allure"
+    "test:allure": "npm run dctests && npm run report:allure",
+    "open:dev": "npx cypress open --env baseUrl=https://dev.trade-tariff.service.gov.uk",
+    "open:staging": "npx cypress open --env baseUrl=https://staging.trade-tariff.service.gov.uk",
+    "open:prod": "npx cypress open --env baseUrl=https://www.trade-tariff.service.gov.uk"
   },
   "repository": {
     "type": "git",
