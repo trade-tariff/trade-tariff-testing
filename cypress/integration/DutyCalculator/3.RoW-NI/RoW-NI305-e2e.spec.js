@@ -1,8 +1,8 @@
- // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
+// 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
 describe('| RoW-NI305-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI |', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    it('RoW 🇲🇦 (Morocco) to Northern Ireland',function(){
-        cy.visit('uk/0702000007/import-date')
+    //
+    it('RoW 🇲🇦 (Morocco) to Northern Ireland', function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         //date
         cy.validDate()
         //destination
@@ -28,6 +28,6 @@ describe('| RoW-NI305-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - Morocco')
         cy.contains('Third-country duty (EU)')
-        
+
     })
 })

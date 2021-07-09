@@ -6,7 +6,7 @@ describe('| *EU-NI502--e2e.spec |EU to Northern Ireland |',function(){
 
         // new link /uk/0702000007/import-date
     it(`e2e EU to NI ${country[i]}`,function(){
-        cy.visit(`${country[i]}/commodities/1516209821/`)
+        cy.visit(`/duty-calculator/${country[i]}/commodities/1516209821/`)
         cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
         //date
         cy.validDate()

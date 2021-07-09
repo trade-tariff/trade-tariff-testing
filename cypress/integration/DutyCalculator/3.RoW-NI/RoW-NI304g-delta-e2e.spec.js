@@ -2,11 +2,8 @@
 //1701141000 Qty 1 = UK , Qty 100 = EU Canada , Quotas associated 
 //Brazil , UK 
 describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', function () {
-
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    
     it('RoW 🇨🇦 (Canada) - XI | UK Tariffs apply with Quotas |', function () {
-        cy.visit('xi/1701141000/import-date')
+        cy.visit('/duty-calculator/xi/1701141000/import-date')
         //date
         cy.validDate()
         //destination
@@ -21,8 +18,8 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         cy.traderScheme('yes')
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
-        //Planned processing - commercial 
-        cy.plannedXI('commercial')
+        //Planned processing - acceptable3 
+        cy.plannedXI('acceptable3')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
 
@@ -47,7 +44,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     })
     //
     it('RoW 🇦🇺 (Australia) - XI | EU Tariffs apply without Quotas |', function () {
-        cy.visit('xi/1701141000/import-date')
+        cy.visit('/duty-calculator/xi/1701141000/import-date')
         //date
         cy.validDate()
         //destination
@@ -62,13 +59,13 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         cy.traderScheme('yes')
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
-        //Planned processing - commercial 
-        cy.plannedXI('commercial')
+        //Planned processing - acceptable3 
+        cy.plannedXI('acceptable3')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
 
         //Import Quantity 
-        cy.quantity({ dtnr: '1', tne: '1', dap: '1'})
+        cy.quantity({ dtnr: '1', tne: '1', dap: '1' })
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
@@ -79,7 +76,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         cy.contains('Non Preferential Quota (UK)')
 
 
-    //EU Tariffs - Change Quantity to override Quotas 
+        //EU Tariffs - Change Quantity to override Quotas 
         cy.get('.govuk-back-link').click()
         cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
         //Import Quantity 
@@ -93,8 +90,8 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         cy.contains('The UK quota is not available, as the difference between the UK quota duty and the EU third-country duty exceeds 3% of the customs value of your trade.')
 
 
-        
-        
+
+
 
 
     })

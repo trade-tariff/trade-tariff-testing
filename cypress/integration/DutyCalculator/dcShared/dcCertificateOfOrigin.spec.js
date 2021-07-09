@@ -1,23 +1,20 @@
-describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |',function() {
-
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
-
+describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', function () {
     it('Page Validation', function () {
-        cy.visit('uk/0702000007/import-date')
-     //   cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
+        
         cy.contains('UK Global Online Tariff')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('gb')
         cy.traderScheme('no')
-        
+
         //Certificate of Origin
         cy.contains('Do you have a valid proof of preferential origin?')
         cy.contains('If you have a valid Certificate of Origin proving that your goods were materially manufactured in the UK, then you are eligible to take advantage of the 0% customs duties made available under the UK / EU Trade and Cooperation Agreement.')
-        
+
         cy.contains('Yes, I have a valid Certificate of Origin')
         cy.contains('No, I do not have a valid Certificate of Origin')
-    
+
         //Select Yes, valid Certificate of Origin
         cy.get("input#steps-certificate-of-origin-certificate-of-origin-yes-field").check()
         cy.contains('Continue').click()
@@ -49,5 +46,5 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |',functi
         cy.get('#steps-certificate-of-origin-certificate-of-origin-error')
             .contains('Select one of the two options')
     })
-    
+
 })

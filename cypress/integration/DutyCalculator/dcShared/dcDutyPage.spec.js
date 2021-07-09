@@ -1,11 +1,11 @@
 describe('🧮 | dcDutyPage | Duties Calculated - page |', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
 
     it('Final Duty Calculation page', function () {
 
         //import date
-        cy.visit('uk/7202118000/import-date')
+        cy.visit('/duty-calculator/uk/7202118000/import-date')
         //   cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
         cy.validDate()
         cy.contains('Continue').click()

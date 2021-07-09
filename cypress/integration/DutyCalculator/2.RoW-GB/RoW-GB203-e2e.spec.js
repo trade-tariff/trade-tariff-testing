@@ -2,7 +2,7 @@
 // Comm code :0702000007 - no Measure Units 
 
 describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
 
     let country = ["uk", "xi"]
     let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
@@ -12,7 +12,7 @@ describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', fu
 
         it(`🍅 - e2e RoW to GB 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`, function () {
             //select future date 
-            cy.visit(`${country[i]}/0702000007/import-date`)
+            cy.visit(`/duty-calculator/${country[i]}/0702000007/import-date`)
             //  cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
             //page title 
             cy.contains(`${pagetitles[i]}`)

@@ -2,7 +2,7 @@
 // Comm code :1701141000
 
 describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+    //
     let country = ["uk", "xi"]
     let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
     for (let i = 0; i < country.length; i++) {
@@ -10,7 +10,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
 
         it(`🖊️ e2e GB to NI - ${country[i]}`, function () {
             //select future date 
-            cy.visit(`${country[i]}/1701141000/import-date`)
+            cy.visit(`/duty-calculator/${country[i]}/1701141000/import-date`)
             //    cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
             cy.contains(`${pagetitles[i]}`)
             //date

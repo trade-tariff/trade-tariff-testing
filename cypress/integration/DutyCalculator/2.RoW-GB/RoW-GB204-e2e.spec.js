@@ -1,11 +1,11 @@
 
 describe('|RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', function () {
-   Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
+   //
 
 
    it(`e2e RoW to GB 🇦🇫 Afghanistan to 🇬🇧 GB`, function () {
       //select future date 
-      cy.visit(`uk/3926909790/import-date`)
+      cy.visit(`/duty-calculator/uk/3926909790/import-date`)
       //   cy.visit(`/import-date?referred_service=uk&commodity_code=3926909790`)
       cy.wait(700)
       cy.validDate()

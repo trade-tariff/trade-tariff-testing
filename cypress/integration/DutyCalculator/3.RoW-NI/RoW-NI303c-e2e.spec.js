@@ -1,8 +1,8 @@
- // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
+// 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
 describe('| RoW-NI304-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Processing|', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    it('RoW 🇲🇦 (Morocco) to Northern Ireland',function(){
-        cy.visit('uk/0702000007/import-date')
+    //
+    it('RoW 🇲🇦 (Morocco) to Northern Ireland', function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         //date
         cy.validDate()
         //destination
@@ -19,17 +19,17 @@ describe('| RoW-NI304-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
         cy.finalUseNI('yes')
         //Planned processing - commercial 
         cy.plannedXI('commercial')
-    /*
-        //Duties Apply 
-        cy.euDutiesApply()
-        //customs value
-        cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
-        //Import Quantity 
-        cy.quantity({ dtn: '230.98' })
-        cy.confirmPage()
-        cy.dutyPage()
-        cy.contains('Option 1: Third-country duty')
-        cy.contains('Option 2: Tariff preference - Morocco')
- */       
+        /*
+            //Duties Apply 
+            cy.euDutiesApply()
+            //customs value
+            cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
+            //Import Quantity 
+            cy.quantity({ dtn: '230.98' })
+            cy.confirmPage()
+            cy.dutyPage()
+            cy.contains('Option 1: Third-country duty')
+            cy.contains('Option 2: Tariff preference - Morocco')
+     */
     })
 })

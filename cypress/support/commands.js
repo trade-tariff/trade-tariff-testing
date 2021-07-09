@@ -167,7 +167,6 @@ Cypress.Commands.add("customsValue",(monvalue)=>{
     cy.get('input#steps-customs-value-insurance-cost-field').clear().type(monvalue.cost)
     cy.contains('Continue').click()
 })
-
 //enter quantity
 Cypress.Commands.add("quantity",(measureUnits)=>{
     cy.contains('Enter import quantity')
@@ -202,21 +201,27 @@ Cypress.Commands.add("confirmPage",()=>{
     cy.get('.govuk-button').click()
     cy.wait(200)
 })
+
 Cypress.Commands.add("dutyPage",()=>{
     cy.wait(200)
     cy.contains('Import duty calculation')
 })
+
 Cypress.Commands.add('exchangeRate',()=>{
     cy.contains('Please note - the current page uses an exchange rate of ') 
     cy.contains('More about this exchange rate').click()
     cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
 })
+
 Cypress.Commands.add('additionalCode',(addcode)=>{
     cy.contains('Describe your goods in more detail')
-    cy.get('select').select(addcode.code)
-    cy.contains('Continue').click()
 
+    for (let [key, value] of Object.entries(addcode)) {
+        cy.get(`select#steps-additional-code-additional-code-${key}-field`).select(value.code)
+    }
+    cy.contains('Continue').click()
 })
+
 Cypress.Commands.add('plannedXI',(options)=>{
     cy.contains('How will these goods be processed after they are moved into Northern Ireland?')
     if (options === 'acceptable1') {
@@ -232,6 +237,7 @@ Cypress.Commands.add('plannedXI',(options)=>{
 
     cy.contains('Continue').click()
 })
+
 Cypress.Commands.add('vat',(options)=>{
     cy.contains('Which VAT rate is applicable to your trade?')
     if(options === '5'){
@@ -249,8 +255,7 @@ Cypress.Commands.add('vat',(options)=>{
     else {
         cy.get('input#steps-vat-vat-vate-field').click()
         cy.contains('Continue').click()
-    }
-    
+    }   
 })
 
 

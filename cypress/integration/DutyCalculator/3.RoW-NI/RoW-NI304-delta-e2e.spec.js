@@ -10,7 +10,7 @@ describe.skip('| Row-NI304-delta.spec.js | 🔼 Delta Route | STOP Page - Δ MFN
 
     Cypress.config('baseUrl')
         it('RoW 🇳🇵(Nepal) - XI',function(){
-            cy.visit('/commodities/9503002110')
+            cy.visit('/duty-calculator/uk/commodities/9503002110')
             cy.contains('UK Global Online Tariff')
             cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
             //date

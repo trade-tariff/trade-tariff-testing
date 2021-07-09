@@ -1,8 +1,8 @@
- // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - 🚫 UK Trader Scheme 
+// 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - 🚫 UK Trader Scheme 
 describe('| RoW-NI306-e2e.spec | RoW (Greenland) to Northern Ireland ', function () {
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    it('RoW 🇬🇱 to NI',function(){
-        cy.visit('uk/0702000007/import-date')
+    //
+    it('RoW 🇬🇱 to NI', function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         //date
         cy.validDate()
         //destination
@@ -26,6 +26,6 @@ describe('| RoW-NI306-e2e.spec | RoW (Greenland) to Northern Ireland ', function
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - OCTs (Overseas Countries and Territories)')
         cy.contains('Third-country duty (EU)')
-        
+
     })
 })

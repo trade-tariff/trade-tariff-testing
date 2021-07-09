@@ -1,6 +1,5 @@
 {
   "services": {
-    "dutycal" : "https://dev.trade-tariff.service.gov.uk/duty-calculator",
     "docker": "http://localhost:3000/duty-calculator"
   },
   

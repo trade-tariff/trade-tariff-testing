@@ -1,10 +1,10 @@
-describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',function() {
+describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', function () {
 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal']) 
+    //
 
     it('Page Validation', function () {
-        cy.visit('uk/0702000007/import-date')
-     //   cy.visit('uk/0407191900/import-date')
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
+        //   cy.visit('/duty-calculator/uk/0407191900/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('gb')
@@ -39,8 +39,8 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
 
     //error messages - nothing is entered 
-    it('No Values Entered',function(){
-        cy.visit('uk/0702000007/import-date')
+    it('No Values Entered', function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('gb')
@@ -49,15 +49,15 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         //Customs value page
         cy.contains('What is the customs value of this import?')
         cy.contains('Continue').click()
-        
+
         cy.contains('There is a problem')
         cy.get('.govuk-error-summary')
-        .contains('Enter a valid monetary value')
+            .contains('Enter a valid monetary value')
 
         cy.get('span#steps-customs-value-monetary-value-error').contains('Enter a valid monetary value')
         cy.get('.govuk-back-link').click()
         cy.contains('Continue').click()
-        
+
         //enter non-numeric value in goods value
         cy.get('input#steps-customs-value-monetary-value-field').type('dolphins nose')
         cy.contains('Continue').click()
@@ -68,10 +68,10 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.contains('Enter a numeric monetary value')
     })
 
-        //enter characters in shipping /insurance costs and leave Goods value as blank 
-    it('Enter  non-numeric values in shipping cost and insurance cost',function(){
+    //enter characters in shipping /insurance costs and leave Goods value as blank 
+    it('Enter  non-numeric values in shipping cost and insurance cost', function () {
 
-        cy.visit('uk/0702000007/import-date')
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('gb')
@@ -79,7 +79,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.certificate('no')
         //Customs value page
         cy.contains('What is the customs value of this import?')
-  
+
         cy.get('input#steps-customs-value-monetary-value-field').clear()
         cy.get('input#steps-customs-value-shipping-cost-field').clear().type('puffins')
         cy.get('input#steps-customs-value-insurance-cost-field').clear().type('Seawise Giant')
@@ -113,9 +113,9 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
 
 
     })
-    it('Enter valid goods value + £0.00 shipping and insurance costs',function(){
-        
-        cy.visit('uk/0702000007/import-date')
+    it('Enter valid goods value + £0.00 shipping and insurance costs', function () {
+
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('gb')
@@ -123,12 +123,12 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |',f
         cy.certificate('no')
         //Customs value page
         cy.contains('What is the customs value of this import?')
-         cy.get('input#steps-customs-value-monetary-value-field').clear().type('0.01')
-         cy.get('input#steps-customs-value-shipping-cost-field').clear().type(' ')
-         cy.get('input#steps-customs-value-insurance-cost-field').clear().type(' ')
-         cy.contains('Continue').click()
+        cy.get('input#steps-customs-value-monetary-value-field').clear().type('0.01')
+        cy.get('input#steps-customs-value-shipping-cost-field').clear().type(' ')
+        cy.get('input#steps-customs-value-insurance-cost-field').clear().type(' ')
+        cy.contains('Continue').click()
         cy.contains('Enter import quantity')
     })
 
-    })
-        
+})
+

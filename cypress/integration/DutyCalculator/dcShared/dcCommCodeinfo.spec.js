@@ -1,11 +1,8 @@
-describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages consistent |',function(){
+describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages consistent |', function () {
 
     //check comm code information on every page is rendered correctly 
-    Cypress.config('baseUrl', Cypress.config('services')['dutycal'])
-    
-    
-    it(`Commodity Information on all pages is consistent `,function(){
-        cy.visit('uk/0702000007/import-date')
+    it(`Commodity Information on all pages is consistent `, function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('About this commodity code').click()
         cy.get('.govuk-details__text')
@@ -72,7 +69,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
         cy.contains('Commodity information for 0702000007')
         cy.go('back')
 
-        cy.customsValue({monetary:'5000.50',shipping:'455.7533',cost:'4545.987654'})
+        cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' })
         cy.get('.govuk-details > .govuk-details__summary')
         cy.contains('About this commodity code').click()
         cy.get('.govuk-details__text')
@@ -83,14 +80,14 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
         cy.contains('Commodity information for 0702000007')
         cy.go('back')
 
-        cy.quantity({dtn:'23.98'})
-        
-        
+        cy.quantity({ dtn: '23.98' })
 
-       
-        
-    
+
+
+
+
+
     })
-        
-    
-    })
+
+
+})
