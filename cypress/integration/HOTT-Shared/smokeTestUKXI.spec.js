@@ -9,25 +9,28 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.MainPageUK();
     })
     //Date Picker validation
-    it('🚀 UK 🇬🇧 - Check Calendar is functioning', function () {
+    it('🚀 UK 🇬🇧 - Check date picker function is working', function () {
         cy.visit('/sections')
         cy.wait(300)
         //select Change Date and OK with current date
         cy.get(" .js-show.text > a[role='button']").click()
-        cy.get('button#search-datepicker-button  path').click()
-        cy.contains('OK').click()
+        cy.get('#tariff_date_day').click()
+        cy.get('#tariff_date_month').click()
+        cy.get('#tariff_date_year').click()
+        cy.contains('Set date').click()
+        cy.wait(300)
         //select Change Date and CANCEL 
-        cy.get('button#search-datepicker-button  path').click()
-        cy.contains('Cancel').click()
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.contains('Set date').click()
+        cy.wait(300)
         //select Change Date and change months and years 
-        cy.get('button#search-datepicker-button  path').click()
-        cy.get(".nextMonth").click()
-        cy.get(".nextMonth").click()
-        cy.get(".nextYear").click()
-        cy.get(".prevMonth").click()
-        cy.get(".prevYear").click()
-        cy.get("tr:nth-of-type(2) > td:nth-of-type(7) > .dateButton").click()
-        cy.get(".fields > a[role='button']").click()
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(21)
+        cy.get('#tariff_date_month').click().clear().type(12)
+        cy.get('#tariff_date_year').click().clear().type(2021)
+        cy.contains('Set date').click()
+        cy.wait(300)
+        cy.contains('This tariff is for 21 December 2021')
 
     })
     //switching link works
@@ -169,27 +172,24 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     //Date picker working and persists on UK XI sites
     it('🚀 UK 🇬🇧 - Change date and verify if the data shown is same for both XI and UK', function () {
         cy.visit('/sections')
-        cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
-        cy.get('input#tariff_date_date')
-            .clear()
-            .type('07/04/2021')
-        cy.get('.fields > a[role=\'button\']')
-            .contains('Set date').click()
+        //select Change Date and change months and years 
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(21)
+        cy.get('#tariff_date_month').click().clear().type(12)
+        cy.get('#tariff_date_year').click().clear().type(2021)
+        cy.contains('Set date').click()
+        cy.wait(300)
+        cy.contains('This tariff is for 21 December 2021')
+        cy.contains(' Live animals; animal products')
+
+        cy.contains('Northern Ireland Online Tariff').click()
+        cy.contains('Northern Ireland Online Tariff')
+        
+        cy.contains('UK Global Online Tariff').click()
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
-
-        cy.get('main#content  nav  a')
-            .contains('Northern Ireland Online Tariff').click()
-
-        cy.contains('Online Tariff')
-        cy.get('main#content  nav  a')
-        cy.contains('Online Tariff').click()
-
-        cy.contains(' Live animals; animal products')
-        cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 21 December 2021')
     })
     // UK not in EU country list
     it('🚀 UK 🇬🇧 - United Kingdom should not be shown in EU country list', function () {
@@ -283,34 +283,36 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
 
     //Main Page
     it('🚀 XI 🇪🇺 - Main Page Validation', function () {
-
-        cy.visit('/duty-calculator/xi/sections')
+        cy.visit('/xi/sections')
         cy.MainPageXI();
     })
     it('🚀 XI 🇪🇺 - Check Calendar is functioning', function () {
-        cy.visit('/duty-calculator/xi/sections')
+        cy.visit('/xi/sections')
         cy.wait(300)
         //select Change Date and OK with current date
         cy.get(" .js-show.text > a[role='button']").click()
-        cy.get('button#search-datepicker-button  path').click()
-        cy.contains('OK').click()
+        cy.get('#tariff_date_day').click()
+        cy.get('#tariff_date_month').click()
+        cy.get('#tariff_date_year').click()
+        cy.contains('Set date').click()
+        cy.wait(300)
         //select Change Date and CANCEL 
-        cy.get('button#search-datepicker-button  path').click()
-        cy.contains('Cancel').click()
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.contains('Set date').click()
+        cy.wait(300)
         //select Change Date and change months and years 
-        cy.get('button#search-datepicker-button  path').click()
-        cy.get(".nextMonth").click()
-        cy.get(".nextMonth").click()
-        cy.get(".nextYear").click()
-        cy.get(".prevMonth").click()
-        cy.get(".prevYear").click()
-        cy.get("tr:nth-of-type(2) > td:nth-of-type(7) > .dateButton").click()
-        cy.get(".fields > a[role='button']").click()
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(21)
+        cy.get('#tariff_date_month').click().clear().type(12)
+        cy.get('#tariff_date_year').click().clear().type(2021)
+        cy.contains('Set date').click()
+        cy.wait(300)
+        cy.contains('This tariff is for 21 December 2021')
 
     })
     //switching link works
     it('🚀 XI 🇪🇺 - Main Page - Switching link to UK available & works', function () {
-        cy.visit('/duty-calculator/xi/sections')
+        cy.visit('/xi/sections')
         cy.get('.govuk-header ')
             .contains('Northern Ireland Online Tariff')
 
@@ -330,7 +332,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     // UK not to be in EU country list
     it('🚀 XI 🇪🇺 - United Kingdom should NOT be shown in EU country list', function () {
-        cy.visit('/duty-calculator/xi/commodities/2403991000#import')
+        cy.visit('/xi/commodities/2403991000#import')
         cy.get('.govuk-tabs__panel')
         cy.contains('European Economic Area (2012)')
             .click()
@@ -341,7 +343,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     //Commodity Search functionality - text search
     it('🚀 XI 🇪🇺 - Search Commodity by name ', function () {
-        cy.visit('/duty-calculator/xi/sections')
+        cy.visit('/xi/sections')
         //changed on 11/02/2021
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
@@ -358,7 +360,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
     //Commodity Search functionality - comm code search
     it('🚀 XI 🇪🇺 - Search Commodity by code ', function () {
-        cy.visit('/duty-calculator/xi/sections')
+        cy.visit('/xi/sections')
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
             .contains('Search the Northern Ireland Online Tariff')
@@ -371,7 +373,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
     })
 
     it('🚀 XI 🇪🇺 - Country Selection -import ', function () {
-        cy.visit('/duty-calculator/xi/commodities/0208909800#import')
+        cy.visit('/xi/commodities/0208909800#import')
         // XI Present
         cy.get('input#import_search_country').click().clear().wait(500).type('(XI)').wait(500)
         cy.get("[id='import_search_country__listbox']")
@@ -385,16 +387,14 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get('input#import_search_country').click().clear().wait(500).type('(GB)').wait(500)
         cy.get("[id='import_search_country__listbox']")
             .contains('United Kingdom (excluding Northern Ireland) (GB)')
-
-
         // no XU
         cy.get('input#import_search_country').click().clear().wait(500).type('(XU)').wait(500)
         cy.get("[id='import_search_country__listbox']")
             .contains('No results found')
 
     })
-    it('🚀 XI 🇪🇺 - Country Selection -export ', function () {
-        cy.visit('/duty-calculator/xi/commodities/0208909800#export')
+    it('🚀 XI 🇪🇺 - Country Selection - export ', function () {
+        cy.visit('/xi/commodities/0208909800#export')
         // XI Present
         cy.get('input#export_search_country').click().clear().wait(500)
             .type('(XI)').wait(500)
@@ -410,43 +410,19 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests 
         cy.get("[id='export_search_country__listbox']")
             .contains('United Kingdom (excluding Northern Ireland) (GB)')
 
-
         // no XU
         cy.get('input#export_search_country').click().clear().wait(500).type('(XU)').wait(500)
         cy.get("[id='export_search_country__listbox']")
             .contains('No results found')
     })
-    //Date picker working and persists on UK XI sites
-    it('🚀 XI 🇪🇺 - Change Date and check if the data shown is same for both XI and UK', function () {
-        cy.visit('/duty-calculator/xi/sections')
-        cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
-        cy.get('input#tariff_date_date')
-            .clear()
-            .type('07/04/2021')
-        cy.get('.fields > a[role=\'button\']')
-            .contains('Set date').click()
-
-        cy.contains(' Live animals; animal products')
-        cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
-
-        cy.get('main#content  nav  a')
-            .contains('Online Tariff').click()
-        cy.contains('UK Global Online Tariff')
-        cy.get('main#content  nav  a')
-        cy.contains('Northern Ireland Online Tariff')
-            .click()
-        cy.contains(' Live animals; animal products')
-        cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
-    })
+    
     it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`, function () {
 
         const sizes = ['iphone-6', 'samsung-note9']
         for (let i = 0; i < sizes.length; i++) {
             cy.viewport(`${sizes[i]}`)
 
-            cy.visit('/duty-calculator/xi/sections')
+            cy.visit('/xi/sections')
             cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
             cy.get('.govuk-header__menu-button').click()
             cy.contains('A-Z')
