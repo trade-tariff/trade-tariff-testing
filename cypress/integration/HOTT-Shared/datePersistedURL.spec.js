@@ -131,4 +131,22 @@ describe('🇬🇧 💡 | datePersistedURL.spec | 🐞 HOTT-329 | date change pe
         cy.contains('This tariff is for 31 January 2021')
         cy.url().should('include', 'day=31&month=1&year=2021')
     })
+    it(' Date persisted on all pages ', function () {
+        let pages = ["sections", "sections/1", "chapters/01", "headings/0101","commodities/0101210000"]
+        for(let i=0;i<pages.length;i++){
+        cy.visit(`/${pages[i]}`)
+        cy.contains('UK Global Online Tariff')
+        //change date to future date 
+        //select Change Date and change months and years 
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(21)
+        cy.get('#tariff_date_month').click().clear().type(12)
+        cy.get('#tariff_date_year').click().clear().type(2021)
+        cy.contains('Set date').click()
+        cy.wait(300)
+        cy.contains('This tariff is for 21 December 2021')
+        cy.url().should('include', 'day=21&month=12&year=2021')
+    }
+    })
+
 })

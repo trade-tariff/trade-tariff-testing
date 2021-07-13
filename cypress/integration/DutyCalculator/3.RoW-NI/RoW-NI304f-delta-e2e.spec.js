@@ -86,7 +86,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
 
     })
-    it('RoW 🇫🇴 (Faroe Islands) - XI |117 Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms ,119 Airworthiness tariff suspension | EU Tariff , UK Tariff  |', function () {
+    it.only('RoW 🇫🇴 (Faroe Islands) - XI |117 Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms ,119 Airworthiness tariff suspension | EU Tariff , UK Tariff  |', function () {
         cy.visit('/duty-calculator/xi/3824609100/import-date')
         //date
         cy.validDate()
@@ -134,16 +134,23 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (UK)')
+        cy.contains('Standard rate')
+        cy.contains('20.00% * £1,079.00')
+        cy.contains('£215.80')
         cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.')
 
         cy.contains(' Option 2: Tariff preference - Faroe Islands')
         cy.contains('Tariff preference (UK)')
+        cy.contains('£203.80')
+        cy.contains('20.00% * £1,019.00')
         cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.')
 
         cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
-
+        cy.contains('20.00% * £1,000.00')
+        cy.contains('£200.00')
+        
         cy.contains('Option 4: Airworthiness tariff suspension')
         cy.contains('Airworthiness tariff suspension (UK)')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')

@@ -37,7 +37,7 @@
     "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
     "posttests": "npm run combine-reports && npm run generate-report",
     "tests": "npm run pretests && (npm run alltests || npm run posttests)",
-    "legalbasetests": "npx cypress run --spec \"*/**/legalBaseColumn-XI.spec.js\",\"*/**/legalBaseColumn-UK.spec.js\",\"*/**/legalBaseV1api-XI.spec.js\",\"*/**/legalBaseV1api-UK.spec.js\",\"*/**/legalBaseV2api-XI.spec.js\",\"*/**/legalBaseV2api-UK.spec.js\"",
+    "regressiontests": "npx cypress run --spec \"*/**/**/*spec.js\" --env baseUrl=https://www.trade-tariff.service.gov.uk",
     "xitests": "npx cypress run --spec \"/*/**/XI/**/*spec.js\"",
     "uktests": "npx cypress run --spec \"/*/**/UK/**/*spec.js\"",
     "dctests": "cypress run --spec \"/*/**/DutyCalculator/**/*spec.js\" --browser chrome --headless --reporter mocha-allure-reporter",
