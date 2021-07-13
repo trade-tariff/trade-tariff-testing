@@ -106,7 +106,7 @@ describe('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Sm
     //android
     it(`📱 android - e2e journey `, function () {
         cy.viewport('samsung-note9')
-        cy.visit(`uk/0702000007/import-date`)
+        cy.visit(`/duty-calculator/uk/0702000007/import-date`)
         cy.get('.govuk-header__menu-button').click()
         cy.contains('A-Z')
         cy.contains('Tools')

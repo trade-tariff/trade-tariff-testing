@@ -70,9 +70,6 @@ describe('🚀 Trade Tariff Smoke Tests | UK & XI | Front end - Smoke tests for 
         //changed on 11/02/2021
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
-        cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
-        //changed on 11/02/2021
-        cy.get('.govuk-label').contains('Search the UK Global Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
         //select from suggestion drop down
