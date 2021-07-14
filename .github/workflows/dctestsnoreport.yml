@@ -2,6 +2,8 @@ name: " 💰 | Duty Calculator Regression Pack Without Reporting |"
 on: [workflow_dispatch]
 jobs:
   cypress-run:
+    env:
+      CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
     name: "💰 Duty Calculator Regression Tests"
     runs-on: ubuntu-18.04
     strategy:

@@ -21,10 +21,6 @@ import 'cypress-fill-command'
 //import ‘cypress-audit/commands’
 require('cypress-grep')()
 
-let baseUrl = Cypress.env('baseUrl') || 'https://staging.trade-tariff.service.gov.uk'
-
-Cypress.config('baseUrl', baseUrl)
-
 Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
