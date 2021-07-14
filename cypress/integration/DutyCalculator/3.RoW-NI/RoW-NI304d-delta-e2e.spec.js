@@ -27,6 +27,7 @@ describe('| Row-NI304d-delta.spec.js | 🔼 Delta Route | more than one measure 
         cy.quantity({ dtnr: '100', tne: '1', dap: '1' })
         cy.confirmPage()
         cy.dutyPage()
+        
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (EU)')
         cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')

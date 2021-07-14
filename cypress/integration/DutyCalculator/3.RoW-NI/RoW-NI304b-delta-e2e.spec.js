@@ -21,8 +21,6 @@ India - NI = £247.00
 */
 describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3% of Import duties = UK import duties apply , Δ MFN > 3% of Import duties = EU import duties apply | ', function () {
 
-    //
-
     it(`RoW - 🇮🇳 (India) to NI  service | Measure Units |`, function () {
         cy.visit(`/duty-calculator/xi/1509102090/import-date`)
 

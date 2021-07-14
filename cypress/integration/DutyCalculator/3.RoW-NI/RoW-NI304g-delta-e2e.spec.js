@@ -42,7 +42,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         cy.contains('Non Preferential Quota (UK)')
 
     })
-    //
+
     it('RoW 🇦🇺 (Australia) - XI | EU Tariffs apply without Quotas |', function () {
         cy.visit('/duty-calculator/xi/1701141000/import-date')
         //date
@@ -83,10 +83,10 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         cy.quantity({ dtnr: '100', tne: '100', dap: '100' })
         cy.confirmPage()
         cy.dutyPage()
+
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (EU)')
         cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
-
         cy.contains('The UK quota is not available, as the difference between the UK quota duty and the EU third-country duty exceeds 3% of the customs value of your trade.')
 
 

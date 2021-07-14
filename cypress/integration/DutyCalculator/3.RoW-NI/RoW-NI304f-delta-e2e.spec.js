@@ -2,8 +2,6 @@
 
 describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK and EU  | ', function () {
 
-    //
-
     it('RoW 🇵🇪 (Peru) - XI | 112 Autonomous tariff suspension | UK Tariff |', function () {
         cy.visit('/duty-calculator/xi/2903898045/import-date')
         //date
@@ -43,8 +41,6 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
 
     })
     //7606119125
-    //
-
     it('RoW 🇦🇩 (Andorra) - XI | 115 Autonomous suspension under end-use | UK Tariff |', function () {
         cy.visit('/duty-calculator/xi/3824999252/import-date')
         //date

@@ -3,8 +3,6 @@
 // Multiple Additional Codes 
 describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Codes | ', function () {
 
-    //  //
-
     it(`RoW 🇸🇬 (Singapore) to NI | 🔼 Delta Route | UK = 2 , XI = 0`, function () {
         cy.visit(`/duty-calculator/xi/6307909200/import-date`)
 
@@ -32,6 +30,7 @@ describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Co
         cy.vat('20')
         cy.confirmPage()
         cy.contains('6307 90 92 00 (2600)')
+
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (EU)')
         cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
@@ -62,6 +61,7 @@ describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Co
 
         cy.confirmPage()
         cy.contains('2906 11 00 00 (2501)')
+
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (EU)')
         cy.contains("EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.")
@@ -72,7 +72,6 @@ describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Co
 
         cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)')
-
         cy.contains("UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.")
 
         // check for other additional code 2500 with 0%
@@ -80,9 +79,9 @@ describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Co
         cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
         //additional codes
         cy.additionalCode({ xi: '2500' })
-
         cy.confirmPage()
         cy.contains('2906 11 00 00 (2500)')
+
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (UK)')
         cy.contains("UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.")

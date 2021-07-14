@@ -13,7 +13,7 @@ describe('|RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', func
       cy.originList({ value: 'Afghanistan' })
       cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
       //  cy.quantity({tne:'1',dtnr:'1',dap:'1'})
-      cy.additionalCode({ code: '2601' })
+      cy.additionalCode({ uk: '2601' })
       cy.vat('20')
       cy.confirmPage()
       cy.dutyPage()

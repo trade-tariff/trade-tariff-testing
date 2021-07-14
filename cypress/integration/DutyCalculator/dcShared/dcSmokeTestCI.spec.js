@@ -3,7 +3,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
 
     // Duty Calculator tests
     it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
-        cy.visit('/uk/1516209821/import-date')
+        cy.visit('/duty-calculator/uk/1516209821/import-date')
         //   cy.visit('/commodities/1516209821')
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')
@@ -32,7 +32,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
     it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
         //select future date 
         //select future date 
-        cy.visit(`uk/3926909790/import-date`)
+        cy.visit(`/duty-calculator/uk/3926909790/import-date`)
         //   cy.visit(`/import-date?referred_service=uk&commodity_code=3926909790`)
         cy.wait(700)
         cy.validDate()
@@ -40,7 +40,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         cy.originList({ value: 'Afghanistan' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         //  cy.quantity({tne:'1',dtnr:'1',dap:'1'})
-        cy.additionalCode({ code: '2601' })
+        cy.additionalCode({ uk: '2601' })
         cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
@@ -51,8 +51,8 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Option 4: Airworthiness tariff suspension')
     })
-    it('🚀 XI 🇪🇺 - Duty Calculator e2e - ( RoW to NI ) 303b ', function () {
-        cy.visit('/duty-calculator/xi/0702000007/import-date')
+    it('🚀 XI 🇪🇺 - Duty Calculator e2e - ( RoW 🇲🇦 (Morocco) to Northern Ireland ) 303b ', function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
         //date
         cy.validDate()
         //destination
@@ -68,7 +68,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
         // ✅  Final use in NI - Yes 
         cy.finalUseNI('yes')
         //Planned processing - commercial 
-        cy.plannedXI('acceptable2')
+        cy.plannedXI('commercial')
 
         //Duties Apply 
         cy.euDutiesApply()
@@ -83,7 +83,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
 
     })
     it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
-        cy.visit('/xi/1701141000/import-date')
+        cy.visit('/duty-calculator/xi/1701141000/import-date')
 
         cy.validDate()
         //destination
@@ -140,7 +140,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
 
     })
     it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function () {
-        cy.visit('/xi/1212210000/import-date')
+        cy.visit('/duty-calculator/xi/1212210000/import-date')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('eu')
