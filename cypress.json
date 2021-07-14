@@ -1,4 +1,5 @@
 {
+  "baseUrl": "https://staging.trade-tariff.service.gov.uk",
   "services": {
     "docker": "http://localhost:3000/duty-calculator"
   },
