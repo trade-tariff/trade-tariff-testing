@@ -2,7 +2,6 @@
 //1701141000 - 
 describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK and EU  | ', function () {
 
-    //
     it('RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no |', function () {
         cy.visit('/duty-calculator/xi/0102291010/import-date')
         //date
@@ -75,9 +74,11 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
         cy.quantity({ dtn: '100' })
         cy.confirmPage()
         cy.dutyPage()
+        
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (EU)')
         cy.contains("EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.")
+
         cy.contains('Option 2: Tariff preference - Turkey')
         cy.contains('Tariff preference (EU)')
         cy.contains("EU preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty exceeds 3% of the customs value of your trade.")
