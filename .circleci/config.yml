@@ -2,6 +2,10 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.27.0
   slack: circleci/slack@4.1
+executor:
+  cypress/browsers-chrome77:
+    environment:
+      CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
 
 workflows:
   debug:
@@ -9,7 +13,6 @@ workflows:
       - cypress/run:
           context: trade-tariff
           name: "🚀 UK XI & DC Smoke tests"
-          executor: cypress/browsers-chrome77
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestCI.spec.js"
@@ -56,11 +59,10 @@ workflows:
     jobs:
       - cypress/run:
           context: trade-tariff
-          name: "🚀 UK & XI Smoke tests"
-          executor: cypress/browsers-chrome77
+          name: "🚀 UK XI & DC Smoke tests scheduled"
           browser: chrome
           store_artifacts: true
-          spec: "*/**/smokeTestUKXI.spec.js"
+          spec: "*/**/smokeTestCI.spec.js"
           post-steps:
             - store_test_results:
                 path: cypress/results
