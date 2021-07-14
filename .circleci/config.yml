@@ -2,8 +2,11 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.27.0
   slack: circleci/slack@4.1
-executor:
-  cypress/browsers-chrome77:
+
+executors: # This is totally crazy but it's the only way to configure the environment: https://circleci.com/developer/orbs/orb/cypress-io/cypress#usage-env-vars
+  custom_chrome77:
+    docker:
+      - image: 'cypress/browsers:node12.6.0-chrome77'
     environment:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
 
@@ -11,6 +14,7 @@ workflows:
   debug:
     jobs:
       - cypress/run:
+          executor: custom_chrome77
           context: trade-tariff
           name: "🚀 UK XI & DC Smoke tests"
           browser: chrome
@@ -58,6 +62,7 @@ workflows:
                 - main
     jobs:
       - cypress/run:
+          executor: custom_chrome77
           context: trade-tariff
           name: "🚀 UK XI & DC Smoke tests scheduled"
           browser: chrome
