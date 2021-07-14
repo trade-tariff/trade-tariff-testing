@@ -1,12 +1,8 @@
 
-<<<<<<< Updated upstream:cypress/integration/HOTT-Shared/smokeTestUKXI.spec.js
-describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTest- UK & XI | Smoke tests to cover basic functionality on UK & XI services |', function () {
-=======
 describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke tests to cover basic functionality on UK & XI services |', function () {
 
     Cypress.config('baseUrl')
 
->>>>>>> Stashed changes:cypress/integration/HOTT-Shared/smokeTestCI.spec.js
     //Main Page
     it('🚀 UK 🇬🇧 - Main Page Validation', function () {
         cy.visit('/sections')
