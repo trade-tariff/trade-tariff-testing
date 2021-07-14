@@ -2,10 +2,11 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.27.0
   slack: circleci/slack@4.1
-executor:
-  with_chrome:
+
+executors:
+  custom_chrome77:
     docker:
-      - image: 'cypress/browsers:node11.13.0-chrome73'
+      - image: 'cypress/browsers:node12.6.0-chrome77'
     environment:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
 
@@ -13,7 +14,7 @@ workflows:
   debug:
     jobs:
       - cypress/run:
-          executor: with_chrome
+          executor: custom_chrome77
           context: trade-tariff
           name: "🚀 UK XI & DC Smoke tests"
           browser: chrome
