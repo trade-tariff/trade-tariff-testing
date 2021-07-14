@@ -34,6 +34,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.contains('Enter a 10-digit commodity code to search for quotas available on that code')
         cy.contains('Select a country to which the quota applies')
         cy.contains("Enter the date for which you would like to return results If you leave this field blank, then today's date will be used")
+        cy.contains('Sorry, there is a problem with the search query. Please specify one or more search criteria.').should('not.exist')
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Sorry, there is a problem with the search query. Please specify one or more search criteria.')
     })
@@ -133,7 +134,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         // Quota results for 1st July 2021
         cy.get('input#day').click().clear().type('01')
         cy.get('input#month').click().clear().type('07')
-        cy.get('input#year').click().clear().type('2021')
+        cy.get('input#year').click().clear().type('2025')
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('There are no matching results')
 
