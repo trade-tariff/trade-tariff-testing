@@ -8,11 +8,11 @@ workflows:
     jobs:
       - cypress/run:
           context: trade-tariff
-          name: "🚀 UK & XI Smoke tests"
+          name: "🚀 UK XI & DC Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
           store_artifacts: true
-          spec: "*/**/smokeTestUKXI.spec.js"
+          spec: "*/**/smokeTestCI.spec.js"
           post-steps:
             - store_test_results:
                 path: cypress/results
