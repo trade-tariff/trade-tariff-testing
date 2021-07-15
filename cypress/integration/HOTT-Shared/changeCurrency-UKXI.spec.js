@@ -16,13 +16,13 @@ describe('🇬🇧 🇪🇺 💡 | changeCurrency-UK XI | Change Currency should
     cy.contains('12.00 % + 147.00 GBP / 100 kg')
   })
   it('XI - Change Currency should not be visible on main page - The Northern Ireland (EU) Tariff for the XI', function () {
-    cy.visit('/duty-calculator/xi/sections')
+    cy.visit('/xi/sections')
     cy.get('.govuk-grid-row')
     cy.contains('Change date')
     cy.contains('Change currency').should('not.exist')
   })
   it('XI shows EUR currency NOT GBP', function () {
-    cy.visit('/duty-calculator/xi/commodities/0201100021#import')
+    cy.visit('/xi/commodities/0201100021#import')
     cy.get('.small-table.measures.govuk-table')
     cy.contains('12.80 % + 176.80 EUR / 100 kg')
   })

@@ -1,8 +1,7 @@
-describe('UK 🇬🇧 XI 🇪🇺 💡 | datePersistedURL.spec | 🐞 HOTT-329 | date change persisted on URL |',function() {
+describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-329 | date change persisted on URL |',function() {
     // Bug : https://transformuk.atlassian.net/browse/HOTT-329
     
-    it(' Date persisted on import ', function () {
-        
+    it(' Date persisted on import ', function () {   
         cy.visit(`/sections`)
         cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
 

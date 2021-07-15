@@ -11,8 +11,8 @@ describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate 
         cy.contains('PR003').click()
         cy.contains('Animal Health Certificate for All countries')
     })
-    it('VAT and excise on XI service', function () {
-        cy.visit('/duty-calculator/xi/commodities/9305200010#import')
+    it('VAT and Excise on XI service', function () {
+        cy.visit('/xi/commodities/9305200010#import')
         cy.contains('VAT and excise').click()
         cy.contains('03020').click()
         cy.contains('Value added tax for All countries')

@@ -1,4 +1,4 @@
-describe('|dcVAT-e2e|VAT final page calculations|', function () {
+describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function () {
     //
 
     it(`UK service - 5% - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
@@ -138,7 +138,7 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
     })
     it('XI service - Multiple VAT rates - GB to NI ', function () {
         //select future date 
-        cy.visit(`xi/8716109800/import-date`)
+        cy.visit(`/duty-calculator/xi/8716109800/import-date`)
         cy.validDate()
         //destination
         cy.selectDestination('xi')
@@ -155,7 +155,6 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.certificate('no')
         // Monetary value page 
         cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' })
-
 
         //VAT Page
         cy.vat('20')
@@ -188,8 +187,6 @@ describe('|dcVAT-e2e|VAT final page calculations|', function () {
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)')
         cy.contains('Option 3: Claiming a waiver – Exchange rate')
-
-
 
     })
 

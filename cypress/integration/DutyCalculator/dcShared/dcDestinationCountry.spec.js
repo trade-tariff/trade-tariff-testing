@@ -1,9 +1,7 @@
 describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selection page |', function () {
 
-    //
-
     it('Import destination GB', function () {
-        cy.visit(`uk/0702000007/import-date`)
+        cy.visit(`duty-calculator/uk/0702000007/import-date`)
         cy.contains('UK Global Online Tariff')
         cy.validDate()
 
@@ -45,7 +43,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
     })
     it('Import destination - Northern Ireland', function () {
-        cy.visit(`uk/0702000007/import-date`)
+        cy.visit(`duty-calculator/uk/0702000007/import-date`)
         cy.contains('UK Global Online Tariff')
         cy.validDate()
 
@@ -82,7 +80,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
     })
     it('Error - No country selected', function () {
-        cy.visit(`uk/0702000007/import-date`)
+        cy.visit(`duty-calculator/uk/0702000007/import-date`)
         cy.contains('UK Global Online Tariff')
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')
@@ -95,7 +93,7 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
 
     })
     it('Explore the Topic : Other static page links', function () {
-        cy.visit(`uk/0702000007/import-date`)
+        cy.visit(`duty-calculator/uk/0702000007/import-date`)
         cy.contains('UK Global Online Tariff')
         cy.validDate()
 
@@ -112,8 +110,6 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
         cy.contains('Trading and moving goods in and out of Northern Ireland')
         cy.go(-1)
         cy.contains('Which part of the UK are you importing into?')
-
-
     })
 
 })

@@ -1,4 +1,4 @@
-describe('Multiple VAT rate validations', function () {
+describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function () {
     //
     it(`UK service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function () {
         cy.visit('/duty-calculator/uk/8716109800/import-date')
@@ -83,7 +83,7 @@ describe('Multiple VAT rate validations', function () {
         cy.selectDestination('gb')
         cy.originList({ value: 'Israel' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
-        cy.additionalCode({ code: '2501' })
+        cy.additionalCode({ uk: '2501' })
         //VAT Page 
         cy.contains('Which VAT rate is applicable to your trade?')
         cy.contains('There are 2 VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document VAT rates on different goods and services (opens in new browser window).')
