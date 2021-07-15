@@ -90,7 +90,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         cy.contains('Duty Total')
 
         cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£2,000.45')
-        cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£2,270.51')
+        cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£2,000.45')
 
         //Final Page 
         cy.exchangeRate()
