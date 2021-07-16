@@ -1,8 +1,6 @@
 
 describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests for UK & XI services |', function () {
 
-    Cypress.config('baseUrl')
-
     //Main Page
     it('🚀 UK 🇬🇧 - Main Page Validation', function () {
         cy.visit('/sections')
@@ -144,12 +142,14 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
     //Date picker working and persists on UK XI sites
     it('🚀 UK 🇬🇧 - (past date) Change date and verify if the data shown is same for both XI and UK', function () {
         cy.visit('/sections')
-        cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
-        cy.get('input#tariff_date_date')
-            .clear()
-            .type('28/02/2020')
-        cy.get('.fields > a[role=\'button\']')
-            .contains('Set date').click()
+       
+        //select Change Date and change months and years 
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(28)
+        cy.get('#tariff_date_month').click().clear().type(2)
+        cy.get('#tariff_date_year').click().clear().type(2020)
+        cy.contains('Set date').click()
+        cy.wait(300)
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
@@ -338,12 +338,14 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
     //Date picker working and persists on UK XI sites
     it('🚀 XI 🇪🇺 - ( future date) Change Date and check if the data shown is same for both XI and UK', function () {
         cy.visit('/xi/sections')
-        cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
-        cy.get('input#tariff_date_date')
-            .clear()
-            .type('31/12/2021')
-        cy.get('.fields > a[role=\'button\']')
-            .contains('Set date').click()
+        //select Change Date and change months and years 
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(31)
+        cy.get('#tariff_date_month').click().clear().type(12)
+        cy.get('#tariff_date_year').click().clear().type(2021)
+        cy.contains('Set date').click()
+        cy.wait(300)
+
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
             .contains('This tariff is for 31 December 2021')
