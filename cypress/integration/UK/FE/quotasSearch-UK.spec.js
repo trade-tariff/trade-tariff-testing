@@ -83,6 +83,10 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.get('form#new_search > input[name=\'new_search\']').click()
         cy.contains('Quota search results')
         cy.get('.govuk-table__row').contains('057140')
+        cy.contains('Colombia (CO)')
+        cy.contains('01 January 2021')
+        cy.contains('31 July 2021')
+        cy.contains('Tonne (1000 kg)')
     })
 
     it('Quotas Search - Critical state',function(){
