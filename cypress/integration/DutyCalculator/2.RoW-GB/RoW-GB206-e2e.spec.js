@@ -2,7 +2,7 @@
 describe('|RoW-GB206-e2e.spec | additional codes |', function () {
     //
 
-    let addCodes = ['C491', 'C490', 'C493', 'C497']
+    let Codes = ['C491', 'C490', 'C493', 'C497']
 
     it(`e2e RoW to GB 🛢️ 🇦🇷 - One additional code / Changing code`, function () {
 
@@ -14,7 +14,7 @@ describe('|RoW-GB206-e2e.spec | additional codes |', function () {
         cy.originList({ value: 'Argentina' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ tnei: '1' })
-        cy.additionalCode({ code: 'C999' })
+        cy.additionalCode({ uk: 'C999' })
         cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
@@ -24,27 +24,27 @@ describe('|RoW-GB206-e2e.spec | additional codes |', function () {
         cy.contains(`1516 20 98 21 (C999)`)
         cy.contains(`Import duty (C999)`)
 
-        for (let i = 0; i < addCodes.length; i++) {
+        for (let i = 0; i < Codes.length; i++) {
             cy.get('.govuk-back-link').click().wait(700)
             cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
-            cy.additionalCode({ code: `${addCodes[i]}` })
+            cy.additionalCode({ uk: `${Codes[i]}` })
             cy.vat('20')
             cy.confirmPage()
             cy.dutyPage()
-            cy.contains(`1516 20 98 21 (${addCodes[i]})`)
+            cy.contains(`1516 20 98 21 (${Codes[i]})`)
         }
     })
     it(`e2e RoW to GB 🛢️ 🇨🇦 - More than one additional code`, function () {
 
-        cy.visit(`uk/1516209821/import-date`)
+        cy.visit(`duty-calculator/uk/1516209821/import-date`)
         cy.wait(700)
         cy.validDate()
         cy.selectDestination('gb')
         cy.originList({ value: 'Canada' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ tnei: '1' })
-        cy.additionalCode({ code: 'B999' })
-        cy.additionalCode({ code: 'B999' })
+        cy.additionalCode({ uk: 'B999' })
+        cy.additionalCode({ uk: 'B999' })
         cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()

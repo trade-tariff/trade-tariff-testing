@@ -75,7 +75,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0702000007')
         cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(500)
         cy.title().should('contains', '0702000007')
         cy.get('.govuk-main-wrapper')
             .contains('Commodity information for 0702000007')
