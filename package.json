@@ -7,7 +7,10 @@
     "@jc21/cypress-jsonschema-validation": "^0.0.1",
     "@jc21/cypress-swagger-validation": "^0.1.0",
     "ansi-styles": "^5.0.0",
-    "cypress-tags": "^0.0.20"
+    "cypress-tags": "^0.0.20",
+    "glob-parent": "^5.1.2",
+    "postcss": "^7.0.36",
+    "ws": "^5.2.3"
   },
   "devDependencies": {
     "allure-commandline": "^2.13.8",
