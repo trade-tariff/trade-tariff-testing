@@ -29,5 +29,5 @@ Running specific folder :npx cypress run --spec "/*/**/XI/**/*spec.js"
                         :npx cypress run --spec "/*/**/UK/**/*spec.js"
                 
 
-**TO DO**
+[![ ✏️ | Regression Pack | Production |](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
 
