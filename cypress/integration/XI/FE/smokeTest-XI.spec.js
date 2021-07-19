@@ -1,5 +1,5 @@
 
-describe('🚀 XI 🇪🇺 💡 | smokeTest-XI.spec | Smoke test to cover basic functionality on XI services |',function() {
+describe.skip('🚀 XI 🇪🇺 💡 | smokeTest-XI.spec | Smoke test to cover basic functionality on XI services |',function() {
     //Main Page
     it('🚀 XI - Main Page Validation', function () {
         
