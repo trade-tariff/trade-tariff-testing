@@ -9,7 +9,6 @@ describe('🇪🇺 🇬🇧 💡| footnoteSearch.spec.js | footnote Search UK an
             cy.get('select#type').select(`${codes[i]}`)
             cy.get("form#new_search > input[name='new_search']").click()
             cy.contains('Footnote search results')
-
         }
     })
 
@@ -21,9 +20,9 @@ describe('🇪🇺 🇬🇧 💡| footnoteSearch.spec.js | footnote Search UK an
             cy.get('select#type').select(`${codes[i]}`)
             cy.get("form#new_search > input[name='new_search']").click()
             cy.contains('There are no matching results')
-
         }
     })
+    
 
 
    
