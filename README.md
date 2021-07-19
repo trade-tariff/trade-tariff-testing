@@ -5,7 +5,7 @@ Cypress automation framework 🔧
 
 * front end UI testing 
 * API testing 
-* end-to-end testing 
+* integration / end-to-end testing 
 	
 ** Prerequisites📚 **
 ```
@@ -30,4 +30,3 @@ Running smoke tests     :npm run smoketests
 Running specific folder :npx cypress run --spec "/*/**/XI/**/*spec.js"
                         :npx cypress run --spec "/*/**/UK/**/*spec.js"
                 
-

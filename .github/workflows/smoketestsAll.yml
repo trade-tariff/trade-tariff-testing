@@ -21,14 +21,7 @@ jobs:
           browser: chrome
           headless: true
 
-          spec: "*/**/smokeTest-UK.spec.js"
-      - uses: cypress-io/github-action@v2
-        name: "XI smoke tests"
-        with:
-          quiet: true
-          browser: chrome
-          headless: true
-          spec: "*/**/smokeTest-XI.spec.js"
+          spec: "*/**/smokeTestTradeTariff.spec.js"
       - run: npm run posttests
       - run: ls -l
       - uses: actions/upload-artifact@v2

@@ -1,4 +1,4 @@
-describe('| dcFeedbackLink | Feedback link on Duty Calculator page |', function () {
+describe.skip('| dcFeedbackLink | Feedback link on Duty Calculator page |', function () {
   //
   let country = ["uk"]
   for (let i = 0; i < country.length; i++) {
