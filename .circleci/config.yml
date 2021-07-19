@@ -20,6 +20,7 @@ workflows:
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestCI.spec.js"
+          yarn: true
           post-steps:
             - store_test_results:
                 path: cypress/results
@@ -68,6 +69,7 @@ workflows:
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestCI.spec.js"
+          yarn: true
           post-steps:
             - store_test_results:
                 path: cypress/results
