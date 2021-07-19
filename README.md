@@ -1,6 +1,8 @@
 Cypress automation framework 🔧
 ----------------------------------------
 
+[![ ✏️ | Regression Pack | Production |](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
+
 * front end UI testing 
 * API testing 
 * end-to-end testing 
@@ -28,6 +30,4 @@ Running smoke tests     :npm run smoketests
 Running specific folder :npx cypress run --spec "/*/**/XI/**/*spec.js"
                         :npx cypress run --spec "/*/**/UK/**/*spec.js"
                 
-
-[![ ✏️ | Regression Pack | Production |](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
 
