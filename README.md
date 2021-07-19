@@ -2,6 +2,7 @@ Cypress automation framework 🔧
 ----------------------------------------
 
 [![ ✏️ | Regression Pack | Production |](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
+[![ 🚀 smokeTest](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/smoketestsAll.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/smoketestsAll.yml)
 
 * front end UI testing 
 * API testing 
