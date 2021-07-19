@@ -1,6 +1,5 @@
 describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK services |',function() {
-    Cypress.config('baseUrl')
-
+    
     it('UK Additional Code Search : 2 - Tariff preference', function () {
         cy.visit('/additional_code_search')
         cy.contains('Search by Additional Code')

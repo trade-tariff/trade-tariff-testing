@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 | toolsSection-UK | Tools Section - breadcrumbs   - (UK version) |', function () {
+describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrumbs  - UK and XI services |', function () {
 
     let countries = ["uk","xi"]
     for ( let i =0 ; i< countries.length;i++)
@@ -50,8 +50,6 @@ describe('🇬🇧 💡 | toolsSection-UK | Tools Section - breadcrumbs   - (UK 
         cy.get('.govuk-breadcrumbs__list')
             .contains('Tools').click()
         cy.contains('Tariff tools')
-
-        cy.contains('Search by Footnote')
         
     })
         it(` Chemicals - breadcrumbs ${countries[i]}`, function () {
@@ -64,7 +62,7 @@ describe('🇬🇧 💡 | toolsSection-UK | Tools Section - breadcrumbs   - (UK 
         cy.contains('Tariff tools')
     })
 }
-    it(' Quotas - breadcrumbs ', function () {
+    it(' Quotas - breadcrumbs - UK ', function () {
         cy.visit('/tools')
         cy.get('.govuk-list')
             .contains('Quotas').click()
