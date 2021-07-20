@@ -1,9 +1,6 @@
 describe('💷 💶 | dcExchangeRate | Validating exchange rates |', function () {
 
-    //
-
     it('Exchange rate', function () {
-
         //import date
         cy.visit('/duty-calculator/uk/7202118000/import-date')
         //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
@@ -61,7 +58,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |', function ()
         // Exchange Rate 
         cy.request({
             method: 'GET',
-            url: `https://staging.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
+            url: `https://www.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
         }).then((response) => {
             expect(response.status).to.eq(200)
             console.log(JSON.stringify(response.body))
@@ -69,7 +66,8 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |', function ()
             console.log(`${exchangerate}`)
 
             cy.contains(`Please note - the current page uses an exchange rate of`)
-            cy.log(parseFloat(`${exchangerate.toFixed(4)}`))
+            let xrate = (parseFloat(`${exchangerate.toFixed(4)}`))
+            cy.contains(`${xrate}`)
             cy.contains('More about this exchange rate').click()
             cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
 
