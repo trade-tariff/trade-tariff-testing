@@ -42,7 +42,7 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
         cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
-        // Import Quantity 1.0 gives UK tariffs 
+        //Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
         //Import Quantity 
         cy.quantity({ dtn: '1.0' })
         //VAT Page
@@ -56,7 +56,7 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
         cy.contains('Third-country duty (UK)')
         cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.')
 
-        //Change Quantity to 20 for EU tariff 
+        //Case 2 : Δ MFN > 3% - EU Tariffs - Change Quantity to 20 for EU tariff
         cy.get('.govuk-back-link').click().wait(200)
         cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
         //Import Quantity 
@@ -72,7 +72,8 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
         cy.contains('Third-country duty (EU)')
         cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
 
-        //Change Quantity to 10 and Customs Imports value to 987 for EU tariff 
+        //Case 3 : Δ MFN = 3% - UK Tariffs 
+    /*
         cy.get('.govuk-back-link').click().wait(200)
         cy.get('div:nth-of-type(8) > .govuk-summary-list__actions > .govuk-link').click()
         //customs value
@@ -90,6 +91,7 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (UK)')
         cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.')
-    })
+  */
+  })
 
 })
