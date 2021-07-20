@@ -12,7 +12,6 @@
   "devDependencies": {
     "allure-commandline": "^2.13.8",
     "cypress": "7.7.0",
-    "cypress-audit": "^1.0.0",
     "cypress-cucumber-preprocessor": "^4.1.4",
     "cypress-dark": "^1.7.14",
     "cypress-file-upload": "^5.0.8",
