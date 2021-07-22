@@ -2,7 +2,6 @@ const data1 = require('../../Data/headings_01.json')
 const data2 = require('../../Data/headings_02.json')
 
 context('Validating API response with previous response stored in Json file', () => {
-    Cypress.config('baseUrl')
     it.skip('V1 - Sections page', () => {
         cy.request({
             method: 'GET',

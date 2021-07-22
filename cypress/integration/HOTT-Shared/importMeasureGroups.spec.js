@@ -1,7 +1,4 @@
 describe('UK 🇬🇧 XI 🇪🇺 | measureGrouping- UK & XI | validate if measures are grouped and clickable |', function () {
-
-    Cypress.config('baseUrl')
-
     //Main Page
     it('Northern Ireland - VAT and Excise , Custom Duties ,Trade remedies ,EU import controls ,UK import controls', function () {
         cy.visit('/xi/commodities/0304829010#import')

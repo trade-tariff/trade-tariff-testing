@@ -1,6 +1,4 @@
 describe('🇬🇧 💡 | chemicalSearch-UK | Chemical Search 🧪  UK services |',function() {
-    Cypress.config('baseUrl')
-
     it('UK Chemical Search -using CAS number', function () {
         cy.visit('/chemical_search')
         cy.contains('Search by Chemical')

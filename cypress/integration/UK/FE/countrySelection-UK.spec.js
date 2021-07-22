@@ -1,7 +1,4 @@
 describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |',function() {
-
-    Cypress.config('baseUrl')
-
     it('UK Country Selection - imports ',function(){
         cy.visit('/commodities/0208909800#import')
         // no XI

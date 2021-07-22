@@ -1,8 +1,4 @@
-
 describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke tests to cover basic functionality on UK & XI services |', function () {
-
-    Cypress.config('baseUrl')
-
     //Main Page
     it('🚀 UK 🇬🇧 - Main Page Validation', function () {
         cy.visit('/sections')

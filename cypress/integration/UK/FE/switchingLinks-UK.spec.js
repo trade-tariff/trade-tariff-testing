@@ -1,7 +1,5 @@
 describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
     //--- HOTT-96 -------------
-    Cypress.config('baseUrl')
-
     it('Sections Page - Switching link & text available,forum links removed', function () {
         cy.visit('/sections')
         //check header has UK information

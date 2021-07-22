@@ -1,8 +1,5 @@
 
 describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
-    //  Cypress.config('baseUrl')
-        Cypress.config('baseUrl')
-  
       it('Cookies Main Banner ',function(){
         cy.visit('/cookies')
         cy.contains('Cookies on HMRC services')

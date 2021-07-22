@@ -1,6 +1,5 @@
 describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK version)|',function() {
     //--- Headings to be changed for UK -------------
-    Cypress.config('baseUrl')
 
     //Page Title
     it('UK - Header text - sections page', function () {

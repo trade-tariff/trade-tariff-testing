@@ -1,5 +1,4 @@
 describe('🇬🇧 🇪🇺 💡 | Privacy Notice for UK and XI |', function () {
-    Cypress.config('baseUrl')
     let country = ["uk", "xi"]
     let titles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
     

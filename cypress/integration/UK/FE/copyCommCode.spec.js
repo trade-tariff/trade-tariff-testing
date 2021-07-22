@@ -1,6 +1,4 @@
 describe.skip('🇬🇧 💡 | copyCommCode | Copy comm code UK and XI  |', function () {
-    Cypress.config('baseUrl')
-
     it('Copy commod code and paste ', function () {
         cy.visit('commodities/0201100021')
         //copy comm code

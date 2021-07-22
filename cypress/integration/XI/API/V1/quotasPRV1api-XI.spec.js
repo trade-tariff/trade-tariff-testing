@@ -1,8 +1,5 @@
 describe('🇪🇺  ⚙️ XI-version v1 api Quotas , P&R suppression  ',function() {
-
     //----Quotas to be suppressed for XI version  -----
-     Cypress.config('baseUrl', 'https://dev.trade-tariff.service.gov.uk/xi')
-
     it('1.Quotas:046 Tariff quota/ceiling - suppressed', function () {
         cy.request('/api/v1/commodities/6301909021#import.json')
             .then((response) => {

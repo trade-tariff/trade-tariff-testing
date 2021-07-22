@@ -1,5 +1,4 @@
 describe('| *EU-NI502--e2e.spec |EU to Northern Ireland |',function(){
-    Cypress.config('baseUrl')
     let country = ["uk","xi"] 
     for (let i =0;i<country.length;i++){
         console.log(i)

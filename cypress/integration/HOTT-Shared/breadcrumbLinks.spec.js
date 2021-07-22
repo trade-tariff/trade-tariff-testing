@@ -6,7 +6,6 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks | Validate breadcrum links a
     X - Browser test(usual browsers)
     Mobile and desktop
     */
-    Cypress.config('baseUrl')
     let comm = ["2007993944", "0101210000","0501000000"]
     for (let i = 0; i < comm.length; i++){
 

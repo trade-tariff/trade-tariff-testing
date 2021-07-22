@@ -1,5 +1,4 @@
 describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () => {
-    Cypress.config('baseUrl')
     // V2 API *****************************************************
     it('UK - V2 - Should return a valid payload and Schema should match', function () {
         cy.request('/api/v2/commodities/7202118000').then($response => {

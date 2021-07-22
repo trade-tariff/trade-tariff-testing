@@ -1,9 +1,5 @@
 describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R to be availabe |',function() {
-
     //----Quotas to be available for UK version  -----
-  //  Cypress.config('baseUrl', Cypress.config('services')['uk'])
-    Cypress.config('baseUrl')
-
     it('🟩 1.Quotas:046 Tariff quota/ceiling - available', function () {
         cy.request('/api/v1/commodities/6301909021#import.json')
         cy.request('/api/v1/commodities/1006209600#import.json')

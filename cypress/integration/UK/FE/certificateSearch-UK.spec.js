@@ -1,6 +1,4 @@
 describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK services |',function() {
-    Cypress.config('baseUrl')
-
     it(' UK Certificate Search : 9 - National Document', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')

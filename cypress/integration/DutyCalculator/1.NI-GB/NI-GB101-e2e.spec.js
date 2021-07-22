@@ -1,7 +1,5 @@
 describe('| NI-GB101-e2e | Northern Ireland to GB United Kingdom |', function () {
-    Cypress.config('baseUrl')
     it('e2e NI to GB ', function () {
-        
         cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.contains('UK Global Online Tariff')
         cy.validDate()
