@@ -1,7 +1,4 @@
 describe.skip('🇬🇧 💡 | countriesApi-UK | UK Country Selection |',function() {
-
-    Cypress.config('baseUrl')
-
     it('UK - Should return a valid payload and Schema should match', function () {
         cy.readFile(`./cypress/Data/uk/countriesUK.json`).then((fixtureuk) => {
         cy.request('/geographical_areas.json').then($response => {

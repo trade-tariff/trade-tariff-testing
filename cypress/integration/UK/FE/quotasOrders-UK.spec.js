@@ -1,6 +1,4 @@
 describe('🇬🇧 💡 | quotasOrders-UK | Check specific quota Quotadetails |',function(){
-    Cypress.config('baseUrl')
-
     it('UK quota numbers post 1 Jan 2021 -054xxx Licensed', function () {
         cy.visit('/commodities/0201100021#import')
         cy.get('.govuk-tabs__panel')

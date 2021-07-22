@@ -1,6 +1,4 @@
 describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and quota orders |',function() {
-    Cypress.config('baseUrl')
-
     it('Quotas Search - Commodity Code',function(){
         cy.visit('/quota_search')
         cy.contains('Search for quotas')

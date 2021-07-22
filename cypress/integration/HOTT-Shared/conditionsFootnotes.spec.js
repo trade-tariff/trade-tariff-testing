@@ -1,6 +1,4 @@
 describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate Conditions and Footnotes on commodity page |', function () {
-
-    Cypress.config('baseUrl')
     it('Conditions on UK imports on XI service ', function () {
         cy.visit('/xi/commodities/6403990510/#import')
         cy.contains('UK import controls').click()

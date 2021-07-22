@@ -1,7 +1,4 @@
 describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',function() {
-
-    Cypress.config('baseUrl')
-
     it('UK - Search Commodity by name ', function () {
         cy.visit('/sections')
         //changed on 11/02/2021

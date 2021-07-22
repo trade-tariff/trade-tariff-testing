@@ -1,5 +1,4 @@
 describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on headings -  UK services |',function() {
-    Cypress.config('baseUrl')
     let country = ["", "xi"]
     let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
     for (let j = 0; j < country.length; j++) {

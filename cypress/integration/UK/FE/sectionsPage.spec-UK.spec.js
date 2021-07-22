@@ -1,6 +1,4 @@
 describe('🇬🇧 💡 🔍  | sectionsPage.spec-UK | Sections page content validation |',function() {
-    Cypress.config('baseUrl')
-
     it('Search the tariff text/box visible',function(){
         cy.visit('/sections')
         cy.get('.govuk-label').should('be.visible')

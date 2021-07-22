@@ -1,5 +1,3 @@
-Cypress.config('baseUrl')
-
 context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for commodities on V1 and V2 |', () => {
     it('🇬🇧 ⚙️ V2 - Validate API response for V2', () => {
         let fixture_timestamp = Cypress.config('fixtures_timestamp');
