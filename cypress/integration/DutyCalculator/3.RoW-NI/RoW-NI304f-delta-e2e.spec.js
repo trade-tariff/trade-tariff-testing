@@ -74,11 +74,11 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.contains('Option 3: Autonomous tariff suspension')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
 
-        cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
+        cy.contains('Option 5: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
         cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
 
-        cy.contains('Option 5: Airworthiness tariff suspension')
+        cy.contains('Option 4: Airworthiness tariff suspension')
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
 
     })

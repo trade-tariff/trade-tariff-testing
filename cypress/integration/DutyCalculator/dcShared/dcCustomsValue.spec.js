@@ -1,7 +1,5 @@
 describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', function () {
 
-    //
-
     it('Page Validation', function () {
         cy.visit('/duty-calculator/uk/0702000007/import-date')
         //   cy.visit('/duty-calculator/uk/0407191900/import-date')
