@@ -1,5 +1,4 @@
 describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function () {
-    //
 
     // Duty Calculator tests
     it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {

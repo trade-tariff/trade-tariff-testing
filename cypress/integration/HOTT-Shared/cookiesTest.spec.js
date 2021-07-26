@@ -24,7 +24,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
 
       it('Cookies on all pages',function(){
         cy.clearCookies()
-      let pages = ['sections','a-z-index/a','tools','xi/sections','xi/a-z-index/a','xi/tools']
+      let pages = ['sections','a-z-index/a','tools','help','xi/sections','xi/a-z-index/a','xi/tools','xi/help']
         for (let i =0 ; i< pages.length ; i++)
         {
         cy.visit(`/${pages[i]}`)
@@ -76,7 +76,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.clearCookies()
         cy.visit('/sections')
         // view cookies
-        cy.get('.banner-govuk-link.govuk-link').click()
+        cy.get('.govuk-cookie-banner .govuk-link').click()
         cy.contains('Cookies on the UK Global Online Tariff')
         // Yes / No selection
         cy.get('input#cookie_consent_usage_true').click()
@@ -87,15 +87,14 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%7D')
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
-        
-
         cy.clearCookies()
       })
+
       it('View Cookies - No / Yes - combinations ',function(){
         cy.clearCookies()
         cy.visit('/sections')
         // view cookies
-        cy.get('.banner-govuk-link.govuk-link').click()
+        cy.get('.govuk-cookie-banner .govuk-link').click()
         cy.contains('Cookies on the UK Global Online Tariff')
         // No /Yes selection
         cy.get("input#cookie_consent_usage_false").click()
@@ -106,8 +105,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.contains('You can update these settings at any time.')
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22false%22%2C%22remember_settings%22%3A%22true%22%7D')
-        cy.getCookie('cookies_preferences_set').should('have.property','value','true')
-      
+        cy.getCookie('cookies_preferences_set').should('have.property','value','true')      
 })
 
 

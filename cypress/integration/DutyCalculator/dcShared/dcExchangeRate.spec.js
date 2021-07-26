@@ -52,25 +52,22 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |', function ()
         cy.contains('Data')
         cy.contains('Calculation')
         cy.contains('Value')
-        //first row
-
-
+    
         // Exchange Rate 
         cy.request({
             method: 'GET',
-            url: `https://www.trade-tariff.service.gov.uk/api/v2/exchange_rates/`,
+            url: `https://www.trade-tariff.service.gov.uk/xi/api/v2/monetary_exchange_rates/`,
         }).then((response) => {
             expect(response.status).to.eq(200)
             console.log(JSON.stringify(response.body))
-            let exchangerate = response.body.data[49].attributes.rate
+            let exchangerate = response.body.data[66].attributes.exchange_rate
+         //   let exchangerate1 = response.body.data[49].attributes.rate
             console.log(`${exchangerate}`)
-
+         //   let xrate = (parseFloat(`${exchangerate.toFixed(4)}`))
+            cy.contains(`${exchangerate}`)  
             cy.contains(`Please note - the current page uses an exchange rate of`)
-            let xrate = (parseFloat(`${exchangerate.toFixed(4)}`))
-            cy.contains(`${xrate}`)
-            cy.contains('More about this exchange rate').click()
-            cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
-
+            cy.contains('GBP to EUR.')
+            
         })
 
     })

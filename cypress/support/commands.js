@@ -209,8 +209,7 @@ Cypress.Commands.add("dutyPage",()=>{
 
 Cypress.Commands.add('exchangeRate',()=>{
     cy.contains('Please note - the current page uses an exchange rate of ') 
-    cy.contains('More about this exchange rate').click()
-    cy.contains('The exchange rate used is derived from European Central Bank. The reference rates are usually updated around 15:00 on every working day.')
+   
 })
 
 Cypress.Commands.add('additionalCode',(addcode)=>{
@@ -257,7 +256,11 @@ Cypress.Commands.add('vat',(options)=>{
         cy.contains('Continue').click()
     }   
 })
-
+Cypress.Commands.add('exciseCode', (excode) => {
+    cy.contains('Which class of excise is applicable to your trade?')
+    cy.get(`#steps-excise-additional-code-${excode}-field`).check()
+    cy.contains('Continue').click()
+})
 
 
 
