@@ -45,6 +45,8 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
         //Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
         //Import Quantity 
         cy.quantity({ dtn: '1.0' })
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
         //VAT Page
         cy.vat('20')
         cy.contains('Value added tax (20.0%)')
@@ -58,9 +60,13 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
 
         //Case 2 : Δ MFN > 3% - EU Tariffs - Change Quantity to 20 for EU tariff
         cy.get('.govuk-back-link').click().wait(200)
-        cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click()
         //Import Quantity 
         cy.quantity({ dtn: '20.0' })
+        //doc code
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
+
         //VAT Page
         cy.vat('20')
         cy.contains('Value added tax (20.0%)')

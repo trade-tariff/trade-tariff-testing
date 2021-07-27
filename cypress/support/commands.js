@@ -261,6 +261,14 @@ Cypress.Commands.add('exciseCode', (excode) => {
     cy.get(`#steps-excise-additional-code-${excode}-field`).check()
     cy.contains('Continue').click()
 })
+//Document Codes
+Cypress.Commands.add('docCode',(dcode)=>{
+    cy.contains('Do you have any of the following documents?')  
+    for (let [key,value] of Object.entries(dcode)) {
+    cy.get(`#steps-document-code-document-code-${key}-${value}-field.govuk-checkboxes__input`).check()
+    }
+   
+})
 
 
 

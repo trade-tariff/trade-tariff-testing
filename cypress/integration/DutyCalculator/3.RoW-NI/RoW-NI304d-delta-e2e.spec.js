@@ -25,6 +25,11 @@ describe('| Row-NI304d-delta.spec.js | 🔼 Delta Route | more than one measure 
 
         //Import Quantity 
         cy.quantity({ dtnr: '100', tne: '1', dap: '1' })
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
         cy.confirmPage()
         cy.dutyPage()
         

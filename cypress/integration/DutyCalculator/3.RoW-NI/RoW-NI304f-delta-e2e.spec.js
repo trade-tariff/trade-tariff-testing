@@ -22,6 +22,9 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+        //doc code
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
@@ -61,6 +64,16 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+        //doc code
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'c119' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
+        cy.contains('C990, C119, N990')
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
@@ -102,8 +115,16 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.plannedXI('acceptable2')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+        
         //Import Quantity 
         cy.quantity({ dtn: '100' })
+        //doc code
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'c119' })
+        cy.contains('Continue').click()
+
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
@@ -123,9 +144,16 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.')
         //UK Tariffs 
         cy.get('.govuk-back-link').click()
-        cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click()
         //Import Quantity 
         cy.quantity({ dtn: '1' })
+        //doc code
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'c119' })
+        cy.contains('Continue').click()
+
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')

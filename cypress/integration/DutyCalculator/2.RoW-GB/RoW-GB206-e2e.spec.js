@@ -1,6 +1,5 @@
 
 describe('|RoW-GB206-e2e.spec | additional codes |', function () {
-    //
 
     let Codes = ['C491', 'C490', 'C493', 'C497']
 
@@ -15,6 +14,12 @@ describe('|RoW-GB206-e2e.spec | additional codes |', function () {
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ tnei: '1' })
         cy.additionalCode({ uk: 'C999' })
+        //Select Document Code 
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
+        cy.docCode({ uk: 'd017' })
+        cy.docCode({ uk: 'd018' })
+        cy.contains('Continue').click()
         cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
@@ -28,6 +33,12 @@ describe('|RoW-GB206-e2e.spec | additional codes |', function () {
             cy.get('.govuk-back-link').click().wait(700)
             cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
             cy.additionalCode({ uk: `${Codes[i]}` })
+            //Select Document Code 
+            cy.docCode({ uk: 'c990' })
+            cy.contains('Continue').click()
+            cy.docCode({ uk: 'd017' })
+            cy.docCode({ uk: 'd018' })
+            cy.contains('Continue').click()
             cy.vat('20')
             cy.confirmPage()
             cy.dutyPage()
@@ -43,8 +54,16 @@ describe('|RoW-GB206-e2e.spec | additional codes |', function () {
         cy.originList({ value: 'Canada' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ tnei: '1' })
+        //additional codes
         cy.additionalCode({ uk: 'B999' })
         cy.additionalCode({ uk: 'B999' })
+        //Select Document Code 
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
+        cy.docCode({ uk: 'd008' })
+        cy.contains('Continue').click()
+        cy.docCode({ uk: 'd008' })
+        cy.contains('Continue').click()
         cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
