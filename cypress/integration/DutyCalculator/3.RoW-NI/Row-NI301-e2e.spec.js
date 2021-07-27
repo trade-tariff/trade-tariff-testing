@@ -1,5 +1,5 @@
 // 🚫 Trade Remedies - ✅ 0% MFN EU tariff
-describe('| Row-NI301-e2e.spec |RoW to Northern Ireland ', function () {
+describe('| RoW-NI301-e2e.spec |RoW to Northern Ireland ', function () {
 
     //
     let country = ["uk", "xi"]

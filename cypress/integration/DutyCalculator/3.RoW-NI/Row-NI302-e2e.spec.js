@@ -1,5 +1,5 @@
 // ✅  Trade Remedies - ℹ️ 
-describe('| Row-NI302-e2e.spec | RoW to Northern Ireland ', function () {
+describe('| RoW-NI302-e2e.spec | RoW to Northern Ireland ', function () {
 
     //
     let country = ["uk"]

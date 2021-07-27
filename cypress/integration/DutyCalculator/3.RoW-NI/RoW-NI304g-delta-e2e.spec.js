@@ -25,6 +25,15 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
 
         //Import Quantity 
         cy.quantity({ dtnr: '1', tne: '1', dap: '1', dtn: '1' })
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
@@ -66,6 +75,13 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
 
         //Import Quantity 
         cy.quantity({ dtnr: '1', tne: '1', dap: '1' })
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
@@ -78,9 +94,16 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
 
         //EU Tariffs - Change Quantity to override Quotas 
         cy.get('.govuk-back-link').click()
-        cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click()
         //Import Quantity 
         cy.quantity({ dtnr: '100', tne: '100', dap: '100' })
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+
         cy.confirmPage()
         cy.dutyPage()
 
