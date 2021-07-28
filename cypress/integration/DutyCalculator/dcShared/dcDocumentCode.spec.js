@@ -41,7 +41,8 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
         //VAT Page
         cy.vat('0')
         cy.contains('VAT zero rate')
-        cy.get('.govuk-grid-row').contains('Document(s)').should('not.exist')
+        cy.get('.govuk-grid-row').contains('Document(s)')
+        cy.contains('n/a')
         cy.get('.govuk-grid-row').contains('C990').should('not.exist')
     })
 })
