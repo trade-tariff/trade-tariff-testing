@@ -1,23 +1,23 @@
 
-describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic functionality on XI services ',function() {
-   
-    //Main Page
-    it(`🚀 XI - Mobile - nav-bar validation`,function(){
-        
-        const sizes = ['iphone-6','samsung-note9']
-            for (let i=0 ;i<sizes.length ;i++){
-                cy.viewport(`${sizes[i]}`)
-   
-                cy.visit('/xi/sections')
-                cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-                cy.get('.govuk-header__menu-button').click()
-                cy.contains('A-Z')
-                cy.contains('Tools')
-                cy.contains('Search or browse the Tariff').click()
-                cy.contains('All sections')
+describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic functionality on XI services ', function () {
 
-            }
-        })
+    //Main Page
+    it(`🚀 XI - Mobile - nav-bar validation`, function () {
+
+        const sizes = ['iphone-6', 'samsung-note9']
+        for (let i = 0; i < sizes.length; i++) {
+            cy.viewport(`${sizes[i]}`)
+
+            cy.visit('/xi/sections')
+            cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
+            cy.get('.govuk-header__menu-button').click()
+            cy.contains('A-Z')
+            cy.contains('Tools')
+            cy.contains('Search or browse the Tariff').click()
+            cy.contains('All sections')
+
+        }
+    })
 
     //Legal base tests
     it('🚀 XI - Legal base column suppressed', function () {
@@ -88,7 +88,7 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
         cy.get('li#q__option--0')
         cy.wait(400)
         cy.get('input[name=\'new_search\']').click()
-            cy.wait(500)
+        cy.wait(500)
         cy.contains('Commodity information for 3808941000')
     })
 
@@ -96,23 +96,23 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
         cy.viewport('iphone-x')
         cy.visit('/xi/commodities/0208909800#import')
         // XI Present
-        cy.get('input#import_search_country').click().clear().wait(500).type('(XI)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('Northern Ireland (XI)')
 
         //Andora should be present
-        cy.get('input#import_search_country').click().clear().wait(500).type('(AD)')
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(AD)')
+        cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
         //  GB Present
-        cy.get('input#import_search_country').click().clear().wait(500).type('(GB)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('United Kingdom (excluding Northern Ireland) (GB)')
 
 
         // no XU
-        cy.get('input#import_search_country').click().clear().wait(500).type('(XU)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
     })
@@ -120,24 +120,24 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
         cy.viewport('iphone-x')
         cy.visit('/xi/commodities/0208909800#export')
         // XI Present
-        cy.get('input#export_search_country').click().clear().wait(500)
+        cy.get('input#search_country').click().clear().wait(500)
             .type('(XI)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
+        cy.get("[id='search_country__listbox']")
             .contains('Northern Ireland (XI)')
 
         //Andora should be present
-        cy.get('input#export_search_country').click().clear().wait(500).type('(AD)')
-        cy.get("[id='export_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(AD)')
+        cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
         //  GB Present
-        cy.get('input#export_search_country').click().clear().wait(500).type('(GB)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('United Kingdom (excluding Northern Ireland) (GB)')
 
 
         // no XU
-        cy.get('input#export_search_country').click().clear().wait(500).type('(XU)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('No results found')
     })
     //Date picker working and persists on UK XI sites
@@ -165,5 +165,5 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
             .contains('This tariff is for 7 April 2021')
     })
-    
+
 })

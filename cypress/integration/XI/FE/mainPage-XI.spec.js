@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI version) |',function() {
+describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI version) |', function () {
     //--- HOTT-82 -------------
     //Page Title
     it('Header text - Page- sections - Northern Ireland Online Tariff', function () {
@@ -33,93 +33,93 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     })
     //--
 
-    
 
-    it('Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search',function(){
+
+    it('Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search', function () {
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(500)
         cy.get('input[name=\'new_search\']').wait(500).click()
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-        
+
 
     })
-    it('Header text - Page - Commodity information for 0406103010 is displayed',function(){
+    it('Header text - Page - Commodity information for 0406103010 is displayed', function () {
         cy.get('.commodity-header.govuk-heading-l').should('be.visible')
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
-    it('Header text - Page - chapter notes is visible',function(){
+    it('Header text - Page - chapter notes is visible', function () {
         cy.get('div:nth-of-type(1) > .govuk-heading-s').should('be.visible')
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
-    it('Header text - page - select Export button',()=> {
+    it('Header text - page - select Export button', () => {
         cy.get('a#tab_export').click()
         cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
-    it('Header text - page - select Import button',()=> {
+    it('Header text - page - select Import button', () => {
         cy.get('a#tab_import').click()
         cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
-    it('Header text - page - select Chile from All countries list',()=>{
-        cy.get('input#import_search_country').click().clear().wait(700)
+    it('Header text - page - select Chile from All countries list', () => {
+        cy.get('input#search_country').click().clear().wait(700)
             .type('Chile').wait(700)
             .type('{enter}')
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
-    it('Header text - page - measures for Chile ',function(){
+    it('Header text - page - measures for Chile ', function () {
         cy.get('.govuk-tabs__panel')
             .contains('Measures and restrictions for importing goods into Northern Ireland')
         cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
     })
-    it('Search the Tariff section',function(){
+    it('Search the Tariff section', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-header').contains('Search or browse the Tariff').click()
         cy.get('.govuk-main-wrapper')
             .contains('Search the Northern Ireland Online Tariff')
     })
-    it('A-Z section',function(){
+    it('A-Z section', function () {
         cy.visit('/xi/sections')
         cy.get('li:nth-of-type(2) > .govuk-header__link').click()
         cy.contains('A–Z of Classified Goods')
     })
-    it('Tools section',function(){
+    it('Tools section', function () {
         cy.visit('/xi/sections')
         cy.get('li:nth-of-type(3) > .govuk-header__link').click()
         cy.contains('Certificate, licenses and documents')
         cy.contains('Additional codes')
         cy.contains('Chemicals')
         cy.get('.govuk-list')
-            .should('be.visible','Search for tariff quotas, including daily updated balances.')
-            .should('be.visible','Search for certificates, licenses and other document codes.')
-            .should('be.visible','Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
-            .should('be.visible','Search the tariff for chemicals by ')
+            .should('be.visible', 'Search for tariff quotas, including daily updated balances.')
+            .should('be.visible', 'Search for certificates, licenses and other document codes.')
+            .should('be.visible', 'Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
+            .should('be.visible', 'Search the tariff for chemicals by ')
     })
 
     //HOTT-164
-    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ',function(){
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-footer')
         cy.contains('API Documentation')
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
     })
-    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -page link ',function() {
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -page link ', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link').click()
         cy.contains('Summary')
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
     })
-    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -URL',function(){
-    cy.visit('/xi/terms')
-    cy.contains('Summary')
-    cy.get('.govuk-template ')
-    cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Terms and Conditions -URL', function () {
+        cy.visit('/xi/terms')
+        cy.contains('Summary')
+        cy.get('.govuk-template ')
+        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
     })
-    it('XI - Footnotes tab ',function(){
+    it('XI - Footnotes tab ', function () {
         cy.visit('/xi/commodities/4101203000')
-     
+
         cy.contains('TN701').should('not.be.visible')
         //Import Tab
         cy.get('a#tab_import').click()
