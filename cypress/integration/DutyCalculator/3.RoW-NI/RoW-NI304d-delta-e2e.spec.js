@@ -2,7 +2,7 @@
 describe('| Row-NI304d-delta.spec.js | 🔼 Delta Route | more than one measure amounts on UK and XI service | ', function () {
 
     //
-    it('RoW 🇦🇪 (United Arab Emirates) - XI', function () {
+    it('RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function () {
         cy.visit('/duty-calculator/uk/1701141000/import-date')
         //date
         cy.validDate()

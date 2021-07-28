@@ -117,54 +117,30 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
-    it('🚀 UK 🇬🇧 - Country Selection - imports ', function () {
-        cy.visit('/commodities/0208909800#import')
+    it('🚀 UK 🇬🇧 - Country Selection ', function () {
+        cy.visit('/commodities/0208909800')
         // no XI
-        cy.get('input#import_search_country').click().clear().wait(200).type('(XI)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(200).type('(XI)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
         //Andorra should be present
-        cy.get('input#import_search_country').click().clear().wait(200).type('(AD)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(200).type('(AD)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
 
         // no GB - United Kingdom (excluding Northern Ireland) (GB)
-        cy.get('input#import_search_country').click().clear().wait(200).type('(GB)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(200).type('(GB)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
         // no XU
-        cy.get('input#import_search_country').click().clear().wait(200).type('(XU)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(200).type('(XU)').wait(500)
+        cy.get("[id='search_country__listbox']")
             //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
             .contains('No results found')
     })
-    //Country selection - imports
-    it('🚀 UK 🇬🇧 - Country Selection - exports ', function () {
-        cy.visit('/commodities/0208909800#export')
-        // no XI
-        cy.get('input#export_search_country').click().clear().wait(500).type('(XI)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
-            .contains('No results found')
-
-        //Andorra should be present
-        cy.get('input#export_search_country').click().clear().wait(500).type('(AD)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
-            .contains('Andorra (AD)')
-
-        // no GB - United Kingdom (excluding Northern Ireland) (GB)
-        cy.get('input#export_search_country').click().clear().wait(500).type('(GB)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
-            .contains('No results found')
-
-        // no XU
-        cy.get('input#export_search_country').click().clear().wait(500).type('XU').wait(500)
-        cy.get("[id='export_search_country__listbox']")
-            //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
-            .contains('No results found')
-
-    })
+    
     //Date picker working and persists on UK XI sites
     it('🚀 UK 🇬🇧 - Change date and verify if the data shown is same for both XI and UK', function () {
         cy.visit('/sections')
@@ -228,7 +204,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
             .should('contain', 'Quota', '057015', 'Start date', '01/01/2021')
         cy.get('.close [href]').click()
     })
-    it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`, function () {
+    it(`🚀 UK 🇬🇧 📱 - Mobile - nav-bar validation`, function () {
 
         const sizes = ['iphone-6', 'samsung-note9']
 
@@ -245,36 +221,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         }
 
     })
-    // Duty Calculator tests
-    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
-        cy.visit('/duty-calculator/uk/0702000007/import-date')
-        cy.validDate()
-        cy.selectDestination('gb')
-        cy.originList({ value: 'Northern Ireland' })
-
-    })
-    it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
-        cy.visit('/duty-calculator/uk/0702000007/import-date')
-        cy.validDate()
-        cy.selectDestination('gb')
-        cy.originList({ value: 'Singapore' })
-
-    })
-    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
-        cy.visit('/duty-calculator/xi/0702000007/import-date')
-        cy.validDate()
-        cy.selectDestination('xi')
-        cy.selectOrigin('uk')
-
-    })
-    it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function () {
-        cy.visit('/duty-calculator/xi/0702000007/import-date')
-        cy.validDate()
-        cy.selectDestination('xi')
-        cy.selectOrigin('eu')
-
-    })
-
+    
     //XI tests
 
     //Main Page
@@ -368,51 +315,28 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.contains('Commodity information for 3808941000')
     })
 
-    it('🚀 XI 🇪🇺 - Country Selection -import ', function () {
-        cy.visit('/xi/commodities/0208909800#import')
+    it('🚀 XI 🇪🇺 - Country Selection', function () {
+        cy.visit('/xi/commodities/0208909800')
         // XI Present
-        cy.get('input#import_search_country').click().clear().wait(500).type('(XI)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('Northern Ireland (XI)')
 
         //Andora should be present
-        cy.get('input#import_search_country').click().clear().wait(500).type('(AD)')
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(AD)')
+        cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
         //  GB Present
-        cy.get('input#import_search_country').click().clear().wait(500).type('(GB)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('United Kingdom (excluding Northern Ireland) (GB)')
         // no XU
-        cy.get('input#import_search_country').click().clear().wait(500).type('(XU)').wait(500)
-        cy.get("[id='import_search_country__listbox']")
+        cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500)
+        cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
     })
-    it('🚀 XI 🇪🇺 - Country Selection - export ', function () {
-        cy.visit('/xi/commodities/0208909800#export')
-        // XI Present
-        cy.get('input#export_search_country').click().clear().wait(500)
-            .type('(XI)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
-            .contains('Northern Ireland (XI)')
-
-        //Andora should be present
-        cy.get('input#export_search_country').click().clear().wait(500).type('(AD)')
-        cy.get("[id='export_search_country__listbox']")
-            .contains('Andorra (AD)')
-        //  GB Present
-        cy.get('input#export_search_country').click().clear().wait(500).type('(GB)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
-            .contains('United Kingdom (excluding Northern Ireland) (GB)')
-
-        // no XU
-        cy.get('input#export_search_country').click().clear().wait(500).type('(XU)').wait(500)
-        cy.get("[id='export_search_country__listbox']")
-            .contains('No results found')
-    })
-    
-    it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`, function () {
+    it(`🚀 XI 🇪🇺 📱 - Mobile - nav-bar validation`, function () {
 
         const sizes = ['iphone-6', 'samsung-note9']
         for (let i = 0; i < sizes.length; i++) {
@@ -427,6 +351,152 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
             cy.contains('All sections')
 
         }
+
+    })
+    // Duty Calculator tests
+    it(`🧮  UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('gb')
+        cy.originList({ value: 'Northern Ireland' })
+
+    })
+    it(`🧮  UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
+        cy.visit('/duty-calculator/uk/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('gb')
+        cy.originList({ value: 'Singapore' })
+
+    })
+    it('🧮 UK 🇬🇧 - RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function () {
+        cy.visit('/duty-calculator/uk/1701141000/import-date')
+        //date
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('other')
+        //select country from list 
+        cy.wait(100)
+        cy.otherOriginList({ value: 'United Arab Emirates' })
+        cy.wait(100)
+        //Trader Scheme
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUseNI('yes')
+        //Planned processing - acceptable1 
+        cy.plannedXI('acceptable1')
+        //customs value
+        cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+
+        //Import Quantity 
+        cy.quantity({ dtnr: '100', tne: '1', dap: '1' })
+        //doc code
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        cy.confirmPage()
+        cy.dutyPage()
+
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Third-country duty (EU)')
+        cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
+    })
+    it('🧮 XI 🇪🇺 | RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function () {
+        cy.visit('/duty-calculator/xi/0102291010/import-date')
+        //date
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('other')
+        //select country from list 
+        cy.wait(100)
+        cy.otherOriginList({ value: 'Canada' })
+        cy.wait(100)
+        //Trader Scheme
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUseNI('yes')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
+        //customs value
+        cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+
+        //Import Quantity 
+        cy.quantity({ dtn: '100' })
+        cy.confirmPage()
+        cy.dutyPage()
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Third-country duty (EU)')
+        cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
+        cy.contains('Option 2: Tariff preference - Canada')
+        cy.contains('Tariff preference (UK)')
+        cy.contains("UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.")
+    })
+    //
+    it('🧮 XI 🇪🇺 | RoW 🇹🇷(Turkey) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU | Row-NI304e-delta |', function () {
+        cy.visit('/duty-calculator/xi/0102291010/import-date')
+        //date
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('other')
+        //select country from list 
+        cy.wait(100)
+        cy.otherOriginList({ value: 'Turkey' })
+        cy.wait(100)
+        //Trader Scheme
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUseNI('yes')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
+        //customs value
+        cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+
+        //Import Quantity 
+        cy.quantity({ dtn: '1' })
+        cy.confirmPage()
+        cy.dutyPage()
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Third-country duty (UK)')
+        cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.')
+        cy.contains('Option 2: Tariff preference - Turkey')
+        cy.contains('Tariff preference (UK)')
+        cy.contains("UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.")
+
+        //Change quantity to 100 for EU tariffs , Delta Preferential > 3% Import Value
+        cy.get('.govuk-back-link').click()
+        cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
+        //Import Quantity 
+        cy.quantity({ dtn: '100' })
+        cy.confirmPage()
+        cy.dutyPage()
+
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Third-country duty (EU)')
+        cy.contains("EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.")
+
+        cy.contains('Option 2: Tariff preference - Turkey')
+        cy.contains('Tariff preference (EU)')
+        cy.contains("EU preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty exceeds 3% of the customs value of your trade.")
+    })
+
+    it(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
+        cy.visit('/duty-calculator/xi/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('xi')
+        cy.selectOrigin('uk')
+
+    })
+    it(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function () {
+        cy.visit('/duty-calculator/xi/0702000007/import-date')
+        cy.validDate()
+        cy.selectDestination('xi')
+        cy.selectOrigin('eu')
 
     })
 

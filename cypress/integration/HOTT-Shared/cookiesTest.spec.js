@@ -2,7 +2,7 @@
 describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
       it('Cookies Main Banner ',function(){
         cy.visit('/cookies')
-        cy.contains('Cookies on HMRC services')
+        cy.contains('Cookies on the Online Tariff')
         cy.contains('We use some essential cookies to make our services work.')
         cy.contains('We would like to set additional cookies so we can remember your settings, understand how people use our services and make improvements.')
         cy.contains('Accept additional cookies')
@@ -28,7 +28,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         for (let i =0 ; i< pages.length ; i++)
         {
         cy.visit(`/${pages[i]}`)
-        cy.contains('Cookies on HMRC services')
+        cy.contains('Cookies on the Online Tariff')
         cy.contains('We use some essential cookies to make our services work.')
         cy.contains('We would like to set additional cookies so we can remember your settings, understand how people use our services and make improvements.')
         cy.contains('Accept additional cookies')
