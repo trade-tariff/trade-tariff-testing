@@ -20,6 +20,7 @@ describe('|RoW-GB206-e2e.spec | additional codes |', function () {
         cy.docCode({ uk: 'd017' })
         cy.docCode({ uk: 'd018' })
         cy.contains('Continue').click()
+       
         cy.vat('20')
         cy.confirmPage()
         cy.dutyPage()
