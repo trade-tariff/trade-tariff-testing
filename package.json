@@ -8,7 +8,8 @@
     "@jc21/cypress-swagger-validation": "^0.1.0",
     "ansi-styles": "^6.1.0",
     "cypress-tags": "^0.2.0",
-    "glob-parent": "^5.1.2"
+    "glob-parent": "^5.1.2",
+    "postcss": "^7.0.36"
   },
   "devDependencies": {
     "allure-commandline": "^2.13.8",
