@@ -1,8 +1,6 @@
 
 describe('|RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', function () {
-   //
-
-
+   
    it(`e2e RoW to GB 🇦🇫 Afghanistan to 🇬🇧 GB`, function () {
       //select future date 
       cy.visit(`/duty-calculator/uk/3926909790/import-date`)

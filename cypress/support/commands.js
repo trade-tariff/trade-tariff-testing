@@ -265,7 +265,8 @@ Cypress.Commands.add('exciseCode', (excode) => {
 Cypress.Commands.add('docCode',(dcode)=>{
     cy.contains('Do you have any of the following documents?')  
     for (let [key,value] of Object.entries(dcode)) {
-    cy.get(`#steps-document-code-document-code-${key}-${value}-field.govuk-checkboxes__input`).check()
+        cy.get(`#steps-document-code-document-code-${key}-${value}-field.govuk-radios__input`).check()
+        //#steps-document-code-document-code-uk-c990-field.govuk-radios__input
     }
    
 })

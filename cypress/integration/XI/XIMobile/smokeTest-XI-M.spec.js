@@ -144,16 +144,17 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
     it('🚀 XI - Change Date and check if the data shown is same for both XI and UK', function () {
         cy.viewport('iphone-x')
         cy.visit('/xi/sections')
-        cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
-        cy.get('input#tariff_date_date')
-            .clear()
-            .type('07/04/2021')
-        cy.get('.fields > a[role=\'button\']')
-            .contains('Set date').click()
+        //select Change Date and change months and years 
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(7)
+        cy.get('#tariff_date_month').click().clear().type(4)
+        cy.get('#tariff_date_year').click().clear().type(2022)
+        cy.contains('Set date').click()
+        cy.wait(300)
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 7 April 2022')
 
         cy.get('main#content  nav  a')
             .contains('Online Tariff').click()
@@ -163,7 +164,7 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
             .click()
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 7 April 2022')
     })
 
 })
