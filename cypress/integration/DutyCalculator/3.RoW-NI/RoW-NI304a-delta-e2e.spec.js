@@ -88,10 +88,20 @@ describe('| Row-NI304a-delta.spec.js | 🔼 Delta Route | Ad Valorem | Δ MFN < 
         cy.plannedXI('acceptable1')
         //customs value
         cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+        //doc code
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
+        //doc code
+        cy.docCode({ uk: 'c119' })
+        cy.contains('Continue').click()
+        cy.contains('C990, C119')
         cy.confirmPage()
         cy.dutyPage()
 
         cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - GSP – Enhanced Framework')
+        cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
+        cy.contains('Option 4: Airworthiness tariff suspension')
         cy.contains('Third-country duty (EU)')
         cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
     })
