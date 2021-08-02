@@ -111,7 +111,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.get('.govuk-label')
             .contains('Search the UK Global Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(500)
+        cy.wait(700)
         cy.get('input[name=\'new_search\']').click()
         cy.wait(700)
         cy.contains('Commodity information for 3808941000')
@@ -171,16 +171,17 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function () {
         cy.viewport('iphone-x')
         cy.visit('/sections')
-        cy.get('.js-show.sections-context.text > a[role=\'button\']').click()
-        cy.get('input#tariff_date_date')
-            .clear()
-            .type('07/04/2021')
-        cy.get('.fields > a[role=\'button\']')
-            .contains('Set date').click()
+        //select Change Date and change months and years 
+        cy.get(" .js-show.text > a[role='button']").click()
+        cy.get('#tariff_date_day').click().clear().type(7)
+        cy.get('#tariff_date_month').click().clear().type(4)
+        cy.get('#tariff_date_year').click().clear().type(2022)
+        cy.contains('Set date').click()
+        cy.wait(300)
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 7 April 2022')
 
         cy.get('main#content  nav  a')
             .contains('Northern Ireland Online Tariff').click()
@@ -191,7 +192,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-            .contains('This tariff is for 7 April 2021')
+            .contains('This tariff is for 7 April 2022')
     })
     // UK not in EU country list
     it('🚀 UK - United Kingdom should not be shown in EU country list', function () {
