@@ -73,7 +73,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK a
         //doc code
         cy.docCode({ xi: 'n990' })
         cy.contains('Continue').click()
-        cy.contains('C990, C119, N990')
+        cy.contains('C119, C990, N990')
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
