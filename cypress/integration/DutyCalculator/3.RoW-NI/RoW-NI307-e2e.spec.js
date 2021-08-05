@@ -25,19 +25,21 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
         //Document Codes
         cy.docCode({ uk: 'c990' })
         cy.contains('Continue').click()
-        cy.docCode({ uk: 'd017' })
-        cy.docCode({ uk: 'd018' })
+        cy.docCode({ xi: 'd017' })
         cy.contains('Continue').click()
+        
         //VAT Page
         cy.vat('0')
         cy.contains('VAT zero rate')
         cy.contains('Additional code(s)')
         cy.contains('C999, C496, C999')
         cy.contains('Document(s)')
-        cy.contains('C990, D017, D018')
+        cy.contains('C990, D017')
         cy.confirmPage()
         cy.dutyPage()
+    
         cy.contains('You are importing commodity 1516 20 98 21 (C999, C496, C999) from Argentina on 31 December 2021.')
-
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
     })
 })

@@ -68,7 +68,7 @@ describe('| Row-NI304a-delta.spec.js | 🔼 Delta Route | Ad Valorem | Δ MFN < 
         }
     })
     //Ad Valorem - delta mfn 3% 
-    it('RoW 🇱🇰 (Sri lanka) - XI | Ad Valorem - delta mfn > 3% = EU |', function () {
+    it.only('RoW 🇱🇰 (Sri lanka) - XI | Ad Valorem - delta mfn > 3% = EU |', function () {
         cy.visit(`/duty-calculator/uk/5905003000/import-date`)
         //date
         cy.validDate()
@@ -94,7 +94,7 @@ describe('| Row-NI304a-delta.spec.js | 🔼 Delta Route | Ad Valorem | Δ MFN < 
         //doc code
         cy.docCode({ uk: 'c119' })
         cy.contains('Continue').click()
-        cy.contains('C990, C119')
+        cy.contains('C119, C990')
         cy.confirmPage()
         cy.dutyPage()
 
