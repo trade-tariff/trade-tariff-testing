@@ -3,7 +3,7 @@
 
 describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |', function () {
     //
-    let country = ["uk", "xi"]
+    let country = ["uk"]
     let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
     for (let i = 0; i < country.length; i++) {
         console.log(i)

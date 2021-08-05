@@ -3,8 +3,8 @@
 
 describe('| GB-NI407-e2e.spec | GB to NI route 🚐 07 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - ✅ Certified as UK origin |', function () {
     //
-    let country = ["uk", "xi"]
-    let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let country = ["xi"]
+    let pagetitles = ["Northern Ireland Online Tariff"]
     for (let i = 0; i < country.length; i++) {
         console.log(i)
 
