@@ -8,12 +8,12 @@
     "@jc21/cypress-swagger-validation": "^0.1.0",
     "ansi-styles": "^6.1.0",
     "cypress-tags": "^0.2.0",
-    "glob-parent": "^5.1.2",
+    "glob-parent": "^6.0.1",
     "postcss": "^7.0.36"
   },
   "devDependencies": {
     "allure-commandline": "^2.13.8",
-    "cypress": "8.1.0",
+    "cypress": "8.2.0",
     "cypress-cucumber-preprocessor": "^4.1.4",
     "cypress-dark": "^1.7.14",
     "cypress-file-upload": "^5.0.8",
