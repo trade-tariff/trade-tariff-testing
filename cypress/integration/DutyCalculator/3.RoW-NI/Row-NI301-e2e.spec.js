@@ -2,9 +2,9 @@
 describe('| RoW-NI301-e2e.spec |RoW to Northern Ireland ', function () {
 
     //
-    let country = ["uk", "xi"]
+    let country = ["xi"]
     for (let i = 0; i < country.length; i++) {
-        it(`RoW 🇮🇱 to NI ${country[i]}`, function () {
+        it(`RoW 🇮🇱 Israel to NI ${country[i]}`, function () {
             cy.visit(`/duty-calculator/${country[i]}/1212210000/import-date`)
             //date
             cy.validDate()

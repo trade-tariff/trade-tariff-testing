@@ -1,7 +1,7 @@
 // Retail Price 
 describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Price , Excise Code  |', function () {
 
-    it('🇳🇴 RoW to NI | Document Code , Retail Price , Excise Code |', function () {
+    it('RoW 🇳🇴 Norway  to NI | Document Code , Retail Price , Excise Code |', function () {
         cy.visit('/duty-calculator/xi/2402209000/import-date')
         //date 
         cy.validDate()
@@ -36,9 +36,9 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
         cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 December 2021.')
         //doc code y021 =  Apply the mentioned duty 27.95% 
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Option 2: Tariff preference - Norway')
+        cy.contains('Option 2: Tariff preference - European Economic Area')
         cy.contains('27.95% * £1,000.00')
-        cy.contains('Tariff preference (UK)')
+        cy.contains('Tariff preference (EU)')
         //go back to previous page to change doc code 
         cy.get('.govuk-back-link').click().wait(300)
         //Change to different Document Code 
@@ -60,6 +60,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
         cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 December 2021.')
         //doc code No code  =  Measure not applicable 
         cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - European Economic Area').should('not.exist')
         
 
     })

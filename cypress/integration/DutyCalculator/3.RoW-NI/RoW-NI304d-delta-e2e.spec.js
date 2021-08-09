@@ -1,5 +1,5 @@
 //More than one Measure amounts
-describe('| Row-NI304d-delta.spec.js | 🔼 Delta Route | more than one measure amounts on UK and XI service | ', function () {
+describe('| Row-NI304d-delta.spec.js | 🔼 Delta Route - Acceptable route 1️⃣ | more than one measure amounts on UK and XI service | ', function () {
 
     //
     it('RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function () {
