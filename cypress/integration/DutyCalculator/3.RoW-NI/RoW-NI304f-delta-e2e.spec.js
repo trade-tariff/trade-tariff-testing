@@ -1,6 +1,6 @@
 // Suspensions in delta route 
 
-describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Suspensions rates UK and EU  | ', function () {
+describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️⃣ | Suspensions rates UK and EU  | ', function () {
 
     it('RoW 🇵🇪 (Peru) - XI | 112 Autonomous tariff suspension | UK Tariff |', function () {
         cy.visit('/duty-calculator/xi/2903898045/import-date')

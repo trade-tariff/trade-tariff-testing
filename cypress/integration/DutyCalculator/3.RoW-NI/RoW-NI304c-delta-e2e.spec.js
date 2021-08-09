@@ -1,7 +1,7 @@
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅ Measure Units
 // 1509102090 22nd December 2021 
 // Multiple Additional Codes 
-describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route | Multiple Additional Codes | ', function () {
+describe('| Row-NI304c-delta.spec.js | 🔼 Delta Route - Acceptable route 3️⃣ | Multiple Additional Codes | ', function () {
 
     it(`RoW 🇸🇬 (Singapore) to NI | 🔼 Delta Route | UK = 2 , XI = 0`, function () {
         cy.visit(`/duty-calculator/xi/6307909200/import-date`)
