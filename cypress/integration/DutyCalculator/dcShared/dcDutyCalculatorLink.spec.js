@@ -13,7 +13,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
         cy.get('.js-commodity-picker-select').click().type(`${comms[i]}`)
         cy.wait(950)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.wait(650)
         cy.contains(`Commodity information for ${comms[i]}`)
         cy.contains('Duty calculation').should('not.exist')
         }
