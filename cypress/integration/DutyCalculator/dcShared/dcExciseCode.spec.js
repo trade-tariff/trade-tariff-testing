@@ -1,8 +1,9 @@
 describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator |',function(){
 
     it('Page Validation - RoW (Israel) - XI ', function () {
-    //    cy.visit('/duty-calculator/uk/2710198500/import-date')
-        cy.visit('/duty-calculator/uk/2203001000/import-date')
+     //   cy.visit('/duty-calculator/uk/2710198500/import-date') 
+     //White oils, liquid paraffin
+        cy.visit('/duty-calculator/uk/2402201000/import-date')
     
         cy.validDate()
         cy.selectDestination('xi')
@@ -43,7 +44,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
         cy.confirmPage()
         cy.dutyPage()
     })
-    it.only('Greyed out Beer excise duties',function(){
+    it('Greyed out Beer excise duties',function(){
       cy.visit('/duty-calculator/uk/2203001000/import-date')
 
       cy.validDate()
@@ -72,7 +73,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       cy.get("div:nth-of-type(1) > input[name='steps_excise[additional_code]']").should('not.be.disabled')
       cy.contains('440 - Beer made in the UK – small brewery beer eligible to reduced rates (variable rate, that is, annual production more than 5,000 hectolitres but not exceeding for 60,000 hectolitres)')
       cy.get("div:nth-of-type(2) > input[name='steps_excise[additional_code]']").should('be.disabled')
-      
+
 
     })
 })
