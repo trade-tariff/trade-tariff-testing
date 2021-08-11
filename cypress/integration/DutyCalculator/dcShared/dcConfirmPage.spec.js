@@ -11,6 +11,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         //   cy.get('.govuk-summary-list__key')
@@ -47,6 +49,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
@@ -61,6 +65,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         cy.get('div:nth-of-type(3) > .govuk-summary-list__actions > .govuk-link').click()
@@ -74,6 +80,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click()
@@ -88,6 +96,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click()
@@ -102,6 +112,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         cy.get('div:nth-of-type(6) > .govuk-summary-list__actions > .govuk-link').click()
@@ -115,6 +127,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
@@ -128,6 +142,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.certificate('no')
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.quantity({ dtnr: '1' })
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
         cy.contains('Check your answers')
 
         cy.get('div:nth-of-type(8) > .govuk-summary-list__actions > .govuk-link').click()

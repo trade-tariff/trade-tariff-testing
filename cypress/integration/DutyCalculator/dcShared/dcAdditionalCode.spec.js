@@ -1,6 +1,5 @@
 describe('| dcAdditionalCode | RoW to GB - additional codes |', function () {
-   //
-
+   
    it(`additional code 🇮🇱 | UK |`, function () {
       cy.visit('/duty-calculator/uk/6307909200/import-date')
       cy.validDate()
@@ -16,6 +15,8 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', function () {
       cy.get('.govuk-back-link').click()
       cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
       cy.additionalCode({ uk: '2600' })
+      cy.docCode({ uk: 'c119' })
+      cy.contains('Continue').click()
       cy.vat('20')
       cy.confirmPage()
       cy.dutyPage()
