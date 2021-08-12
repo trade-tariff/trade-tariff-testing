@@ -41,32 +41,6 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
 
     })
 
-    it('UK- Links to Previous and Next Commodity - available', function () {
-        cy.visit('/commodities/2801200000')
-        //page contains commodity information
-        cy.contains('Commodity information for 2801200000')
-        //validate page has previous and next commodity links with commodity name at the bottom
-        cy.get('.previous')
-            .contains('Previous commodity')
-            .contains('Chlorine')
-        cy.get('.next')
-            .contains('Next commodity')
-            .contains('Fluorine')
-            //clicking on the Next commodity link navigates to commodity information page
-            .click()
-        cy.contains('Commodity information for 2801301000')
-        cy.get('.next')
-            .contains('Next commodity')
-            .contains('Bromine')
-        cy.get('.previous')
-            .contains('Previous commodity')
-            .contains('Iodine')
-            //clicking on the Previous commodity link navigates back to previous commodity information page
-            .click()
-        cy.contains('Commodity information for 2801200000')
-
-    })
-
     //The UK has left the EU
     it('UK - The UK has left the EU - Check the new rules for January 2021 ', function () {
         cy.visit('/sections')

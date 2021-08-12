@@ -82,8 +82,8 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
         cy.contains('Quota search results')
         cy.get('.govuk-table__row').contains('057140')
         cy.contains('Colombia (CO)')
-        cy.contains('01 January 2021')
-        cy.contains('31 July 2021')
+        cy.contains('01 August 2021')
+        cy.contains('31 July 2022')
         cy.contains('Tonne (1000 kg)')
     })
 
