@@ -3,9 +3,9 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
   1.wine and spirits - 2204299895
   2.cider - 2206003100
   3.beer
-  4.tobacco
-  5.climate change levy
-  6.fuels or various types
+  4.tobacco - 2402201000
+  5.climate change levy - 2711210000
+  6.fuels or various types - 2710198500
   */
   it('🍻 RoW 🇮🇱 (Israel) - XI -  Greyed out Beer excise duties | 3.beer |', function () {
       cy.visit('/duty-calculator/uk/2203001000/import-date')
