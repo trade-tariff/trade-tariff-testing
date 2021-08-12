@@ -57,14 +57,14 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
         cy.get('.govuk-heading-m')
             .contains('Measures and restrictions for importing into the UK under the UKGT')
         cy.get('.govuk-label')
-            .contains('UK Global Tariff imports from')
+            .contains('Trade between the UK and')
     })
     it('UK - Export tab - text',function(){
         cy.visit('commodities/2009909500#export')
         cy.get('.govuk-heading-m')
             .contains('Measures and restrictions for exporting from the UK under the UKGT')
         cy.get('.govuk-label')
-            .contains('UK Global Tariff exports to')
+            .contains('Trade between the UK and')
     })
 
 

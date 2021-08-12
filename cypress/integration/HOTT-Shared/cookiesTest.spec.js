@@ -1,7 +1,10 @@
 
 describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
-      it('Cookies Main Banner ',function(){
-        cy.visit('/cookies')
+  let country = ["", "xi"]
+  for (let i = 0; i < country.length; i++) {
+    
+    it(`${country[i]} - Cookies Main Banner `,function(){
+        cy.visit(`${country[i]}/cookies`)
         cy.contains('Cookies on the Online Tariff')
         cy.contains('We use some essential cookies to make our services work.')
         cy.contains('We would like to set additional cookies so we can remember your settings, understand how people use our services and make improvements.')
@@ -9,25 +12,25 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.contains('Reject additional cookies')
         cy.contains('View cookies')
       })
-      it('No cookies selection made',function(){
-        cy.visit('/sections')
+    it(`${country[i]} - No cookies selection made`,function(){
+        cy.visit(`${ country[i]}/sections`)
         cy.getCookie('cookies_policy').should('eq', null)
         cy.getCookie('cookies_preferences_set').should('eq', null)
         //search function enabled
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(750)
+        cy.wait(799)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(500)
         cy.contains('Commodity information for 3808941000')
 
       })
 
-      it('Cookies on all pages',function(){
+    it(`${ country[i]} - Cookies on all pages`,function(){
         cy.clearCookies()
-      let pages = ['sections','a-z-index/a','tools','help','xi/sections','xi/a-z-index/a','xi/tools','xi/help']
-        for (let i =0 ; i< pages.length ; i++)
+      let pages = ['sections','a-z-index/a','tools','help']
+        for (let j =0 ; j< pages.length ; j++)
         {
-        cy.visit(`/${pages[i]}`)
+          cy.visit(`${country[i]}/${pages[j]}`)
         cy.contains('Cookies on the Online Tariff')
         cy.contains('We use some essential cookies to make our services work.')
         cy.contains('We would like to set additional cookies so we can remember your settings, understand how people use our services and make improvements.')
@@ -38,25 +41,25 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
     
       })
       
-      it('Accept Cookies ,Hide Banner',function(){
-        cy.visit('/sections')
+    it(`${country[i]} - Accept Cookies ,Hide Banner`,function(){
+        cy.visit(`${ country[i]}/sections`)
         cy.get('.govuk-button.cookie_accept_all').wait(400).click().wait(200)
         cy.contains('Hide this message').click()
         cy.getCookie('cookies_policy').should('have.property','value','%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%2C%22remember_settings%22%3A%22true%22%7D');
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
         //search function enabled
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(750)
+        cy.wait(799)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(350)
         cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
       })
       
       
-      it('Reject Cookies ,Hide Banner',function(){
-       // cy.clearCookies()
-        cy.visit('/sections')
+    it(`${country[i]} - Reject Cookies ,Hide Banner`,function(){
+       
+        cy.visit(`${country[i]}/sections`)
         cy.get('.govuk-button.cookie_reject_all').wait(200).click()
         cy.contains('Hide this message').click().wait(200)
         cy.getCookie('cookies_policy').should('have.property','value',
@@ -72,9 +75,9 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
 
       })
 
-      it('View Cookies - Yes / No Selection - combinations ',function(){
+    it(`${country[i]} View Cookies - Yes / No Selection - combinations `,function(){
         cy.clearCookies()
-        cy.visit('/sections')
+        cy.visit(`${country[i]}/sections`)
         // view cookies
         cy.get('.govuk-cookie-banner .govuk-link').click()
         cy.contains('Cookies on the UK Global Online Tariff')
@@ -90,9 +93,9 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.clearCookies()
       })
 
-      it('View Cookies - No / Yes - combinations ',function(){
+    it(`${country[i]} View Cookies - No / Yes - combinations `,function(){
         cy.clearCookies()
-        cy.visit('/sections')
+        cy.visit(`${country[i]}/sections`)
         // view cookies
         cy.get('.govuk-cookie-banner .govuk-link').click()
         cy.contains('Cookies on the UK Global Online Tariff')
@@ -108,6 +111,6 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')      
 })
 
-
+  }
 
 })
