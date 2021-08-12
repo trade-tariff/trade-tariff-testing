@@ -22,7 +22,6 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
         //Document Code
         cy.docCode({ xi: 'y021' }).check()
         cy.contains('Continue').click()
-        
         //Excise code 611
         cy.exciseCode('611')
         cy.contains('Document(s)')
@@ -36,9 +35,12 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
         cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 December 2021.')
         //doc code y021 =  Apply the mentioned duty 27.95% 
         cy.contains('Option 1: Third-country duty')
+        cy.contains('611 - Cigarettes')
+
         cy.contains('Option 2: Tariff preference - European Economic Area')
         cy.contains('27.95% * £1,000.00')
         cy.contains('Tariff preference (EU)')
+
         //go back to previous page to change doc code 
         cy.get('.govuk-back-link').click().wait(300)
         //Change to different Document Code 
@@ -60,6 +62,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
         cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 December 2021.')
         //doc code No code  =  Measure not applicable 
         cy.contains('Option 1: Third-country duty')
+        cy.contains('611 - Cigarettes')
         cy.contains('Option 2: Tariff preference - European Economic Area').should('not.exist')
         
 
