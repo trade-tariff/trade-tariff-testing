@@ -220,8 +220,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
             cy.contains('All sections')
         }
 
-    })
-    
+    })  
     //XI tests
 
     //Main Page
