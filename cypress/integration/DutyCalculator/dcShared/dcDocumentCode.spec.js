@@ -26,14 +26,14 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
             .contains('Specify a valid option')
         cy.get('.govuk-back-link').click().wait(300)
         cy.contains('Continue').click()
-        cy.docCode({ uk: 'none' })
+        cy.docCode({ xi: 'none' })
         cy.contains('Continue').click()
         cy.contains('Which VAT rate is applicable to your trade?')
         cy.get('.govuk-back-link').click().wait(300)
 
         //Select Document Code 
         cy.contains('Do you have any of the following documents?')
-        cy.docCode({ uk:'c990'})
+        cy.docCode({ xi:'c990'})
         cy.contains('Continue').click()
        
         //VAT Page
@@ -46,7 +46,7 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
         cy.contains('Option 1: Third-country duty')
         cy.contains('Option 2: Tariff preference - Canada')
         cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
-        cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)')
+        cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (EU)')
 
         //go back to previous page to change doc code 
         cy.get('.govuk-back-link').click().wait(300)
@@ -54,7 +54,7 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
         cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Do you have any of the following documents?')
         //select none of the above Code
-        cy.docCode({ uk: 'none' })
+        cy.docCode({ xi: 'none' })
         cy.contains('Continue').click()
         //VAT Page
         cy.vat('0')
