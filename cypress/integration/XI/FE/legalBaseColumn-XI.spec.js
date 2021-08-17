@@ -11,7 +11,10 @@ describe('🇪🇺 💡 legalBaseColumn-XI | Legal base Column XI ',function() {
         //uk regulation
         cy.get("a[title^='The Organic Production and Control (Amendment) (EU Exit) Reg']").contains('S.I. 2019/693')
         cy.get("a[title^='The Organic Production and Control (Amendment) (EU Exit) Reg']").should('have.attr', 'href', 'https://www.legislation.gov.uk/uksi/2019/693')
-        cy.get("a[title^='The Organic Production and Control (Amendment) (EU Exit) Reg']").trigger('mouseover').wait(600)
+
+        //hover over to see text 
+        cy.get("a[title^='The Organic Production and Control (Amendment) (EU Exit) Reg']").trigger('mouseover')
+      //  cy.contains('The Organic Production and Control (Amendment) (EU Exit) Regulations 2019')
 
     })
 
