@@ -121,7 +121,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
 
 
   })
-  it.only('🛢️  RoW 🇱🇮 (Liechtenstein) - XI  | 6.fuels or various types - White oils, liquid paraffin |', function () {
+  it('🛢️  RoW 🇱🇮 (Liechtenstein) - XI  | 6.fuels or various types - White oils, liquid paraffin |', function () {
     cy.visit('/duty-calculator/uk/3811210027/import-date')
 
       cy.validDate()
