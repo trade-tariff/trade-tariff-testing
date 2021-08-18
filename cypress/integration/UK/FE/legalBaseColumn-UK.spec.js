@@ -1,4 +1,4 @@
-describe('🇬🇧 💡 | legalBaseColumn-UK | Legal base Column UK |',function() {
+describe.skip('🇬🇧 💡 | legalBaseColumn-UK | Legal base Column UK |',function() {
 //HOT-58 Suppressing Legal Base Column for UK
     // front end
     it('☑️ 1.Prove that the legal base column exists on import measures tab on UK - commodity 0101210000', function () {

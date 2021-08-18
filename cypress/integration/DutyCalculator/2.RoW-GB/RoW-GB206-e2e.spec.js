@@ -74,5 +74,5 @@ describe('|RoW-GB206-e2e.spec | additional codes |', function () {
         cy.contains('Definitive anti-dumping duty (UK)')
         cy.contains('Definitive countervailing duty (UK)')
     })
-
+    
 })
