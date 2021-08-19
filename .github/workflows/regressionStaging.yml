@@ -1,0 +1,54 @@
+name: "Full regressin staging"
+on: [workflow_dispatch]
+jobs:
+  cypress-run:
+    env:
+      CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
+    name: " 🔄 Regression Tests - UK and XI - Staging"
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+    steps:
+      - run: date
+      - uses: actions/checkout@v2
+      - run: mkdir -p cypress/reports/mochareports
+      - uses: cypress-io/github-action@v2
+        name: "All tests"
+        continue-on-error: true
+        with:
+          quiet: true
+          browser: chrome
+          headless: true       
+          spec: "*/**/**/*spec.js"
+      - run: npm run posttests
+      - run: ls -l
+      - uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: ./cypress/reports/mochareports/
+      - run: |
+          DATE=$(date +%d-%m-%Y)
+          mkdir -p docs/$DATE
+          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
+          cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
+          git add docs .
+      - run: |
+           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
+           git config --local user.name "github-actions[bot]"
+           git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
+          force: true
+      - uses: cypress-io/github-action@v2
+        name: " Cypress Dashboard "
+        continue-on-error: true
+        with:
+          record: true    
+          spec: "*/*/*/cypressDashTest.spec.js"
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
+
+     
