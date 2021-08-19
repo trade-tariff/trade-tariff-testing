@@ -18,9 +18,9 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.getCookie('cookies_preferences_set').should('eq', null)
         //search function enabled
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(799)
+        cy.wait(650)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.wait(700)
         cy.contains('Commodity information for 3808941000')
 
       })
@@ -49,9 +49,9 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
         //search function enabled
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(799)
+        cy.wait(650)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(350)
+        cy.wait(700)
         cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
       })
@@ -67,9 +67,9 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
         //search function enabled
         cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(750)
+        cy.wait(650)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(700)
         cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
 

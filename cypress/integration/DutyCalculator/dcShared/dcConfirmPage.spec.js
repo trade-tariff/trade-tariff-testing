@@ -53,7 +53,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.contains('Continue').click()
         cy.contains('Check your answers')
 
-        cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(3) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('When will the goods be imported?')
 
         //Import Destination 
@@ -69,7 +69,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.contains('Continue').click()
         cy.contains('Check your answers')
 
-        cy.get('div:nth-of-type(3) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Which part of the UK are you importing into?')
         // Import Origin 
         cy.visit('/duty-calculator/uk/1701141000/import-date')
@@ -84,7 +84,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.contains('Continue').click()
         cy.contains('Check your answers')
 
-        cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Which country are the goods coming from?')
 
         //Trader Scheme
@@ -100,7 +100,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.contains('Continue').click()
         cy.contains('Check your answers')
 
-        cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(6) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Are you authorised under the UK Trader Scheme?')
 
         //Certificate of Origin 
@@ -116,7 +116,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.contains('Continue').click()
         cy.contains('Check your answers')
 
-        cy.get('div:nth-of-type(6) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Do you have a valid proof of preferential origin?')
         //Customs Value 
         cy.visit('/duty-calculator/uk/1701141000/import-date')
@@ -131,7 +131,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.contains('Continue').click()
         cy.contains('Check your answers')
 
-        cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(8) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('What is the customs value of this import?')
         //Import Quantity 
         cy.visit('/duty-calculator/uk/1701141000/import-date')
@@ -146,16 +146,10 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         cy.contains('Continue').click()
         cy.contains('Check your answers')
 
-        cy.get('div:nth-of-type(8) > .govuk-summary-list__actions > .govuk-link').click()
+        cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
         cy.contains('Enter import quantity')
         cy.go(-1)
-
         cy.contains('Check your answers')
-
-
-
-
-
     })
 
 })

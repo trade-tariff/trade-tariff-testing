@@ -69,7 +69,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       // Monetary value page 
       cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
       // Measure units   
-      cy.quantity({ ret: '1', mil: '100' })
+      cy.quantity({ ret: '1000', mil: '1.5' })
       cy.contains('Excise duty applies to trade in this commodity code. Select which class of excise duty applies to your trade')
       cy.contains("For more information on excise duty classes, please see")
       cy.contains('About this commodity code').click()
@@ -84,22 +84,16 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       cy.get('.govuk-error-message').contains('Select an excise class')
       cy.get('.govuk-back-link').click()
       // Measure units   
-      cy.quantity({ ret: '1', mil: '100' })
+      cy.quantity({ ret: '1000', mil: '1.5' })
       //Excise code 431
       cy.exciseCode('611')
       cy.contains('Excise additional code')
       cy.contains('611')
       cy.confirmPage()
       cy.dutyPage()
-      cy.get('.govuk-back-link').click()
-      //Change Excise code to 473
-      cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click()
-      cy.contains('Which class of excise is applicable to your trade?')
-      cy.exciseCode('611')
-      cy.contains('Excise additional code')
-      cy.contains('611')
-      cy.confirmPage()
-      cy.dutyPage()
+      //validate duty calculations 
+      cy.contains('16.50 % / Retail Price + 244.78 GBP / 1000 p/st MIN 320.90 GBP / 1000 p/st')
+
     })
 
   it('⚡ RoW 🇮🇩 (Indonesia) - UK | 5.climate change levy |', function () {

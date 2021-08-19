@@ -84,6 +84,9 @@ describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function () {
         cy.originList({ value: 'Israel' })
         cy.customsValue({ monetary: '500.00', shipping: '100.00', cost: '250.00' })
         cy.additionalCode({ uk: '2501' })
+        //Select Document Code 
+        cy.docCode({ uk: 'c990' })
+        cy.contains('Continue').click()
         //VAT Page 
         cy.contains('Which VAT rate is applicable to your trade?')
         cy.contains('There are 2 VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document VAT rates on different goods and services (opens in new browser window).')
