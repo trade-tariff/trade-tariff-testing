@@ -11,7 +11,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
         cy.get('.js-commodity-picker-select').click().type('gherkins')
         cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(500)
         cy.contains('Search results for ‘gherkins’')
     })
 
@@ -23,7 +23,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
         cy.get('.js-commodity-picker-select').click().type('3808941000')
         cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.wait(500)
         cy.contains('Commodity information for 3808941000')
     })
 

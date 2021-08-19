@@ -1,7 +1,5 @@
 describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function () {
 
-    //
-
     it('Commodity with Kilos', function () {
         cy.visit('/duty-calculator/uk/1701141000/import-date')
         cy.validDate()
@@ -51,6 +49,12 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function () {
         cy.contains('Continue').click()
         // Valid inputs given  
         cy.quantity({ tne: '1', dtnr: '1', dap: '1' })
+        //Select Document Code 
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
+        //Select Document Code 
+        cy.docCode({ uk: 'n990' })
+        cy.contains('Continue').click()
         cy.confirmPage()
     })
     it('Commodity with Litres', function () {
@@ -84,7 +88,9 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function () {
         cy.get('.govuk-back-link').click()
         cy.contains('Continue').click()
         // valid inputs entered
-        cy.quantity({ asvx: 1000, hlt: 2345.987 })
+        cy.quantity({ asvx: 1000, hlt: 2345.987 ,lpa: 2})
+        //Excise code 
+        cy.exciseCode('451')
         cy.confirmPage()
 
     })

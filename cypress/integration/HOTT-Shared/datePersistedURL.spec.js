@@ -10,7 +10,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         cy.get('input[name=\'new_search\']').click()
         cy.wait(300)
         cy.title().should('contains', '0702000007')
-        cy.get('.govuk-main-wrapper')
+        cy.get('.govuk-heading-l.commodity-header')
             .contains('Commodity information for 0702000007')
         //change date to future date 
         //select Change Date and change months and years 
@@ -77,7 +77,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         cy.get('input[name=\'new_search\']').click()
         cy.wait(500)
         cy.title().should('contains', '0702000007')
-        cy.get('.govuk-main-wrapper')
+        cy.get('.govuk-heading-l.commodity-header')
             .contains('Commodity information for 0702000007')
         //change date to future date 
         //select Change Date and change months and years 

@@ -11,7 +11,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
         cy.title().should('contains', '0406103010')
 
         //'Commodity information for 0406103010 is displayed', function () {
-        cy.get('.govuk-main-wrapper')
+        cy.get('.govuk-heading-l.commodity-header')
             .contains('Commodity information for 0406103010')
 
         //'Chapter notes is visible', function () {

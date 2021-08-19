@@ -25,7 +25,7 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
         cy.visit('/xi/commodities/0101210000#import')
         cy.contains('Northern Ireland Online Tariff')
         cy.get('.govuk-tabs__panel')
-        cy.contains('Legal base').should('not.exist')
+        cy.contains('Legal base').should('exist')
     })
     //switching link works
     it('🚀 XI - Main Page - Switching link to UK available & works', function () {
