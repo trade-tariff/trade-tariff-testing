@@ -1,4 +1,4 @@
-name: "Full regressin staging"
+name: " 🔄 regression staging"
 on: [workflow_dispatch]
 jobs:
   cypress-run:
