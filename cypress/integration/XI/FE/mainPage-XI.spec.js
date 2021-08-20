@@ -97,11 +97,13 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     })
 
     //HOTT-164
-    it('Reintroduce the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
+    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-footer')
         cy.contains('API Documentation')
-        cy.contains('Integrated tariff of the European Community (TARIC) database').should('exist')
+        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
+        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
+
 
     })
     it('XI - Footnotes tab ', function () {

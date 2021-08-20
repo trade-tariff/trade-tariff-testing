@@ -23,8 +23,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.viewport('iphone-x')
         cy.visit('/commodities/0101210000#import')
         cy.contains('UK Global Online Tariff')
-        cy.get('.govuk-tabs__panel')
-        cy.contains('Legal base').should('not.exist')
+        cy.contains('Legal base').should('not.be.visible')
     })
     //switching link works
     it('🚀 UK - Main Page - Switching link to XI available & works', function () {
