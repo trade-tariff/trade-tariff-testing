@@ -101,7 +101,7 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
         cy.visit('/xi/sections')
         cy.get('.govuk-footer')
         cy.contains('API Documentation')
-        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
+     //   cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
 
 
