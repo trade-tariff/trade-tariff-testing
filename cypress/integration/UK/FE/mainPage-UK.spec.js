@@ -76,10 +76,11 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
             .should('be.visible', 'Search the tariff for chemicals by ')
     })
     //HOTT-164
-    it('UK - Reintroduce the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
+    it('UK - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
         cy.visit('/sections')
         cy.get('.govuk-footer')
         cy.contains('API Documentation')
+        cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('exist')
 
     })
