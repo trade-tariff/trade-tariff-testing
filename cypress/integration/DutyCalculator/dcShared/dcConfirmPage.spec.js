@@ -37,7 +37,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function () {
         // Check Change Links
         //Commodity Information 
         cy.get('div:nth-of-type(1) > .govuk-summary-list__actions > .govuk-link').click()
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
 
 
         // Import Date  

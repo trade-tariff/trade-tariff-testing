@@ -3,7 +3,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
 
     it(' Date persisted on import ', function () {
         cy.visit(`/sections`)
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
 
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0702000007')
         cy.wait(750)
@@ -71,7 +71,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     })
     it(' Date persisted on export ', function () {
         cy.visit('/sections')
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0702000007')
         cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
@@ -134,7 +134,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         let pages = ["sections", "sections/1", "chapters/01", "headings/0101", "commodities/0101210000"]
         for (let i = 0; i < pages.length; i++) {
             cy.visit(`/${pages[i]}`)
-            cy.contains('UK Global Online Tariff')
+            cy.contains('UK Integrated Online Tariff')
             //change date to future date 
             //select Change Date and change months and years 
             cy.get(" .js-show.text > a[role='button']").click()

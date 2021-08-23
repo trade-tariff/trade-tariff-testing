@@ -3,7 +3,7 @@ describe('| *NI-GB102--e2e | XI to GB using Duty cal Link |',function(){
     it('e2e NI to GB',function(){
         
         cy.visit('/commodities/1516209821')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
         cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click()
         cy.validDate()
         cy.contains('Which part of the UK are you importing into?')

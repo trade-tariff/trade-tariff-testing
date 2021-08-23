@@ -1,6 +1,6 @@
 describe('🇬🇧 💡 | A-Z - UK and XI services |',function() {
     let country = ["uk", "xi"]
-    let titles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let titles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
 
     it('All links accessible', function () {
         for (let j = 0; j < country.length; j++) {

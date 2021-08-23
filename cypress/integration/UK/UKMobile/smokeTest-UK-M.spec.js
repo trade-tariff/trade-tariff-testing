@@ -4,16 +4,16 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.viewport('iphone-x')
         cy.visit('/sections')
         //check header has UK information
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
-        cy.title().should('eq', 'UK Global Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //check correct text is displayed on banner as per UK - If they are at risk
         cy.get('.tariff-breadcrumbs')
             .should('have.text', 'From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
         //Search the tariff section
         cy.get('.govuk-label')
-            .contains('Search the UK Global Online Tariff')
+            .contains('Search the UK Integrated Online Tariff')
         cy.get('.govuk-header__menu-button').click()
         cy.contains('Search or browse the Tariff').click()
         cy.contains('All sections')
@@ -22,15 +22,16 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     it('🚀 UK - Legal base column suppressed ', function () {
         cy.viewport('iphone-x')
         cy.visit('/commodities/0101210000#import')
-        cy.contains('UK Global Online Tariff')
-        cy.contains('Legal base').should('not.be.visible')
+        cy.contains('UK Integrated Online Tariff')
+        cy.get('.govuk-tabs__panel')
+        cy.contains('Legal base').should('not.exist')
     })
     //switching link works
     it('🚀 UK - Main Page - Switching link to XI available & works', function () {
         cy.viewport('iphone-x')
         cy.visit('/sections')
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -40,10 +41,10 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
 
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
 
@@ -90,11 +91,11 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.viewport('iphone-x')
         cy.visit('/sections')
         //changed on 11/02/2021
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
         cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
         //changed on 11/02/2021
-        cy.get('.govuk-label').contains('Search the UK Global Online Tariff')
+        cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
         cy.wait(700)
@@ -106,9 +107,9 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     it('🚀 UK - Search Commodity by code ', function () {
         cy.viewport('iphone-x')
         cy.visit('/sections')
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
-            .contains('Search the UK Global Online Tariff')
+            .contains('Search the UK Integrated Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
         cy.wait(700)
         cy.get('input[name=\'new_search\']').click()

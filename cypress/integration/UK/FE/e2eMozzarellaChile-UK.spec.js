@@ -1,7 +1,7 @@
 describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  from Chile 🇨🇱 |', function () {
     it('Search and import cheese from Chile ', function () {
         cy.visit('/sections')
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
 
         //'Enter commodity code for Mozzaarella - 0406103010 and search', function () {
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')

@@ -74,6 +74,6 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
         cy.contains('Tariff tools')
         cy.get('.govuk-breadcrumbs__list')
             .contains('Home').click()
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
     })
 })

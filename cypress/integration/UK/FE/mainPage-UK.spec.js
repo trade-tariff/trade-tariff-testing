@@ -4,7 +4,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     //Page Title
     it('UK - Header text - sections page', function () {
         cy.visit('/sections')
-        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
+        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
     })
     //Gov Logo
     it('UK - GOV.UK logo ', function () {
@@ -21,7 +21,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     it('UK - Header text - Sub sections on headings banner ', function () {
         cy.visit('/sections')
         cy.get('.govuk-header ')
-        cy.contains('Search the UK Global Online Tariff')
+        cy.contains('Search the UK Integrated Online Tariff')
         cy.contains('Additional code').should('not.exist')
         cy.contains('Certificate').should('not.exist')
         cy.contains('Footnotes').should('not.exist')
@@ -35,19 +35,19 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
         cy.wait(600)
         cy.get('input[name=\'new_search\']').click()
-        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
+        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
 
 
     })
 
     it('UK - Header text - Page - Commodity information for 0406103010 is displayed', function () {
         //    cy.get('.commodity-header.govuk-heading-l').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
+        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
         cy.get('a#tab_import').click()
         cy.get('input#search_country').click().clear().wait(400)
             .type('Chile').wait(600)
             .type('{enter}')
-        cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
+        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
 
     })
 
@@ -55,7 +55,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.visit('/sections')
         cy.get('.govuk-header').contains('Search or browse the Tariff').click()
         cy.get('.govuk-main-wrapper')
-            .contains('Search the UK Global Online Tariff')
+            .contains('Search the UK Integrated Online Tariff')
     })
     it('UK - A-Z section', function () {
         cy.visit('/sections')

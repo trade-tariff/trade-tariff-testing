@@ -7,7 +7,7 @@ describe.skip('🇬🇧 💡 | copyCommCode | Copy comm code UK and XI  |', func
         cy.contains('Code copied')
         //pasting copied comm code 
         cy.get('a#proposition-name').click()
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.js-commodity-picker-select.js-show  input#q').trigger('contextmenu')
          //   .invoke('val', 'pasted text').trigger('input')
    //     cy.get('input[name=\'new_search\']').click()

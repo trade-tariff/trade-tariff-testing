@@ -2,11 +2,11 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
     it('UK - Search Commodity by name ', function () {
         cy.visit('/sections')
         //changed on 11/02/2021
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
         cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
         //changed on 11/02/2021
-        cy.get('.govuk-label').contains('Search the UK Global Online Tariff')
+        cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
         cy.wait(750)
@@ -17,9 +17,9 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
 
     it('UK - Search Commodity by code ', function () {
         cy.visit('/sections')
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
-            .contains('Search the UK Global Online Tariff')
+            .contains('Search the UK Integrated Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
         cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
@@ -29,9 +29,9 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
 
     it('UK - Search Commodity by heading code - displays headings page', function () {
         cy.visit('/sections')
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
-            .contains('Search the UK Global Online Tariff')
+            .contains('Search the UK Integrated Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('38089410')
         cy.wait(750)
         cy.get('input[name=\'new_search\']').click()
@@ -40,9 +40,9 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
     })
     it('UK - Search unknown commodity ', function () {
         cy.visit('/sections')
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
-            .contains('Search the UK Global Online Tariff')
+            .contains('Search the UK Integrated Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf')
         cy.wait(900)
         cy.get('input[name=\'new_search\']').wait(200).click()

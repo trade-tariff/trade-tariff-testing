@@ -1,6 +1,6 @@
 describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on headings -  UK services |',function() {
     let country = ["", "xi"]
-    let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
     for (let j = 0; j < country.length; j++) {
         console.log(j)
 

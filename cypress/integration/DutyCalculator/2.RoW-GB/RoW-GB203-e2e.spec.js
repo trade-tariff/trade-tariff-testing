@@ -5,7 +5,7 @@ describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', fu
     //
 
     let country = ["uk", "xi"]
-    let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
 
     for (let i = 0; i < country.length; i++) {
         console.log(i)

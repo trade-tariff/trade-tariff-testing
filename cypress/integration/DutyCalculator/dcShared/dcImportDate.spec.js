@@ -2,7 +2,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
 
     // /import-date?referred_service=uk&commodity_code=0702000007
     let country = ["uk", "xi"]
-    let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
 
     for (let i = 0; i < country.length; i++) {
         console.log(i)

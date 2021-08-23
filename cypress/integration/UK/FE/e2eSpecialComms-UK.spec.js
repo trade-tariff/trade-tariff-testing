@@ -1,5 +1,5 @@
 describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure details |', function () {
-    it('Ferro-alloy \n Third country duty should be ad valorem 0.00% (known from the UK Global Tariff)\n' +
+    it('Ferro-alloy \n Third country duty should be ad valorem 0.00% (known from the UK Integrated Tariff)\n' +
         '\n' +
         'There is no preference against the European Economic Area (2012)\n' +
         '\n' +
@@ -7,7 +7,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
             cy.visit('/commodities/7202118000#import')
                 .contains('Commodity information for 7202118000')
             cy.get('.govuk-header__content')
-                .contains('UK Global Online Tariff')
+                .contains('UK Integrated Online Tariff')
             cy.get('#measure-20008997')
             cy.contains('Third country duty')
             cy.contains('0.00 %')
@@ -15,11 +15,11 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
             cy.contains('European Union (1013)')
             cy.contains('0.00 %')
         })
-    it(' 🦬 Bison\n- Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Global Tariff) Duties are expressed in GBP', function () {
+    it(' 🦬 Bison\n- Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Integrated Tariff) Duties are expressed in GBP', function () {
         cy.visit('/commodities/0201100021#import')
             .contains('Commodity information for 0201100021')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('#measure-20000065')
         cy.contains('Third country duty')
         cy.contains('12.00 % + 147.00 GBP / 100 kg')
@@ -28,7 +28,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.visit('/commodities/8518400010#import')
             .contains('Commodity information for 8518400010')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('#measure-3719160')
         cy.contains('Supplementary unit')
         cy.contains('p/st')
@@ -38,7 +38,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         'Note that in the UK, the measure type will be called Final, not Definitive', function () {
             cy.visit('/commodities/6907220000?country=CN#import')
             cy.get('.govuk-header__content')
-                .contains('UK Global Online Tariff')
+                .contains('UK Integrated Online Tariff')
             cy.get('#measure-20042370')
                 .contains('Definitive anti-dumping duty Additional code: B999')
             //cy.get('#measure-20042370')
@@ -49,7 +49,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.visit('/commodities/1905319100#import')
             .contains('Commodity information for 1905319100')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
 
         cy.get('#measure-20001944')
         cy.contains('Third country duty')
@@ -60,7 +60,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.visit('/commodities/0702000007?country=MA#import')
             .contains('Commodity information for 0702000007')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.contains('Third country duty')
         cy.contains('14.00 %')
         //  cy.get('#measure-20097244')
@@ -77,7 +77,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.visit('/commodities/2203001000#import')
             .contains('Commodity information for 2203001000')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         // cy.get('#measure-2982608')
         cy.get('#measure-2982608')
         cy.contains('Supplementary unit')
@@ -98,7 +98,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.visit('/commodities/8406810000#import')
             .contains('Commodity information for 8406810000')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('#measure-20123190')
 
         cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms')
@@ -114,7 +114,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.visit('/commodities/2402100000#import')
             .contains('Commodity information for 2402100000')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('#measure--1010806399')
         cy.contains('EXCISE - FULL, 615, CIGARS')
         cy.contains('305.32 GBP / kg')
@@ -124,7 +124,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         cy.visit('/commodities/2206001000#import')
             .contains('Commodity information for 2206001000')
         cy.get('.govuk-header__content')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('#measure-20002794')
             .contains('Third country duty')
         cy.get('#measure-20002794')
