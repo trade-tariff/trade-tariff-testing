@@ -23,7 +23,7 @@ Cypress.Commands.add("MainPageUK",()=>{
        .contains('UK Integrated Online Tariff')
    //check correct text is displayed on banner as per UK - If they are at risk
    cy.get('.tariff-breadcrumbs')
-       .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
+       .should('have.text','If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
    //Search the tariff section
    cy.get('.govuk-label')
        .contains('Search the UK Integrated Online Tariff')
@@ -43,7 +43,7 @@ Cypress.Commands.add("MainPageXI",()=>{
         .contains('Northern Ireland Online Tariff')
     //check correct text is displayed on banner as per UK - If they are at risk
     cy.get('.tariff-breadcrumbs')
-        .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.')
+        .should('have.text','If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.')
         cy.get('.tariff-breadcrumbs').contains('UK Integrated Online Tariff')
         //Search the tariff section
     cy.get('.govuk-label')
