@@ -8,7 +8,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
 
         //check correct text is displayed on banner as per UK - If they are at risk
         cy.get('.tariff-breadcrumbs')
-            .should('have.text','From 1 January 2021, if you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
+            .should('have.text','If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
