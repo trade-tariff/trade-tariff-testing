@@ -80,7 +80,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.visit(`${country[i]}/sections`)
         // view cookies
         cy.get('.govuk-cookie-banner .govuk-link').click()
-        cy.contains('Cookies on the UK Global Online Tariff')
+        cy.contains('Cookies on the UK Integrated Online Tariff')
         // Yes / No selection
         cy.get('input#cookie_consent_usage_true').click()
         cy.get("input[name='commit']").click()
@@ -98,7 +98,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.visit(`${country[i]}/sections`)
         // view cookies
         cy.get('.govuk-cookie-banner .govuk-link').click()
-        cy.contains('Cookies on the UK Global Online Tariff')
+        cy.contains('Cookies on the UK Integrated Online Tariff')
         // No /Yes selection
         cy.get("input#cookie_consent_usage_false").click()
         cy.get("input#cookie_remember_settings_true").click()

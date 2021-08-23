@@ -2,7 +2,7 @@
 describe('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke |', function () {
     //
     //   let country = ["uk"] 
-    //   let pagetitles = ["UK Global Online Tariff","Northern Ireland Online Tariff"]
+    //   let pagetitles = ["UK Integrated Online Tariff","Northern Ireland Online Tariff"]
     //   for (let i =0;i<country.length;i++){
     //       console.log(i)
     // iphone 

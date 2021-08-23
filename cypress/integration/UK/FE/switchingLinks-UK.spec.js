@@ -4,7 +4,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/sections')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
 
         //check correct text is displayed on banner as per UK - If they are at risk
         cy.get('.tariff-breadcrumbs')
@@ -18,10 +18,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
 
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
 
@@ -37,7 +37,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         //return to UK page
         cy.go('back')
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //other sticky links removed
         cy.get('.govuk-template')
             .should('not.have.text', 'Get guidance on this product area:')
@@ -49,7 +49,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/chapters/01')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -58,10 +58,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
 
@@ -76,7 +76,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         //are we on the right page
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
 
 
         //click on the XI link and it should navigate to XI version
@@ -87,10 +87,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
         //other sticky links removed
@@ -104,7 +104,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         //are we on the right page
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -113,10 +113,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
     })
@@ -124,7 +124,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/tools')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -133,10 +133,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
     })
@@ -144,7 +144,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/quota_search')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff').should('not.exist')
@@ -153,7 +153,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/certificate_search')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -162,10 +162,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
     })
@@ -173,7 +173,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/additional_code_search')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -182,10 +182,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
     })
@@ -193,7 +193,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/chemical_search')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -202,10 +202,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
     })
@@ -213,7 +213,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
         cy.visit('/a-z-index/a')
         //check header has UK information
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -222,10 +222,10 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |',function() {
             .contains('Northern Ireland Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
     })

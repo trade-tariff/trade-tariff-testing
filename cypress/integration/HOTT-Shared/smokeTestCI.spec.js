@@ -33,7 +33,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     it('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function () {
         cy.visit('/sections')
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
@@ -43,10 +43,10 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
 
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
             .click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         cy.get('.govuk-main-wrapper')
             .contains('Northern Ireland Online Tariff')
 
@@ -89,11 +89,11 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     it('🚀 UK 🇬🇧 - Search Commodity by name ', function () {
         cy.visit('/sections')
         //changed on 11/02/2021
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
         cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
         //changed on 11/02/2021
-        cy.get('.govuk-label').contains('Search the UK Global Online Tariff')
+        cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff')
 
         cy.get('.js-commodity-picker-select').click().type('gherkins')
         //select from suggestion drop down
@@ -106,9 +106,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     //Commodity Search functionality - comm code search
     it('🚀 UK 🇬🇧 - Search Commodity by code ', function () {
         cy.visit('/sections')
-        cy.contains('UK Global Online Tariff: look up commodity codes, duty and VAT rates')
+        cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
-            .contains('Search the UK Global Online Tariff')
+            .contains('Search the UK Integrated Online Tariff')
         cy.get('.js-commodity-picker-select').click().type('3808941000')
         cy.get('li#q__option--0')
         cy.wait(300)
@@ -157,7 +157,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.contains('Northern Ireland Online Tariff').click()
         cy.contains('Northern Ireland Online Tariff')
         
-        cy.contains('UK Global Online Tariff').click()
+        cy.contains('UK Integrated Online Tariff').click()
 
         cy.contains(' Live animals; animal products')
         cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
@@ -212,7 +212,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
             cy.viewport(`${sizes[i]}`)
 
             cy.visit('/sections')
-            cy.get('.govuk-header').should('be.visible', 'UK Global Online Tariff')
+            cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
             cy.get('.govuk-header__menu-button').click()
             cy.contains('A-Z')
             cy.contains('Tools')
@@ -260,9 +260,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
 
         //click on the UK link and it should navigate to UK version
         cy.get('.govuk-main-wrapper')
-            .contains('UK Global Online Tariff').click()
+            .contains('UK Integrated Online Tariff').click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Northern Ireland Online Tariff')
@@ -270,7 +270,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.get('.govuk-header ')
             .contains('Northern Ireland Online Tariff')
         cy.get('.govuk-main-wrapper')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
     })
     // UK not to be in EU country list
     it('🚀 XI 🇪🇺 - United Kingdom should NOT be shown in EU country list', function () {

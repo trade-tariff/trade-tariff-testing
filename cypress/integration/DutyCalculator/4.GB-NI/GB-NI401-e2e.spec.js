@@ -5,7 +5,7 @@ describe('| GB-NI401-e2e.spec | GB to NI route 🚎 01 - 🚫 Trade Remedies - �
     //
 
     let country = ["uk", "xi"]
-    let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
 
     for (let i = 0; i < country.length; i++) {
         console.log(i)

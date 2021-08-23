@@ -8,7 +8,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
         //select future date 
         cy.visit('/duty-calculator//uk/7202118000/import-date')
         //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
 
         //date
         cy.validDate()

@@ -6,7 +6,7 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
     //select future date 
 
     cy.visit(`/duty-calculator/uk/1212210000/import-date`)
-    cy.contains('UK Global Online Tariff')
+    cy.contains('UK Integrated Online Tariff')
     cy.validDate()
 
     cy.contains('Which part of the UK are you importing into?')
@@ -29,7 +29,7 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
     //select future date 
     cy.visit(`/duty-calculator/uk/1212210000/import-date`)
     //  cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1212210000`)
-    cy.contains('UK Global Online Tariff')
+    cy.contains('UK Integrated Online Tariff')
     cy.validDate()
 
     cy.contains('Which part of the UK are you importing into?')

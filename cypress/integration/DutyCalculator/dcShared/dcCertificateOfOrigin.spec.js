@@ -2,7 +2,7 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', funct
     it('Page Validation', function () {
         cy.visit('/duty-calculator/uk/0702000007/import-date')
         
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
         cy.validDate()
         cy.selectDestination('xi')
         cy.selectOrigin('gb')

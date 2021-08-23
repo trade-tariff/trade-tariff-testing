@@ -37,9 +37,9 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
 
         //click on the UK link and it should navigate to UK version
         cy.get('.govuk-main-wrapper')
-            .contains('UK Global Online Tariff').click()
+            .contains('UK Integrated Online Tariff').click()
         cy.get('.govuk-header ')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
         //click on the XI link and it should navigate to XI version
         cy.get('.govuk-main-wrapper')
         cy.contains('Northern Ireland Online Tariff')
@@ -47,7 +47,7 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
         cy.get('.govuk-header ')
             .contains('Northern Ireland Online Tariff')
         cy.get('.govuk-main-wrapper')
-            .contains('UK Global Online Tariff')
+            .contains('UK Integrated Online Tariff')
     })
     // UK not to be in EU country list
     it('🚀 XI - United Kingdom should NOT be shown in EU country list', function () {
@@ -159,7 +159,7 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
 
         cy.get('main#content  nav  a')
             .contains('Online Tariff').click()
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
         cy.get('main#content  nav  a')
         cy.contains('Northern Ireland Online Tariff')
             .click()

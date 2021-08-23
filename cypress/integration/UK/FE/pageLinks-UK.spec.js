@@ -7,7 +7,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
             .contains('Terms and conditions').click()
             cy.log(cy.title())
-        cy.title().should('eq', 'UK Global Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
+        cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
     
         cy.get('.govuk-main-wrapper')
             .contains('Terms and conditions')
@@ -26,7 +26,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         cy.visit('/sections')
         cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
             .contains('Cookies').click()
-            cy.title().should('eq', 'UK Global Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
+            cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
             cy.get('.govuk-main-wrapper')
             .contains('Cookies')
 
@@ -37,7 +37,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
             .contains('Privacy').click()
         cy.contains('Privacy notice')
         cy.get('.govuk-breadcrumbs__link').click()
-        cy.contains('UK Global Online Tariff')
+        cy.contains('UK Integrated Online Tariff')
 
     })
 

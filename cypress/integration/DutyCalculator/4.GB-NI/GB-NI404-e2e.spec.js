@@ -4,7 +4,7 @@
 describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - 🚫 Certified as UK origin |', function () {
 
     let country = ["uk"]
-    let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
     for (let i = 0; i < country.length; i++) {
         console.log(i)
 

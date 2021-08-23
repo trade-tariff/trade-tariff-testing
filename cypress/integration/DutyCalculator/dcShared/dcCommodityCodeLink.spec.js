@@ -3,7 +3,7 @@ describe('| dcCommodityCodeLink | Duty Calculation link on commodities', functio
 
     let country = ["uk", "xi"]
     let destination = ["United Kingdom", "Northern Ireland"]
-    let pagetitles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
     let commcodes = ["0304829010", "0702000007"]
     for (let i = 0; i < country.length; i++) {
 

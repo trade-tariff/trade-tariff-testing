@@ -5,7 +5,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
   it('ESW (GB) ', function () {
     cy.visit(`duty-calculator/uk/0702000007/import-date`)
 
-    cy.contains('UK Global Online Tariff')
+    cy.contains('UK Integrated Online Tariff')
     cy.validDate()
 
     cy.contains('Which part of the UK are you importing into?')
@@ -28,7 +28,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
   })
   it('Northern Ireland ', function () {
     cy.visit(`duty-calculator/uk/0702000007/import-date`)
-    cy.contains('UK Global Online Tariff')
+    cy.contains('UK Integrated Online Tariff')
     cy.validDate()
 
     cy.contains('Which part of the UK are you importing into?')
@@ -54,7 +54,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
   })
   it('RoW Option', function () {
     cy.visit(`duty-calculator/uk/0702000007/import-date`)
-    cy.contains('UK Global Online Tariff')
+    cy.contains('UK Integrated Online Tariff')
     cy.validDate()
     //destination
     cy.selectDestination('xi')
@@ -69,7 +69,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
   })
   it('No country selected ', function () {
     cy.visit(`duty-calculator/uk/0702000007/import-date`)
-    cy.contains('UK Global Online Tariff')
+    cy.contains('UK Integrated Online Tariff')
     cy.validDate()
 
     cy.contains('Which part of the UK are you importing into?')

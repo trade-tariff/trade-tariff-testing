@@ -1,6 +1,6 @@
 describe('🇬🇧 🇪🇺 💡 | Privacy Notice for UK and XI |', function () {
     let country = ["uk", "xi"]
-    let titles = ["UK Global Online Tariff", "Northern Ireland Online Tariff"]
+    let titles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
     
     it('Privacy - link works', function () {
         for (let i = 0; i < country.length; i++) {
