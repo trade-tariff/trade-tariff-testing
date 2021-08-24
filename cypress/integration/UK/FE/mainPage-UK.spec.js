@@ -36,8 +36,6 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.wait(600)
         cy.get('input[name=\'new_search\']').click()
         cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
-
-
     })
 
     it('UK - Header text - Page - Commodity information for 0406103010 is displayed', function () {
