@@ -7,7 +7,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
   5.climate change levy - 2711210000
   6.fuels or various types - 2710198500
   */
-  it('🍻 RoW 🇮🇱 (Israel) - XI -  Greyed out Beer excise duties | 3.beer |', function () {
+  it('🍻 RoW 🇮🇱 (Israel) - XI | Greyed out Beer excise duties | 3.beer |', function () {
       cy.visit('/duty-calculator/uk/2203001000/import-date')
 
       cy.validDate()
@@ -20,7 +20,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       // Monetary value page 
       cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
       // Measure units   
-      cy.quantity({ gp1: '1', asvx: '1' })
+      cy.quantity({ asvx: '1' })
       cy.contains('Which class of excise is applicable to your trade?')
       cy.contains('Excise duty applies to trade in this commodity code. Select which class of excise duty applies to your trade')
       cy.contains("Please note that the work to calculate the")
@@ -44,7 +44,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       cy.get('.govuk-error-message').contains('Select an excise class')
       cy.get('.govuk-back-link').click()
       // Measure units   
-      cy.quantity({ gp1: '1', asvx: '1' })
+      cy.quantity({asvx: '1' })
       cy.contains('Which class of excise is applicable to your trade?')
       //select a valid option 
       //Excise code 431
@@ -54,16 +54,14 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       cy.confirmPage()
       cy.dutyPage()
     })
-  it('🚬 RoW 🇮🇱 (Israel) - XI  Page Validation | 4.tobacco | ', function () {
-
+  it('🚬 RoW 🇮🇩 (Indonesia) - XI  Page Validation | 4.tobacco | ', function () {
       cy.visit('/duty-calculator/uk/2402201000/import-date')
-
       cy.validDate()
       cy.selectDestination('xi')
       cy.selectOrigin('other')
       //select country from list 
       cy.wait(700)
-      cy.otherOriginList({ value: 'Israel' })
+      cy.otherOriginList({ value: 'Indonesia' })
       //EU duties apply
       cy.euDutiesApply()
       // Monetary value page 
@@ -93,6 +91,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       cy.dutyPage()
       //validate duty calculations 
       cy.contains('16.50 % / Retail Price + 244.78 GBP / 1000 p/st MIN 320.90 GBP / 1000 p/st')
+      cy.contains('£532.17')
 
     })
 
@@ -189,7 +188,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
       cy.contains('Option 2: Tariff preference - Liechtenstein').should('not.exist')
       cy.contains('Option 3: Autonomous suspension under end-use').should('not.exist')
       cy.contains('Option 4: Airworthiness tariff suspension').should('not.exist')
+      })
 
-
-        })
+    
 })
