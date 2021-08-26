@@ -116,7 +116,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         //select import tab 
         cy.get('a#tab_export').click()
         cy.get('.govuk-main-wrapper')
-            .contains('Measures and restrictions for exporting from the UK under the UKGT')
+            .contains('Measures and restrictions for exporting from the UK')
         //select country from drop down list    
         cy.get('input#search_country').click().clear().wait(500)
             .type('Chile').wait(500)

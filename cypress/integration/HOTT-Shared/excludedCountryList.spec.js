@@ -3,7 +3,7 @@ describe('| excludedCountriesList | Exclude certain countries from the autocompl
         it(`UK - Autocomplete excluded countries list`, function () {
                 //select future date 
                 cy.visit(`/commodities/0702000007#import`)
-                cy.contains('Measures and restrictions for importing into the UK under the UKGT')
+                cy.contains('Measures and restrictions for importing into the UK ')
                 let countries = ["certificates", "1005", "1006", "6006", "Home Office", "OECD", "goods", "United Kingdom Continental Shelf", "Norwegian Continental Shelf", "Netherlands Continental Shelf", "Irish Continental Shelf", "German Continental Shelf", "French Continental Shelf", "Danish Continental Shelf", "Belgian Continental Shelf"]
                 for (var i = 0; i < countries.length; i++) {
 

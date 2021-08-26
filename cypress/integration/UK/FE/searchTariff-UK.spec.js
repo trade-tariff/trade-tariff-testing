@@ -1,4 +1,4 @@
-describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',function() {
+describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', function () {
     it('UK - Search Commodity by name ', function () {
         cy.visit('/sections')
         //changed on 11/02/2021
@@ -52,17 +52,17 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |',fun
             .contains('Search or browse the Tariff').click()
         cy.contains('All sections')
     })
-    it('UK - Import tab - text',function(){
+    it('UK - Import tab - text', function () {
         cy.visit('commodities/2009909500#import')
         cy.get('.govuk-heading-m')
-            .contains('Measures and restrictions for importing into the UK under the UKGT')
+            .contains('Measures and restrictions for importing into the UK')
         cy.get('.govuk-label')
             .contains('Trade between the UK and')
     })
-    it('UK - Export tab - text',function(){
+    it('UK - Export tab - text', function () {
         cy.visit('commodities/2009909500#export')
         cy.get('.govuk-heading-m')
-            .contains('Measures and restrictions for exporting from the UK under the UKGT')
+            .contains('Measures and restrictions for exporting from the UK')
         cy.get('.govuk-label')
             .contains('Trade between the UK and')
     })
