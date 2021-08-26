@@ -15,7 +15,6 @@ beforeEach(() => {
 
 //UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add("MainPageUK",()=>{
-//    cy.visit('/sections')
    //check header has UK information
    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
     cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
@@ -35,7 +34,6 @@ Cypress.Commands.add("MainPageUK",()=>{
 
 //XI Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add("MainPageXI",()=>{
-  //  cy.visit('/sections')
     //check header has UK information
     cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
     cy.title().should('eq', 'Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')

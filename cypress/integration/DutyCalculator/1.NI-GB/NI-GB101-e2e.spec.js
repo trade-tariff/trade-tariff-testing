@@ -1,10 +1,8 @@
 describe('| NI-GB101-e2e | Northern Ireland to GB United Kingdom |', function () {
-    it('e2e NI to GB ', function () {
+    it('e2e NI to GB | 101 |', function () {
         cy.visit('/duty-calculator/uk/0702000007/import-date')
         cy.contains('UK Integrated Online Tariff')
         cy.validDate()
-        cy.contains('Which part of the UK are you importing into?')
-
        //select England ,Scotland or Wales (GB)
         cy.selectDestination('gb')
         cy.contains('Which country are the goods coming from?')
