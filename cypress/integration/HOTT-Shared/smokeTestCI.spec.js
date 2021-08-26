@@ -336,11 +336,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
 
     })
     it(`🚀 XI 🇪🇺 📱 - Mobile - nav-bar validation`, function () {
-
         const sizes = ['iphone-6', 'samsung-note9']
         for (let i = 0; i < sizes.length; i++) {
             cy.viewport(`${sizes[i]}`)
-
             cy.visit('/xi/sections')
             cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
             cy.get('.govuk-header__menu-button').click()
@@ -348,24 +346,40 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
             cy.contains('Tools')
             cy.contains('Search or browse the Tariff').click()
             cy.contains('All sections')
-
         }
-
     })
     // Duty Calculator tests
-    it(`🧮  UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )`, function () {
+    it('🧮  UK 🇬🇧 - Duty Calculator e2e - ( NI to GB ) | 101 |', function () {
         cy.visit('/duty-calculator/uk/0702000007/import-date')
+        cy.contains('UK Integrated Online Tariff')
         cy.validDate()
+        //select England ,Scotland or Wales (GB)
         cy.selectDestination('gb')
+        //select country from list 
         cy.originList({ value: 'Northern Ireland' })
-
+        cy.contains('There is no import duty to pay')
+        cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.')
+        //Start again button 
+        cy.get('.govuk-button').click()
+        cy.contains('When will the goods be imported?')
     })
-    it(`🧮  UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204`, function () {
-        cy.visit('/duty-calculator/uk/0702000007/import-date')
+    it(`🧮  UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204 | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function () {
+        //select future date 
+        cy.visit(`/duty-calculator/uk/2204210600/import-date`)
+        cy.wait(500)
         cy.validDate()
         cy.selectDestination('gb')
-        cy.originList({ value: 'Singapore' })
+        cy.originList({ value: 'Afghanistan' })
+        cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+        cy.quantity({ hlt: '1', ltr: '1', lpa: '1' })
+        //Excise code 
+        cy.exciseCode('419')
 
+        cy.confirmPage()
+        cy.dutyPage()
+
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries')
     })
     it('🧮 UK 🇬🇧 - RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function () {
         cy.visit('/duty-calculator/uk/1701141000/import-date')
@@ -399,8 +413,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.dutyPage()
 
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Third-country duty (EU)')
-        cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
+    
     })
     it('🧮 XI 🇪🇺 | RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function () {
         cy.visit('/duty-calculator/xi/0102291010/import-date')
@@ -428,11 +441,8 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Third-country duty (EU)')
-        cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
         cy.contains('Option 2: Tariff preference - Canada')
-        cy.contains('Tariff preference (UK)')
-        cy.contains("UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.")
+       
     })
     //
     it('🧮 XI 🇪🇺 | RoW 🇹🇷(Turkey) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU | Row-NI304e-delta |', function () {
@@ -461,12 +471,8 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.confirmPage()
         cy.dutyPage()
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Third-country duty (UK)')
-        cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.')
         cy.contains('Option 2: Tariff preference - Turkey')
-        cy.contains('Tariff preference (UK)')
-        cy.contains("UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.")
-
+       
         //Change quantity to 100 for EU tariffs , Delta Preferential > 3% Import Value
         cy.get('.govuk-back-link').click()
         cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click()
@@ -476,29 +482,59 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.dutyPage()
 
         cy.contains('Option 1: Third-country duty')
-        cy.contains('Third-country duty (EU)')
-        cy.contains("EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.")
-
+        
         cy.contains('Option 2: Tariff preference - Turkey')
-        cy.contains('Tariff preference (EU)')
-        cy.contains("EU preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty exceeds 3% of the customs value of your trade.")
+        
     })
 
     it(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function () {
-        cy.visit('/duty-calculator/xi/0702000007/import-date')
+        cy.visit('/duty-calculator/xi/1701141000/import-date')
         cy.validDate()
+        //destination
         cy.selectDestination('xi')
-        cy.selectOrigin('uk')
+        //origin
+        cy.selectOrigin('gb')
+        // ✅ Trader Scheme Registered - Yes 
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUse('yes')
+        // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
+        cy.get("#steps-planned-processing-planned-processing-commercial-purposes-field").check()
+        cy.contains('Continue').click()
+        //  🚫 Certified as UK Origin
+        cy.certificate('no')
+        // Monetary value page 
+        cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' })
+        // Measure amount page 
+        cy.quantity({ dtnr: '23.98' })
+        //doc code
+        cy.docCode({ xi: 'n990' })
+        cy.contains('Continue').click()
+        //Check your answers page 
+        cy.contains('Check your answers')
 
+        cy.get('.govuk-button').click()
+        //Final Page 
+        cy.contains('Option 1: Third-country duty')
+        cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)')
+        cy.contains('Option 3: Claiming a waiver – Exchange rate')
     })
     it(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function () {
-        cy.visit('/duty-calculator/xi/0702000007/import-date')
+        cy.visit('/duty-calculator/xi/1212210000/import-date')
+        //date
         cy.validDate()
+        //destination
         cy.selectDestination('xi')
+        //origin
         cy.selectOrigin('eu')
-
+        cy.contains('There is no import duty to pay')
+        cy.contains('There is no import duty to pay when importing goods into Northern Ireland from a European Union member state.')
+        //Back Button on page 
+        cy.get('.govuk-back-link').click()
+        cy.contains('Which country are the goods coming from?')
+        cy.contains('Continue').click()
+        //Start again button 
+        cy.get('.govuk-button').click()
+        cy.contains('When will the goods be imported?')
     })
-
-
-
 })
