@@ -12,15 +12,13 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.contains('Reject additional cookies')
         cy.contains('View cookies')
       })
+
     it(`${country[i]} - No cookies selection made`,function(){
         cy.visit(`${ country[i]}/sections`)
         cy.getCookie('cookies_policy').should('eq', null)
         cy.getCookie('cookies_preferences_set').should('eq', null)
         //search function enabled
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(700)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
 
       })
@@ -43,15 +41,11 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
       
     it(`${country[i]} - Accept Cookies ,Hide Banner`,function(){
         cy.visit(`${ country[i]}/sections`)
-        cy.get('.govuk-button.cookie_accept_all').wait(400).click().wait(200)
-        cy.contains('Hide this message').click()
+        cy.get('.govuk-button.cookie_accept_all').wait(400).click().wait(400)
+        cy.contains('Hide this message').wait(200).click()
         cy.getCookie('cookies_policy').should('have.property','value','%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%2C%22remember_settings%22%3A%22true%22%7D');
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
-        //search function enabled
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(650)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
       })
@@ -59,16 +53,12 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
       
     it(`${country[i]} - Reject Cookies ,Hide Banner`,function(){
         cy.visit(`${country[i]}/sections`)
-        cy.get('.govuk-button.cookie_reject_all').wait(200).click()
-        cy.contains('Hide this message').click().wait(200)
+        cy.get('.govuk-button.cookie_reject_all').wait(400).click().wait(400)
+        cy.contains('Hide this message').wait(200).click()
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22false%22%2C%22remember_settings%22%3A%22false%22%7D')
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
-        //search function enabled
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(650)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
       })

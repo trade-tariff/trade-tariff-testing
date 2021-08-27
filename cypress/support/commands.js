@@ -269,9 +269,13 @@ Cypress.Commands.add('docCode',(dcode)=>{
    
 })
 
+Cypress.Commands.add('waitForCommoditySearchResults', () => {
+  cy.get('ul#q__listbox li:not(.autocomplete__option--no-results)').should('be.visible')
+})
 
-
-
-
-
+Cypress.Commands.add('searchForCommodity', (searchString) => {
+  cy.get('.js-commodity-picker-select').click().type(searchString)
+  cy.waitForCommoditySearchResults()
+  cy.get('input[name=\'new_search\']').click()
+})
 
