@@ -12,15 +12,13 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.contains('Reject additional cookies')
         cy.contains('View cookies')
       })
+
     it(`${country[i]} - No cookies selection made`,function(){
         cy.visit(`${ country[i]}/sections`)
         cy.getCookie('cookies_policy').should('eq', null)
         cy.getCookie('cookies_preferences_set').should('eq', null)
         //search function enabled
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(700)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
 
       })
@@ -43,15 +41,11 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
       
     it(`${country[i]} - Accept Cookies ,Hide Banner`,function(){
         cy.visit(`${ country[i]}/sections`)
-        cy.get('.govuk-button.cookie_accept_all').wait(400).click().wait(200)
-        cy.contains('Hide this message').click()
+        cy.contains('Accept additional cookies').wait(400).click().wait(400)
+        cy.contains('Hide this message').wait(200).click()
         cy.getCookie('cookies_policy').should('have.property','value','%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%2C%22remember_settings%22%3A%22true%22%7D');
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
-        //search function enabled
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(650)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
       })
@@ -59,16 +53,12 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
       
     it(`${country[i]} - Reject Cookies ,Hide Banner`,function(){
         cy.visit(`${country[i]}/sections`)
-        cy.get('.govuk-button.cookie_reject_all').wait(200).click()
-        cy.contains('Hide this message').click().wait(200)
+        cy.contains('Reject additional cookies').wait(400).click().wait(400)
+        cy.contains('Hide this message').wait(200).click()
         cy.getCookie('cookies_policy').should('have.property','value',
         '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22false%22%2C%22remember_settings%22%3A%22false%22%7D')
         cy.getCookie('cookies_preferences_set').should('have.property','value','true')
-        //search function enabled
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(650)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
         cy.clearCookies()
       })
@@ -83,8 +73,8 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.get('.govuk-grid-row').contains('You can update these settings at any time.').should('not.exist')
       
         // Yes / No selection
-        cy.get('input#cookie_consent_usage_true').click()
-        cy.get("input[name='commit']").click()
+        cy.contains('Use cookies that measure my website use').click()
+        cy.contains('Save Changes').click()
         cy.contains('Success')
         cy.contains('Your cookie settings were saved')
         cy.contains('You can update these settings at any time.')
@@ -103,9 +93,9 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |',function() {
         cy.get('.govuk-cookie-banner .govuk-link').click()
         cy.contains('Cookies on the UK Integrated Online Tariff')
         // No /Yes selection
-        cy.get("input#cookie_consent_usage_false").click()
-        cy.get("input#cookie_remember_settings_true").click()
-        cy.get("input[name='commit']").click()
+        cy.contains("No, do not use cookies that measure my website use").click()
+        cy.contains("Yes, use cookies that remember my settings on the site").click()
+        cy.contains("Save Changes").click()
         cy.contains('Success')
         cy.contains('Your cookie settings were saved')
         cy.contains('You can update these settings at any time.')

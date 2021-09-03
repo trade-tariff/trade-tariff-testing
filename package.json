@@ -47,7 +47,8 @@
     "test:allure": "npm run dctests && npm run report:allure",
     "open:dev": "CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk npx cypress open",
     "open:staging": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk npx cypress open",
-    "open:prod": "CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk npx cypress open"
+    "open:prod": "CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk npx cypress open",
+    "open:localhost": "CYPRESS_BASE_URL=http://localhost:3001 npx cypress open"
   },
   "repository": {
     "type": "git",

@@ -60,5 +60,6 @@
     
   ],
   "projectId": "7p655m",
-  "parseSpecialCharSequences": false
+  "parseSpecialCharSequences": false,
+  "defaultCommandTimeout": 15000
 }
