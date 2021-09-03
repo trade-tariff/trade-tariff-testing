@@ -78,26 +78,35 @@ describe('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3%
         cy.contains('Third-country duty (EU)')
         cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
 
-        //Case 3 : Δ MFN = 3% - UK Tariffs 
-    /*
-        cy.get('.govuk-back-link').click().wait(200)
-        cy.get('div:nth-of-type(8) > .govuk-summary-list__actions > .govuk-link').click()
+  })
+    it(`RoW - (Chile) to NI  service | Duplicate suffixes - removed |`, function () {
+        cy.visit(`/duty-calculator/xi/1104229500/import-date`)
+
+        //date
+        cy.validDate()
+        //destination
+        cy.selectDestination('xi')
+        //origin
+        cy.selectOrigin('other')
+        //select country from list 
+        cy.wait(300)
+        cy.otherOriginList({ value: 'Chile' })
+        cy.wait(300)
+        //Trader Scheme
+        cy.traderScheme('yes')
+        // ✅  Final use in NI - Yes 
+        cy.finalUseNI('yes')
+        //Planned processing - acceptable2 
+        cy.plannedXI('acceptable2')
         //customs value
-        cy.customsValue({ monetary: '987.00', shipping: '0.00', cost: '0.00' })
-
+        cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' })
+        //Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
         //Import Quantity 
-        cy.quantity({ dtn: '10.0' })
-        //VAT Page
-        cy.vat('20')
-        cy.contains('Value added tax (20.0%)')
-        cy.get('.govuk-button').click()
-        cy.contains('VAT')
-        cy.contains('Standard rate')
-
+        cy.quantity({ tne: '10.0' })
+        cy.confirmPage()
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (UK)')
         cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.')
-  */
-  })
+    })
 
 })
