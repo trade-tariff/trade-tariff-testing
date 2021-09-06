@@ -1,7 +1,7 @@
 //Quotas in delta route
 //1701141000 Qty 1 = UK , Qty 100 = EU Canada , Quotas associated 
 //Brazil , UK 
-describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', function () {
+describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', function () {
     it('RoW 🇨🇦 (Canada) - XI | UK Tariffs apply with Quotas |', function () {
         cy.visit('/duty-calculator/xi/1701141000/import-date')
         //date
@@ -91,7 +91,6 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         cy.contains('UK quotas may be used, as the difference between the UK in-quota duty and the EU third-country duty is lower than 3% of the customs value of your trade.')
         cy.contains('Non Preferential Quota (UK)')
 
-
         //EU Tariffs - Change Quantity to override Quotas 
         cy.get('.govuk-back-link').click()
         cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click()
@@ -103,20 +102,11 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
         //doc code
         cy.docCode({ uk: 'n990' })
         cy.contains('Continue').click()
-
         cy.confirmPage()
         cy.dutyPage()
-
         cy.contains('Option 1: Third-country duty')
         cy.contains('Third-country duty (EU)')
         cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.')
-        cy.contains('The UK quota is not available, as the difference between the UK quota duty and the EU third-country duty exceeds 3% of the customs value of your trade.')
-
-
-
-
-
-
     })
 
 })
