@@ -91,30 +91,19 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         //changed on 11/02/2021
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
-        cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
+        cy.contains('Search or browse the Tariff')
         //changed on 11/02/2021
-        cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff')
-
-        cy.get('.js-commodity-picker-select').click().type('gherkins')
-        //select from suggestion drop down
-        cy.get('li#q__option--0')
-        cy.wait(400)
-        cy.get('input[name=\'new_search\']').click()
-        //  cy.wait(500)
+        cy.contains('Search the UK Integrated Online Tariff')
+        cy.searchForCommodity('gherkins')
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
     it('🚀 UK 🇬🇧 - Search Commodity by code ', function () {
         cy.visit('/sections')
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
-        cy.get('.govuk-label')
-            .contains('Search the UK Integrated Online Tariff')
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.get('li#q__option--0')
-        cy.wait(300)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
-        cy.contains('Commodity information for 3808941000')
+        cy.contains('Search the UK Integrated Online Tariff')
+        cy.searchForCommodity('3808941000')
+        cy.contains('Search results for 3808941000')
     })
     //Country selection - imports
     it('🚀 UK 🇬🇧 - Country Selection ', function () {
@@ -123,12 +112,10 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.get('input#search_country').click().clear().wait(200).type('(XI)').wait(500)
         cy.get("[id='search_country__listbox']")
             .contains('No results found')
-
         //Andorra should be present
         cy.get('input#search_country').click().clear().wait(200).type('(AD)').wait(500)
         cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
-
         // no GB - United Kingdom (excluding Northern Ireland) (GB)
         cy.get('input#search_country').click().clear().wait(200).type('(GB)').wait(500)
         cy.get("[id='search_country__listbox']")
@@ -289,28 +276,18 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         //changed on 11/02/2021
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
-        cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
+        cy.contains('Search or browse the Tariff')
         //changed on 11/02/2021
-        cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff')
-
-        cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.get('li#q__option--0')
-        cy.wait(400)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.contains('Search the Northern Ireland Online Tariff')
+        cy.searchForCommodity('gherkins')
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
     it('🚀 XI 🇪🇺 - Search Commodity by code ', function () {
         cy.visit('/xi/sections')
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
-        cy.get('.govuk-label')
-            .contains('Search the Northern Ireland Online Tariff')
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.get('li#q__option--0')
-        cy.wait(400)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.contains('Search the Northern Ireland Online Tariff')
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
     })
 

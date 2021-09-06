@@ -1,14 +1,13 @@
 describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
 
-    // /import-date?referred_service=uk&commodity_code=0702000007
     let country = ["uk", "xi"]
     let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
 
     for (let i = 0; i < country.length; i++) {
-        console.log(i)
-
+       
         it(`📅 Valid Date ${country[i]}`, function () {
             cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`)
+            
             cy.contains(`${pagetitles[i]}`)
             cy.DCMainPage()
             cy.contains('As duties and quotas change over time, it may be important to enter the proposed import date. Enter a date from 1st January 2021 or later in the format 27 3 2021.')

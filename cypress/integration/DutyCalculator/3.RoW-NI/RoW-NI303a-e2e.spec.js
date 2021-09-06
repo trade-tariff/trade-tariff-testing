@@ -2,7 +2,7 @@
 describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Processing - ✅  annual turnover |', function () {
     //
     it('RoW 🇲🇦 (Morocco) to Northern Ireland', function () {
-        cy.visit('/duty-calculator/uk/0702000007/import-date')
+        cy.visit('/duty-calculator/xi/0702000007/import-date')
         //date
         cy.validDate()
         //destination

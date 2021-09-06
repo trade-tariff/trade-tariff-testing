@@ -68,48 +68,37 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
         //changed on 11/02/2021
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         //changed on 11/02/2021
-
-        cy.get('.js-commodity-picker-select').click().type('gherkins')
-        //select from suggestion drop down
-        cy.get('li#q__option--0')
-        cy.wait(400)
-        cy.get('input[name=\'new_search\']').click()
-        //  cy.wait(500)
+        cy.searchForCommodity('gherkins')
         cy.contains('Search results for ‘gherkins’')
     })
+
     //Commodity Search functionality - comm code search
     it('🚀 UK 🇬🇧 - Search Commodity by code ', function () {
         cy.visit('/sections')
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
-        cy.get('.govuk-label')
-            .contains('Search the UK Integrated Online Tariff')
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.get('li#q__option--0')
-        cy.wait(300)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
     it('🚀 UK 🇬🇧 - Country Selection - imports ', function () {
         cy.visit('/commodities/0208909800#import')
         // no XI
-        cy.get('input#search_country').click().clear().wait(200).type('(XI)').wait(500)
+        cy.get('input#search_country').click().clear().wait(200).type('(XI)')
         cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
         //Andorra should be present
-        cy.get('input#search_country').click().clear().wait(200).type('(AD)').wait(500)
+        cy.get('input#search_country').click().clear().wait(200).type('(AD)')
         cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
 
         // no GB - United Kingdom (excluding Northern Ireland) (GB)
-        cy.get('input#search_country').click().clear().wait(200).type('(GB)').wait(500)
+        cy.get('input#search_country').click().clear().wait(200).type('(GB)')
         cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
         // no XU
-        cy.get('input#search_country').click().clear().wait(200).type('(XU)').wait(500)
+        cy.get('input#search_country').click().clear().wait(200).type('(XU)')
         cy.get("[id='search_country__listbox']")
             //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
             .contains('No results found')
@@ -123,17 +112,17 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
             .contains('No results found')
 
         //Andorra should be present
-        cy.get('input#search_country').click().clear().wait(500).type('(AD)').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('(AD)')
         cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
 
         // no GB - United Kingdom (excluding Northern Ireland) (GB)
-        cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('(GB)')
         cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
         // no XU
-        cy.get('input#search_country').click().clear().wait(500).type('XU').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('XU')
         cy.get("[id='search_country__listbox']")
             //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
             .contains('No results found')
@@ -273,12 +262,7 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
         cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
         //changed on 11/02/2021
         cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff')
-
-        cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.get('li#q__option--0')
-        cy.wait(400)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.searchForCommodity('gherkins')
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - comm code search
@@ -287,18 +271,14 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
         cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
         cy.get('.govuk-label')
             .contains('Search the Northern Ireland Online Tariff')
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.get('li#q__option--0')
-        cy.wait(400)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(500)
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
     })
 
     it('🚀 XI 🇪🇺 - Country Selection -import ', function () {
         cy.visit('/xi/commodities/0208909800#import')
         // XI Present
-        cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('(XI)')
         cy.get("[id='search_country__listbox']")
             .contains('Northern Ireland (XI)')
         //Andora should be present
@@ -306,11 +286,11 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
         cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
         //  GB Present
-        cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('(GB)')
         cy.get("[id='search_country__listbox']")
             .contains('United Kingdom (excluding Northern Ireland) (GB)')
         // no XU
-        cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('(XU)')
         cy.get("[id='search_country__listbox']")
             .contains('No results found')
 
@@ -327,11 +307,11 @@ describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests
         cy.get("[id='search_country__listbox']")
             .contains('Andorra (AD)')
         //  GB Present
-        cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('(GB)')
         cy.get("[id='search_country__listbox']")
             .contains('United Kingdom (excluding Northern Ireland) (GB)')
         // no XU
-        cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500)
+        cy.get('input#search_country').click().clear().wait(500).type('(XU)')
         cy.get("[id='search_country__listbox']")
             .contains('No results found')
     })

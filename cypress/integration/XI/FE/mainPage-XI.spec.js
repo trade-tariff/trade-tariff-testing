@@ -1,17 +1,17 @@
 describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI version) |', function () {
     //--- HOTT-82 -------------
     //Page Title
-    it('Header text - Page- sections - Northern Ireland Online Tariff', function () {
+    it('XI - Header text - Page- sections - Northern Ireland Online Tariff', function () {
         cy.visit('/xi/sections')
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
+        cy.contains('Northern Ireland Online Tariff')
     })
     //Gov Logo
-    it('Header text - GOV.UK logo ', function () {
+    it('XI - Header text - GOV.UK logo ', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-header').should('be.visible', 'GOV.UK')
     })
     //Sub sections in headings
-    it('Header text - Page -sections -Sub sections on headings banner ', function () {
+    it('XI - Header text - Page -sections -Sub sections on headings banner ', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-header ')
         cy.contains('Search or browse the Tariff')
@@ -26,64 +26,34 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
         cy.contains('Forum').should('not.exist')
     })
 
-    it('Sections Page - Forum section removed', function () {
+    it('XI - Sections Page - Forum section removed', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-header ')
         cy.contains('Forum').should('not.exist')
     })
-    //--
-
-
-
-    it('Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search', function () {
-        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(500)
-        cy.get('input[name=\'new_search\']').wait(500).click()
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-
-
+    it('XI - Heading 9930', function () {
+        cy.visit('/xi/headings/9930')
+        cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
-    it('Header text - Page - Commodity information for 0406103010 is displayed', function () {
-        cy.get('.commodity-header.govuk-heading-l').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
+    it('XI - Chapter 99 ', function () {
+        cy.visit('/xi/chapters/99')
+        cy.contains('Choose the heading that best matches your goods')
+        cy.contains('Goods delivered to vessels and aircraft').click()
+        cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
-    it('Header text - Page - chapter notes is visible', function () {
-        cy.get('div:nth-of-type(1) > .govuk-heading-s').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-    })
-    it('Header text - page - select Export button', () => {
-        cy.get('a#tab_export').click()
-        cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-    })
-    it('Header text - page - select Import button', () => {
-        cy.get('a#tab_import').click()
-        cy.get('div#import > .govuk-heading-m').contains('Measures and restrictions for importing goods into Northern Ireland')
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-    })
-    it('Header text - page - select Chile from All countries list', () => {
-        cy.get('input#search_country').click().clear().wait(700)
-            .type('Chile').wait(700)
-            .type('{enter}')
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-    })
-    it('Header text - page - measures for Chile ', function () {
-        cy.get('.govuk-tabs__panel')
-            .contains('Measures and restrictions for importing goods into Northern Ireland')
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff')
-    })
-    it('Search the Tariff section', function () {
+    it('XI - Search the Tariff section', function () {
         cy.visit('/xi/sections')
-        cy.get('.govuk-header').contains('Search or browse the Tariff').click()
-        cy.get('.govuk-main-wrapper')
-            .contains('Search the Northern Ireland Online Tariff')
+        cy.contains('Search or browse the Tariff').click()
+        cy.contains('Search the Northern Ireland Online Tariff')
+        cy.searchForCommodity('9919000060')
+        cy.contains('Commodity information for 9919000060')
     })
-    it('A-Z section', function () {
+    it('XI - A-Z section', function () {
         cy.visit('/xi/sections')
         cy.get('li:nth-of-type(2) > .govuk-header__link').click()
         cy.contains('A–Z of Classified Goods')
     })
-    it('Tools section', function () {
+    it('XI - Tools section', function () {
         cy.visit('/xi/sections')
         cy.get('li:nth-of-type(3) > .govuk-header__link').click()
         cy.contains('Certificate, licenses and documents')
@@ -97,14 +67,12 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     })
 
     //HOTT-164
-    it('Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
+    it('XI - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function () {
         cy.visit('/xi/sections')
         cy.get('.govuk-footer')
         cy.contains('API Documentation')
      //   cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
         cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist')
-
-
     })
     it('XI - Footnotes tab ', function () {
         cy.visit('/xi/commodities/4101203000')

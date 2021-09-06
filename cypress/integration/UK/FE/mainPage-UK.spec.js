@@ -31,29 +31,22 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.contains('Exchange rates').should('not.exist')
         cy.contains('Forum').should('not.exist')
     })
-    it('UK - Header text - Page - enter commodity code for Mozzaarella - 0406103010 and search', function () {
-        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(600)
-        cy.get('input[name=\'new_search\']').click()
-        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
+    it('UK - Heading 9930', function () {
+        cy.visit('/headings/9930')
+        cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
-
-    it('UK - Header text - Page - Commodity information for 0406103010 is displayed', function () {
-        //    cy.get('.commodity-header.govuk-heading-l').should('be.visible')
-        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
-        cy.get('a#tab_import').click()
-        cy.get('input#search_country').click().clear().wait(400)
-            .type('Chile').wait(600)
-            .type('{enter}')
-        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
-
+    it('UK - Chapter 99 ', function () {
+        cy.visit('/chapters/99')
+        cy.contains('Choose the heading that best matches your goods')
+        cy.contains('Goods delivered to vessels and aircraft').click()
+        cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
-
     it('UK - Search the Tariff section', function () {
         cy.visit('/sections')
-        cy.get('.govuk-header').contains('Search or browse the Tariff').click()
-        cy.get('.govuk-main-wrapper')
-            .contains('Search the UK Integrated Online Tariff')
+        cy.contains('Search or browse the Tariff').click()
+        cy.contains('Search the UK Integrated Online Tariff')
+        cy.searchForCommodity('9919000060')
+        cy.contains('Commodity information for 9919000060')
     })
     it('UK - A-Z section', function () {
         cy.visit('/sections')
