@@ -10,8 +10,8 @@ context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for 
                     url: `/api/v2/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
-                    console.log(JSON.stringify(fixture))
-                    console.log(JSON.stringify(response.body))
+                //    console.log(JSON.stringify(fixture))
+                 //   console.log(JSON.stringify(response.body))
                  //   expect(response.body).to.deep.equal(fixture)
 
 
@@ -25,7 +25,7 @@ context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for 
         let fixture_timestamp = Cypress.config('fixtures_timestamp');
         let commodity_ids = Cypress.config('commcodes');
         for (let i = 0; i < commodity_ids.length; i++) {
-            cy.log(`🇬🇧 ⚙️  for comm code ${commodity_ids[i]}`)
+        //    cy.log(`🇬🇧 ⚙️  for comm code ${commodity_ids[i]}`)
             cy.request(`./api/v2/commodities/${commodity_ids[i]}`).then($response => {
                 expect($response.status).to.eq(200)
 
@@ -54,8 +54,8 @@ context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for 
                     url: `/api/v1/commodities/${commodity_ids[i]}`
                 }).then((response) => {
                     expect(response.status).to.eq(200);
-                    console.log(JSON.stringify(fixture))
-                    console.log(JSON.stringify(response.body))
+               //     console.log(JSON.stringify(fixture))
+               //     console.log(JSON.stringify(response.body))
                  //   expect(response.body).to.deep.equal(fixture)
                 })
             })
@@ -66,7 +66,7 @@ context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for 
         let fixture_timestamp = Cypress.config('fixtures_timestamp');
         let commodity_ids = Cypress.config('commcodes');
         for (let i = 0; i < commodity_ids.length; i++) {
-            cy.log(`🇬🇧 ⚙️ for comm code ${commodity_ids[i]}`)
+         //   cy.log(`🇬🇧 ⚙️ for comm code ${commodity_ids[i]}`)
             cy.request(`./api/v1/commodities/${commodity_ids[i]}`).then($response => {
                 expect($response.status).to.eq(200)
 

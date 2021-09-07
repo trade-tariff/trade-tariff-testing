@@ -2,18 +2,21 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
     let country = ["", "xi"]
     let pagetitles = ["UK Integrated Online Tariff", "Northern Ireland Online Tariff"]
     for (let j = 0; j < country.length; j++) {
-        console.log(j)
+     //   console.log(j)
 
-    it(`${country[j]} - Duty calculator link to be suppressed on commodities which are also headings `, function () {
+    it.only(`${country[j]} - Duty calculator link to be suppressed on commodities which are also headings `, function () {
         let comms = ["0409000000","0510000000","8804000000","2509000000","2802000000","3101000000","3914000000","4004000000","4812000000","5001000000","4112000000","4705000000"]
         for (let i=0;i<comms.length;i++)
         {
         cy.visit(`${country[j]}/sections`)
         cy.contains(`${pagetitles[j]}`)
+/*
         cy.get('.js-commodity-picker-select').click().type(`${comms[i]}`)
         cy.wait(950)
         cy.get('input[name=\'new_search\']').click()
         cy.wait(650)
+*/
+        cy.searchForCommodity(`${comms[i]}`)
         cy.contains(`Commodity information for ${comms[i]}`)
         cy.contains('Duty calculation').should('not.exist')
         }
