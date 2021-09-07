@@ -103,7 +103,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
         cy.contains('Search the UK Integrated Online Tariff')
         cy.searchForCommodity('3808941000')
-        cy.contains('Search results for 3808941000')
+        cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports
     it('🚀 UK 🇬🇧 - Country Selection ', function () {
@@ -194,10 +194,8 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     it(`🚀 UK 🇬🇧 📱 - Mobile - nav-bar validation`, function () {
 
         const sizes = ['iphone-6', 'samsung-note9']
-
         for (let i = 0; i < sizes.length; i++) {
             cy.viewport(`${sizes[i]}`)
-
             cy.visit('/sections')
             cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff')
             cy.get('.govuk-header__menu-button').click()
