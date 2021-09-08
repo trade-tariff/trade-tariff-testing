@@ -94,12 +94,8 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         //changed on 11/02/2021
         cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff')
         //changed on 11/02/2021
-        cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff')
-
-        cy.get('.js-commodity-picker-select').click().type('gherkins')
-        cy.wait(700)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.contains('Search the UK Integrated Online Tariff')
+        cy.searchForCommodity('gherkins')
         cy.contains('Search results for ‘gherkins’')
     })
     //Commodity Search functionality - code search
@@ -107,12 +103,8 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.viewport('iphone-x')
         cy.visit('/sections')
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
-        cy.get('.govuk-label')
-            .contains('Search the UK Integrated Online Tariff')
-        cy.get('.js-commodity-picker-select').click().type('3808941000')
-        cy.wait(700)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
+        cy.contains('Search the UK Integrated Online Tariff')
+        cy.searchForCommodity('3808941000')
         cy.contains('Commodity information for 3808941000')
     })
     //Country selection - imports

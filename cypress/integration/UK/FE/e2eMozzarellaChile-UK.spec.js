@@ -2,17 +2,9 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
     it('Search and import cheese from Chile ', function () {
         cy.visit('/sections')
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
-
-        //'Enter commodity code for Mozzaarella - 0406103010 and search', function () {
-        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(750)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(300)
+        cy.searchForCommodity('0406103010')
         cy.title().should('contains', '0406103010')
-
-        //'Commodity information for 0406103010 is displayed', function () {
-        cy.get('.govuk-heading-l.commodity-header')
-            .contains('Commodity information for 0406103010')
+        cy.contains('Commodity information for 0406103010')
         //'Chapter notes is visible', function () {
         cy.get('.govuk-main-wrapper')
         cy.contains('Chapter notes')
@@ -20,7 +12,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
         cy.get('a#tab_import').click()
         cy.get('.govuk-main-wrapper')
             .contains('Import measures and restrictions')
-        cy.log(cy.title())
+       
 
         //Select Chile from All countries list', () => {
         cy.get('input#search_country').click().clear().wait(500)

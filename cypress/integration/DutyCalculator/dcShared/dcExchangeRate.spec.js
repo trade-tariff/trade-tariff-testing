@@ -4,7 +4,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |', function ()
         //import date
         cy.visit('/duty-calculator/uk/7202118000/import-date')
         //    cy.visit('/import-date?referred_service=uk&commodity_code=7202118000')
-        cy.validDate()
+        cy.enterDate({ day: '31', month: '12', year: '2021' })
         cy.contains('Continue').click()
         //destination
         cy.get('#steps-import-destination-import-destination-xi-field').check()
@@ -59,17 +59,18 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates |', function ()
             url: `https://www.trade-tariff.service.gov.uk/xi/api/v2/monetary_exchange_rates/`,
         }).then((response) => {
             expect(response.status).to.eq(200)
-            console.log(JSON.stringify(response.body))
+            //   console.log(JSON.stringify(response.body))
             let exchangerate = response.body.data[66].attributes.exchange_rate
-         //   let exchangerate1 = response.body.data[49].attributes.rate
-            console.log(`${exchangerate}`)
-         //   let xrate = (parseFloat(`${exchangerate.toFixed(4)}`))
-            cy.contains(`${exchangerate}`)  
+            let m =  parseFloat(exchangerate).toFixed(3);
+         //   let n = exchangerate.toFixed(3)
+            console.log(m)
+            cy.contains(m)
             cy.contains(`Please note - the current page uses an exchange rate of`)
             cy.contains('GBP to EUR.')
-            
-        })
 
     })
+})
+        
+   
 
 })

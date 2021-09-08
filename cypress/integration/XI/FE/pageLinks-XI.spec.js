@@ -123,7 +123,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
         cy.visit('/xi/sections')
         cy.get('.govuk-footer__list')
         cy.contains('API Documentation')
-        cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(4) > .govuk-footer__link').should('have.attr', 'href', 'https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api')
+        cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', 'https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api')
     })
 
     // OGL link
