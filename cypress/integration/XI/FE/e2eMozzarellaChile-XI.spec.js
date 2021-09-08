@@ -2,13 +2,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
     it('Navigate to trade tariff page ', function () {
         cy.visit('/xi/sections')
             .contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates')
-
-        //Enter commodity code for Mozzaarella - 0406103010 and search',function(){
-        cy.get('.js-commodity-picker-select.js-show  input#q').click().type('0406103010')
-        cy.wait(750)
-        cy.get('input[name=\'new_search\']').click()
-        cy.wait(700)
-        cy.log(cy.title())
+        cy.searchForCommodity('0406103010')
         cy.title().should('contains', '0406103010')
 
         //Commodity information for 0406103010 is displayed',function(){

@@ -5,9 +5,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
         for (let i = 0; i < termcodes_ids.length; i++) {
 
             cy.visit('/xi/sections')
-            cy.get('.js-commodity-picker-select.js-show  input#q').click().type(`${termcodes_ids[i]}`)
-            cy.wait(700)
-            cy.get('input[name=\'new_search\']').click()
+            cy.searchForCommodity(`${termcodes_ids[i]}`)
             cy.contains('Choose the commodity code below that best matches your goods to see more information')
 
         }
@@ -18,11 +16,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
 
         for (let i = 0; i < newcodes_ids.length; i++) {
             cy.visit('/xi/sections')
-            cy.get('.js-commodity-picker-select.js-show  input#q').click().type(`${newcodes_ids[i]}`)
-            cy.wait(750)
-            cy.get('input[name=\'new_search\']').click()
-       //     cy.wait(500)
-      //      cy.reload()
+            cy.searchForCommodity(`${newcodes_ids[i]}`)
             cy.contains(`Commodity information for ${newcodes_ids[i]}`)
 
         }

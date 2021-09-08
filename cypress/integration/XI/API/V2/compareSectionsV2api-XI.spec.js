@@ -1,8 +1,8 @@
 
 let data = require('../../../../Data/sections.json');
 // let data = JSON.parse(rawdata);
-context('Session: Fetch a Session, given the ID.', () => {
-    it('Get sessions by ID - 200', () => {
+context('compareSectionsV2api-XI', () => {
+    it.skip('Get sessions by ID - 200', () => {
         cy.request({
             method: 'GET',
             url: `/xi/api/v2/sections`,
