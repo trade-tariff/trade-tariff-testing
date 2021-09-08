@@ -1,5 +1,20 @@
 
-context('🇬🇧 ⚙️ UK - add declarable on V1 and V2 and set true/false for STW ', () => {
+context('🇬🇧 ⚙️ UK - add declarable on search API for V1 and V2 and set true/false for STW ', () => {
+
+    it.only(' search API response for V2 | commodities |', () => {
+        cy.request({
+            method: 'GET',
+            url:'/search.json?q=sulphur%20water'
+
+        }).then((response) => {
+            expect(response.status).to.eq(200);
+            console.log(JSON.stringify(response.body.results[0]))
+            expect(response.body).not.to.be.null
+            expect(response.body.results[0]).to.have.property('declarable').to.be.null
+            expect(response.body.results[1]).to.have.property('declarable').to.be.null
+            expect(response.body.results[2]).to.have.property('declarable').to.be.null
+        })
+    })
     
     it(' Validate API response for V2 | commodities |', () => {
         cy.request({
