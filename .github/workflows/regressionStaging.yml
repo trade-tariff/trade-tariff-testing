@@ -1,15 +1,15 @@
-name: " 🔄 | Regression Pack | Staging |"
+name: " 🛎️ | Regression Pack | Staging |"
 on:
   schedule:
     - cron: "00 04 * * *"
   workflow_dispatch:
-  push:
-    branches: [sprint20]
+ # push:
+ #   branches: [sprint20]
 jobs:
   cypress-run:
     env:
       CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
-    name: " 🔄 Regression Tests - UK and XI - Staging"
+    name: " 🛎️ Regression Tests - UK and XI - Staging "
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -25,7 +25,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/toolsSection-UKXI.spec.js"
+          spec: "*/**/**/*.spec.js"
       - run: npm run posttests
       - run: ls -l
       - uses: actions/upload-artifact@v2
