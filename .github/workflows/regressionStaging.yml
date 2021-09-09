@@ -1,8 +1,10 @@
-name: " 🔄 regression staging"
+name: " 🔄 | Regression Pack | Staging |"
 on:
   schedule:
     - cron: "00 04 * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
 jobs:
   cypress-run:
     env:
@@ -22,7 +24,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/*spec.js"
+          spec: "*/**/**/smokeTestCI.spec.js"
       - run: npm run posttests
       - run: ls -l
       - uses: actions/upload-artifact@v2
@@ -39,12 +41,12 @@ jobs:
            git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
            git config --local user.name "github-actions[bot]"
            git commit -m "Add changes" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          force: true
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: reports
+      #     force: true
       - uses: cypress-io/github-action@v2
         name: " Cypress Dashboard "
         continue-on-error: true
