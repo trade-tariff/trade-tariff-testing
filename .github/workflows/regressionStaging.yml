@@ -45,6 +45,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
       # - name: Push changes
       #   uses: ad-m/github-push-action@master
       #   with:
