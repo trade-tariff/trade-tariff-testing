@@ -41,6 +41,10 @@ jobs:
            git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
            git config --local user.name "github-actions[bot]"
            git commit -m "Add changes" -a
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       # - name: Push changes
       #   uses: ad-m/github-push-action@master
       #   with:
