@@ -43,11 +43,9 @@ jobs:
            git config --local user.name "github-actions[bot]"
            git commit -m "Add changes" -a
       
-      - name: debug output
-        run: |
-            echo Cypress finished with - ${{ steps.cypress.outcome }}
       - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
+        uses: rtCamp/action-slack-notify@v2 
+        if: ${{ steps.cypress.outcome == 'failure' }}
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
