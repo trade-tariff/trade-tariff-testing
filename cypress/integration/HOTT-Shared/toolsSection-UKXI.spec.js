@@ -7,7 +7,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
         cy.visit(`${countries[i]}/sections`)
         cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
             .contains('Tools').click()
-        cy.contains('Tariff tools')
+        cy.contains('Tariff toolss')
 
         cy.contains('Certificate, licenses and documents')
         cy.contains('Search for certificates, licenses and other document codes.')
