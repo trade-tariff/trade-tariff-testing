@@ -4,7 +4,7 @@ on:
     - cron: "00 04 * * *"
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [sprint20]
 jobs:
   cypress-run:
     env:
