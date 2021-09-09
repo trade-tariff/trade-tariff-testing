@@ -65,7 +65,7 @@ workflows:
       - cypress/run:
           executor: custom_chrome77
           context: trade-tariff
-          name: "🚀 UK XI & DC Smoke tests scheduled"
+          name: "🚀 Tariff & DC Smoke tests scheduled - Staging"
           browser: chrome
           store_artifacts: true
           spec: "*/**/smokeTestCI.spec.js"
