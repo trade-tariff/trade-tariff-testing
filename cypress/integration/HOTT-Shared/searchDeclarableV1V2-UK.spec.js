@@ -1,5 +1,6 @@
 
 context('🇬🇧 ⚙️ UK - add declarable on search API for V1 and V2 and set true/false for STW ', () => {
+// Commodity , Chapter , Section , Headings , Headings that are also commodities 
 
     it.only(' search API response for V2 | commodities |', () => {
         cy.request({
