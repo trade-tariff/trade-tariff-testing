@@ -64,7 +64,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
         }
     })
 
-    it(' UK Certificate Search : D - Anti-dumping/countervailing document', function(){
+    it.skip(' UK Certificate Search : D - Anti-dumping/countervailing document', function(){
         cy.visit('/certificate_search')
         cy.contains('Search by Certificate')
         let dcerts_ids = ["005", "008", "017"]

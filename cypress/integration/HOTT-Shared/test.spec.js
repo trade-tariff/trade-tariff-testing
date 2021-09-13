@@ -1,5 +1,5 @@
 describe.skip( ' test spec',function(){
-    it('log spec info', () => {
+    it('', () => {
         console.log(smokeTestUKXI.spec)
         // {
         //   name: 'filter.spec.js',
