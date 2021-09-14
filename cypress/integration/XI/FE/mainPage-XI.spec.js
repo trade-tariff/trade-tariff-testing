@@ -31,8 +31,8 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
         cy.get('.govuk-header ')
         cy.contains('Forum').should('not.exist')
     })
-    it('XI - Heading 9930', function () {
-        cy.visit('/xi/headings/9930')
+    it('XI - Heading 2902', function () {
+        cy.visit('/xi/headings/2902')
         cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
     it('XI - Chapter 99 ', function () {

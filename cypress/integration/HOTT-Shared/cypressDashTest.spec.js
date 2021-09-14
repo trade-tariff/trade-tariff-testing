@@ -4,7 +4,7 @@ describe('Cypress Dashboard',function(){
     it('Cypress Dashboard from GHA',function(){
         cy.wait(100)
         console.log(`${todaysDate}`)
-        cy.visit(`https://trade-tariff.github.io/trade-tariff-testing/${todaysDate}/`)
+        cy.visit(`https://trade-tariff.github.io/trade-tariff-testing/${todaysDate}/`, 'failOnStatusCode: false')
        
         cy.scrollTo('bottom', { easing: 'linear' })
         cy.wait(2000)

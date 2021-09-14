@@ -31,8 +31,8 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
         cy.contains('Exchange rates').should('not.exist')
         cy.contains('Forum').should('not.exist')
     })
-    it('UK - Heading 9930', function () {
-        cy.visit('/headings/9930')
+    it('UK - Heading 2902', function () {
+        cy.visit('/headings/2902')
         cy.contains('Choose the commodity code below that best matches your goods to see more information')
     })
     it('UK - Chapter 99 ', function () {
