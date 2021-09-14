@@ -1,8 +1,8 @@
 
-context('🇬🇧 ⚙️ UK - add declarable on search API for V1 and V2 and set true/false for STW ', () => {
-// Commodity , Chapter , Section , Headings , Headings that are also commodities 
+context.skip('🇬🇧 ⚙️ UK - add declarable on search API for V1 and V2 and set true/false for STW ', () => {
+// Commodity - true/false , Chapter - false , Section - false, Headings -false, Headings that are also commodities -true
 
-    it.only(' search API response for V2 | commodities |', () => {
+    it(' search API response for V2 | commodities |', () => {
         cy.request({
             method: 'GET',
             url:'/search.json?q=sulphur%20water'
@@ -11,12 +11,20 @@ context('🇬🇧 ⚙️ UK - add declarable on search API for V1 and V2 and set
             expect(response.status).to.eq(200);
             console.log(JSON.stringify(response.body.results[0]))
             expect(response.body).not.to.be.null
+            //commodity
             expect(response.body.results[0]).to.have.property('declarable').to.be.null
+            //chapter
             expect(response.body.results[1]).to.have.property('declarable').to.be.null
+            //section
             expect(response.body.results[2]).to.have.property('declarable').to.be.null
+            //headings
+
+            //headings that are also commodities
+
         })
     })
-    
+})
+ /*   
     it(' Validate API response for V2 | commodities |', () => {
         cy.request({
             method: 'GET',
@@ -84,4 +92,4 @@ context('🇬🇧 ⚙️ UK - add declarable on search API for V1 and V2 and set
             expect(response.body).to.have.property('declarable').to.be.true
         })
     })
-})
+*/
