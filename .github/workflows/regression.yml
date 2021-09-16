@@ -13,8 +13,11 @@ jobs:
       fail-fast: false
     steps:
       - run: date
+
       - uses: actions/checkout@v2
+
       - run: mkdir -p cypress/reports/mochareports
+
       - uses: cypress-io/github-action@v2
         name: "All tests"
         continue-on-error: true
@@ -23,28 +26,45 @@ jobs:
           browser: chrome
           headless: true       
           spec: "*/**/**/*spec.js"
+
       - run: npm run posttests
+
       - run: ls -l
+
       - uses: actions/upload-artifact@v2
         with:
           name: report
           path: ./cypress/reports/mochareports/
-      - run: |
+
+      - name: Checkout reports repo
+        uses: actions/checkout@v2
+        with:
+          ref: reports
+          path: reports_repo
+
+      - name: Copy report into reports repo
+        run: |
+          cd reports_repo
           DATE=$(date +%d-%m-%Y)
           mkdir -p docs/$DATE
-          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
-          cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
+          cp -r ../cypress/reports/mochareports/*  docs/$DATE/
+          cp ../cypress/reports/mochareports/report.html docs/$DATE/index.html
           git add docs .
-      - run: |
-           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
-           git config --local user.name "github-actions[bot]"
-           git commit -m "Add changes" -a
+
+      - name: Commit todays report to reports branch
+        run: |
+          cd reports_repo
+          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Production report for $(date +%d-%m-%Y)" -a
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
-          force: true
+          directory: reports_repo
+
       - uses: cypress-io/github-action@v2
         name: " Cypress Dashboard "
         continue-on-error: true
