@@ -4,7 +4,6 @@
 
 describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e.spec | ', function() {
   //
-
   const country = ['uk', 'xi'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
 
