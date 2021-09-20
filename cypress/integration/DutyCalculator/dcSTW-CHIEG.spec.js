@@ -2,9 +2,9 @@
 
 // date , commodity ,destination,origin to be persisted on back links
 // back button from date page should take to STW page ( to be confirmed )
+
 describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', function() {
-  //
-  it('1.EU-GB | Customs value |', function() {
+  it('EU-GB | Customs value |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=FR&import_date=2021-12-21&import_destination=UK');
     cy.contains('What is the customs value of this import?');
     cy.contains('About this commodity code').click();
@@ -22,12 +22,12 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains('21 December 2021');
   });
 
-  it('2.NI-GB | There is no import duty to pay |', function() {
+  it('NI-GB | trade_defence false && non-zero-mfn | no duties page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=XI&import_date=2021-01-01&import_destination=UK');
     cy.noDuty();
   });
 
-  it('3.ROW-GB | Customs value |', function() {
+  it('ROW-GB |non-zero-mfn | Customs value page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=3926909790&country_of_origin=AF&import_date=2021-01-01&import_destination=UK');
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.additionalCode({uk: '2601'});
@@ -44,13 +44,30 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Option 3: Airworthiness tariff suspension');
   });
-
-  it('4.EU-XI | There is no import duty to pay |', function() {
+  it.skip('RoW-GB | zero-mfn | no duty page |', function() {
+    cy.visit('/duty-calculator/prefill?commodity_code=1212210000&country_of_origin=IL&import_date=2021-12-31&import_destination=UK');
+  });
+  it('EU-XI | There is no import duty to pay |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=FI&import_date=2021-01-01&import_destination=XI');
     cy.noDuty();
   });
-
-  it('5.ROW-XI | Are you authorised under the UK Trader Scheme? |', function() {
+  it('RoW-XI | trade_defence true | EU Duties interstitial page  |', function() {
+    cy.visit('/duty-calculator/prefill?commodity_code=1516209821&country_of_origin=AR&import_date=2021-12-31&import_destination=XI');
+    cy.euDutiesApply();
+    // customs value
+    cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+    cy.quantity({tnei: '100'});
+    cy.additionalCode({xi: 'C999'});
+    cy.additionalCode({xi: 'C999'});
+    cy.docCode({xi: 'c990'});
+    cy.contains('Continue').click();
+    cy.vat('20');
+    cy.confirmPage();
+    cy.dutyPage();
+    cy.contains('Option 1: Third-country duty');
+    cy.contains('Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+  });
+  it('ROW-XI |trade_defence false && non-zero-mfn | UK Trader Scheme |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=6307909200&country_of_origin=SG&import_date=2021-01-01&import_destination=XI');
     // Trader Scheme
     cy.traderScheme('yes');
@@ -75,35 +92,28 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
   });
+  it('RoW-XI | trade_defence false && zero-mfn | customs value page |', function() {
+    cy.visit('/duty-calculator/prefill?commodity_code=1212210000&country_of_origin=IL&import_date=2021-12-31&import_destination=XI');
+    // customs value
+    cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
+    cy.vat('20');
+    cy.confirmPage();
+    cy.dutyPage();
+    cy.contains(' VAT');
+    cy.contains('Option 1: Third-country duty');
+    cy.contains('Option 2: Tariff preference - Israel');
+    cy.contains('Tariff preference (UK)');
+  });
 
-  it.skip('6.GB-XI | Are you authorised under the UK Trader Scheme? |', function() {
+  it('GB-XI | trade defence true ,&& zero-mfn | interstitial page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0304829010&country_of_origin=GB&import_date=2021-12-31&import_destination=XI');
-/*
     // ℹ️ Interstitial Message - EU duties apply
     cy.contains('Duties apply to this import');
     cy.get('.govuk-button').click();
-*/
     // 💰 Whats the monetary customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
-    // Confirm Page - Page 17
-    cy.contains('Check your answers');
-    cy.contains('Commodity code');
-    cy.contains('Date of import');
-    cy.contains('Destination');
-    cy.contains('Coming from');
-    cy.contains('Customs value');
-    //   cy.contains('Import quantity')
-    //   Check values
-    cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10');
-    cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2021');
-    cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland');
-    cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5,785.87');
-    //  cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('25.786 tonnes')
-    cy.get('.govuk-button').click();
-
-
+    // Confirm Page
+    cy.confirmPage();
     // Final Page + Copy text
     cy.contains('Import duty calculation');
     cy.contains('Option 1: Third-country duty');
@@ -113,5 +123,25 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains(' Option 3: Claiming a waiver – Exchange rate');
     cy.contains('A claim for a customs duty waiver for duty on goods that would otherwise incur “at risk” tariffs is provided as “de minimis aid”. The maximum allowance for most sectors is €200,000 across a rolling three tax year period. This allowance includes all de minimis aid you have claimed over a 3 tax year period.');
     cy.contains('This type of aid is measured in euros, so it is important to convert any aid received in pound sterling into euros. You can use this exchange rate tool to calculate the applicable euro equivalent of the value of the aid for the month you were awarded the aid.');
+  });
+
+  it('GB-XI |trade defence false && non-zero mfn | trader scheme page|', function() {
+    cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=GB&import_date=2021-12-31&import_destination=XI');
+    // 🚫 Trader Scheme Registered - no
+    cy.traderScheme('no');
+    // ✅ Certified as UK origin
+    cy.certificate('yes');
+    // page validation - no import duty to pay
+    cy.contains('There is no import duty to pay');
+    cy.contains('There is no import duty to pay because:');
+    cy.contains('You are transporting goods from England, Scotland or Wales to Northern Ireland');
+    cy.contains('You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin');
+    cy.contains('You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.');
+    cy.contains('Start again').click();
+    cy.contains('When will the goods be imported?');
+  });
+  it('GB-XI | zero-mfn and no trade remedies | no duties page |', function() {
+    cy.visit('/duty-calculator/prefill?commodity_code=1212210000&country_of_origin=GB&import_date=2021-12-31&import_destination=XI');
+    cy.noDuty();
   });
 });
