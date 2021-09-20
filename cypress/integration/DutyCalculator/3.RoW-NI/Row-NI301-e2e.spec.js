@@ -12,9 +12,7 @@ describe('| RoW-NI301-e2e.spec |RoW to Northern Ireland ', function() {
       // origin
       cy.selectOrigin('other');
       // select country from list
-      cy.wait(700);
       cy.otherOriginList({value: 'Israel'});
-      cy.wait(700);
       // customs value
       cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
       cy.vat('20');
