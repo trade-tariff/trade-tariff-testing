@@ -28,7 +28,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/*.spec.js"
+          spec: "*/**/**/*test.spec.js"
 
       - run: npm run posttests
 
@@ -67,6 +67,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_MESSAGE: 'https://trade-tariff.github.io/trade-tariff-testing/staging/$DATE/'
 
       - name: Push changes
         uses: ad-m/github-push-action@master
