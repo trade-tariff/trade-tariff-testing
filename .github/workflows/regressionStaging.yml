@@ -66,8 +66,9 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          reportdate: date +%d-%m-%Y
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: 'https://trade-tariff.github.io/trade-tariff-testing/staging/$DATE/'
+          SLACK_MESSAGE: 'https://trade-tariff.github.io/trade-tariff-testing/staging/${reportdate}/'
 
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -82,6 +83,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_MESSAGE: 'https://trade-tariff.github.io/trade-tariff-testing/staging/$DATE/'
 
       - uses: cypress-io/github-action@v2
         name: " Cypress Dashboard "
