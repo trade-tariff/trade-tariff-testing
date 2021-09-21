@@ -21,7 +21,10 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains('Details of your trade');
     cy.contains('21 December 2021');
   });
-
+  it('EU-XI | no duty page |', function() {
+    cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=FI&import_date=2021-01-01&import_destination=XI');
+    cy.noDuty();
+  });
   it('NI-GB | trade_defence false && non-zero-mfn | no duties page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=XI&import_date=2021-01-01&import_destination=UK');
     cy.noDuty();
@@ -44,16 +47,12 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Option 3: Airworthiness tariff suspension');
   });
-  it.only('RoW-GB | zero-mfn | Customs value page |', function() {
+  it('RoW-GB | zero-mfn | Customs value page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=1212210000&country_of_origin=IL&import_date=2021-12-31&import_destination=UK');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.vat('20');
     cy.confirmPage();
-    cy.noDuty();
-  });
-  it('EU-XI | no duty page |', function() {
-    cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=FI&import_date=2021-01-01&import_destination=XI');
     cy.noDuty();
   });
   it('RoW-XI | trade_defence true | EU Duties interstitial page  |', function() {
