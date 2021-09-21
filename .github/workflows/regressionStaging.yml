@@ -62,13 +62,15 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "Staging report for $(date +%d-%m-%Y)" -a
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          reportdate: date +%d-%m-%Y
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: 'https://trade-tariff.github.io/trade-tariff-testing/staging/${{reportdate}}/'
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
 
       - name: Push changes
         uses: ad-m/github-push-action@master
