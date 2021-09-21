@@ -28,7 +28,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/*test.spec.js"
+          spec: "*/**/**/*spec.js"
 
       - run: npm run posttests
 
@@ -67,6 +67,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
+        if: ${{ steps.cypress.outcome == 'failure' }}
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
@@ -78,14 +79,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
-
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2 
-        if: ${{ steps.cypress.outcome == 'failure' }}
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: 'https://trade-tariff.github.io/trade-tariff-testing/staging/$DATE/'
 
       - uses: cypress-io/github-action@v2
         name: " Cypress Dashboard "
