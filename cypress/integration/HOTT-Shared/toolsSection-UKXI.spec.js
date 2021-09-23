@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrumbs  - UK and XI services |', function() {
   const countries = ['uk', 'xi'];
   for ( let i =0; i< countries.length; i++) {
@@ -70,5 +71,12 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
     cy.get('.govuk-breadcrumbs__list')
         .contains('Home').click();
     cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+  });
+  it.only(' Meursing Code finder -XI', function() {
+    cy.visit('/xi/tools');
+    // add breadcrumbs ?
+    cy.contains('Find the Meursing code for your composite agrifood.');
+    cy.contains('Meursing code finder').click();
+    cy.contains('Look up a Meursing code');
   });
 });
