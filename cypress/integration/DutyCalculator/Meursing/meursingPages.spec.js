@@ -23,7 +23,7 @@ describe('meursingPages | Page validations |', function() {
     cy.get('a[role=\'button\']').click();
     cy.contains('How much starch or glucose does the product contain?');
   });
-  it.only('Stach, Sucrose, Milk fat, Milk protein pages', function() {
+  it('Stach, Sucrose, Milk fat, Milk protein pages', function() {
     cy.visit('/xi/tools');
     cy.contains('Meursing code finder').click();
     // start button works and takes to right page
@@ -64,9 +64,9 @@ describe('meursingPages | Page validations |', function() {
     cy.contains('Continue').click();
     // Error message when code NOT selected
     cy.get('.govuk-error-summary')
-        .contains('Please pick one of the milk protein options');
+        .contains('Enter how much milk protein the product contains');
     cy.get('.govuk-error-message')
-        .contains('Please pick one of the milk protein options');
+        .contains('Enter how much milk protein the product contains');
     cy.get('div:nth-of-type(1) > input[name=\'meursing_lookup_steps_milk_protein[milk_protein]\']').click();
     cy.contains('Continue').click();
     // Review page
@@ -81,10 +81,11 @@ describe('meursingPages | Page validations |', function() {
     cy.contains('The Meursing additional code for a product with this composition is 7000.');
     cy.contains('What next');
     cy.contains('Use these four digits together with the ten-digit commodity code from Trade Tariff to work out duties applicable to certain complex agri-foods on the the Northern Ireland Tariff, when your import is considered to be \'at risk\'.');
+    cy.contains('Start again');
     // Change values and check code
     cy.get('.govuk-back-link').click();
     cy.contains('Check your answers');
-    // Change 
+    // Change options
     cy.get('div:nth-of-type(1) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('How much starch or glucose does the product contain?');
     cy.get('div:nth-of-type(2) > input[name=\'meursing_lookup_steps_starch[starch]\']').click();
@@ -99,7 +100,19 @@ describe('meursingPages | Page validations |', function() {
     cy.contains('Continue').click();
     cy.contains('The Meursing additional code for a product with this composition is 7126.');
 
-    // check Start again button
-    cy.get('.govuk-grid-column-two-thirds > a')
+
+    // back links
+    cy.get('.govuk-back-link').click();
+    cy.contains('Check your answers');
+    cy.get('.govuk-back-link').click();
+    cy.contains('How much milk protein does the product contain?');
+    cy.get('.govuk-back-link').click();
+    cy.contains('How much milk fat does the product contain?');
+    cy.get('.govuk-back-link').click();
+    cy.contains('How much sucrose, invert sugar or isoglucose does the product contain?');
+    cy.get('.govuk-back-link').click();
+    cy.contains('How much starch or glucose does the product contain?');
+    cy.get('.govuk-back-link').click();
+    cy.contains('Look up a Meursing code');
   });
 });
