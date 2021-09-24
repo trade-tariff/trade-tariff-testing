@@ -100,7 +100,6 @@ describe('meursingPages | Page validations |', function() {
     cy.contains('Continue').click();
     cy.contains('The Meursing additional code for a product with this composition is 7126.');
 
-
     // back links
     cy.get('.govuk-back-link').click();
     cy.contains('Check your answers');
@@ -114,5 +113,82 @@ describe('meursingPages | Page validations |', function() {
     cy.contains('How much starch or glucose does the product contain?');
     cy.get('.govuk-back-link').click();
     cy.contains('Look up a Meursing code');
+  });
+  it('Check answers and Change options', function() {
+    cy.visit('/xi/meursing_lookup/steps/start');
+    // start button works and takes to right page
+    cy.get('a[role=\'button\']').click();
+    cy.contains(`0 - 4.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`5 - 29.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`1.5 - 2.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`2.5 - 5.99`).click();
+    cy.contains('Continue').click();
+    cy.contains('Check your answers');
+    cy.contains('Continue').click();
+    cy.contains(`The Meursing additional code for a product with this composition is 7121.`);
+
+    // Change Starch value and check code
+    cy.get('.govuk-back-link').click();
+    cy.contains('Check your answers');
+    // Change options
+    cy.get('div:nth-of-type(1) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('How much starch or glucose does the product contain?');
+    cy.contains(`5 - 24.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`5 - 29.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`1.5 - 2.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`2.5 - 5.99`).click();
+    cy.contains('Continue').click();
+    cy.contains('Check your answers');
+    cy.contains('Continue').click();
+    cy.contains(`The Meursing additional code for a product with this composition is 7126.`);
+
+    // Change Sucrose value and check code
+    cy.get('.govuk-back-link').click();
+    cy.contains('Check your answers');
+    // Change options
+    cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('How much sucrose, invert sugar or isoglucose does the product contain?');
+    cy.contains(`30 - 49.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`1.5 - 2.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`2.5 - 5.99`).click();
+    cy.contains('Continue').click();
+    cy.contains('Check your answers');
+    cy.contains('Continue').click();
+    cy.contains(`The Meursing additional code for a product with this composition is 7127.`);
+
+
+    // Change Milk fat value and check code
+    cy.get('.govuk-back-link').click();
+    cy.contains('Check your answers');
+    // Change options
+    cy.get('div:nth-of-type(3) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('How much milk fat does the product contain?');
+    cy.contains(`3 - 5.99`).click();
+    cy.contains('Continue').click();
+    cy.contains(`2.5 - 11.99`).click();
+    cy.contains('Continue').click();
+    cy.contains('Check your answers');
+    cy.contains('Continue').click();
+    cy.contains(`The Meursing additional code for a product with this composition is 7207.`);
+
+    // Change Milk protein value and check code
+    cy.get('.govuk-back-link').click();
+    cy.contains('Check your answers');
+    // Change options
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('How much milk protein does the product contain?');
+    cy.contains(`12 or more`).click();
+    cy.contains('Continue').click();
+    cy.contains('Check your answers');
+    cy.contains('Continue').click();
+    cy.contains(`The Meursing additional code for a product with this composition is 7267.`);
   });
 });
