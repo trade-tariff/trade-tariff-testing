@@ -58,6 +58,18 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git commit -m "Production report for $(date +%d-%m-%Y)" -a
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        if: ${{ steps.cypress.outcome == 'failure' }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ steps.date.outputs.date }}/
+
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
