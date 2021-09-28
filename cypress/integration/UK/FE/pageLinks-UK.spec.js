@@ -77,14 +77,13 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
   it('UK - Help - Using the Trade Tariff tool to find a commodity code', function() {
     cy.visit('/sections');
     cy.get('.govuk-footer__list');
-    cy.contains('Using the Trade Tariff tool to find a commodity code');
-    cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/guidance/using-the-trade-tariff-tool-to-find-a-commodity-code');
+    cy.contains('Using the Trade Tariff tool to find a commodity code').should('not.exist');
   });
   it('UK - Help - Import and export', function() {
     cy.visit('/sections');
     cy.get('.govuk-footer__list');
     cy.contains('Import and export');
-    cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/topic/business-tax/import-export');
+    cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/topic/business-tax/import-export');
   });
 
   // Related information

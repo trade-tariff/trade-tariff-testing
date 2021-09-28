@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
   // RoO tab exists and links work
-  it('Check RoO tag exsits on commodity page', function() {
+  it('| Check RoO tag exsits on commodity page |', function() {
     cy.visit('/commodities/0702000007');
     cy.contains('Rules of origin').click();
     cy.get('.govuk-grid-column-two-thirds > .govuk-heading-m').contains('Rules of origin');
