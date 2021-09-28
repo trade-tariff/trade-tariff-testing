@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 before(() => {
 //   cy.injectAxe()
   //  cy.clearCookies()
@@ -63,7 +64,7 @@ Cypress.Commands.add('DCMainPage', ()=>{
       .contains('Calculate import duties');
   cy.get('.govuk-form-group');
   cy.contains('When will the goods be imported?');
-  cy.contains('As duties and quotas change over time, it may be important to enter the proposed import date. Enter a date from 1st January 2021 or later in the format 27 3 2021.');
+  cy.contains('As duties and quotas change over time, it may be important to enter the date you think your goods your goods will be imported.');
   cy.contains('Day');
   cy.contains('Month');
   cy.contains('Year');
