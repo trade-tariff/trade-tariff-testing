@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-// HOTT- 
+// HOTT- ,
 describe('| tradingRelationsRoO - to exist only on UK service ', function() {
   it('| Trading relations with Chile - UK-Chile association agreement |', function() {
     cy.visit('/commodities/0702000007');
