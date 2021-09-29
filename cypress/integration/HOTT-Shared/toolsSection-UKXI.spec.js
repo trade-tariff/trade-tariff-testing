@@ -72,7 +72,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
         .contains('Home').click();
     cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
   });
-  it.only(' Meursing Code finder -XI', function() {
+  it(' Meursing Code finder -XI', function() {
     cy.visit('/xi/tools');
     // add breadcrumbs ?
     cy.contains('Find the Meursing code for your composite agrifood.');
