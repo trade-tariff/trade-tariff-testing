@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |', function() {
   it('UK Country Selection - imports ', function() {
     cy.visit('/commodities/0208909800#import');
@@ -42,7 +43,6 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
     // no XU
     cy.get('input#search_country').click().clear().wait(500).type('XU').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-    //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
         .contains('No results found');
   });
 
