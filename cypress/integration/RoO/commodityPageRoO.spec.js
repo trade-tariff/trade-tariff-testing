@@ -1,15 +1,16 @@
 /* eslint-disable max-len */
 describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
   // RoO tab exists and links work
-  const countries = ['', 'xi'];
+  const countries = [''];
   const service = ['UK', 'EU'];
+  const message = ['exist', 'not.exist'];
   for (let i=0; i<countries.length; i++) {
     it(`${service[i]}| Check RoO tab exsits on commodity page |`, function() {
       cy.visit(`${countries[i]}/commodities/0702000007`);
       cy.contains('Rules of origin').click();
       cy.get('.govuk-grid-column-two-thirds > .govuk-heading-m').contains('Rules of origin');
       cy.contains(`To view rules of origin, select a country with which the ${service[i]} has a trade agreement from the list above`);
-      cy.contains('You can also find out about rules of origin');
+      cy.contains('You can also find out about rules of origin').should(`${message[i]}`);
 
       cy.contains('Check your goods meet the rules of origin').click();
       cy.contains('Guidance');
