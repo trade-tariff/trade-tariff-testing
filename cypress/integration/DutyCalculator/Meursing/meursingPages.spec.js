@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-describe('meursingPages | Page validations |', function() {
-  it(' Start page |  text and links |', function() {
+describe('| meursingPages | Page validations |', function() {
+  it('| Start page |  text and links |', function() {
     cy.visit('/xi/tools');
     cy.contains('Meursing code finder').click();
     cy.contains('Look up a Meursing code');
@@ -17,13 +17,15 @@ describe('meursingPages | Page validations |', function() {
     // document links - check links are woking
     cy.contains('Documents to download');
     cy.contains('Meursing table (PDF) [opens in new window]');
+    cy.get('li:nth-of-type(1) > .govuk-link').should('have.attr', 'href', '/Meursing_table.pdf');
     cy.contains('Meursing table (ODT) [opens in new window]');
+    cy.get('li:nth-of-type(2) > .govuk-link').should('have.attr', 'href', '/Meursing_table.odt');
 
     // start button works and takes to right page
     cy.get('a[role=\'button\']').click();
     cy.contains('How much starch or glucose does the product contain?');
   });
-  it('Stach, Sucrose, Milk fat, Milk protein pages', function() {
+  it('| Stach, Sucrose, Milk fat, Milk protein pages |', function() {
     cy.visit('/xi/tools');
     cy.contains('Meursing code finder').click();
     // start button works and takes to right page
@@ -114,7 +116,7 @@ describe('meursingPages | Page validations |', function() {
     cy.get('.govuk-back-link').click();
     cy.contains('Look up a Meursing code');
   });
-  it('Check answers and Change options', function() {
+  it('| Check answers and Change options |', function() {
     cy.visit('/xi/meursing_lookup/steps/start');
     // start button works and takes to right page
     cy.get('a[role=\'button\']').click();
@@ -190,5 +192,8 @@ describe('meursingPages | Page validations |', function() {
     cy.contains('Check your answers');
     cy.contains('Continue').click();
     cy.contains(`The Meursing additional code for a product with this composition is 7267.`);
+    // start again link
+    cy.contains('Start again').click();
+    cy.contains('Look up a Meursing code');
   });
 });
