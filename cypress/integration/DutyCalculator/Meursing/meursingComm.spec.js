@@ -27,7 +27,7 @@ describe('| meursingComm | Store Commodity value in session for Meursing , Meurs
       cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').should('not.have.value', '121');
     }
   });
-  it.only('| meursing calculator link on commodity import section |', function() {
+  it('| meursing calculator link on commodity import section |', function() {
     cy.visit('xi/commodities/1905311100#import');
     cy.contains('Enter a \'Meursing code\' to work out applicable duties');
     cy.contains('This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.');

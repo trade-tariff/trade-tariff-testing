@@ -1,5 +1,5 @@
-describe('meursinge2e | end to end journeys', function() {
-  it('meursing code e2e journeys | 4 options |', function() {
+describe('| meursinge2e | end to end journeys', function() {
+  it('| meursing code e2e journeys | 4 options |', function() {
     cy.visit('/xi/meursing_lookup/steps/start');
 
     const starch = ['0 - 4.99', '75 or more', '25 - 49.99', '0 - 4.99'];
@@ -25,7 +25,7 @@ describe('meursinge2e | end to end journeys', function() {
       cy.contains('Look up a Meursing code');
     }
   });
-  it('meursing code e2e journeys | 3 options |', function() {
+  it('| meursing code e2e journeys | 3 options |', function() {
     cy.visit('/xi/meursing_lookup/steps/start');
 
     const starch = ['0 - 4.99', '5 - 24.99'];

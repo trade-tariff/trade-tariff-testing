@@ -1,5 +1,5 @@
 
-describe('🛃 📱 XI | meursingMobile | mobile version |', function() {
+describe('| 🛃 📱 XI | meursingMobile | mobile version |', function() {
   it(`📱 iphone - meursing e2e journey`, function() {
     cy.viewport('iphone-6', 'landscape');
     cy.visit('/xi/meursing_lookup/steps/start');
