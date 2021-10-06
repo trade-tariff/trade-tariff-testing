@@ -32,8 +32,12 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').click().clear().type('507');
     cy.get('form#new_meursing_lookup_result > .govuk-button').click();
     cy.get('#measure-2772105').contains('7.60 % + 99.88 EUR / 100 kg');
+    // 7.60 % + 99.88 EUR/100kg
     cy.get('#measure-3803683').contains('0.00 % + 9.90 EUR / 100 kg');
+    // 0 % + 9.90 EUR/100kg
+    // https://ec.europa.eu/taxation_customs/dds2/taric/measures.jsp?Lang=en&SimDate=20211006&Taric=1901100000&LangDescr=en
   });
+
   it('| ASDZ , ASDZR | 1806909019 - Iceland |', function() {
     cy.visit('/xi/commodities/1806909019');
     cy.contains('Commodity information for 1806909019');
@@ -46,8 +50,12 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').click().clear().type('476');
     cy.get('form#new_meursing_lookup_result > .govuk-button').click();
     cy.get('#measure-2051553').contains('8.30 % + 117.11 EUR / 100 kg MAX 18.70 % + 10.06 EUR / 100 kg');
+    // 8.30 % + 117.11 EUR/100kg MAX 18.70 % + 10.06 EUR/100kg
     cy.get('#measure-2972478').contains('117.11 EUR / 100 kg MAX 18.70 % + 9.75 EUR / 100 kg');
+    // 0 % + 117.11 EUR/100kg MAX 18.70 % + 9.75 EUR/100kg
+    // https://ec.europa.eu/taxation_customs/dds2/taric/measures.jsp?Lang=en&SimDate=20211006&Taric=1806909019&LangDescr=en
   });
+
   it('| ADFM , ADFMR | 1905320500 - Norway |', function() {
     cy.visit('/xi/commodities/1905320500');
     cy.contains('Commodity information for 1905320500');
@@ -60,8 +68,10 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').click().clear().type('476');
     cy.get('form#new_meursing_lookup_result > .govuk-button').click();
     cy.get('#measure-2544964').contains('9.00 % + 117.11 EUR / 100 kg MAX 20.70 % + 13.99 EUR / 100 kg');
-    //
+    // 9.00 % + 117.11 EUR/100kg MAX 20.70 % + 13.99 EUR/100kg
     cy.get('#measure-2972782').contains('0.00 % + 117.11 EUR / 100 kg MAX 20.70 % + 11.22 EUR / 100 kg');
-    //
+    // 0 % + 117.11 EUR/100kg MAX 20.70 % + 11.22 EUR/100kg
+    // 0 % + EAR(1) MAX 20.70 % +ADFMR(1)
+    // https://ec.europa.eu/taxation_customs/dds2/taric/measures.jsp?Lang=en&SimDate=20211006&Taric=1905320500&LangDescr=en
   });
 });

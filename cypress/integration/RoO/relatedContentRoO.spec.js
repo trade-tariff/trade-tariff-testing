@@ -12,7 +12,7 @@ describe('| relatedContentRoO - Related Content - links ', function() {
     cy.contains('The UK has signed an association agreement with Chile, which is in effect.');
     cy.contains('Related content');
     cy.contains('Check your goods meet the rules of origin').click();
-    cy.contains('Rules to establish the country of origin of imported and exported goods and to help identify goods which qualify for lower or no Customs Duty.');
+    cy.contains('Find out the rules to establish the country of origin of imported and exported goods and to help identify goods which qualify for lower or no Customs Duty.');
     cy.go('back');
     cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(2) > a').contains('UK-Chile association agreement').click();
     cy.contains('Documents containing treaty information and a summary of the agreement on trade between the UK and Chile.');
@@ -31,7 +31,7 @@ describe('| relatedContentRoO - Related Content - links ', function() {
     cy.contains('EU - Chile Association Agreement');
     cy.contains('Related content');
     cy.contains('Check your goods meet the rules of origin').click();
-    cy.contains('Rules to establish the country of origin of imported and exported goods and to help identify goods which qualify for lower or no Customs Duty.');
+    cy.contains('Find out the rules to establish the country of origin of imported and exported goods and to help identify goods which qualify for lower or no Customs Duty.');
     cy.go('back');
     cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(2) > a').contains('Moving goods into, out of, or through Northern Ireland').click();
     cy.contains('Moving goods into, out of, or through Northern Ireland.');
