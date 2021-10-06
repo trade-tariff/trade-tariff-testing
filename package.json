@@ -6,10 +6,12 @@
   "dependencies": {
     "@jc21/cypress-jsonschema-validation": "^0.0.1",
     "@jc21/cypress-swagger-validation": "^0.1.0",
+    "ansi-regex": "^5.0.1",
     "ansi-styles": "^6.1.0",
     "cypress-tags": "^0.2.0",
-    "glob-parent": "^6.0.1",
-    "postcss": "^7.0.36"
+    "glob-parent": "^5.1.2",
+    "postcss": "^7.0.36",
+    "set-value": "^4.0.1"
   },
   "devDependencies": {
     "allure-commandline": "^2.13.8",
