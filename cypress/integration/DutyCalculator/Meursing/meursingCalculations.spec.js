@@ -74,4 +74,9 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     // 0 % + EAR(1) MAX 20.70 % +ADFMR(1)
     // https://ec.europa.eu/taxation_customs/dds2/taric/measures.jsp?Lang=en&SimDate=20211006&Taric=1905320500&LangDescr=en
   });
+  it('| Validate old meursing links are removed |', function() {
+    cy.visit('/xi/commodities/1905320500');
+    cy.contains('Commodity information for 1905320500');
+    cy.contains('This commodity has a meursing code').should('not.exist');
+  });
 });

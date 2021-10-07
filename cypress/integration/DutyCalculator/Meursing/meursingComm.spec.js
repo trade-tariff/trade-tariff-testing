@@ -40,6 +40,6 @@ describe('| meursingComm | Store Commodity value in session for Meursing , Meurs
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').type('000');
     cy.contains('Save code and update duties').click();
 
-    // add validations for calculations with /without code 
+    // add validations for calculations with /without code
   });
 });
