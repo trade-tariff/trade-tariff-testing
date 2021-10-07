@@ -1,4 +1,4 @@
-describe('| meursinge2e | end to end journeys', function() {
+describe('| meursingeCodeE2e | end to end journeys', function() {
   it('| meursing code e2e journeys | 4 options |', function() {
     cy.visit('/xi/meursing_lookup/steps/start');
 
