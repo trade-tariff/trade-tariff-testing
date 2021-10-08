@@ -18,8 +18,8 @@ describe('| meursingComm | Store Commodity value in session for Meursing , Meurs
       cy.contains('Check your answers');
       cy.contains('Continue').click();
       cy.contains(`The Meursing additional code for a product with this composition is 7121.`);
+      cy.contains('Use these four digits together with the ten-digit commodity code from Trade Tariff to work out duties applicable to certain complex agri-foods on the Northern Ireland Tariff, when your import is considered to be \'at risk\'.');
       cy.contains(`Return to ${commcode[i]}`).click();
-      // cy.get('.govuk-list.govuk-list--bullet > li:nth-of-type(1) > a').click();
       cy.contains(`Commodity information for ${commcode[i]}`);
       cy.get('a#tab_import').click();
       cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').should('have.value', '121');
@@ -33,6 +33,7 @@ describe('| meursingComm | Store Commodity value in session for Meursing , Meurs
     cy.contains('This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.');
     cy.contains('Enter the 3-digit additional code');
     cy.contains('If you know the additional code for your commodity, enter it in the box below. If you do not know the code, then use the Meursing code finder to find the additional code. You will be able to return to this page once you have found the right Meursing additional code.');
+    
     cy.get('span#meursing-lookup-result-meursing-additional-code-id-hint > .govuk-link').click();
     cy.contains('Look up a Meursing code');
     cy.go(-1);

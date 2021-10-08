@@ -17,7 +17,6 @@ NO	Norway
 SG	Singapore
 
  REDUCTION INDICATOR FOR ISRAEL
-
 */
 describe('| meursingCalculations | Third Country Duty and Tariff Preference calculations', function() {
   it('| EA , EAR | 1901100000 - Costa Rica |', function() {

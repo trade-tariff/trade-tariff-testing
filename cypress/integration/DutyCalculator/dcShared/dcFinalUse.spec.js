@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('🧮 | dcFinalUse | Final Use - page |', function() {
   it('UK - Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
@@ -67,9 +68,9 @@ describe('🧮 | dcFinalUse | Final Use - page |', function() {
     // ✅ Trader Scheme Registered - Yes
     cy.traderScheme('yes');
     // main page title
-    cy.contains('Are your goods for sale to, or final use by, end-consumers located in the Northern Ireland?');
-    cy.contains('Yes, I am moving these goods into Northern Ireland for its sale to, or final use by, end-consumers located in the Northern Ireland');
-    cy.contains('No, these goods will not be for final use in the Northern Ireland');
+    cy.contains('Are your goods for sale to, or final use by, end-consumers located in Northern Ireland?');
+    cy.contains('Yes, I am moving these goods into Northern Ireland for its sale to, or final use by, end-consumers located in Northern Ireland');
+    cy.contains('No, these goods will not be for final use in Northern Ireland');
 
     // error messages - nothing is entered
     cy.contains('Continue').click();
@@ -109,6 +110,6 @@ describe('🧮 | dcFinalUse | Final Use - page |', function() {
     cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
     cy.go(-1);
-    cy.contains('Are your goods for sale to, or final use by, end-consumers located in the Northern Ireland?');
+    cy.contains('Are your goods for sale to, or final use by, end-consumers located in Northern Ireland?');
   });
 });

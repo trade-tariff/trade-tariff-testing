@@ -193,7 +193,7 @@ Cypress.Commands.add('finalUse', (value)=>{
 });
 // final use NI
 Cypress.Commands.add('finalUseNI', (value) => {
-  cy.contains('Are your goods for sale to, or final use by, end-consumers located in the Northern Ireland?');
+  cy.contains('Are your goods for sale to, or final use by, end-consumers located in Northern Ireland?');
   cy.title().should('eq', 'Are your goods for final use in the UK - Online Tariff Duty calculator');
   if (value === 'yes') {
     cy.get('div:nth-of-type(1) > input[name=\'steps_final_use[final_use]\']').check();
@@ -288,4 +288,45 @@ Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.waitForCommoditySearchResults();
   cy.get('input[name=\'new_search\']').click();
 });
+Cypress.Commands.add('getExchangeRateForImportDate', (importDate) => {
+  const applicableExchangeRate = null;
 
+  cy.request({
+    method: 'GET',
+    url: `https://www.trade-tariff.service.gov.uk/xi/api/v2/monetary_exchange_rates/`,
+  }).then((response) => {
+    const importYear = importDate.getFullYear();
+    const importMonth = importDate.getMonth();
+    // const applicableExchangeRates = response.body.data;
+    const applicableExchangeRates = [
+      {
+        'id': '483',
+        'type': 'monetary_exchange_rate',
+        'attributes': {
+          'child_monetary_unit_code': 'GBP',
+          'exchange_rate': '0.7298',
+          'operation_date': '2016-01-29',
+          'validity_start_date': '2016-01-01T00:00:00.000Z',
+        },
+      },
+      {
+        'id': '485',
+        'type': 'monetary_exchange_rate',
+        'attributes': {
+          'child_monetary_unit_code': 'GBP',
+          'exchange_rate': '0.75965',
+          'operation_date': '2016-02-26',
+          'validity_start_date': '2016-02-01T00:00:00.000Z',
+        },
+      },
+    ];
+
+    applicableExchangeRate = applicableExchangeRates.prototype.find((exchangeRate) => {
+      const startDate = new Date(exchangeRate.validity_start_date);
+
+      startDate.getFullYear === importYear && startDate.getMonth === importMonth;
+    });
+  });
+
+  return applicableExchangeRate;
+});
