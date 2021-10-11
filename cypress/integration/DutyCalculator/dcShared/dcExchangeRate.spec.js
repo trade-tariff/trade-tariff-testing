@@ -1,14 +1,26 @@
 /* eslint-disable no-unused-vars */
 describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and future dates |', function() {
-  it('Exchange rate validations ', function() {
-    const days = ['1', '1', '1', '13'];
-    const months = ['1', '3', '10', '12'];
-    const years = ['2021', '2021', '2021', '2022'];
-    const exchangerates = ['0.9086', '0.8705', '0.8595', '0.8595'];
+  before(function() {
+    cy.storeMonetaryExchangeRates();
+  });
 
-    for (let i =0; i<days.length; i++) {
+  it('Exchange rate validations ', function() {
+    const importDates = [
+      '2021-01-01',
+      '2021-03-01',
+      '2021-10-01',
+      '2022-12-13',
+    ];
+
+    for (let i =0; i<importDates.length; i++) {
+      const importDateString = importDates[i];
+      const importDate = new Date(importDateString);
+      const importYear = importDate.getFullYear();
+      const importMonth = importDate.getMonth() + 1;
+      const importDay = importDate.getDate();
+
       cy.visit('/duty-calculator/uk/7202118000/import-date');
-      cy.enterDate({day: `${days[i]}`, month: `${months[i]}`, year: `${years[i]}`});
+      cy.enterDate({day: importDay, month: importMonth, year: importYear});
 
       cy.contains('Continue').click();
       // destination
@@ -28,30 +40,13 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
       cy.contains('Continue').click();
       // confirm
       cy.get('.govuk-button').click();
-      cy.contains(`${exchangerates[i]}`);
-      cy.contains(`Please note - the current page uses an exchange rate of`);
-      cy.contains('GBP to EUR.');
+      cy.getExchangeRateForImportDate(importDateString).then(
+          (exchangeRate) => {
+            const rate = parseFloat(exchangeRate.attributes.exchange_rate).toFixed(4);
 
-      /*
-      // Exchange Rate
-      cy.request({
-        method: 'GET',
-        url: `https://www.trade-tariff.service.gov.uk/xi/api/v2/monetary_exchange_rates/`,
-      }).then((response) => {
-        expect(response.status).to.eq(200);
-        // console.log(JSON.stringify(response.body))
-        const exchangerate = response.body.data[69].attributes.exchange_rate;
-        const m = parseFloat(exchangerate).toFixed(4);
-        //   let n = exchangerate.toFixed(3)
-        // Updated on 1st October - change to dynamic
-        const startdate = response.body.data[69].attributes.validity_start_date;
-        console.log(startdate);
-        console.log(m);
-        cy.contains(m);
-        cy.contains(`Please note - the current page uses an exchange rate of`);
-        cy.contains('GBP to EUR.');
-      });
-    */
+            cy.contains(rate);
+          },
+      );
     }
   });
 });
