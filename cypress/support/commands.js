@@ -288,45 +288,39 @@ Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.waitForCommoditySearchResults();
   cy.get('input[name=\'new_search\']').click();
 });
-Cypress.Commands.add('getExchangeRateForImportDate', (importDate) => {
-  const applicableExchangeRate = null;
 
+Cypress.Commands.add('storeMonetaryExchangeRates', () => {
   cy.request({
     method: 'GET',
     url: `https://www.trade-tariff.service.gov.uk/xi/api/v2/monetary_exchange_rates/`,
   }).then((response) => {
-    const importYear = importDate.getFullYear();
-    const importMonth = importDate.getMonth();
-    // const applicableExchangeRates = response.body.data;
-    const applicableExchangeRates = [
-      {
-        'id': '483',
-        'type': 'monetary_exchange_rate',
-        'attributes': {
-          'child_monetary_unit_code': 'GBP',
-          'exchange_rate': '0.7298',
-          'operation_date': '2016-01-29',
-          'validity_start_date': '2016-01-01T00:00:00.000Z',
-        },
-      },
-      {
-        'id': '485',
-        'type': 'monetary_exchange_rate',
-        'attributes': {
-          'child_monetary_unit_code': 'GBP',
-          'exchange_rate': '0.75965',
-          'operation_date': '2016-02-26',
-          'validity_start_date': '2016-02-01T00:00:00.000Z',
-        },
-      },
-    ];
+    const exchangeRates = response.body.data;
 
-    applicableExchangeRate = applicableExchangeRates.prototype.find((exchangeRate) => {
-      const startDate = new Date(exchangeRate.validity_start_date);
-
-      startDate.getFullYear === importYear && startDate.getMonth === importMonth;
+    exchangeRates.sort((exchangeRateA, exchangeRateB) => {
+      exchangeRateA.validity_start_date - exchangeRateB.validity_start_date;
     });
+
+    Cypress.env('monetaryExchangeRates', exchangeRates);
+  });
+});
+
+Cypress.Commands.add('getExchangeRateForImportDate', (importDate) => {
+  const importYear = importDate.getFullYear();
+  const importMonth = importDate.getMonth();
+
+  const applicableExchangeRates = Cypress.env('monetaryExchangeRates');
+
+  let applicableExchangeRate = applicableExchangeRates.find((exchangeRate) => {
+    const startDate = new Date(exchangeRate.attributes.validity_start_date);
+
+    return startDate.getFullYear() === importYear && startDate.getMonth() === importMonth;
   });
 
-  return applicableExchangeRate;
+  if (!applicableExchangeRate) {
+    const lastExchangeRateIndex = applicableExchangeRates.length - 1;
+
+    applicableExchangeRate = applicableExchangeRates[lastExchangeRateIndex];
+  }
+
+  return cy.wrap(applicableExchangeRate);
 });

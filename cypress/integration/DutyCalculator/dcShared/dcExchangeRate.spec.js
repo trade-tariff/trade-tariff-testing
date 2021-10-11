@@ -29,10 +29,9 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
       // confirm
       cy.get('.govuk-button').click();
       cy.contains(`${exchangerates[i]}`);
-      cy.contains(`Please note - the current page uses an exchange rate of`);
-      cy.contains('GBP to EUR.');
+    }
 
-      /*
+    /*
       // Exchange Rate
       cy.request({
         method: 'GET',
@@ -52,6 +51,5 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
         cy.contains('GBP to EUR.');
       });
     */
-    }
   });
 });
