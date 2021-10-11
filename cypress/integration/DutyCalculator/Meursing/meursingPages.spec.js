@@ -82,7 +82,7 @@ describe('| meursingPages | Page validations |', function() {
     cy.contains('Your Meursing code');
     cy.contains('The Meursing additional code for a product with this composition is 7000.');
     cy.contains('What next');
-    cy.contains('Use these four digits together with the ten-digit commodity code from Trade Tariff to work out duties applicable to certain complex agri-foods on the the Northern Ireland Tariff, when your import is considered to be \'at risk\'.');
+    cy.contains('Use these four digits together with the ten-digit commodity code from Trade Tariff to work out duties applicable to certain complex agri-foods on the Northern Ireland Tariff, when your import is considered to be \'at risk\'.');
     cy.contains('Start again');
     // Change values and check code
     cy.get('.govuk-back-link').click();
