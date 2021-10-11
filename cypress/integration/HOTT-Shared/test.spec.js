@@ -1,5 +1,5 @@
-describe.skip('🚀 | test.spec.js |  |', function() {
+describe('🚀 | test.spec.js |  |', function() {
   it('Test Spec ', function() {
-    cy.getExchangeRateForImportDate(2016-01-29);
+    cy.getExchangeRateForImportDate('2021-01-29');
   });
 });
