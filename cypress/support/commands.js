@@ -304,7 +304,8 @@ Cypress.Commands.add('storeMonetaryExchangeRates', () => {
   });
 });
 
-Cypress.Commands.add('getExchangeRateForImportDate', (importDate) => {
+Cypress.Commands.add('getExchangeRateForImportDate', (importDateString) => {
+  const importDate = new Date(importDateString);
   const importYear = importDate.getFullYear();
   const importMonth = importDate.getMonth();
 
