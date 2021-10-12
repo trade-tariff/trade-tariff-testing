@@ -3,7 +3,7 @@ describe('🇬🇧💡 🇯🇵 | JapanTrade-UK | Future date - Japan Trade Agre
     // Tariff preference rate till 1st February 2022
     cy.visit('/commodities/0301190000?b=n&country=JP&day=31&month=1&year=2022#import');
     cy.get('.small-table');
-    cy.contains('Japan (JP)');
+    cy.contains('Japan(JP)');
     cy.contains('Tariff preference');
     cy.contains('4.70 %');
     cy.contains('01/02/2021');
