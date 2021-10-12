@@ -19,13 +19,14 @@ jobs:
       - run: mkdir -p cypress/reports/mochareports
 
       - uses: cypress-io/github-action@v2
-        name: "All tests"
+        name: cypress
+        id: cypress
         continue-on-error: true
         with:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/*spec.js"
+          spec: "*/**/**/*japanTrade-UK.spec.js"
 
       - run: npm run posttests
 
