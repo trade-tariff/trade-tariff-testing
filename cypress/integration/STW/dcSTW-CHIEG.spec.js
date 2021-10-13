@@ -30,7 +30,7 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.noDuty();
   });
 
-  it('ROW-GB |non-zero-mfn | Customs value page |', function() {
+  it('ROW-GB | non-zero-mfn | Customs value page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=3926909790&country_of_origin=AF&import_date=2021-01-01&import_destination=UK');
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.additionalCode({uk: '2601'});
@@ -71,7 +71,7 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
   });
-  it('ROW-XI |trade_defence false && non-zero-mfn | UK Trader Scheme page |', function() {
+  it('ROW-XI | trade_defence false && non-zero-mfn | UK Trader Scheme page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=6307909200&country_of_origin=SG&import_date=2021-01-01&import_destination=XI');
     // Trader Scheme
     cy.traderScheme('yes');
@@ -129,7 +129,7 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.contains('This type of aid is measured in euros, so it is important to convert any aid received in pound sterling into euros. You can use this exchange rate tool to calculate the applicable euro equivalent of the value of the aid for the month you were awarded the aid.');
   });
 
-  it('GB-XI |trade defence false && non-zero mfn | trader scheme page|', function() {
+  it('GB-XI | trade defence false && non-zero mfn | trader scheme page|', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=GB&import_date=2021-12-31&import_destination=XI');
     // 🚫 Trader Scheme Registered - no
     cy.traderScheme('no');

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
-describe('| retainDate | retain as of on commodity headings API', function() {
+describe('| retainDateAPI | retain as of on commodity headings API', function() {
   it('UK - V2 - commodity heading API', function() {
     const comms = ['0409000000', '0510000000', '8804000000', '2509000000', '2802000000', '3101000000', '3914000000', '4004000000', '4812000000', '5001000000', '4112000000', '4705000000'];
     for (let i=0; i<comms.length; i++) {
