@@ -18,7 +18,7 @@ describe('| specialDescriptionRoO - Rules with special descriptions ', function(
             .type('Japan').wait(500)
             .type('{enter}');
         cy.contains('Rules of origin').click();
-        cy.contains('Rules of origin for trading with Japan');
+        cy.contains('Preferential rules of origin for trading with Japan');
         cy.contains(`${descriptions[i]}`);
       });
     }

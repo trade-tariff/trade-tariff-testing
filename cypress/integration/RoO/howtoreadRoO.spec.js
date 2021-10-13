@@ -5,14 +5,14 @@ describe('| howtoreadRoO - link and copy ', function() {
   const countries = ['', 'xi'];
   const service = ['UK', 'EU'];
   for (let i=0; i<countries.length; i++) {
-    it(`${service[i]}| UK Service - HTR link |`, function() {
+    it(`${service[i]}| Service - HTR link |`, function() {
       cy.visit(`${countries[i]}/commodities/0702000007`);
       cy.contains('Rules of origin').click();
       cy.get('input#search_country').click().clear().wait(500)
           .type('Japan').wait(500)
           .type('{enter}');
       cy.contains('Rules of origin').click();
-      cy.contains('Rules of origin for trading with Japan');
+      cy.contains('Preferential rules of origin for trading with Japan');
       cy.contains('How to read rules of origin').click();
       cy.contains('The rules of origin table contains:');
       cy.contains('Introductory notes');
