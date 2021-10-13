@@ -1,11 +1,7 @@
-describe.skip('🚀 | test.spec.js | Front end - mainpage |', function() {
-  beforeEach(function() {
-    cy.storeMonetaryExchangeRates();
-  });
-
-  it('🚀 UK 🇬🇧 - Main Page Validation', function() {
-    cy.getExchangeRateForImportDate('2021-11-01').then(
-        (exchangeRate) => console.log(exchangeRate.attributes.exchange_rate),
-    );
+describe('test spec', function() {
+  it('test', function() {
+    const num = '0409000000';
+    const m = num.substring(0, 4);
+    console.log(m);
   });
 });

@@ -46,6 +46,16 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
     cy.contains('Reference Document for The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020');
     cy.go(-1);
     cy.get('.govuk-grid-column-two-thirds > .govuk-heading-m').contains('Preferential rules of origin');
+    // proving originating status + claiming pref treatment links
+    cy.contains('Proving originating status and claiming preferential treatment');
+    cy.contains('The customs authority of the importing party will grant preferential tariff treatment, based on a claim made by the importer, to goods that originate in the other party that meet the conditions of the Trade Agreement');
+    cy.contains('A claim can be made if the importer has one of the following proofs of origin:');
+    cy.contains('EUR1 or EUR.MED movement certificate').click();
+    cy.contains('EUR1 and EUR-MED movement certificates');
+    cy.go(-1);
+    cy.contains('Invoice declaration').click();
+    cy.contains('Origin declaration');
+    cy.contains('You can make an origin declaration (also known as an ‘invoice declaration’ or ‘statement on origin’) on a commercial document that has enough detail in it to identify the origin of the goods. The document could be:');
   });
 
   it('| UK | USA 🇺🇸 - Countries with which there is no trade agreement  |', function() {
@@ -102,5 +112,4 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
     cy.get('.govuk-table__row').contains('Heading');
     cy.contains('Non-preferential rules of origin');
   });
-
 });
