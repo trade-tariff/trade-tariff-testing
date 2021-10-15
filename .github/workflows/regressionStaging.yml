@@ -1,4 +1,4 @@
-name: " 🛎️ | Staging | Regression Pack |"
+name: "| Staging | Regression Pack |"
 
 on:
   schedule:
