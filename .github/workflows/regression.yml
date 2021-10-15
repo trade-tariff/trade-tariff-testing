@@ -1,7 +1,7 @@
 name: "| Production | Regression Pack |"
 on:
   schedule:
-    - cron: "00 05 * * *"
+    - cron: "00 06 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
@@ -26,7 +26,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/test.spec.js"
+          spec: "*/**/**/*spec.js"
 
       - run: npm run posttests
 
@@ -68,7 +68,7 @@ jobs:
         env:
           SLACK_USERNAME: 'Production Regression'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_COLOR: ${{ steps.cypress.outcome }}
+          SLACK_COLOR: ${{ job.status }}
           SLACK_ICON_EMOJI: ':alphabet-yellow-p:'
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ steps.date.outputs.date }}/

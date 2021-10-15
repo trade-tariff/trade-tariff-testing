@@ -17,13 +17,13 @@ beforeEach(() => {
 // UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('MainPageUK', ()=>{
   // check header has UK information
-  cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
-  cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK');
+  cy.contains('Look up commodity codes, duty and VAT rates');
+  cy.title().should('eq', 'UK Integrated Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK');
   cy.get('.govuk-header ')
       .contains('UK Integrated Online Tariff');
   // check correct text is displayed on banner as per UK - If they are at risk
-  cy.get('.tariff-breadcrumbs')
-      .should('have.text', 'If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.');
+
+  cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.');
   // Search the tariff section
   cy.get('.govuk-label')
       .contains('Search the UK Integrated Online Tariff');
@@ -36,13 +36,12 @@ Cypress.Commands.add('MainPageUK', ()=>{
 // XI Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('MainPageXI', ()=>{
   // check header has UK information
-  cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates');
-  cy.title().should('eq', 'Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK');
+  cy.contains('Look up commodity codes, duty and VAT rates');
+  cy.title().should('eq', 'Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK');
   cy.get('.govuk-header ')
       .contains('Northern Ireland Online Tariff');
   // check correct text is displayed on banner as per UK - If they are at risk
-  cy.get('.tariff-breadcrumbs')
-      .should('have.text', 'If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.');
+  cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.');
   cy.get('.tariff-breadcrumbs').contains('UK Integrated Online Tariff');
   // Search the tariff section
   cy.get('.govuk-label')
