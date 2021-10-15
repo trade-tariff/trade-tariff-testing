@@ -2,7 +2,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
   it('UK - Search Commodity by name ', function() {
     cy.visit('/sections');
     // changed on 11/02/2021
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     // changed on 11/02/2021
     cy.contains('Search or browse the Tariff');
     // changed on 11/02/2021
@@ -22,7 +22,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
 
   it('UK - Search Commodity by code ', function() {
     cy.visit('/sections');
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
     cy.contains('Commodity information for 3808941000');
@@ -30,13 +30,13 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
 
   it('UK - Search Commodity by heading code - displays headings page', function() {
     cy.visit('/sections');
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     cy.searchForCommodity('38089410');
     cy.contains('Choose the commodity code below that best matches your goods to see more information');
   });
   it('UK - Search unknown commodity ', function() {
     cy.visit('/sections');
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
     cy.get('.js-commodity-picker-select').click().type('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf');

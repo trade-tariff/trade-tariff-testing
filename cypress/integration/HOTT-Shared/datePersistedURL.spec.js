@@ -3,7 +3,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
 
   it(' Date persisted on import ', function() {
     cy.visit(`/sections`);
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
     cy.contains('Commodity information for 0702000007');
@@ -63,7 +63,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
   });
   it(' Date persisted on export ', function() {
     cy.visit('/sections');
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
     cy.contains('Commodity information for 0702000007');

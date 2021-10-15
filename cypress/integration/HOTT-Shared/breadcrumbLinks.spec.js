@@ -13,7 +13,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks | Validate breadcrum links a
       cy.get('.desktop-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
-      cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+      cy.contains('Look up commodity codes, duty and VAT rates');
     });
     it(`Mobile UK - ${comm[i]} commodity,headings page`, function() {
       cy.viewport('iphone-x');
@@ -21,7 +21,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks | Validate breadcrum links a
       cy.get('.mobile-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
-      cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+      cy.contains('Look up commodity codes, duty and VAT rates');
     });
 
     it(`Desktop XI - ${comm[i]} commodity,headings page`, function() {
@@ -29,7 +29,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks | Validate breadcrum links a
       cy.get('.desktop-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
-      cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates');
+      cy.contains('Look up commodity codes, duty and VAT rates');
     });
     it(`Mobile XI - ${comm[i]} commodity,headings page`, function() {
       cy.viewport('iphone-x');
@@ -37,7 +37,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks | Validate breadcrum links a
       cy.get('.mobile-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
-      cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates');
+      cy.contains('Look up commodity codes, duty and VAT rates');
     });
   }
 });

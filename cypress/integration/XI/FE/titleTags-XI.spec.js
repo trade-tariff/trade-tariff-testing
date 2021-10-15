@@ -2,7 +2,7 @@ describe('🇪🇺 💡 | titleTags-XI | Validating page titles tags - meta data
   it('🧷 Landing Page - Northern Ireland Online Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK', function() {
     cy.visit('/xi/sections');
     cy.log(cy.title());
-    cy.title().should('eq', 'Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK');
+    cy.title().should('eq', 'Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK');
   });
   it('🧷 Section Page - Live animals; animal products - The Northern Ireland (EU) Tariff - GOV.UK', function() {
     cy.visit('/xi/sections/1');
