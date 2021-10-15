@@ -26,7 +26,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/*spec.js"
+          spec: "*/**/**/test.spec.js"
 
       - run: npm run posttests
 
