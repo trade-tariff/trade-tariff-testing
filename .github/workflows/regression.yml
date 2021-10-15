@@ -1,7 +1,7 @@
 name: "| Production | Regression Pack |"
 on:
   schedule:
-    - cron: "00 05 * * *"
+    - cron: "00 06 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
@@ -26,7 +26,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/test.spec.js"
+          spec: "*/**/**/*spec.js"
 
       - run: npm run posttests
 

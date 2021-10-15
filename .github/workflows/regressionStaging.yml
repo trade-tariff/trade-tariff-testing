@@ -2,7 +2,7 @@ name: "| Staging | Regression Pack |"
 
 on:
   schedule:
-    - cron: "00 04 * * *"
+    - cron: "00 05 * * *"
   workflow_dispatch:
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/test.spec.js"
+          spec: "*/**/**/*spec.js"
 
       - run: npm run posttests
 
