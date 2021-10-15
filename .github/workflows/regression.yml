@@ -1,4 +1,4 @@
-name: " ✏️ | Production | Regression Pack |"
+name: "| Production | Regression Pack |"
 on:
   schedule:
     - cron: "00 05 * * *"
@@ -26,7 +26,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/*spec.js"
+          spec: "*/**/**/test.spec.js"
 
       - run: npm run posttests
 
@@ -66,8 +66,10 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         if: ${{ steps.cypress.outcome == 'failure' }}
         env:
+          SLACK_USERNAME: 'Production Regression'
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_ICON_EMOJI: ':bell:'
+          SLACK_COLOR: ${{ steps.cypress.outcome }}
+          SLACK_ICON_EMOJI: ':alphabet-yellow-p:'
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ steps.date.outputs.date }}/
 
