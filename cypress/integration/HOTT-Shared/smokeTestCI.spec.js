@@ -87,7 +87,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   it('🚀 UK 🇬🇧 - Search Commodity by name ', function() {
     cy.visit('/sections');
     // changed on 11/02/2021
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     // changed on 11/02/2021
     cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff');
     // changed on 11/02/2021
@@ -104,7 +104,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   // Commodity Search functionality - comm code search
   it('🚀 UK 🇬🇧 - Search Commodity by code ', function() {
     cy.visit('/sections');
-    cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
     cy.get('.js-commodity-picker-select').click().type('3808941000');
@@ -281,7 +281,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   it('🚀 XI 🇪🇺 - Search Commodity by name ', function() {
     cy.visit('/xi/sections');
     // changed on 11/02/2021
-    cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     // changed on 11/02/2021
     cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff');
     // changed on 11/02/2021
@@ -297,7 +297,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   // Commodity Search functionality - comm code search
   it('🚀 XI 🇪🇺 - Search Commodity by code ', function() {
     cy.visit('/xi/sections');
-    cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates');
+    cy.contains('Look up commodity codes, duty and VAT rates');
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
     cy.get('.js-commodity-picker-select').click().type('3808941000');
