@@ -1,4 +1,4 @@
-name: " 🛎️ | Regression Pack | Staging |"
+name: " 🛎️ | Staging | Regression Pack |"
 
 on:
   schedule:
@@ -28,7 +28,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true       
-          spec: "*/**/**/*spec.js"
+          spec: "*/**/**/test.spec.js"
 
       - run: npm run posttests
 
@@ -70,6 +70,7 @@ jobs:
         if: ${{ steps.cypress.outcome == 'failure' }}
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_ICON_EMOJI: ':alphabet-yellow-s:'
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
 
