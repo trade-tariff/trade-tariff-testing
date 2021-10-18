@@ -313,7 +313,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // XI Present
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-        .contains('Northern Ireland (XI)');
+        .contains('No results found');
 
     // Andora should be present
     cy.get('input#search_country').click().clear().wait(500).type('(AD)');
