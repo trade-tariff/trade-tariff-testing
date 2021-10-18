@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI version) |', function() {
   // --- HOTT-82 -------------
   // Page Title
@@ -10,26 +11,22 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     cy.visit('/xi/sections');
     cy.get('.govuk-header').should('be.visible', 'GOV.UK');
   });
-  // Sub sections in headings
-  it('XI - Header text - Page -sections -Sub sections on headings banner ', function() {
-    cy.visit('/xi/sections');
-    cy.get('.govuk-header ');
-    cy.contains('Search or browse the Tariff');
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Additional code').should('not.exist');
-    cy.contains('Certificate').should('not.exist');
-    cy.contains('Footnotes').should('not.exist');
-    cy.contains('Quotas').should('not.exist');
-    cy.contains('CAS').should('not.exist');
-    cy.contains('Exchange rates').should('not.exist');
-    cy.contains('Forum').should('not.exist');
-  });
-
-  it('XI - Sections Page - Forum section removed', function() {
-    cy.visit('/xi/sections');
-    cy.get('.govuk-header ');
-    cy.contains('Forum').should('not.exist');
+ it('XI - sections details on heading ', function() {
+    cy.visit('xi/sections');
+    cy.contains('Look up commodity codes, duty and VAT rates');
+    cy.contains(' Live animals; animal products').click();
+    cy.contains('Section I: Live animals; animal products');
+    cy.contains('Section I contains 5 chapters. Choose the chapter that best matches your goods.');
+    cy.contains('There are important section notes for this part of the tariff:');
+    cy.title().should('eq', 'Live animals; animal products - Northern Ireland Online Tariff - GOV.UK');
+    cy.get('li:nth-of-type(1) > .govuk-breadcrumbs__link').click();
+    cy.contains('Look up commodity codes, duty and VAT rates');
+    // check other sections
+    cy.contains('Wood and articles of wood; wood charcoal; cork and articles of cork; manufactures of straw, of esparto or of other plaiting materials; basket-ware and wickerwork').click();
+    cy.contains('Section IX: Wood and articles of wood; wood charcoal; cork and articles of cork; manufactures of straw, of esparto or of other plaiting materials; basket-ware and wickerwork');
+    cy.contains('Section IX contains 3 chapters. Choose the chapter that best matches your goods.');
+    cy.get('li:nth-of-type(2) > .govuk-breadcrumbs__link').click();
+    cy.contains('Section IX contains 3 chapters. Choose the chapter that best matches your goods.');
   });
   it('XI - Heading 2902', function() {
     cy.visit('/xi/headings/2902');

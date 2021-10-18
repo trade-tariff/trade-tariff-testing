@@ -2,10 +2,10 @@
 describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |', function() {
   it('UK Country Selection - imports ', function() {
     cy.visit('/commodities/0208909800#import');
-    // no XI
+    //  XI
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+        .contains('United Kingdom (Northern Ireland) (XI)');
 
     // Andorra should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD').wait(700);
@@ -25,10 +25,10 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
   });
   it('UK Country Selection - exports ', function() {
     cy.visit('/commodities/0208909800#export');
-    // no XI
+    //  XI
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+        .contains('Northern Ireland (XI)');
 
     // Andorra should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD').wait(700);
