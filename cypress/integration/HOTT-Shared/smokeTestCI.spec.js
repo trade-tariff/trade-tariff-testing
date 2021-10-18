@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke tests to cover basic functionality on UK & XI services |', function() {
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
@@ -117,7 +118,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   // Country selection - imports
   it('🚀 UK 🇬🇧 - Country Selection ', function() {
     cy.visit('/commodities/0208909800');
-    // no XI
+    // XI
     cy.get('input#search_country').click().clear().wait(200).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
         .contains('No results found');
@@ -310,7 +311,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
 
   it('🚀 XI 🇪🇺 - Country Selection', function() {
     cy.visit('/xi/commodities/0208909800');
-    // XI Present
+    // XI removed
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
         .contains('No results found');
