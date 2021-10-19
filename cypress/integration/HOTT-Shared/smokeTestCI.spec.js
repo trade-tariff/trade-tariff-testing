@@ -94,12 +94,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
 
-    cy.get('.js-commodity-picker-select').click().type('gherkins');
-    // select from suggestion drop down
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    //  cy.wait(500)
+    cy.searchForCommodity('gherkins');
     cy.contains('Search results for ‘gherkins’');
   });
   // Commodity Search functionality - comm code search
@@ -108,11 +103,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
-    cy.get('.js-commodity-picker-select').click().type('3808941000');
-    cy.get('li#q__option--0');
-    cy.wait(300);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
+    cy.searchForCommodity('3808941000');
     cy.contains('Commodity information for 3808941000');
   });
   // Country selection - imports
@@ -288,11 +279,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
 
-    cy.get('.js-commodity-picker-select').click().type('gherkins');
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
+    cy.searchForCommodity('gherkins');
     cy.contains('Search results for ‘gherkins’');
   });
   // Commodity Search functionality - comm code search
@@ -301,11 +288,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
-    cy.get('.js-commodity-picker-select').click().type('3808941000');
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
+    cy.searchForCommodity('3808941000');
     cy.contains('Commodity information for 3808941000');
   });
 
