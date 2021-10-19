@@ -23,7 +23,7 @@ describe('smallBrewery.spec.js | small brewery copy and link', function() {
   });
   it('XI - small brewery copy and link X440,X441', function() {
     cy.visit('xi/commodities/2203000100#import');
-    cy.get('div#import > table:nth-of-type(1) > tbody > tr:nth-of-type(3) > td:nth-of-type(4) > a[role=\'button\']').click();
+    cy.get('div#import > table:nth-of-type(2) > tbody > tr:nth-of-type(3) > td:nth-of-type(4) > a[role=\'button\']').click();
     cy.contains('Excise duty on beer from small breweries');
     cy.contains('Excise code 440 - Beer made in the UK – small brewery beer eligible to reduced rates (variable rate, that is, annual production more than 5,000 hectolitres but not exceeding for 60,000 hectolitres)');
     cy.contains('Small Brewers Relief (SBR) provides for reduced rates of beer duty for small brewers.');

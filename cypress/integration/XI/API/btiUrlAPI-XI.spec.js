@@ -19,7 +19,7 @@ context('🇪🇺 ⚙️ XI - Update bti URL on V1 and V2 ', () => {
       expect(response.status).to.eq(200);
       console.log(JSON.stringify(response.body));
       expect(response.body).not.to.be.null;
-      expect(response.body).to.have.property('bti_url')
+      expect(response.body.data.attributes).to.have.property('bti_url')
           .contains('https://www.gov.uk/guidance/check-what-youll-need-to-get-a-legally-binding-decision-on-a-commodity-code');
     });
   });
