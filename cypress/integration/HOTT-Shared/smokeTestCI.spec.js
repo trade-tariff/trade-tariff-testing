@@ -94,12 +94,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
 
-    cy.get('.js-commodity-picker-select').click().type('gherkins');
-    // select from suggestion drop down
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    //  cy.wait(500)
+    cy.searchForCommodity('gherkins');
     cy.contains('Search results for ‘gherkins’');
   });
   // Commodity Search functionality - comm code search
@@ -108,36 +103,24 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
-    cy.get('.js-commodity-picker-select').click().type('3808941000');
-    cy.get('li#q__option--0');
-    cy.wait(300);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
+    cy.searchForCommodity('3808941000');
     cy.contains('Commodity information for 3808941000');
   });
   // Country selection - imports
   it('🚀 UK 🇬🇧 - Country Selection ', function() {
     cy.visit('/commodities/0208909800');
+
     // XI
-    cy.get('input#search_country').click().clear().wait(200).type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(XI)').contains('No results found') ;
 
     // Andorra should be present
-    cy.get('input#search_country').click().clear().wait(200).type('(AD)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Andorra (AD)');
+    cy.searchForCountry('(AD)').contains('Andorra (AD)') ;
 
-    // no GB - United Kingdom (excluding Northern Ireland) (GB)
-    cy.get('input#search_country').click().clear().wait(200).type('(GB)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    // no GB = United Kingdom (excluding Northern Ireland) (GB)
+    cy.searchForCountry('(GB)').contains('No results found') ;
 
     // no XU
-    cy.get('input#search_country').click().clear().wait(200).type('(XU)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-    //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
-        .contains('No results found');
+    cy.searchForCountry('(XU)').contains('No results found') ;
   });
 
   // Date picker working and persists on UK XI sites
@@ -288,11 +271,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
 
-    cy.get('.js-commodity-picker-select').click().type('gherkins');
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
+    cy.searchForCommodity('gherkins');
     cy.contains('Search results for ‘gherkins’');
   });
   // Commodity Search functionality - comm code search
@@ -301,33 +280,22 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
-    cy.get('.js-commodity-picker-select').click().type('3808941000');
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
+    cy.searchForCommodity('3808941000');
     cy.contains('Commodity information for 3808941000');
   });
 
   it('🚀 XI 🇪🇺 - Country Selection', function() {
     cy.visit('/xi/commodities/0208909800');
+
     // XI removed
-    cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(XI)').contains('No results found') ;
 
     // Andora should be present
-    cy.get('input#search_country').click().clear().wait(500).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Andorra (AD)');
+    cy.searchForCountry('(AD)').contains('Andorra (AD)') ;
     //  GB Present
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('United Kingdom (excluding Northern Ireland) (GB)');
-    // no XU
-    cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(GB)').contains('United Kingdom (excluding Northern Ireland) (GB)') ;
+    // No XU
+    cy.searchForCountry('(XU)').contains('No results found') ;
   });
   it(`🚀 XI 🇪🇺 📱 - Mobile - nav-bar validation`, function() {
     const sizes = ['iphone-6', 'samsung-note9'];
