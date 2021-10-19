@@ -288,6 +288,16 @@ Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.get('input[name=\'new_search\']').click();
 });
 
+Cypress.Commands.add('waitForCountrySearchResults', () => {
+  cy.get('ul#search_country__listbox').should('be.visible');
+});
+
+Cypress.Commands.add('searchForCountry', (searchString) => {
+  cy.get('input#search_country').click().clear().type(searchString);
+  cy.waitForCountrySearchResults();
+  return cy.get('ul#search_country__listbox li') ;
+});
+
 Cypress.Commands.add('storeMonetaryExchangeRates', () => {
   cy.request({
     method: 'GET',

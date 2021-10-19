@@ -109,26 +109,18 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   // Country selection - imports
   it('🚀 UK 🇬🇧 - Country Selection ', function() {
     cy.visit('/commodities/0208909800');
+
     // XI
-    cy.get('input#search_country').click().clear().wait(200).type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(XI)').contains('No results found') ;
 
     // Andorra should be present
-    cy.get('input#search_country').click().clear().wait(200).type('(AD)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Andorra (AD)');
+    cy.searchForCountry('(AD)').contains('Andorra (AD)') ;
 
-    // no GB - United Kingdom (excluding Northern Ireland) (GB)
-    cy.get('input#search_country').click().clear().wait(200).type('(GB)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    // no GB = United Kingdom (excluding Northern Ireland) (GB)
+    cy.searchForCountry('(GB)').contains('No results found') ;
 
     // no XU
-    cy.get('input#search_country').click().clear().wait(200).type('(XU)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-    //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
-        .contains('No results found');
+    cy.searchForCountry('(XU)').contains('No results found') ;
   });
 
   // Date picker working and persists on UK XI sites
@@ -294,23 +286,16 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
 
   it('🚀 XI 🇪🇺 - Country Selection', function() {
     cy.visit('/xi/commodities/0208909800');
+
     // XI removed
-    cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(XI)').contains('No results found') ;
 
     // Andora should be present
-    cy.get('input#search_country').click().clear().wait(500).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Andorra (AD)');
+    cy.searchForCountry('(AD)').contains('Andorra (AD)') ;
     //  GB Present
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('United Kingdom (excluding Northern Ireland) (GB)');
-    // no XU
-    cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(GB)').contains('United Kingdom (excluding Northern Ireland) (GB)') ;
+    // No XU
+    cy.searchForCountry('(XU)').contains('No results found') ;
   });
   it(`🚀 XI 🇪🇺 📱 - Mobile - nav-bar validation`, function() {
     const sizes = ['iphone-6', 'samsung-note9'];
