@@ -114,16 +114,16 @@ Cypress.Commands.add('selectOrigin', (origin)=>{
 });
 
 Cypress.Commands.add('originList', (origin)=>{
-  cy.contains('Which country are the goods coming from?');
+  cy.contains('Where are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
   cy.get('#steps-country-of-origin-country-of-origin-field')
-      .click().clear().type(origin.value).wait(500);
+      .click().clear().type(origin.value);
   cy.contains('Continue').click();
 });
 Cypress.Commands.add('otherOriginList', (otherorigin) => {
-  cy.contains('Which country are the goods coming from?');
+  cy.contains('Where are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
-  cy.get('#steps-country-of-origin-other-country-of-origin-field').click().clear().type(otherorigin.value).wait(500);
+  cy.get('#steps-country-of-origin-other-country-of-origin-field').click().clear().type(otherorigin.value);
   cy.contains('Continue').click();
 });
 Cypress.Commands.add('dutiesApply', ()=>{
