@@ -50,9 +50,10 @@
     }
   },
   
-  
   "chromeWebSecurity": false,
   "firefoxWebSecurity": false,
+  "video": false,
+  "screenshotOnRunFailure": false,
   
   "testFiles": [ 
     "**/*.spec.js",
