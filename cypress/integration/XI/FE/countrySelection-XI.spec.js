@@ -1,10 +1,10 @@
 describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |', function() {
   it('XI Country Selection -import ', function() {
     cy.visit('/xi/commodities/0208909800#import');
-    // XI Present
-    cy.get('input#search_country').click().clear().wait(500).type('XI').wait(500);
+    // XI 
+    cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-        .contains('Northern Ireland (XI)');
+        .contains('No results found');
 
     // Andora should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD');
@@ -21,13 +21,13 @@ describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |'
     cy.get('[id=\'search_country__listbox\']')
         .contains('No results found');
   });
-  it('XI Country Selection -export ', function() {
+  it('XI Country Selection - export ', function() {
     cy.visit('/xi/commodities/0208909800#export');
     // XI Present
     cy.get('input#search_country').click().clear().wait(500)
-        .type('XI').wait(500);
+        .type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-        .contains('Northern Ireland (XI)');
+        .contains('No results found');
 
     // Andora should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD');

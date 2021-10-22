@@ -5,7 +5,7 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
     //  XI
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-        .contains('United Kingdom (Northern Ireland) (XI)');
+        .contains('No results found');
 
     // Andorra should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD').wait(700);
@@ -28,8 +28,7 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
     //  XI
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
-        .contains('Northern Ireland (XI)');
-
+        .contains('No results found');
     // Andorra should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD').wait(700);
     cy.get('[id=\'search_country__listbox\']')
