@@ -112,4 +112,36 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
     cy.get('.govuk-table__row').contains('Heading');
     cy.contains('Non-preferential rules of origin');
   });
+  it('| UK | India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |', function() {
+    cy.visit('/commodities/0702000007');
+    cy.contains('Rules of origin').click();
+    // Select USA from All countries list
+    cy.get('input#search_country').click().clear().wait(500)
+        .type('India').wait(500)
+        .type('{enter}');
+    cy.contains('Preferential rules of origin for trading with India');
+    cy.get('img[alt=\'Flag for India\']').should('be.visible');
+
+    cy.contains('In order to qualify for the lower or zero preferential tariff under the Generalised Scheme of Preferences (GSP), the product must originate in one of the partner countries.');
+
+    cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
+    cy.contains('Product-specific rules for commodity 0702000007');
+    cy.contains('There are no product-specific rules for commodity');
+  });
+  it('| XI | India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |', function() {
+    cy.visit('/xi/commodities/0702000007');
+    cy.contains('Rules of origin').click();
+    // Select USA from All countries list
+    cy.get('input#search_country').click().clear().wait(500)
+        .type('India').wait(500)
+        .type('{enter}');
+    cy.contains('Preferential rules of origin for trading with India');
+    cy.get('img[alt=\'Flag for India\']').should('be.visible');
+
+    cy.contains('In order to qualify for the lower or zero preferential tariff under the Generalised Scheme of Preferences (GSP), the product must originate in one of the partner countries.');
+
+    cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
+    cy.contains('Product-specific rules for commodity 0702000007');
+    cy.contains('There are no product-specific rules for commodity');
+  });
 });
