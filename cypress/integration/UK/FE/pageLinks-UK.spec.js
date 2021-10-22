@@ -7,8 +7,8 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.visit('/sections');
     cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
         .contains('Terms and conditions').click();
-    cy.log(cy.title());
-    cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK');
+    console.log(cy.title());
+    cy.title().should('match', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
 
     cy.get('.govuk-main-wrapper')
         .contains('Terms and conditions');
@@ -26,7 +26,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.visit('/sections');
     cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
         .contains('Cookies').click();
-    cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK');
+    cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
     cy.get('.govuk-main-wrapper')
         .contains('Cookies');
   });
