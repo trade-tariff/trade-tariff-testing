@@ -34,7 +34,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
 
     cy.log(cy.title());
-    cy.title().should('eq', 'Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU - GOV.UK');
+    cy.title().should('matches', 'Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU - GOV.UK');
     // return to UK page
     cy.go('back');
     cy.get('.govuk-header ')
