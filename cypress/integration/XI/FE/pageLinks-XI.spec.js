@@ -5,7 +5,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     cy.visit('/xi/sections');
     cy.get('.govuk-footer__inline-list > li:nth-of-type(3) > .govuk-footer__link')
         .contains('Terms and conditions').click();
-    cy.title().should('eq', 'Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK');
+    cy.title().should('matches', /Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
     cy.get('.govuk-main-wrapper')
         .contains('Terms and conditions');
   });
@@ -14,7 +14,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     cy.visit('/xi/sections');
     cy.get('.govuk-footer__inline-list > li:nth-of-type(2) > .govuk-footer__link')
         .contains('Cookies').click();
-    cy.title().should('eq', 'Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK');
+    cy.title().should('matches', /Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
     cy.get('.govuk-main-wrapper')
         .contains('Cookies');
     cy.get('.govuk-breadcrumbs__list')

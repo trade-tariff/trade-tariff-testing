@@ -18,7 +18,7 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     cy.contains('Section I: Live animals; animal products');
     cy.contains('Section I contains 5 chapters. Choose the chapter that best matches your goods.');
     cy.contains('There are important section notes for this part of the tariff:');
-    cy.title().should('eq', 'Live animals; animal products - Northern Ireland Online Tariff - GOV.UK');
+    cy.title().should('matches', 'Live animals; animal products - Northern Ireland Online Tariff - GOV.UK');
     cy.get('li:nth-of-type(1) > .govuk-breadcrumbs__link').click();
     cy.contains('Look up commodity codes, duty and VAT rates');
     // check other sections

@@ -5,7 +5,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         cy.visit('/sections')
         //check header has UK information
         cy.contains('UK Integrated Online Tariff: look up commodity codes, duty and VAT rates')
-        cy.title().should('eq', 'UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK')
+        cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i)
         cy.get('.govuk-header ')
             .contains('UK Integrated Online Tariff')
         //check correct text is displayed on banner as per UK - If they are at risk

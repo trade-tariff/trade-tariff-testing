@@ -37,7 +37,7 @@ Given('I am on XI Trade Tariff main page',()=>{
     Then('Guidance Page is displayed',()=>{
         cy.get('.govuk-grid-row')
             .contains(' Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU')
-        cy.title().should('eq','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
+        cy.title().should('matches','Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU from 1 January 2021 - GOV.UK')
     })
 
 
