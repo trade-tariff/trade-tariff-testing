@@ -4,7 +4,7 @@ describe.skip('test spec', function() {
     const m = num.substring(0, 4);
     console.log(m);
   });
-  it.only('mainpage', function() {
+  it('mainpage', function() {
     cy.visit('/sections');
     console.log(cy.title());
     cy.visit('/chapters/01');
