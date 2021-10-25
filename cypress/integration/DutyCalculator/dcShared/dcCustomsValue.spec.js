@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', function() {
   it('Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
@@ -12,11 +13,9 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.contains('The amount of duty you may have to pay will depend on the customs value of your goods. The rules for arriving at the customs value are based on the World Trade Organisation (WTO) Valuation Agreement.');
 
 
-    cy.contains('You can read more about the methods and how to calculate the customs value of your goods here: Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics.');
+    cy.contains('How to calculate the customs value of your goods.');
     // static page links - valuation of imported goods for customs purposes, VAT and trade statistics.
-    cy.get('form#new_steps_customs_value  .govuk-link').click();
-    cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics');
-    cy.go('back');
+    cy.get('form#new_steps_customs_value  .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/government/publications/notice-252-valuation-of-imported-goods-for-customs-purposes-vat-and-trade-statistics');
     // Explore the topic
     cy.get('.govuk-list  .govuk-link').click();
     cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics');
