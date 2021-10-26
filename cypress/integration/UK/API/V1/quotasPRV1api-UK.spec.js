@@ -2,13 +2,13 @@
 describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R to be availabe |', function() {
   // ----Quotas to be available for UK version  -----
   it('🟩 1.Quotas:046 Tariff quota/ceiling - available', function() {
-    cy.request('/api/v1/commodities/6301909021#import');
+  //  cy.request('/api/v1/commodities/6301909021#import');
     cy.request('/api/v1/commodities/1006209600#import')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Non preferential tariff quota') {
+            if (measure_types[i].attributes.description == 'Non preferential tariff quota') {
               found = true;
               break;
             }
@@ -19,10 +19,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   it('🟩 2.Quotas:122-Non Preferential quota - available', function() {
     cy.request('/api/v1/commodities/1006209600#import')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Non preferential tariff quota') {
+            if (measure_types[i].attributes.description == 'Non preferential tariff quota') {
               found = true;
               break;
             }
@@ -33,10 +33,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   it('🟩 3.Quotas:123 - Non preferential quota under end use - available', function() {
     cy.request('/api/v1/commodities/1701131000#import.json')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Non preferential tariff quota under authorised use') {
+            if (measure_types[i].attributes.description == 'Non preferential tariff quota under authorised use') {
               found = true;
               break;
             }
@@ -47,10 +47,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   it('🟩 4.Quotas:143 Preferential tariff quota - available', function() {
     cy.request('/api/v1/commodities/1601009991#import.json')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Preferential tariff quota') {
+            if (measure_types[i].attributes.description == 'Preferential tariff quota') {
               found = true;
               break;
             }
@@ -61,10 +61,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   it('🟩 5.Quotas:146 Preferential tariff quota under end-use - available', function() {
     cy.request('/api/v1/commodities/0709921000#import.json')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Preferential tariff quota under authorised use') {
+            if (measure_types[i].attributes.description == 'Preferential tariff quota under authorised use') {
               found = true;
               break;
             }
@@ -72,13 +72,13 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
           expect(found).to.be.true;
         });
   });
-  it.skip('🟩 6.Quotas:147 Customs Union Quota - available', function() {
-    cy.request('/api/v1/commodities/1806208012#import.json')
+  it('🟩 6.Quotas:147 Customs Union Quota - available', function() {
+    cy.request('/api/v1/commodities/1806208012#import')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Customs Union Quota') {
+            if (measure_types[i].attributes.description == 'The Customs (Tariff Quota) (EU Exit) Regulations 2020') {
               found = true;
               break;
             }
@@ -89,10 +89,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   it('🟩 7.Quotas:653 Security based on representative price, reduced under the benefit of a tariff quota - available', function() {
     cy.request('/api/v1/commodities/1701149000#import.json')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Preferential tariff quota') {
+            if (measure_types[i].attributes.description == 'Preferential tariff quota') {
               found = true;
               break;
             }
@@ -100,14 +100,14 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
           expect(found).to.be.true;
         });
   });
-  // ---------------------------National Prohibitions and restrictions (P&R)---------------------------
+  // ---------------------------National Prohibitions and restrictions (P&R)------------------
   it('🟩 1.P&R:AHC - Animal Health Certificate - available', function() {
     cy.request('/api/v1/commodities/6403990510#import.json')
         .then((response) => {
-          const measure_types = response.body.import_measures;
+          const measure_types = response.body.included;
           let found = false;
           for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Animal Health Certificate') {
+            if (measure_types[i].attributes.description == 'Animal Health Certificate') {
               found = true;
               break;
             }
@@ -117,10 +117,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   it('🟩 2.P&R:AIL - Health and Safety Executive Import Licensing Firearms and Ammunition - available', function() {
     cy.request('/api/v1/commodities/9305200010#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Health and Safety Executive Import Licensing Firearms and Ammunition') {
+        if (measure_types[i].attributes.description == 'Health and Safety Executive Import Licensing Firearms and Ammunition') {
           found = true;
           break;
         }
@@ -130,10 +130,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   it('🟩 3.P&R:ATT - Attestation Document (horticulture and potatoes - available)', function() {
     cy.request('/api/v1/commodities/1210209099#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Attestation Document (horticulture and potatoes)') {
+        if (measure_types[i].attributes.description == 'Attestation Document (horticulture and potatoes)') {
           found = true;
           break;
         }
@@ -144,13 +144,13 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   // exports
   it('🟩 4.P&R:CEX - DCMS Open General Export Licence - available', function() {
     cy.request('/api/v1/commodities/9702000010#export').then((response) => {
-      const measure_types = response.body.export_measures;
+      const measure_types = response.body.included;
       let found = false;
-      console.log(measure_types.length);
-      console.log(response.body);
+      //  console.log(measure_types.length);
+      //  console.log(response.body);
       for (let i = 0; i < measure_types.length; i++) {
         console.log(measure_types[i].measure_type);
-        if (measure_types[i].measure_type.description == 'DCMS Open General Export Licence') {
+        if (measure_types[i].attributes.description == 'DCMS Open General Export Licence') {
           found = true;
           break;
         }
@@ -161,10 +161,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   // exports
   it('🟩 6.P&R:COE - Home Office Controlled Drugs (export) - available', function() {
     cy.request('/api/v1/commodities/2934910000#export').then((response) => {
-      const measure_types = response.body.export_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Home Office Controlled Drugs (export)') {
+        if (measure_types[i].attributes.description == 'Home Office Controlled Drugs (export)') {
           found = true;
           break;
         }
@@ -174,10 +174,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   it('🟩 7.P&R:COI HMI Conformity Certificate (fruit and veg) issued in UK - available', function() {
     cy.request('/api/v1/commodities/0806101090#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'HMI Conformity Certificate (fruit and veg) issued in UK') {
+        if (measure_types[i].attributes.description == 'HMI Conformity Certificate (fruit and veg) issued in UK') {
           found = true;
           break;
         }
@@ -187,10 +187,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   it('🟩 8.P&R:CVD - Common Veterinary Entry Document (CVED) - available', function() {
     cy.request('/api/v1/commodities/1605531090#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Veterinary control') {
+        if (measure_types[i].attributes.description == 'Veterinary control') {
           found = true;
           break;
         }
@@ -201,10 +201,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   // export
   it('🟩 12.P&R:EQC Certificate of Conformity - available', function() {
     cy.request('/api/v1/commodities/0805220020#export').then((response) => {
-      const measure_types = response.body.export_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Certificate of Conformity') {
+        if (measure_types[i].attributes.description == 'Certificate of Conformity') {
           found = true;
           break;
         }
@@ -215,10 +215,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   // export
   it('🟩 14.P&R:HOP Home Office pre-cursor chemical authorisation - available', function() {
     cy.request('/api/v1/commodities/2932940000#export').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Home Office pre-cursor chemical authorisation') {
+        if (measure_types[i].attributes.description == 'Home Office pre-cursor chemical authorisation') {
           found = true;
           break;
         }
@@ -229,10 +229,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
 
   it('🟩 15.P&R:HSE Health and Safety Executive (imports) - available', function() {
     cy.request('/api/v1/commodities/3102309000#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Health and Safety Executive (imports)') {
+        if (measure_types[i].attributes.description == 'Health and Safety Executive (imports)') {
           found = true;
           break;
         }
@@ -242,10 +242,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   it('🟩 17.P&R:PHC-Phytosanitary Certificate (import) - available', function() {
     cy.request('/api/v1/commodities/0809290000#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Phytosanitary Certificate (import)') {
+        if (measure_types[i].attributes.description == 'Phytosanitary Certificate (import)') {
           found = true;
           break;
         }
@@ -256,10 +256,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   // export
   it('🟩 18.P&R:PRE Home Office Pre-cursor chemicals - available', function() {
     cy.request('/api/v1/commodities/3004490000#export').then((response) => {
-      const measure_types = response.body.export_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Home Office Pre-cursor chemicals') {
+        if (measure_types[i].attributes.description == 'Home Office Pre-cursor chemicals') {
           found = true;
           break;
         }
@@ -269,10 +269,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   it('🟩 19.P&R:PRT Home Office Controlled Drugs (import) - available', function() {
     cy.request('/api/v1/commodities/1211500000#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Home Office Controlled Drugs (import)') {
+        if (measure_types[i].attributes.description == 'Home Office Controlled Drugs (import)') {
           found = true;
           break;
         }
@@ -282,10 +282,10 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   it('🟩 20.P&R:QRC Quarantine Release Certificate - available', function() {
     cy.request('/api/v1/commodities/4403219090#import.json').then((response) => {
-      const measure_types = response.body.import_measures;
+      const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Quarantine Release Certificate') {
+        if (measure_types[i].attributes.description == 'Quarantine Release Certificate') {
           found = true;
           break;
         }

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
 describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Processing - ✅  annual turnover |', function() {
   //
