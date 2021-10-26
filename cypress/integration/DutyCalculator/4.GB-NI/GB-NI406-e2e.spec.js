@@ -1,7 +1,8 @@
-// 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫  Non processing - 🚫  Certified as UK Origin
+/* eslint-disable max-len */
+// 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - 🚫  Certified as UK Origin
 // Comm code :1701141000 - item with measure units
 
-describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫  Non processing - 🚫 Certified as UK Origin |', function() {
+describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - 🚫 Certified as UK Origin |', function() {
   //
   const country = ['uk'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
@@ -22,9 +23,13 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
       cy.traderScheme('yes');
       // ✅  Final use in NI - Yes
       cy.finalUse('yes');
-      // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-      cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
-      cy.contains('Continue').click();
+
+
+      // ⬆️ turnover > £500,000
+      cy.turnOver('more');
+
+      // 🚫 Non processing - No - The goods will be processed for commercial purposes other than // 🚫 Non processing - No
+      cy.plannedXI('unacceptablecommercial');
       //  🚫 Certified as UK Origin
       cy.certificate('no');
       // Monetary value page
@@ -55,9 +60,11 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('Yes');
       cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('Yes');
-      cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('Commercial purposes');
-      cy.get('div:nth-of-type(9) > .govuk-summary-list__value').contains('No');
-      cy.get('div:nth-of-type(10) > .govuk-summary-list__value').contains('£10,002.24');
+      cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('£500,000 or more');
+
+      cy.get('div:nth-of-type(9) > .govuk-summary-list__value').contains('Commercial purposes');
+      cy.get('div:nth-of-type(10) > .govuk-summary-list__value').contains('No');
+      cy.get('div:nth-of-type(11) > .govuk-summary-list__value').contains('£10,002.24');
 
       cy.contains('23.98 x 100 kg');
 
@@ -65,7 +72,9 @@ describe('| GB-NI406-e2e.spec | GB to NI route 🚐 06 - 🚫 Trade Remedies - �
 
       // Final Page
       cy.contains('Option 1: Third-country duty');
+      cy.contains('Third-country duty (EU)');
       cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
+      cy.contains('Tariff preference (EU)');
       cy.contains('Option 3: Claiming a waiver – Exchange rate');
     });
   }

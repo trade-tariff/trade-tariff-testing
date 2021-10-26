@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - 🚫  Certified as UK origin
 // Comm code :1701141000
 

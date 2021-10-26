@@ -18,6 +18,7 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    cy.turnOver('more');
     // Planned processing - commercial
     cy.plannedXI('commercial');
 

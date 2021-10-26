@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Non processing
 // Comm code :0702000007
 
@@ -36,23 +37,26 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
       // ✅  Final use in NI - Yes
       cy.finalUse('yes');
 
-      // ✅ Non processing - Yes
-      // Select - The importer had a total annual turnover of less than £500,000 in its most recent complete financial year
-      cy.get('#steps-planned-processing-planned-processing-annual-turnover-field').check();
-      cy.contains('Continue').click();
+      cy.turnOver('more');
+
+      // ✅ Non processing - Yes - First Option selected
+      cy.plannedXI('commercialprocessing');
       cy.wait(100);
-      // duty page validation  ***
+      // duty page validation
       cy.contains('There is no import duty to pay');
       cy.contains('There is no import duty to pay because:');
       cy.contains('You are transporting goods from England, Scotland or Wales to Northern Ireland');
-      cy.contains('You are a member of the UK Trader Scheme');
-      cy.contains('Your import is for sale to, or final use by, end-consumers located in Northern Ireland');
-      cy.contains('The importer had a total annual turnover of less than £500,000 in its most recent complete financial year');
+      cy.contains('You are a member of the UK Trader Scheme, and');
+      cy.contains('Your import is for sale to, or final use by, end-consumers located in Northern Ireland, and');
+      cy.contains('You will be undertaking permitted commercial processing on the goods on arrival in Northern Ireland');
+
       cy.contains('You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.');
 
+      cy.wait(100);
       // selection is persisted
-      cy.go(-1);
-      cy.get('#steps-planned-processing-planned-processing-annual-turnover-field')
+      cy.contains('Back').click();
+      cy.wait(100);
+      cy.get('input#steps-planned-processing-planned-processing-commercial-processing-field')
           .parent()
           .find('input')
           .should('be.checked');

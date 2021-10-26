@@ -1,7 +1,8 @@
-// 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫  Non processing - ✅ Certified as UK Origin
+/* eslint-disable max-len */
+// 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - ✅ Certified as UK Origin
 // Comm code :0702000007
 
-describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - 🚫  Non processing - ✅ Certified as UK Origin |', function() {
+describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - ✅ Certified as UK Origin |', function() {
   //
   const country = ['uk'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
@@ -26,12 +27,11 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05  - 🚫 Trade Remedies - 
       // ✅  Final use in NI - Yes
       cy.finalUse('yes');
 
+      // ⬆️ turnover > £500,000
+      cy.turnOver('more');
 
       // 🚫 Non processing - No
-      // Select - The goods will be processed for commercial purposes other than those listed above
-      cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
-      cy.contains('Continue').click();
-
+      cy.plannedXI('unacceptablecommercial');
       // ✅ Certified as UK Origin
       cy.certificate('yes');
 
