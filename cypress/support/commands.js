@@ -229,17 +229,24 @@ Cypress.Commands.add('additionalCode', (addcode)=>{
   }
   cy.contains('Continue').click();
 });
+Cypress.Commands.add('turnOver', (options)=>{
+  cy.contains('What was your annual turnover in the most recent complete financial year?');
+  if (options === 'less') {
+    cy.get('input#steps-annual-turnover-annual-turnover-yes-field').check();
+  } else if (options === 'more') {
+    cy.get('input#steps-annual-turnover-annual-turnover-no-field').check();
+  }
+  cy.contains('Continue').click();
+});
 
 Cypress.Commands.add('plannedXI', (options)=>{
   cy.contains('How will these goods be processed after they are moved into Northern Ireland?');
   cy.title().should('eq', 'How will your goods be processed - Online Tariff Duty calculator');
-  if (options === 'acceptable1') {
-    cy.get('input#steps-planned-processing-planned-processing-annual-turnover-field').check();
-  } else if (options === 'acceptable2') {
+  if (options === 'notprocessing') {
     cy.get('input#steps-planned-processing-planned-processing-without-any-processing-field').check();
-  } else if (options === 'acceptable3') {
-    cy.get('input#steps-planned-processing-planned-processing-without-any-processing-field').check();
-  } else {
+  } else if (options === 'commercialprocessing') {
+    cy.get('input#steps-planned-processing-planned-processing-commercial-processing-field').check();
+  } else if (options === 'unacceptablecommercial') {
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field').check();
   }
 

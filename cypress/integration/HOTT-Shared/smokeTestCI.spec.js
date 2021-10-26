@@ -63,7 +63,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   });
 
   // Licensed quotas
-  it('🚀 UK 🇬🇧 - quota numbers - 054xxx Licensed', function() {
+  it('🚀 UK 🇬🇧 - Quota numbers - 054xxx Licensed', function() {
     cy.visit('/commodities/0201100021#import');
     cy.get('.govuk-tabs__panel');
     cy.contains('Non preferential tariff quota');
@@ -74,7 +74,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.close [href]').click();
   });
   // Non Licensed quotas
-  it('🚀 UK 🇬🇧 - quota numbers - 057xxx Non-Licensed', function() {
+  it('🚀 UK 🇬🇧 - Quota numbers - 057xxx Non-Licensed', function() {
     cy.visit('/commodities/0201100021#import');
     cy.get('.govuk-tabs__panel');
     cy.contains('Preferential tariff quota');
@@ -179,7 +179,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-table__head')
         .contains('Order number');
 
-    cy.get('.quota-results.govuk-table');
+  //  cy.get('.quota-results.govuk-table');
     cy.contains('057015').click();
     cy.get('.tariff-info')
         .should('contain', 'Quota', '057015', 'Start date', '01/01/2021');
