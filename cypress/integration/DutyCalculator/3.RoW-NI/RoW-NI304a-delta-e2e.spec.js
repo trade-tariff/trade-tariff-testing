@@ -5,7 +5,7 @@ Nepal - XI = £240.00
 Nepal - NI = £247.00
 Δ MFN = £7.00
 */
-describe.skip('| Row-NI304a-delta.spec.js | 🔼 Delta Route - Acceptable route 1️⃣| Ad Valorem | Δ MFN < 3% of Import duties = UK import duties apply | ', function() {
+describe('| Row-NI304a-delta.spec.js | Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ | Ad Valorem | Δ MFN < 3% of Import duties = UK import duties apply | ', function() {
   // Ad Valorem - delta mfn < 3%
 
   it(`RoW 🇳🇵(Nepal) to NI | Ad Valorem - delta mfn < 3% = UK|`, function() {
@@ -24,8 +24,10 @@ describe.skip('| Row-NI304a-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('acceptable1');
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.confirmPage();
@@ -55,8 +57,10 @@ describe.skip('| Row-NI304a-delta.spec.js | 🔼 Delta Route - Acceptable route 
       cy.traderScheme('yes');
       // ✅  Final use in NI - Yes
       cy.finalUseNI('yes');
+      // turnover <£500,000
+      cy.turnOver('more');
       // Planned processing - acceptable1
-      cy.plannedXI('acceptable1');
+      cy.plannedXI('notprocessing');
       // customs value
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
       cy.confirmPage();
@@ -84,8 +88,10 @@ describe.skip('| Row-NI304a-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    //  turnover <£500,000 - NO
+    cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('acceptable1');
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // doc code
@@ -121,8 +127,10 @@ describe.skip('| Row-NI304a-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    //  turnover <£500,000 - NO
+    cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('acceptable1');
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.vat('0');

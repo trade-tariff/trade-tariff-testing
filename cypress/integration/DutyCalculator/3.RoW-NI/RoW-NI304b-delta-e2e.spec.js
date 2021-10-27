@@ -20,10 +20,9 @@ India - GB = £240.00
 India - NI = £247.00
 Δ MFN = £7.00
 */
-describe.skip('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN < 3% of Import duties = UK import duties apply , Δ MFN > 3% of Import duties = EU import duties apply | ', function() {
+describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo commercial processing | Quantity | Δ MFN < 3% of Import duties = UK import duties apply , Δ MFN > 3% of Import duties = EU import duties apply | ', function() {
   it(`RoW - 🇮🇳 (India) to NI  service | Measure Units |`, function() {
     cy.visit(`/duty-calculator/xi/1509102090/import-date`);
-
     // date
     cy.validDate();
     // destination
@@ -38,10 +37,13 @@ describe.skip('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    // turnover <£500,000 = NO
+    cy.turnOver('more');
     // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    cy.plannedXI('commercialprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
     // Import Quantity
     cy.quantity({dtn: '1.0'});
@@ -60,7 +62,7 @@ describe.skip('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN
 
     // Case 2 : Δ MFN > 3% - EU Tariffs - Change Quantity to 20 for EU tariff
     cy.get('.govuk-back-link').click().wait(200);
-    cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
     cy.quantity({dtn: '20.0'});
     // doc code
@@ -78,7 +80,7 @@ describe.skip('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
   });
-  it(`RoW - (Chile) to NI  service | Duplicate suffixes - removed |`, function() {
+  it(`RoW - 🇨🇱 (Chile) to NI  service | Duplicate suffixes - removed |`, function() {
     cy.visit(`/duty-calculator/xi/1104229500/import-date`);
 
     // date
@@ -95,8 +97,10 @@ describe.skip('| Row-NI304b-delta.spec.js | 🔼 Delta Route | Quantity | Δ MFN
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
     // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    cy.plannedXI('commercialprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs

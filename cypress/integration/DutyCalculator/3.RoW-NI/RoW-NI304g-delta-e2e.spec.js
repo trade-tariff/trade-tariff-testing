@@ -1,7 +1,8 @@
+/* eslint-disable max-len */
 // Quotas in delta route
 // 1701141000 Qty 1 = UK , Qty 100 = EU Canada , Quotas associated
 // Brazil , UK
-describe.skip('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', function() {
+describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', function() {
   it('RoW 🇨🇦 (Canada) - XI | UK Tariffs apply with Quotas |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
     // date
@@ -18,8 +19,10 @@ describe.skip('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', fu
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable3
-    cy.plannedXI('acceptable3');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -67,8 +70,10 @@ describe.skip('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', fu
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable3
-    cy.plannedXI('acceptable3');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -92,7 +97,7 @@ describe.skip('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', fu
 
     // EU Tariffs - Change Quantity to override Quotas
     cy.get('.govuk-back-link').click();
-    cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
     cy.quantity({dtnr: '100', tne: '100', dap: '100'});
     // doc code

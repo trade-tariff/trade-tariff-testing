@@ -55,11 +55,8 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.visit('/commodities/2403991000#import');
     cy.get('.govuk-tabs__panel')
         .contains('European Union (1013)').click();
-    cy.get('.govuk-list')
-        .contains('European Union (EU)');
-
-    cy.get('#measure-20125860-children-geographical-areas')
-        .contains('United Kingdom (GB)').should('not.exist');
+    cy.contains('European Union');
+    cy.contains('United Kingdom (GB)').should('not.exist');
   });
 
   // Licensed quotas
@@ -144,17 +141,6 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains(' Live animals; animal products');
     cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
         .contains('This tariff is for 21 December 2021');
-  });
-  // UK not in EU country list
-  it('🚀 UK 🇬🇧 - United Kingdom should not be shown in EU country list', function() {
-    cy.visit('/commodities/2403991000#import');
-    cy.get('.govuk-tabs__panel')
-        .contains('European Union (1013)').click();
-    cy.get('.govuk-list')
-        .contains('European Union (EU)');
-
-    cy.get('#measure-20125860-children-geographical-areas')
-        .contains('United Kingdom (GB)').should('not.exist');
   });
   // Quota Search using order number
   it('🚀 UK 🇬🇧 - Quotas Search - Order Number', function() {
@@ -256,10 +242,8 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-tabs__panel');
     cy.contains('European Economic Area (2012)')
         .click();
-    cy.get('.govuk-list')
-        .contains('European Union (EU)');
-    cy.get('.2012')
-        .contains('United Kingdom (GB)').should('not.exist');
+    cy.contains('European Union');
+    cy.contains('United Kingdom (GB)').should('not.exist');
   });
   // Commodity Search functionality - text search
   it('🚀 XI 🇪🇺 - Search Commodity by name ', function() {
@@ -343,7 +327,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
   });
-  it('🧮 UK 🇬🇧 - RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function() {
+  it.skip('🧮 UK 🇬🇧 - RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
     // date
     cy.validDate();
@@ -374,7 +358,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
 
     cy.contains('Option 1: Third-country duty');
   });
-  it('🧮 XI 🇪🇺 | RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function() {
+  it.skip('🧮 XI 🇪🇺 | RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function() {
     cy.visit('/duty-calculator/xi/0102291010/import-date');
     // date
     cy.validDate();
@@ -401,7 +385,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Option 2: Tariff preference - Canada');
   });
   //
-  it('🧮 XI 🇪🇺 | RoW 🇹🇷(Turkey) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU | Row-NI304e-delta |', function() {
+  it.skip('🧮 XI 🇪🇺 | RoW 🇹🇷(Turkey) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU | Row-NI304e-delta |', function() {
     cy.visit('/duty-calculator/xi/0102291010/import-date');
     // date
     cy.validDate();
@@ -440,7 +424,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Option 2: Tariff preference - Turkey');
   });
 
-  it(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function() {
+  it.skip(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
     cy.validDate();
     // destination

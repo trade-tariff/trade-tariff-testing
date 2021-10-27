@@ -86,8 +86,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted
-    cy.get('.govuk-table__caption')
-        .contains('Measures for Chile');
+    cy.contains('Measures and restrictions for exporting from the UK');
     cy.log(cy.url());
     cy.url().should('include', 'day=21&month=12&year=2021');
 
@@ -111,8 +110,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted
-    cy.get('.govuk-table__caption')
-        .contains('Measures for Chile');
+    cy.contains('Measures and restrictions for exporting from the UK');
     cy.log(cy.url());
     cy.contains('This tariff is for 31 January 2021');
     cy.url().should('include', 'day=31&month=1&year=2021');
