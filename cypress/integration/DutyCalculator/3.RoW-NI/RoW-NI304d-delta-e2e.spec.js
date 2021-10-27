@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 // More than one Measure amounts
-describe.skip('| Row-NI304d-delta.spec.js | 🔼 Delta Route - Acceptable route 1️⃣ | more than one measure amounts on UK and XI service | ', function() {
+describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ | | more than one measure amounts on UK and XI service | ', function() {
   //
-  it('RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function() {
+  it('RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta || Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ |', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
     // date
     cy.validDate();
@@ -18,8 +18,10 @@ describe.skip('| Row-NI304d-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    // turnover <£500,000
+    cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('acceptable1');
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 

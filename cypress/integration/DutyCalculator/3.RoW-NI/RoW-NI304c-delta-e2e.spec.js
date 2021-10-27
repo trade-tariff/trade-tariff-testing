@@ -2,8 +2,8 @@
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅ Measure Units
 // 1509102090 22nd December 2021
 // Multiple Additional Codes
-describe.skip('| Row-NI304c-delta.spec.js | 🔼 Delta Route - Acceptable route 3️⃣ | Multiple Additional Codes | ', function() {
-  it(`RoW 🇸🇬 (Singapore) to NI | 🔼 Delta Route | UK = 2 , XI = 0`, function() {
+describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | Multiple Additional Codes | ', function() {
+  it(`RoW 🇸🇬 (Singapore) to NI | 🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | UK = 2 , XI = 0`, function() {
     cy.visit(`/duty-calculator/xi/6307909200/import-date`);
     // date
     cy.validDate();
@@ -19,8 +19,10 @@ describe.skip('| Row-NI304c-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable3
-    cy.plannedXI('acceptable3');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // additional codes
@@ -37,8 +39,9 @@ describe.skip('| Row-NI304c-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
+    cy.contains('Airworthiness tariff suspension (UK)');
   });
-  it(`RoW 🇸🇲 (San Marino) to NI | 🔼 Delta Route |UK = 0 , XI = 2|`, function() {
+  it(`RoW 🇸🇲 (San Marino) to NI | turnover > £500,000 | 🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | UK = 0 , XI = 2|`, function() {
     cy.visit(`/duty-calculator/xi/2906110000/import-date`);
 
     // date
@@ -55,8 +58,10 @@ describe.skip('| Row-NI304c-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable3
-    cy.plannedXI('acceptable3');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // additional codes

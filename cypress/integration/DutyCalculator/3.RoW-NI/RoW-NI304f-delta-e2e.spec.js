@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 // Suspensions in delta route
 
-describe.skip('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️⃣ | Suspensions rates UK and EU  | ', function() {
+describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️⃣ | Suspensions rates UK and EU  | ', function() {
   it('RoW 🇵🇪 (Peru) - XI | 112 Autonomous tariff suspension | UK Tariff |', function() {
     cy.visit('/duty-calculator/xi/2903898045/import-date');
     // date
@@ -17,8 +18,10 @@ describe.skip('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // doc code
@@ -58,8 +61,10 @@ describe.skip('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // doc code
@@ -108,8 +113,10 @@ describe.skip('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -141,7 +148,7 @@ describe.skip('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 
     cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.');
     // UK Tariffs
     cy.get('.govuk-back-link').click();
-    cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
     cy.quantity({dtn: '1'});
     // doc code

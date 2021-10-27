@@ -77,8 +77,10 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable3
-    cy.plannedXI('acceptable3');
+    // turnover <£500,000 - NO
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // additional codes

@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 // Preferential Tariff rates
 // 1701141000 -
-describe.skip('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK and EU  | ', function() {
+describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK and EU  | ', function() {
   it('RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function() {
     cy.visit('/duty-calculator/xi/0102291010/import-date');
     // date
@@ -17,8 +18,10 @@ describe.skip('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rate
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    // turnover <£500,000
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -50,8 +53,10 @@ describe.skip('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rate
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    // turnover <£500,000
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -68,7 +73,7 @@ describe.skip('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rate
 
     // Change quantity to 100 for EU tariffs , Delta Preferential > 3% Import Value
     cy.get('.govuk-back-link').click();
-    cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
     cy.quantity({dtn: '100'});
     cy.confirmPage();
