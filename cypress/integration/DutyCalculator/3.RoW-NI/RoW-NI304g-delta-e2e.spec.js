@@ -1,7 +1,7 @@
 // Quotas in delta route
 // 1701141000 Qty 1 = UK , Qty 100 = EU Canada , Quotas associated
 // Brazil , UK
-describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', function() {
+describe.skip('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', function() {
   it('RoW 🇨🇦 (Canada) - XI | UK Tariffs apply with Quotas |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
     // date

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 describe('UK 🇬🇧 XI 🇪🇺 | helpSection.spec.js | validate help section |', function() {
   it('Link and page content', function() {
-    const pages = ['uk/sections', 'xi/sections', 'duty-calculator/uk/0702000007/import-date', 'duty-calculator/xi/0702000007/import-date'];
+    const pages = ['uk/sections', 'xi/sections', 'duty-calculator/uk/0703109000/import-date', 'duty-calculator/xi/0703109000/import-date'];
     for (let i = 0; i < pages.length; i++) {
       cy.visit(`${pages[i]}`);
       cy.get('.govuk-header__content').contains('Help').click();
