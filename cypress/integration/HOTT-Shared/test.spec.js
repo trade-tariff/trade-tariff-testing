@@ -14,7 +14,7 @@ describe.skip('test spec', function() {
     console.log(cy.title());
   //  cy.title().should('match', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
   });
-  it.only('test spec', function() {
+  it('test spec', function() {
     cy.visit('commodities/0901120000');
     cy.visit('/duty-calculator/annual-turnover');
   });

@@ -12,7 +12,6 @@ describe('| RoW-NI306-e2e.spec | RoW (Greenland) to Northern Ireland ', function
     // select country from list
     cy.wait(700);
     cy.otherOriginList({value: 'Greenland'});
-    cy.wait(700);
     // Trader Scheme
     cy.traderScheme('no');
     // Duties Apply
@@ -26,6 +25,7 @@ describe('| RoW-NI306-e2e.spec | RoW (Greenland) to Northern Ireland ', function
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - OCTs (Overseas Countries and Territories)');
     cy.contains('Third-country duty (EU)');
+    cy.contains('Tariff preference (EU)');
   });
   it('RoW 🇨🇳 China to XI', function() {
     cy.visit('/duty-calculator/uk/8421999099/import-date');
@@ -85,8 +85,10 @@ describe('| RoW-NI306-e2e.spec | RoW (Greenland) to Northern Ireland ', function
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    // turnover <500,000 - no 
+    cy.turnOver('more');
     // Planned processing - commercial
-    cy.plannedXI('commercial');
+    cy.plannedXI('unacceptablecommercial');
     // Duties Apply
     cy.euDutiesApply();
     // customs value

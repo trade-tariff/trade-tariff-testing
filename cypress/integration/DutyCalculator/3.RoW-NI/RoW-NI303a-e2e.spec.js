@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - ✅  Trader Scheme - 🚫 Final use in NI
-describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Processing - ✅  annual turnover |', function() {
+describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 -  🚫 Processing  |', function() {
   //
   it('RoW 🇲🇦 (Morocco) to Northern Ireland', function() {
-    cy.visit('/duty-calculator/xi/0702000007/import-date');
+    cy.visit('/duty-calculator/xi/0805102210/import-date');
     // date
     cy.validDate();
     // destination
@@ -20,7 +20,7 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.finalUseNI('yes');
     cy.turnOver('more');
     // Planned processing - commercial
-    cy.plannedXI('commercial');
+    cy.plannedXI('unacceptablecommercial');
 
     // Duties Apply
     cy.euDutiesApply();
@@ -31,6 +31,8 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty (EU)');
     cy.contains('Option 2: Tariff preference - Morocco');
+    cy.contains('Tariff preference (EU)');
   });
 });
