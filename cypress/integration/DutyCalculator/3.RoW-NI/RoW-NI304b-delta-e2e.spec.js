@@ -64,7 +64,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     cy.get('.govuk-back-link').click().wait(200);
     cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({dtn: '20.0'});
+    cy.quantity({dtn: '100.0'});
     // doc code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
