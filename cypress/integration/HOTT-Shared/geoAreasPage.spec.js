@@ -27,7 +27,6 @@ describe('geoAreasPage.spec.js | split the geographical areas from commodity pag
     console.log(cy.title());
     cy.contains('Swaziland');
     cy.get('.govuk-back-link').click();
-    
   });
   it('Validate geographical areas UI - All countries(1011),EU(2012) | before 1 Jan 2021 |', function() {
     cy.visit('/commodities/1704109000?day=29&month=10&year=2020#import');

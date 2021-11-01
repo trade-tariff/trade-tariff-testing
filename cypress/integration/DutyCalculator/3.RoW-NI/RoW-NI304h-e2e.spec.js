@@ -35,7 +35,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
   });
-  it(`RoW - 🇮🇳 (India) to NI  service |Turnover < £500,000 | Measure Units |`, function() {
+  it(`RoW 🇮🇳 (India) to NI  service |Turnover < £500,000 | Measure Units |`, function() {
     cy.visit(`/duty-calculator/xi/1509102090/import-date`);
     // date
     cy.validDate();
@@ -77,7 +77,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.get('.govuk-back-link').click().wait(200);
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({dtn: '20.0'});
+    cy.quantity({dtn: '100.0'});
     // doc code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
@@ -92,9 +92,11 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
+    cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)');
   });
   it('RoW 🇦🇺 (Australia) - XI | Turnover < £500,000 | EU Tariffs apply without Quotas |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
+    // Delta mfn = 
     // date
     cy.validDate();
     // destination

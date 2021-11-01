@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() {
-  // --- HOTT-96 -------------
+  // HOTT-96 , HOT-1051
   it('Sections Page - Switching link & text available,forum links removed', function() {
     cy.visit('/sections');
     // check header has UK information
