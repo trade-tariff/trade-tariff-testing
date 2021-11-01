@@ -6,8 +6,8 @@ describe('🇬🇧💡 🇯🇵 | JapanTrade-UK | Future date - Japan Trade Agre
     cy.contains('Japan (JP)');
     cy.contains('Tariff preference');
     cy.contains('4.70 %');
-    cy.contains('01 Feb 2021');
-    cy.contains('to 31 Jan 2022');
+    //   cy.contains('01 Feb 2021');
+    //   cy.contains('to 31 Jan 2022');
     // cy.contains('31/01/2022');
 
     // Tariff preference rate after 1st February 2022
@@ -16,7 +16,7 @@ describe('🇬🇧💡 🇯🇵 | JapanTrade-UK | Future date - Japan Trade Agre
     cy.contains('Japan (JP)');
     cy.contains('Tariff preference');
     cy.contains('3.80 %');
-    cy.contains('01 Feb 2022');
-    cy.contains('to 31 Jan 2023');
+    //    cy.contains('01 Feb 2022');
+    //    cy.contains('to 31 Jan 2023');
   });
 });
