@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
 // Comm code :1701141000
 
@@ -66,9 +67,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       cy.contains('31 December 2021');
       cy.contains('1701 14 10 00').click();
       cy.contains('Commodity information for 1701141000');
-      cy.wait(200).get('.govuk-back-link').click().wait(200);
-
-
+      cy.go(-1);
       // keys
       cy.contains('Details of your trade').click();
       cy.get('.govuk-details__text');

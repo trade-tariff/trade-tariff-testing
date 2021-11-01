@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
 // Comm code :7202118000 - Commodity with no measure units
 
@@ -56,9 +57,8 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     cy.contains('31 December 2021');
     cy.contains('7202 11 80 00').click();
     cy.contains('Commodity information for 7202118000');
-    cy.wait(200).get('.govuk-back-link').click().wait(300);
-    // keys
-    //   cy.get('.govuk-details > .govuk-details__summary')
+    cy.go(-1);
+
     cy.contains('Details of your trade').click();
     cy.get('.govuk-details__text');
     cy.contains('Origin:');
