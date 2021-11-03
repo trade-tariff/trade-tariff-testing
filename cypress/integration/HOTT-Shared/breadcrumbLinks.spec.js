@@ -1,4 +1,4 @@
-describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks | Validate breadcrumb links are working on commodities and headings page |', function() {
+describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrumb links are working on commodities and headings page |', function() {
   /* Test commodities & headings
     Please can we test this on both shallow and deep hierarchies
     Shallow = 0101210000 and the heading above that 0101
@@ -6,38 +6,65 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks | Validate breadcrumb links 
     X - Browser test(usual browsers)
     Mobile and desktop
     */
-  const comm = ['2007993944', '0101210000', '0501000000'];
-  for (let i = 0; i < comm.length; i++) {
-    it(`Desktop UK - ${comm[i]} commodity,headings page`, function() {
-      cy.visit(`/commodities/${comm[i]}`);
+  // ['2007993944', '0101210000', '0501000000'];
+  const countries = ['', 'xi'];
+  for (let i =0; i<countries.length; i++) {
+    it(`Desktop ${countries[i]} - 2007993944 commodity page`, function() {
+      cy.visit(`${countries[i]}/commodities/2007993944`);
+      cy.get('.govuk-breadcrumbs__list').contains('Commodity 2007993944');
+      cy.get('.govuk-breadcrumbs__list').contains('Heading 2007').click();
+      cy.contains('Section IV: Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes');
+      cy.get('.govuk-breadcrumbs__list').contains('Chapter 20').click();
+      cy.contains('Section IV: Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes');
+      cy.get('.govuk-breadcrumbs__list').contains('Section IV').click();
+      cy.contains('Section IV: Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes');
+      // breadcrumbs at tree section
       cy.get('.desktop-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
       cy.contains(/Look up commodity codes, duty and VAT rates/i);
-    });
-    it(`Mobile UK - ${comm[i]} commodity,headings page`, function() {
-      cy.viewport('iphone-x');
-      cy.visit(`/commodities/${comm[i]}`);
-      cy.get('.mobile-only > ul  .full-width').click();
-      cy.contains('Choose the chapter that best matches your goods');
-      cy.contains('All sections').click();
-      cy.contains(/Look up commodity codes, duty and VAT rates/i);
+      cy.go(-1);
+      cy.get('.govuk-breadcrumbs__list').contains('Home').click();
+      cy.contains('Look up commodity codes, duty and VAT rates');
     });
 
-    it(`Desktop XI - ${comm[i]} commodity,headings page`, function() {
-      cy.visit(`xi/commodities/${comm[i]}`);
+    it(`Desktop ${countries[i]} - 0501000000 Headings page`, function() {
+      cy.visit('/commodities/0501000000');
+      cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
+      cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
+      cy.contains('Section I: Live animals; animal products');
+      cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
+      cy.contains('Section I: Live animals; animal products');
+      // breadcrumbs at tree section
       cy.get('.desktop-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
       cy.contains(/Look up commodity codes, duty and VAT rates/i);
+      cy.go(-1);
+      cy.get('.govuk-breadcrumbs__list').contains('Home').click();
+      cy.contains('Look up commodity codes, duty and VAT rates');
     });
-    it(`Mobile XI - ${comm[i]} commodity,headings page`, function() {
+    it(`Mobile - iOS ${countries[i]} commodity page`, function() {
       cy.viewport('iphone-x');
-      cy.visit(`xi/commodities/${comm[i]}`);
-      cy.get('.mobile-only > ul  .full-width').click();
-      cy.contains('Choose the chapter that best matches your goods');
-      cy.contains('All sections').click();
-      cy.contains(/Look up commodity codes, duty and VAT rates/i);
+      cy.visit('/commodities/0501000000');
+      cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
+      cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
+      cy.contains('Section I: Live animals; animal products');
+      cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
+      cy.contains('Section I: Live animals; animal products');
+      cy.get('.govuk-breadcrumbs__list').contains('Home').click();
+      cy.contains('Look up commodity codes, duty and VAT rates');
+    });
+    it(`Mobile - android ${countries[i]} commodity page`, function() {
+      cy.viewport('samsung-note9');
+      cy.visit('/commodities/0501000000');
+      cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
+      cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
+      cy.contains('Section I: Live animals; animal products');
+      cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
+      cy.contains('Section I: Live animals; animal products');
+      cy.get('.govuk-breadcrumbs__list').contains('Home').click();
+      cy.contains('Look up commodity codes, duty and VAT rates');
     });
   }
 });
