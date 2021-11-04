@@ -36,8 +36,6 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.contains('Section XV contains 11 chapters. Choose the chapter that best matches your goods.');
     cy.get('li:nth-of-type(1) > .govuk-breadcrumbs__link').click();
     cy.contains('Look up commodity codes, duty and VAT rates');
-    
-
   });
   it('UK - Heading 2902', function() {
     cy.visit('/headings/2902');

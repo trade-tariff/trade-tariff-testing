@@ -154,25 +154,14 @@ describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and
     cy.get('.govuk-header ')
         .contains('UK Integrated Online Tariff');
   });
-  it.skip('Quota Search Page', function() {
-    cy.visit('/xi/quota_search');
+  it('🚫 No Switching link on Meursing Code finder Page', function() {
+    cy.visit('xi/meursing_lookup/steps/start');
+    // check header has UK information
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
-    // UK switch link
-    cy.get('.govuk-main-wrapper')
-        .contains('Switch to')
-        .contains('UK Integrated Online Tariff').click();
-    cy.get('.govuk-header ')
-        .contains('UK Integrated Online Tariff');
     // click on the XI link and it should navigate to XI version
-    cy.get('.govuk-main-wrapper');
-    cy.contains('Northern Ireland Online Tariff')
-        .click();
-    // Back to XI page
-    cy.get('.govuk-header ')
-        .contains('Northern Ireland Online Tariff');
     cy.get('.govuk-main-wrapper')
-        .contains('UK Integrated Online Tariff');
+        .contains('UK Integrated Online Tariff').should('not.exist');
   });
   it('Certificate Search Page', function() {
     cy.visit('/xi/certificate_search');

@@ -1,5 +1,5 @@
 describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', function() {
-  it('UK - Search Commodity by name ', function() {
+  it.only('UK - Search Commodity by name ', function() {
     cy.visit('/sections');
     // changed on 11/02/2021
     cy.contains('Look up commodity codes, duty and VAT rates');
