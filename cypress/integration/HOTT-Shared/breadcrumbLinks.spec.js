@@ -8,6 +8,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
     */
   // ['2007993944', '0101210000', '0501000000'];
   const countries = ['', 'xi'];
+  const pageheadings = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
   for (let i =0; i<countries.length; i++) {
     it(`Desktop ${countries[i]} - 2007993944 commodity page`, function() {
       cy.visit(`${countries[i]}/commodities/2007993944`);
@@ -25,11 +26,12 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.contains(/Look up commodity codes, duty and VAT rates/i);
       cy.go(-1);
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
+      cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
       cy.contains('Look up commodity codes, duty and VAT rates');
     });
 
     it(`Desktop ${countries[i]} - 0501000000 Headings page`, function() {
-      cy.visit('/commodities/0501000000');
+      cy.visit(`${countries[i]}/commodities/0501000000`);
       cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Section I: Live animals; animal products');
@@ -43,10 +45,11 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.go(-1);
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
       cy.contains('Look up commodity codes, duty and VAT rates');
+      cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
     it(`Mobile - iOS ${countries[i]} commodity page`, function() {
       cy.viewport('iphone-x');
-      cy.visit('/commodities/0501000000');
+      cy.visit(`${countries[i]}/commodities/0501000000`);
       cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Section I: Live animals; animal products');
@@ -54,10 +57,11 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.contains('Section I: Live animals; animal products');
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
       cy.contains('Look up commodity codes, duty and VAT rates');
+      cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
     it(`Mobile - android ${countries[i]} commodity page`, function() {
       cy.viewport('samsung-note9');
-      cy.visit('/commodities/0501000000');
+      cy.visit(`${countries[i]}/commodities/0501000000`);
       cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Section I: Live animals; animal products');
@@ -65,6 +69,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.contains('Section I: Live animals; animal products');
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
       cy.contains('Look up commodity codes, duty and VAT rates');
+      cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
   }
 });
