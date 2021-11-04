@@ -138,7 +138,13 @@ Cypress.Commands.add('euDutiesApply', () => {
   cy.wait(100);
   cy.get('.govuk-button').click();
 });
-
+Cypress.Commands.add('dutiesApply', ()=>{
+  cy.contains('EU duties apply to this import');
+  cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
+  cy.wait(100);
+  cy.get('.govuk-button').click();
+});
+// Duties apply to this import - Online Tariff Duty calculator
 Cypress.Commands.add('traderScheme', (selection)=>{
   cy.contains('Are you authorised under the UK Trader Scheme?');
   cy.title().should('eq', 'Are you authorised under the UK Trader Scheme - Online Tariff Duty calculator');

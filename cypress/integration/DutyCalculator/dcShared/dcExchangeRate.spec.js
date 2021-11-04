@@ -35,6 +35,9 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
       // certificate
       cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field').check();
       cy.contains('Continue').click();
+      console.log(cy.title());
+      // interstitial page
+      cy.dutiesApply();
       // monetary value
       cy.get('input#steps-customs-value-monetary-value-field').clear().type('1000');
       cy.contains('Continue').click();
