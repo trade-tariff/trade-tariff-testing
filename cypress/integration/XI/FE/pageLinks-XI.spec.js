@@ -9,6 +9,15 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     cy.get('.govuk-main-wrapper')
         .contains('Terms and conditions');
   });
+  it('XI - Terms and Conditions-navigates to right UK page ', function() {
+    cy.visit('/xi/terms?day=1&month=1&year=2022');
+    cy.contains('Wrong codes and penalties');
+    cy.contains('It\'s your responsibility to get your commodity code and licences right, even if you use an agent.');
+    cy.contains('HM Revenue and Customs (HMRC) can fine you, seize your goods and delay their release from customs if you import or export goods with the wrong codes.');
+    cy.contains('Users of the Northern Ireland Online Tariff should be aware that in any case where information on this website is at variance with that contained in the appropriate legislation, the latter will represent the correct legal position.');
+    cy.contains('Whilst every effort is made to ensure the accuracy of the Tariff on GOV.UK, the onus remains with the user to consult published legislation as necessary and to ensure that the correct duties are paid at importation.');
+    cy.contains('In instances where the Customs Authorities are at error, the importer or exporter may still be liable for any additional duty that may be demanded as a result of that error being discovered.');
+  });
 
   it('XI - Cookies -navigates to right XI page', function() {
     cy.visit('/xi/sections');
