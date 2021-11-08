@@ -1,5 +1,5 @@
 
-describe('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke |', function() {
+describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke |', function() {
   //
   //   let country = ["uk"]
   //   let pagetitles = ["UK Integrated Online Tariff","Northern Ireland Online Tariff"]
