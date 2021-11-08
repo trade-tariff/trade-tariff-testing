@@ -8,6 +8,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     // Customs value page
     cy.contains('What is the customs value of this import?');
     cy.contains('The amount of duty you may have to pay will depend on the customs value of your goods. The rules for arriving at the customs value are based on the World Trade Organisation (WTO) Valuation Agreement.');
@@ -42,6 +43,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     // Customs value page
     cy.contains('What is the customs value of this import?');
     cy.contains('Continue').click();
@@ -72,6 +74,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     // Customs value page
     cy.contains('What is the customs value of this import?');
 
@@ -113,6 +116,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     // Customs value page
     cy.contains('What is the customs value of this import?');
     cy.get('input#steps-customs-value-monetary-value-field').clear().type('0.01');

@@ -22,6 +22,9 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
 
     //  🚫 Certified as UK Origin
     cy.certificate('no');
+    // interstitial page
+    cy.dutiesApply();
+
 
     // Monetary value page
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});

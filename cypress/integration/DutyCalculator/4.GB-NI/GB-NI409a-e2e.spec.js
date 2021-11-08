@@ -27,8 +27,8 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
       cy.contains('Continue').click();
 
       // ℹ️ Interstitial Message - EU duties apply
-      cy.contains('Duties apply to this import');
-      cy.get('.govuk-button').click();
+      // interstitial page
+      cy.dutiesApply();
 
       // 💰 Whats the monetary value?
       cy.contains('What is the customs value of this import?');
