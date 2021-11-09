@@ -25,7 +25,7 @@ describe('|RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', func
     cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Option 3: Airworthiness tariff suspension');
   });
-  it.only(`e2e RoW to GB | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function() {
+  it(`e2e RoW to GB | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/2204210600/import-date`);
     cy.wait(500);

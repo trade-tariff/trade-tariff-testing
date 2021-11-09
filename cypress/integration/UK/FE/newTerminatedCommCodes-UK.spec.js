@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm codes from 1st Jan 2021 |', function() {
   it('Terminated comm codes from 01 Jan 2021', function() {
     const termcodes_ids = Cypress.config('termcodes');
