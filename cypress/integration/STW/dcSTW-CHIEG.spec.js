@@ -114,8 +114,7 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
   it('GB-XI | trade defence true ,&& zero-mfn | interstitial page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0304829010&country_of_origin=GB&import_date=2021-12-31&import_destination=XI');
     // ℹ️ Interstitial Message - EU duties apply
-    cy.contains('Duties apply to this import');
-    cy.get('.govuk-button').click();
+    cy.dutiesApply();
     // 💰 Whats the monetary customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Confirm Page

@@ -11,8 +11,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.get('.govuk-table__head')
         .contains('Order number');
 
-    if (cy.get('.quota-results.govuk-table').contains('057015')) {
-      cy.get('.quota-results.govuk-table');
+    if (cy.get('.search-results').contains('057015')) {
       cy.contains('057015').click();
       cy.get('.tariff-info');
       cy.contains('Quota 057015');
