@@ -144,6 +144,13 @@ Cypress.Commands.add('dutiesApply', ()=>{
   cy.wait(100);
   cy.get('.govuk-button').click();
 });
+Cypress.Commands.add('meursingCode', (mcode)=>{
+  cy.contains('Enter a \'Meursing code\' to work out applicable duties');
+  cy.title().should('eq', 'Enter a \'Meursing Code\' for this commodity - Online Tariff Duty calculator');
+  cy.get('#steps-meursing-additional-code-meursing-additional-code-field').click().clear().type(mcode.value);
+  cy.wait(100);
+  cy.get('.govuk-button').click();
+});
 // Duties apply to this import - Online Tariff Duty calculator
 Cypress.Commands.add('traderScheme', (selection)=>{
   cy.contains('Are you authorised under the UK Trader Scheme?');
