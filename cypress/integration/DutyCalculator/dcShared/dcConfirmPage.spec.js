@@ -7,7 +7,11 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectDestination('xi');
     cy.selectOrigin('gb');
     cy.traderScheme('no');
+
     cy.certificate('no');
+    cy.dutiesApply();
+   // cy.contains('Continue').click();
+
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -46,6 +50,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -62,6 +67,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -77,6 +83,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -92,6 +99,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -107,6 +115,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -122,6 +131,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -137,6 +147,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
+    cy.dutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});

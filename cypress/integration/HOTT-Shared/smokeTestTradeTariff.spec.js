@@ -1,5 +1,5 @@
 
-describe('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests for UK & XI services |', function() {
+describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests for UK & XI services |', function() {
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
     cy.visit('/sections');
