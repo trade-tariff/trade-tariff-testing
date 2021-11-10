@@ -15,13 +15,14 @@ describe('| dcMeursingCode.spec.js | Meursing Code page validations | ', functio
     cy.otherOriginList({value: 'Andorra'});
     cy.wait(100);
     // Trader Scheme
-    cy.traderScheme('yes');
-    // ✅  Final use in NI - Yes
-    cy.finalUseNI('yes');
-    // turnover <£500,000 - NO
-    cy.turnOver('more');
-    // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.traderScheme('no');
+    // // ✅  Final use in NI - Yes
+    // cy.finalUseNI('yes');
+    // // turnover <£500,000 - NO
+    // cy.turnOver('more');
+    // // Planned processing - acceptable1
+    // cy.plannedXI('notprocessing');
+    cy.euDutiesApply();
     cy.contains('Enter a \'Meursing code\' to work out applicable duties');
     cy.contains('This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.');
     cy.contains('Enter the 3-digit additional code');
