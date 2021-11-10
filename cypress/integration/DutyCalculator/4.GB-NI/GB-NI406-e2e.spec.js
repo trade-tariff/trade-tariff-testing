@@ -81,4 +81,62 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       cy.contains('Option 3: Claiming a waiver – Exchange rate');
     });
   }
+  it(`e2e GB to NI - Meursing Code `, function() {
+    // select future date
+    cy.visit(`/duty-calculator/xi/1806909019/import-date`);
+    cy.contains('Northern Ireland Online Tariff');
+    // date
+    cy.validDate();
+    // destination
+    cy.selectDestination('xi');
+    // origin
+    cy.selectOrigin('gb');
+    // ✅ Trader Scheme Registered - Yes
+    cy.traderScheme('yes');
+    // ✅  Final use in NI - Yes
+    cy.finalUse('yes');
+
+
+    // ⬆️ turnover > £500,000
+    cy.turnOver('more');
+
+    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than // 🚫 Non processing - No
+    cy.plannedXI('unacceptablecommercial');
+    //  🚫 Certified as UK Origin
+    cy.certificate('no');
+
+    // interstitial page
+    cy.dutiesApply();
+    cy.meursingCode({value: '000'});
+
+    // customs value
+    cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
+
+    // quantity
+    cy.quantity({dtn: '23.98'});
+    cy.vat('20');
+
+    // Check your answers page
+    cy.contains('Check your answers');
+
+    cy.contains('Commodity code');
+    cy.contains('Date of import');
+    cy.contains('Destination');
+    cy.contains('Coming from');
+    cy.contains('Trader scheme');
+    cy.contains('Final use');
+    cy.contains('Certificate of origin');
+    cy.contains('Customs value');
+    cy.contains('Import quantity');
+
+    cy.confirmPage();
+
+    // Final Page
+    cy.contains('Option 1: Third-country duty');
+    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty (EU)');
+    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
+
+    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+  });
 });

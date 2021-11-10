@@ -105,7 +105,11 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
     // Import Quantity
-    cy.quantity({tne: '10.0'});
+    cy.quantity({dtn: '10.0'});
+    cy.docCode({uk: 'c990'});
+    cy.contains('Continue').click();
+    // VAT Page
+    cy.vat('20');
     cy.confirmPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (UK)');
