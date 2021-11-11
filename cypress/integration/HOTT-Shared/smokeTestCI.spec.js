@@ -101,7 +101,8 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+  //  cy.contains('Commodity information for 3808941000');
+    cy.contains(/Commodity .*3808941000/i);
   });
   // Country selection - imports
   it('🚀 UK 🇬🇧 - Country Selection ', function() {
@@ -265,7 +266,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+   cy.contains(/Commodity .*3808941000/i);
   });
 
   it('🚀 XI 🇪🇺 - Country Selection', function() {
