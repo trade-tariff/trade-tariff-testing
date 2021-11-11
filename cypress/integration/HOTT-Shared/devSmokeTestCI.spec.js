@@ -70,7 +70,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+    cy.contains(/Commodity .*3808941000/i);
   });
 
   // Date picker working and persists on UK XI sites
@@ -166,6 +166,6 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+    cy.contains(/Commodity .*3808941000/i);
   });
 });
