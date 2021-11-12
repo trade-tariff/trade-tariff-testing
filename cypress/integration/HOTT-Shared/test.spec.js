@@ -1,4 +1,5 @@
-describe.skip('test spec', function() {
+/* eslint-disable new-cap */
+describe('test spec', function() {
   it('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
@@ -16,5 +17,9 @@ describe.skip('test spec', function() {
   });
   it('test spec', function() {
     console.log(Cypress.env('baseUrl'));
+  });
+  it.only('check comm code spacing', function() {
+    cy.visit('/commodities/0409000000');
+    cy.checkCommPage('0409000000');
   });
 });

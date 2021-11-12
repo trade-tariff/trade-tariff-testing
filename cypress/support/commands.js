@@ -14,6 +14,11 @@ beforeEach(() => {
 });
 // ******* Custom Commands *******
 
+// validate commodity page heading
+Cypress.Commands.add('checkCommPage', (commcode)=>{
+  cy.contains('Commodity ' +commcode);
+});
+
 // UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('MainPageUK', ()=>{
   // check header has UK information
