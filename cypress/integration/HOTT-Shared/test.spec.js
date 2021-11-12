@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-describe('test spec', function() {
+describe.skip('test spec', function() {
   it('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);

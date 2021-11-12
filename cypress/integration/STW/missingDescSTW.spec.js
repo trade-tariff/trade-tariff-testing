@@ -4,10 +4,9 @@ describe('missingDescSTW.spec | Gracefully handle when DIT misses adding descrip
   for (let i =0; i<comms.length; i++) {
     it(`UK & XI - Commodity UI checks ${comms[i]} for 01-01-2022`, function() {
       cy.visit(`/commodities/${comms[i]}?as_of=2022-01-01`);
-      cy.contains(/Commodity .*${comms[i]}/i);
-      // cy.contains(/Commodity .*3808941000/i);
+      cy.checkCommPage(`${comms[i]}`);
       cy.visit(`xi/commodities/${comms[i]}?as_of=2022-01-01`);
-      cy.contains(/Commodity .*${comms[i]}/i);
+      cy.checkCommPage(`${comms[i]}`);
       //  cy.contains(`Commodity information for ${comms[i]}`);
     });
     it(`UK & XI - Commodity API checks for ${comms[i]} for 01-01-2022`, function() {

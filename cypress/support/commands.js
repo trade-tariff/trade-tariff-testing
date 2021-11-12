@@ -16,8 +16,9 @@ beforeEach(() => {
 
 // validate commodity page heading
 Cypress.Commands.add('checkCommPage', (commcode)=>{
-  cy.contains('Commodity ' +commcode);
+//  cy.contains('Commodity ' +commcode);
   // cy.contains(/Commodity .*3808941000/i);
+  cy.contains(new RegExp(`Commodity .*${commcode}`, 'i'));
 });
 
 // UK Checks main page title , sections , content and switching link available , search section
