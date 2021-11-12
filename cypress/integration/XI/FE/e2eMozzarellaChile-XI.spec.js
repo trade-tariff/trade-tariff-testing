@@ -7,7 +7,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
 
         //Commodity information for 0406103010 is displayed',function(){
         cy.get('.govuk-main-wrapper')
-            .contains('Commodity information for 0406103010')
+            cy.checkCommPage('0406103010')
 
         //Chapter notes is visible',function(){
         cy.get('.govuk-main-wrapper')

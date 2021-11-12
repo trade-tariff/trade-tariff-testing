@@ -7,7 +7,7 @@ describe.skip('🇬🇧 💡 | randomCommCode-UK  | random comm code test |',fun
                 cy.visit('/sections')
                 cy.searchForCommodity(`${randomcommcodes_ids[i]}`)
                
-                cy.contains(`Commodity information for ${randomcommcodes_ids[i]}`)
+                cy.checkCommPage(`${randomcommcodes_ids[i]}`)
             }
         })
     })

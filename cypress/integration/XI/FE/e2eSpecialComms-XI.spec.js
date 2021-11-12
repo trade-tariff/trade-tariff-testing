@@ -6,7 +6,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         '\n' +
         'There are no duties that are expressed in currencies ', function() {
     cy.visit('/xi/commodities/7202118000#import')
-        .contains('Commodity information for 7202118000');
+        cy.checkCommPage('7202118000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('.103');
@@ -23,7 +23,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         '\n' +
         'Duties are expressed in EUROs', function() {
     cy.visit('/xi/commodities/0201100021#import')
-        .contains('Commodity information for 0201100021');
+        cy.checkCommPage('0201100021');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2049567');
@@ -32,7 +32,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   });
   it('  🔊 Amplifiers\n also has a supplementary unit measure of p/st', function() {
     cy.visit('/xi/commodities/8518400010#import')
-        .contains('Commodity information for 8518400010');
+        cy.checkCommPage('8518400010');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-3719160');
@@ -53,7 +53,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         '\n' +
         '9.00 % + EA MAX 24.20 % +ADSZ', function() {
     cy.visit('/xi/commodities/1905319100#import')
-        .contains('Commodity information for 1905319100');
+        cy.checkCommPage('1905319100');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2772110');
@@ -68,7 +68,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         'Check that there are no quotas at all' +
         '\n', function() {
     cy.visit('/xi/commodities/0702000007#import')
-        .contains('Commodity information for 0702000007');
+        cy.checkCommPage('0702000007');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-3788672');
@@ -90,7 +90,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
 
   it(' 🍻 Beer\n Has multiple excise lines expressed in litres,\n Identical to UK', function() {
     cy.visit('/xi/commodities/2203001000#import')
-        .contains('Commodity information for 2203001000');
+        cy.checkCommPage('2203001000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2982608');
@@ -110,7 +110,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
 
   it('Turbines \n Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms', function() {
     cy.visit('/xi/commodities/8406810000#import')
-        .contains('Commodity information for 8406810000');
+        cy.checkCommPage('8406810000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-3489354');
@@ -125,7 +125,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
 
   it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK', function() {
     cy.visit('/xi/commodities/2402100000#import')
-        .contains('Commodity information for 2402100000');
+        cy.checkCommPage('2402100000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure--1011386180');
@@ -137,7 +137,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         '\n' +
         '1.30 EUR / % vol / hl MIN 7.20 EUR / hl', function() {
     cy.visit('/xi/commodities/2206001000#import')
-        .contains('Commodity information for 2206001000');
+        cy.checkCommPage('2206001000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2052957');

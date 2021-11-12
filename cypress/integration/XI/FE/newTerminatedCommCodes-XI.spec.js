@@ -20,7 +20,7 @@ describe.skip(' 🇪🇺 💡 New ,Terminated comm codes from 1st Jan 2021',func
             cy.get('input[name=\'new_search\']').click()
             cy.wait(700)
             cy.reload()
-            cy.contains(`Commodity information for ${newcodes_ids[i]}`)
+            cy.checkCommPage(`${newcodes_ids[i]}`)
 
         }
     })

@@ -16,7 +16,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
     for (let i = 0; i < newcodes_ids.length; i++) {
       cy.visit('/xi/sections');
       cy.searchForCommodity(`${newcodes_ids[i]}`);
-      cy.contains(`Commodity information for ${newcodes_ids[i]}`);
+      cy.checkCommPage(`${newcodes_ids[i]}`);
     }
   });
 });

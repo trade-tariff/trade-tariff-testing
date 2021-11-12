@@ -73,7 +73,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.contains('For more information on excise duty classes, please see');
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details  .govuk-link').click();
-    cy.contains(`Commodity information for 2402201000`);
+    cy.checkCommPage(`2402201000`);
     cy.go(-1).wait(300);
     cy.get('span#steps-excise-additional-code-hint  .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/government/publications/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances/uk-trade-tariff-excise-duties-reliefs-drawbacks-and-allowances');
     cy.contains('Continue').click();
