@@ -14,7 +14,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
     it(`Desktop ${countries[i]} - 2007993944 commodity page`, function() {
       cy.visit(`${countries[i]}/commodities/2007993944`);
       cy.get('.govuk-breadcrumbs__list').contains('Commodity 2007993944');
-      cy.contains('Commodity information for 2007993944');
+      cy.checkCommPage('2007993944');
       cy.get('.govuk-breadcrumbs__list').contains('Heading 2007').click();
       cy.contains('Heading 2007 - Jams, fruit jellies, marmalades, fruit or nut purée and fruit or nut pastes, obtained by cooking, whether or not containing added sugar or other sweetening matter');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 20').click();
@@ -35,7 +35,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
     it(`Desktop ${countries[i]} - 0501000000 Headings page`, function() {
       cy.visit(`${countries[i]}/commodities/0501000000`);
       cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
-      cy.contains('Commodity information for 0501000000');
+      cy.checkCommPage('0501000000');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
       cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
@@ -54,7 +54,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.viewport('iphone-x');
       cy.visit(`${countries[i]}/commodities/0501000000`);
       cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
-      cy.contains('Commodity information for 0501000000');
+      cy.checkCommPage('0501000000');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
       cy.contains('Section I: Live animals; animal products');

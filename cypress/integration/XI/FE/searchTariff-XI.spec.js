@@ -24,7 +24,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+    cy.checkCommPage('3808941000');
   });
 
 

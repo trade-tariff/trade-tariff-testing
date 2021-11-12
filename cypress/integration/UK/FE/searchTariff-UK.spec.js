@@ -25,7 +25,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+    cy.checkCommPage('3808941000');
   });
 
   it('UK - Search Commodity by heading code - displays headings page', function() {

@@ -69,7 +69,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       cy.contains('from United Kingdom (excluding Northern Ireland) on');
       cy.contains('31 December 2021');
       cy.contains('1701 14 10 00').click();
-      cy.contains('Commodity information for 1701141000');
+      cy.checkCommPage('1701141000');
       cy.go(-1);
       // keys
       cy.contains('Details of your trade').click();

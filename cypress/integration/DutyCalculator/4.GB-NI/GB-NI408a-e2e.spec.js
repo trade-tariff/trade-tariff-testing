@@ -59,7 +59,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     cy.contains('from United Kingdom (excluding Northern Ireland) on');
     cy.contains('31 December 2021');
     cy.contains('7202 11 80 00').click();
-    cy.contains('Commodity information for 7202118000');
+    cy.checkCommPage('7202118000');
     cy.go(-1);
 
     cy.contains('Details of your trade').click();
@@ -159,7 +159,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     cy.contains('9.00 % + EA MAX 24.20 % +ADSZ');
     cy.contains('9.00 % + 0.00 EUR / 100 kg MAX 24.20 % + 0.00 EUR / 100 kg');
     cy.contains('1905 31 11 00').click();
-    cy.contains('Commodity information for 1905311100');
+    cy.checkCommPage('1905311100');
     cy.go(-1);
     // change meursing code to 7049
 

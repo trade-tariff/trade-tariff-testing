@@ -21,7 +21,7 @@ SG	Singapore
 describe('| meursingCalculations | Third Country Duty and Tariff Preference calculations', function() {
   it('| EA , EAR | 1901100000 - Costa Rica |', function() {
     cy.visit('/xi/commodities/1901100000');
-    cy.contains('Commodity information for 1901100000');
+    cy.checkCommPage('1901100000');
     cy.get('input#search_country').click().clear().wait(500).type('CR');
     cy.get('[id=\'search_country__listbox\']')
         .contains('Costa Rica (CR)').click();
@@ -39,7 +39,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
 
   it('| ASDZ , ASDZR | 1806909019 - Iceland |', function() {
     cy.visit('/xi/commodities/1806909019');
-    cy.contains('Commodity information for 1806909019');
+    cy.checkCommPage('1806909019');
     cy.get('input#search_country').click().clear().wait(500).type('(IS)');
     cy.get('[id=\'search_country__listbox\']')
         .contains('Iceland (IS)').click();
@@ -57,7 +57,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
 
   it('| ADFM , ADFMR | 1905320500 - Norway |', function() {
     cy.visit('/xi/commodities/1905320500');
-    cy.contains('Commodity information for 1905320500');
+    cy.checkCommPage('1905320500');
     cy.get('input#search_country').click().clear().wait(500).type('(NO)');
     cy.get('[id=\'search_country__listbox\']')
         .contains('Norway (NO)').click();
@@ -75,7 +75,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   });
   it('| Validate old meursing links are removed |', function() {
     cy.visit('/xi/commodities/1905320500');
-    cy.contains('Commodity information for 1905320500');
+    cy.checkCommPage('1905320500');
     cy.contains('This commodity has a meursing code').should('not.exist');
   });
 });

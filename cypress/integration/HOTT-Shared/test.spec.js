@@ -18,8 +18,22 @@ describe('test spec', function() {
   it('test spec', function() {
     console.log(Cypress.env('baseUrl'));
   });
-  it.only('check comm code spacing', function() {
+  it('check comm code spacing', function() {
     cy.visit('/commodities/0409000000');
     cy.checkCommPage('0409000000');
+  });
+  it('UK - V2 - Headers,Status,Length,duration', function() {
+    cy.request('/api/v2/commodities/2007993943').as('comments');
+    cy.get('@comments').then(cy.validJsonAPIresponse);
+  });
+
+  // function hello(name) { console.log('hello' + name);
+  // const hello = function(name) { console.log('hello' + name);
+  // const hello = (name) => { console.log('hello' + name);
+
+  // function(name) { console.log('hello' + name);
+  // (name) => { console.log('hello' + name)
+  it.only('custom commands test', function() {
+    Helpers.sayHello('Madhu');
   });
 });

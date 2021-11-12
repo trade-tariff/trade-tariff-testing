@@ -153,7 +153,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
         .contains('tariff preference').click();
     cy.contains('Pay less Customs Duty on goods from a country with a UK trade agreement');
     cy.go('back');
-    cy.contains('Commodity information for 4421999910');
+    cy.checkCommPage('4421999910');
 
     //
   });

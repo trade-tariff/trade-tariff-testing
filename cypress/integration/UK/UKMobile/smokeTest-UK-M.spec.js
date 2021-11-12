@@ -104,7 +104,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+    cy.checkCommPage('3808941000');
   });
   // Country selection - imports
   it('🚀 UK - Country Selection - imports ', function() {

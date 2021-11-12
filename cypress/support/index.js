@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './commodityCommands'
 //import 'cypress-axe'
 import 'cypress-fill-command'
 //require('@shelex/cypress-allure-plugin');
@@ -26,5 +27,8 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   // failing the test
   return false
 })
+const Helpers = {
+  sayHello: (name)=> { console.log('hello ' + name) }
+}
 
 

@@ -6,7 +6,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
-    cy.contains('Commodity information for 0702000007');
+    cy.checkCommPage('0702000007');
     // change date to future date
     // select Change Date and change months and years
     cy.get(' .js-show.text > a[role=\'button\']').click();
@@ -66,7 +66,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
-    cy.contains('Commodity information for 0702000007');
+    cy.checkCommPage('0702000007');
     // change date to future date
     // select Change Date and change months and years
     cy.get(' .js-show.text > a[role=\'button\']').click();

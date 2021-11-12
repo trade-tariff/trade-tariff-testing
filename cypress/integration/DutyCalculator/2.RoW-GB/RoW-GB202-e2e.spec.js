@@ -65,7 +65,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
       cy.contains('from Turkey on 31 December 2021.');
 
       //     cy.contains('0304 82 90 10').click()
-      //     cy.contains('Commodity information for 0304829010')
+      //     cy.checkCommPage('0304829010')
       //     cy.get('.govuk-back-link').click()
       // keys
       cy.get('.govuk-details > .govuk-details__summary');

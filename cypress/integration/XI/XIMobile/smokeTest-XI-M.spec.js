@@ -88,7 +88,7 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
     cy.wait(400);
     cy.get('input[name=\'new_search\']').click();
     cy.wait(500);
-    cy.contains('Commodity information for 3808941000');
+    cy.checkCommPage('3808941000');
   });
 
   it('🚀 XI - Country Selection -import ', function() {

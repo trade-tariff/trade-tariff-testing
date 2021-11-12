@@ -97,7 +97,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       // Back button - GDS style back link
       cy.contains('Back').click();
       // Validate commodity page
-      cy.contains('Commodity information for 0702000007');
+      cy.checkCommPage('0702000007');
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
       // About this commodity code
       cy.get('.govuk-details > .govuk-details__summary');
@@ -109,7 +109,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
 
       cy.contains('View commodity 0702000007').click();
       // ☀️ Validate commodity page
-      cy.contains('Commodity information for 0702000007');
+      cy.checkCommPage('0702000007');
       cy.get('.govuk-header ').contains(`${pagetitles[i]}`);
       cy.get('.govuk-back-link').click();
       cy.contains('When will the goods be imported?');
