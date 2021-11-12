@@ -16,7 +16,7 @@ When('select Iceland from All countries list', () => {
   cy.wait(2000)
 })
 Then('Commodity information for 1704903000 is displayed', () => {
-  cy.get('.commodity-header.govuk-heading-l').contains('Commodity information for 1704903000').should('be.visible')
+  cy.get('.commodity-header.govuk-heading-l')cy.checkCommPage('1704903000').should('be.visible')
 
 })
 Then('{string} should be shown', (content) => {

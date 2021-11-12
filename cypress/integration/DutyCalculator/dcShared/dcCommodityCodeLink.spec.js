@@ -11,7 +11,8 @@ describe('| dcCommodityCodeLink | Duty Calculation link on commodities', functio
       cy.contains(`${pagetitles[i]}`);
       cy.contains('About this commodity code').click();
       cy.get('.govuk-details  .govuk-link').click();
-      cy.contains(`Commodity information for ${commcodes[i]}`);
+      cy.checkCommPage(`${commcodes[i]}`);
+      // cy.checkCommPage('0409000000');
       cy.contains(`${pagetitles[i]}`);
       cy.contains('Use our tariff duty calculator to work out the');
       cy.contains(`duties applicable to the import of commodity ${commcodes[i]} into the ${destination[i]}`);

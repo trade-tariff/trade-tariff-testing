@@ -7,7 +7,7 @@ describe('missingDescSTW.spec | Gracefully handle when DIT misses adding descrip
       cy.checkCommPage(`${comms[i]}`);
       cy.visit(`xi/commodities/${comms[i]}?as_of=2022-01-01`);
       cy.checkCommPage(`${comms[i]}`);
-      //  cy.contains(`Commodity information for ${comms[i]}`);
+      //  cy.checkCommPage(`${comms[i]}`);
     });
     it(`UK & XI - Commodity API checks for ${comms[i]} for 01-01-2022`, function() {
       cy.request(`api/v2/commodities/${comms[i]}?as_of=2022-01-01`)

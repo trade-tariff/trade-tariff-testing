@@ -11,7 +11,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
       for (let i=0; i<comms.length; i++) {
         cy.visit(`${country[j]}/sections`);
         cy.searchForCommodity(`${comms[i]}`);
-        cy.contains(`Commodity information for ${comms[i]}`);
+        cy.checkCommPage(`${comms[i]}`);
         cy.contains('Duty calculation').should('not.exist');
       }
     });
@@ -19,7 +19,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
       const headings = ['0409', '0510', '8804', '2509', '2802', '3101', '3914', '4004', '4812', '5001', '4112', '4705'];
       for (let i=0; i<headings.length; i++) {
         cy.visit(`${country[j]}/headings/${headings[i]}`);
-        cy.contains(`Commodity information for ${headings[i]}000000`);
+        cy.checkCommPage(`${headings[i]}000000`);
         cy.contains('Duty calculation').should('not.exist');
       }
     });
