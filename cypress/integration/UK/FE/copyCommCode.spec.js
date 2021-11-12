@@ -12,7 +12,7 @@ describe.skip('🇬🇧 💡 | copyCommCode | Copy comm code UK and XI  |', func
          //   .invoke('val', 'pasted text').trigger('input')
    //     cy.get('input[name=\'new_search\']').click()
    //     cy.wait(500)
-   //     cy.contains('Commodity information for 0201100021')
+   //     cy.checkCommPage('0201100021')
 
     })
 

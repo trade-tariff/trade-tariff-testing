@@ -37,7 +37,7 @@ describe('| meursingComm | Store Commodity value in session for Meursing , Meurs
     cy.get('span#meursing-lookup-result-meursing-additional-code-id-hint > .govuk-link').click();
     cy.contains('Look up a Meursing code');
     cy.go(-1);
-    cy.contains('Commodity information for 1905311100');
+    cy.checkCommPage('1905311100');
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').type('000');
     cy.contains('Save code and update duties').click();
 

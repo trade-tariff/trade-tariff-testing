@@ -75,7 +75,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
     cy.visit('/sections');
     cy.contains('Look up commodity codes, duty and VAT rates');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+    cy.checkCommPage('3808941000');
   });
   // Country selection - imports
   it('🚀 UK 🇬🇧 - Country Selection - imports ', function() {
@@ -264,7 +264,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('3808941000');
-    cy.contains('Commodity information for 3808941000');
+    cy.checkCommPage('3808941000');
   });
 
   it('🚀 XI 🇪🇺 - Country Selection -import ', function() {

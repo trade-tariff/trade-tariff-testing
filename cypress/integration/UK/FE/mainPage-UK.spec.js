@@ -52,7 +52,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.contains('Search or browse the Tariff').click();
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('9919000060');
-    cy.contains('Commodity information for 9919000060');
+    cy.checkCommPage('9919000060');
   });
   it('UK - A-Z section', function() {
     cy.visit('/sections');

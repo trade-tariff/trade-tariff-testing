@@ -26,7 +26,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
     it(`${country[j]} - Duty calculator link to be available on commodities`, function() {
       cy.visit(`${country[j]}/sections`);
       cy.searchForCommodity('8803100010');
-      cy.contains('Commodity information for 8803100010');
+      cy.checkCommPage('8803100010');
       cy.contains('Duty calculation').should('exist');
     });
   }

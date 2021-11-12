@@ -17,6 +17,7 @@ beforeEach(() => {
 // validate commodity page heading
 Cypress.Commands.add('checkCommPage', (commcode)=>{
   cy.contains('Commodity ' +commcode);
+  // cy.contains(/Commodity .*3808941000/i);
 });
 
 // UK Checks main page title , sections , content and switching link available , search section
@@ -358,4 +359,12 @@ Cypress.Commands.add('getExchangeRateForImportDate', (importDateString) => {
   }
 
   return cy.wrap(applicableExchangeRate);
+});
+// API Commands
+Cypress.Commands.add('validJsonAPIresponse', (response)=>{
+  expect(response.status).to.eq(200);
+  expect(response).to.have.property('headers');
+  expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
+  expect(response.body).to.not.be.null;
+  expect(response.body).to.have.property('data');
 });

@@ -32,7 +32,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains('from United Kingdom (excluding Northern Ireland) on');
     cy.contains('31 December 2021');
     cy.contains('7202 11 80 00').click();
-    cy.contains('Commodity information for 7202118000');
+    cy.checkCommPage('7202118000');
     cy.go(-1);
     // keys
     cy.get('.govuk-details > .govuk-details__summary');
