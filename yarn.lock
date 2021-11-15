@@ -2306,10 +2306,10 @@ cypress-tags@^0.3.0:
     "@cypress/browserify-preprocessor" "^3.0.1"
     through "^2.3.8"
 
-cypress-utils@^2.1.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/cypress-utils/-/cypress-utils-2.2.1.tgz#3944d47302289642268cb0278746a90da71e2e0b"
-  integrity sha512-hISSTyFRdJAW1sNcZJ1U7hSO6DMISTZngatntZi4qvuvZD6uT7e2K4Su8ra7ylg3Qx22Pw+I8IK3JK1rET/1kw==
+cypress-utils@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/cypress-utils/-/cypress-utils-2.3.0.tgz#bdb26a891535868f069bbce1054d926fb5365c4e"
+  integrity sha512-VntCWdT5mnxHbvhTeBTn5giPxRd4h9rSqqTys5grtpMbc+Wp3AEutcCpI9q1V/PzrTvv6wZw2g73le3+tIRXdg==
   dependencies:
     async "^3.2.0"
     glob "^7.1.6"
