@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke tests to cover basic functionality on UK & XI services |', function() {
+describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke tests ( Front end and API ) to cover basic functionality UK and XI services + Duty Calculator |', function() {
+  // ************ UK tests ************
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
     cy.visit('/sections');
@@ -101,7 +102,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
-  //  cy.checkCommPage('3808941000');
+    //  cy.checkCommPage('3808941000');
     cy.contains(/Commodity .*3808941000/i);
   });
   // Country selection - imports
@@ -166,7 +167,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-table__head')
         .contains('Order number');
 
-  //  cy.get('.quota-results.govuk-table');
+    //  cy.get('.quota-results.govuk-table');
     cy.contains('057015').click();
     cy.get('.tariff-info')
         .should('contain', 'Quota', '057015', 'Start date', '01/01/2021');
@@ -187,7 +188,16 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
       cy.contains('All sections');
     }
   });
-  // XI tests
+  // API checks
+  it('🚀 UK 🇬🇧 - API V2 - Commodity - validate response headers,status,content ', function() {
+    cy.request('/api/v2/commodities/2007993943').as('comments');
+    cy.get('@comments').then(cy.validJsonAPIresponse);
+  });
+  it('🚀 UK 🇬🇧 - API V2 - Heading - validate response headers,status,content ', function() {
+    cy.request('/api/v2/commodities/5001000000').as('comments');
+    cy.get('@comments').then(cy.validJsonAPIresponse);
+  });
+  // ************ XI tests ************
 
   // Main Page
   it('🚀 XI 🇪🇺 - Main Page Validation', function() {
@@ -266,7 +276,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('3808941000');
-   cy.contains(/Commodity .*3808941000/i);
+    cy.contains(/Commodity .*3808941000/i);
   });
 
   it('🚀 XI 🇪🇺 - Country Selection', function() {
@@ -295,7 +305,17 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
       cy.contains('All sections');
     }
   });
-  // Duty Calculator tests
+  // API checks
+  it('🚀 XI 🇪🇺 - API V2 - Commodity - validate response headers,status,content ', function() {
+    cy.request('xi/api/v2/commodities/2007993943').as('comments');
+    cy.get('@comments').then(cy.validJsonAPIresponse);
+  });
+  it('🚀 XI 🇪🇺 - API V2 - Heading - validate response headers,status,content ', function() {
+    cy.request('xi/api/v2/commodities/5001000000').as('comments');
+    cy.get('@comments').then(cy.validJsonAPIresponse);
+  });
+  // ************ Duty Calculator tests ************
+
   it('🧮  UK 🇬🇧 - Duty Calculator e2e - ( NI to GB ) | 101 |', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
     cy.contains('UK Integrated Online Tariff');
@@ -328,7 +348,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
   });
-  it.skip('🧮 UK 🇬🇧 - RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta |', function() {
+  it('🧮  UK 🇬🇧 - RoW - Duty Calculator e2e - 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta || Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ |', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
     // date
     cy.validDate();
@@ -337,13 +357,17 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // origin
     cy.selectOrigin('other');
     // select country from list
+    cy.wait(100);
     cy.otherOriginList({value: 'United Arab Emirates'});
+    cy.wait(100);
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
+    // turnover <£500,000
+    cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('acceptable1');
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -358,8 +382,10 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.dutyPage();
 
     cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty (EU)');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
   });
-  it.skip('🧮 XI 🇪🇺 | RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function() {
+  it('🧮 XI 🇪🇺 - Duty Calculator e2e - RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function() {
     cy.visit('/duty-calculator/xi/0102291010/import-date');
     // date
     cy.validDate();
@@ -368,13 +394,17 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // origin
     cy.selectOrigin('other');
     // select country from list
+    cy.wait(100);
     cy.otherOriginList({value: 'Canada'});
+    cy.wait(100);
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
+    // turnover <£500,000
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -383,50 +413,17 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty (EU)');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
     cy.contains('Option 2: Tariff preference - Canada');
+    cy.contains('Tariff preference (UK)');
+    cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.');
   });
-  //
-  it.skip('🧮 XI 🇪🇺 | RoW 🇹🇷(Turkey) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU | Row-NI304e-delta |', function() {
-    cy.visit('/duty-calculator/xi/0102291010/import-date');
+  it(`🧮 XI 🇪🇺 - Duty Calculator e2e - e2e GB to NI - Meursing Code GB-NI406`, function() {
+    // select future date
+    cy.visit(`/duty-calculator/xi/1806909019/import-date`);
+    cy.contains('Northern Ireland Online Tariff');
     // date
-    cy.validDate();
-    // destination
-    cy.selectDestination('xi');
-    // origin
-    cy.selectOrigin('other');
-    // select country from list
-    cy.otherOriginList({value: 'Turkey'});
-    // Trader Scheme
-    cy.traderScheme('yes');
-    // ✅  Final use in NI - Yes
-    cy.finalUseNI('yes');
-    // Planned processing - acceptable2
-    cy.plannedXI('acceptable2');
-    // customs value
-    cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
-    // Import Quantity
-    cy.quantity({dtn: '1'});
-    cy.confirmPage();
-    cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Turkey');
-
-    // Change quantity to 100 for EU tariffs , Delta Preferential > 3% Import Value
-    cy.get('.govuk-back-link').click();
-    cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click();
-    // Import Quantity
-    cy.quantity({dtn: '100'});
-    cy.confirmPage();
-    cy.dutyPage();
-
-    cy.contains('Option 1: Third-country duty');
-
-    cy.contains('Option 2: Tariff preference - Turkey');
-  });
-
-  it.skip(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) 406`, function() {
-    cy.visit('/duty-calculator/xi/1701141000/import-date');
     cy.validDate();
     // destination
     cy.selectDestination('xi');
@@ -436,28 +433,41 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
-    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-    cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
-    cy.contains('Continue').click();
+    // ⬆️ turnover > £500,000
+    cy.turnOver('more');
+    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than // 🚫 Non processing - No
+    cy.plannedXI('unacceptablecommercial');
     //  🚫 Certified as UK Origin
     cy.certificate('no');
-    // Monetary value page
+    // interstitial page
+    cy.dutiesApply();
+    cy.meursingCode({value: '000'});
+    // customs value
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
-    // Measure amount page
-    cy.quantity({dtnr: '23.98'});
-    // doc code
-    cy.docCode({xi: 'n990'});
-    cy.contains('Continue').click();
+    // quantity
+    cy.quantity({dtn: '23.98'});
+    cy.vat('20');
     // Check your answers page
     cy.contains('Check your answers');
-
-    cy.get('.govuk-button').click();
+    cy.contains('Commodity code');
+    cy.contains('Date of import');
+    cy.contains('Destination');
+    cy.contains('Coming from');
+    cy.contains('Trader scheme');
+    cy.contains('Final use');
+    cy.contains('Certificate of origin');
+    cy.contains('Customs value');
+    cy.contains('Import quantity');
+    cy.confirmPage();
     // Final Page
     cy.contains('Option 1: Third-country duty');
+    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty (EU)');
     cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
+
     cy.contains('Option 3: Claiming a waiver – Exchange rate');
   });
-  it(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )`, function() {
+  it(`🧮 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI ) EU-NI501`, function() {
     cy.visit('/duty-calculator/xi/1212210000/import-date');
     // date
     cy.validDate();
