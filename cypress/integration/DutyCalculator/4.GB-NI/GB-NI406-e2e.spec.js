@@ -81,7 +81,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       cy.contains('Option 3: Claiming a waiver – Exchange rate');
     });
   }
-  it(`e2e GB to NI - Meursing Code `, function() {
+  it(`e2e GB to NI - Meursing Code GB-NI406`, function() {
     // select future date
     cy.visit(`/duty-calculator/xi/1806909019/import-date`);
     cy.contains('Northern Ireland Online Tariff');
