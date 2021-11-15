@@ -24,8 +24,6 @@ describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () =>
           // response duration less than 300
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(10000);
-          // body length
-          expect(response.body.included).to.have.length(491);
         });
   });
   it('🚫 UK - V2 - Error codes - 404', function() {

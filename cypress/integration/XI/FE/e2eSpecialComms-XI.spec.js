@@ -5,8 +5,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         'There is a tariff preference of 0.00% against the European Economic Area (2012)\n' +
         '\n' +
         'There are no duties that are expressed in currencies ', function() {
-    cy.visit('/xi/commodities/7202118000#import')
-        cy.checkCommPage('7202118000');
+    cy.visit('/xi/commodities/7202118000#import');
+    cy.checkCommPage('7202118000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('.103');
@@ -22,8 +22,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   it(' 🦬 Bison \n Third country duty should be a compound duty of 12.80 % + 176.80 EUR / 100 kg\n' +
         '\n' +
         'Duties are expressed in EUROs', function() {
-    cy.visit('/xi/commodities/0201100021#import')
-        cy.checkCommPage('0201100021');
+    cy.visit('/xi/commodities/0201100021#import');
+    cy.checkCommPage('0201100021');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2049567');
@@ -31,8 +31,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('12.80 % + 176.80 EUR / 100 kg');
   });
   it('  🔊 Amplifiers\n also has a supplementary unit measure of p/st', function() {
-    cy.visit('/xi/commodities/8518400010#import')
-        cy.checkCommPage('8518400010');
+    cy.visit('/xi/commodities/8518400010#import');
+    cy.checkCommPage('8518400010');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-3719160');
@@ -52,8 +52,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   it(' 🍪 Sandwich biscuits\n Check that the third country duty contains Meursing-related components, e.g. check for strings EA and ADSZ\n' +
         '\n' +
         '9.00 % + EA MAX 24.20 % +ADSZ', function() {
-    cy.visit('/xi/commodities/1905319100#import')
-        cy.checkCommPage('1905319100');
+    cy.visit('/xi/commodities/1905319100#import');
+    cy.checkCommPage('1905319100');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2772110');
@@ -67,8 +67,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         '\n' +
         'Check that there are no quotas at all' +
         '\n', function() {
-    cy.visit('/xi/commodities/0702000007#import')
-        cy.checkCommPage('0702000007');
+    cy.visit('/xi/commodities/0702000007#import');
+    cy.checkCommPage('0702000007');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-3788672');
@@ -89,8 +89,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
 
 
   it(' 🍻 Beer\n Has multiple excise lines expressed in litres,\n Identical to UK', function() {
-    cy.visit('/xi/commodities/2203001000#import')
-        cy.checkCommPage('2203001000');
+    cy.visit('/xi/commodities/2203001000#import');
+    cy.checkCommPage('2203001000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2982608');
@@ -109,8 +109,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   });
 
   it('Turbines \n Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms', function() {
-    cy.visit('/xi/commodities/8406810000#import')
-        cy.checkCommPage('8406810000');
+    cy.visit('/xi/commodities/8406810000#import');
+    cy.checkCommPage('8406810000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-3489354');
@@ -124,8 +124,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   });
 
   it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK', function() {
-    cy.visit('/xi/commodities/2402100000#import')
-        cy.checkCommPage('2402100000');
+    cy.visit('/xi/commodities/2402100000#import');
+    cy.checkCommPage('2402100000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure--1011386180');
@@ -136,8 +136,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   it(' 🍷 Piquette(type of wine) \n-Has a third country duty of:\n' +
         '\n' +
         '1.30 EUR / % vol / hl MIN 7.20 EUR / hl', function() {
-    cy.visit('/xi/commodities/2206001000#import')
-        cy.checkCommPage('2206001000');
+    cy.visit('/xi/commodities/2206001000#import');
+    cy.checkCommPage('2206001000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2052957');

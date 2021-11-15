@@ -62,15 +62,12 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('.govuk-header__content')
         .contains('UK Integrated Online Tariff');
     cy.contains('Third country duty');
-   // cy.contains('14.00 %');
-    //  cy.get('#measure-20097244')
-    cy.get('.govuk-tabs__panel');
-    cy.contains('Non preferential tariff quota');
-    cy.contains('Order No');
-    cy.get('.table-line');
-    cy.contains('050094').click();
+    cy.contains('Preferential tariff quota');
+    cy.contains('051104').click();
+    cy.contains('Quota 051104');
+    cy.contains('Quota order number');
     cy.get('.close [href]').click();
-    cy.contains('050094');
+    cy.contains('Preferential tariff quota');
   });
   it(' 🍺 Beer \n Has multiple excise lines expressed in litres,\n Identical to UK', function() {
     cy.visit('/commodities/2203001000#import');
@@ -112,11 +109,9 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
   it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK', function() {
     cy.visit('/commodities/2402100000#import');
     cy.checkCommPage('2402100000');
-    cy.get('.govuk-header__content')
-        .contains('UK Integrated Online Tariff');
-    cy.get('#measure--1010806399');
+    cy.contains('UK Integrated Online Tariff');
     cy.contains('EXCISE - FULL, 615, CIGARS');
-    cy.contains('305.32 GBP / kg');
+    cy.contains('Additional code: X615');
   });
 
   it(' 🍷 Piquette (type of wine) \n- Has a third country duty of:1.00 GBP/%vol/hl (check the peculiar units)', function() {
