@@ -55,7 +55,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
     cy.go(-1);
     cy.contains('Invoice declaration').click();
     cy.contains('Origin declaration');
-    cy.contains('You can make an origin declaration (also known as an ‘invoice declaration’ or ‘statement on origin’) on a commercial document that has enough detail in it to identify the origin of the goods. The document could be:');
+    cy.contains('You can make an origin declaration (also known as an ‘invoice declaration’ or ‘statement on origin’) on a commercial document that has enough detail in it to identify the origin of the goods. The document can be:');
   });
 
   it('| UK | USA 🇺🇸 - Countries with which there is no trade agreement  |', function() {
@@ -70,7 +70,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
 
     cy.contains('There is no preferential agreement in place with United States, therefore rules of origin are not applicable.');
     cy.contains('Product-specific rules for commodity 0702000007');
-    cy.contains('There are no product-specific rules for commodity');
+    cy.contains('There are no product-specific rules for commodity 0702000007');
     cy.contains('Non-preferential rules of origin');
     cy.get('.govuk-table__row').contains('Heading').should('not.exist');
   });
@@ -126,7 +126,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
 
     cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
     cy.contains('Product-specific rules for commodity 0702000007');
-    cy.contains('There are no product-specific rules for commodity');
+    cy.contains('There are no product-specific rules for commodity 0702000007');
   });
   it('| XI | India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |', function() {
     cy.visit('/xi/commodities/0702000007');
@@ -142,6 +142,6 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
 
     cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
     cy.contains('Product-specific rules for commodity 0702000007');
-    cy.contains('There are no product-specific rules for commodity');
+    cy.contains('There are no product-specific rules for commodity 0702000007');
   });
 });
