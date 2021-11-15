@@ -369,3 +369,6 @@ Cypress.Commands.add('validJsonAPIresponse', (response)=>{
   expect(response.body).to.not.be.null;
   expect(response.body).to.have.property('data');
 });
+Cypress.Commands.add('newsBanner', ()=>{
+  cy.contains('From 1 Jan 2022, businesses moving goods into GB from the EU need to submit customs declarations as goods move through ports. They also may need to pre-notify imports of food, plants and plant products from the EU.');
+});
