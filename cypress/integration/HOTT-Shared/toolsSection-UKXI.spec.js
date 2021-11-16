@@ -70,7 +70,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
     cy.contains('Tariff tools');
     cy.get('.govuk-breadcrumbs__list')
         .contains('Home').click();
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
   });
   it(' Meursing Code finder -XI', function() {
     cy.visit('/xi/tools');

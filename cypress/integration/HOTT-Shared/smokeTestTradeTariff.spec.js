@@ -64,7 +64,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   it('🚀 UK 🇬🇧 - Search Commodity by name ', function() {
     cy.visit('/sections');
     // changed on 11/02/2021
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     // changed on 11/02/2021
     cy.searchForCommodity('gherkins');
     cy.contains('Search results for ‘gherkins’');
@@ -73,7 +73,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   // Commodity Search functionality - comm code search
   it('🚀 UK 🇬🇧 - Search Commodity by code ', function() {
     cy.visit('/sections');
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('3808941000');
     cy.checkCommPage('3808941000');
   });
@@ -249,7 +249,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   it('🚀 XI 🇪🇺 - Search Commodity by name ', function() {
     cy.visit('/xi/sections');
     // changed on 11/02/2021
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     // changed on 11/02/2021
     cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff');
     // changed on 11/02/2021
@@ -260,7 +260,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   // Commodity Search functionality - comm code search
   it('🚀 XI 🇪🇺 - Search Commodity by code ', function() {
     cy.visit('/xi/sections');
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.get('.govuk-label')
         .contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('3808941000');

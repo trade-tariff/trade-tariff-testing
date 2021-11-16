@@ -13,7 +13,7 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
   });
   it('XI - Sections details on heading ', function() {
     cy.visit('xi/sections');
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.contains(' Live animals; animal products').click();
     cy.contains('Section I: Live animals; animal products');
     cy.contains('Section I contains 5 chapters. Choose the chapter that best matches your goods.');
@@ -21,7 +21,7 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     cy.title().should('eq', 'Live animals; animal products - Northern Ireland Online Tariff - GOV.UK');
     // validate home breadcrumb
     cy.get('.govuk-breadcrumbs__link').click();
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
   });
   it('XI - Heading 2902', function() {
     cy.visit('/xi/headings/2902');

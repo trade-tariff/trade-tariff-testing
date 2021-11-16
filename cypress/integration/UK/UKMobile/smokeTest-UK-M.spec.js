@@ -5,7 +5,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.viewport('iphone-x');
     cy.visit('/sections');
     // check header has UK information
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
     cy.get('.govuk-header ')
         .contains('UK Integrated Online Tariff');
@@ -89,7 +89,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.viewport('iphone-x');
     cy.visit('/sections');
     // changed on 11/02/2021
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     // changed on 11/02/2021
     cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff');
     // changed on 11/02/2021
@@ -101,7 +101,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
   it('🚀 UK - Search Commodity by code ', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
     cy.checkCommPage('3808941000');

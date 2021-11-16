@@ -33,7 +33,7 @@ describe.skip('test spec', function() {
 
   // function(name) { console.log('hello' + name);
   // (name) => { console.log('hello' + name)
-  it.only('custom commands test', function() {
+  it('custom commands test', function() {
     Helpers.sayHello('Madhu');
   });
 });

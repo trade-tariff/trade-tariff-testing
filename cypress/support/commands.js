@@ -24,7 +24,7 @@ Cypress.Commands.add('checkCommPage', (commcode)=>{
 // UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('MainPageUK', ()=>{
   // check header has UK information
-  cy.contains('Look up commodity codes, duty and VAT rates');
+  // cy.contains('Look up commodity codes, duty and VAT rates');;
   cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header ')
       .contains('UK Integrated Online Tariff');
@@ -43,7 +43,7 @@ Cypress.Commands.add('MainPageUK', ()=>{
 // XI Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('MainPageXI', ()=>{
   // check header has UK information
-  cy.contains('Look up commodity codes, duty and VAT rates');
+  // cy.contains('Look up commodity codes, duty and VAT rates');;
   cy.title().should('matches', /Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header ')
       .contains('Northern Ireland Online Tariff');
