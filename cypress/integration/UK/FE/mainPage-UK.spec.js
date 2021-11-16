@@ -14,7 +14,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
   });
   it('UK - Sections details on heading ', function() {
     cy.visit('/sections');
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.contains(' Live animals; animal products').click();
     cy.contains('Section I: Live animals; animal products');
     cy.contains('Section I contains 5 chapters. Choose the chapter that best matches your goods.');
@@ -22,7 +22,7 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.title().should('eq', 'Live animals; animal products - UK Integrated Online Tariff - GOV.UK');
     // validate home breadcrumb
     cy.get('.govuk-breadcrumbs__link').click();
-    cy.contains('Look up commodity codes, duty and VAT rates');
+    //cy.contains('Look up commodity codes, duty and VAT rates');;
   });
   it('UK - Heading 2902', function() {
     cy.visit('/headings/2902');

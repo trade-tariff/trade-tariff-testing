@@ -25,11 +25,11 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.get('.desktop-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
-      cy.contains(/Look up commodity codes, duty and VAT rates/i);
+      // cy.contains(/Look up commodity codes, duty and VAT rates/i);
       cy.go(-1);
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
-      cy.contains('Look up commodity codes, duty and VAT rates');
+      // cy.contains('Look up commodity codes, duty and VAT rates');;
     });
 
     it(`Desktop ${countries[i]} - 0501000000 Headings page`, function() {
@@ -38,18 +38,40 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.checkCommPage('0501000000');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
+      cy.get('.govuk-table__body').contains('Products of animal origin, not elsewhere specified or included');
+      cy.contains('Date of trade');
       cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
       cy.contains('Section I: Live animals; animal products');
       // breadcrumbs at tree section
       cy.get('.desktop-only > ul  .full-width').click();
       cy.contains('Choose the chapter that best matches your goods');
       cy.contains('All sections').click();
-      cy.contains(/Look up commodity codes, duty and VAT rates/i);
+      // cy.contains(/Look up commodity codes, duty and VAT rates/i);
       cy.go(-1);
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      cy.contains('Look up commodity codes, duty and VAT rates');
+      // cy.contains('Look up commodity codes, duty and VAT rates');;
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
+
+    it(`Desktop ${countries[i]} - Chapter page`, function() {
+      cy.visit(`${countries[i]}/chapters/05`);
+      cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
+      cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
+      cy.get('.govuk-table__body').contains('Products of animal origin, not elsewhere specified or included');
+      cy.contains('Date of trade');
+      cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
+      cy.contains('Section I: Live animals; animal products');
+      // breadcrumbs at tree section
+      cy.get('.desktop-only > ul  .full-width').click();
+      cy.contains('Choose the chapter that best matches your goods');
+      cy.contains('All sections').click();
+      // cy.contains(/Look up commodity codes, duty and VAT rates/i);
+      cy.go(-1);
+      cy.get('.govuk-breadcrumbs__list').contains('Home').click();
+      // cy.contains('Look up commodity codes, duty and VAT rates');;
+      cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
+    });
+
     it(`Mobile - iOS ${countries[i]} commodity page`, function() {
       cy.viewport('iphone-x');
       cy.visit(`${countries[i]}/commodities/0501000000`);
@@ -57,11 +79,6 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.checkCommPage('0501000000');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
-      cy.contains('Section I: Live animals; animal products');
-      cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
-      cy.contains('Section I: Live animals; animal products');
-      cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      cy.contains('Look up commodity codes, duty and VAT rates');
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
     it(`Mobile - android ${countries[i]} commodity page`, function() {
@@ -73,7 +90,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
       cy.contains('Section I: Live animals; animal products');
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      cy.contains('Look up commodity codes, duty and VAT rates');
+      // cy.contains('Look up commodity codes, duty and VAT rates');;
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
   }
