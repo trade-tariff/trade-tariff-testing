@@ -3,7 +3,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
 
   it(' Date persisted on import ', function() {
     cy.visit(`/sections`);
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
     cy.checkCommPage('0702000007');
@@ -63,7 +63,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
   });
   it(' Date persisted on export ', function() {
     cy.visit('/sections');
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
     cy.checkCommPage('0702000007');
@@ -115,13 +115,21 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.contains('This tariff is for 31 January 2021');
     cy.url().should('include', 'day=31&month=1&year=2021');
   });
-  it(' Date persisted on all pages ', function() {
+  it.only(' Date persisted on all pages ', function() {
     const pages = ['sections', 'sections/1', 'chapters/01', 'headings/0101', 'commodities/0101210000'];
     for (let i = 0; i < pages.length; i++) {
       cy.visit(`/${pages[i]}`);
       cy.contains('UK Integrated Online Tariff');
       // change date to future date
       // select Change Date and change months and years
+      cy.get('.govuk-details__summary').click();
+      cy.get('#tariff_date_day').click().clear().type(21);
+      cy.get('#tariff_date_month').click().clear().type(12);
+      cy.get('#tariff_date_year').click().clear().type(2022);
+      cy.searchForCommodity('3808941000');
+      cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
+      cy.contains('This tariff is for 21 December 2022');
+
       cy.get(' .js-show.text > a[role=\'button\']').click();
       cy.get('#tariff_date_day').click().clear().type(21);
       cy.get('#tariff_date_month').click().clear().type(12);

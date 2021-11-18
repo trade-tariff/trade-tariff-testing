@@ -2,7 +2,7 @@ describe('🇬🇧 🇪🇺 💡 | changeCurrency-UK XI | Change Currency should
   // --- HOTT-161 ---
   it('UK - Change Currency should not be visible on main page - The Online Trade Tariff', function() {
     cy.visit('/sections');
-    cy.MainPageUK();
+    cy.mainPageUK();
     cy.get('.govuk-grid-row');
     cy.contains('Change date');
     cy.contains('Change currency').should('not.exist');

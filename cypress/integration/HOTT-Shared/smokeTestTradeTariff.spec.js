@@ -3,7 +3,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
     cy.visit('/sections');
-    cy.MainPageUK();
+    cy.mainPageUK();
   });
   // switching link works
   it('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function() {
@@ -213,7 +213,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   // Main Page
   it('🚀 XI 🇪🇺 - Main Page Validation', function() {
     cy.visit('/xi/sections');
-    cy.MainPageXI();
+    cy.mainPageXI();
   });
   // switching link works
   it('🚀 XI 🇪🇺 - Main Page - Switching link to UK available & works', function() {
