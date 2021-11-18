@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-describe.skip('test spec', function() {
+describe('test spec - mini tests', function() {
   it('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
@@ -35,5 +35,19 @@ describe.skip('test spec', function() {
   // (name) => { console.log('hello' + name)
   it('custom commands test', function() {
     Helpers.sayHello('Madhu');
+  });
+  it('new main page', function() {
+    cy.visit('/sections');
+    cy.commPage();
+    cy.newsBannerUK();
+    cy.visit('xi/sections');
+    cy.newsBannerXI();
+  });
+  it.only('context selector', function() {
+    cy.visit('/chapters/02');
+    cy.contextSelector();
+    cy.visit('/headings/0202');
+    cy.contextSelector();
+
   });
 });

@@ -29,7 +29,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.go(-1);
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
-      // cy.contains('Look up commodity codes, duty and VAT rates');;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');;
     });
 
     it(`Desktop ${countries[i]} - 0501000000 Headings page`, function() {
@@ -49,7 +49,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       // cy.contains(/Look up commodity codes, duty and VAT rates/i);
       cy.go(-1);
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      // cy.contains('Look up commodity codes, duty and VAT rates');;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');;
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
 
@@ -68,7 +68,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       // cy.contains(/Look up commodity codes, duty and VAT rates/i);
       cy.go(-1);
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      // cy.contains('Look up commodity codes, duty and VAT rates');;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');;
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
 
@@ -90,7 +90,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
       cy.contains('Section I: Live animals; animal products');
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      // cy.contains('Look up commodity codes, duty and VAT rates');;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');;
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
   }
