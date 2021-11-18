@@ -66,7 +66,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   // Commodity Search functionality - comm code search
   it('🚀 UK 🇬🇧 - Search Commodity by code ', function() {
     cy.visit('/sections');
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
+    cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
     cy.contains(/Commodity .*3808941000/i);
@@ -160,7 +160,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   // Commodity Search functionality - comm code search
   it('🚀 XI 🇪🇺- Search Commodity by code ', function() {
     cy.visit('xi/sections');
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
+    cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
     cy.contains(/Commodity .*3808941000/i);
