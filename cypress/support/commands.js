@@ -24,7 +24,7 @@ Cypress.Commands.add('checkCommPage', (commcode)=>{
 // UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('mainPageUK', ()=>{
   // check header has UK information
-  // cy.contains('Look up commodity codes, duty and VAT rates');;
+  cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
   cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header ')
       .contains('UK Integrated Online Tariff');
@@ -41,12 +41,12 @@ Cypress.Commands.add('mainPageUK', ()=>{
 // XI Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('mainPageXI', ()=>{
   // check header has UK information
-  // cy.contains('Look up commodity codes, duty and VAT rates');;
+  cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
   cy.title().should('matches', /Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header ')
       .contains('Northern Ireland Online Tariff');
   // check correct text is displayed on banner as per UK - If they are at risk
- // cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.');
+  // cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.');
   cy.get('.govuk-label')
       .contains('Search the Northern Ireland Online Tariff');
   cy.contains('Search for a commodity');
@@ -307,7 +307,7 @@ Cypress.Commands.add('waitForCommoditySearchResults', () => {
 Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.get('.js-commodity-picker-select').click().type(searchString);
   cy.waitForCommoditySearchResults();
-//  cy.get('input[name=\'new_search\']').click();
+  //  cy.get('input[name=\'new_search\']').click();
   cy.get('input[name=\'commit\']').click();
 });
 
