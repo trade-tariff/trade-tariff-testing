@@ -12,41 +12,41 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     cy.validDate();
     // destination
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     cy.selectDestination('xi');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     // origin
     cy.selectOrigin('gb');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     // ✅ Trader Scheme Registered - Yes
     cy.traderScheme('yes');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
@@ -55,7 +55,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     //  🚫 Certified as UK Origin
@@ -63,7 +63,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // Monetary value page
@@ -71,7 +71,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // Measure amount page
@@ -79,7 +79,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // Check your answers page
@@ -89,7 +89,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // Final Page
@@ -99,7 +99,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
   });
 
   // android
@@ -109,41 +109,41 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     cy.validDate();
     // destination
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     cy.selectDestination('xi');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     // origin
     cy.selectOrigin('gb');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     // ✅ Trader Scheme Registered - Yes
     cy.traderScheme('yes');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
@@ -152,7 +152,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     //  🚫 Certified as UK Origin
@@ -160,7 +160,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // Monetary value page
@@ -168,7 +168,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // Measure amount page
@@ -176,7 +176,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
     // Check your answers page
     cy.contains('Check your answers');
@@ -185,7 +185,7 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
 
 
     // Final Page
@@ -195,6 +195,6 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
     cy.get('.govuk-header__menu-button').click();
     cy.contains('A-Z');
     cy.contains('Tools');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
   });
 });

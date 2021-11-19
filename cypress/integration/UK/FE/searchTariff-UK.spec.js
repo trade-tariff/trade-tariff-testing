@@ -4,7 +4,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
     // changed on 11/02/2021
     //cy.contains('Look up commodity codes, duty and VAT rates');;
     // changed on 11/02/2021
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
     // changed on 11/02/2021
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('gherkins');
@@ -44,8 +44,8 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
     cy.get('input[name=\'new_search\']').wait(300).click();
     cy.contains('Search results for ‘sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf’');
     cy.contains('There are no results matching your query.');
-    cy.contains('Search or browse the Tariff').click();
-    cy.contains('All sections');
+    cy.contains('Browse').click();
+    cy.contains('Browse the tariff');
   });
   it('UK - Import tab - text', function() {
     cy.visit('commodities/2009909500#import');

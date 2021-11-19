@@ -15,8 +15,8 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
     cy.get('.govuk-header__menu-button').click();
-    cy.contains('Search or browse the Tariff').click();
-    cy.contains('All sections');
+    cy.contains('Browse').click();
+    cy.contains('Browse the tariff');
   });
   // Legal base tests
   it('🚀 UK - Legal base column suppressed ', function() {

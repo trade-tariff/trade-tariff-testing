@@ -57,7 +57,7 @@ Cypress.Commands.add('mainPageXI', ()=>{
 // Duty Calculator main page
 Cypress.Commands.add('DCMainPage', ()=>{
   cy.get('.govuk-header__navigation ');
-  cy.contains('Search or browse the Tariff');
+  cy.contains('Browse');
   cy.contains('A-Z');
   cy.contains('Tools');
   //  cy.contains('Latest News')

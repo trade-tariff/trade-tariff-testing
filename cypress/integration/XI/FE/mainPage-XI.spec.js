@@ -35,7 +35,7 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
   });
   it('XI - Search the Tariff section', function() {
     cy.visit('/xi/sections');
-    cy.contains('Search or browse the Tariff').click();
+    cy.contains('Browse').click();
     cy.contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('9919000060');
     cy.checkCommPage('9919000060');
