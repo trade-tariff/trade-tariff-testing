@@ -6,13 +6,15 @@ describe('🇬🇧 💡 🔍  | sectionsPage.spec-UK | Sections page content val
     cy.get('.js-commodity-picker-select.js-show  input#q').should('be.visible');
   });
   it('Top menu section displayed ', function() {
-    cy.url().should('include', 'sections', {timeout: 5000});
+    //   cy.url().should('include', 'sections', {timeout: 5000});
     cy.visit('/sections');
     cy.get('.govuk-header ');
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Search');
+    cy.contains('Browse');
     cy.contains('A-Z');
     cy.contains('Tools');
     cy.contains('Help');
+    cy.contains('Updates');
     cy.contains('Additional code').should('not.exist');
     cy.contains('Certificate').should('not.exist');
     cy.contains('Footnotes').should('not.exist');
@@ -22,8 +24,11 @@ describe('🇬🇧 💡 🔍  | sectionsPage.spec-UK | Sections page content val
     cy.contains('Forum').should('not.exist');
   });
   it('All 21 sections titles displayed ', function() {
-    cy.url().should('include', 'sections', {timeout: 5000});
-    cy.contains('All sections');
+ 
+    cy.visit('/browse');
+     //  cy.url().should('include', 'sections', {timeout: 5000});
+    cy.contains('Browse the tariff');
+    cy.contains('The UK goods classification contains 21 sections, listed below. Choose the section that best matches your goods to see the HS chapters that are contained in the section.');
     cy.contains('Section title');
     cy.contains('Section');
     cy.contains('Chapters');

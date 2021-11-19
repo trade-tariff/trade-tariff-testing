@@ -4,7 +4,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
     // changes made on 11/02/2021
     //cy.contains('Look up commodity codes, duty and VAT rates');;
     // changes made on 11/02/2021
-    cy.contains('Search or browse the Tariff');
+    cy.contains('Browse');
     // changes made on 11/02/2021
     cy.contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('gherkins');
@@ -42,8 +42,8 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
     cy.get('input[name=\'new_search\']').wait(300).click();
     cy.contains('Search results for ‘sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf’');
     cy.contains('There are no results matching your query.');
-    cy.contains('Search or browse the Tariff').click();
-    cy.contains('All sections');
+    cy.contains('Browse').click();
+    cy.contains('Browse the tariff');
   });
   it('XI - Import tab - text', function() {
     cy.visit('/xi/commodities/2009909500#import');

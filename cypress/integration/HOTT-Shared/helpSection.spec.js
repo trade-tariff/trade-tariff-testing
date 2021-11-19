@@ -20,7 +20,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | helpSection.spec.js | validate help section 
       cy.contains('Close all').click().wait(300);
       // home breadcrumb
       cy.contains('Home').click();
-      cy.contains('All sections');
+      cy.contains('Browse the tariff');
     }
   });
   it('Get help or leave feedback', function() {

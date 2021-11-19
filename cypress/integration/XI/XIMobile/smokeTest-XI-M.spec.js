@@ -12,8 +12,8 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
       cy.get('.govuk-header__menu-button').click();
       cy.contains('A-Z');
       cy.contains('Tools');
-      cy.contains('Search or browse the Tariff').click();
-      cy.contains('All sections');
+      cy.contains('Browse').click();
+      cy.contains('Browse the tariff');
     }
   });
 

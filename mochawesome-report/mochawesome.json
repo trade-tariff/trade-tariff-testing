@@ -45,7 +45,7 @@
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.visit('https://www.gov.uk/trade-tariff');\ncy.wait(1000);\ncy.get('p#get-started > a[role=\\'button\\']').contains('Start now').should('be.visible').click();\ncy.url().should('include', 'sections', {\n  timeout: 5000\n});\ncy.contains('All sections');\ncy.wait(1000);",
+              "code": "cy.visit('https://www.gov.uk/trade-tariff');\ncy.wait(1000);\ncy.get('p#get-started > a[role=\\'button\\']').contains('Start now').should('be.visible').click();\ncy.url().should('include', 'sections', {\n  timeout: 5000\n});\ncy.contains('Browse the tariff');\ncy.wait(1000);",
               "err": {},
               "uuid": "181694f2-3cb5-48a7-ad24-8b9afea419c7",
               "parentUUID": "757d8864-5ba5-4156-beb2-e3e15fb3a779",

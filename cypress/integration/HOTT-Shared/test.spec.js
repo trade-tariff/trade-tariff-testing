@@ -43,11 +43,18 @@ describe('test spec - mini tests', function() {
     cy.visit('xi/sections');
     cy.newsBannerXI();
   });
-  it.only('context selector', function() {
+  it('context selector', function() {
     cy.visit('/chapters/02');
     cy.contextSelector();
     cy.visit('/headings/0202');
     cy.contextSelector();
-
+  });
+  it.only('page titles', function() {
+    cy.visit('/sections');
+    console.log(cy.title());
+    cy.visit('/browse');
+    console.log(cy.title());
+    cy.visit('/tools');
+    console.log(cy.title());
   });
 });
