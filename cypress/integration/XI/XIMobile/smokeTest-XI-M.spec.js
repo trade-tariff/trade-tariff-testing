@@ -53,115 +53,74 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
     cy.visit('/xi/commodities/2403991000#import');
     cy.get('.govuk-tabs__panel')
         .contains('European Economic Area (2012)').click();
-    cy.get('.govuk-list')
-        .contains('European Union (EU)');
-    cy.get('#measure-3625193')
-        .contains('United Kingdom (GB)').should('not.exist');
+    cy.contains('European Union');
+    cy.contains('United Kingdom (GB)').should('not.exist');
   });
   // Commodity Search functionality - text search
   it('🚀 XI - Search Commodity by name ', function() {
     cy.viewport('iphone-x');
     cy.visit('/xi/sections');
     // changed on 11/02/2021
-    cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates');
-    // changed on 11/02/2021
-    cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff');
-    // changed on 11/02/2021
-    cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
-
-    cy.get('.js-commodity-picker-select').click().type('gherkins');
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('Look up commodity codes, import duties, taxes and controls');
+    cy.contains('Search for a commodity');
+    cy.searchForCommodity('gherkins');
     cy.contains('Search results for ‘gherkins’');
   });
   // Commodity Search functionality - comm code search
   it('🚀 XI - Search Commodity by code ', function() {
     cy.viewport('iphone-x');
     cy.visit('/xi/sections');
-    cy.contains('Northern Ireland Online Tariff: look up commodity codes, duty and VAT rates');
-    cy.get('.govuk-label')
-        .contains('Search the Northern Ireland Online Tariff');
-    cy.get('.js-commodity-picker-select').click().type('3808941000');
-    cy.get('li#q__option--0');
-    cy.wait(400);
-    cy.get('input[name=\'new_search\']').click();
-    cy.wait(500);
-    cy.checkCommPage('3808941000');
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('Look up commodity codes, import duties, taxes and controls');
+    cy.contains('Search for a commodity');
+    cy.searchForCommodity('3808941000');
+    cy.contains(/Commodity .*3808941000/i);
   });
 
-  it('🚀 XI - Country Selection -import ', function() {
+  it('🚀 XI - Country Selection - import ', function() {
     cy.viewport('iphone-x');
     cy.visit('/xi/commodities/0208909800#import');
-    // XI Present
-    cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Northern Ireland (XI)');
-
+    // XI removed
+    cy.searchForCountry('(XI)').contains('No results found');
     // Andora should be present
-    cy.get('input#search_country').click().clear().wait(500).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Andorra (AD)');
+    cy.searchForCountry('(AD)').contains('Andorra (AD)');
     //  GB Present
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('United Kingdom (excluding Northern Ireland) (GB)');
-
-
-    // no XU
-    cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(GB)').contains('United Kingdom (excluding Northern Ireland) (GB)');
+    // No XU
+    cy.searchForCountry('(XU)').contains('No results found');
   });
-  it('🚀 XI - Country Selection -export ', function() {
+  it('🚀 XI - Country Selection - export ', function() {
     cy.viewport('iphone-x');
     cy.visit('/xi/commodities/0208909800#export');
-    // XI Present
-    cy.get('input#search_country').click().clear().wait(500)
-        .type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Northern Ireland (XI)');
+    // XI removed
+    cy.searchForCountry('(XI)').contains('No results found');
 
     // Andora should be present
-    cy.get('input#search_country').click().clear().wait(500).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Andorra (AD)');
+    cy.searchForCountry('(AD)').contains('Andorra (AD)');
     //  GB Present
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('United Kingdom (excluding Northern Ireland) (GB)');
-
-
-    // no XU
-    cy.get('input#search_country').click().clear().wait(500).type('(XU)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('No results found');
+    cy.searchForCountry('(GB)').contains('United Kingdom (excluding Northern Ireland) (GB)');
+    // No XU
+    cy.searchForCountry('(XU)').contains('No results found');
   });
   // Date picker working and persists on UK XI sites
   it('🚀 XI - Change Date and check if the data shown is same for both XI and UK', function() {
     cy.viewport('iphone-x');
     cy.visit('/xi/sections');
     // select Change Date and change months and years
-    cy.get(' .js-show.text > a[role=\'button\']').click();
-    cy.get('#tariff_date_day').click().clear().type(7);
-    cy.get('#tariff_date_month').click().clear().type(4);
-    cy.get('#tariff_date_year').click().clear().type(2022);
-    cy.contains('Set date').click();
-    cy.wait(300);
-
-    cy.contains(' Live animals; animal products');
-    cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-        .contains('This tariff is for 7 April 2022');
-
-    cy.get('main#content  nav  a')
-        .contains('Online Tariff').click();
-    cy.contains('UK Integrated Online Tariff');
-    cy.get('main#content  nav  a');
-    cy.contains('Northern Ireland Online Tariff')
-        .click();
-    cy.contains(' Live animals; animal products');
-    cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-        .contains('This tariff is for 7 April 2022');
+    cy.get('.govuk-details__summary').click();
+    cy.get('#tariff_date_day').click().clear().type(21);
+    cy.get('#tariff_date_month').click().clear().type(12);
+    cy.get('#tariff_date_year').click().clear().type(2021);
+    cy.searchForCommodity('3808941000');
+    cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
+    // cy.contains('Set date').click();
+    // cy.wait(300);
+    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('This tariff is for 21 December 2021');
+    // switch to UK tariff
+    cy.contains('UK Integrated Online Tariff').click();
+    cy.contains('This tariff is for 21 December 2021');
   });
 });

@@ -4,7 +4,6 @@ describe('🇬🇧 🇪🇺 💡 | changeCurrency-UK XI | Change Currency should
     cy.visit('/sections');
     cy.mainPageUK();
     cy.get('.govuk-grid-row');
-    cy.contains('Change date');
     cy.contains('Change currency').should('not.exist');
   });
   it(' UK shows GBP currency NOT EUR', function() {
@@ -16,7 +15,7 @@ describe('🇬🇧 🇪🇺 💡 | changeCurrency-UK XI | Change Currency should
   it('XI - Change Currency should not be visible on main page - The Northern Ireland (EU) Tariff for the XI', function() {
     cy.visit('/xi/sections');
     cy.get('.govuk-grid-row');
-    cy.contains('Change date');
+
     cy.contains('Change currency').should('not.exist');
   });
   it('XI shows EUR currency NOT GBP', function() {

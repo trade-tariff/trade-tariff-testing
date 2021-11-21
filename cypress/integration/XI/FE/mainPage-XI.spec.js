@@ -12,16 +12,16 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     cy.get('.govuk-header').should('be.visible', 'GOV.UK');
   });
   it('XI - Sections details on heading ', function() {
-    cy.visit('xi/sections');
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    cy.visit('xi/browse');
+    cy.contains('Browse the tariff');
     cy.contains(' Live animals; animal products').click();
-    cy.contains('Section I: Live animals; animal products');
+    cy.contains('Section I - Live animals; animal products');
     cy.contains('Section I contains 5 chapters. Choose the chapter that best matches your goods.');
     cy.contains('There are important section notes for this part of the tariff:');
     cy.title().should('eq', 'Live animals; animal products - Northern Ireland Online Tariff - GOV.UK');
     // validate home breadcrumb
     cy.get('.govuk-breadcrumbs__link').click();
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    cy.contains('Look up commodity codes, import duties, taxes and controls');
   });
   it('XI - Heading 2902', function() {
     cy.visit('/xi/headings/2902');
@@ -35,19 +35,18 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
   });
   it('XI - Search the Tariff section', function() {
     cy.visit('/xi/sections');
-    cy.contains('Browse').click();
     cy.contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('9919000060');
     cy.checkCommPage('9919000060');
   });
   it('XI - A-Z section', function() {
     cy.visit('/xi/sections');
-    cy.get('li:nth-of-type(2) > .govuk-header__link').click();
+    cy.get('li:nth-of-type(3) > .govuk-header__link').click();
     cy.contains('A–Z of Classified Goods');
   });
   it('XI - Tools section', function() {
     cy.visit('/xi/sections');
-    cy.get('li:nth-of-type(3) > .govuk-header__link').click();
+    cy.get('li:nth-of-type(4) > .govuk-header__link').click();
     cy.contains('Certificate, licenses and documents');
     cy.contains('Additional codes');
     cy.contains('Chemicals');
