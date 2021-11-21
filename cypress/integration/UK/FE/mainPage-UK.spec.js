@@ -14,9 +14,9 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
   });
   it('UK - Sections details on heading ', function() {
     cy.visit('/browse');
-    cy.contains('Look up commodity codes, import duties, taxes and controls');
+    cy.contains('Browse the tariff');
     cy.contains(' Live animals; animal products').click();
-    cy.contains('Section I: Live animals; animal products');
+    cy.contains('Section I - Live animals; animal products');
     cy.contains('Section I contains 5 chapters. Choose the chapter that best matches your goods.');
     cy.contains('There are important section notes for this part of the tariff:');
     cy.title().should('eq', 'Live animals; animal products - UK Integrated Online Tariff - GOV.UK');
@@ -36,19 +36,18 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
   });
   it('UK - Search the Tariff section', function() {
     cy.visit('/sections');
-    cy.contains('Browse').click();
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('9919000060');
     cy.checkCommPage('9919000060');
   });
   it('UK - A-Z section', function() {
     cy.visit('/sections');
-    cy.get('li:nth-of-type(2) > .govuk-header__link').click();
+    cy.get('li:nth-of-type(3) > .govuk-header__link').click();
     cy.contains('A–Z of Classified Goods');
   });
   it('UK - Tools section', function() {
     cy.visit('/sections');
-    cy.get('li:nth-of-type(3) > .govuk-header__link').click();
+    cy.get('li:nth-of-type(4) > .govuk-header__link').click();
     cy.contains('Certificate, licenses and documents');
     cy.contains('Additional codes');
     cy.contains('Chemicals');

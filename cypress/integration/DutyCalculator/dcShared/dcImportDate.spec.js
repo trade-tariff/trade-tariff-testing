@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 /* eslint-disable max-len */
 describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
   const country = ['uk', 'xi'];
@@ -74,10 +75,13 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
 
       cy.get('.govuk-header__link')
-          .contains('Search or browse the Tariff').click();
+          .contains('Search').click();
       cy.wait(500);
       cy.contains(`${pagetitles[i]}`);
-
+      cy.get('.govuk-header__link')
+          .contains('Browse').click();
+      cy.wait(500);
+      cy.contains(`${pagetitles[i]}`);
       cy.get('.govuk-header__navigation');
       cy.contains('A-Z').click();
       cy.reload();
@@ -111,7 +115,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       // ☀️ Validate commodity page
       cy.checkCommPage('0702000007');
       cy.get('.govuk-header ').contains(`${pagetitles[i]}`);
-      cy.get('.govuk-back-link').click();
+      cy.go(-1);
       cy.contains('When will the goods be imported?');
       cy.contains(`${pagetitles[i]}`);
     });
