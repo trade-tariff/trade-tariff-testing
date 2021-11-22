@@ -20,7 +20,9 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     cy.contains('There are important section notes for this part of the tariff:');
     cy.title().should('eq', 'Live animals; animal products - Northern Ireland Online Tariff - GOV.UK');
     // validate home breadcrumb
-    cy.get('.govuk-breadcrumbs__link').click();
+    cy.get('.govuk-breadcrumbs__link').contains('Browse').click();
+    cy.contains('Browse the tariff');
+    cy.get('.govuk-breadcrumbs__link').contains('Home').click();
     cy.contains('Look up commodity codes, import duties, taxes and controls');
   });
   it('XI - Heading 2902', function() {
@@ -85,7 +87,7 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
   });
   it('XI - News Banner', function() {
     cy.visit('xi/sections');
-    cy.newsBanner();
+    cy.newsBannerXI();
   });
 });
 

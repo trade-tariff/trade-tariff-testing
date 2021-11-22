@@ -21,7 +21,9 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.contains('There are important section notes for this part of the tariff:');
     cy.title().should('eq', 'Live animals; animal products - UK Integrated Online Tariff - GOV.UK');
     // validate home breadcrumb
-    cy.get('.govuk-breadcrumbs__link').click();
+    cy.get('.govuk-breadcrumbs__link').contains('Browse').click();
+    cy.contains('Browse the tariff');
+    cy.get('.govuk-breadcrumbs__link').contains('Home').click();
     cy.contains('Look up commodity codes, import duties, taxes and controls');
   });
   it('UK - Heading 2902', function() {
@@ -84,6 +86,6 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
   });
   it('UK - News Banner', function() {
     cy.visit('/sections');
-    cy.newsBanner();
+    cy.newsBannerUK();
   });
 });
