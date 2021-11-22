@@ -15,7 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import './otherCommands'
+import './dutyCommands'
+import './apiCommands'
 //import 'cypress-axe'
 import 'cypress-fill-command'
 //require('@shelex/cypress-allure-plugin');
