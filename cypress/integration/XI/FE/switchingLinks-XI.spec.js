@@ -8,7 +8,7 @@ describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and
         .contains('Northern Ireland Online Tariff');
     cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
     // check correct text is displayed on banner
-    cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.');
+    cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, your import may be subject to EU import duty rates if your goods are ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.');
     // click on the UK link and it should navigate to UK version
     cy.get('.govuk-main-wrapper')
         .contains('UK Integrated Online Tariff').click();
@@ -23,11 +23,9 @@ describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and
     cy.get('.govuk-main-wrapper')
         .contains('UK Integrated Online Tariff');
     // Guidance link on XI page
-    cy.get('.govuk-main-wrapper')
-        .contains('if your goods are not ‘at risk’ of onward movement to the EU').click();
+    cy.get('div[role=\'region\'] p > a:nth-of-type(1)').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
 
-    console.log(cy.title());
     cy.title().should('eq', 'Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU - GOV.UK');
     // return to UK page
     cy.go(-1);
@@ -312,7 +310,7 @@ describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and
     cy.get('.switch_control').contains('Switch to the UK Integrated Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('UK Integrated Online Tariff');
-  });it('Privacy Page', function() {
+  }); it('Privacy Page', function() {
     cy.visit('/xi/privacy');
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
@@ -336,7 +334,7 @@ describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and
     cy.get('.switch_control').contains('Switch to the UK Integrated Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('UK Integrated Online Tariff');
-  });it('Cookies policy Page', function() {
+  }); it('Cookies policy Page', function() {
     cy.visit('/xi/cookies/policy');
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
