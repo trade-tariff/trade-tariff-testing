@@ -11,20 +11,26 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
   const countries = ['', 'xi'];
   const pageheadings = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
   for (let i =0; i<countries.length; i++) {
-    it(`Desktop ${countries[i]} - 2007993944 commodity page`, function() {
+    it(`Desktop ${countries[i]} - 2007993944 Commodity page`, function() {
       cy.visit(`${countries[i]}/commodities/2007993944`);
       cy.get('.govuk-breadcrumbs__list').contains('Commodity 2007993944');
       cy.checkCommPage('2007993944');
+      // Heading breadcrumb
       cy.get('.govuk-breadcrumbs__list').contains('Heading 2007').click();
       cy.contains('Heading 2007 - Jams, fruit jellies, marmalades, fruit or nut purée and fruit or nut pastes, obtained by cooking, whether or not containing added sugar or other sweetening matter');
+      // Chapter breadcrumb
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 20').click();
       cy.contains('Chapter 20 - Preparations of vegetables, fruit, nuts or other parts of plants');
       cy.get('.govuk-breadcrumbs__list').contains('Section IV').click();
       cy.contains('Section IV - Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes');
-      // Home
+      // Browse breadcrumb
+      cy.get('.govuk-breadcrumbs__list').contains('Browse').click();
+      cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
+      cy.contains('Browse the tariff');
+      // Home breadcrumb
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
-      cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
     });
 
     it(`Desktop ${countries[i]} - 0501000000 Headings page`, function() {
@@ -57,7 +63,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
 
-    it(`Mobile - iOS ${countries[i]} commodity page`, function() {
+    it(`Mobile - iOS iphone-x - ${countries[i]} Commodity page`, function() {
       cy.viewport('iphone-x');
       cy.visit(`${countries[i]}/commodities/0501000000`);
       cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
@@ -66,7 +72,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
-    it(`Mobile - android ${countries[i]} commodity page`, function() {
+    it(`Mobile - Android - Samsung-note9 ${countries[i]} Commodity page`, function() {
       cy.viewport('samsung-note9');
       cy.visit(`${countries[i]}/commodities/0501000000`);
       cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
