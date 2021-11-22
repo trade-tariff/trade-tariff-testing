@@ -20,7 +20,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | helpSection.spec.js | validate help section 
       cy.contains('Close all').click().wait(300);
       // home breadcrumb
       cy.contains('Home').click();
-      cy.contains('Browse the tariff');
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
     }
   });
   it('Get help or leave feedback', function() {

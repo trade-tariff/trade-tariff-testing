@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
   it('Final Duty Calculation page', function() {
     // import date
@@ -17,6 +18,8 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     // certificate
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field').check();
     cy.contains('Continue').click();
+    // EU Duties apply
+    cy.dutiesApply();
     // monetary value
     cy.get('input#steps-customs-value-monetary-value-field').clear().type('5000.50');
     cy.get('input#steps-customs-value-shipping-cost-field').clear().type('455.7533');

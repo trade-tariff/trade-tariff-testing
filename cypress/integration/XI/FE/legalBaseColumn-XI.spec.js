@@ -23,8 +23,8 @@ describe('🇪🇺 💡 legalBaseColumn-XI | Legal base Column XI ', function() 
     cy.wait(500);
     cy.get('.govuk-tabs__panel');
     cy.contains('Legal base').should('exist');
-    cy.get('.numerical').contains('R2658/87');
-    cy.get('[data-module] [role=\'tabpanel\']:nth-child(4) .govuk-table .govuk-link').should('have.attr', 'href', 'http://eur-lex.europa.eu/search.html?instInvStatus=ALL&or0=DN%3D31987R2658*,DN-old%3D31987R2658*&DTC=false&type=advanced');
+    cy.contains('R2658/87');
+    cy.get('tr:nth-of-type(2)  a[title=\'NC - 1988 (UTS)\']').should('have.attr', 'href', 'http://eur-lex.europa.eu/search.html?instInvStatus=ALL&or0=DN%3D31987R2658*,DN-old%3D31987R2658*&DTC=false&type=advanced');
   });
 
   it('🚫 3.Binding Tariff Information link - not visible', function() {

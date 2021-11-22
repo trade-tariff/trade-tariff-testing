@@ -162,6 +162,7 @@ Cypress.Commands.add('finalUseNI', (value) => {
   }
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('confirmPage', ()=>{
   cy.contains('Check your answers');
   cy.title().should('eq', 'Check your answers - Online Tariff Duty calculator');
@@ -190,6 +191,7 @@ Cypress.Commands.add('additionalCode', (addcode)=>{
   }
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('turnOver', (options)=>{
   cy.contains('What was your annual turnover in the most recent complete financial year?');
   if (options === 'less') {
@@ -210,7 +212,6 @@ Cypress.Commands.add('plannedXI', (options)=>{
   } else if (options === 'unacceptablecommercial') {
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field').check();
   }
-
   cy.contains('Continue').click();
 });
 
