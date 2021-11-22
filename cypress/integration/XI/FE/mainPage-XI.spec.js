@@ -87,7 +87,17 @@ describe('🇪🇺 💡 | mainPage-XI | Main Page ,headings ,sections - (XI vers
     cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
     cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
   });
- 
+  it('XI - Commodity page - with multiple Supp units', function() {
+    cy.visit('xi/commodities/1701991000');
+    cy.get('.govuk-summary-list').contains('Commodity');
+    cy.get('.govuk-summary-list').contains('Classification');
+    cy.contains('Cane or beet sugar and chemically pure sucrose, in solid form — Other — Other — White sugar');
+    cy.get('.govuk-summary-list').contains('Supplementary unit');
+    cy.get('.govuk-summary-list').contains('There are multiple supplementary units for you trade. See measures below.');
+    cy.get('.govuk-summary-list').contains('Date of trade');
+    cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
+    cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
+  });
   it('XI - Search the Tariff section', function() {
     cy.visit('/xi/sections');
     cy.contains('Search the Northern Ireland Online Tariff');
