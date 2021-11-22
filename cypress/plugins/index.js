@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 
 module.exports = (on, config) => {
   const cucumber = require('cypress-cucumber-preprocessor').default;
@@ -8,4 +9,13 @@ module.exports = (on, config) => {
   on('task', SwaggerValidation(config));
   require('cypress-grep/src/plugin')(config);
   return config;
-}
+
+  const {lighthouse, prepareAudit} = require('cypress-audit');
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    prepareAudit(launchOptions);
+  });
+
+  on('task', {
+    lighthouse: lighthouse(),
+  });
+};
