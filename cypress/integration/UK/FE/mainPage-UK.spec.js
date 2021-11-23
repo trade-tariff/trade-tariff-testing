@@ -66,17 +66,6 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.get('.govuk-summary-list').contains('Date of trade');
     cy.contains('Choose the commodity code below that best matches your goods to see more information');
   });
-  it('UK - Commodity page - without Supp units', function() {
-    cy.visit('/commodities/6406109010');
-    cy.get('.govuk-summary-list').contains('Commodity');
-    cy.get('.govuk-summary-list').contains('Classification');
-    cy.contains('Parts of footwear (including uppers whether or not attached to soles other than outer soles); removable insoles, heel cushions and similar articles; gaiters, leggings and similar articles, and parts thereof — Uppers and parts thereof, other than stiffeners — Of other materials — Hand-made');
-    cy.get('.govuk-summary-list').contains('Supplementary unit');
-    cy.get('.govuk-summary-list').contains('No supplementary unit required.');
-    cy.get('.govuk-summary-list').contains('Date of trade');
-    cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
-    cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
-  });
   it('UK - Commodity page - with Supp units', function() {
     cy.visit('/commodities/6401929000');
     cy.get('.govuk-summary-list').contains('Commodity');
@@ -84,17 +73,6 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.contains('Waterproof footwear with outer soles and uppers of rubber or of plastics, the uppers of which are neither fixed to the sole nor assembled by stitching, riveting, nailing, screwing, plugging or similar processes — Other footwear — Covering the ankle but not covering the knee — With uppers of plastics');
     cy.get('.govuk-summary-list').contains('Supplementary unit');
     cy.get('.govuk-summary-list').contains('Number of pairs (pa)');
-    cy.get('.govuk-summary-list').contains('Date of trade');
-    cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
-    cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
-  });
-  it('UK - Commodity page - with multiple Supp units', function() {
-    cy.visit('/commodities/1701991000');
-    cy.get('.govuk-summary-list').contains('Commodity');
-    cy.get('.govuk-summary-list').contains('Classification');
-    cy.contains('Cane or beet sugar and chemically pure sucrose, in solid form — Other — Other — White sugar');
-    cy.get('.govuk-summary-list').contains('Supplementary unit');
-    cy.get('.govuk-summary-list').contains('There are multiple supplementary units for you trade. See measures below.');
     cy.get('.govuk-summary-list').contains('Date of trade');
     cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
     cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
