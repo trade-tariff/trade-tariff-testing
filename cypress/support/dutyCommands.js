@@ -247,27 +247,6 @@ Cypress.Commands.add('docCode', (dcode)=>{
   }
 });
 
-Cypress.Commands.add('waitForCommoditySearchResults', () => {
-  cy.get('ul#q__listbox li:not(.autocomplete__option--no-results)').should('be.visible');
-});
-
-Cypress.Commands.add('searchForCommodity', (searchString) => {
-  cy.get('.js-commodity-picker-select').click().type(searchString);
-  cy.waitForCommoditySearchResults();
-  //  cy.get('input[name=\'new_search\']').click();
-  cy.get('input[name=\'commit\']').click();
-});
-
-Cypress.Commands.add('waitForCountrySearchResults', () => {
-  cy.get('ul#search_country__listbox').should('be.visible');
-});
-
-Cypress.Commands.add('searchForCountry', (searchString) => {
-  cy.get('input#search_country').click().clear().type(searchString);
-  cy.waitForCountrySearchResults();
-  return cy.get('ul#search_country__listbox li');
-});
-
 Cypress.Commands.add('storeMonetaryExchangeRates', () => {
   cy.request({
     method: 'GET',

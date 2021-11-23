@@ -2,7 +2,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
   it('UK - Search Commodity by name ', function() {
     cy.visit('/sections');
     // changed on 11/02/2021
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
     // changed on 11/02/2021
     cy.contains('Browse');
     // changed on 11/02/2021
@@ -22,7 +22,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
 
   it('UK - Search Commodity by code ', function() {
     cy.visit('/sections');
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('3808941000');
     cy.checkCommPage('3808941000');
@@ -30,18 +30,19 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
 
   it('UK - Search Commodity by heading code - displays headings page', function() {
     cy.visit('/sections');
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('38089410');
     cy.contains('Choose the commodity code below that best matches your goods to see more information');
   });
   it('UK - Search unknown commodity ', function() {
     cy.visit('/sections');
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.get('.govuk-label')
         .contains('Search the UK Integrated Online Tariff');
     cy.get('.js-commodity-picker-select').click().type('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf');
     cy.wait(900);
-    cy.get('input[name=\'new_search\']').wait(300).click();
+    cy.get('li#q__option--0').click();
+    cy.get('input[name=\'commit\']').click();
     cy.contains('Search results for ‘sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf’');
     cy.contains('There are no results matching your query.');
     cy.contains('Browse').click();

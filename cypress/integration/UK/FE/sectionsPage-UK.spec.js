@@ -23,12 +23,11 @@ describe('🇬🇧 💡 🔍  | sectionsPage.spec-UK | Sections page content val
     cy.contains('Exchange rates').should('not.exist');
     cy.contains('Forum').should('not.exist');
   });
-  it('All 21 sections titles displayed ', function() {
- 
+  it('Browse Page - All 21 sections titles displayed ', function() {
     cy.visit('/browse');
-     //  cy.url().should('include', 'sections', {timeout: 5000});
+    //  cy.url().should('include', 'sections', {timeout: 5000});
     cy.contains('Browse the tariff');
-    cy.contains('The UK goods classification contains 21 sections, listed below. Choose the section that best matches your goods to see the HS chapters that are contained in the section.');
+    cy.contains('The goods classification contains 21 sections, listed below. Choose the section that best matches your goods to see the HS chapters that are contained in the section.');
     cy.contains('Section title');
     cy.contains('Section');
     cy.contains('Chapters');
