@@ -32,7 +32,7 @@ describe('🇬🇧 💡 | A-Z - UK and XI services |', function() {
     for (let j = 0; j < country.length; j++) {
       cy.visit(`${country[j]}/a-z-index/m`);
       cy.get('.govuk-main-wrapper')
-          .contains('Melons')
+          .contains('Mineral Products')
           .click();
       cy.contains('Choose the heading that best matches your goods');
     }

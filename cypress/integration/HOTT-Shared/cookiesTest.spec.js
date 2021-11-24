@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 
 describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |', function() {
-  const country = ['xi',''];
+  const country = ['xi', ''];
   for (let i = 0; i < country.length; i++) {
     it(`${country[i]} - Cookies Main Banner `, function() {
       cy.visit(`${country[i]}/cookies`);
@@ -24,7 +24,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |', function() {
 
     it(`${ country[i]} - Cookies on all pages`, function() {
       cy.clearCookies();
-      const pages = ['sections', 'a-z-index/a', 'tools', 'help'];
+      const pages = ['find_commodity', 'browse', 'a-z-index/a', 'tools', 'help'];
       for (let j =0; j< pages.length; j++) {
         cy.visit(`${country[i]}/${pages[j]}`);
         cy.contains('Cookies on the Online Tariff');
