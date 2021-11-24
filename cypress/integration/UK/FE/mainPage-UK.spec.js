@@ -49,13 +49,13 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.contains('Section XII contains 4 chapters. Choose the chapter that best matches your goods.');
   });
   it('UK - Chapter page ', function() {
-    cy.visit('/chapters/99');
+    cy.visit('/chapters/98');
     cy.contains('Choose the heading that best matches your goods');
     cy.get('.govuk-summary-list').contains('Chapter');
     cy.get('.govuk-summary-list').contains('Classification');
     cy.get('.govuk-summary-list').contains('Date of trade');
 
-    cy.contains('Goods delivered to vessels and aircraft').click();
+    cy.contains('Component parts of complete industrial plant in the framework of external trade (Commission Regulation EC No 113/2010 of 9.02.2010)').click();
     cy.contains('Choose the commodity code below that best matches your goods to see more information');
   });
   it('UK - Heading page', function() {

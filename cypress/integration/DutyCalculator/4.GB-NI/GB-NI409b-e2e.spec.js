@@ -28,7 +28,7 @@ describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies + 
 
       // ℹ️ Interstitial Message - EU duties apply
       // interstitial page
-      cy.dutiesApply();
+      cy.dutiesApply1();
 
 
       // 💰 Whats the monetary value?

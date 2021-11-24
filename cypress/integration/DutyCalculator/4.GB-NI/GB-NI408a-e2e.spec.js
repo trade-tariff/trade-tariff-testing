@@ -23,7 +23,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // interstitial page
-    cy.dutiesApply();
+    cy.dutiesApply1();
 
 
     // Monetary value page
@@ -119,7 +119,7 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // interstitial page
-    cy.dutiesApply();
+    cy.dutiesApply1();
 
     cy.meursingCode({value: '000'});
     // Monetary value page

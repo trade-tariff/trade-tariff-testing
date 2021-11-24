@@ -33,7 +33,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       //  🚫 Certified as UK Origin
       cy.certificate('no');
       // interstitial page
-      cy.dutiesApply();
+      cy.dutiesApply1();
 
       // Monetary value page
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
@@ -106,7 +106,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
     cy.certificate('no');
 
     // interstitial page
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.meursingCode({value: '000'});
 
     // customs value

@@ -456,7 +456,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // interstitial page
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.meursingCode({value: '000'});
     // customs value
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});

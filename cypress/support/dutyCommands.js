@@ -86,7 +86,7 @@ Cypress.Commands.add('euDutiesApply', () => {
   cy.wait(100);
   cy.get('.govuk-button').click();
 });
-Cypress.Commands.add('dutiesApply', ()=>{
+Cypress.Commands.add('dutiesApply1', ()=>{
   cy.contains('EU duties apply to this import');
   cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
   cy.wait(100);

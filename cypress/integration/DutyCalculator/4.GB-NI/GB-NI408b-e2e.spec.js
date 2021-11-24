@@ -26,7 +26,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       // 🚫 Certified as UK Origin
       cy.certificate('no');
       // interstitial page
-      cy.dutiesApply();
+      cy.dutiesApply1();
 
 
       // Monetary value page

@@ -61,7 +61,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
 
     cy.certificate('no');
     // duties apply page
-    cy.dutiesApply();
+    cy.dutiesApply1();
 
     // cy.get('.govuk-details > .govuk-details__summary');
     // cy.contains('About this commodity code').click();
