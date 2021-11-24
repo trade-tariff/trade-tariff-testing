@@ -127,7 +127,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('VAT');
     cy.contains('Reduced rate');
   });
-  it.only('XI service - Multiple VAT rates - GB to NI ', function() {
+  it('XI service - Multiple VAT rates - GB to NI ', function() {
     // select future date
     cy.visit(`/duty-calculator/xi/8716109800/import-date`);
     cy.validDate();
