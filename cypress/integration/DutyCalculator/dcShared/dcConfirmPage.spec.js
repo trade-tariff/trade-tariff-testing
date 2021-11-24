@@ -1,7 +1,7 @@
 describe('🔖 | dcConfirmPage | UK Results Page |', function() {
   // 1701141000
 
-  it('Page Validation', function() {
+  it('Confirmation Page Validation', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
     cy.validDate();
     cy.selectDestination('xi');
@@ -9,8 +9,8 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.traderScheme('no');
 
     cy.certificate('no');
-    cy.dutiesApply();
-   // cy.contains('Continue').click();
+    cy.dutiesApply1();
+    // cy.contains('Continue').click();
 
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
@@ -40,7 +40,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     // Check Change Links
     // Commodity Information
     cy.get('div:nth-of-type(1) > .govuk-summary-list__actions > .govuk-link').click();
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
 
 
     // Import Date
@@ -50,7 +50,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -67,7 +67,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -83,7 +83,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -99,7 +99,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -115,7 +115,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -131,7 +131,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});
@@ -147,7 +147,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.selectOrigin('gb');
     cy.traderScheme('no');
     cy.certificate('no');
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({dtnr: '1'});
     cy.docCode({xi: 'n990'});

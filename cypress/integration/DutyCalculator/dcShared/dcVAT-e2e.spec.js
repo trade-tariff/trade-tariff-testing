@@ -127,7 +127,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('VAT');
     cy.contains('Reduced rate');
   });
-  it('XI service - Multiple VAT rates - GB to NI ', function() {
+  it.only('XI service - Multiple VAT rates - GB to NI ', function() {
     // select future date
     cy.visit(`/duty-calculator/xi/8716109800/import-date`);
     cy.validDate();
@@ -139,14 +139,17 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
-    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-    cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
-    cy.contains('Continue').click();
-    //  🚫 Certified as UK Origin
+
+    cy.turnOver('more');
+
+    cy.plannedXI('unacceptablecommercial');
+
+    // 🚫 Certified as UK Origin
     cy.certificate('no');
+    // eu duties apply
+    cy.dutiesApply1();
     // Monetary value page
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
-
     // VAT Page
     cy.vat('20');
     cy.contains('Value added tax (20.0%)');
@@ -155,7 +158,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('Standard rate');
     cy.get('.govuk-back-link').click().wait(200);
     // Change to different VAT rate
-    cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
     // VAT Page
     cy.vat('0');
@@ -165,7 +168,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('Zero rate');
     cy.get('.govuk-back-link').click().wait(200);
     // Change to different VAT rate
-    cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
     // VAT Page
     cy.vat('5');

@@ -37,7 +37,7 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
       cy.contains('Continue').click();
       console.log(cy.title());
       // interstitial page
-      cy.dutiesApply();
+      cy.dutiesApply1();
       // monetary value
       cy.get('input#steps-customs-value-monetary-value-field').clear().type('1000');
       cy.contains('Continue').click();

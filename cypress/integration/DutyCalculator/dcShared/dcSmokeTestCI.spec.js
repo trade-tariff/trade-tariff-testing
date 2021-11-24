@@ -130,7 +130,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // Monetary value page
-    cy.dutiesApply();
+    cy.dutiesApply1();
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     // Measure amount page
     cy.quantity({dtnr: '23.98'});
