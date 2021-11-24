@@ -3,7 +3,8 @@ describe(' ⚙️ | dcMetaHeadingsAPI |', () => {
   it('V2 to have DC related Meta data', function() {
     const countries = ['', 'xi'];
     for ( let j =0; j< countries.length; j++) {
-      const headings = ['3101', '0409', '5406', '6216', '6906', '7402', '7802', '8604', '9304', '9950'];
+      const headings = ['3101', '0409', '5406', '6216', '6906', '7402', '7802', '8604', '9304'];
+      // 9905
       for (let i =0; i< headings.length; i++) {
         cy.request(`/${countries[j]}/api/v2/headings/${headings[i]}`).as('comments');
         cy.get('@comments')
