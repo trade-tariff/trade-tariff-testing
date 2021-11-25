@@ -18,4 +18,9 @@ module.exports = (on, config) => {
   on('task', {
     lighthouse: lighthouse(),
   });
+
+  require('cypress-grep/src/plugin')(config);
+  // make sure to return the config object
+  // as it might have been modified by the plugin
+  return config;
 };

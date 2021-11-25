@@ -32,4 +32,5 @@ const Helpers = {
   sayHello: (name)=> { console.log('hello ' + name) }
 }
 
+require('cypress-grep')();
 
