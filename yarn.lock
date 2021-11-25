@@ -2286,10 +2286,10 @@ cypress-fill-command@^1.0.1:
   resolved "https://registry.yarnpkg.com/cypress-fill-command/-/cypress-fill-command-1.0.2.tgz#52dbd9a8714e0c5893e2721e413bdc0bed142521"
   integrity sha512-lUkeP1vPfvRP0SnbfZBIv3oje4L0qenM/uwYrViXVtuqDADa6MI3ptvNrDWyDnPYcX3p2SyNGRhnRifoOhxlRg==
 
-cypress-grep@^2.10.2:
-  version "2.10.2"
-  resolved "https://registry.yarnpkg.com/cypress-grep/-/cypress-grep-2.10.2.tgz#97a5dc18cdda000dbbbc9b488be440c9544e09f0"
-  integrity sha512-3IU5EaCXmM5+LSzEQQmLAM2I1gqN0TNp8rwQ6qSpb4sF1Qm+DHDq5s2lgzreqUgSeTTYFmW40b4GGDy52Q25Sg==
+cypress-grep@^2.10.3:
+  version "2.10.3"
+  resolved "https://registry.yarnpkg.com/cypress-grep/-/cypress-grep-2.10.3.tgz#ec2dbfbf9bbb92e5cca10bd567d417738c2391cb"
+  integrity sha512-licNwu9NZ6wvfsZxEcbHNROabPVuUyFnPpr+4PbsQr9A4MbinyQouIxUtH6W/XyCX6yhbxLlHnNtik5gB2tbcg==
   dependencies:
     debug "4.3.1"
     find-test-names "^1.2.1"
