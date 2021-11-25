@@ -18,20 +18,17 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.searchForCommodity('3808941000');
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
-    cy.contains('This tariff is for 21 December 2022');
+    cy.contains('21 December 2022');
     // select Change Date and CANCEL
     // cy.get(' .js-show.text > a[role=\'button\']').click();
     // cy.contains('Set date').click();
     // cy.wait(300);
 
     // select Change Date and change months and years
-    cy.get(' .js-show.text > a[role=\'button\']').click();
-    cy.get('#tariff_date_day').click().clear().type(21);
-    cy.get('#tariff_date_month').click().clear().type(12);
-    cy.get('#tariff_date_year').click().clear().type(2021);
-    cy.contains('Set date').click();
+    cy.get('.govuk-summary-list .govuk-link').click();
+    cy.datePickerPage({day: 22, month: 12, year: 2022});
     cy.wait(300);
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('22 December 2022');
   });
   // switching link works
   it('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function() {
@@ -84,14 +81,14 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
     // cy.contains('Set date').click();
     // cy.wait(300);
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('21 December 2021');
     // switch to XI tariff
     cy.contains('Northern Ireland Online Tariff').click();
     cy.contains('Northern Ireland Online Tariff');
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('21 December 2021');
     // switch to UK tariff
     cy.contains('UK Integrated Online Tariff').click();
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('21 December 2021');
   });
 
   // **** XI tests ****
@@ -112,20 +109,17 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.searchForCommodity('3808941000');
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
-    cy.contains('This tariff is for 21 December 2022');
+    cy.contains('21 December 2022');
     // select Change Date and CANCEL
     // cy.get(' .js-show.text > a[role=\'button\']').click();
     // cy.contains('Set date').click();
     // cy.wait(300);
 
     // select Change Date and change months and years
-    cy.get(' .js-show.text > a[role=\'button\']').click();
-    cy.get('#tariff_date_day').click().clear().type(21);
-    cy.get('#tariff_date_month').click().clear().type(12);
-    cy.get('#tariff_date_year').click().clear().type(2021);
-    cy.contains('Set date').click();
+    cy.get('.govuk-summary-list .govuk-link').click();
+    cy.datePickerPage({day: 22, month: 12, year: 2022});
     cy.wait(300);
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('22 December 2022');
   });
   // switching link works
   it('🚀 XI 🇪🇺 - Main Page - Switching link to UK available & works', function() {

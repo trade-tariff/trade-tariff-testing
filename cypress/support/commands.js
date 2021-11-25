@@ -14,6 +14,15 @@ beforeEach(() => {
 });
 // ******* Custom Commands *******
 
+// date picker page
+Cypress.Commands.add('datePickerPage', (date)=>{
+  cy.contains('When are you planning to trade the goods?');
+  cy.get('input[name=\'import_export_date[import_date(3i)]\']').click().clear().type(date.day);
+  cy.get('input[name=\'import_export_date[import_date(2i)]\']').click().clear().type(date.month);
+  cy.get('input[name=\'import_export_date[import_date(1i)]\']').click().clear().type(date.year);
+  cy.contains('Update date').click();
+});
+
 // validate commodity page heading
 Cypress.Commands.add('checkCommPage', (commcode)=>{
 //  cy.contains('Commodity ' +commcode);

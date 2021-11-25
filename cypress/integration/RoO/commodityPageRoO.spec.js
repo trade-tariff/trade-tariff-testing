@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('| commodityPageRoO - Rules of Origin - copy and links ', function() {
+describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['config', 'roo-tag']}, function() {
   // RoO tab exists and links work
   const countries = [''];
   const service = ['UK', 'EU'];
