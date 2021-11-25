@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-describe('test spec - mini tests', function() {
+describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
@@ -49,12 +49,16 @@ describe('test spec - mini tests', function() {
     cy.visit('/headings/0202');
     cy.contextSelector();
   });
-  it.only('page titles', function() {
+  it('page titles', function() {
     cy.visit('/sections');
     console.log(cy.title());
     cy.visit('/browse');
     console.log(cy.title());
     cy.visit('/tools');
     console.log(cy.title());
+  });
+  it.only('test tags', function() {
+    cy.visit('/import_export_dates');
+    cy.datePickerPage({day: 22, month: 12, year: 2022});
   });
 });
