@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() {
   // HOTT-96 , HOT-1051
-  it('Sections Page - Switching link & text available,forum links removed', function() {
+  it('Sections / Find-commodity Page - Switching link & text available,forum links removed', function() {
     cy.visit('/sections');
     // check header has UK information
     cy.get('.govuk-header ')
@@ -15,7 +15,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
 
-    // click on the XI link and it should navigate to XI version
+    // click on the XI link and it should navigate to UK version
     cy.contains('UK Integrated Online Tariff')
         .click();
     cy.get('.govuk-header ')
@@ -27,7 +27,6 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('if your goods are not ‘at risk’ of onward movement to the EU').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
 
-    console.log(cy.title());
     cy.title().should('eq', 'Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU - GOV.UK');
     // return to UK page
     cy.go(-1);
@@ -38,6 +37,28 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .should('not.have.text', 'Get guidance on this product area:')
         .should('not.have.text', 'Classification of goods')
         .should('not.have.text', 'Discuss this chapter in the forums');
+  });
+  it('Browse Page - switching link available,forum links removed', function() {
+    cy.visit('/browse');
+    cy.contains('Browse the tariff');
+    // check header has UK information
+    cy.get('.govuk-header ')
+        .contains('UK Integrated Online Tariff');
+    // click on the XI link and it should navigate to XI version
+    cy.get('.govuk-main-wrapper')
+        .contains('Northern Ireland Online Tariff')
+        .click();
+    cy.get('.govuk-header ')
+        .contains('Northern Ireland Online Tariff');
+    cy.contains('Browse the tariff');
+    // click on the XI link and it should navigate to XI version
+    cy.get('.govuk-main-wrapper');
+    cy.contains('UK Integrated Online Tariff')
+        .click();
+    cy.get('.govuk-header ')
+        .contains('UK Integrated Online Tariff');
+    cy.get('.govuk-main-wrapper')
+        .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
     cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();

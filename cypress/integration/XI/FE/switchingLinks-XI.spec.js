@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and related links removed  - (XI version)', function() {
   // --- HOTT-96 ,HOTT- 163 -------------
-  it('Sections Page - Switching link & text available,forum links removed', function() {
+  it('Sections / Find-commodity Page - Switching link & text available,forum links removed', function() {
     cy.visit('/xi/sections');
     // check header has Xi information
     cy.get('.govuk-header ')
@@ -37,11 +37,6 @@ describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and
         .should('not.have.text', 'Get guidance on this product area:')
         .should('not.have.text', 'Classification of goods')
         .should('not.have.text', 'Discuss this chapter in the forums');
-    // bottom switching link
-    cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the Northern Ireland Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the UK Integrated Online Tariff').click();
-    cy.get('.govuk-header ')
-        .contains('UK Integrated Online Tariff');
   });
   it('Chapters Page - switching link available,forum links removed', function() {
     cy.visit('/xi/chapters/01');
