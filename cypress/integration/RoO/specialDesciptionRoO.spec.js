@@ -6,7 +6,7 @@
 {{EXW}} - which means ex-works price
 {{WO}} - which means wholly obtained
 */
-describe('| specialDescriptionRoO - Rules with special descriptions ', function() {
+describe('| specialDescriptionRoO - Rules with special descriptions ', {tags: ['config', 'roo-tag']}, function() {
   const service = [''];
   const commodity = ['7304110010', '7118100000', '7801100000','0301911000', '7113110000'];
   const descriptions = ['CC rule - change of chapter', 'CTH rule - change in tariff heading', 'CTSH rule - change in tariff subheading','Wholly obtained', 'Ex-works price'];

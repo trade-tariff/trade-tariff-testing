@@ -1,7 +1,7 @@
 // How to read rules of origin
 /* eslint-disable max-len */
 // HOTT-
-describe('| howtoreadRoO - link and copy ', function() {
+describe('| howtoreadRoO - link and copy ', {tags: ['config', 'roo-tag']}, function() {
   const countries = ['', 'xi'];
   const service = ['UK', 'EU'];
   for (let i=0; i<countries.length; i++) {

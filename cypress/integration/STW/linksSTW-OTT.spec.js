@@ -6,7 +6,7 @@ describe('| linksSTW-OTT.spec | STW links on OTT sections page |', function() {
       cy.visit(`${countries[i]}/sections`);
       cy.contains('Advance tariff rulings');
       cy.contains('For more help in classifying your commodity, you can search for advance tariff rulings');
-      cy.get('.feature-panel:nth-child(5) .govuk-body:nth-child(2) .govuk-link').should('have.attr', 'href', 'https://www.tax.service.gov.uk/search-for-advance-tariff-rulings/search');
+      cy.get('[role] .feature-panel:nth-child(4) .govuk-body:nth-child(2) .govuk-link').should('have.attr', 'href', 'https://www.tax.service.gov.uk/search-for-advance-tariff-rulings/search');
       cy.contains('Advance tariff rulings allow you to get a legally binding decision on the commodity code to use when importing into or exporting goods.');
       cy.get('p:nth-of-type(3) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/apply-for-an-advance-tariff-ruling');
       cy.contains('Find out more about advance tariff rulings.');

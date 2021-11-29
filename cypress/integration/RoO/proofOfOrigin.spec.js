@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('| proofOfOrigin - Certificates for Proof Of Origin ', function() {
+describe('| proofOfOrigin - Certificates for Proof Of Origin ', {tags: ['config', 'roo-tag']}, function() {
   it('| Approved exporter for consignments with a value over £5500 / 6000 euros |', function() {
     cy.visit('/commodities/1006201713?country=SG#rules-of-origin');
     cy.contains('Proving originating status and claiming preferential treatment');
