@@ -2,13 +2,11 @@
 describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |', function() {
   it('| UK Service - STW content on Commodity import page |', function() {
     cy.visit('/commodities/2612201000#import');
-    cy.get(' .js-show.text > a[role=\'button\']').click();
-    cy.get('#tariff_date_day').click().clear().type(11);
-    cy.get('#tariff_date_month').click().clear().type(11);
-    cy.get('#tariff_date_year').click().clear().type(2022);
-    cy.contains('Set date').click();
+
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.datePickerPage({day: 11, month: 11, year: 2022});
     cy.wait(300);
-    cy.contains('This tariff is for 11 November 2022');
+    cy.contains('11 November 2022');
     // check import tab
     cy.get('a#tab_import').click();
     cy.contains('To use the new \'Check how to import or export goods\' service to find out which licences and certificates you need to import commodity code 2612201000, select the country of origin from the dropdown above.');
@@ -20,13 +18,10 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     cy.get('[href=\'https\:\/\/check-how-to-import-export-goods\.service\.gov\.uk\/manage-this-trade\/check-licences-certificates-and-other-restrictions\?commodity\=2612201000\&destinationCountry\=GB\&goodsIntent\=bringGoodsToSell\&importDateDay\=11\&importDateMonth\=11\&importDateYear\=2022\&importDeclarations\=yes\&importOrigin\=\&originCountry\=AD\&tradeType\=import\&userTypeTrader\=true\']').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/manage-this-trade/check-licences-certificates-and-other-restrictions?commodity=2612201000&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=11&importDateMonth=11&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AD&tradeType=import&userTypeTrader=true');
 
     // Change Date and country and validate
-    cy.get(' .js-show.text > a[role=\'button\']').click();
-    cy.get('#tariff_date_day').click().clear().type(12);
-    cy.get('#tariff_date_month').click().clear().type(10);
-    cy.get('#tariff_date_year').click().clear().type(2022);
-    cy.contains('Set date').click();
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.datePickerPage({day: 12, month: 10, year: 2022});
     cy.wait(300);
-    cy.contains('This tariff is for 12 October 2022');
+    cy.contains('12 October 2022');
     cy.get('a[role=\'button\'] > .long-text').click().wait(100);
     cy.get('a#tab_import').click();
     cy.contains('To use the new \'Check how to import or export goods\' service to find out which licences and certificates you need to import commodity code 2612201000, select the country of origin from the dropdown above.');
@@ -43,13 +38,10 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
   it('| UK Service - STW content on heading which is also a commodity import page |', function() {
     cy.visit('/commodities/8804000000#import');
     cy.contains('To use the new \'Check how to import or export goods\' service to find out which licences and certificates you need to import commodity code 8804000000, select the country of origin from the dropdown above.');
-    cy.get(' .js-show.text > a[role=\'button\']').click();
-    cy.get('#tariff_date_day').click().clear().type(11);
-    cy.get('#tariff_date_month').click().clear().type(11);
-    cy.get('#tariff_date_year').click().clear().type(2022);
-    cy.contains('Set date').click();
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.datePickerPage({day: 11, month: 11, year: 2022});
     cy.wait(300);
-    cy.contains('This tariff is for 11 November 2022');
+    cy.contains('11 November 2022');
     // check import tab
     cy.get('a#tab_import').click();
     cy.contains('To use the new \'Check how to import or export goods\' service to find out which licences and certificates you need to import commodity code 8804000000, select the country of origin from the dropdown above.');
@@ -61,13 +53,10 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
   });
   it('| XI Service - should not exist - STW content on Commodity import page |', function() {
     cy.visit('xi/commodities/2612201000#import');
-    cy.get(' .js-show.text > a[role=\'button\']').click();
-    cy.get('#tariff_date_day').click().clear().type(11);
-    cy.get('#tariff_date_month').click().clear().type(11);
-    cy.get('#tariff_date_year').click().clear().type(2022);
-    cy.contains('Set date').click();
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.datePickerPage({day: 11, month: 11, year: 2022});
     cy.wait(300);
-    cy.contains('This tariff is for 11 November 2022');
+    cy.contains('11 November 2022');
     // check import tab
     cy.get('a#tab_import').click();
     cy.contains('To use the new \'Check how to import or export goods\' service to find out which licences and certificates you need to import commodity code 2612201000, select the country of origin from the dropdown above.').should('not.exist');

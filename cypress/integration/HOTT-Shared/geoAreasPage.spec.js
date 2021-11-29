@@ -13,6 +13,8 @@ describe('geoAreasPage.spec.js | split the geographical areas from commodity pag
     console.log(cy.title());
     cy.contains('Eswatini');
     cy.get('.govuk-back-link').click();
+
+    cy.get('a#tab_import').click();
     // EU
     cy.contains('European Union (1013)').click();
     cy.contains('Geographical area 1013 - European Union');
@@ -36,6 +38,8 @@ describe('geoAreasPage.spec.js | split the geographical areas from commodity pag
     cy.contains('Swaziland');
     console.log(cy.title());
     cy.get('.govuk-back-link').click();
+    // import tab
+    cy.get('a#tab_import').click();
     // EU
     cy.contains('European Economic Area (2012)').click();
     cy.contains('Geographical area 2012 - European Economic Area');
