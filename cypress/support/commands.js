@@ -108,6 +108,13 @@ Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.waitForCommoditySearchResults();
   //  cy.get('input[name=\'new_search\']').click();
   cy.get('input[name=\'commit\']').click();
+  //  cy.get('input[name=\'new_search\']').click();
+});
+Cypress.Commands.add('searchForCommodity2', (searchString) => {
+  cy.get('.js-commodity-picker-select').click().type(searchString);
+  cy.waitForCommoditySearchResults();
+  return cy.get('input[name=\'new_search\']').click();
+  // cy.get('input[name=\'commit\']').click();
 });
 
 Cypress.Commands.add('waitForCountrySearchResults', () => {
