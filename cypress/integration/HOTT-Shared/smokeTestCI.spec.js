@@ -20,7 +20,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('21 December 2022');
     // select Change Date and CANCEL
     // select Change Date and change months and years
-    cy.get('.govuk-summary-list .govuk-link').click();
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
     cy.wait(300);
     cy.contains('22 December 2022');
@@ -219,7 +219,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('21 December 2022');
     // select Change Date and CANCEL
     // select Change Date and change months and years
-    cy.get('.govuk-summary-list .govuk-link').click();
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
     cy.wait(300);
     cy.contains('22 December 2022');
