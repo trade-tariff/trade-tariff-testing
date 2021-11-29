@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', function() {
   it('XI - Search Commodity by name ', function() {
     cy.visit('/xi/sections');
@@ -55,5 +56,27 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
     cy.visit('/xi/commodities/2009909500#export');
     cy.contains('Measures and restrictions for exporting goods from Northern Ireland');
     cy.contains('Trade between NI and');
+  });
+  it.only('XI - Search Tariff on other pages', function() {
+    cy.visit({url: 'xi/404', failOnStatusCode: false});
+    cy.searchForCommodity2('3808941000');
+    cy.contains(/Commodity .*3808941000/i);
+
+    cy.visit({url: 'xi/500', failOnStatusCode: false});
+    cy.searchForCommodity2('3808941000');
+    cy.contains(/Commodity .*3808941000/i);
+
+    const pages = ['browse', 'sections/6', 'chapters/28', 'headings/2802', 'commodities/2805120010', 'feedback', 'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd', 'a-z-index/a'];
+    for (let i=0; i<pages.length; i++) {
+      cy.visit(`/xi/${pages[i]}`);
+      cy.searchForCommodity2('3808941000');
+      cy.contains(/Commodity .*3808941000/i);
+    }
+    const otherpages = ['sections', 'find_commodity'];
+    for (let j=0; j<otherpages.length; j++) {
+      cy.visit(`/xi/${otherpages[j]}`);
+      cy.searchForCommodity('3808941000');
+      cy.contains(/Commodity .*3808941000/i);
+    }
   });
 });
