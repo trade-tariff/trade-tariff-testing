@@ -70,7 +70,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   });
 
   // Date picker working and persists on UK XI sites
-  it('🚀 UK 🇬🇧 - Change date and verify if the data shown is same for both XI and UK', function() {
+  it('🚀 UK 🇬🇧 / XI 🇪🇺 - Change date and verify if the data shown is same for both XI and UK', function() {
     cy.visit('/sections');
     // select Change Date and change months and years
     cy.get('.govuk-details__summary').click();
