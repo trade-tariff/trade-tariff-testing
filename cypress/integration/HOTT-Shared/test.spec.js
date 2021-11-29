@@ -57,8 +57,16 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.visit('/tools');
     console.log(cy.title());
   });
-  it.only('test tags', function() {
+  it('test tags', function() {
     cy.visit('/import_export_dates');
     cy.datePickerPage({day: 22, month: 12, year: 2022});
+  });
+  it.only('Search Tariff on other pages', function() {
+    const pages = ['sections', 'browse', 'find_commodity','sections/6',];
+    for (let i=0; i<pages.length; i++) {
+      cy.visit(`/${pages[i]}`);
+      cy.searchForCommodity('3808941000');
+      cy.checkCommPage('3808941000');
+    }
   });
 });
