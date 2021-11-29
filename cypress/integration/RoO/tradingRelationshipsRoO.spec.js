@@ -7,7 +7,6 @@ describe('| tradingRelationsRoO - to exist only on UK service ', function() {
         .type('Chile').wait(500)
         .type('{enter}');
     cy.contains('Rules of origin').click();
-    cy.contains('Trading relationship with Chile');
     cy.contains('UK-Chile association agreement');
     cy.contains('The UK has signed an association agreement with Chile, which is in effect.');
   });

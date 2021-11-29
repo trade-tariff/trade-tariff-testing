@@ -57,7 +57,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
     cy.contains('Measures and restrictions for exporting goods from Northern Ireland');
     cy.contains('Trade between NI and');
   });
-  it.only('XI - Search Tariff on other pages', function() {
+  it('XI - Search Tariff on other pages', function() {
     cy.visit({url: 'xi/404', failOnStatusCode: false});
     cy.searchForCommodity2('3808941000');
     cy.contains(/Commodity .*3808941000/i);

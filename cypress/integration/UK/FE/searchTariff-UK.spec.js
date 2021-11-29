@@ -59,7 +59,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
     cy.contains('Measures and restrictions for exporting from the UK');
     cy.contains('Trade between the UK and');
   });
-  it.only('UK - Search Tariff on other pages', function() {
+  it('UK - Search Tariff on other pages', function() {
     cy.visit({url: '404', failOnStatusCode: false});
     cy.searchForCommodity2('3808941000');
     cy.contains(/Commodity .*3808941000/i);
