@@ -35,8 +35,8 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
 
     it(`Desktop ${countries[i]} - 0501000000 Headings page`, function() {
       cy.visit(`${countries[i]}/commodities/0501000000`);
-      cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
-      cy.checkCommPage('0501000000');
+      // cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
+      // cy.checkCommPage('0501000000');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
       cy.contains('Products of animal origin, not elsewhere specified or included');
@@ -66,8 +66,8 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
     it(`Mobile - iOS iphone-x - ${countries[i]} Commodity page`, function() {
       cy.viewport('iphone-x');
       cy.visit(`${countries[i]}/commodities/0501000000`);
-      cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
-      cy.checkCommPage('0501000000');
+      // cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
+      // cy.checkCommPage('0501000000');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
@@ -75,7 +75,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
     it(`Mobile - Android - Samsung-note9 ${countries[i]} Commodity page`, function() {
       cy.viewport('samsung-note9');
       cy.visit(`${countries[i]}/commodities/0501000000`);
-      cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
+      // cy.get('.govuk-breadcrumbs__list').contains('Heading 0501');
       cy.get('.govuk-breadcrumbs__list').contains('Chapter 05').click();
       cy.contains('Chapter 05 - Products of animal origin, not elsewhere specified or included');
       cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
@@ -85,4 +85,15 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
   }
+  it('Headings which are also commodities', function() {
+    const headings = ['3101', '0409', '5406', '6216', '6906', '7402', '7802', '8604', '9304', '0903'];
+    // 9905
+    for (let j =0; j<headings.length; j++) {
+      cy.visit(`/headings/${headings[j]}`);
+      cy.get('.govuk-breadcrumbs__list').contains(`Commodity ${headings[j]}`+ '000000');
+      cy.get('.govuk-summary-list').contains(`${headings[j]}`+ '000000');
+      // const n = (heading+ '000000');
+      cy.get('.govuk-heading-l.commodity-header').contains(`Commodity ${headings[j]}`+ '000000');
+    }
+  });
 });
