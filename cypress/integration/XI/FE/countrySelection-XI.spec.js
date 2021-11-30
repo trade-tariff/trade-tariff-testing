@@ -5,7 +5,6 @@ describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |'
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
         .contains('No results found');
-
     // Andora should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD');
     cy.get('[id=\'search_country__listbox\']')
@@ -14,8 +13,6 @@ describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |'
     cy.get('input#search_country').click().clear().wait(500).type('GB').wait(500);
     cy.get('[id=\'search_country__listbox\']')
         .contains('United Kingdom (excluding Northern Ireland) (GB)');
-
-
     // no XU
     cy.get('input#search_country').click().clear().wait(500).type('XU').wait(500);
     cy.get('[id=\'search_country__listbox\']')
@@ -56,6 +53,38 @@ describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |'
       cy.get(`#measure-${measurecodes_ids[i]}-children-geographical-areas`)
           .contains('Haiti (HT)').should('not.exist');
     }
+  });
+  it('XI Country selection page', function() {
+    cy.visit('xi/commodities/0804100030');
+    cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('Filter measures against the selected country');
+    cy.contains('Northern Ireland Online Tariff');
+    cy.title().should('eq', 'Northern Ireland Online Tariff - Set country filter - GOV.UK');
+    cy.countryPickerpage({value: 'Argentina'});
+    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
+    cy.wait(400);
+    cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
+    // Typing the country code
+    cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.countryPickerpage({value: '(DE)'});
+    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Germany');
+    cy.wait(400);
+    // reset to all countries
+    cy.get('a[role=\'button\'] > .long-text').click();
+    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');
+  });
+  it('XI Country selection page - No country selected ', function() {
+    cy.visit('xi/commodities/0804100030');
+    cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('Select country').click();
+    cy.get('.govuk-error-summary');
+    cy.contains('There is a problem');
+    cy.contains('Select a country');
+    cy.get('.govuk-error-message')
+        .contains('Select a country');
+    // Reset all countries
+    cy.get('.govuk-link').contains('Reset to all countries').click();
+    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');
   });
 });
 

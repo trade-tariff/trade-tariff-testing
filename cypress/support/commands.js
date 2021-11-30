@@ -22,7 +22,11 @@ Cypress.Commands.add('datePickerPage', (date)=>{
   cy.get('input[name=\'import_export_date[import_date(1i)]\']').click().clear().type(date.year);
   cy.contains('Update date').click();
 });
-
+Cypress.Commands.add('countryPickerpage', (country)=>{
+  cy.contains('Select a country');
+  cy.get('input#trading-partner-country-field').click().clear().type(country.value);
+  cy.contains('Select country').click();
+});
 // validate commodity page heading
 Cypress.Commands.add('checkCommPage', (commcode)=>{
 //  cy.contains('Commodity ' +commcode);
