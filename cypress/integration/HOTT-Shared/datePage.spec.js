@@ -10,7 +10,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       // Change date
       cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
       console.log(cy.title());
-      cy.title().should('eq', `${titles[i]} - When will your goods be traded`);
+      cy.title().should('eq', `${titles[i]} - When will your goods be traded - GOV.UK`);
       cy.contains('As commodities, duties and quotas change over time, it may be important to enter the date you think your goods will be traded. Use the format day, month, year, for example 27 3 2021. If you don\'t enter a date, today\'s date will be used.');
       cy.contains('Click on \'Cancel\' to return to the previous page.');
       // Cancel
@@ -31,7 +31,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       cy.contains('31 December 2021');
       // Change date
       cy.get('.govuk-summary-list .govuk-link').click();
-      cy.title().should('eq', `${titles[i]} - When will your goods be traded`);
+      cy.title().should('eq', `${titles[i]} - When will your goods be traded - GOV.UK`);
       cy.contains('As commodities, duties and quotas change over time, it may be important to enter the date you think your goods will be traded. Use the format day, month, year, for example 27 3 2021. If you don\'t enter a date, today\'s date will be used.');
       cy.contains('Click on \'Cancel\' to return to the previous page.');
       // Cancel
@@ -52,7 +52,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       cy.contains('31 December 2021');
       // Change date
       cy.get('.govuk-summary-list .govuk-link').click();
-      cy.title().should('eq', `${titles[i]} - When will your goods be traded`);
+      cy.title().should('eq', `${titles[i]} - When will your goods be traded - GOV.UK`);
       cy.contains('As commodities, duties and quotas change over time, it may be important to enter the date you think your goods will be traded. Use the format day, month, year, for example 27 3 2021. If you don\'t enter a date, today\'s date will be used.');
       cy.contains('Click on \'Cancel\' to return to the previous page.');
       // Cancel
