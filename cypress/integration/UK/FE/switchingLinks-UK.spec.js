@@ -61,7 +61,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -87,7 +87,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
 
@@ -121,7 +121,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
     // other sticky links removed
@@ -152,7 +152,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -177,7 +177,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -211,7 +211,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -236,7 +236,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -261,7 +261,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -286,7 +286,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -312,7 +312,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -338,7 +338,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -364,7 +364,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -376,7 +376,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('UK Integrated Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
@@ -402,7 +402,7 @@ describe('🇬🇧 💡 UK | switchingLinks-UK | Switching Links |', function() 
         .contains('Northern Ireland Online Tariff');
     // bottom switching link
     cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the UK Integrated Online Tariff.');
-    cy.get('.switch_control').contains('Switch to the Northern Ireland Online Tariff').click();
+    cy.get('.switch-service-control').contains('Switch to the Northern Ireland Online Tariff').click();
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
   });
