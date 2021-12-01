@@ -38,10 +38,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
   it('XI - Search unknown commodity ', function() {
     cy.visit('/xi/sections');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
-    cy.get('.js-commodity-picker-select').click().type('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf');
-    cy.wait(900);
-    cy.get('li#q__option--0').click();
-    cy.get('input[name=\'commit\']').click();
+    cy.searchForCommodity('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf');
     cy.contains('Search results for ‘sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf’');
     cy.contains('There are no results matching your query.');
     cy.contains('Browse').click();
