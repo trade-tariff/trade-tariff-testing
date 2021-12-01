@@ -37,13 +37,8 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
   });
   it('UK - Search unknown commodity ', function() {
     cy.visit('/sections');
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
-    cy.get('.govuk-label')
-        .contains('Search the UK Integrated Online Tariff');
-    cy.get('.js-commodity-picker-select').click().type('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf');
-    cy.wait(900);
-    cy.get('li#q__option--0').click();
-    cy.get('input[name=\'commit\']').click();
+    // cy.contains('Look up commodity codes, duty and VAT rates');
+    cy.searchForCommodity('sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf');
     cy.contains('Search results for ‘sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf’');
     cy.contains('There are no results matching your query.');
     cy.contains('Browse').click();
