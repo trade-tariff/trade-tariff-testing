@@ -116,11 +116,11 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
     // cy.contains('Set date').click();
     // cy.wait(300);
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('21 December 2021');
     cy.contains('Northern Ireland Online Tariff');
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('21 December 2021');
     // switch to UK tariff
     cy.contains('UK Integrated Online Tariff').click();
-    cy.contains('This tariff is for 21 December 2021');
+    cy.contains('21 December 2021');
   });
 });
