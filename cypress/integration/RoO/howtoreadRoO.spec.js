@@ -5,7 +5,7 @@ describe('| howtoreadRoO - link and copy ', {tags: ['config', 'roo-tag']}, funct
   const countries = ['', 'xi'];
   const service = ['UK', 'EU'];
   for (let i=0; i<countries.length; i++) {
-    it(`${service[i]}| Service - HTR link |`, function() {
+    it(`${service[i]} | Service - HTR link |`, function() {
       cy.visit(`${countries[i]}/commodities/0702000007`);
       cy.contains('Rules of origin').click();
       cy.get('input#search_country').click().clear().wait(500)
