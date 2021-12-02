@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calculator |', function() {
 // Scenario - document code c990 is associated with 0% suspensions on XI and no document will lead to measure not applicable
   it('Page Validation - RoW (Canada) - XI ', function() {
@@ -66,5 +67,77 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
     // Validate calculations based on document code selected
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - Canada');
+  });
+  // RoW-XI more than one doc code ( Norway)
+  it.only('multiple doc codes Norway ', function() {
+    cy.visit('/duty-calculator/xi/1905320500/import-date');
+    cy.validDate();
+    cy.selectDestination('xi');
+    cy.selectOrigin('other');
+    // select country from list
+    cy.wait(500);
+    cy.otherOriginList({value: 'Norway'});
+    // Trader Scheme
+    cy.traderScheme('no');
+    // EU duties apply
+    cy.euDutiesApply();
+    // meursing code
+    cy.meursingCode({value: '000'});
+    // // ✅  Final use in NI - Yes
+    // cy.finalUseNI('no');
+    // // turn over < 500k = no
+    // cy.turnOver('less');
+    // customs value
+    // Monetary value page
+    cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+    // Import Quantity
+    cy.quantity({dtn: '230.98'});
+    cy.docCode({xi: 'y021'});
+    cy.contains('Continue').click();
+    // VAT Page
+    cy.vat('0');
+    cy.contains('VAT zero rate');
+    cy.contains('Document(s)');
+    cy.contains('Y021');
+    cy.get('.govuk-button').click();
+    // Validate calculations based on document code selected
+    cy.contains('Option 1: Third-country duty');
+    cy.contains('Option 2: Tariff preference - European Economic Area');
+    cy.contains('Option 3: Tariff preference - Norway');
+
+    // go back to previous page to change doc code
+    cy.get('.govuk-back-link').click().wait(300);
+    // Change to different Document Code
+    cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('Do you have any of the following documents?');
+    cy.docCode({xi: 'y020'});
+    cy.contains('Continue').click();
+    // VAT Page
+    cy.vat('0');
+    cy.contains('VAT zero rate');
+    cy.contains('Document(s)');
+    cy.contains('Y020');
+    cy.get('.govuk-button').click();
+    // Validate calculations based on document code selected
+    cy.contains('Option 1: Third-country duty');
+    cy.contains('Option 2: Tariff preference - European Economic Area');
+    cy.contains('Option 3: Tariff preference - Norway');
+    // select none of the above Code
+    // go back to previous page to change doc code
+    cy.get('.govuk-back-link').click().wait(300);
+    // Change to different Document Code
+    cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.contains('Do you have any of the following documents?');
+    cy.docCode({xi: 'none'});
+    cy.contains('Continue').click();
+    // VAT Page
+    cy.vat('0');
+    cy.contains('VAT zero rate');
+    cy.get('.govuk-grid-row').contains('Document(s)');
+    cy.contains('n/a');
+    cy.get('.govuk-grid-row').contains('C990').should('not.exist');
+    cy.get('.govuk-button').click();
+    // Validate calculations based on document code selected
+    cy.contains('Option 1: Third-country duty');
   });
 });
