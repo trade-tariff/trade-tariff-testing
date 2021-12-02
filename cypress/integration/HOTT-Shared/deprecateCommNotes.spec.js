@@ -1,4 +1,4 @@
-describe('| deprecateCommNotes | Notes deprecated from commodities |', function() {
+describe.skip('| deprecateCommNotes | Notes deprecated from commodities |', function() {
   it(`Commodity Notes not to be available on both UK and XI service`, function() {
     const country = ['uk', 'xi'];
     for ( let i =0; i<country.length; i++) {
