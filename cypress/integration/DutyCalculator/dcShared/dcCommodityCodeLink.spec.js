@@ -2,7 +2,7 @@ describe('| dcCommodityCodeLink | Duty Calculation link on commodities', functio
   const country = ['uk', 'xi'];
   const destination = ['United Kingdom', 'Northern Ireland'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
-  const commcodes = ['0304829010', '0805102210'];
+  const commcodes = ['0304829010', '0804100030'];
 
   for (let i = 0; i < country.length; i++) {
     it(`Duty Calculator link on Commodity page ${country[i]} `, function() {
