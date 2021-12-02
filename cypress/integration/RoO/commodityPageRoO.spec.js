@@ -60,7 +60,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
 
   it('| UK | USA 🇺🇸 - Countries with which there is no trade agreement  |', function() {
     cy.visit('/commodities/0702000007');
-    cy.contains('Rules of origin').click();
+    cy.wait(500);
+    cy.get('a#tab_rules-of-origin').contains('Rules of origin').click().wait(200);
     // Select USA from All countries list
     cy.get('input#search_country').click().clear().wait(500)
         .type('United States (US)').wait(500)
@@ -69,8 +70,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.get('img[alt=\'Flag for United States\']').should('be.visible');
 
     cy.contains('There is no preferential agreement in place with United States, therefore rules of origin are not applicable.');
-    cy.contains('Product-specific rules for commodity 0702000007');
-    cy.contains('There are no product-specific rules for commodity 0702000007');
+    // cy.contains('Product-specific rules for commodity 0702000007');
+    //  cy.contains('There are no product-specific rules for commodity 0702000007');
     cy.contains('Non-preferential rules of origin');
     cy.get('.govuk-table__row').contains('Heading').should('not.exist');
   });
@@ -104,9 +105,9 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('Preferential rules of origin for trading with Moldova');
     cy.get('img[alt=\'Flag for Moldova\']').should('be.visible');
 
-    cy.contains('In order to qualify for the lower or zero preferential tariff under the UK-Moldova Strategic Partnership, Trade and Cooperation Agreement, the product must originate in the UK or Moldova.');
+    cy.contains('If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or Moldova.');
 
-    cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
+    cy.contains('Proving originating status and claiming preferential treatment');
     cy.contains('Product-specific rules for commodity 0702000007');
     cy.contains('If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or Moldova.');
     cy.get('.govuk-table__row').contains('Heading');
