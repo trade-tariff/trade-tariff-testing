@@ -69,7 +69,7 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
     cy.contains('Option 2: Tariff preference - Canada');
   });
   // RoW-XI more than one doc code ( Norway)
-  it.only('multiple doc codes Norway ', function() {
+  it('multiple doc codes Norway ', function() {
     cy.visit('/duty-calculator/xi/1905320500/import-date');
     cy.validDate();
     cy.selectDestination('xi');
