@@ -10,7 +10,12 @@
     "ansi-styles": "^6.1.0",
     "cypress-tags": "^0.3.0",
     "glob-parent": "^6.0.2",
+<<<<<<< HEAD
+    "json-schema": "^0.4.0",
+    "postcss": "^8.3.11",
+=======
     "postcss": "^8.4.4",
+>>>>>>> 6abd88b090ff869861153ab08861ea7eaaf66926
     "set-value": "^4.1.0",
     "validator": "^13.7.0"
   },
@@ -56,7 +61,7 @@
     "open:staging": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk npx cypress open",
     "open:prod": "CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk npx cypress open",
     "open:localhost": "CYPRESS_BASE_URL=http://localhost:3001 npx cypress open",
-    "tags:roo":"CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=roo-tag,grepFilterSpecs=true"
+    "tags:roo": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=roo-tag,grepFilterSpecs=true"
   },
   "repository": {
     "type": "git",
