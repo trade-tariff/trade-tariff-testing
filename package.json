@@ -56,7 +56,7 @@
     "open:staging": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk npx cypress open",
     "open:prod": "CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk npx cypress open",
     "open:localhost": "CYPRESS_BASE_URL=http://localhost:3001 npx cypress open",
-    "tags:roo":"CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=roo-tag,grepFilterSpecs=true"
+    "tags:roo": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=roo-tag,grepFilterSpecs=true"
   },
   "repository": {
     "type": "git",
