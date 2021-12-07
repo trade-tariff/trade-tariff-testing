@@ -129,4 +129,19 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.visit('/sections');
     cy.newsBannerUK();
   });
+  it.skip('UK - export tab', function() {
+    cy.visit('/commodities/0702000007?country=#export');
+    // without selecting any country
+    cy.contains('The commodity code for exporting and Intrastat reporting is 07020000.');
+    cy.contains('Check duties and customs procedures for exporting goods');
+    cy.contains('Find information about how to move goods from the UK to the rest of the world.');
+
+    cy.contains('Use this service to check:');
+    cy.contains('rules and restrictions');
+    cy.contains('tax and duty rates');
+    cy.contains('what exporting documents you need');
+    // EU country selected
+
+    // Non EU country selected
+  });
 });
