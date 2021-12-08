@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 describe(' | updatesTab.spec.js | updates page on UK and XI services', function() {
+  // Updates from 8th December 2021
   it('Updates CN21 -> CN22 page', function() {
     const countries = ['', 'xi'];
     for (let i=0; i<countries.length; i++) {
@@ -8,10 +9,14 @@ describe(' | updatesTab.spec.js | updates page on UK and XI services', function(
       cy.contains('Latest news');
       cy.contains('UK Goods classification 2021 to 2022 correlation table');
       cy.contains('correlation of commodity codes, at 8-digit level, from the 2021 Tariff to that of 2022').click();
-      cy.contains('UK goods classification 2021 to 2022 correlation table');
-      cy.contains('The table below shows the correlation of commodity codes to the 8-digit level from the 2021 tariff to that of 2022. This incorporates the changes made to the Harmonised System Nomenclature for 2022 (opens in new tab) by the WCO.');
-      cy.contains('Commodity code changes are currently available to 8-digits only. We will update this page with 10-digit changes as soon as they are available.');
+      cy.contains('2022 UK goods classification');
+      cy.contains('UK goods classification 2021-2022 10-digit changes');
+      cy.contains('This page lists both the updates to 2022 UK goods classification chapters at 10-digit level (where these have been confirmed) and the correlation of commodity codes to the 8-digit level from the 2021 tariff to that of 2022.');
       cy.contains('Ex: means that the content of the code for the year 2022 comes partly from the code of the previous year which can be found opposite.');
+      cy.contains('Chapter 55 - Man-made staple fibres (2022 10-digit changes)');
+      cy.contains('Changes to Chapter 3 Fish and crustaceans, molluscs and other aquatic invertebrates');
+      cy.contains('This table is indicative and has no legal value.');
+      cy.contains('Eight new headings will be introduced from 1 January 2022;');
     }
   });
 });
