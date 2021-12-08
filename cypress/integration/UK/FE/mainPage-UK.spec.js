@@ -140,6 +140,8 @@ describe('🇬🇧 💡 | mainPage-UK | Main Page - headers ,sections  - (UK ver
     cy.contains('rules and restrictions');
     cy.contains('tax and duty rates');
     cy.contains('what exporting documents you need');
+    // links on page
+    cy.get('div#export > p:nth-of-type(1) > a[target=\'_blank\']');
     // EU country selected
 
     // Non EU country selected

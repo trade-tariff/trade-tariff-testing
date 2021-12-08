@@ -2,6 +2,7 @@
 
 describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |', function() {
   const country = ['xi', ''];
+  const titles = ['Northern Ireland Online Tariff', 'UK Integrated Online Tariff'];
   for (let i = 0; i < country.length; i++) {
     it(`${country[i]} - Cookies Main Banner `, function() {
       cy.visit(`${country[i]}/cookies`);
@@ -65,7 +66,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |', function() {
       cy.visit(`${country[i]}/sections`);
       // view cookies
       cy.get('.govuk-cookie-banner .govuk-link').click();
-      cy.contains('Cookies on the UK Integrated Online Tariff');
+      cy.contains(`Cookies on the ${titles[i]}`);
       cy.get('.govuk-grid-row').contains('Your cookie settings were saved').should('not.exist');
       cy.get('.govuk-grid-row').contains('You can update these settings at any time.').should('not.exist');
 
@@ -88,7 +89,7 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |', function() {
       cy.visit(`${country[i]}/sections`);
       // view cookies
       cy.get('.govuk-cookie-banner .govuk-link').click();
-      cy.contains('Cookies on the UK Integrated Online Tariff');
+      cy.contains(`Cookies on the ${titles[i]}`);
       // No /Yes selection
       cy.contains('No, do not use cookies that measure my website use').click();
       cy.contains('Yes, use cookies that remember my settings on the site').click();
