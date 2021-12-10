@@ -46,13 +46,11 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
   });
   it('XI - Import tab - text', function() {
     cy.visit('/xi/commodities/2009909500#import');
-    cy.contains('Measures and restrictions for exporting goods from Northern Ireland');
-    cy.contains('Trade between NI and');
+    cy.contains('Importing into Northern Ireland');
   });
   it('XI - Export tab - text', function() {
     cy.visit('/xi/commodities/2009909500#export');
-    cy.contains('Measures and restrictions for exporting goods from Northern Ireland');
-    cy.contains('Trade between NI and');
+    cy.contains('Exporting from Northern Ireland');
   });
   it('XI - Search Tariff on other pages', function() {
     cy.visit({url: 'xi/404', failOnStatusCode: false});

@@ -46,13 +46,11 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
   });
   it('UK - Import tab - text', function() {
     cy.visit('commodities/2009909500#import');
-    cy.contains('Measures and restrictions for importing into the UK');
-    cy.contains('Trade between the UK and');
+    cy.contains('Importing into the UK');
   });
   it('UK - Export tab - text', function() {
     cy.visit('commodities/2009909500#export');
-    cy.contains('Measures and restrictions for exporting from the UK');
-    cy.contains('Trade between the UK and');
+    cy.contains('Exporting from the UK');
   });
   it('UK - Search Tariff on other pages', function() {
     cy.visit({url: '404', failOnStatusCode: false});

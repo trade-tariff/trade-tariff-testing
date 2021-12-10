@@ -125,37 +125,8 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
   // What are the main types  of tariff and charges
   it('UK - Export page links Supplementary Unit ,VAT,Third country duty,Tariff preference', function() {
     cy.visit('/commodities/4421999910#export').wait(500);
-    cy.get('span#details-export-heading')
-        .contains('What are the main types of tariffs and charges').click();
-
-    // supplementary unit
-    cy.get('span#details-export-supplementary-unit-heading')
-        .contains('Supplementary unit').click();
-    cy.contains('This is used when an additional measurement unit is needed, for example, the weight as well as the quantity of the products. The importer might need to declare this information. The product might not be allowed into the UK if the supplementary unit is not given.');
-
-    // VAT
-    cy.get('span#details-export-vat-heading')
-        .contains('Value Added Tax (VAT)').click();
-    cy.contains('VAT is a national tax charged in addition to any other duties that apply.');
-
-    // Third country duty
-    cy.get('span#details-export-third-country-heading')
-        .contains('Third country duty').click();
-    cy.contains('A third country duty is the duty payable in the absence of any other type of tariff measure.');
-    // Tariff preference
-    cy.get('span#details-export-preference-heading')
-        .contains('Tariff preference').click();
-    cy.contains('A tariff preference means that you pay a lower or nil rate of import duty on your goods. To qualify, goods must meet the rules of origin.');
-
-    // change this validation to href link check
-
-    cy.get('#details-export-content-0281f1a7-6233-477b-9025-b67a53caef9f')
-        .contains('tariff preference').click();
-    cy.contains('Pay less Customs Duty on goods from a country with a UK trade agreement');
-    cy.go('back');
-    cy.checkCommPage('4421999910');
-
-    //
+    cy.contains('What are the main types of tariffs and charges').should('not.exist');
+    cy.contains('Exporting from the UK');
   });
 });
 

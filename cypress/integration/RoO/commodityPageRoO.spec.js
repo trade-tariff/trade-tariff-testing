@@ -127,7 +127,6 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
 
     cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
     cy.contains('Product-specific rules for commodity 0702000007');
-    cy.contains('There are no product-specific rules for commodity 0702000007');
   });
   it('| XI | India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |', function() {
     cy.visit('/xi/commodities/0702000007');
@@ -143,6 +142,5 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
 
     cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
     cy.contains('Product-specific rules for commodity 0702000007');
-    cy.contains('There are no product-specific rules for commodity 0702000007');
   });
 });

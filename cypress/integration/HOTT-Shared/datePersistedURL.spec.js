@@ -24,8 +24,8 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted
-    cy.contains('Measures for Chile');
-    cy.log(cy.url());
+    cy.get('a#tab_import').click();
+    cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.url().should('include', 'day=22&month=12&year=2021');
 
     // Change to different date in past and validate date is persisted
@@ -45,8 +45,9 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('input#search_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
+    cy.get('a#tab_import').click();
     // verify if the date is persisted
-    cy.contains('Measures for Chile');
+    cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.contains('1 January 2021');
     cy.url().should('include', 'day=1&month=1&year=2021');
 
@@ -75,7 +76,8 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted
-    cy.contains('Measures for Chile');
+    cy.get('a#tab_export').click();
+    cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.log(cy.url());
     cy.url().should('include', 'day=22&month=12&year=2021');
 
@@ -91,14 +93,15 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select import tab
     cy.get('a#tab_export').click();
     cy.get('.govuk-main-wrapper')
-        .contains('Measures and restrictions for exporting from the UK');
+        .contains('Check how to export commodity goods (link opens in new tab)');
     // select country from drop down list
     cy.get('input#search_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted
-    cy.contains('Measures and restrictions for exporting from the UK');
-    cy.log(cy.url());
+    cy.get('a#tab_export').click();
+    cy.contains('Check how to export commodity goods (link opens in new tab)');
+
     cy.contains('1 January 2021');
     cy.url().should('include', 'day=1&month=1&year=2021');
   });
