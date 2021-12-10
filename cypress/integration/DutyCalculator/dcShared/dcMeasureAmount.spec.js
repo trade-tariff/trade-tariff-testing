@@ -64,31 +64,33 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.originList({value: 'Singapore'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Page validation
-    cy.contains('What is the volume of alcohol of the goods that you are importing?');
-    cy.contains('This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)');
+    cy.contains('What is the alcohol percentage (%) of the goods you are importing?');
     // No Value entered
     cy.contains('Continue').click();
-    cy.contains('Enter a valid import quantity. This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)');
+
+    cy.contains('Enter a valid import quantity. Enter the alcohol by volume (ABV) percentage');
+    cy.contains('Enter a valid import quantity. Enter the value in hectolitres (100 litres)');
+    cy.contains('Enter a valid import quantity. Enter the value in litres');
     cy.get('.govuk-error-summary').contains('There is a problem');
 
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // Text valuesentered
-    cy.quantity({asvx: 'aaaaaa'});
+    cy.quantity({asv: 'aaaaaa'});
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter a numeric import quantity. This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)');
-    cy.contains('Enter the value in hectolitres (100 litres)');
+    cy.contains('Enter a numeric import quantity. Enter the alcohol by volume (ABV) percentage');
+
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // Negative values entered
-    cy.quantity({asvx: -999, hlt: -777});
+    cy.quantity({asv: -999, hlt: -777});
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter an import quantity value greater than zero. This can be calculated by multiplying the %age alcohol by volume (ABV) by the volume. Enter the value in hectolitres (100 litres)');
     cy.contains('Enter an import quantity value greater than zero. Enter the value in hectolitres (100 litres)');
+    cy.contains('Enter a valid import quantity. Enter the value in litres');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // valid inputs entered
-    cy.quantity({asvx: 1000, hlt: 2345.987, lpa: 2});
+    cy.quantity({asv: 1000, hlt: 2345.987, lpa: 2});
     // Excise code
     cy.exciseCode('451');
     cy.confirmPage();
