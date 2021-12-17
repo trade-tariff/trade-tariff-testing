@@ -7,7 +7,7 @@ describe('🇬🇧 💡 | suppUnits.spec.js | Supplementary Units on UK and XI s
       cy.visit(`${country[i]}/commodities/6406109010`);
       cy.get('.govuk-summary-list').contains('Commodity');
       cy.get('.govuk-summary-list').contains('Classification');
-      cy.contains('Parts of footwear (including uppers whether or not attached to soles other than outer soles); removable insoles, heel cushions and similar articles; gaiters, leggings and similar articles, and parts thereof — Uppers and parts thereof, other than stiffeners — Of other materials — Hand-made');
+      cy.contains('Hand-made');
       cy.get('.govuk-summary-list').contains('Supplementary unit');
       cy.get('.govuk-summary-list').contains('No supplementary unit required.');
       cy.get('.govuk-summary-list').contains('Date of trade');
@@ -18,7 +18,7 @@ describe('🇬🇧 💡 | suppUnits.spec.js | Supplementary Units on UK and XI s
       cy.visit(`${country[i]}/commodities/6401929000`);
       cy.get('.govuk-summary-list').contains('Commodity');
       cy.get('.govuk-summary-list').contains('Classification');
-      cy.contains('Waterproof footwear with outer soles and uppers of rubber or of plastics, the uppers of which are neither fixed to the sole nor assembled by stitching, riveting, nailing, screwing, plugging or similar processes — Other footwear — Covering the ankle but not covering the knee — With uppers of plastics');
+      cy.contains('With uppers of plastics');
       cy.get('.govuk-summary-list').contains('Supplementary unit');
       cy.get('.govuk-summary-list').contains('Number of pairs (pa)');
       cy.get('.govuk-summary-list').contains('Date of trade');
@@ -29,7 +29,7 @@ describe('🇬🇧 💡 | suppUnits.spec.js | Supplementary Units on UK and XI s
       cy.visit(`${country[i]}/commodities/1702908000`);
       cy.get('.govuk-summary-list').contains('Commodity');
       cy.get('.govuk-summary-list').contains('Classification');
-      cy.contains('% by weight of fructose — Inulin syrup');
+      cy.contains('Inulin syrup');
       cy.get('.govuk-summary-list').contains('Supplementary unit');
       cy.get('.govuk-summary-list').contains('No supplementary unit required.');
       cy.get('.govuk-summary-list').contains('Date of trade');

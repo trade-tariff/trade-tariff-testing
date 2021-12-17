@@ -27,7 +27,7 @@ describe('| RoW-NI306-e2e.spec | RoW (Greenland) to Northern Ireland ', function
     cy.contains('Third-country duty (EU)');
     cy.contains('Tariff preference (EU)');
   });
-  it('RoW 🇨🇳 China to XI', function() {
+  it('RoW 🇨🇳 China to NI', function() {
     cy.visit('/duty-calculator/uk/8421999099/import-date');
     // date
     cy.validDate();
