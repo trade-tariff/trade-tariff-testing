@@ -5,7 +5,7 @@ describe('| *EU-NI502--e2e.spec |EU to Northern Ireland |', function() {
 
     it(`e2e EU to NI ${country[i]}`, function() {
       cy.visit(`/${country[i]}/commodities/1516209821/`);
-      cy.get('.govuk-grid-row.import-and-export-boxes .govuk-link').click();
+      cy.get('p:nth-of-type(2) > a').click();
       // date
       cy.validDate();
       // destination
