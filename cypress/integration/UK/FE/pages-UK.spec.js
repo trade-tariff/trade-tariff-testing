@@ -70,7 +70,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.visit('/commodities/6401929000');
     cy.get('.govuk-summary-list').contains('Commodity');
     cy.get('.govuk-summary-list').contains('Classification');
-    cy.contains('Waterproof footwear with outer soles and uppers of rubber or of plastics, the uppers of which are neither fixed to the sole nor assembled by stitching, riveting, nailing, screwing, plugging or similar processes — Other footwear — Covering the ankle but not covering the knee — With uppers of plastics');
+    cy.contains('With uppers of plastics');
     cy.get('.govuk-summary-list').contains('Supplementary unit');
     cy.get('.govuk-summary-list').contains('Number of pairs (pa)');
     cy.get('.govuk-summary-list').contains('Date of trade');
@@ -108,7 +108,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     // cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
     cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist');
   });
-  it('UK - Footnotes tab ', function() {
+  it('UK - Notes tab ', function() {
     cy.visit('/commodities/4101203000');
     cy.contains('TN701').should('not.be.visible');
     // Import Tab
@@ -119,11 +119,8 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('TN701').should('not.be.visible');
     // Footnotes Tab
     cy.get('a#tab_footnotes').click();
-    cy.contains('Footnotes for commodity 4101203000');
+    cy.contains('Notes for commodity 4101203000');
     cy.contains('TN701');
-    // Overview Tab does not contain Footnotes
-    cy.get('a#tab_overview').click();
-    cy.contains('TN701').should('not.be.visible');
   });
   it('UK - News Banner', function() {
     cy.visit('/sections');
@@ -150,12 +147,12 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.searchForCountry('Italy').type('{enter}');
     //  cy.contains('Measures for Italy');
     cy.contains('Find information about how to move goods from the UK to Italy.');
-    cy.contains('Check how to export 0702000007 to Italy (link opens in new tab)');
+    cy.contains('Check how to export commodity 0702000007 to Italy (link opens in new tab)');
     cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007');
 
     // Non EU country selected
     cy.searchForCountry('Andorra').type('{enter}');
-    cy.contains('Measures and restrictions for exporting from the UK');
+    cy.contains('Exporting from the UK');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
     cy.contains('Check how to export commodity goods (link opens in new tab)');
     cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.check-duties-customs-exporting-goods.service.gov.uk');
