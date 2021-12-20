@@ -47,7 +47,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
         .contains('Supplementary unit').click()
         .contains('Check a list of supplementary units and their descriptions').should('not.exist');
   });
-  it('XI - List of supplementary units and their descriptions in exports to be HIDDEN', function() {
+  it.skip('XI - List of supplementary units and their descriptions in exports to be HIDDEN', function() {
     cy.visit('/xi/commodities/9702000010?currency=EUR#export');
     cy.get('span#details-export-heading')
         .contains('What are the main types of tariffs and charges').click();

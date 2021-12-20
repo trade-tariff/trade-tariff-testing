@@ -10,15 +10,15 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // change date to future date
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
-    cy.datePickerPage({day: 22, month: 12, year: 2021});
+    cy.datePickerPage({day: 22, month: 12, year: 2022});
     cy.wait(300);
-    cy.contains('22 December 2021');
-    cy.url().should('include', 'day=22&month=12&year=2021');
+    cy.contains('22 December 2022');
+    cy.url().should('include', 'day=22&month=12&year=2022');
 
     // select import tab
     cy.get('a#tab_import').click();
     cy.get('.govuk-main-wrapper')
-        .contains('Import measures and restrictions');
+        .contains('Importing into the UK');
     // select country from drop down list
     cy.get('input#search_country').click().clear().wait(500)
         .type('Chile').wait(500)
@@ -26,21 +26,21 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // verify if the date is persisted
     cy.get('a#tab_import').click();
     cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
-    cy.url().should('include', 'day=22&month=12&year=2021');
+    cy.url().should('include', 'day=22&month=12&year=2022');
 
     // Change to different date in past and validate date is persisted
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
-    cy.datePickerPage({day: 1, month: 1, year: 2021});
+    cy.datePickerPage({day: 1, month: 1, year: 2022});
     cy.wait(300);
-    cy.contains('1 January 2021');
-    cy.url().should('include', 'day=1&month=1&year=2021');
+    cy.contains('1 January 2022');
+    cy.url().should('include', 'day=1&month=1&year=2022');
 
 
     // select import tab
     cy.get('a#tab_import').click();
     cy.get('.govuk-main-wrapper')
-        .contains('Import measures and restrictions');
+        .contains('Importing into the UK');
     // select country from drop down list
     cy.get('input#search_country').click().clear().wait(500)
         .type('Chile').wait(500)
@@ -48,14 +48,14 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('a#tab_import').click();
     // verify if the date is persisted
     cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
-    cy.contains('1 January 2021');
-    cy.url().should('include', 'day=1&month=1&year=2021');
+    cy.contains('1 January 2022');
+    cy.url().should('include', 'day=1&month=1&year=2022');
 
 
     // switch to XI and check date is persisted on URL and UI
     cy.contains('Northern Ireland Online Tariff').click().wait(300);
-    cy.contains('1 January 2021');
-    cy.url().should('include', 'day=1&month=1&year=2021');
+    cy.contains('1 January 2022');
+    cy.url().should('include', 'day=1&month=1&year=2022');
   });
   it(' Date persisted on export ', function() {
     cy.visit(`/sections`);
@@ -66,10 +66,10 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // change date to future date
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
-    cy.datePickerPage({day: 22, month: 12, year: 2021});
+    cy.datePickerPage({day: 22, month: 12, year: 2022});
     cy.wait(300);
-    cy.contains('22 December 2021');
-    cy.url().should('include', 'day=22&month=12&year=2021');
+    cy.contains('22 December 2022');
+    cy.url().should('include', 'day=22&month=12&year=2022');
 
     // select country from drop down list
     cy.get('input#search_country').click().clear().wait(500)
@@ -79,15 +79,15 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('a#tab_export').click();
     cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.log(cy.url());
-    cy.url().should('include', 'day=22&month=12&year=2021');
+    cy.url().should('include', 'day=22&month=12&year=2022');
 
     // Change to different date in past and validate date is persisted
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
-    cy.datePickerPage({day: 1, month: 1, year: 2021});
+    cy.datePickerPage({day: 1, month: 1, year: 2022});
     cy.wait(300);
-    cy.contains('1 January 2021');
-    cy.url().should('include', 'day=1&month=1&year=2021');
+    cy.contains('1 January 2022');
+    cy.url().should('include', 'day=1&month=1&year=2022');
 
 
     // select import tab
@@ -102,8 +102,8 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('a#tab_export').click();
     cy.contains('Check how to export commodity goods (link opens in new tab)');
 
-    cy.contains('1 January 2021');
-    cy.url().should('include', 'day=1&month=1&year=2021');
+    cy.contains('1 January 2022');
+    cy.url().should('include', 'day=1&month=1&year=2022');
   });
   it(' Date persisted on all pages ', function() {
     const pages = ['chapters/01', 'headings/0101', 'commodities/0101210000'];
@@ -123,10 +123,10 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
 
       // select Change Date and change months and years
       cy.get('.govuk-summary-list__actions').contains('Change').click();
-      cy.datePickerPage({day: 22, month: 12, year: 2021});
+      cy.datePickerPage({day: 22, month: 12, year: 2022});
       cy.wait(300);
-      cy.contains('22 December 2021');
-      cy.url().should('include', 'day=22&month=12&year=2021');
+      cy.contains('22 December 2022');
+      cy.url().should('include', 'day=22&month=12&year=2022');
     }
   });
 });

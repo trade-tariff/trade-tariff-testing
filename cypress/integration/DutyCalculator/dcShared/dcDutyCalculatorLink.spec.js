@@ -27,7 +27,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
       cy.visit(`${country[j]}/sections`);
       cy.searchForCommodity('8803100010');
       cy.checkCommPage('8803100010');
-      cy.contains('Duty calculation').should('exist');
+      cy.contains('Use our tariff duty calculator').should('exist');
     });
   }
 });

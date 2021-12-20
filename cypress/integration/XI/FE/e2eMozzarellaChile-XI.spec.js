@@ -17,7 +17,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
     // Select Import button',()=> {
     cy.get('a#tab_import').click();
     cy.get('.govuk-main-wrapper')
-        .contains('Import measures and restrictions');
+        .contains('Importing into Northern Ireland');
 
     // Select Chile from All countries list',()=>{
     cy.get('input#search_country').click().clear().wait(500)
@@ -27,7 +27,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
 
     // "Measures for Chile",function(){
     cy.get('.govuk-tabs__panel')
-        .contains('Measures and restrictions for importing goods into Northern Ireland');
+        .contains('Importing into Northern Ireland');
 
     // Third country duty  measure has value 185.20 EUR / 100 kg',function(){
     cy.get('.small-table.measures.govuk-table')
