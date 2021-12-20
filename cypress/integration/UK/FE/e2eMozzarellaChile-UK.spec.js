@@ -11,7 +11,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
     // Select Import button', () => {
     cy.get('a#tab_import').click();
     cy.get('.govuk-main-wrapper')
-        .contains('Import measures and restrictions');
+        .contains('Importing into the UK');
 
 
     // Select Chile from All countries list', () => {
