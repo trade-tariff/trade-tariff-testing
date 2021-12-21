@@ -94,7 +94,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)');
   });
-  it('RoW 🇦🇺 (Australia) - XI | Turnover < £500,000 | EU Tariffs apply without Quotas |', function() {
+  it.only('RoW 🇦🇺 (Australia) - XI | Turnover < £500,000 | EU Tariffs apply without Quotas |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
     // Delta mfn = 
     // date
@@ -131,9 +131,9 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.contains('Option 1: Third-country duty');
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
 
-    cy.contains('Option 2: Non-preferential quota 057713');
-    cy.contains('UK quotas may be used, as the difference between the UK in-quota duty and the EU third-country duty is lower than 3% of the customs value of your trade.');
-    cy.contains('Non Preferential Quota (UK)');
+    // cy.contains('Option 2: Non-preferential quota 057713');
+    // cy.contains('UK quotas may be used, as the difference between the UK in-quota duty and the EU third-country duty is lower than 3% of the customs value of your trade.');
+    // cy.contains('Non Preferential Quota (UK)');
 
     // EU Tariffs - Change Quantity to override Quotas
     cy.get('.govuk-back-link').click();
