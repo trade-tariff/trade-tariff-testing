@@ -17,7 +17,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
       cy.contains('Quota 057015');
       cy.contains('057015');
       cy.contains('Start and end dates');
-      cy.contains('1 January 2021 to 31 December 2021');
+      cy.contains('1 January 2021 to 01 January 2022');
       cy.get('.close [href]').click();
     } else {}
   });

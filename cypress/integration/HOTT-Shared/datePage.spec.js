@@ -6,7 +6,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
   for (let i = 0; i < country.length; i++) {
     it(`${country[i]} Commodity page `, function() {
       cy.visit(`${country[i]}/commodities/6406905010?day=31&month=12&year=2021`);
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       // Change date
       cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
       console.log(cy.title());
@@ -16,7 +16,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       // Cancel
       cy.get('.govuk-link').contains('Cancel').click();
       cy.contains('Commodity 6406905010');
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       // change date to future date
       cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
@@ -28,7 +28,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
     });
     it(` ${country[i]} Heading page `, function() {
       cy.visit(`${country[i]}/headings/4302?day=31&month=12&year=2021`);
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       // Change date
       cy.get('.govuk-summary-list .govuk-link').click();
       cy.title().should('eq', `${titles[i]} - When will your goods be traded - GOV.UK`);
@@ -37,7 +37,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       // Cancel
       cy.get('.govuk-link').contains('Cancel').click();
       cy.contains('Heading 4302');
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       // change date to future date
       cy.get('.govuk-summary-list .govuk-link').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
@@ -49,7 +49,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
     });
     it(`${country[i]} Chapter page `, function() {
       cy.visit(`${country[i]}/chapters/43?day=31&month=12&year=2021`);
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       // Change date
       cy.get('.govuk-summary-list .govuk-link').click();
       cy.title().should('eq', `${titles[i]} - When will your goods be traded - GOV.UK`);
@@ -58,7 +58,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       // Cancel
       cy.get('.govuk-link').contains('Cancel').click();
       cy.contains('Chapter 43 - Furskins and artificial fur; manufactures thereof');
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       // change date to future date
       cy.get('.govuk-summary-list .govuk-link').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
@@ -70,7 +70,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
     });
     it(`${country[i]} Page validation `, function() {
       cy.visit(`${country[i]}/commodities/6406905010?day=31&month=12&year=2021`);
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       // change date invalid
       cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
       cy.datePickerPage({day: '00', month: '00', year: '0000'});

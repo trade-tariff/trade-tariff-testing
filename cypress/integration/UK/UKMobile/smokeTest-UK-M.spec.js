@@ -226,7 +226,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.contains('Quota order number');
     cy.contains('057015');
     cy.contains('Start and end dates');
-    cy.contains('1 January 2021 to 31 December 2021');
+    cy.contains('1 January 2021 to 01 January 2022');
     cy.get('.close [href]').click();
   });
 });

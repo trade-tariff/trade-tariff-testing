@@ -20,7 +20,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', function() {
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('You are importing commodity');
-    cy.contains('from Israel on 31 December 2021.');
+    cy.contains('from Israel on 01 January 2022.');
     cy.contains('6307 90 92 00 (2600)');
     cy.contains('Option 1: Third-country duty');
   });

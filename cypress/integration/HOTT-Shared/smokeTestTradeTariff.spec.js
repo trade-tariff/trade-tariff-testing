@@ -191,7 +191,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
     cy.get('.tariff-info').contains('Quota order number');
     cy.get('.tariff-info').contains('057015');
     cy.get('.tariff-info').contains('Start and end dates');
-    cy.get('.tariff-info').contains('1 January 2021 to 31 December 2021');
+    cy.get('.tariff-info').contains('1 January 2021 to 01 January 2022');
     cy.get('.close [href]').click();
   });
   it(`🚀 UK 🇬🇧 - Mobile - nav-bar validation`, function() {
@@ -319,7 +319,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
 
     cy.contains(' Live animals; animal products');
     cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-        .contains('This tariff is for 31 December 2021');
+        .contains('This tariff is for 01 January 2022');
     cy.get('main#content  nav  a')
         .contains('Online Tariff').click();
     cy.contains('UK Integrated Online Tariff');
@@ -328,7 +328,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
         .click();
     cy.contains(' Live animals; animal products');
     cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-        .contains('This tariff is for 31 December 2021');
+        .contains('This tariff is for 01 January 2022');
   });
   it(`🚀 XI 🇪🇺 - Mobile - nav-bar validation`, function() {
     const sizes = ['iphone-6', 'samsung-note9'];
