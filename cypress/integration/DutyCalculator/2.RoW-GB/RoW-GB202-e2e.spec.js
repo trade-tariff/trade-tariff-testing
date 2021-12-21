@@ -51,7 +51,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
       //   cy.get('.govuk-summary-list__value')
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10');
       cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('B964');
-      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 December 2021');
+      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('01 January 2022');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Turkey');
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('£10,002.24');
@@ -62,7 +62,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
       // Final Page - duty page
       cy.contains('Import duty calculation');
       cy.contains('You are importing commodity');
-      cy.contains('from Turkey on 31 December 2021.');
+      cy.contains('from Turkey on 01 January 2022.');
 
       //     cy.contains('0304 82 90 10').click()
       //     cy.checkCommPage('0304829010')
@@ -78,7 +78,7 @@ describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | 
       // values
       cy.contains('0304 82 90 10');
       cy.contains('0304 82 90 10 (B964) Of the species Oncorhynchus mykiss');
-      cy.contains('31 December 2021');
+      cy.contains('01 January 2022');
       cy.contains('£10,002.24');
 
       // information
