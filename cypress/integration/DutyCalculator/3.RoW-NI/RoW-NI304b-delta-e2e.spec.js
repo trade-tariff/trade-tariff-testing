@@ -21,7 +21,7 @@ India - NI = £247.00
 Δ MFN = £7.00
 */
 describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo commercial processing | Quantity | Δ MFN < 3% of Import duties = UK import duties apply , Δ MFN > 3% of Import duties = EU import duties apply | ', function() {
-  it.only(`RoW - 🇮🇳 (India) to NI  service | Measure Units |`, function() {
+  it.skip(`RoW - 🇮🇳 (India) to NI  service | Measure Units |`, function() {
     cy.visit(`/duty-calculator/xi/1508101000/import-date`);
     // date
     cy.validDate();
@@ -33,15 +33,15 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     cy.wait(300);
     cy.otherOriginList({value: 'India'});
     cy.wait(300);
-    // Trader Scheme
-    cy.traderScheme('yes');
-    // ✅  Final use in NI - Yes
-    cy.finalUseNI('yes');
-    // turnover <£500,000 = NO
-    cy.turnOver('more');
-    // Planned processing - acceptable2
-    cy.plannedXI('commercialprocessing');
-    // customs value
+    // // Trader Scheme
+    // cy.traderScheme('yes');
+    // // ✅  Final use in NI - Yes
+    // cy.finalUseNI('yes');
+    // // turnover <£500,000 = NO
+    // cy.turnOver('more');
+    // // Planned processing - acceptable2
+    // cy.plannedXI('commercialprocessing');
+    // // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs

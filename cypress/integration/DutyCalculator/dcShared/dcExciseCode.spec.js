@@ -63,6 +63,13 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     // select country from list
     cy.wait(700);
     cy.otherOriginList({value: 'Indonesia'});
+    // Trader Scheme
+    cy.traderScheme('yes');
+    // ✅  Final use in NI - Yes
+    cy.finalUseNI('yes');
+    cy.turnOver('more');
+    // Planned processing - acceptable1
+    cy.plannedXI('unacceptablecommercial');
     // EU duties apply
     cy.euDutiesApply();
     // Monetary value page

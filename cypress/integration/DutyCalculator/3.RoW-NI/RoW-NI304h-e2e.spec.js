@@ -94,7 +94,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)');
   });
-  it.only('RoW 🇦🇺 (Australia) - XI | Turnover < £500,000 | EU Tariffs apply without Quotas |', function() {
+  it('RoW 🇦🇺 (Australia) - XI | Turnover < £500,000 | EU Tariffs apply without Quotas |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
     // Delta mfn = 
     // date
