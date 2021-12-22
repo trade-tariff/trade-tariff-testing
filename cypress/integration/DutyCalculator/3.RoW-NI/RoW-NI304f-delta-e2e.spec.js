@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
-// Suspensions in delta route
+// Suspensions in delta route - old commodity 2903898045
+// 2904990055
 
 describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️⃣ | Suspensions rates UK and EU  | ', function() {
   it('RoW 🇵🇪 (Peru) - XI | 112 Autonomous tariff suspension | UK Tariff |', function() {
-    cy.visit('/duty-calculator/xi/2903898045/import-date');
+    cy.visit('/duty-calculator/xi/2904990055/import-date');
     // date
     cy.validDate();
     // destination
@@ -30,17 +31,17 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Third-country duty (UK)');
-    cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+    cy.contains('Third-country duty (EU)');
+    cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.');
 
     cy.contains(' Option 2: Tariff preference - Peru');
     cy.contains('Tariff preference (UK)');
     cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.');
 
-    cy.contains('Option 3: Autonomous tariff suspension');
-    cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.');
+    // cy.contains('Option 3: Autonomous tariff suspension');
+    // cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.');
 
-    cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+    cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)');
     cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.');
   });

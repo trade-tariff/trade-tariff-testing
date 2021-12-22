@@ -54,7 +54,7 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // cy.contains('Non Preferential Quota (UK)');
   });
 
-  it.only('RoW 🇦🇺 (Australia) - XI | EU Tariffs apply without Quotas |', function() {
+  it('RoW 🇦🇺 (Australia) - XI | EU Tariffs apply without Quotas |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
     // date
     cy.validDate();
