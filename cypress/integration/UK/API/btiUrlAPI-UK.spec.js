@@ -13,7 +13,7 @@ context('🇬🇧 ⚙️ UK - Update bti URL on V1 and V2 ', () => {
           .contains('https://www.gov.uk/guidance/check-what-youll-need-to-get-a-legally-binding-decision-on-a-commodity-code');
     });
   });
-  it('UK - Validate API response for V1', () => {
+  it.skip('UK - Validate API response for V1', () => {
     cy.request({
       method: 'GET',
       url: '/api/v1/commodities/0202201011',

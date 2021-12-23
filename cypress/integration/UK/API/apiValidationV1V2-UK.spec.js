@@ -34,7 +34,7 @@ describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () =>
         });
   });
   // V1 API *****************************************************
-  it('UK - V1 - Should return a valid payload and Schema should match', function() {
+  it.skip('UK - V1 - Should return a valid payload and Schema should match', function() {
     cy.request('/api/v1/commodities/7202118000').then(($response) => {
       expect($response.status).to.eq(200);
       cy.task('validateJsonSchema', {
@@ -45,7 +45,7 @@ describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () =>
     });
   });
 
-  it('UK - V1 - Headers,Status,Length,duration', function() {
+  it.skip('UK - V1 - Headers,Status,Length,duration', function() {
     cy.request('/api/v1/commodities/2007993943').as('comments');
 
     cy.get('@comments')
@@ -62,7 +62,7 @@ describe('🇬🇧 ⚙️ | apiValidationV1V2-UK | UK Basic API checks |', () =>
           //    expect(response.body.included).to.have.length(481)
         });
   });
-  it('🚫 UK - V1 - Error codes - 404', function() {
+  it.skip('🚫 UK - V1 - Error codes - 404', function() {
     cy.request({method: 'GET', url: '/api/v1/commodities/08052200110000', failOnStatusCode: false}).as('comments');
     cy.get('@comments')
         .then((response) => {

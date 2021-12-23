@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-describe('🇪🇺 ⚙️ XI-version v1 api - legal base should be present in the backend API response  API', function() {
+describe.skip('🇪🇺 ⚙️ XI-version v1 api - legal base should be present in the backend API response  API', function() {
   it('Prove that the data remains in the JSON API (v1)', () => {
     cy.request('/xi/api/v1/commodities/0101210000.json').then((response) => {
       //       expect(response).to.have.property('status', 200);
