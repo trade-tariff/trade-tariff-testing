@@ -1,5 +1,6 @@
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
-describe('🇬🇧 ⚙️ | legalBaseV1api-UK | UK version v1 api - legal base should be present in the backend API response  API |', function() {
+describe.skip('🇬🇧 ⚙️ | legalBaseV1api-UK | UK version v1 api - legal base should be present in the backend API response  API |', function() {
   it('🟩 Prove that the data remains in the JSON API (v1) ', () => {
     cy.request('/api/v1/commodities/0101210000').then((response) => {
       expect(response).to.have.property('status', 200);
