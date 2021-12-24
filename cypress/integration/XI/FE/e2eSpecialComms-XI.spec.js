@@ -71,12 +71,11 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.checkCommPage('0702000007');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
-    cy.get('#measure-3788672');
     cy.contains('Third country duty');
-    cy.get('#measure-3788672')
+    cy.get('#measure-3788673')
         .contains('Conditions')
         .click();
-    cy.get('.tariff-info');
+
     cy.contains('Third country duty for All countries');
     cy.contains('V: Import price must be equal to or greater than the entry price (see components)');
 
@@ -101,7 +100,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.get('#measure--406106')
         .contains('Conditions')
         .click();
-    cy.get('.tariff-info');
+
     cy.contains('Excises for All countries');
     cy.contains('E: The quantity or the price per unit declared, as appropriate, is equal or less than the specified maximum, or presentation of the required document');
     cy.contains('5000.00 Gross Production Apply the amount of the action (see components) 9.54 GBP / % vol');
@@ -117,7 +116,6 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.get('#measure-3489354')
         .contains('Conditions').click();
-    cy.get('.tariff-info');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms for All countries');
     cy.contains('C990 Other certificates: End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ');
     cy.get('.close [href]').click();
@@ -140,7 +138,6 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.checkCommPage('2206001000');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
-    cy.get('#measure-2052957');
     cy.contains('Third country duty');
     cy.contains('1.30 EUR / % vol/hl MIN 7.20 EUR / hl');
   });
