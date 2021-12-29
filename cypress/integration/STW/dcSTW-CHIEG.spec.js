@@ -55,15 +55,17 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.confirmPage();
     cy.noDuty();
   });
-  it('RoW-XI | trade_defence true | EU Duties interstitial page  |', function() {
+  it.only('RoW-XI | trade_defence true | EU Duties interstitial page  |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=1516209821&country_of_origin=AR&import_date=2021-12-31&import_destination=XI');
     cy.euDutiesApply();
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({tnei: '100'});
     cy.additionalCode({xi: 'C999'});
-    cy.additionalCode({xi: 'C999'});
+    cy.additionalCode({xi: 'C498'});
     cy.docCode({xi: 'c990'});
+    cy.contains('Continue').click();
+    cy.docCode({xi: 'd017'});
     cy.contains('Continue').click();
     cy.vat('20');
     cy.confirmPage();
