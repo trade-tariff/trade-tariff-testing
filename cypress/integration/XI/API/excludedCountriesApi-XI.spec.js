@@ -2,7 +2,7 @@ describe('🇪🇺 | excludedCountriesApi-XI | HOTT-887 | GB excluded countries 
   it('XI - V2 API check  ', function() {
     cy.request({
       method: 'GET',
-      url: '/xi/api/v2/commodities/9701100000#export',
+      url: '/xi/api/v2/commodities/9701210000#export',
     }).then((response) => {
       expect(response.status).to.eq(200);
       //   console.log(JSON.stringify(response.body))
@@ -14,7 +14,7 @@ describe('🇪🇺 | excludedCountriesApi-XI | HOTT-887 | GB excluded countries 
     });
   });
   it('XI - Front end validation', function() {
-    cy.visit('/xi/commodities/9701100000#export');
+    cy.visit('/xi/commodities/9701210000#export');
     cy.get('.735').contains('Export control on cultural goods');
     cy.get('#measure-3088491').contains('United Kingdom (excluding Northern Ireland)');
     cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500);
