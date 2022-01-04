@@ -27,12 +27,12 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
         .contains('Costa Rica (CR)').click();
     cy.get('a#tab_import').click();
     cy.get('#measure-2772105').contains('7.60 % + EA');
-    cy.get('#measure-3803683').contains('0.00 % + EAR');
+  //  cy.get('#measure-3803683').contains('0.00 % + EAR');
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').click().clear().type('507');
     cy.get('form#new_meursing_lookup_result > .govuk-button').click();
     cy.get('#measure-2772105').contains('7.60 % + 99.88 EUR / 100 kg');
     // 7.60 % + 99.88 EUR/100kg
-    cy.get('#measure-3803683').contains('0.00 % + 9.90 EUR / 100 kg');
+    // cy.get('#measure-3803683').contains('0.00 % + 9.90 EUR / 100 kg');
     // 0 % + 9.90 EUR/100kg
     // https://ec.europa.eu/taxation_customs/dds2/taric/measures.jsp?Lang=en&SimDate=20211006&Taric=1901100000&LangDescr=en
   });

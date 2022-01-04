@@ -73,7 +73,7 @@ describe('🇬🇧 💡 | quotasOrders-UK | Check specific quota Quotadetails |'
     cy.contains('Blocking period');
     cy.get('.close [href]').click();
   });
-  it('Quota information available - New Quota - Eastern and Southern Africa States ', function() {
+  it.skip('Quota information available - New Quota - Eastern and Southern Africa States ', function() {
     cy.visit('/commodities/1604207094#import');
     cy.get('.govuk-tabs__panel');
     cy.contains('Preferential tariff quota');
