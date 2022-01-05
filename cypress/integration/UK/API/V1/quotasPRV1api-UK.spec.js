@@ -143,7 +143,7 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
   });
   // exports
   it('🟩 4.P&R:CEX - DCMS Open General Export Licence - available', function() {
-    cy.request('/api/v1/commodities/9702000010#export').then((response) => {
+    cy.request('/api/v1/commodities/9702900010#export').then((response) => {
       const measure_types = response.body.export_measures;
       let found = false;
       console.log(measure_types.length);

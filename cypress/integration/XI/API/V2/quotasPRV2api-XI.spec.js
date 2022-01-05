@@ -1,4 +1,4 @@
-describe('🇪🇺 ⚙️ XI-version v2 api Quotas , P&R suppression', function() {
+describe('🇪🇺 ⚙️ quotasPRV2api-XI | XI-version v2 api Quotas , P&R suppression', function() {
   // ----------------Quotas to be suppressed for XI -------------
   it('1.Quotas:046 Tariff quota/ceiling -   suppressed ', function() {
     cy.request('/xi/api/v2/commodities/6301909021#import.json')
@@ -141,7 +141,7 @@ describe('🇪🇺 ⚙️ XI-version v2 api Quotas , P&R suppression', function(
   });
   // exports
   it('4.P&R:CEX - DCMS Open General Export Licence -   suppressed ', function() {
-    cy.request('/xi/api/v2/commodities/9702000010#export').then((response) => {
+    cy.request('/xi/api/v2/commodities/9702900010#export').then((response) => {
       const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 // HOTT- 954 ,
-describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']} ,function() {
+describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']}, function() {
   it('| UK Service - UK Trading relations with Chile - Related Content |', function() {
     cy.visit('/commodities/0702000007');
     cy.get('input#search_country').click().clear().wait(500)
@@ -41,9 +41,9 @@ describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'ro
     cy.contains('Since 1st January 2021, trading between the UK and the EU is now based on a new Free Trade Agreement (FTA) – the Trade and Cooperation Agreement (TCA). To benefit from the preferential tariffs (i.e. zero duty) under the TCA, goods will have to meet the Rules of Origin requirements stipulated in the agreement.');
     cy.go('back');
 
-    cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(4) > a').contains('Northern Ireland Protocol: application of EU preferential rules of origin').click();
-    cy.contains('Northern Ireland Protocol: application of EU preferential rules of origin');
-    cy.go('back');
+    cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(4) > a').contains('Northern Ireland Protocol: application of EU preferential rules of origin');
+    // cy.contains('Northern Ireland Protocol: application of EU preferential rules of origin');
+    // cy.go('back');
     cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(6) > a').contains('The EU - Chile Association Agreement').click();
     cy.contains('Agreement establishing an association between the European Community and its Member States, of the one part, and the Republic of Chile, of the other part - Final act');
     cy.go('back');

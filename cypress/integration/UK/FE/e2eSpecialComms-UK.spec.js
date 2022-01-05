@@ -63,8 +63,8 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         .contains('UK Integrated Online Tariff');
     cy.contains('Third country duty');
     cy.contains('Preferential tariff quota');
-    cy.contains('051104').click();
-    cy.contains('Quota 051104');
+    cy.contains('051193').click();
+    cy.contains('Quota 051193');
     cy.contains('Quota order number');
     cy.get('.close [href]').click();
     cy.contains('Preferential tariff quota');
