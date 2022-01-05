@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 describe('🇬🇧 ⚙️ | quotasPRV2api-UK | UK- version v2 api Quotas , P&R to be availabe ', function() {
   // ----Quotas to be available for UK version  -----
   it('1.Quotas:046 Tariff quota/ceiling - available', function() {
@@ -143,7 +144,7 @@ describe('🇬🇧 ⚙️ | quotasPRV2api-UK | UK- version v2 api Quotas , P&R t
   });
   // exports
   it('4.P&R:CEX - DCMS Open General Export Licence - available', function() {
-    cy.request('/api/v2/commodities/9702000010#export').then((response) => {
+    cy.request('/api/v2/commodities/9702900010#export').then((response) => {
       const measure_types = response.body.included;
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
