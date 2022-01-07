@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK services |', function() {
-  it('UK Additional Code Search : 2 - Tariff preference', function() {
-    cy.visit('/additional_code_search');
+describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
+  it(' XI Additional Code Search : 2 - Tariff preference', function() {
+    cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
     const tpadcodes_ids = ['2500', '2501'];
@@ -20,8 +20,8 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.contains(`${tpadcodes_ids[i]}`);
     }
   });
-  it('UK Additional Code Search : 3 - Prohibition/Restriction/Surveillance', function() {
-    cy.visit('/additional_code_search');
+  it(' XI Additional Code Search : 3 - Prohibition/Restriction/Surveillance', function() {
+    cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
     const prsadcodes_ids = ['3000', '3002'];
@@ -40,8 +40,8 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.contains(`${prsadcodes_ids[i]}`);
     }
   });
-  it('UK Additional Code Search : 4 - Restrictions', function() {
-    cy.visit('/additional_code_search');
+  it(' XI Additional Code Search : 4 - Restrictions', function() {
+    cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
     const radcodes_ids = ['4008', '4010'];
@@ -61,9 +61,9 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
     }
   });
 
- 
-  it('UK Additional Code Search : 8 - Anti-dumping/countervailing', function() {
-    cy.visit('/additional_code_search');
+
+  it(' XI Additional Code Search : 8 - Anti-dumping/countervailing', function() {
+    cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
     const adadcodes_ids = ['8042', '8044'];
@@ -84,8 +84,9 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
   });
 
 
-  it('UK Additional Code Search : A - Anti-dumping/countervailing', function() {
-    cy.visit('/additional_code_search');
+
+  it(' XI Additional Code Search : A - Anti-dumping/countervailing', function() {
+    cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
     const adcadcodes_ids = ['057', '097'];
@@ -106,8 +107,8 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
   });
 
 
-  it('UK Additional Code Search : B - Anti-dumping/countervailing', function() {
-    cy.visit('/additional_code_search');
+  it(' XI Additional Code Search : B - Anti-dumping/countervailing', function() {
+    cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
     const badcadcodes_ids = ['001', '002'];
@@ -127,8 +128,8 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
     }
   });
 
-  it('UK Additional Code Search : C - Anti-dumping/countervailing', function() {
-    cy.visit('/additional_code_search');
+  it(' XI Additional Code Search : C - Anti-dumping/countervailing', function() {
+    cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
     const cadcadcodes_ids = ['046', '047'];
@@ -146,23 +147,5 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('.govuk-table');
       cy.contains(`${cadcadcodes_ids[i]}`);
     }
-  });
-  it.skip(' UK Additional Code Search : V - VAT', function() {
-    cy.visit('/additional_code_search');
-    cy.contains('Search by Additional Code');
-
-    // select type of certificate from drop down menu
-    cy.get('select#type').select('V - VAT');
-    cy.wait(500);
-    cy.get('form#new_search > input[name=\'new_search\']').click();
-  });
-  it.skip('UK Additional Code Search : X - EXCISE', function() {
-    cy.visit('/additional_code_search');
-    cy.contains('Search by Additional Code');
-
-    // select type of certificate from drop down menu
-    cy.get('select#type').select('X - EXCISE');
-    cy.wait(500);
-    cy.get('form#new_search > input[name=\'new_search\']').click();
   });
 });
