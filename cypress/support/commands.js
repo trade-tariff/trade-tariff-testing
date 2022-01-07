@@ -120,6 +120,17 @@ Cypress.Commands.add('searchForCommodity2', (searchString) => {
   return cy.get('input[name=\'new_search\']').click();
   // cy.get('input[name=\'commit\']').click();
 });
+Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
+  
+  cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
+  cy.get('input[name=\'submit_search\']').click();
+  // cy.get('.js-commodity-picker-select:last').click().type(searchString);
+  // input#tariff-search-banner__q
+  //  cy.waitForCommoditySearchResults();
+  // return cy.get('input[name=\'new_search\']').click();
+  // cy.get('input[name=\'commit\']').click();
+});
+
 
 Cypress.Commands.add('waitForCountrySearchResults', () => {
   cy.get('ul#search_country__listbox').should('be.visible');
