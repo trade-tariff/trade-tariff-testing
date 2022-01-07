@@ -253,7 +253,6 @@ Cypress.Commands.add('storeMonetaryExchangeRates', () => {
     url: `https://www.trade-tariff.service.gov.uk/xi/api/v2/monetary_exchange_rates/`,
   }).then((response) => {
     const exchangeRates = response.body.data;
-
     exchangeRates.sort((exchangeRateA, exchangeRateB) => {
       exchangeRateA.validity_start_date - exchangeRateB.validity_start_date;
     });
