@@ -27,11 +27,11 @@ workflows:
             - store_artifacts:
                 path: cypress/reports
             - slack/notify:
-                channel: tariffs-etl
+                channel: tariffs-regression
                 event: fail
                 template: basic_fail_1
             - slack/notify:
-                channel: tariffs-etl
+                channel: tariffs-regression
                 event: pass
                 custom: |
                   {
@@ -76,11 +76,11 @@ workflows:
             - store_artifacts:
                 path: cypress/reports
             - slack/notify:
-                channel: tariffs-etl
+                channel: tariffs-regression
                 event: fail
                 template: basic_fail_1
             - slack/notify:
-                channel: tariffs-etl
+                channel: tariffs-regression
                 event: pass
                 custom: |
                   {
