@@ -27,8 +27,8 @@ describe('|RoW-GB207-e2e.spec | excise codes |', function() {
     // Measure units
     cy.quantity({ltr: '1'});
     // // doc code
-    // cy.docCode({uk: 'n990'});
-    // cy.contains('Continue').click();
+    cy.docCode({uk: 'n990'});
+    cy.contains('Continue').click();
     // doc code
     cy.docCode({uk: 'c119'});
     cy.contains('Continue').click();
@@ -44,8 +44,8 @@ describe('|RoW-GB207-e2e.spec | excise codes |', function() {
     cy.contains('Option 1: Third-country duty');
     cy.contains('520 - Light oil: unrebated (unmarked) – other unrebated light oil');
     cy.contains('Option 2: Tariff preference - Liechtenstein');
-    // cy.contains('Option 3: Autonomous suspension under end-use');
-    cy.contains('Option 3: Airworthiness tariff suspension');
+    cy.contains('Option 3: Autonomous suspension under end-use');
+    cy.contains('Option 4: Airworthiness tariff suspension');
     // Case 2 - Change excise code with 0 % excise
     cy.get('.govuk-back-link').click();
     // Change Excise code to 551 - 0% excise duty
@@ -64,8 +64,8 @@ describe('|RoW-GB207-e2e.spec | excise codes |', function() {
     cy.docCode({uk: 'none'});
     cy.contains('Continue').click();
     // // doc code
-    // cy.docCode({uk: 'none'});
-    // cy.contains('Continue').click();
+    cy.docCode({uk: 'none'});
+    cy.contains('Continue').click();
     cy.exciseCode('551');
     cy.confirmPage();
     cy.dutyPage();

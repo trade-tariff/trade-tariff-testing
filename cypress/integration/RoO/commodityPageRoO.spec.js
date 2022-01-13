@@ -45,7 +45,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('Find out about the product-specific rules, to determine the origin of imports outside of a preferential agreement.').click();
     cy.contains('Reference Document for The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020');
     cy.go(-1);
-    cy.get('.govuk-grid-column-two-thirds > .govuk-heading-m').contains('Preferential rules of origin');
+    cy.contains('Preferential rules of origin');
     // proving originating status + claiming pref treatment links
     cy.contains('Proving originating status and claiming preferential treatment');
     cy.contains('The customs authority of the importing party will grant preferential tariff treatment, based on a claim made by the importer, to goods that originate in the other party that meet the conditions of the Trade Agreement');
