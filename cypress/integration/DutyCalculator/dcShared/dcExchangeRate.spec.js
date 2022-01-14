@@ -45,7 +45,11 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
       cy.get('.govuk-button').click();
       cy.getExchangeRateForImportDate(importDateString).then(
           (exchangeRate) => {
-            const rate = parseFloat(exchangeRate.attributes.exchange_rate).toPrecision(4);
+          // const rate = parseFloat(exchangeRate.attributes.exchange_rate).toPrecision(4);
+            const rate1 = parseFloat(exchangeRate.attributes.exchange_rate);
+
+            const rate = Math.round(rate1*10000)/10000;
+
             console.log(rate);
             cy.contains(rate);
           },
