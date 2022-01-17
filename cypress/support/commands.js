@@ -140,3 +140,13 @@ Cypress.Commands.add('searchForCountry', (searchString) => {
   cy.waitForCountrySearchResults();
   return cy.get('ul#search_country__listbox li');
 });
+Cypress.Commands.add('mobileMenu', ()=>{
+  cy.get('.govuk-header__menu-button').click();
+  cy.contains('Search');
+  cy.contains('Browse');
+  cy.contains('A-Z');
+  cy.contains('Tools');
+  cy.contains('Updates');
+  cy.contains('Help');
+  cy.get('.govuk-header__menu-button').click();
+});

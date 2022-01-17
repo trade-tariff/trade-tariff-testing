@@ -83,8 +83,8 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // cy.contains('Third-country duty (EU)');
     // cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
   });
-  it.skip(`RoW - 🇨🇱 (Chile) to NI  service | Duplicate suffixes - removed |`, function() {
-    cy.visit(`/duty-calculator/xi/1509102090/import-date`);
+  it(`RoW - 🇨🇱 (Chile) to NI  service | Duplicate suffixes - removed |`, function() {
+    cy.visit(`/duty-calculator/xi/1509200010/import-date`);
 
     // date
     cy.validDate();
