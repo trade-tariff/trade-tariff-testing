@@ -1,19 +1,22 @@
+/* eslint-disable no-unused-vars */
+const {isTaggedTemplateExpression} = require('typescript');
+
 /* eslint-disable max-len */
 describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |', function() {
   // Main Page
   it('🚀 UK - Main Page Validation', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
+    cy.mobileMenu();
     // check header has UK information
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
     cy.get('.govuk-header ')
         .contains('UK Integrated Online Tariff');
     // check correct text is displayed on banner as per UK - If they are at risk
     cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.');
     // Search the tariff section
-    cy.get('.govuk-label')
-        .contains('Search the UK Integrated Online Tariff');
+    cy.contains('Search for a commodity');
     cy.get('.govuk-header__menu-button').click();
     cy.contains('Browse').click();
     cy.contains('Browse the tariff');
@@ -53,11 +56,9 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.visit('/commodities/2403991000#import');
     cy.get('.govuk-tabs__panel')
         .contains('European Union (1013)').click();
-    cy.get('.govuk-list')
-        .contains('European Union (EU)');
-
-    cy.get('#measure-20125860-children-geographical-areas')
-        .contains('United Kingdom (GB)').should('not.exist');
+    cy.mobileMenu();
+    cy.contains('European Union');
+    cy.contains('United Kingdom (GB)').should('not.exist');
   });
 
   // Licensed quotas
@@ -76,6 +77,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
   it('🚀 UK - quota numbers - 057xxx Non-Licensed', function() {
     cy.viewport('iphone-x');
     cy.visit('/commodities/0201100021#import');
+    cy.mobileMenu();
     cy.get('.govuk-tabs__panel');
     cy.contains('Preferential tariff quota');
     cy.get('.table-line');
@@ -88,12 +90,10 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
   it('🚀 UK - Search Commodity by name ', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
+    cy.mobileMenu();
     // changed on 11/02/2021
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
-    // changed on 11/02/2021
-    cy.get('.govuk-header__navigation ').contains('Search or browse the Tariff');
-    // changed on 11/02/2021
-    cy.contains('Search the UK Integrated Online Tariff');
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
+    cy.contains('Search for a commodity');
     cy.searchForCommodity('gherkins');
     cy.contains('Search results for ‘gherkins’');
   });
@@ -101,8 +101,8 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
   it('🚀 UK - Search Commodity by code ', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
-    cy.contains('Search the UK Integrated Online Tariff');
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
+    cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
     cy.checkCommPage('3808941000');
   });
@@ -157,20 +157,25 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
         .contains('No results found');
   });
   // Date picker working and persists on UK XI sites
-  it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
+  it.only('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
     // select Change Date and change months and years
-    cy.get(' .js-show.text > a[role=\'button\']').click();
+    cy.get('.govuk-details__summary-text').click();
     cy.get('#tariff_date_day').click().clear().type(7);
     cy.get('#tariff_date_month').click().clear().type(4);
     cy.get('#tariff_date_year').click().clear().type(2022);
-    cy.contains('Set date').click();
+    cy.get('input[name=\'commit\']').click();
     cy.wait(300);
-
-    cy.contains(' Live animals; animal products');
-    cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-        .contains('This tariff is for 7 April 2022');
+    cy.visit('/browse');
+    cy.contains(' Live animals; animal products').click();
+    cy.get('tr:nth-of-type(1) > .govuk-table__cell > a').click();
+    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('#tariff_date_day').click().clear().type(7);
+    cy.get('#tariff_date_month').click().clear().type(4);
+    cy.get('#tariff_date_year').click().clear().type(2022);
+    cy.get('div:nth-of-type(3) > .govuk-summary-list__value')
+        .contains('7 April 2022');
 
     cy.get('main#content  nav  a')
         .contains('Northern Ireland Online Tariff').click();

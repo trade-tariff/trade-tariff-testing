@@ -1,5 +1,5 @@
 
-describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke |', function() {
+describe('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculator Smoke |', function() {
   //
   //   let country = ["uk"]
   //   let pagetitles = ["UK Integrated Online Tariff","Northern Ireland Online Tariff"]
@@ -8,193 +8,120 @@ describe.skip('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK |Duty Calculat
   // iphone
   it(`📱 iphone - e2e journey`, function() {
     cy.viewport('iphone-6', 'landscape');
-    cy.visit(`/duty-calculator/uk/0702000007/import-date`);
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.visit(`/duty-calculator/uk/1701141000/import-date`);
+    cy.mobileMenu();
+    // date
     cy.validDate();
+    cy.mobileMenu();
     // destination
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
     cy.selectDestination('xi');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
     // origin
     cy.selectOrigin('gb');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
     // ✅ Trader Scheme Registered - Yes
     cy.traderScheme('yes');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
+    cy.mobileMenu();
 
 
-    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-    cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
-    cy.contains('Continue').click();
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
+    // ⬆️ turnover > £500,000
+    cy.turnOver('more');
+    cy.mobileMenu();
 
-
+    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than // 🚫 Non processing - No
+    cy.plannedXI('unacceptablecommercial');
+    cy.mobileMenu();
     //  🚫 Certified as UK Origin
     cy.certificate('no');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
+    // interstitial page
+    cy.dutiesApply1();
+    cy.mobileMenu();
 
     // Monetary value page
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
-
+    cy.mobileMenu();
     // Measure amount page
-    cy.quantity({dtn: '23.98'});
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
-
+    cy.quantity({dtnr: '23.98'});
+    cy.mobileMenu();
+    // doc code
+    cy.docCode({xi: 'n990'});
+    cy.mobileMenu();
+    cy.contains('Continue').click();
     // Check your answers page
     cy.contains('Check your answers');
+    cy.mobileMenu();
+
+    //   cy.get('.govuk-summary-list__key')
+    cy.contains('Commodity code');
+
 
     cy.get('.govuk-button').click();
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
 
     // Final Page
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
   });
-
-  // android
   it(`📱 android - e2e journey `, function() {
     cy.viewport('samsung-note9');
-    cy.visit(`/duty-calculator/uk/0702000007/import-date`);
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.visit(`/duty-calculator/uk/1701141000/import-date`);
+    cy.mobileMenu();
+    // date
     cy.validDate();
+    cy.mobileMenu();
     // destination
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
     cy.selectDestination('xi');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
     // origin
     cy.selectOrigin('gb');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
     // ✅ Trader Scheme Registered - Yes
     cy.traderScheme('yes');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
+    cy.mobileMenu();
 
 
-    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than those listed above
-    cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
-    cy.contains('Continue').click();
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
+    // ⬆️ turnover > £500,000
+    cy.turnOver('more');
+    cy.mobileMenu();
 
-
+    // 🚫 Non processing - No - The goods will be processed for commercial purposes other than // 🚫 Non processing - No
+    cy.plannedXI('unacceptablecommercial');
+    cy.mobileMenu();
     //  🚫 Certified as UK Origin
     cy.certificate('no');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
+    // interstitial page
+    cy.dutiesApply1();
+    cy.mobileMenu();
 
     // Monetary value page
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
-
+    cy.mobileMenu();
     // Measure amount page
-    cy.quantity({dtn: '23.98'});
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.quantity({dtnr: '23.98'});
+    cy.mobileMenu();
+    // doc code
+    cy.docCode({xi: 'n990'});
+    cy.mobileMenu();
+    cy.contains('Continue').click();
     // Check your answers page
     cy.contains('Check your answers');
+    cy.mobileMenu();
+
+    //   cy.get('.govuk-summary-list__key')
+    cy.contains('Commodity code');
+
 
     cy.get('.govuk-button').click();
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
-
+    cy.mobileMenu();
 
     // Final Page
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
-    cy.get('.govuk-header__menu-button').click();
-    cy.contains('A-Z');
-    cy.contains('Tools');
-    cy.contains('Browse');
   });
 });

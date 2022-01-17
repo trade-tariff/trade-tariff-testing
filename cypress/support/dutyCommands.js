@@ -282,3 +282,4 @@ Cypress.Commands.add('getExchangeRateForImportDate', (importDateString) => {
 
   return cy.wrap(applicableExchangeRate);
 });
+
