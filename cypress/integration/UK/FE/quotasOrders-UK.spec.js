@@ -83,26 +83,26 @@ describe('🇬🇧 💡 | quotasOrders-UK | Check specific quota Quotadetails |'
     cy.contains('Blocking period');
     cy.get('.close [href]').click();
   });
-  it.skip('Quota information available - New Quota - Eastern and Southern Africa States ', function() {
-    cy.visit('/commodities/1604207094#import');
+  it('Quota information available - Steel quotas - UTC update - HOTT 1278 |', function() {
+    cy.visit('/commodities/7214993100#import');
     cy.get('.govuk-tabs__panel');
-    cy.contains('Preferential tariff quota');
+    cy.contains('Non preferential tariff quota');
     cy.contains('Quotas allow a limited amount of goods to be imported at a lower duty rate. Once the quota has been used up, you will revert to the out-of-quota rate, which may be the third-country duty or a preferential rate.');
     cy.contains('Quotas can be non-preferential (open to many countries) or preferential (restricted to a particular trading partner).');
     cy.get('.table-line');
-    cy.contains('051618').click();
+    cy.contains('058105').click();
     cy.get('.tariff-info').focus()
-        .contains('Quota 051618');
+        .contains('Quota 058105');
     cy.contains('Quota order number');
     cy.contains('Current balance');
     cy.contains('Opening balance');
-    cy.contains('6300.0');
+    cy.contains('1 January 2022 to 31 March 2022');
     cy.contains('Start and end dates');
     cy.contains('Status');
     cy.contains('Last allocation date');
     cy.contains('Suspension period');
-    cy.contains('Tonne (1000 kg)');
     cy.contains('Blocking period');
     cy.get('.close [href]').click();
   });
+  // add steel quotas
 });
