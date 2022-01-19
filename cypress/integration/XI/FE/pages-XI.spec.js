@@ -58,12 +58,15 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('Choose the commodity code below that best matches your goods to see more information');
   });
   it('XI - Heading page', function() {
-    cy.visit('xi/headings/2902');
-    cy.contains('Choose the commodity code below that best matches your goods to see more information');
-    cy.get('.govuk-summary-list').contains('Heading');
-    cy.get('.govuk-summary-list').contains('Classification');
-    cy.get('.govuk-summary-list').contains('Date of trade');
-    cy.contains('Choose the commodity code below that best matches your goods to see more information');
+    const headings = ['4301', '4802', '1702'];
+    const comms = ['5', '18', '26'];
+    for ( let i=0; i<headings.length; i++) {
+      cy.visit(`xi/headings/${headings[i]}`);
+      cy.get('.govuk-summary-list').contains('Heading');
+      cy.get('.govuk-summary-list').contains('Classification');
+      cy.get('.govuk-summary-list').contains('Date of trade');
+      cy.contains(`There are ${comms[i]} commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.`);
+    }
   });
   it('XI - Commodity page - without Supp units', function() {
     cy.visit('xi/commodities/6406109010');
