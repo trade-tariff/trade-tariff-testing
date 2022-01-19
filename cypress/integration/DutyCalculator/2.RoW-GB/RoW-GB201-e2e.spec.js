@@ -15,17 +15,12 @@ describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e
       cy.visit(`/duty-calculator/${country[i]}/0702000007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.validDate();
-
       // select GB as country of destination
       cy.selectDestination('gb');
-
       // select country from list
       cy.originList({value: 'Vietnam'});
-
       // Monetary value page
       cy.customsValue({monetary: '500', shipping: '250', cost: '250'});
-
-
       // Check your answers page
       cy.contains('Check your answers');
       //  cy.get('.govuk-grid-column-three-quarters')
@@ -35,8 +30,7 @@ describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e
       cy.contains('Destination');
       cy.contains('Coming from');
       cy.contains('Customs value');
-
-      //   cy.get('.govuk-summary-list__value')
+      //
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0702 00 00 07');
       cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('01 January 2022');
       cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
@@ -75,7 +69,6 @@ describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e
       cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£1,000.00');
       // import duty
       cy.contains('Import duty Tariff preference (UK)');
-
       cy.contains('Duty Total');
       cy.contains('8.00% * £1,000.00');
       cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£0.00');
