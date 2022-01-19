@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "allure-commandline": "^2.17.2",
-    "cypress": "9.2.1",
+    "cypress": "9.3.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-dark": "^1.7.14",
     "cypress-file-upload": "^5.0.8",
@@ -57,7 +57,7 @@
     "open:prod": "CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk npx cypress open",
     "open:localhost": "CYPRESS_BASE_URL=http://localhost:3001 npx cypress open",
     "tags:roo": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=roo-tag,grepFilterSpecs=true",
-    "open:reviewapps":"CYPRESS_BASE_URL=https://tariff-frontend-pr583.london.cloudapps.digital npx cypress open"
+    "open:reviewapps": "CYPRESS_BASE_URL=https://tariff-frontend-pr583.london.cloudapps.digital npx cypress open"
   },
   "repository": {
     "type": "git",
