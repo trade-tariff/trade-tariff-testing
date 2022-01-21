@@ -24,12 +24,13 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
     });
     it(`${country[j]} - Duty calculator link to be available on commodities`, function() {
       const comms2 = ['8905101000', '0208907000'];
+      const comms3 = ['8905 1010 00', '0208 9070 00'];
       for (let i=0; i<comms2.length; i++) {
         cy.visit(`${country[j]}/sections`);
         cy.searchForCommodity(`${comms2[i]}`);
         cy.checkCommPage(`${comms2[i]}`);
         cy.contains('Use our tariff duty calculator');
-        cy.contains(`work out the duties and taxes applicable to the import of commodity ${comms2[i]}`);
+        cy.contains(`work out the duties and taxes applicable to the import of commodity ${comms3[i]}`);
       }
     });
   }
