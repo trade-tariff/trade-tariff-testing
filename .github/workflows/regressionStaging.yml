@@ -25,7 +25,7 @@ jobs:
         id: cypress
         continue-on-error: true
         env:
-          grepTags: unreleased-tag
+          CYPRESS_grepTags: unreleased-tag
         with:
           quiet: true
           browser: chrome
