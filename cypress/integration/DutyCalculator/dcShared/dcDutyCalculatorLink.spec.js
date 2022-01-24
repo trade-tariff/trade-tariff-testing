@@ -22,7 +22,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
         cy.contains('Duty calculation').should('not.exist');
       }
     });
-    it(`${country[j]} - Duty calculator link to be available on commodities`, function() {
+    it(`${country[j]} - Duty calculator link to be available on commodities`, {tags: ['config', 'unreleased-tag']}, function() {
       const comms2 = ['8905101000', '0208907000'];
       const comms3 = ['8905 1010 00', '0208 9070 00'];
       for (let i=0; i<comms2.length; i++) {
