@@ -53,10 +53,10 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.get('.govuk-summary-list').contains('Chapter');
     cy.get('.govuk-summary-list').contains('Classification');
     cy.get('.govuk-summary-list').contains('Date of trade');
+    cy.contains('Chapter 98 contains 1 heading. Choose the heading that best matches your goods.');
 
     cy.contains('Component parts of complete industrial plant in the framework of external trade (Commission Regulation EC No 113/2010 of 9.02.2010)').click();
-    cy.contains('Choose the commodity code below that best matches your goods to see more information');
-  });
+    cy.contains('There are 96 commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');});
   it('XI - Heading page', function() {
     const headings = ['4301', '4802', '1702'];
     const comms = ['5', '18', '26'];
