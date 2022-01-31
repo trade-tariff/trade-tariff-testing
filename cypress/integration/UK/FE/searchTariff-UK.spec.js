@@ -17,7 +17,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
       cy.visit('/sections');
       cy.contains('Search the UK Integrated Online Tariff');
       cy.searchForCommodity(`${items[i]}`);
-      cy.contains('Choose the commodity code below that best matches your goods to see more information');
+      cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
     }
   });
 
@@ -33,7 +33,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
     cy.visit('/sections');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('38089410');
-    cy.contains('Choose the commodity code below that best matches your goods to see more information');
+    cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
   });
   it('UK - Search unknown commodity ', function() {
     cy.visit('/sections');
@@ -61,7 +61,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', fu
     cy.searchForCommodity2('3808941000');
     cy.contains(/Commodity .*3808941000/i);
 
-    const pages = ['browse', 'sections/6', 'chapters/28', 'headings/2802', 'commodities/2805120010', 'feedback', 'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd','a-z-index/a'];
+    const pages = ['browse', 'sections/6', 'chapters/28', 'headings/2802', 'commodities/2805120010', 'feedback', 'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd', 'a-z-index/a'];
     for (let i=0; i<pages.length; i++) {
       cy.visit(`/${pages[i]}`);
       cy.searchForCommodity2('3808941000');

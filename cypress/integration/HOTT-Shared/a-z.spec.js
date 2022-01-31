@@ -25,7 +25,7 @@ describe('🇬🇧 💡 | A-Z - UK and XI services |', function() {
       cy.get('.govuk-main-wrapper')
           .contains('Scanner, Computer')
           .click();
-      cy.contains('Choose the commodity code below that best matches your goods to see more information');
+      cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
     }
   });
   it('Selecting specific item from list - Chapter ', function() {

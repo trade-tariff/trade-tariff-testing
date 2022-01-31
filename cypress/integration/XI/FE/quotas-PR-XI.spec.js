@@ -96,14 +96,12 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   });
   it('✅ 17.P&R:PHC-Phytosanitary Certificate (import)', function() {
     cy.visit('/xi/commodities/0809290000#import');
-    cy.get('#measure-20087816').contains('Conditions').click();
+    cy.get('#measure-20164297').contains('Conditions').click();
     cy.contains('Phytosanitary Certificate (import)');
   });
   // export
-  it.skip('🚫 18.P&R:PRE Home Office Pre-cursor chemicals - export ', function() {
-    cy.visit('/xi/commodities/2915240000#export');
-
-    cy.request();
+  it('🚫 18.P&R:PRE Home Office Pre-cursor chemicals - export ', function() {
+    cy.visit('/xi/commodities/2934100015#export');
     cy.reload();
     cy.wait(1000);
     cy.get('.govuk-tabs__panel');
