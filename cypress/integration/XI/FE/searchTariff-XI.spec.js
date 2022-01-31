@@ -17,7 +17,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
       cy.visit('/xi/sections');
       cy.contains('Search the Northern Ireland Online Tariff');
       cy.searchForCommodity(`${items[i]}`);
-      cy.contains('Choose the commodity code below that best matches your goods to see more information');
+       cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
     }
   });
   it('XI - Search Commodity by code ', function() {
@@ -33,7 +33,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
     cy.visit('/xi/sections');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('38089410');
-    cy.contains('Choose the commodity code below that best matches your goods to see more information');
+    cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
   });
   it('XI - Search unknown commodity ', function() {
     cy.visit('/xi/sections');

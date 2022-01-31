@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm codes from 1st Jan 2021 |', function() {
   it('Terminated comm codes from 01 Jan 2021', function() {
@@ -6,7 +7,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
     for (let i = 0; i < termcodes_ids.length; i++) {
       cy.visit('/xi/sections');
       cy.searchForCommodity(`${termcodes_ids[i]}`);
-      cy.contains('Choose the commodity code below that best matches your goods to see more information');
+      cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
     }
   });
 
