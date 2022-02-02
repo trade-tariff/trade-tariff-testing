@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe(' | updatesTab.spec.js | updates page on UK and XI services', function() {
+describe.skip(' | updatesTab.spec.js | updates page on UK and XI services', function() {
   // Updates from 8th December 2021
   it('Updates CN21 -> CN22 page', function() {
     const countries = ['', 'xi'];
