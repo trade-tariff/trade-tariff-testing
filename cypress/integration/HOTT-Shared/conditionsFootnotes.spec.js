@@ -1,4 +1,5 @@
-describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate Conditions and Footnotes on commodity page |', function() {
+/* eslint-disable max-len */
+describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate Conditions and Footnotes on commodity page + important notes link |', function() {
   it('Conditions on UK imports on XI service ', function() {
     cy.visit('/xi/commodities/6403990510/#import');
     cy.contains('UK import controls').click();
@@ -15,4 +16,24 @@ describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate 
     cy.contains('03020').click();
     cy.contains('Value added tax for All countries');
   });
+  // important notes for classifying your goods - link to be removed when there are no notes for chapters headings
+  const country = ['', 'xi'];
+  for (let j = 0; j < country.length; j++) {
+    it(`${country[j]} - No link to important notes section when there are no notes - headings `, function() {
+      cy.visit(`${country[j]}/headings/9880`);
+      cy.contains('There are important notes for classifying your goods shown further down this page').should('not.exist');
+    });
+    it(`${country[j]} - No link to important notes section when there are no notes - chapters`, function() {
+      cy.visit(`${country[j]}/chapters/98`);
+      cy.contains('There are important notes for classifying your goods shown further down this page').should('not.exist');
+    });
+    it(`${country[j]} - Link to important notes section when there are associated notes - headings `, function() {
+      cy.visit(`${country[j]}/headings/1502`);
+      cy.contains('There are important notes for classifying your goods shown further down this page');
+    });
+    it(`${country[j]} - Link to important notes section when there are associated notes - chapters`, function() {
+      cy.visit(`${country[j]}/chapters/15`);
+      cy.contains('There are important notes for classifying your goods shown further down this page');
+    });
+  }
 });

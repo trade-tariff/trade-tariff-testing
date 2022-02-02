@@ -12,7 +12,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(10000);
+          expect(response.duration).to.lessThan(1000);
           // body length
           expect(response.body.data).to.have.length(493);
           // validate properties
@@ -51,7 +51,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(0);
         });
   });
-  it('UK certificates API - as of validate data | as_if takes current date ', function() {
+  it('UK certificates API - as of validate data | as_of takes current date ', function() {
     cy.request('api/v2/certificates?as_of=').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -79,7 +79,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(10000);
+          expect(response.duration).to.lessThan(1000);
           // body length
           expect(response.body.data).to.have.length(487);
           // validate properties
@@ -118,7 +118,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(0);
         });
   });
-  it('XI certificates API - as of validate data | as_if takes current date ', function() {
+  it('XI certificates API - as of validate data | as_of takes current date ', function() {
     cy.request('xi/api/v2/certificates?as_of=').as('comments');
     cy.get('@comments')
         .then((response) => {
