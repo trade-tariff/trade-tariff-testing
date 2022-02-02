@@ -57,73 +57,73 @@ describe('UK 🇬🇧 XI 🇪🇺 | helpSection.spec.js | validate help section 
 
     cy.contains('Product-specific classification guidance');
     cy.contains('Aircraft parts');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(1) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-aircraft-parts-and-accessories');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(1) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-aircraft-parts-and-accessories');
 
     cy.contains('Audio and video equipment for import and export');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(2) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-audio-and-video-equipment');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(2) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-audio-and-video-equipment');
 
     cy.contains('Ceramics');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(3) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-ceramics');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(3) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-ceramics');
 
     cy.contains('Classification of goods');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(4) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/government/collections/classification-of-goods');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(4) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/government/collections/classification-of-goods');
 
     cy.contains('Computers and software');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(5) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-computers-and-software');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(5) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-computers-and-software');
 
     cy.contains('Edible fruits, nuts and peel');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(6) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-edible-fruits-nuts-and-peel');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(6) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-edible-fruits-nuts-and-peel');
 
     cy.contains('Edible vegetables, roots and tubers');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(7) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-edible-vegetables-roots-and-tubers');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(7) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-edible-vegetables-roots-and-tubers');
 
     cy.contains('Electric lamps');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(8) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-electric-lamps');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(8) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-electric-lamps');
 
     cy.contains('Footwear');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(9) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-footwear');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(9) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-footwear');
 
     cy.contains('Herbal medicines, tonics and supplements');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(10) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-herbal-medicines-supplements-tonics');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(10) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-herbal-medicines-supplements-tonics');
 
     cy.contains('Iron and Steel');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(11) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-iron-and-steel');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(11) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-iron-and-steel');
 
     cy.contains('Leather');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(12) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-leather');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(12) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-leather');
 
     cy.contains('Monitors');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(13) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-monitors-for-import-and-export');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(13) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-monitors-for-import-and-export');
 
     cy.contains('Organic chemicals');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(14) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-organic-chemicals');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(14) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-organic-chemicals');
 
     cy.contains('Pharmaceutical products');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(15) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-pharmaceutical-products');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(15) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-pharmaceutical-products');
 
     cy.contains('Placebos and comparators');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(16) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-placebos-and-comparators');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(16) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-placebos-and-comparators');
 
     cy.contains('Plastics');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(17) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-plastics');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(17) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-plastics');
 
     cy.contains('Rice');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(18) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-rice');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(18) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-rice');
 
     cy.contains('Textiles and textile articles');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(19) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-textile-apparel');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(19) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-textile-apparel');
 
     cy.contains('Tobacco and manufactured tobacco substitutes');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(20) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-tobacco');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(20) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-tobacco');
 
     cy.contains('Toys, games and sports equipment');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(21) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-toys-games-and-sports-equipment');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(21) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-toys-games-and-sports-equipment');
 
     cy.contains('Vehicles, parts and accessories');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(22) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-vehicles');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(22) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-vehicles');
 
     cy.contains('Wood');
-    cy.get('ul:nth-of-type(3) > li:nth-of-type(23) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-wood');
+    cy.get('ul:nth-of-type(2) > li:nth-of-type(23) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-wood');
   });
   it('CDS guidance, code and procedures', function() {
     cy.visit('/help');
