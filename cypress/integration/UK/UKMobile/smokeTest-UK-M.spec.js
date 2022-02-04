@@ -157,7 +157,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
         .contains('No results found');
   });
   // Date picker working and persists on UK XI sites
-  it.only('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
+  it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
     // select Change Date and change months and years
