@@ -102,7 +102,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         .contains('Conditions').click();
     cy.get('.tariff-info');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms for All countries');
-    cy.contains('C990 Other certificates: End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ');
+    cy.contains('End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ');
     cy.get('.close [href]').click();
   });
 

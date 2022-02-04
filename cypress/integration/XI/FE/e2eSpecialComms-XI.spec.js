@@ -46,8 +46,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.visit('/xi/commodities/6907220000?country=CN#import');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
-    cy.get('#measure-3600805')
-        .contains('Definitive anti-dumping duty Additional code: B999');
+    cy.get('#measure-3703755')
+        .contains('Definitive anti-dumping duty Additional code: C505');
   });
   it(' 🍪 Sandwich biscuits\n Check that the third country duty contains Meursing-related components, e.g. check for strings EA and ADSZ\n' +
         '\n' +
@@ -117,7 +117,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.get('#measure-3489354')
         .contains('Conditions').click();
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms for All countries');
-    cy.contains('C990 Other certificates: End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ');
+    cy.contains('End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ');
     cy.get('.close [href]').click();
   });
 

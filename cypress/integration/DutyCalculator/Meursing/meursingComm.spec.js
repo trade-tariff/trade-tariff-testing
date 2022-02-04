@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('| meursingComm | Store Commodity value in session for Meursing , Meursing on Comm Page', function() {
+describe('| meursingComm.spec.js | Store Commodity value in session for Meursing , Meursing on Comm Page', function() {
   it('| meursing - Store Commodity code + Meursing code in Session |', function() {
     const commcode = ['1905311100', '1704906500', '1704909991'];
     for (let i=0; i<commcode.length; i++) {
@@ -33,8 +33,8 @@ describe('| meursingComm | Store Commodity value in session for Meursing , Meurs
     cy.contains('This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.');
     cy.contains('Enter the 3-digit additional code');
     cy.contains('If you know the additional code for your commodity, enter it in the box below. If you do not know the code, then use the Meursing code finder to find the additional code. You will be able to return to this page once you have found the right Meursing additional code.');
-    
-    cy.get('span#meursing-lookup-result-meursing-additional-code-id-hint > .govuk-link').click();
+    // click on the meursing link
+    cy.get('div#meursing-lookup-result-meursing-additional-code-id-hint > .govuk-link').click();
     cy.contains('Look up a Meursing code');
     cy.go(-1);
     cy.checkCommPage('1905311100');
