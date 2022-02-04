@@ -33,8 +33,6 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.contains('Optionally, what is the cost of insuring the goods?');
     cy.contains('Only insurance costs up to the place of introduction of the imported goods into the UK border need to be included.');
   });
-
-
   // error messages - nothing is entered
   it('No Values Entered', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
@@ -51,8 +49,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.contains('There is a problem');
     cy.get('.govuk-error-summary')
         .contains('Enter a valid monetary value');
-
-    cy.get('span#steps-customs-value-monetary-value-error').contains('Enter a valid monetary value');
+    cy.get('#steps-customs-value-monetary-value-error').contains('Enter a valid monetary value');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
 

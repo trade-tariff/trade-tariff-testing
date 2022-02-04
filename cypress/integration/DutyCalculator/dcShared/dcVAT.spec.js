@@ -20,7 +20,7 @@ describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
     cy.get('#steps-vat-vat-error')
         .contains('Select one of the available options');
     // check for VAT link on page
-    cy.get('span#steps-vat-vat-hint > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services');
+    cy.get('#steps-vat-vat-hint > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.gov.uk/guidance/rates-of-vat-on-different-goods-and-services');
 
     // make selection - VAT reduced rate 5%
     cy.get('input#steps-vat-vat-field-error').click();
