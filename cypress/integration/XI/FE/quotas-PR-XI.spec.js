@@ -41,7 +41,7 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   it('✅ 1.P&R:AHC - Animal Health Certificate', function() {
     cy.visit('/xi/commodities/6403990510#import');
     cy.contains('Animal Health Certificate');
-    cy.get('#measure-20087633').contains('Conditions').click();
+    cy.get('#measure-20174652').contains('Conditions').click();
     cy.contains('Animal Health Certificate for All countries');
   });
   it('✅  2.P&R:AIL - Health and Safety Executive Import Licensing Firearms and Ammunition', function() {
@@ -109,12 +109,12 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   });
   it('✅ 19.P&R:PRT Home Office Controlled Drugs (import)', function() {
     cy.visit('/xi/commodities/1211500000#import');
-    cy.get('#measure-20087962').contains('Conditions').click();
+    cy.get('#measure-20175770').contains('Conditions').click();
     cy.contains('Home Office Controlled Drugs (import)');
   });
   it('✅ 20.P&R:QRC Quarantine Release Certificate', function() {
     cy.visit('/xi/commodities/4403219090#import');
-    cy.get('#measure-20088618').contains('Conditions').click();
+    cy.get('#measure-20174972').contains('Conditions').click();
     cy.contains('Quarantine Release Certificate');
   });
 });
