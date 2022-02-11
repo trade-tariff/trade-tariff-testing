@@ -22,7 +22,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | customsDuties.spec.js | validate new customs
   it('Customs Duties 489', function() {
     cy.visit('/commodities/1703100000#import');
     cy.contains('Customs duties').click();
-    cy.contains('Representative price');
+    cy.contains('Representative price').should('not.exist');
   });
   it('Customs Duties 464', function() {
     cy.visit('/commodities/8714999011#import');
