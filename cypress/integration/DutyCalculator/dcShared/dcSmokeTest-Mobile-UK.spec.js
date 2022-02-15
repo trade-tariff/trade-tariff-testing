@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-describe('🛃 📱 UK 🇬🇧 💡 | dcSmokeTest-Mobile-UK | Duty Calculator Smoke |', function() {
+describe('🛃 📱 UK XI 💡 | dcSmokeTest-Mobile-UK | Duty Calculator Smoke |', function() {
 //   https://transformuk.atlassian.net/browse/HOTT-1321
   const device = ['iphone-6', 'samsung-note9'];
   for (let i=0; i<device.length; i++) {
