@@ -3,7 +3,7 @@
 // date , commodity ,destination,origin to be persisted on back links
 // back button from date page should take to STW page ( to be confirmed )
 
-describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', function() {
+describe('dcSTW-CHIEG.spec | duty calculator link to STW and CHIEG services|', function() {
   it('EU-GB | Customs value |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=FR&import_date=2021-12-21&import_destination=UK');
     cy.contains('What is the customs value of this import?');
@@ -56,22 +56,22 @@ describe('dcSTW-CHIEG.spec |duty calculator link to STW and CHIEG services|', fu
     cy.noDuty();
   });
   it('RoW-XI | trade_defence true | EU Duties interstitial page  |', function() {
-    cy.visit('/duty-calculator/prefill?commodity_code=1516209821&country_of_origin=AR&import_date=2021-12-31&import_destination=XI');
+    cy.visit('/duty-calculator/prefill?commodity_code=8714999019&country_of_origin=CN&import_date=2022-12-31&import_destination=XI');
     cy.euDutiesApply();
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({tnei: '100'});
-    cy.additionalCode({xi: 'C999'});
-    cy.additionalCode({xi: 'C498'});
-    cy.docCode({xi: 'c990'});
-    cy.contains('Continue').click();
-    cy.docCode({xi: 'd017'});
-    cy.contains('Continue').click();
-    cy.vat('20');
+    // cy.quantity({tnei: '100'});
+    cy.additionalCode({xi: '8005'});
+    // cy.additionalCode({xi: 'C498'});
+    // cy.docCode({xi: 'c990'});
+    // cy.contains('Continue').click();
+    // cy.docCode({xi: 'd017'});
+    // cy.contains('Continue').click();
+    // cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+    // cy.contains('Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
   });
   it('ROW-XI | trade_defence false && non-zero-mfn | UK Trader Scheme page |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=6307909200&country_of_origin=SG&import_date=2021-01-01&import_destination=XI');

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
   // check length , fields , as_of on both services =ability to show snapshot on a given date (validity start date before ////snapshot, validity end date after or null)
-  it.only('UK measure_condition_codes API - type ,length , properties ', function() {
+  it('UK measure_condition_codes API - type ,length , properties ', function() {
     cy.request('api/v2/measure_condition_codes').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -23,7 +23,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data[0].attributes).to.have.property('validity_end_date');
         });
   });
-  it.only('UK measure_condition_codes API - as of validate data | 1972 - 5 entries ', function() {
+  it('UK measure_condition_codes API - as of validate data | 1972 - 5 entries ', function() {
     cy.request('/api/v2/measure_condition_codes?as_of=1972-01-01').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -39,7 +39,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data[0].attributes).to.have.property('validity_end_date').to.be.null;
         });
   });
-  it.only('UK measure_condition_codes API - as of validate data | 1969 - 0 entries  ', function() {
+  it('UK measure_condition_codes API - as of validate data | 1969 - 0 entries  ', function() {
     cy.request('/api/v2/measure_condition_codes?as_of=1969-12-31').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -49,7 +49,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(0);
         });
   });
-  it.only('UK measure_condition_codes API - as of validate data | as_of takes current date ', function() {
+  it('UK measure_condition_codes API - as of validate data | as_of takes current date ', function() {
     cy.request('/api/v2/measure_condition_codes?as_of=').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -69,7 +69,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
         });
   });
   // XI service
-  it.only('XI measure_condition_codes API - type ,length , properties ', function() {
+  it('XI measure_condition_codes API - type ,length , properties ', function() {
     cy.request('xi/api/v2/measure_condition_codes').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -91,7 +91,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data[0].attributes).to.have.property('validity_end_date');
         });
   });
-  it.only('XI measure_condition_codes API - as of validate data | 1972 - 5 entries ', function() {
+  it('XI measure_condition_codes API - as of validate data | 1972 - 5 entries ', function() {
     cy.request('xi/api/v2/measure_condition_codes?as_of=1972-01-01').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -107,7 +107,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data[0].attributes).to.have.property('validity_end_date').to.be.null;
         });
   });
-  it.only('XI measure_condition_codes API - as of validate data | 1969 - 0 entries  ', function() {
+  it('XI measure_condition_codes API - as of validate data | 1969 - 0 entries  ', function() {
     cy.request('xi/api/v2/measure_condition_codes?as_of=1969-12-31').as('comments');
     cy.get('@comments')
         .then((response) => {
@@ -117,7 +117,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(0);
         });
   });
-  it.only('XI measure_condition_codes API - as of validate data | as_of takes current date ', function() {
+  it('XI measure_condition_codes API - as of validate data | as_of takes current date ', function() {
     cy.request('xi/api/v2/measure_condition_codes?as_of=').as('comments');
     cy.get('@comments')
         .then((response) => {
