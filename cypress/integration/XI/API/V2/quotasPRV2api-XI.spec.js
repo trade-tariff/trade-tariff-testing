@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 describe('🇪🇺 ⚙️ quotasPRV2api-XI | XI-version v2 api Quotas , P&R suppression', function() {
   // ----------------Quotas to be suppressed for XI -------------
   it('1.Quotas:046 Tariff quota/ceiling -   suppressed ', function() {

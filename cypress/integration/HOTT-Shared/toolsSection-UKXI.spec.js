@@ -14,7 +14,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
       cy.contains('Additional codes');
       cy.contains('Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.');
 
-      cy.contains('Footnotes');
+      cy.contains('Footnote Search');
       cy.contains('Search the tariff for footnotes');
 
       cy.contains('Chemicals');
@@ -40,7 +40,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
       cy.contains('Tariff tools');
     });
 
-    it(`Footnotes - breadcrumbs ${countries[i]}`, function() {
+    it(`Footnote Search - breadcrumbs ${countries[i]}`, function() {
       cy.visit(`${countries[i]}/footnote_search`);
       cy.get('.govuk-breadcrumbs')
           .contains('Footnote Search');
