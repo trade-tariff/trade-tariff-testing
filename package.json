@@ -29,7 +29,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-cypress": "^2.11.3",
     "flow-bin": "^0.172.0",
-    "mocha": "^9.2.0",
+    "mocha": "^9.2.1",
     "mocha-allure-reporter": "^1.4.0",
     "mochawesome": "^7.0.1",
     "mochawesome-merge": "^4.2.0",
