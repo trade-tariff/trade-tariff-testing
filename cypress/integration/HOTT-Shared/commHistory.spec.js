@@ -146,7 +146,7 @@ describe('|commHistory.spec.js| commodity/heading history to be displayed when t
       cy.contains('From 1 January 2021 to 31 December 2021');
       cy.contains('From 1 July 2013 to 30 June 2017');
       cy.contains('From 12 February 1992 to 31 December 1999');
-      cy.contains('Alternatively, you can visit heading 8527 or chapter 85.');
+      cy.contains('Alternatively, you can visit heading 8527 or chapter 85');
       // 1 January 2021
       cy.get('.govuk-list.govuk-list--bullet > li:nth-of-type(1) > a:nth-of-type(1)').click();
       cy.url().should('include', '8527290010?day=1&month=1&year=2021');
