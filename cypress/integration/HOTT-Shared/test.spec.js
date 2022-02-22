@@ -66,7 +66,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.datePickerPage({day: 22, month: 12, year: 2022});
   });
   it.skip('Search Tariff on other pages', function() {
-    const pages = ['sections', 'browse', 'find_commodity', 'sections/6'];
+    const pages = ['sections', 'browse', 'find_commodity','sections/6',];
     for (let i=0; i<pages.length; i++) {
       cy.visit(`/${pages[i]}`);
       cy.searchForCommodity('3808941000');
