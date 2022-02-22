@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
+describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it.skip('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
@@ -74,6 +74,9 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     }
   });
   it.only('CommCodeTest', function() {
-    cy.CommCodeHistory('8527290010');
+    cy.CommCodeHistory('8527290010', {day: '22', month: '02', year: '2022'});
+  });
+  it.only('Heading Test', function() {
+    cy.headingsHistory('8803', {day: '22', month: '02', year: '2022'});
   });
 });
