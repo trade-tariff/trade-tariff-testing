@@ -73,4 +73,10 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
       cy.checkCommPage('3808941000');
     }
   });
+  it.only('CommCodeTest', function() {
+    cy.CommCodeHistory('8527290010', {day: '22', month: '02', year: '2022'});
+  });
+  it.only('Heading Test', function() {
+    cy.headingsHistory('8803', {day: '22', month: '02', year: '2022'});
+  });
 });

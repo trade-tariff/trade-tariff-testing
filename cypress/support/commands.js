@@ -33,6 +33,10 @@ Cypress.Commands.add('checkCommPage', (commcode)=>{
   // cy.contains(/Commodity .*3808941000/i);
   cy.contains(new RegExp(`Commodity .*${commcode}`, 'i'));
 });
+// validate headings page
+Cypress.Commands.add('checkHeadingsPage', (headingsCode)=>{
+  cy.contains(new RegExp(`Heading .*${headingsCode}`, 'i'));
+});
 
 // UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('mainPageUK', ()=>{
@@ -149,4 +153,20 @@ Cypress.Commands.add('mobileMenu', ()=>{
   cy.contains('Updates');
   cy.contains('Help');
   cy.get('.govuk-header__menu-button').click();
+});
+Cypress.Commands.add('CommCodeHistory', (commCode, date)=>{
+  let dateParams = '';
+  if (date) {
+    dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
+  }
+  cy.visit({url: `/commodities/${commCode}${dateParams}`, failOnStatusCode: false});
+  cy.checkCommPage(commCode);
+});
+Cypress.Commands.add('headingsHistory', (headingsCode, date)=>{
+  let dateParams = '';
+  if (date) {
+    dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
+  }
+  cy.visit({url: `/headings/${headingsCode}${dateParams}`, failOnStatusCode: false});
+  cy.checkHeadingsPage(headingsCode);
 });
