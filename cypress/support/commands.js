@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 before(() => {
 //   cy.injectAxe()
@@ -128,6 +127,11 @@ Cypress.Commands.add('searchForCommodity2', (searchString) => {
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
   cy.get('input[name=\'submit_search\']').click();
+  // cy.get('.js-commodity-picker-select:last').click().type(searchString);
+  // input#tariff-search-banner__q
+  //  cy.waitForCommoditySearchResults();
+  // return cy.get('input[name=\'new_search\']').click();
+  // cy.get('input[name=\'commit\']').click();
 });
 
 
