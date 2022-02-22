@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
+describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it.skip('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
@@ -66,11 +66,14 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.datePickerPage({day: 22, month: 12, year: 2022});
   });
   it.skip('Search Tariff on other pages', function() {
-    const pages = ['sections', 'browse', 'find_commodity','sections/6',];
+    const pages = ['sections', 'browse', 'find_commodity', 'sections/6'];
     for (let i=0; i<pages.length; i++) {
       cy.visit(`/${pages[i]}`);
       cy.searchForCommodity('3808941000');
       cy.checkCommPage('3808941000');
     }
+  });
+  it.only('CommCodeTest', function() {
+    cy.CommCodeHistory('8527290010');
   });
 });

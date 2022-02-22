@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 before(() => {
 //   cy.injectAxe()
@@ -123,11 +124,6 @@ Cypress.Commands.add('searchForCommodity2', (searchString) => {
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
   cy.get('input[name=\'submit_search\']').click();
-  // cy.get('.js-commodity-picker-select:last').click().type(searchString);
-  // input#tariff-search-banner__q
-  //  cy.waitForCommoditySearchResults();
-  // return cy.get('input[name=\'new_search\']').click();
-  // cy.get('input[name=\'commit\']').click();
 });
 
 
@@ -149,4 +145,16 @@ Cypress.Commands.add('mobileMenu', ()=>{
   cy.contains('Updates');
   cy.contains('Help');
   cy.get('.govuk-header__menu-button').click();
+});
+Cypress.Commands.add('CommCodeHistory', (commCode, date)=>{
+  if (date) {
+    let dateParams = `&day=${date.day}&month=${date.month}&year=${date.year}`;
+  } else {
+    let dateParams = '';
+  }
+  console.log(dateParams);
+
+  cy.visit({url: `/commodities/${commCode}${dateParams}`, failOnStatusCode: false});
+  // cy.visit({url: '/commodities/2934999085?day=1&month=12&year=2020', failOnStatusCode: false});
+
 });
