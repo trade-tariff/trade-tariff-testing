@@ -5,9 +5,9 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
     const termcodes_ids = Cypress.config('termcodes');
 
     for (let i = 0; i < termcodes_ids.length; i++) {
-      cy.visit('/xi/sections');
+      cy.visit('/sections');
       cy.searchForCommodity(`${termcodes_ids[i]}`);
-      cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+      cy.contains('The commodity code you entered could not be found for the date selected. The code is present for the dates shown below.');
     }
   });
 
@@ -15,7 +15,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
     const newcodes_ids = Cypress.config('newcodes');
 
     for (let i = 0; i < newcodes_ids.length; i++) {
-      cy.visit('/xi/sections');
+      cy.visit('/sections');
       cy.searchForCommodity(`${newcodes_ids[i]}`);
       cy.checkCommPage(`${newcodes_ids[i]}`);
     }
