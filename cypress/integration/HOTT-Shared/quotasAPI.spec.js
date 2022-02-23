@@ -12,7 +12,7 @@ describe('quotasAPI.spec.js for UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1600);
+          expect(response.duration).to.lessThan(30000);
           // body length
           expect(response.body.data).to.have.length(846);
           // validate properties
@@ -44,7 +44,7 @@ describe('quotasAPI.spec.js for UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1600);
+          expect(response.duration).to.lessThan(30000);
           // body length
           expect(response.body.data).to.have.length(1154);
           // validate properties

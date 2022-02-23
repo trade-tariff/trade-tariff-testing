@@ -13,7 +13,7 @@ describe('measureActionsAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // body length
           expect(response.body.data).to.have.length(25);
           // validate properties
@@ -60,7 +60,7 @@ describe('measureActionsAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(25);
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // validate properties
           expect(response.body.data[0]).to.have.property('id');
           expect(response.body.data[0]).to.have.property('type').contains('measure_action');
@@ -82,7 +82,7 @@ describe('measureActionsAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // body length
           expect(response.body.data).to.have.length(28);
           // validate properties
@@ -129,7 +129,7 @@ describe('measureActionsAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(28);
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // validate properties
           expect(response.body.data[0]).to.have.property('id');
           expect(response.body.data[0]).to.have.property('type').contains('measure_action');

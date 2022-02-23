@@ -12,7 +12,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // body length
           expect(response.body.data).to.have.length(493);
           // validate properties
@@ -79,7 +79,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // body length
           expect(response.body.data).to.have.length(487);
           // validate properties

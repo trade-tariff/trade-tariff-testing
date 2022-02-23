@@ -12,7 +12,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // body length
           expect(response.body.data).to.have.length(22);
           // validate properties
@@ -59,7 +59,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(22);
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // validate properties
           expect(response.body.data[0]).to.have.property('id');
           expect(response.body.data[0]).to.have.property('type').contains('measure_condition_code');
@@ -80,7 +80,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // body length
           expect(response.body.data).to.have.length(29);
           // validate properties
@@ -127,7 +127,7 @@ describe('measureConditionCodesAPI.spec.js for both UK and XI  |', function() {
           expect(response.body.data).to.have.length(29);
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1500);
+          expect(response.duration).to.lessThan(3000);
           // validate properties
           expect(response.body.data[0]).to.have.property('id');
           expect(response.body.data[0]).to.have.property('type').contains('measure_condition_code');
