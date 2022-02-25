@@ -58,7 +58,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       cy.contains('Import quantity');
       //   cy.get('.govuk-summary-list__value')
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00');
-      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('01 January 2022');
+      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 May 2022');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Northern Ireland');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('Yes');
