@@ -4251,10 +4251,10 @@ mochawesome-merge@^4.2.0:
     glob "^7.1.6"
     yargs "^15.3.1"
 
-mochawesome-report-generator@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/mochawesome-report-generator/-/mochawesome-report-generator-6.0.1.tgz#7314f43c3e61247b0ea48ce2dda0813ca6fdd705"
-  integrity sha512-/+RoE/lD7QTJBh7VsymdQOTqS8QuB94xKJCJXxZ3fy3JsDdPNgTBgUlEOR99r+2W1zPgEWVhRBU1Tl9fe6kI+w==
+mochawesome-report-generator@^6.0.1, mochawesome-report-generator@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/mochawesome-report-generator/-/mochawesome-report-generator-6.1.0.tgz#b15dda48671fea8a152525a972cf1b2492c3f773"
+  integrity sha512-qzSZu7gpddeFzRv1dCEQSFhmePg1sYzKfwXMSd5jSlthw5yDPdRV89yMc3NBpfPY/JjclZiHvDtz5S4HgWZ0Rg==
   dependencies:
     chalk "^4.1.2"
     dateformat "^4.5.1"
