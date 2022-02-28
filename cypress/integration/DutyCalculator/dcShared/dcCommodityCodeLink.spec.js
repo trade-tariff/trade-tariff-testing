@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 describe('| dcCommodityCodeLink | Duty Calculation link on commodities', function() {
   const country = ['uk', 'xi'];
   const destination = ['United Kingdom', 'Northern Ireland'];
@@ -14,7 +15,7 @@ describe('| dcCommodityCodeLink | Duty Calculation link on commodities', functio
       cy.checkCommPage(`${commcodes[i]}`);
       // cy.checkCommPage('0409000000');
       cy.contains(`${pagetitles[i]}`);
-      cy.contains(`The table below lists the customs duties that apply to the import of commodity ${commcodes[i]}.`);
+      cy.contains(`The table below lists the import duties that apply to the import of commodity ${commcodes[i]}.`);
       cy.contains('Use our tariff duty calculator to work out the');
       cy.get('p:nth-of-type(2) > a').click();
       cy.contains('When will the goods be imported?');
