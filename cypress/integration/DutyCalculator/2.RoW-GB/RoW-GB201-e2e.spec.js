@@ -2,7 +2,7 @@
 // Comm code :0702000007 - no Measure Units
 // explain what this test will achieve
 
-describe('|RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e.spec | ', function() {
+describe('| RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2e.spec | ', function() {
   //
   const country = ['uk', 'xi'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];

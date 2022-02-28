@@ -40,8 +40,8 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
       cy.contains('Back').click();
       cy.contains('When will the goods be imported?');
       // date entered persists after error message only if valid format date and in past *
-      cy.get('#steps_import_date_import_date_3i').should('have.value', '1');
-      cy.get('#steps_import_date_import_date_2i').should('have.value', '1');
+      cy.get('#steps_import_date_import_date_3i').should('have.value', '31');
+      cy.get('#steps_import_date_import_date_2i').should('have.value', '5');
       cy.get('#steps_import_date_import_date_1i').should('have.value', '2022');
     });
   }
@@ -76,8 +76,8 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     // date entered persists after error message only if valid format date and in past *
     cy.contains('When will the goods be imported?');
 
-    cy.get('#steps_import_date_import_date_3i').should('have.value', '1');
-    cy.get('#steps_import_date_import_date_2i').should('have.value', '1');
+    cy.get('#steps_import_date_import_date_3i').should('have.value', '31');
+    cy.get('#steps_import_date_import_date_2i').should('have.value', '5');
     cy.get('#steps_import_date_import_date_1i').should('have.value', '2022');
   });
   it('Error - No country selected', function() {

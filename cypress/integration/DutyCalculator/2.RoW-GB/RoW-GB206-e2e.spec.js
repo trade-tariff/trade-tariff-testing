@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-describe('|RoW-GB206-e2e.spec | additional codes |', function() {
+describe('| RoW-GB206-e2e.spec | additional codes |', function() {
   const Codes = ['C491', 'C490', 'C493', 'C497'];
 
   it(`e2e RoW 🇦🇷 to 🇬🇧 GB 🛢️  - One additional code / Changing code`, function() {

@@ -3,7 +3,7 @@ describe('| RoW-NI302-e2e.spec | RoW to Northern Ireland ', function() {
   const country = ['uk'];
   for (let i = 0; i < country.length; i++) {
     it(`RoW 🇹🇷 Tukey to NI ${country[i]}`, function() {
-      cy.visit(`/duty-calculator/${country[i]}/871491131/import-date`);
+      cy.visit(`/duty-calculator/${country[i]}/8714911031/import-date`);
       // date
       cy.validDate();
       // destination

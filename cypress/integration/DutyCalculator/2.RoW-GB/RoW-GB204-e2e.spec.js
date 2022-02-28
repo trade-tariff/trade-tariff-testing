@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-describe('|RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', function() {
+describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', function() {
   it(`e2e RoW to GB | 🇦🇫 Afghanistan to 🇬🇧 GB | Document code |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/3926909790/import-date`);

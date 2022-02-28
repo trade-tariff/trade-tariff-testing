@@ -109,7 +109,7 @@ describe('measuresTypesAPI.spec.js for both UK and XI  |', function() {
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(4000);
           // body length
-          expect(response.body.data).to.have.length(248);
+          expect(response.body.data).to.have.length(250);
           // validate properties
           expect(response.body.data[0]).to.have.property('id');
           expect(response.body.data[0]).to.have.property('type');
@@ -161,7 +161,7 @@ describe('measuresTypesAPI.spec.js for both UK and XI  |', function() {
           // status code
           expect(response.status).to.eq(200);
           // body length
-          expect(response.body.data).to.have.length(248);
+          expect(response.body.data).to.have.length(250);
           // response duration less than 2000
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(4000);

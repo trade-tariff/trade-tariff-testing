@@ -1,5 +1,5 @@
 /* eslint-disable new-cap */
-describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
+describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
@@ -79,7 +79,7 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it('Heading Test', function() {
     cy.headingsHistory('8803', {day: '22', month: '02', year: '2022'});
   });
-  it.only('title', function() {
+  it('title', function() {
     cy.visit('/browse');
     cy.searchForCommodity2('tomatoes');
     console.log(cy.title());
