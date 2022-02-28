@@ -41,7 +41,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.confirmPage();
     cy.dutyPage();
 
-    cy.contains('You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on 01 January 2022.');
+    cy.contains('You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on 31 May 2022.');
     cy.contains('Option 1: Third-country duty');
     cy.contains('10.90% * £1,000.00');
     cy.contains('172.20 EUR / 1000 kg/biodiesel * 1000.00');
@@ -72,7 +72,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.confirmPage();
     cy.dutyPage();
 
-    cy.contains('You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on 01 January 2022.');
+    cy.contains('You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on 31 May 2022.');
     cy.contains('Option 1: Third-country duty');
     cy.contains('10.90% * £1,000.00');
     cy.contains('Import duty (C999)');
