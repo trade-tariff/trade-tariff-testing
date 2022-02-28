@@ -1,7 +1,7 @@
 // 🇻🇳 Vietnam to  🇬🇧 GB
 // Comm code :0702000007 - no Measure Units
 
-describe('|RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', function() {
+describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', function() {
   //
 
   const country = ['uk', 'xi'];

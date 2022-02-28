@@ -136,8 +136,8 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
 
     cy.contains('Option 2: Tariff preference - Faroe Islands');
-    cy.contains('Tariff preference (EU)');
-    cy.contains('EU preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty exceeds 3% of the customs value of your trade.');
+    cy.contains('Tariff preference (UK)');
+    // cy.contains('EU preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty exceeds 3% of the customs value of your trade.');
 
     cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)');

@@ -1,7 +1,7 @@
 // 🇨🇳 China to  🇬🇧 GB
 // Comm code :0304829010 - no Measure Units
 
-describe('|RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | ', function() {
+describe('| RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | ', function() {
   //
 
   const country = ['uk', 'xi'];

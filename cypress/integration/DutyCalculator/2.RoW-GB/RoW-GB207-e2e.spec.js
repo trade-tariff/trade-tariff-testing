@@ -1,4 +1,4 @@
-describe('|RoW-GB207-e2e.spec | excise codes |', function() {
+describe('| RoW-GB207-e2e.spec | excise codes |', function() {
   it(` 🚬 Cheroots | RoW 🇳🇴 Norway to 🇬🇧 GB  | 4.tobacco - Cheroots |`, function() {
     cy.visit(`duty-calculator/uk/2402100000/import-date`);
     cy.wait(500);

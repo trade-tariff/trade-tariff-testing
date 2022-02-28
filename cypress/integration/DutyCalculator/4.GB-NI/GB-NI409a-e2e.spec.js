@@ -10,7 +10,7 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
 
     it(`e2e GB to NI - ${country[i]}`, function() {
       // select future date
-      cy.visit(`/duty-calculator/${country[i]}/033149011/import-date`);
+      cy.visit(`/duty-calculator/${country[i]}/0303149011/import-date`);
       //    cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=033149011`)
       cy.contains(`${pagetitles[i]}`);
       cy.validDate();
