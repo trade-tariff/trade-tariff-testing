@@ -101,6 +101,13 @@ Cypress.Commands.add('newsBannerXI', ()=>{
   cy.contains('if your goods are ‘at risk’ of onward movement to the EU');
   cy.contains('. If they are not at risk of onward movement to the EU, use the ');
 });
+Cypress.Commands.add('specialBanner', ()=>{
+  cy.contains('The UK has introduced new sanctions in relation to trade with Russia. The Online Tariff is being updated to reflect these. In the meantime, details can be viewed in regulation 2022/195 and further guidance is available here.');
+  cy.get('header[role=\'banner\'] p > a:nth-of-type(1)').should('have.attr', 'href', 'https://www.legislation.gov.uk/uksi/2022/195/contents/made');
+  cy.get('p > a:nth-of-type(2)').should('have.attr', 'href', 'https://www.gov.uk/government/publications/russia-sanctions-guidance/russia-sanctions-guidance');
+
+  //
+});
 Cypress.Commands.add('contextSelector', ()=>{
   cy.get('.govuk-table__body').contains('Classification');
   cy.get('.govuk-table__body').contains('Date of trade');
