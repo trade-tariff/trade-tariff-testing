@@ -128,7 +128,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('TN701');
   });
   it('UK - News Banner', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.newsBannerUK();
   });
   it('UK - export tab', function() {
