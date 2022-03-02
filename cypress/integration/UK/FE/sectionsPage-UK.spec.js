@@ -14,7 +14,7 @@ describe('🇬🇧 💡 🔍  | sectionsPage.spec-UK | Sections page content val
     cy.contains('A-Z');
     cy.contains('Tools');
     cy.contains('Help');
-    cy.contains('Updates').should('not.exist');
+    cy.contains('Updates').should('exist');
     cy.contains('Additional code').should('not.exist');
     cy.contains('Certificate').should('not.exist');
     cy.contains('Footnotes').should('not.exist');
