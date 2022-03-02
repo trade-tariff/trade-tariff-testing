@@ -36,8 +36,8 @@ describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 | 🔼 Delta Route
     cy.dutyPage();
 
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Third-country duty (UK)');
-    // cy.contains('Third-country duty (EU)');
-    cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+    // cy.contains('Third-country duty (UK)');
+    cy.contains('Third-country duty (EU)');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
   });
 });

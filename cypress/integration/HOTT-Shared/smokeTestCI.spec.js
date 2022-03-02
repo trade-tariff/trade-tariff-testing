@@ -351,7 +351,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
   });
   it('🧮  UK 🇬🇧 - RoW - Duty Calculator e2e - 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta || Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ |', function() {
-     cy.visit('/duty-calculator/uk/1701141000/import-date');
+    cy.visit('/duty-calculator/uk/1701141000/import-date');
     // date
     cy.validDate();
     // destination
@@ -384,9 +384,8 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.dutyPage();
 
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Third-country duty (UK)');
-    // cy.contains('Third-country duty (EU)');
-    cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+    cy.contains('Third-country duty (EU)');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
   });
   it('🧮 XI 🇪🇺 - Duty Calculator e2e - RoW 🇨🇦 (Canada) - XI | UK - yes, EU - no | Row-NI304e-delta |', function() {
     cy.visit('/duty-calculator/xi/0102291010/import-date');
