@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe.skip('| dcFeedbackLink | Feedback link on Duty Calculator page |', function() {
+describe('| dcFeedbackLink | Feedback link on Duty Calculator page |', function() {
   //
   const country = ['uk'];
   for (let i = 0; i < country.length; i++) {

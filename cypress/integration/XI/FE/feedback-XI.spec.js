@@ -27,10 +27,12 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
     cy.get('.error-message');
     cy.contains('can\'t be blank');
 
-    // cy.get('input#name').type('Random Guy 🥸 ');
-    // cy.get('input#email').type('abd@12398.com');
-    // cy.get('input[name=\'commit\']').click();
-    // //  cy.contains('Thank you for your feedback')
+    // enter some feedback
+    cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test -  🇪🇺  feedback - XI');
+    cy.get('input#name').type('Random Guy 🥸 ');
+    cy.get('input#email').type('abd@12398.com');
+    cy.get('input[name=\'commit\']').click();
+    cy.contains('Thank you for your feedback');
   });
   it('XI - The UK has left the EU', function() {
     cy.visit('/xi/sections');
