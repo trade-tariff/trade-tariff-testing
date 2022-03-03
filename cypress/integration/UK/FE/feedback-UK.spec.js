@@ -26,12 +26,12 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     cy.get('.error-message');
     cy.contains('can\'t be blank');
 
-    // // enter some feedback
-    // cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺  feedback ');
-    // cy.get('input#name').type('Random Guy 🥸 ');
-    // cy.get('input#email').type('abd@12398.com');
-    // cy.get('input[name=\'commit\']').click();
-    // //  cy.contains('Thank you for your feedback')
+    // enter some feedback
+    cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 feedback - UK');
+    cy.get('input#name').type('Random Guy 🥸 ');
+    cy.get('input#email').type('abd@12398.com');
+    cy.get('input[name=\'commit\']').click();
+    cy.contains('Thank you for your feedback');
   });
   it('UK - The UK has left the EU', function() {
     cy.visit('/sections');

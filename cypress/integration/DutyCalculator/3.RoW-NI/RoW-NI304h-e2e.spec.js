@@ -77,7 +77,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.get('.govuk-back-link').click().wait(200);
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({dtn: '100.0'});
+    cy.quantity({dtn: '200.0'});
     // doc code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();

@@ -14,7 +14,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(3000);
           // body length
-          expect(response.body.data).to.have.length(493);
+          // expect(response.body.data).to.have.length(493);
           // validate properties
           expect(response.body.data[0].attributes).to.have.property('certificate_type_code');
           expect(response.body.data[0].attributes).to.have.property('certificate_code');
@@ -58,7 +58,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           // status code
           expect(response.status).to.eq(200);
           // body length
-          expect(response.body.data).to.have.length(493);
+          // expect(response.body.data).to.have.length(493);
           // validate properties
           expect(response.body.data[0].attributes).to.have.property('certificate_type_code');
           expect(response.body.data[0].attributes).to.have.property('certificate_code');
@@ -81,7 +81,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(3000);
           // body length
-          expect(response.body.data).to.have.length(498);
+          // expect(response.body.data).to.have.length(498);
           // validate properties
           expect(response.body.data[0].attributes).to.have.property('certificate_type_code');
           expect(response.body.data[0].attributes).to.have.property('certificate_code');
@@ -125,7 +125,7 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
           // status code
           expect(response.status).to.eq(200);
           // body length
-          expect(response.body.data).to.have.length(498);
+          // expect(response.body.data).to.have.length(498);
           // validate properties
           expect(response.body.data[0].attributes).to.have.property('certificate_type_code');
           expect(response.body.data[0].attributes).to.have.property('certificate_code');
