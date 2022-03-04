@@ -1,4 +1,5 @@
-describe('🇬🇧💡 🇯🇵 | JapanTrade-UK | Future date - Japan Trade Agreement from 1st Feb 2022 |', function() {
+describe.skip('🇬🇧💡 🇯🇵 | JapanTrade-UK | Future date - Japan Trade Agreement from 1st Feb 2022 |', function() {
+  // Special trade agreements
   it('🇯🇵 Japan trade deal with UK before 1st Feb 2022 4.7% , after 3.80% ', function() {
     // Tariff preference rate till 1st February 2022
     cy.visit('/commodities/0301190000?b=n&country=JP&day=31&month=1&year=2022#import');
