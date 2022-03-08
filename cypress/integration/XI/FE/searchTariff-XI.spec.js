@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', function() {
+describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('XI - Search Commodity by name ', function() {
     cy.visit('/xi/sections');
     // changes made on 11/02/2021
@@ -17,7 +17,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', func
       cy.visit('/xi/sections');
       cy.contains('Search the Northern Ireland Online Tariff');
       cy.searchForCommodity(`${items[i]}`);
-       cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+      cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
     }
   });
   it('XI - Search Commodity by code ', function() {

@@ -61,5 +61,6 @@
   ],
   "projectId": "7p655m",
   "parseSpecialCharSequences": false,
-  "defaultCommandTimeout": 15000
+  "defaultCommandTimeout": 15000,
+  "responseTimeout": 60000
 }
