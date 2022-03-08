@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', function() {
+describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('UK - Search Commodity by name ', function() {
     cy.visit('/sections');
     // changed on 11/02/2021

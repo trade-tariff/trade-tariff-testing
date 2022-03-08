@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |', function() {
+describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('XI Country Selection -import ', function() {
     cy.visit('/xi/commodities/0208909800#import');
     // XI 

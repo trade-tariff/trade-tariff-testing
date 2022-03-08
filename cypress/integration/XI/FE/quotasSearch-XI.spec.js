@@ -1,4 +1,4 @@
-describe('🇪🇺 💡 ⚙️ quotas Search -XI services)', function() {
+describe('🇪🇺 💡 ⚙️ quotas Search -XI services)', {tags: ['config', 'xbrowser-tag']}, function() {
   it('⚙️ 🚫 API - XI quota search page 404', function() {
     cy.request({method: 'GET', url: '/xi/api/v2/quota_search', failOnStatusCode: false}).as('comments');
     cy.get('@comments')

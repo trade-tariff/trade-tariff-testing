@@ -1,6 +1,6 @@
 /* eslint-disable new-cap */
 /* eslint-disable max-len */
-describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and Commodity page|', function() {
+describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and Commodity page|', {tags: ['config', 'xbrowser-tag']}, function() {
   const country = ['uk', 'xi'];
   const titles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
   for (let i = 0; i < country.length; i++) {

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and measure details |', function() {
+describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and measure details |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('Ferro-alloy \n' + 'Third country duty should be ad valorem 2.7%\n' +
         '\n' +
         'There is a tariff preference of 0.00% against the European Economic Area (2012)\n' +
