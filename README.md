@@ -8,7 +8,7 @@ Cypress automation framework 🔧
 * API testing 
 * integration / end-to-end testing 
 	
-** Prerequisites📚 **
+### Prerequisites📚  
 ```
 •node 
 •npm
@@ -22,7 +22,7 @@ Install dependencies by running the following command in terminal (from app dire
 yarn install 
 ```
 
-Running tests 🧳:
+### Running tests 🧳:
 Default run is against Live Prod environment.This can be configured in cypress.json if required.
 
 Running tests can be done with the following commands:
@@ -45,6 +45,16 @@ yarn run open:localhost
 yarn run open:dev
 yarn run open:staging
 yarn run open:prod
+```
+## tags
+Running specific set of tests using tags
+
+```
+tags:xbrowser
+tags:roo
+tags:unreleased
+
+yarn run tags:xbrowser
 ```
 
 ## Environment variables
