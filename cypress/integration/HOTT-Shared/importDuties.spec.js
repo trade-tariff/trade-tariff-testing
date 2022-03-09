@@ -1,7 +1,7 @@
 describe('UK 🇬🇧 XI 🇪🇺 | importDuties.spec.js | validate new import duties on Front end |', function() {
 /*
- Add new measure types (485, 487, 488) to import duties section
- Move reassigned measure types (464, 481, 482, 483) from 'hide me' to import duties section
+Add new measure types (485, 487, 488) to import duties section
+Move reassigned measure types (464, 481, 482, 483) from 'hide me' to import duties section
 464 Declaration of subheading submitted to authorised use provisions
 481 Declaration of subheading submitted to restrictions (import)
 482 Declaration of subheading submitted to restrictions (net weight/supplementary unit)
@@ -12,7 +12,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | importDuties.spec.js | validate new import d
 489 Representative price
 490 Standard import value
 */
-  const country = ['xi', ''];
+  const country = ['', 'xi'];
   const titles = ['Northern Ireland Online Tariff', 'UK Integrated Online Tariff'];
   for (let i = 0; i < country.length; i++) {
     it(`${country[i]} Import duties 481`, function() {

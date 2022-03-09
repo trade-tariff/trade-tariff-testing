@@ -26,7 +26,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       cy.datePickerPage({day: 22, month: 10, year: 2021});
       cy.contains('22 October 2021');
     });
-    it(` ${country[i]} Heading page `, function() {
+    it(`${country[i]} Heading page `, function() {
       cy.visit(`${country[i]}/headings/4302?day=1&month=1&year=2022`);
       cy.contains('1 January 2022');
       // Change date

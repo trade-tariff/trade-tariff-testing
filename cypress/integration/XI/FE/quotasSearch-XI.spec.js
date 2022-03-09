@@ -6,7 +6,7 @@ describe('🇪🇺 💡 ⚙️ quotas Search -XI services)', {tags: ['config', '
           expect(response.status).to.eq(404);
         });
   });
-  it('💡 🚫 Quotas search should not exist on tools page ', function() {
+  it('💡🚫 Quotas search should not exist on tools page ', function() {
     cy.visit('/xi/tools');
     !cy.get('.govuk-list')
         .contains('Quotas').should('not.exist');

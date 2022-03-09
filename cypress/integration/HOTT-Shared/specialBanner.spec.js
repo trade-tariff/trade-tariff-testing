@@ -1,4 +1,4 @@
-describe('| specialBanner.spec.js | ,special banners on both UK and XI services', function() {
+describe('| specialBanner.spec.js | special banners on both UK and XI services', function() {
 //
   const country = ['xi', 'uk'];
   for (let i=0; i<country.length; i++) {

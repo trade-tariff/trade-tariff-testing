@@ -2,7 +2,7 @@
 const {isTaggedTemplateExpression} = require('typescript');
 
 /* eslint-disable max-len */
-describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |', function() {
+describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |', function() {
   // Main Page
   it('🚀 UK - Main Page Validation', function() {
     cy.viewport('iphone-x');
@@ -157,13 +157,13 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
         .contains('No results found');
   });
   // Date picker working and persists on UK XI sites
-  it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
+  it.only('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
     // select Change Date and change months and years
     cy.get('.govuk-details__summary-text').click();
-    cy.get('#tariff_date_day').click().clear().type(7);
-    cy.get('#tariff_date_month').click().clear().type(4);
+    cy.get('#tariff_date_day').click().clear().type(31);
+    cy.get('#tariff_date_month').click().clear().type(10);
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.get('input[name=\'commit\']').click();
     cy.wait(300);
@@ -175,7 +175,7 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.get('#tariff_date_month').click().clear().type(4);
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.get('div:nth-of-type(3) > .govuk-summary-list__value')
-        .contains('7 April 2022');
+        .contains('31 October 2022');
 
     cy.get('main#content  nav  a')
         .contains('Northern Ireland Online Tariff').click();
@@ -194,11 +194,9 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.visit('/commodities/2403991000#import');
     cy.get('.govuk-tabs__panel')
         .contains('European Union (1013)').click();
-    cy.get('.govuk-list')
-        .contains('European Union (EU)');
+    cy.contains('European Union');
 
-    cy.get('#measure-20125860-children-geographical-areas')
-        .contains('United Kingdom (GB)').should('not.exist');
+    cy.contains('United Kingdom (GB)').should('not.exist');
   });
   // Quota Search using order number
   it('🚀 UK - Quotas Search - Order Number', function() {
@@ -225,13 +223,13 @@ describe.skip('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to 
     cy.get('.govuk-table__head')
         .contains('Order number');
 
-    cy.get('.quota-results.govuk-table');
+    cy.get('.search-results');
     cy.contains('057015').click();
     cy.get('.tariff-info');
     cy.contains('Quota order number');
     cy.contains('057015');
     cy.contains('Start and end dates');
-    cy.contains('1 January 2021 to 01 January 2022');
+    cy.contains('1 January 2022 to 31 December 2022');
     cy.get('.close [href]').click();
   });
 });
