@@ -4,12 +4,12 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
 
   // Page Title
   it('UK - Header text - sections page', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff');
   });
   // Gov Logo
   it('UK - GOV.UK logo ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('.govuk-header').should('be.visible', 'GOV.UK');
   });
   it('UK - find_commodity page', function() {
@@ -83,18 +83,18 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
   });
   it('UK - Search the Tariff section', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('9919000060');
     cy.checkCommPage('9919000060');
   });
   it('UK - A-Z section', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('li:nth-of-type(3) > .govuk-header__link').click();
     cy.contains('A–Z of Classified Goods');
   });
   it('UK - Tools section', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('li:nth-of-type(4) > .govuk-header__link').click();
     cy.contains('Certificate, licenses and documents');
     cy.contains('Additional codes');
@@ -106,9 +106,14 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
         .should('be.visible', 'Search the tariff for footnotes')
         .should('be.visible', 'Search the tariff for chemicals by ');
   });
+  it('UK - News section', function() {
+    cy.visit('/find_commodity');
+    cy.get('li:nth-of-type(5) > .govuk-header__link').click();
+    cy.contains('Latest news');
+  });
   // HOTT-164
   it('UK - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.contains('API Documentation');
     // cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
     cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist');

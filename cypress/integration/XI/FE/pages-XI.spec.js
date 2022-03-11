@@ -56,7 +56,8 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('Chapter 98 contains 1 heading. Choose the heading that best matches your goods.');
 
     cy.contains('Component parts of complete industrial plant in the framework of external trade (Commission Regulation EC No 113/2010 of 9.02.2010)').click();
-    cy.contains('There are 96 commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');});
+    cy.contains('There are 96 commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+  });
   it('XI - Heading page', function() {
     const headings = ['4301', '4802', '1702'];
     const comms = ['5', '18', '26'];
@@ -102,6 +103,11 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
         .should('be.visible', 'Search for certificates, licenses and other document codes.')
         .should('be.visible', 'Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
         .should('be.visible', 'Search the tariff for chemicals by ');
+  });
+  it('XI - News section', function() {
+    cy.visit('xi/find_commodity');
+    cy.get('li:nth-of-type(5) > .govuk-header__link').click();
+    cy.contains('Latest news');
   });
 
   // HOTT-164
