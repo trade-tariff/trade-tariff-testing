@@ -16,7 +16,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
       cy.contains('Guidance');
       cy.contains('Check your goods meet the rules of origin');
       cy.go(-1);
-      cy.contains(`Pay less Customs Duty on goods from a country with a ${service[i]} trade agreement`).click();
+      cy.contains(`Pay less Import Duty on goods from a country with a ${service[i]} trade agreement`).click();
       cy.contains('Guidance');
       cy.contains('Pay less Customs Duty on goods from a country with a UK trade agreement');
       cy.go(-1);
