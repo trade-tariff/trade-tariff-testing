@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const {isTaggedTemplateExpression} = require('typescript');
+// const {isTaggedTemplateExpression} = require('typescript');
 
 /* eslint-disable max-len */
 describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |', function() {
@@ -170,6 +170,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     cy.visit('/browse');
     cy.contains(' Live animals; animal products').click();
     cy.get('tr:nth-of-type(1) > .govuk-table__cell > a').click();
+    // Change date
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.get('#tariff_date_day').click().clear().type(7);
     cy.get('#tariff_date_month').click().clear().type(4);
