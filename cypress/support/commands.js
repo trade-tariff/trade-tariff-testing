@@ -157,7 +157,7 @@ Cypress.Commands.add('mobileMenu', ()=>{
   cy.contains('Browse');
   cy.contains('A-Z');
   cy.contains('Tools');
-  cy.contains('Updates');
+  cy.contains('News');
   cy.contains('Help');
   cy.get('.govuk-header__menu-button').click();
 });

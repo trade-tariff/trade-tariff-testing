@@ -9,11 +9,12 @@ describe('UK 🇬🇧 XI 🇪🇺 | documentCodeTitles.spec.js | Validate docume
     cy.get('table:nth-of-type(1) > .govuk-table__body > tr:nth-of-type(1)  a[role=\'button\']').click();
     cy.contains('Other certificates:').should('not.exist');
     cy.contains('Particular provisions:').should('not.exist');
-    cy.get('.close [href]').click().wait(500);
+    // div#popup a
+    cy.get('div#popup a').click().wait(500);
     //
     cy.get('tr:nth-of-type(2) > .conditions-col.govuk-table__cell > a[role=\'button\']').click();
     cy.contains('National Document:').should('not.exist');
-    cy.get('.close [href]').click().wait(500);
+    cy.get('div#popup a').click().wait(500);
     //
     cy.get('[data-module] [tabindex=\'-1\']:nth-of-type(3) .conditions-col [href]').click();
     cy.contains('Other certificates:').should('not.exist');
@@ -26,11 +27,11 @@ describe('UK 🇬🇧 XI 🇪🇺 | documentCodeTitles.spec.js | Validate docume
     cy.get('[data-module] .govuk-table:nth-child(9) [tabindex=\'-1\']:nth-of-type(1) .conditions-col [href]').click();
     cy.contains('Other certificates:').should('not.exist');
     cy.contains('Particular provisions:').should('not.exist');
-    cy.get('.close [href]').click().wait(500);
+    cy.get('div#popup a').click().wait(500);
     //
     cy.get('table:nth-of-type(3) > .govuk-table__body > .KP.govuk-table__row > .conditions-col.govuk-table__cell > a[role=\'button\']').click();
     cy.contains('Particular provisions:').should('not.exist');
-    cy.get('.close [href]').click().wait(500);
+    cy.get('div#popup a').click().wait(500);
     cy.contains('Goods necessary for the official purposes of diplomatic or consular missions of Member States in the DPRK or international organisations enjoying immunities in accordance with international law, or to the personal effects of their staff (Art 10.3 of Regulation (EU) 2017/1509)');
   });
 });
