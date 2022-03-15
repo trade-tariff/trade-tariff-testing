@@ -19,18 +19,18 @@ Move reassigned measure types (464, 481, 482, 483) from 'hide me' to import duti
       cy.visit(`${country[i]}/commodities/2204219413#import`);
       cy.contains(`${titles[i]}`);
       cy.contains('Import duties').click();
-      cy.contains('Declaration of subheading submitted to restrictions (import)');
-      cy.contains('TM640').click();
-      cy.contains('Declaration of subheading submitted to restrictions (import) for All countries');
+      cy.contains('Declaration of subheading submitted to restrictions (import)').should('not.exist');
+      // cy.contains('TM640').click();
+      // cy.contains('Declaration of subheading submitted to restrictions (import) for All countries');
     });
 
     it(`${country[i]} Import duties 464`, function() {
       cy.visit(`${country[i]}/commodities/8714999011#import`);
       cy.contains(`${titles[i]}`);
       cy.contains('Import duties').click();
-      cy.contains('Declaration of subheading submitted to authorised use provisions');
-      cy.contains('CD501').click();
-      cy.contains('Declaration of subheading submitted to authorised use provisions');
+      cy.contains('Declaration of subheading submitted to authorised use provisions').should('not.exist');
+      // cy.contains('CD501').click();
+      // cy.contains('Declaration of subheading submitted to authorised use provisions');
     });
   }
   it('UK Import duties 489', function() {
