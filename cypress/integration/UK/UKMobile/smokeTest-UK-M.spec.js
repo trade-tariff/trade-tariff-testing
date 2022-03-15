@@ -157,7 +157,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         .contains('No results found');
   });
   // Date picker working and persists on UK XI sites
-  it.only('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
+  it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
     cy.viewport('iphone-x');
     cy.visit('/sections');
     // select Change Date and change months and years
@@ -171,23 +171,22 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     cy.contains(' Live animals; animal products').click();
     cy.get('tr:nth-of-type(1) > .govuk-table__cell > a').click();
     // Change date
-    cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
-    cy.get('#tariff_date_day').click().clear().type(7);
-    cy.get('#tariff_date_month').click().clear().type(4);
-    cy.get('#tariff_date_year').click().clear().type(2022);
-    cy.get('div:nth-of-type(3) > .govuk-summary-list__value')
-        .contains('31 October 2022');
+    cy.get('.govuk-link').contains('Change').click();
+    // cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.datePickerPage({day: 22, month: 12, year: 2022});
+    cy.contains('22 December 2022');
+    // navigate to Northern Ireland service
 
     cy.get('main#content  nav  a')
         .contains('Northern Ireland Online Tariff').click();
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('Chapter 01 - Live animals');
+    cy.contains('22 December 2022');
 
-    cy.contains('Online Tariff');
-    cy.get('main#content  nav  a');
-    cy.contains('Online Tariff').click();
-
-    cy.contains(' Live animals; animal products');
-    cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
-        .contains('This tariff is for 7 April 2022');
+    cy.get('main#content  nav  a').click();
+    cy.contains('UK Integrated Online Tariff');
+    cy.contains('Chapter 01 - Live animals');
+    cy.contains('22 December 2022');
   });
   // UK not in EU country list
   it('🚀 UK - United Kingdom should not be shown in EU country list', function() {
