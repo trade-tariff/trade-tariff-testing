@@ -22,10 +22,11 @@ describe('| dcFeedbackLink | Feedback link on Duty Calculator page |', function(
 
       // enter some feedback
       cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 DC feedback ');
-      cy.get('input#name').type('Random Guy 🥸 ');
-      cy.get('input#email').type('abd@12398.com');
-      cy.get('input[name=\'commit\']').click();
-      //  cy.contains('Thank you for your feedback')
+      cy.get('input#feedback-name-field').type('Random Guy 🥸 ');
+      cy.get('input#feedback-email-field').type('abcd@12345.com');
+      cy.get('form#new_feedback > .govuk-button').click();
+      cy.contains('Thank you for your feedback');
+      cy.contains('We will get back to you shortly.');
     });
   }
 });
