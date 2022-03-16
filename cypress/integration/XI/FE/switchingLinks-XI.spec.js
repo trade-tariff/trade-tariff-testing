@@ -281,31 +281,7 @@ describe('🇪🇺 💡 |switchingLinks-XI.spec|Switching Link & text ,Forum and
     cy.get('.govuk-header ')
         .contains('UK Integrated Online Tariff');
   });
-  it('Feedback Page', function() {
-    cy.visit('/xi/feedback');
-    cy.get('.govuk-header ')
-        .contains('Northern Ireland Online Tariff');
-    // UK switch link
-    cy.get('.govuk-main-wrapper')
-        .contains('Switch to')
-        .contains('UK Integrated Online Tariff').click();
-    cy.get('.govuk-header ')
-        .contains('UK Integrated Online Tariff');
-    // click on the XI link and it should navigate to XI version
-    cy.get('.govuk-main-wrapper');
-    cy.contains('Northern Ireland Online Tariff')
-        .click();
-    // Back to XI page
-    cy.get('.govuk-header ')
-        .contains('Northern Ireland Online Tariff');
-    cy.get('.govuk-main-wrapper')
-        .contains('UK Integrated Online Tariff');
-    // bottom switching link
-    cy.get('.tariff-breadcrumbs.js-tariff-breadcrumbs').contains('You are viewing the Northern Ireland Online Tariff.');
-    cy.get('.switch-service-control').contains('Switch to the UK Integrated Online Tariff').click();
-    cy.get('.govuk-header ')
-        .contains('UK Integrated Online Tariff');
-  }); it('Privacy Page', function() {
+  it('Privacy Page', function() {
     cy.visit('/xi/privacy');
     cy.get('.govuk-header ')
         .contains('Northern Ireland Online Tariff');
