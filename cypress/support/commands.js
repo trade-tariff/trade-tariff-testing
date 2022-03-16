@@ -102,9 +102,9 @@ Cypress.Commands.add('newsBannerXI', ()=>{
   cy.contains('. If they are not at risk of onward movement to the EU, use the ');
 });
 Cypress.Commands.add('specialBanner', ()=>{
-  cy.contains('The UK has introduced new sanctions in relation to trade with Russia. For more details, see regulation 2022/195 (opens in new window). Further guidance on Russia sanctions (opens in new window) is available here.');
-  cy.get('header[role=\'banner\'] p > a:nth-of-type(1)').should('have.attr', 'href', 'https://www.legislation.gov.uk/uksi/2022/195/contents/made');
-  cy.get('p > a:nth-of-type(2)').should('have.attr', 'href', 'https://www.gov.uk/government/publications/russia-sanctions-guidance/russia-sanctions-guidance');
+  cy.contains('The UK Government has announced a ban on exports to Russia of high-end luxury goods and additional duties on a number of Russian and Belarusian imports. The Online Tariff is being updated to reflect this. Further information: UK announces new economic sanctions against Russia - GOV.UK (www.gov.uk). Also see further details of the goods affected by additional duties.');
+  cy.get('header[role=\'banner\'] p > a:nth-of-type(1)').should('have.attr', 'href', 'https://www.gov.uk/government/news/uk-announces-new-economic-sanctions-against-russia');
+  cy.get('p > a:nth-of-type(2)').should('have.attr', 'href', 'https://www.gov.uk/guidance/tariffs-on-goods-imported-into-the-uk');
 
   //
 });
