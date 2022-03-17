@@ -61,7 +61,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', {tag
     cy.searchForCommodity2('3808941000');
     cy.contains(/Commodity .*3808941000/i);
 
-    const pages = ['browse', 'sections/6', 'chapters/28', 'headings/2802', 'commodities/2805120010', 'feedback', 'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd', 'a-z-index/a'];
+    const pages = ['browse', 'sections/6', 'chapters/28', 'headings/2802', 'commodities/2805120010', 'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd', 'a-z-index/a'];
     for (let i=0; i<pages.length; i++) {
       cy.visit(`/xi/${pages[i]}`);
       cy.searchForCommodity2('3808941000');
