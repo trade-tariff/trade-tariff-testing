@@ -40,7 +40,8 @@ describe('| Row-NI304a-delta.spec.js | Turnover > £500,000 | 🔼 Delta Route -
 
   // Ad Valorem - delta mfn 3%
   it('RoW 🇧🇹 (Bhutan) - XI | Ad Valorem - delta mfn < 3% = UK |', function() {
-    const comm = ['0303531000', '9503002110'];
+    // 0303531000
+    const comm = ['9503002110'];
     for (let i = 0; i < comm.length; i++) {
       cy.visit(`/duty-calculator/uk/${comm[i]}/import-date`);
       // date
@@ -69,6 +70,7 @@ describe('| Row-NI304a-delta.spec.js | Turnover > £500,000 | 🔼 Delta Route -
       cy.contains('Option 1: Third-country duty');
       cy.contains('Third-country duty (UK)');
       cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+      cy.dcRooLink2();
     }
   });
   // Ad Valorem - delta mfn 3%

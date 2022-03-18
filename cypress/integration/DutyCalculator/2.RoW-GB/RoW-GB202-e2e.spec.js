@@ -104,6 +104,7 @@ describe('| RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec |
       cy.contains('Option 1: Third-country duty');
       cy.contains('Option 2: Tariff preference - Turkey');
       cy.contains('Definitive countervailing duty (UK)');
+      cy.dcRooLink({country: 'Turkey'});
     });
   }
 });

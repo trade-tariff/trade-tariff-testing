@@ -177,3 +177,8 @@ Cypress.Commands.add('headingsHistory', (headingsCode, date)=>{
   cy.visit({url: `/headings/${headingsCode}${dateParams}`, failOnStatusCode: false});
   cy.checkHeadingsPage(headingsCode);
 });
+Cypress.Commands.add('RoOContent', (options)=>{
+  cy.contains(`Product-specific rules for commodity ${options.commCode}`);
+  cy.contains(`If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or ${options.country}.`);
+  cy.contains('If there are alternative rules, your product needs to comply with only one of them.');
+});

@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 /* eslint-disable max-len */
 describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['config', 'roo-tag']}, function() {
   // RoO tab exists and links work
@@ -89,8 +90,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('In order to qualify for the lower or zero preferential tariff under the CARIFORUM-UK economic partnership agreement, the product must originate in the UK or one of the partner countries.');
 
     cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
-    cy.contains('Product-specific rules for commodity 0702000007');
-    cy.contains('If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or The Bahamas.');
+    cy.RoOContent({commCode: '0702000007', country: 'The Bahamas'});
     cy.get('.govuk-table__row').contains('Heading');
     cy.contains('Non-preferential rules of origin');
   });
