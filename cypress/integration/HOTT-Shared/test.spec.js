@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
 describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it('test', function() {
@@ -84,5 +85,18 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.searchForCommodity2('tomatoes');
     console.log(cy.title());
     // Edible vegetables and certain roots and tubers - UK Integrated Online Tariff - GOV.UK
+  });
+  it('RoO block', function() {
+    cy.visit('/commodities/1508101000?country=IN#rules-of-origin');
+    cy.RoOContent({commCode: '1508101000', country: 'India'});
+  });
+  it.only('RoO 2', function() {
+    const commCode = '1508101000';
+    const newCode = RegExp(`.*${commCode}`, 'i');
+    const newCode1 = (`${commCode}`);
+    console.log(newCode1);
+
+    // cy.contains(`There are no product-specific rules for commodity ${newCode}`);
+  // cy.contains(new RegExp(`There are no product-specific rules for commodity .*${options.commCode}`, 'i'));
   });
 });

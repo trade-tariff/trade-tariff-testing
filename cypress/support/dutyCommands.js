@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable new-cap */
 /* eslint-disable max-len */
 
 // Duty Calculator main page
@@ -282,4 +284,16 @@ Cypress.Commands.add('getExchangeRateForImportDate', (importDateString) => {
 
   return cy.wrap(applicableExchangeRate);
 });
+Cypress.Commands.add('dcRooLink', (options)=>{
+  cy.contains(`Product-specific rules for commodity`);
+  cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
+  cy.contains(`If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or ${options.country}.`);
+  cy.contains('If there are alternative rules, your product needs to comply with only one of them.');
+});
+Cypress.Commands.add('dcRooLink2', (options)=>{
+  cy.contains(`Product-specific rules for commodity`);
+  cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
+  cy.contains(`There are no product-specific rules for commodity`);
+});
+
 

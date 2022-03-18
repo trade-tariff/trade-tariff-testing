@@ -77,6 +77,7 @@ describe('| RoW-GB201-e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e2
       cy.contains('You are importing commodity 0702 00 00 07 from Vietnam on 31 May 2022.');
       cy.contains('Option 1: Third-country duty');
       cy.contains('Option 2: Tariff preference - Vietnam');
+      cy.dcRooLink({country: 'Vietnam'});
     });
   }
 });
