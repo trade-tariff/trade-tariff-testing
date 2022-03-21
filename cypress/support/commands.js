@@ -182,3 +182,7 @@ Cypress.Commands.add('RoOContent', (options)=>{
   cy.contains(`If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or ${options.country}.`);
   cy.contains('If there are alternative rules, your product needs to comply with only one of them.');
 });
+Cypress.Commands.add('groiContent', ()=>{
+  cy.contains('General Rules for the Interpretation of goods').click();
+  cy.contains('Classification of goods in the Tariff shall be governed by the following principles:');
+});
