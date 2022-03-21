@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('| dcAdditionalCode | RoW to GB - additional codes |', function() {
+describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config', 'dc-tag']}, function() {
   it(`additional code 🇮🇱 | UK |`, function() {
     cy.visit('/duty-calculator/uk/6307909200/import-date');
     cy.validDate();
