@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('cerficatesAPI.spec.js for both UK and XI  |', function() {
+describe('cerficatesAPI.spec.js for both UK and XI  |', {tags: ['config', 'api-tag']}, function() {
   // check length , fields , as_of on both services =ability to show snapshot on a given date (validity start date before ////snapshot, validity end date after or null)
   it('UK certificates API - type ,length , properties ', function() {
     cy.request('/api/v2/certificates.json').as('comments');

@@ -3,7 +3,7 @@
 // date , commodity ,destination,origin to be persisted on back links
 // back button from date page should take to STW page ( to be confirmed )
 
-describe('dcSTW-CHIEG.spec | duty calculator link to STW and CHIEG services|', function() {
+describe('dcSTW-CHIEG.spec | duty calculator link to STW and CHIEG services|', {tags: ['config', 'stw-tag']}, function() {
   it('EU-GB | Customs value |', function() {
     cy.visit('/duty-calculator/prefill?commodity_code=0702000007&country_of_origin=FR&import_date=2021-12-21&import_destination=UK');
     cy.contains('What is the customs value of this import?');

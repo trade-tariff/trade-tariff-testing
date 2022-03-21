@@ -90,7 +90,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.visit('/commodities/1508101000?country=IN#rules-of-origin');
     cy.RoOContent({commCode: '1508101000', country: 'India'});
   });
-  it.only('RoO 2', function() {
+  it('RoO 2', function() {
     const commCode = '1508101000';
     const newCode = RegExp(`.*${commCode}`, 'i');
     const newCode1 = (`${commCode}`);
@@ -98,5 +98,11 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
 
     // cy.contains(`There are no product-specific rules for commodity ${newCode}`);
   // cy.contains(new RegExp(`There are no product-specific rules for commodity .*${options.commCode}`, 'i'));
+  });
+  it.only('GRI Test', function() {
+    cy.visit('/commodities/0702000007#footnotes');
+    cy.groiContent();
+    cy.visit('/chapters/15');
+    cy.groiContent();
   });
 });

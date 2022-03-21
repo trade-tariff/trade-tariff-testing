@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('globalSearch.spec| global search function on UK and XI service ** Unreleased **', {tags: ['config', 'xbrowser-tag']}, function() {
+describe('globalSearch.spec| global search function on UK and XI service ** Unreleased **', {tags: ['config', 'unreleased-tag']}, {tags: ['config', 'xbrowser-tag']}, function() {
   it('Availabilty all pages', function() {
     cy.visit('/find_commodity');
     cy.get('.tariff-search-banner__toggle').click();
