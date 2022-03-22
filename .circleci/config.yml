@@ -21,6 +21,7 @@ workflows:
           store_artifacts: true
           spec: "*/**/smokeTestCI.spec.js"
           yarn: true
+          config: 'defaultCommandTimeout=25000'
           post-steps:
             - store_test_results:
                 path: cypress/results
