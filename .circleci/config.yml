@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.27.0
+  cypress: cypress-io/cypress@1.29.0
   slack: circleci/slack@4.1
 
 executors: # This is totally crazy but it's the only way to configure the environment: https://circleci.com/developer/orbs/orb/cypress-io/cypress#usage-env-vars
