@@ -50,9 +50,12 @@ yarn run open:prod
 Running specific set of tests using tags
 
 ```
-tags:xbrowser
-tags:roo
 tags:unreleased
+tags:api
+tags:stw
+tags:roo
+tags:dc
+tags:xbrowser
 
 yarn run tags:xbrowser
 ```
