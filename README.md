@@ -50,12 +50,14 @@ yarn run open:prod
 Running specific set of tests using tags
 
 ```
-tags:unreleased
-tags:api
-tags:stw
-tags:roo
-tags:dc
-tags:xbrowser
+| tag name  | run specs |
+| ------------- | ------------- |
+| tags:unreleased  | unreleased specs  |
+| tags:api  | API specs  |
+| tags:stw | Single trade window specs |
+| tags:roo | Rules of Origin specs |
+| tags:dc | Duty Calculator specs |
+| tags:xbrowser | Cross browser specs |
 
 yarn run tags:xbrowser
 ```
