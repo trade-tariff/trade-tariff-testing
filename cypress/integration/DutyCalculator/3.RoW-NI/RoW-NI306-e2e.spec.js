@@ -8,9 +8,9 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(700);
+
     cy.otherOriginList({value: 'Greenland'});
     // Trader Scheme
     cy.traderScheme('no');
@@ -34,11 +34,11 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(500);
+
     cy.otherOriginList({value: 'China'});
-    cy.wait(500);
+
     // Trader Scheme
     cy.traderScheme('no');
     // Duties Apply
@@ -85,7 +85,7 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUseNI('yes');
-    // turnover <500,000 - no 
+    // turnover <500,000 - no
     cy.turnOver('more');
     // Planned processing - commercial
     cy.plannedXI('unacceptablecommercial');

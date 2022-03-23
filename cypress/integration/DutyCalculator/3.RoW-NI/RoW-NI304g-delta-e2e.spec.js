@@ -10,11 +10,11 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(100);
+
     cy.otherOriginList({value: 'Canada'});
-    cy.wait(100);
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -61,11 +61,11 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(100);
+
     cy.otherOriginList({value: 'Australia'});
-    cy.wait(100);
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

@@ -51,18 +51,14 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Option 3: Airworthiness tariff suspension');
   });
-  it('🚀 XI 🇪🇺 - Duty Calculator e2e - RoW 🇦🇩 (Andorra) - XI 304i| UK Tariffs apply with Meursing code 7000 ,EU Tariffs apply with Meursing code 7049 |', function() {
+  it('🚀 XI 🇪🇺 - Duty Calculator e2e - RoW 🇦🇩 (Andorra) - XI 304i | UK Tariffs apply with Meursing code 7000 ,EU Tariffs apply with Meursing code 7049 |', function() {
     cy.visit('/duty-calculator/xi/1905311100/import-date');
     // date
     cy.validDate();
     // destination
     cy.selectDestination('xi');
-    // origin
-    cy.selectOrigin('other');
     // select country from list
-    cy.wait(100);
     cy.otherOriginList({value: 'Andorra'});
-    cy.wait(100);
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

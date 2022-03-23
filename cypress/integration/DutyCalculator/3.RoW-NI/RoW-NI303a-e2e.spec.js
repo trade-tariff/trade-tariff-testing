@@ -9,9 +9,6 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
-    // select country from list
-    cy.wait(300);
     cy.otherOriginList({value: 'Morocco'});
     cy.wait(300);
     // Trader Scheme

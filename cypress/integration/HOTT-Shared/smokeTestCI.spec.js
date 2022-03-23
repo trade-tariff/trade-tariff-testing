@@ -318,7 +318,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   });
   // ************ Duty Calculator tests ************
 
-  it('🧮  UK 🇬🇧 - Duty Calculator e2e - ( NI to GB ) | 101 |', function() {
+  it('🧮 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB ) | 101 |', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
     cy.contains('UK Integrated Online Tariff');
     cy.validDate();
@@ -332,7 +332,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.get('.govuk-button').click();
     cy.contains('When will the goods be imported?');
   });
-  it(`🧮  UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204 | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function() {
+  it(`🧮 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204 | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/2204210600/import-date`);
     cy.wait(500);
@@ -350,18 +350,13 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
   });
-  it('🧮  UK 🇬🇧 - RoW - Duty Calculator e2e - 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta || Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ |', function() {
+  it('🧮 UK 🇬🇧 - RoW - Duty Calculator e2e - 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta || Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ |', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
     // date
     cy.validDate();
     // destination
     cy.selectDestination('xi');
-    // origin
-    cy.selectOrigin('other');
-    // select country from list
-    cy.wait(100);
     cy.otherOriginList({value: 'United Arab Emirates'});
-    cy.wait(100);
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -396,9 +391,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // origin
     cy.selectOrigin('other');
     // select country from list
-    cy.wait(100);
     cy.otherOriginList({value: 'Canada'});
-    cy.wait(100);
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

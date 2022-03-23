@@ -29,7 +29,7 @@ describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
 
       // ✅ Non processing - Yes - First Option selected
       cy.plannedXI('notprocessing');
-      cy.wait(100);
+      
       // duty page validation
       cy.contains('There is no import duty to pay');
       cy.contains('There is no import duty to pay because:');
@@ -39,17 +39,17 @@ describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
       cy.contains('You do not intend to further process the goods on arrival in Northern Ireland');
       cy.contains('You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.');
 
-      cy.wait(100);
+      
       // selection is persisted
       cy.contains('Back').click();
-      cy.wait(100);
+      
       cy.get('#steps-planned-processing-planned-processing-without-any-processing-field')
           .parent()
           .find('input')
           .should('be.checked');
 
       cy.contains('Continue').click();
-      cy.wait(100);
+      
       cy.contains('Start again').click();
       cy.contains('When will the goods be imported?');
     });

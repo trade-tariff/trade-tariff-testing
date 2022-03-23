@@ -81,10 +81,10 @@ describe('🛃 📱 UK XI 💡 | dcSmokeTest-Mobile-UK | Duty Calculator Smoke |
       cy.selectOrigin('other');
       cy.mobileMenu();
       // select country from list
-      cy.wait(100);
+      
       cy.otherOriginList({value: 'Canada'});
       cy.mobileMenu();
-      cy.wait(100);
+      
       // Trader Scheme
       cy.traderScheme('yes');
       cy.mobileMenu();

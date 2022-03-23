@@ -11,11 +11,11 @@ describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursi
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(100);
+
     cy.otherOriginList({value: 'Andorra'});
-    cy.wait(100);
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

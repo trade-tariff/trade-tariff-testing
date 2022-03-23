@@ -7,13 +7,13 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(700);
+
     cy.otherOriginList({value: 'Norway'});
-    cy.wait(700);
+
     cy.traderScheme('yes');
-     cy.finalUseNI('no');
+    cy.finalUseNI('no');
     // Duties Apply
     cy.euDutiesApply();
     // // Duties Apply

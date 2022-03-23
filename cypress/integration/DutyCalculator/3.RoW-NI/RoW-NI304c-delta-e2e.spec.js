@@ -10,11 +10,10 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+   
     // select country from list
-    cy.wait(100);
     cy.otherOriginList({value: 'Singapore'});
-    cy.wait(100);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -49,11 +48,9 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
     // select country from list
-    cy.wait(100);
     cy.otherOriginList({value: 'San Marino'});
-    cy.wait(100);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

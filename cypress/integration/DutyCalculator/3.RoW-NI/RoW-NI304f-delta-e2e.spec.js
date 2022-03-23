@@ -10,11 +10,11 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(100);
+
     cy.otherOriginList({value: 'Peru'});
-    cy.wait(100);
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -53,11 +53,11 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(100);
+
     cy.otherOriginList({value: 'Andorra'});
-    cy.wait(100);
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -104,11 +104,11 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(100);
+
     cy.otherOriginList({value: 'Faroe Islands'});
-    cy.wait(100);
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
