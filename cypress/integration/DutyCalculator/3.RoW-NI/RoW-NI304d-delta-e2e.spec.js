@@ -2,18 +2,16 @@
 // More than one Measure amounts
 describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ | | more than one measure amounts on UK and XI service | ', function() {
   //
-  it('RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta || Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ |', function() {
+  it('RoW 🇦🇪 (United Arab Emirates) - XI | Row-NI304d-delta | Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ |', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
     // date
     cy.validDate();
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
     // select country from list
-    cy.wait(100);
     cy.otherOriginList({value: 'United Arab Emirates'});
-    cy.wait(100);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

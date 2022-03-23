@@ -8,8 +8,6 @@ describe('| RoW-NI302-e2e.spec | RoW to Northern Ireland ', function() {
       cy.validDate();
       // destination
       cy.selectDestination('xi');
-      // origin
-      cy.selectOrigin('other');
       // select country from list
       cy.otherOriginList({value: 'China'});
       // Duties apply

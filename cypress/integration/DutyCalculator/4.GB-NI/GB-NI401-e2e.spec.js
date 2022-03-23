@@ -25,7 +25,7 @@ describe('| GB-NI401-e2e.spec | GB to NI route 🚎 01 - 🚫 Trade Remedies - �
       cy.contains('There is no import duty to pay');
       cy.contains('There is no import duty to pay when importing goods into Northern Ireland from GB when the EU\'s third country duty is 0.00%.');
       // Start again
-      cy.wait(100);
+      
       cy.contains('Start again').click();
       cy.contains('When will the goods be imported?');
     });

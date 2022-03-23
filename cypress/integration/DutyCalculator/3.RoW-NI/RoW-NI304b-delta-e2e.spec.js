@@ -28,9 +28,9 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(300);
+
     cy.otherOriginList({value: 'India'});
     cy.wait(300);
     // // Trader Scheme
@@ -91,9 +91,9 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(300);
+
     cy.otherOriginList({value: 'Chile'});
     cy.wait(300);
     // Trader Scheme

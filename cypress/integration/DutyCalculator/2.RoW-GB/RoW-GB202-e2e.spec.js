@@ -14,13 +14,13 @@ describe('| RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec |
       cy.visit(`/duty-calculator/${country[i]}/0304829010/import-date`);
       //   cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
       cy.validDate();
-      cy.wait(100);
+      
       cy.contains('Which part of the UK are you importing into?');
 
       // select GB as country of destination
       cy.get('#steps-import-destination-import-destination-uk-field').check();
       cy.contains('Continue').click();
-      cy.wait(100);
+      
       cy.contains('Which country are the goods coming from?');
 
       // select country from list

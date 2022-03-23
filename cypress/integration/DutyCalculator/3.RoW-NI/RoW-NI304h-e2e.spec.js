@@ -104,9 +104,9 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     // origin
     cy.selectOrigin('other');
     // select country from list
-    cy.wait(100);
+    
     cy.otherOriginList({value: 'Australia'});
-    cy.wait(100);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

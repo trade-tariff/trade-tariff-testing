@@ -9,11 +9,11 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.selectOrigin('other');
+
     // select country from list
-    cy.wait(700);
+
     cy.otherOriginList({value: 'Argentina'});
-    cy.wait(700);
+
     // Duties Apply
     cy.euDutiesApply();
     // customs value

@@ -73,6 +73,7 @@ Cypress.Commands.add('originList', (origin)=>{
 Cypress.Commands.add('otherOriginList', (otherorigin) => {
   cy.contains('Where are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
+  cy.get('input#steps-country-of-origin-country-of-origin-other-field').click();
   cy.get('#steps-country-of-origin-other-country-of-origin-field').click().clear().type(otherorigin.value);
   cy.contains('Continue').click();
 });
