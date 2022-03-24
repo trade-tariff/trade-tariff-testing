@@ -23,7 +23,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
     cy.get('input#search_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
-    cy.wait(500);
+    
 
     // "Measures for Chile",function(){
     cy.get('.govuk-tabs__panel')

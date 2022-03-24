@@ -17,9 +17,9 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     // origin
     cy.selectOrigin('other');
     // select country from list
-    cy.wait(300);
+    
     cy.otherOriginList({value: 'Nepal'});
-    cy.wait(300);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -44,9 +44,9 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     // origin
     cy.selectOrigin('other');
     // select country from list
-    cy.wait(300);
+    
     cy.otherOriginList({value: 'India'});
-    cy.wait(300);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

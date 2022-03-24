@@ -19,7 +19,7 @@ describe('| Row-NI304a-delta.spec.js | Turnover > £500,000 | 🔼 Delta Route -
     // select country from list
     //
     cy.otherOriginList({value: 'Nepal'});
-    cy.wait(300);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -53,7 +53,7 @@ describe('| Row-NI304a-delta.spec.js | Turnover > £500,000 | 🔼 Delta Route -
       // select country from list
       //
       cy.otherOriginList({value: 'Bhutan'});
-      cy.wait(300);
+      
       // Trader Scheme
       cy.traderScheme('yes');
       // ✅  Final use in NI - Yes
@@ -85,7 +85,7 @@ describe('| Row-NI304a-delta.spec.js | Turnover > £500,000 | 🔼 Delta Route -
     // select country from list
     //
     cy.otherOriginList({value: 'Sri lanka'});
-    cy.wait(300);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -124,7 +124,7 @@ describe('| Row-NI304a-delta.spec.js | Turnover > £500,000 | 🔼 Delta Route -
     // select country from list
     //
     cy.otherOriginList({value: 'Thailand'});
-    cy.wait(300);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

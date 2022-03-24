@@ -31,7 +31,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
   it(`🚀 UK 🇬🇧 Duty Calculator - RoW to GB 🇦🇫 Afghanistan to 🇬🇧 GB | 204 |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/3926909790/import-date`);
-    cy.wait(500);
+    
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});

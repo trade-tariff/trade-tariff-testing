@@ -135,7 +135,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
     cy.get('#tariff_date_month').click().clear().type(2);
     cy.get('#tariff_date_year').click().clear().type(2020);
     cy.contains('Set date').click();
-    cy.wait(300);
+    
 
     cy.contains(' Live animals; animal products');
     cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')
@@ -315,7 +315,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
     cy.get('#tariff_date_month').click().clear().type(12);
     cy.get('#tariff_date_year').click().clear().type(2021);
     cy.contains('Set date').click();
-    cy.wait(300);
+    
 
     cy.contains(' Live animals; animal products');
     cy.get('.date-picker.datepicker.govuk-\\!-font-size-16.govuk-fieldset.govuk-form-group.inline.js-date-picker > .js-show.sections-context.text')

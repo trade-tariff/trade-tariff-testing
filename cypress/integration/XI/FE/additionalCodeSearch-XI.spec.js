@@ -11,7 +11,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${tpadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -31,7 +31,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${prsadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -51,7 +51,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${radcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -73,7 +73,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${adadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -96,7 +96,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${adcadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -118,7 +118,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${badcadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -139,7 +139,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${cadcadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')

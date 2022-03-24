@@ -61,7 +61,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
 
   it('| UK | USA 🇺🇸 - Countries with which there is no trade agreement  |', function() {
     cy.visit('/commodities/0702000007');
-    cy.wait(500);
+    
     cy.get('a#tab_rules-of-origin').contains('Rules of origin').click().wait(200);
     // Select USA from All countries list
     cy.get('input#search_country').click().clear().wait(500)

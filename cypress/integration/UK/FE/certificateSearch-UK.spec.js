@@ -30,7 +30,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${adcerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -50,7 +50,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${ccerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -70,7 +70,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${dcerts_ids[i]}`);
-      cy.wait(700);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -89,7 +89,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${ecerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -102,7 +102,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
     cy.visit('/certificate_search');
     cy.contains('Search by Certificate');
     cy.get('select#type').select('H - HANDI, LOOMS certificate');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
 
     cy.get('.govuk-heading-l');
@@ -119,7 +119,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${icerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -132,7 +132,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
     cy.visit('/certificate_search');
     cy.contains('Search by Certificate');
     cy.get('select#type').select('K - Tariff quota');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
 
     cy.get('.govuk-heading-l');
@@ -150,7 +150,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${lcerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -171,7 +171,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${ncerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -185,7 +185,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
     cy.visit('/certificate_search');
     cy.contains('Search by Certificate');
     cy.get('select#type').select('P - Ingredients');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
 
     cy.get('.govuk-heading-l');
@@ -195,7 +195,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
     cy.visit('/certificate_search');
     cy.contains('Search by Certificate');
     cy.get('select#type').select('R - Export refunds');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
 
     cy.get('.govuk-heading-l');
@@ -205,7 +205,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
     cy.visit('/certificate_search');
     cy.contains('Search by Certificate');
     cy.get('select#type').select('T - T-Document');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
 
     cy.get('.govuk-heading-l');
@@ -222,7 +222,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${ucerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -242,7 +242,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${xcerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -264,7 +264,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
       cy.get('input#code')
           .clear()
           .type(`${ycerts_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -278,7 +278,7 @@ describe('🇬🇧 💡 | certificateSearch-UK | Certificate Search - UK service
     cy.visit('/certificate_search');
     cy.contains('Search by Certificate');
     cy.get('select#type').select('Z - More certificates');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
 
     cy.get('.govuk-heading-l');

@@ -20,7 +20,7 @@ describe('🇪🇺 💡 legalBaseColumn-XI | Legal base Column XI ', function() 
 
   it('☑️ 2.Prove that the legal base column exists on export measures tab on XI - commodity 0101210000', function() {
     cy.visit('xi/commodities/0101210000#export');
-    cy.wait(500);
+    
     cy.get('.govuk-tabs__panel');
     cy.contains('Legal base').should('exist');
     cy.contains('R2658/87');

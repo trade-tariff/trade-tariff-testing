@@ -16,7 +16,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    cy.wait(300);
+    
     cy.contains('22 December 2022');
     cy.url().should('include', 'day=22&month=12&year=2022');
 
@@ -38,7 +38,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 1, month: 1, year: 2022});
-    cy.wait(300);
+    
     cy.contains('1 January 2022');
     cy.url().should('include', 'day=1&month=1&year=2022');
 
@@ -73,7 +73,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    cy.wait(300);
+    
     cy.contains('22 December 2022');
     cy.url().should('include', 'day=22&month=12&year=2022');
 
@@ -90,7 +90,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 1, month: 1, year: 2022});
-    cy.wait(300);
+    
     cy.contains('1 January 2022');
     cy.url().should('include', 'day=1&month=1&year=2022');
 
@@ -131,7 +131,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         // select Change Date and change months and years
         cy.get('.govuk-summary-list__actions').contains('Change').click();
         cy.datePickerPage({day: 22, month: 12, year: 2022});
-        cy.wait(300);
+        
         cy.contains('22 December 2022');
         cy.url().should('include', 'day=22&month=12&year=2022');
       }

@@ -62,13 +62,13 @@ describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |'
     cy.title().should('eq', 'Northern Ireland Online Tariff - Set country filter - GOV.UK');
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
-    cy.wait(400);
+    
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     // Typing the country code
     cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
     cy.countryPickerpage({value: '(DE)'});
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Germany');
-    cy.wait(400);
+    
     // reset to all countries
     cy.get('a[role=\'button\'] > .long-text').click();
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');

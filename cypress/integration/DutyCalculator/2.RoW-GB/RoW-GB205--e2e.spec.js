@@ -5,7 +5,7 @@ describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', functio
     cy.contains('Northern Ireland Online Tariff');
     cy.get('p:nth-of-type(2) > a').click();
 
-    cy.wait(700);
+    
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Singapore'});

@@ -18,7 +18,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
     cy.get('input#search_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
-    cy.wait(500);
+    
 
     // Third country duty  measure has value 154.00 GBP / 100 kg', function () {
     cy.visit('/commodities/0406103010?country=CL#import');

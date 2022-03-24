@@ -6,7 +6,7 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
         .contains('No results found');
-    cy.wait(200);
+
     // Andorra should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD').wait(700);
     cy.get('[id=\'search_country__listbox\']')
@@ -27,7 +27,7 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
     cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'search_country__listbox\']')
         .contains('No results found');
-    cy.wait(200);
+
     // Andorra should be present
     cy.get('input#search_country').click().clear().wait(500).type('AD').wait(700);
     cy.get('[id=\'search_country__listbox\']')
@@ -60,13 +60,13 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
     cy.title().should('eq', 'UK Integrated Online Tariff - Set country filter - GOV.UK');
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
-    cy.wait(400);
+
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     // Typing the country code
     cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
     cy.countryPickerpage({value: '(DE)'});
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Germany');
-    cy.wait(400);
+
     // reset to all countries
     cy.get('a[role=\'button\'] > .long-text').click();
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');

@@ -1,7 +1,7 @@
 describe('| RoW-GB207-e2e.spec | excise codes |', function() {
   it(` 🚬 Cheroots | RoW 🇳🇴 Norway to 🇬🇧 GB  | 4.tobacco - Cheroots |`, function() {
     cy.visit(`duty-calculator/uk/2402100000/import-date`);
-    cy.wait(500);
+    
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Norway'});
@@ -21,7 +21,7 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Liechtenstein'});
-    cy.wait(300);
+    
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Measure units
