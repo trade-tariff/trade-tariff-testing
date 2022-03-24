@@ -88,7 +88,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     cy.contains('Continue').click();
     cy.contains('Which country are the goods coming from?');
     cy.contains('Continue').click();
-    cy.wait(1000);
+    //
     cy.get('.govuk-error-summary');
     cy.contains('There is a problem');
     cy.contains('Enter a valid origin for this import');

@@ -76,11 +76,11 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
 
       cy.get('.govuk-header__link')
           .contains('Search').click();
-      cy.wait(500);
+      
       cy.contains(`${pagetitles[i]}`);
       cy.get('.govuk-header__link')
           .contains('Browse').click();
-      cy.wait(500);
+      
       cy.contains(`${pagetitles[i]}`);
       cy.get('.govuk-header__navigation');
       cy.contains('A-Z').click();

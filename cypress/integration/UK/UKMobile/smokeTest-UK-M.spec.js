@@ -166,7 +166,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     cy.get('#tariff_date_month').click().clear().type(10);
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.get('input[name=\'commit\']').click();
-    cy.wait(300);
+    
     cy.visit('/browse');
     cy.contains(' Live animals; animal products').click();
     cy.get('tr:nth-of-type(1) > .govuk-table__cell > a').click();

@@ -32,7 +32,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // select country from list
 
     cy.otherOriginList({value: 'India'});
-    cy.wait(300);
+    
     // // Trader Scheme
     // cy.traderScheme('yes');
     // // ✅  Final use in NI - Yes
@@ -95,7 +95,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // select country from list
 
     cy.otherOriginList({value: 'Chile'});
-    cy.wait(300);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

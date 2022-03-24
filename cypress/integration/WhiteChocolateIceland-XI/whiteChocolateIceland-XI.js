@@ -3,7 +3,7 @@ Given('i am on Trade Tariff main page', () => {
 });
 When('i enter commodity code 1704903000 in search tariff box', () => {
   cy.get('.js-commodity-picker-select.js-show  input#q').click().type('1704903000');
-  cy.wait(3000);
+  // 
   cy.get('input[name=\'new_search\']').click();
 });
 When('i select Import button', () => {
@@ -13,7 +13,7 @@ When('select Iceland from All countries list', () => {
   cy.get('input#search_country').click().clear().wait(1000)
       .type('Iceland').wait(1000)
       .type('{enter}');
-  cy.wait(2000);
+  //
 });
 Then('Commodity information for 1704903000 is displayed', () => {
   cy.get('.commodity-header.govuk-heading-l');

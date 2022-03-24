@@ -10,7 +10,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   // Date Picker validation
   it('🚀 UK 🇬🇧 - Check date picker function is working', function() {
     cy.visit('/find_commodity');
-    cy.wait(300);
+    
     // select Change Date and OK with current date
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
@@ -22,12 +22,12 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     // select Change Date and CANCEL
     // cy.get(' .js-show.text > a[role=\'button\']').click();
     // cy.contains('Set date').click();
-    // cy.wait(300);
+    // 
 
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    cy.wait(300);
+    
     cy.contains('22 December 2022');
   });
   // switching link works
@@ -80,7 +80,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.searchForCommodity('3808941000');
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
     // cy.contains('Set date').click();
-    // cy.wait(300);
+    // 
     cy.contains('21 December 2021');
     // switch to XI tariff
     cy.contains('Northern Ireland Online Tariff').click();
@@ -101,7 +101,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   });
   it('🚀 XI 🇪🇺 - Check Calendar is functioning', function() {
     cy.visit('/xi/sections');
-    cy.wait(300);
+    
     // select Change Date and OK with current date
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
@@ -113,12 +113,12 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     // select Change Date and CANCEL
     // cy.get(' .js-show.text > a[role=\'button\']').click();
     // cy.contains('Set date').click();
-    // cy.wait(300);
+    // 
 
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    cy.wait(300);
+    
     cy.contains('22 December 2022');
   });
   // switching link works

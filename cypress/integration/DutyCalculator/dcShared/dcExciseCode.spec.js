@@ -15,7 +15,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    cy.wait(700);
+    
     cy.otherOriginList({value: 'Israel'});
 
     // Monetary value page
@@ -61,7 +61,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    cy.wait(700);
+    
     cy.otherOriginList({value: 'Indonesia'});
     // Trader Scheme
     cy.traderScheme('yes');
@@ -126,9 +126,9 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    cy.wait(700);
+    
     cy.otherOriginList({value: 'Liechtenstein'});
-    cy.wait(300);
+    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -199,7 +199,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
   // alcohol percentage calclations
   it('RoW-GB - Excise code alcohol percentage', function() {
     cy.visit(`duty-calculator/uk/2208403900/import-date`);
-    cy.wait(500);
+    
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'United States'});

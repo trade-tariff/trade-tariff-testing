@@ -5,7 +5,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
 
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 11, month: 11, year: 2022});
-    cy.wait(300);
+    
     cy.contains('11 November 2022');
     // check import tab
     cy.get('a#tab_import').click();
@@ -21,7 +21,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     // Change Date and country and validate
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 12, month: 10, year: 2022});
-    cy.wait(300);
+    
     cy.contains('12 October 2022');
     cy.get('a[role=\'button\'] > .long-text').click().wait(100);
     cy.get('a#tab_import').click();
@@ -43,7 +43,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     cy.contains('To check how to import commodity 8804000000, select the country from which you are importing.');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 11, month: 11, year: 2022});
-    cy.wait(300);
+    
     cy.contains('11 November 2022');
     // check import tab
     cy.get('a#tab_import').click();
@@ -58,7 +58,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     cy.visit('xi/commodities/2612201000#import');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 11, month: 11, year: 2022});
-    cy.wait(300);
+    
     cy.contains('11 November 2022');
     // check import tab
     cy.get('a#tab_import').click();

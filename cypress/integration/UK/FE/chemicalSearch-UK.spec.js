@@ -10,7 +10,7 @@ describe('🇬🇧 💡 | chemicalSearch-UK | Chemical Search 🧪  UK services 
       cy.get('input#cas')
           .clear()
           .type(`${casno_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('.button.govuk-button').click();
       cy.get('.govuk-heading-l')
           .contains('Chemical search results for');
@@ -28,7 +28,7 @@ describe('🇬🇧 💡 | chemicalSearch-UK | Chemical Search 🧪  UK services 
       cy.get('input#name')
           .clear()
           .type(`${cname_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('.button.govuk-button').click();
       cy.get('.govuk-heading-l')
           .contains('Chemical search results for');

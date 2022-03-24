@@ -103,7 +103,7 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   it('🚫 18.P&R:PRE Home Office Pre-cursor chemicals - export ', function() {
     cy.visit('/xi/commodities/2934100015#export');
     cy.reload();
-    cy.wait(1000);
+    // 
     cy.get('.govuk-tabs__panel');
     cy.contains('Home Office Pre-cursor chemicals').should('not.exist');
   });

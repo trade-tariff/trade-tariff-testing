@@ -177,7 +177,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     // cy.get('.tariff-inset-information [href]').click();
     // cy.countryPickerpage({value: 'Argentina'});
     // cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
-    // cy.wait(400);
+    // 
     // cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     // cy.get('a#tab_import').click();
     // // check link after country selection

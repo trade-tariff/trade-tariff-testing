@@ -4,7 +4,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
   it(`e2e RoW to GB | 🇦🇫 Afghanistan to 🇬🇧 GB | Document code |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/3926909790/import-date`);
-    cy.wait(500);
+
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
@@ -28,7 +28,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
   it(`e2e RoW to GB | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/2204210600/import-date`);
-    cy.wait(500);
+
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
@@ -47,7 +47,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
   it(`e2e RoW to GB | 🇫🇷 France to 🇬🇧 GB | Excise code | Champagne |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/2204101100/import-date`);
-    cy.wait(500);
+
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'France'});

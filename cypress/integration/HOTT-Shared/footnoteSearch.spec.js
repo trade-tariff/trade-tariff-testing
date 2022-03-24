@@ -7,7 +7,7 @@ describe('🇪🇺 🇬🇧 💡| footnoteSearch.spec.js | footnote Search UK an
       //    cy.get('select#type').select('01 - UK tax type, to distinguish which applies by tax type when several Excise measures on commodity')
       cy.get('select#type').select(`${codes[i]}`);
       cy.get('form#new_search > input[name=\'new_search\']').click();
-      cy.wait(300);
+      
       cy.contains('Footnote search results');
     }
   });
@@ -19,7 +19,7 @@ describe('🇪🇺 🇬🇧 💡| footnoteSearch.spec.js | footnote Search UK an
       //    cy.get('select#type').select('01 - UK tax type, to distinguish which applies by tax type when several Excise measures on commodity')
       cy.get('select#type').select(`${codes[i]}`);
       cy.get('form#new_search > input[name=\'new_search\']').click();
-      cy.wait(300);
+      
       cy.contains('There are no matching results');
     }
   });

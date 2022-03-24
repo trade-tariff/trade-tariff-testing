@@ -11,7 +11,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('input#code')
           .clear()
           .type(`${tpadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -31,7 +31,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('input#code')
           .clear()
           .type(`${prsadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -51,7 +51,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('input#code')
           .clear()
           .type(`${radcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -73,7 +73,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('input#code')
           .clear()
           .type(`${adadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -95,7 +95,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('input#code')
           .clear()
           .type(`${adcadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -117,7 +117,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('input#code')
           .clear()
           .type(`${badcadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -138,7 +138,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
       cy.get('input#code')
           .clear()
           .type(`${cadcadcodes_ids[i]}`);
-      cy.wait(500);
+      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -153,7 +153,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
 
     // select type of certificate from drop down menu
     cy.get('select#type').select('V - VAT');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
   });
   it.skip('UK Additional Code Search : X - EXCISE', function() {
@@ -162,7 +162,7 @@ describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK servic
 
     // select type of certificate from drop down menu
     cy.get('select#type').select('X - EXCISE');
-    cy.wait(500);
+    
     cy.get('form#new_search > input[name=\'new_search\']').click();
   });
 });
