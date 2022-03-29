@@ -102,11 +102,8 @@ Cypress.Commands.add('newsBannerXI', ()=>{
   cy.contains('. If they are not at risk of onward movement to the EU, use the ');
 });
 Cypress.Commands.add('specialBanner', ()=>{
-  cy.contains('The UK Government has announced a ban on exports to Russia of high-end luxury goods and additional duties on a number of Russian and Belarusian imports. The Online Tariff is being updated to reflect this. Further information: UK announces new economic sanctions against Russia - GOV.UK (www.gov.uk). Also see further details of the goods affected by additional duties.');
-  cy.get('header[role=\'banner\'] p > a:nth-of-type(1)').should('have.attr', 'href', 'https://www.gov.uk/government/news/uk-announces-new-economic-sanctions-against-russia');
-  cy.get('p > a:nth-of-type(2)').should('have.attr', 'href', 'https://www.gov.uk/guidance/tariffs-on-goods-imported-into-the-uk');
-
-  //
+  cy.contains('New guidance has been published in regard to additional duties on goods originating in Russia and Belarus.');
+  cy.get('header[role=\'banner\'] a[target=\'_blank\']').should('have.attr', 'href', 'https://www.gov.uk/guidance/additional-duties-on-goods-originating-in-russia-and-belarus');
 });
 Cypress.Commands.add('contextSelector', ()=>{
   cy.get('.govuk-table__body').contains('Classification');
