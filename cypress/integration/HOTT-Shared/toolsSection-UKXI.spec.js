@@ -8,17 +8,17 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
           .contains('Tools').click();
       cy.contains('Tariff tools');
 
-      cy.contains('Certificate, licenses and documents');
-      cy.contains('Search for certificates, licenses and other document codes.');
+      cy.contains('Certificates, licences and documents');
+      cy.contains('Search for certificates, licences and other document codes.');
 
       cy.contains('Additional codes');
       cy.contains('Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.');
 
-      cy.contains('Footnote Search');
-      cy.contains('Search the tariff for footnotes');
+      cy.contains('Footnotes Search');
+      cy.contains('Search the tariff for footnotes.');
 
       cy.contains('Chemicals');
-      cy.contains('Search the tariff for chemicals by CAS Registry Number (RN)');
+      cy.contains('Search the tariff for chemicals by CAS Registry Number (RN).');
     });
 
     it(` Certificates ,licences and documents - breadcrumbs ${countries[i]}`, function() {
