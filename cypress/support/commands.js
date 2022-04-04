@@ -183,3 +183,12 @@ Cypress.Commands.add('groiContent', ()=>{
   cy.contains('General Rules for the Interpretation of goods').click();
   cy.contains('Classification of goods in the Tariff shall be governed by the following principles:');
 });
+Cypress.Commands.add('certificateSearch', ()=>{
+  cy.contains('Search for a certificate, licence or document');
+  cy.contains('Search for certificates, licences and other document codes and the commodities which reference them. Document codes may be needed to complete your import or export declaration.');
+  cy.contains('Certificate type');
+  cy.contains('Certificate code');
+  cy.contains('Enter the 3 digit certificate code');
+  cy.contains('Description');
+  cy.contains('Enter key terms from the certificate description');
+});
