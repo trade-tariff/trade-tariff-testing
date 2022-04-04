@@ -95,14 +95,17 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
   it('XI - Tools section', function() {
     cy.visit('/xi/sections');
     cy.get('li:nth-of-type(4) > .govuk-header__link').click();
-    cy.contains('Certificate, licenses and documents');
+    cy.contains('Certificates, licences and documents');
     cy.contains('Additional codes');
     cy.contains('Chemicals');
     cy.get('.govuk-list')
-        .should('be.visible', 'Search for tariff quotas, including daily updated balances.')
-        .should('be.visible', 'Search for certificates, licenses and other document codes.')
-        .should('be.visible', 'Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
-        .should('be.visible', 'Search the tariff for chemicals by ');
+        .contains('Search for certificates, licences and other document codes.');
+    cy.get('.govuk-list')
+        .contains('Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.');
+    cy.get('.govuk-list')
+        .contains('Search the tariff for footnotes');
+    cy.get('.govuk-list')
+        .contains('Search the tariff for chemicals by ');
   });
   it('XI - News section', function() {
     cy.visit('xi/find_commodity');

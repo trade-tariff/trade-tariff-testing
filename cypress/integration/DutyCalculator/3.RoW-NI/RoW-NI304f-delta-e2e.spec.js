@@ -97,7 +97,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     cy.contains('Option 4: Airworthiness tariff suspension');
     cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.');
   });
-  it('RoW 🇫🇴 (Faroe Islands) - XI |117 Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms ,119 Airworthiness tariff suspension | EU Tariff , UK Tariff  |', function() {
+  it.skip('RoW 🇫🇴 (Faroe Islands) - XI |117 Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms ,119 Airworthiness tariff suspension | EU Tariff , UK Tariff  |', function() {
     cy.visit('/duty-calculator/xi/3824609100/import-date');
     // date
     cy.validDate();

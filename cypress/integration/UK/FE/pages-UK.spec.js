@@ -17,7 +17,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('The UK Integrated Online Tariff');
     cy.contains('Look up commodity codes, import duties, taxes and controls');
     cy.contains('Are you importing goods into Northern Ireland?');
-    //  cy.contains('If you\'re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not \'at risk\' of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.');
     cy.contains('Search for a commodity');
     cy.contains('The UK Integrated Online Tariff helps you to:');
     cy.contains('find commodity codes for imports into or exports out of the UK');
@@ -96,15 +95,19 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - Tools section', function() {
     cy.visit('/find_commodity');
     cy.get('li:nth-of-type(4) > .govuk-header__link').click();
-    cy.contains('Certificate, licenses and documents');
+    cy.contains('Certificates, licences and documents');
     cy.contains('Additional codes');
     cy.contains('Chemicals');
     cy.get('.govuk-list')
-        .should('be.visible', 'Search for tariff quotas, including daily updated balances.')
-        .should('be.visible', 'Search for certificates, licenses and other document codes.')
-        .should('be.visible', 'Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.')
-        .should('be.visible', 'Search the tariff for footnotes')
-        .should('be.visible', 'Search the tariff for chemicals by ');
+        .contains('Search for tariff quotas, including daily updated balances.');
+    cy.get('.govuk-list')
+        .contains('Search for certificates, licences and other document codes.');
+    cy.get('.govuk-list')
+        .contains('Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.');
+    cy.get('.govuk-list')
+        .contains('Search the tariff for footnotes');
+    cy.get('.govuk-list')
+        .contains('Search the tariff for chemicals by ');
   });
   it('UK - News section', function() {
     cy.visit('/find_commodity');
@@ -174,7 +177,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('.tariff-inset-information [href]').click();
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
-    
+
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     cy.get('a#tab_import').click();
     // check link after country selection

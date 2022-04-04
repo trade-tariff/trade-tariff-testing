@@ -21,7 +21,7 @@ India - NI = £247.00
 Δ MFN = £7.00
 */
 describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo commercial processing | Quantity | Δ MFN < 3% of Import duties = UK import duties apply , Δ MFN > 3% of Import duties = EU import duties apply | ', function() {
-  it(`RoW - 🇮🇳 (India) to NI  service | Measure Units |`, function() {
+  it.skip(`RoW - 🇮🇳 (India) to NI  service | Measure Units |`, function() {
     cy.visit(`/duty-calculator/xi/1508101000/import-date`);
     // date
     cy.validDate();
@@ -32,7 +32,6 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // select country from list
 
     cy.otherOriginList({value: 'India'});
-    
     // // Trader Scheme
     // cy.traderScheme('yes');
     // // ✅  Final use in NI - Yes
