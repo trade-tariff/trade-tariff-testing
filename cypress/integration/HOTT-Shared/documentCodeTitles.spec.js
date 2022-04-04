@@ -34,4 +34,17 @@ describe('UK 🇬🇧 XI 🇪🇺 | documentCodeTitles.spec.js | Validate docume
     cy.get('div#popup a').click().wait(500);
     cy.contains('Goods necessary for the official purposes of diplomatic or consular missions of Member States in the DPRK or international organisations enjoying immunities in accordance with international law, or to the personal effects of their staff (Art 10.3 of Regulation (EU) 2017/1509)');
   });
+  // 999L code - HOTT-1362
+  it('UK Condition Code 999L - Separated with new text at the bottom', function() {
+    cy.visit('/commodities/0702000007');
+    cy.get('#measure-20164273').contains('Conditions').click();
+    cy.get('.info-content').contains('Phytosanitary Certificate (import) for All countries');
+    cy.code999L();
+  });
+  it('XI Condition Code 999L - Not to be shown in UK measures', function() {
+    cy.visit('xi/commodities/0702000007');
+    cy.get('#measure-20164273').contains('Conditions').click();
+    cy.get('.info-content').contains('Phytosanitary Certificate (import) for All countries');
+    cy.contains('999L').should('not.exist');
+  });
 });
