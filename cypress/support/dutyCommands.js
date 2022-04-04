@@ -296,5 +296,18 @@ Cypress.Commands.add('dcRooLink2', (options)=>{
   cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
   cy.contains(`There are no product-specific rules for commodity`);
 });
+// amend this custom command to return comm code and link ?
+Cypress.Commands.add('dcStoppingPage', (options)=>{
+  cy.title().should('eq', 'Declared subheading not allowed - Online Tariff Duty calculator');
+  cy.contains('Declared subheading not allowed');
+  // cy.contains(`You have chosen commodity code (${options.commCode}) for which you do not have the necessary documentation to proceed.`);
+  cy.contains('You have chosen a commodity code ');
+  cy.contains('for which you do not have the necessary documentation to proceed.');
+  cy.contains('What\'s next');
+  cy.contains('Go back to the previous screen and ');
+  cy.contains('select the correct document code');
+  cy.contains('Try another commodity code');
+ 
+});
 
 

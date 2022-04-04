@@ -7,7 +7,6 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
       cy.get('.govuk-header').should('be.visible', 'The Online Trade Tariff')
           .contains('Tools').click();
       cy.contains('Tariff tools');
-
       cy.contains('Certificates, licences and documents');
       cy.contains('Search for certificates, licences and other document codes.');
 
@@ -23,7 +22,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
 
     it(` Certificates ,licences and documents - breadcrumbs ${countries[i]}`, function() {
       cy.visit(`${countries[i]}/certificate_search`);
-      cy.contains('Search by Certificate');
+      cy.certificateSearch();
       cy.get('.govuk-breadcrumbs')
           .contains('Certificate');
       cy.get('.govuk-breadcrumbs__list')
@@ -70,7 +69,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
     cy.contains('Tariff tools');
     cy.get('.govuk-breadcrumbs__list')
         .contains('Home').click();
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
   });
   it(' Meursing Code finder -XI', function() {
     cy.visit('/xi/tools');

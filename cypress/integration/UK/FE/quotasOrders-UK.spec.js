@@ -96,7 +96,7 @@ describe('🇬🇧 💡 | quotasOrders-UK | Check specific quota Quotadetails |'
     cy.contains('Quota order number');
     cy.contains('Current balance');
     cy.contains('Opening balance');
-    cy.contains('1 January 2022 to 31 March 2022');
+    cy.contains('1 April 2022 to 30 June 2022');
     cy.contains('Start and end dates');
     cy.contains('Status');
     cy.contains('Last allocation date');

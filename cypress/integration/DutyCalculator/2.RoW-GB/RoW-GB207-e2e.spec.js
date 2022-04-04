@@ -1,7 +1,7 @@
 describe('| RoW-GB207-e2e.spec | excise codes |', function() {
   it(` 🚬 Cheroots | RoW 🇳🇴 Norway to 🇬🇧 GB  | 4.tobacco - Cheroots |`, function() {
     cy.visit(`duty-calculator/uk/2402100000/import-date`);
-    
+
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Norway'});
@@ -15,13 +15,12 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     cy.contains('615 - Cigars');
   });
 
-  it('🛢️ Fuel | RoW 🇱🇮 Liechtenstein - 🇬🇧 GB   | 6.fuels or various types - White oils, liquid paraffin |', function() {
+  it.only('🛢️ Fuel | RoW 🇱🇮 Liechtenstein - 🇬🇧 GB   | 6.fuels or various types - White oils, liquid paraffin |', function() {
     cy.visit('/duty-calculator/uk/3811210027/import-date');
 
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Liechtenstein'});
-    
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Measure units
@@ -63,16 +62,7 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     // doc code
     cy.docCode({uk: 'none'});
     cy.contains('Continue').click();
-    // // doc code
-    cy.docCode({uk: 'none'});
-    cy.contains('Continue').click();
-    cy.exciseCode('551');
-    cy.confirmPage();
-    cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('520 - Light oil: unrebated (unmarked) – other unrebated light oil').should('not.exist');
-    cy.contains('Option 2: Tariff preference - Liechtenstein');
-    // cy.contains('Option 3: Autonomous suspension under end-use').should('not.exist');
-    cy.contains('Option 3: Airworthiness tariff suspension').should('not.exist');
+    // Stopping page
+    cy.dcStoppingPage();
   });
 });

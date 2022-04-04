@@ -15,7 +15,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Israel'});
 
     // Monetary value page
@@ -61,7 +61,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Indonesia'});
     // Trader Scheme
     cy.traderScheme('yes');
@@ -126,9 +126,9 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Liechtenstein'});
-    
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -181,25 +181,12 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     // doc code
     cy.docCode({xi: 'none'});
     cy.contains('Continue').click();
-    // doc code
-    cy.docCode({xi: 'none'});
-    cy.contains('Continue').click();
-    // doc code
-    cy.docCode({xi: 'none'});
-    cy.contains('Continue').click();
-    cy.exciseCode('551');
-    cy.confirmPage();
-    cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('520 - Light oil: unrebated (unmarked) – other unrebated light oil').should('not.exist');
-    cy.contains('Option 2: Tariff preference - Liechtenstein').should('not.exist');
-    cy.contains('Option 3: Autonomous suspension under end-use').should('not.exist');
-    cy.contains('Option 4: Airworthiness tariff suspension').should('not.exist');
+    cy.dcStoppingPage();
   });
   // alcohol percentage calclations
-  it('RoW-GB - Excise code alcohol percentage', function() {
+  it('RoW 🇺🇸 (USA) - UK - Excise code alcohol percentage', function() {
     cy.visit(`duty-calculator/uk/2208403900/import-date`);
-    
+
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'United States'});
