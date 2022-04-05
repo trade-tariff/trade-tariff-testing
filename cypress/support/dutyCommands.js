@@ -307,7 +307,6 @@ Cypress.Commands.add('dcStoppingPage', (options)=>{
   cy.contains('Go back to the previous screen and ');
   cy.contains('select the correct document code');
   cy.contains('Try another commodity code');
- 
 });
 
 
