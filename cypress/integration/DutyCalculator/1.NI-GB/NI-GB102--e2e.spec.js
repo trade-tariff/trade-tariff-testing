@@ -3,7 +3,7 @@ describe('| *NI-GB102--e2e | XI to GB using Duty cal Link |', function() {
   it('e2e NI to GB | 102 |', function() {
     cy.visit('/commodities/1516209821');
     cy.contains('UK Integrated Online Tariff');
-    cy.get('p:nth-of-type(2) > a').click();
+    cy.get('.calculator-panel > p:nth-of-type(2) > a').click();
     cy.validDate();
     cy.contains('Which part of the UK are you importing into?');
     // select England ,Scotland or Wales (GB)
