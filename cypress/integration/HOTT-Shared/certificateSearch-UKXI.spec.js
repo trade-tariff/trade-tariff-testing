@@ -18,7 +18,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${ndcerts_ids[i]}`);
       }
     });
@@ -37,7 +37,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${adcerts_ids[i]}`);
       }
     });
@@ -56,7 +56,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${ccerts_ids[i]}`);
       }
     });
@@ -75,7 +75,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${dcerts_ids[i]}`);
       }
     });
@@ -94,7 +94,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${ecerts_ids[i]}`);
       }
     });
@@ -103,8 +103,6 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
       cy.get('select#type').select('H - HANDI, LOOMS certificate');
 
       cy.get('form#new_search > input[name=\'new_search\']').click();
-
-      cy.get('.govuk-heading-l');
       cy.contains('There are no matching results');
     });
 
@@ -123,7 +121,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${icerts_ids[i]}`);
       }
     });
@@ -134,7 +132,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
 
       cy.get('form#new_search > input[name=\'new_search\']').click();
 
-      cy.get('.govuk-heading-l');
+
       cy.contains('There are no matching results');
     });
 
@@ -154,7 +152,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${lcerts_ids[i]}`);
       }
     });
@@ -173,7 +171,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${ncerts_ids[i]}`);
       }
     });
@@ -185,7 +183,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
 
       cy.get('form#new_search > input[name=\'new_search\']').click();
 
-      cy.get('.govuk-heading-l');
+
       cy.contains('There are no matching results');
     });
     it(`${countries[j]} Certificate Search : R - Export refunds`, function() {
@@ -194,8 +192,6 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
       cy.get('select#type').select('R - Export refunds');
 
       cy.get('form#new_search > input[name=\'new_search\']').click();
-
-      cy.get('.govuk-heading-l');
       cy.contains('There are no matching results');
     });
     it(`${countries[j]} Certificate Search : T - T-Document`, function() {
@@ -204,15 +200,13 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
       cy.get('select#type').select('T - T-Document');
 
       cy.get('form#new_search > input[name=\'new_search\']').click();
-
-      cy.get('.govuk-heading-l');
       cy.contains('There are no matching results');
     });
     it(`${countries[j]} Certificate Search : U - Proofs of origin`, function() {
       cy.visit(`${countries[j]}/certificate_search`);
 
 
-      const ucerts_ids = ['003', '004', '059', '062'];
+      const ucerts_ids = ['004', '059', '062'];
       for (let i = 0; i < ucerts_ids.length; i++) {
       // select type of certificate from drop down menu
         cy.get('select#type').select('U - Proofs of origin');
@@ -224,7 +218,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${ucerts_ids[i]}`);
       }
     });
@@ -243,7 +237,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${xcerts_ids[i]}`);
       }
     });
@@ -252,7 +246,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
       cy.visit(`${countries[j]}/certificate_search`);
 
 
-      const ycerts_ids = ['036', '058', '072', '073', '076', '077', '078', '079', '929', '930', '945', '946', '999'];
+      const ycerts_ids = ['036', '058', '072', '073', '076', '077', '078', '079', '929', '930', '945', '946'];
 
       for (let i = 0; i < ycerts_ids.length; i++) {
       // select type of certificate from drop down menu
@@ -265,20 +259,34 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        cy.get('.govuk-table');
+
         cy.contains(`${ycerts_ids[i]}`);
       }
     });
 
     it(`${countries[j]} Certificate Search : Z - More certificates`, function() {
       cy.visit(`${countries[j]}/certificate_search`);
-
       cy.get('select#type').select('Z - More certificates');
-
       cy.get('form#new_search > input[name=\'new_search\']').click();
-
-      cy.get('.govuk-heading-l');
       cy.contains('There are no matching results');
     });
   }
+  it('UK - CDS or CHIEF Guidance link available + Comm codes links available', function() {
+    cy.visit('certificate_search?type=Y&code=036&description=');
+    cy.certificateGuidanceUK();
+    cy.get('.govuk-table__row').contains('Commodity');
+    cy.get('.govuk-table__row').contains('Description');
+  });
+  it('XI - CDS or CHIEF Guidance not available , Comm Codes links available', function() {
+    cy.visit('/xi/certificate_search?type=Y&code=021&description=');
+    cy.contains('Commodity codes that require this certificate').click();
+    cy.get('.govuk-table__row').contains('Commodity');
+    cy.get('.govuk-table__row').contains('Description');
+  });
+  it('XI - CDS or CHIEF Guidance not available , Comm Codes links available - no comm codes', function() {
+    // no comm codes associated
+    cy.visit('xi/certificate_search?type=Y&code=037&description=');
+    cy.contains('Commodity codes that require this certificate').click();
+    cy.contains('No commodities are associated with this certificate');
+  });
 });
