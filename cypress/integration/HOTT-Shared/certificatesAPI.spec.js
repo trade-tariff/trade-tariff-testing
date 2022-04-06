@@ -22,6 +22,9 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', {tags: ['config', 'api-t
           expect(response.body.data[0].attributes).to.have.property('formatted_description');
           expect(response.body.data[0].attributes).to.have.property('certificate_type_description');
           expect(response.body.data[0].attributes).to.have.property('validity_start_date');
+          // CDS /CHIEF guidance link
+          expect(response.body.data[0].attributes).to.have.property('guidance_cds');
+          expect(response.body.data[0].attributes).to.have.property('guidance_chief');
         });
   });
   it('UK certificates API - as of validate data | 1971 - 1 entry  ', function() {
@@ -89,6 +92,9 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', {tags: ['config', 'api-t
           expect(response.body.data[0].attributes).to.have.property('formatted_description');
           expect(response.body.data[0].attributes).to.have.property('certificate_type_description');
           expect(response.body.data[0].attributes).to.have.property('validity_start_date');
+          // CDS /CHIEF guidance link
+          expect(response.body.data[0].attributes).to.have.property('guidance_cds');
+          expect(response.body.data[0].attributes).to.have.property('guidance_chief');
         });
   });
   it('XI certificates API - as of validate data | 1971 - 1 entry  ', function() {
