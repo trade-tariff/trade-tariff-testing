@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('cerficatesAPI.spec.js for both UK and XI  |', {tags: ['config', 'api-tag']}, function() {
+describe('cerficatesAPI.spec.js for both UK and XI - CDS CHIEF guidance  |', {tags: ['config', 'api-tag']}, function() {
   // check length , fields , as_of on both services =ability to show snapshot on a given date (validity start date before ////snapshot, validity end date after or null)
   it('UK certificates API - type ,length , properties ', function() {
     cy.request('/api/v2/certificates.json').as('comments');
@@ -112,6 +112,9 @@ describe('cerficatesAPI.spec.js for both UK and XI  |', {tags: ['config', 'api-t
           expect(response.body.data[0].attributes).to.have.property('formatted_description');
           expect(response.body.data[0].attributes).to.have.property('certificate_type_description');
           expect(response.body.data[0].attributes).to.have.property('validity_start_date');
+          // CDS /CHIEF guidance link
+          expect(response.body.data[0].attributes.guidance_cds).to.be.null;
+          expect(response.body.data[0].attributes.guidance_chief).to.be.null;
         });
   });
   it('XI certificates API - as of validate data | 1970 - 0 entries  ', function() {
