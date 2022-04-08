@@ -6,7 +6,10 @@ describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate 
     cy.get('table:nth-of-type(4) > tbody > tr:nth-of-type(1) > td:nth-of-type(3) > a[role=\'button\']').click();
     cy.contains('Animal Health Certificate for All countries');
     cy.contains('B: Presentation of a certificate/licence/document');
-    cy.get('.close').click();
+    cy.get('.info-inner').contains(' From 29 Jan 2022 to 30 Sep 2023');
+    cy.get('.close [href]').click();
+    cy.wait(450);
+    // cy.get('#measure-20174652').contains('PR003').click();
     cy.contains('PR003').click();
     cy.contains('Animal Health Certificate for All countries');
   });
