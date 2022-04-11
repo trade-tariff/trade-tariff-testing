@@ -271,11 +271,15 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
       cy.contains('There are no matching results');
     });
   }
-  it('UK - CDS or CHIEF Guidance link available + Comm codes links available', function() {
-    cy.visit('certificate_search?type=Y&code=036&description=');
-    cy.certificateGuidanceUK();
+  it('UK - CDS or CHIEF Guidance - doc status codes , status codes + Comm codes links available', function() {
+    cy.visit('/certificate_search?type=9&code=120&description=');
+    cy.get('.govuk-details__summary-text').contains('Using this certificate on CDS or CHIEF').click();
+    cy.contains('CDS guidance:');
+    cy.contains('CHIEF guidance:');
+    cy.get('.govuk-details__summary-text').contains('Commodity codes that require this certificate');
     cy.get('.govuk-table__row').contains('Commodity');
     cy.get('.govuk-table__row').contains('Description');
+    cy.contains('status code').click();
   });
   it('XI - CDS or CHIEF Guidance not available , Comm Codes links available', function() {
     cy.visit('/xi/certificate_search?type=Y&code=021&description=');
@@ -285,7 +289,7 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
   });
   it('XI - CDS or CHIEF Guidance not available , Comm Codes links available - no comm codes', function() {
     // no comm codes associated
-    cy.visit('xi/certificate_search?type=Y&code=037&description=');
+    cy.visit('/xi/certificate_search?type=Y&code=037&description=');
     cy.contains('Commodity codes that require this certificate').click();
     cy.contains('No commodities are associated with this certificate');
   });
