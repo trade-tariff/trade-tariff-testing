@@ -39,11 +39,15 @@ describe(' 🇬🇧 💡 | quotas-PR-UK.spec | Quotas , P&R to be available for 
     cy.visit('/commodities/6403990510#import');
     cy.get('.govuk-tabs__panel')
         .contains('Animal Health Certificate').should('exist');
+    cy.get('#measure-20174652').contains('Conditions').click().wait(200);
+    cy.commodityGuidance();
   });
   it('2.P&R:AIL - Health and Safety Executive Import Licensing Firearms and Ammunition', function() {
     cy.visit('/commodities/9305200010#import');
     cy.get('.govuk-tabs__panel')
         .contains('Health and Safety Executive Import Licensing Firearms and Ammunition').should('exist');
+    cy.get('#measure-20088554').contains('Conditions').click().wait(200);
+    cy.commodityGuidance();
   });
   it('3.P&R:ATT - Attestation Document (horticulture and potatoes)', function() {
     cy.visit('/commodities/1210209099#import');
@@ -51,10 +55,12 @@ describe(' 🇬🇧 💡 | quotas-PR-UK.spec | Quotas , P&R to be available for 
         .contains('Attestation Document (horticulture and potatoes)').should('exist');
   });
   // exports
-  it('4.P&R:CEX - DCMS Open General Export Licence', function() {
+  it.only('4.P&R:CEX - DCMS Open General Export Licence', function() {
     cy.visit('/commodities/9702900010#export');
     cy.get('.govuk-tabs__panel')
         .contains('DCMS Open General Export Licence').should('exist');
+    cy.get('#measure-20161565').contains('Conditions').click().wait(200);
+    cy.commodityGuidance();
   });
   // exports
   it('6.P&R:COE - Home Office Controlled Drugs (export)', function() {
