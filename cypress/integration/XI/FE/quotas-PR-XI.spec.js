@@ -43,22 +43,26 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
     cy.contains('Animal Health Certificate');
     cy.get('#measure-20174652').contains('Conditions').click();
     cy.contains('Animal Health Certificate for All countries');
+    cy.commodityGuidance();
   });
   it('✅  2.P&R:AIL - Health and Safety Executive Import Licensing Firearms and Ammunition', function() {
     cy.visit('/xi/commodities/9305200010#import');
     cy.get('#measure-20088554').contains('Conditions').click();
     cy.contains('Health and Safety Executive Import Licensing Firearms and Ammunition');
+    cy.commodityGuidance();
   });
   it('✅ 3.P&R:ATT - Attestation Document (horticulture and potatoes)', function() {
     cy.visit('/xi/commodities/1210209099#import');
     cy.get('#measure-20133453').contains('Conditions').click();
     cy.contains('Attestation Document (horticulture and potatoes) for All countries');
+    cy.commodityGuidance();
   });
   // exports
   it.skip('🚫 4.P&R:CEX - DCMS Open General Export Licence', function() {
     cy.visit('/xi/commodities/9702000010#export');
     cy.get('#measure-3349252').contains('Conditions').click();
     cy.contains('DCMS Open General Export Licence');
+    cy.commodityGuidance();
   });
   // exports
   it.skip('🚫 6.P&R:COE - Home Office Controlled Drugs (export)', function() {
@@ -70,11 +74,13 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
     cy.visit('/xi/commodities/0806101090#import');
     cy.get('#measure-20132660').contains('Conditions').click();
     cy.contains('HMI Conformity Certificate (fruit and veg) issued in UK');
+    cy.commodityGuidance();
   });
   it('✅ 8.P&R:CVD - Common Veterinary Entry Document (CVED)', function() {
     cy.visit('/xi/commodities/1605531090#import');
     cy.get('#measure-3830376').contains('Conditions').click();
     cy.contains('Veterinary control');
+    cy.commodityGuidance();
   });
   // export
   it.skip('🚫 12.P&R:EQC Certificate of Conformity - export ', function() {
@@ -93,6 +99,7 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
     cy.visit('/xi/commodities/3102309000#import');
     cy.get('#measure-20088577').contains('Conditions').click();
     cy.contains('Health and Safety Executive (imports)');
+    cy.commodityGuidance();
   });
   it('✅ 17.P&R:PHC-Phytosanitary Certificate (import)', function() {
     cy.visit('/xi/commodities/0809290000#import');
@@ -103,7 +110,7 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   it('🚫 18.P&R:PRE Home Office Pre-cursor chemicals - export ', function() {
     cy.visit('/xi/commodities/2934100015#export');
     cy.reload();
-    // 
+    //
     cy.get('.govuk-tabs__panel');
     cy.contains('Home Office Pre-cursor chemicals').should('not.exist');
   });
@@ -116,5 +123,6 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
     cy.visit('/xi/commodities/4403219090#import');
     cy.get('#measure-20174972').contains('Conditions').click();
     cy.contains('Quarantine Release Certificate');
+    cy.commodityGuidance();
   });
 });

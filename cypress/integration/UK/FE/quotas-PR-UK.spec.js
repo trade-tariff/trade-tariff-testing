@@ -55,7 +55,7 @@ describe(' 🇬🇧 💡 | quotas-PR-UK.spec | Quotas , P&R to be available for 
         .contains('Attestation Document (horticulture and potatoes)').should('exist');
   });
   // exports
-  it.only('4.P&R:CEX - DCMS Open General Export Licence', function() {
+  it('4.P&R:CEX - DCMS Open General Export Licence', function() {
     cy.visit('/commodities/9702900010#export');
     cy.get('.govuk-tabs__panel')
         .contains('DCMS Open General Export Licence').should('exist');
