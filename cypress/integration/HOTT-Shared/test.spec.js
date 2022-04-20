@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
-describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
-  it('test', function() {
+describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
+  it.skip('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
     console.log(m);
@@ -74,10 +74,10 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
       cy.checkCommPage('3808941000');
     }
   });
-  it('CommCodeTest', function() {
+  it.skip('CommCodeTest', function() {
     cy.CommCodeHistory('8527290010', {day: '22', month: '02', year: '2022'});
   });
-  it('Heading Test', function() {
+  it.skip('Heading Test', function() {
     cy.headingsHistory('8803', {day: '22', month: '02', year: '2022'});
   });
   it('title', function() {
@@ -86,11 +86,11 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     console.log(cy.title());
     // Edible vegetables and certain roots and tubers - UK Integrated Online Tariff - GOV.UK
   });
-  it('RoO block', function() {
+  it.skip('RoO block', function() {
     cy.visit('/commodities/1508101000?country=IN#rules-of-origin');
     cy.RoOContent({commCode: '1508101000', country: 'India'});
   });
-  it('RoO 2', function() {
+  it.skip('RoO 2', function() {
     const commCode = '1508101000';
     const newCode = RegExp(`.*${commCode}`, 'i');
     const newCode1 = (`${commCode}`);
@@ -99,7 +99,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     // cy.contains(`There are no product-specific rules for commodity ${newCode}`);
   // cy.contains(new RegExp(`There are no product-specific rules for commodity .*${options.commCode}`, 'i'));
   });
-  it.only('GRI Test', function() {
+  it('GRI Test', function() {
     cy.visit('/commodities/0702000007#footnotes');
     cy.groiContent();
     cy.visit('/chapters/15');

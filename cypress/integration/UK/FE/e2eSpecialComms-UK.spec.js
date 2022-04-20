@@ -124,4 +124,10 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('#measure-20002794')
         .contains('1.00 GBP / % vol/hl');
   });
+  it(' 🐸 Frogs legs \n ', function() {
+    cy.visit('/commodities/0208907000#import');
+    cy.checkCommPage('0208907000');
+    cy.get('.govuk-header__content')
+        .contains('UK Integrated Online Tariff');
+  } );
 });

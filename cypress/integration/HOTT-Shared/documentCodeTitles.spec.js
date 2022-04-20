@@ -14,7 +14,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | documentCodeTitles.spec.js | Validate docume
     // div#popup a
     cy.get('.close [href]').click();
   });
-  it(`XI - Certificate / Document details pop up `, function() {
+  it.only(`XI - Certificate / Document details pop up `, function() {
     cy.visit(`xi/commodities/9706100000`);
     cy.get('.govuk-breadcrumbs__list').contains('Commodity 9706100000');
     cy.checkCommPage('9706100000');
@@ -24,14 +24,11 @@ describe('UK 🇬🇧 XI 🇪🇺 | documentCodeTitles.spec.js | Validate docume
     cy.contains('Particular provisions:').should('not.exist');
     cy.get('.info-inner').contains('Import control - CITES for All countries');
     cy.contains('From 19 Jan 2022');
-    cy.get('.close [href]').click().wait(300);
-    cy.get('#measure-3617164').contains('Conditions').click().wait(250);
-    // cy.get('div#popup a').click().wait(500);
-    // //
-    // cy.get('table:nth-of-type(3) > .govuk-table__body > .KP.govuk-table__row > .conditions-col.govuk-table__cell > a[role=\'button\']').click();
-    cy.contains('Particular provisions:').should('not.exist');
-    cy.contains('Import control on luxury goods for North Korea (Democratic People’s Republic of Korea)');
-    cy.get('.info-inner').contains('From 1 Feb 2018');
+    cy.get('.close [href]').click().wait(350);
+    cy.get('#measure-20065049').contains('Conditions').click().wait(600);
+    // cy.contains('Particular provisions:').should('not.exist');
+    cy.get('.info-inner').contains('Import control on luxury goods for North Korea');
+    cy.get('.info-inner').contains('From 1 Jan 2021');
     cy.get('div#popup a').click().wait(500);
     cy.contains('Goods necessary for the official purposes of diplomatic or consular missions of Member States in the DPRK or international organisations enjoying immunities in accordance with international law, or to the personal effects of their staff (Art 10.3 of Regulation (EU) 2017/1509)');
   });

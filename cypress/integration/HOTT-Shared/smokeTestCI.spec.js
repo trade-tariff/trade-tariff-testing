@@ -9,7 +9,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   // Date Picker validation
   it('🚀 UK 🇬🇧 - Check date picker function is working', function() {
     cy.visit('/find_commodity');
-    
+
     // select Change Date and OK with current date
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
@@ -22,7 +22,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    
+
     cy.contains('22 December 2022');
   });
   // switching link works
@@ -125,7 +125,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.searchForCommodity('3808941000');
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
     // cy.contains('Set date').click();
-    // 
+    //
     cy.contains('21 December 2021');
     // switch to XI tariff
     cy.contains('Northern Ireland Online Tariff').click();
@@ -208,7 +208,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   });
   it('🚀 XI 🇪🇺 - Check Calendar is functioning', function() {
     cy.visit('/xi/sections');
-    
+
     // select Change Date and OK with current date
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
@@ -221,7 +221,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    
+
     cy.contains('22 December 2022');
   });
   // switching link works
@@ -335,7 +335,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   it(`🧮 UK 🇬🇧 - Duty Calculator e2e - ( RoW to GB )204 | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/2204210600/import-date`);
-    
+
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
