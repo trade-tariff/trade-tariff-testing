@@ -113,8 +113,8 @@ describe('cerficatesAPI.spec.js for both UK and XI - CDS CHIEF guidance  |', {ta
           expect(response.body.data[0].attributes).to.have.property('certificate_type_description');
           expect(response.body.data[0].attributes).to.have.property('validity_start_date');
           // CDS /CHIEF guidance link
-          expect(response.body.data[1].attributes.guidance_cds).to.have.string('No additional information is available.')
-          expect(response.body.data[1].attributes.guidance_chief).to.have.string('No additional information is available.')
+          expect(response.body.data[1].attributes.guidance_cds).to.have.string('No additional information is available.');
+          expect(response.body.data[1].attributes.guidance_chief).to.have.string('No additional information is available.');
         });
   });
   it('XI certificates API - as of validate data | 1970 - 0 entries  ', function() {
