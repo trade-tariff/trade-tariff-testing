@@ -6,7 +6,7 @@ Feature: As a trader i want to import üç´ white chocolate from iceland to XI ü
     Given i am on Trade Tariff main page
     When i enter commodity code 1704903000 in search tariff box
     Then Commodity information for 1704903000 is displayed
-    And "Overview" should be shown
+    # And "Overview" should be shown
     And "Import" should be shown
     And "Export" should be shown
     When i select Import button

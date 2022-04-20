@@ -10,7 +10,6 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.selectDestination('xi');
     // origin
     cy.otherOriginList({value: 'Morocco'});
-    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
