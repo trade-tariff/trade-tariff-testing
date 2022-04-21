@@ -38,7 +38,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       // Monetary value page
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
       // Measure amount page
-      cy.quantity({dtnr: '23.98'});
+      cy.quantity({dtnr: '2398'});
       // doc code
       cy.docCode({xi: 'n990'});
       cy.contains('Continue').click();
@@ -69,7 +69,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       cy.get('div:nth-of-type(10) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(11) > .govuk-summary-list__value').contains('£10,002.24');
 
-      cy.contains('23.98 x 100 kg');
+      cy.contains('2398 kilogrammes');
 
       cy.get('.govuk-button').click();
 

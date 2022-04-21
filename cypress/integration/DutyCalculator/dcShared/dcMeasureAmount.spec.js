@@ -10,7 +10,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.contains('Enter import quantity');
     cy.contains('The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.');
     cy.contains('What is the weight net of the standard quality of the goods you will be importing?');
-    cy.contains('Enter the value in decitonnes (100kg)');
+    cy.contains('Enter the value in kilogrammes');
     cy.contains('Enter the value in tonnes (1,000 kg)');
     cy.contains('Enter the value in decatonnes (10,000 kg), corrected according to polarisation');
     // explore this topic
@@ -24,7 +24,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary');
     cy.contains('There is a problem');
-    cy.contains('Enter a valid import quantity. Enter the value in decitonnes (100kg)');
+    cy.contains('Enter a valid import quantity. Enter the value in kilogrammes');
     cy.contains('Enter a valid import quantity. Enter the value in tonnes (1,000 kg)');
     cy.contains('Enter a valid import quantity. Enter the value in decatonnes (10,000 kg), corrected according to polarisation');
     cy.get('.govuk-back-link').click();
@@ -33,7 +33,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.quantity({tne: 'aaaa', dtnr: 'jjjj', dap: 'bbbb'});
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter a numeric import quantity. Enter the value in decitonnes (100kg)');
+    cy.contains('Enter a numeric import quantity. Enter the value in kilogrammes');
     cy.contains('Enter a numeric import quantity. Enter the value in tonnes (1,000 kg)');
     cy.contains('Enter a numeric import quantity. Enter the value in decatonnes (10,000 kg), corrected according to polarisation');
     cy.get('.govuk-back-link').click();
@@ -42,7 +42,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.quantity({tne: -999, dtnr: -888, dap: -4.989});
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter an import quantity value greater than zero. Enter the value in decitonnes (100kg)');
+    cy.contains('Enter an import quantity value greater than zero. Enter the value in kilogrammes');
     cy.contains('Enter an import quantity value greater than zero. Enter the value in tonnes (1,000 kg)');
     cy.contains('Enter an import quantity value greater than zero. Enter the value in decatonnes (10,000 kg), corrected according to polarisation');
     cy.get('.govuk-back-link').click();
@@ -69,7 +69,6 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.contains('Continue').click();
 
     cy.contains('Enter a valid import quantity. Enter the alcohol by volume (ABV) percentage');
-    cy.contains('Enter a valid import quantity. Enter the value in hectolitres (100 litres)');
     cy.contains('Enter a valid import quantity. Enter the value in litres');
     cy.get('.govuk-error-summary').contains('There is a problem');
 
@@ -85,7 +84,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     // Negative values entered
     cy.quantity({asv: -999, hlt: -777});
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter an import quantity value greater than zero. Enter the value in hectolitres (100 litres)');
+    cy.contains('Enter an import quantity value greater than zero. Enter the value in litres');
     cy.contains('Enter a valid import quantity. Enter the value in litres');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
@@ -135,23 +134,23 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Page validation
     cy.contains('How many items will you be importing?');
-    cy.contains('Enter the value in thousands of items');
+    cy.contains('Enter the number of items');
     // No Value entered
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter a valid import quantity. Enter the value in thousands of items');
+    cy.contains('Enter a valid import quantity. Enter the number of items');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // Text values entered
     cy.quantity({mil: 'erwrewr'});
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter a numeric import quantity. Enter the value in thousands of items');
+    cy.contains('Enter a numeric import quantity. Enter the number of items');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // Negative value
     cy.quantity({mil: -999.9876});
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.contains('Enter an import quantity value greater than zero. Enter the value in thousands of items');
+    cy.contains('Enter an import quantity value greater than zero. Enter the number of items');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // valid inputs entered

@@ -10,9 +10,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     // destination
     cy.selectDestination('xi');
     // origin
-    // select country from list
     cy.otherOriginList({value: 'Canada'});
-
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -23,9 +21,8 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
     // Import Quantity
-    cy.quantity({dtn: '100'});
+    cy.quantity({dtn: '10000'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
@@ -44,10 +41,8 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     // destination
     cy.selectDestination('xi');
     // origin
-
     // select country from list
     cy.otherOriginList({value: 'Turkey'});
-
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -58,9 +53,8 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.plannedXI('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
     // Import Quantity
-    cy.quantity({dtn: '1'});
+    cy.quantity({dtn: '100'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
@@ -74,7 +68,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({dtn: '100'});
+    cy.quantity({dtn: '10000'});
     cy.confirmPage();
     cy.dutyPage();
 

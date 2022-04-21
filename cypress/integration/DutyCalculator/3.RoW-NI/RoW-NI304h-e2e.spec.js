@@ -17,9 +17,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     // origin
     cy.selectOrigin('other');
     // select country from list
-    
     cy.otherOriginList({value: 'Nepal'});
-    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -44,9 +42,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     // origin
     cy.selectOrigin('other');
     // select country from list
-    
     cy.otherOriginList({value: 'India'});
-    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -59,7 +55,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
 
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
     // Import Quantity
-    cy.quantity({dtn: '1.0'});
+    cy.quantity({dtn: '100.0'});
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
     // VAT Page
@@ -77,7 +73,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.get('.govuk-back-link').click().wait(200);
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({dtn: '200.0'});
+    cy.quantity({dtn: '20000.0'});
     // doc code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
@@ -104,9 +100,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     // origin
     cy.selectOrigin('other');
     // select country from list
-    
     cy.otherOriginList({value: 'Australia'});
-    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -118,7 +112,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtnr: '1', tne: '1', dap: '1'});
+    cy.quantity({dtnr: '100', tne: '1', dap: '1'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
@@ -139,7 +133,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({dtnr: '1000', tne: '100', dap: '100'});
+    cy.quantity({dtnr: '100000', tne: '100', dap: '100'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();

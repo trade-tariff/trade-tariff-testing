@@ -35,7 +35,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.contains('No');
     cy.contains('No');
     cy.contains('£850.00');
-    cy.contains('1 x 100 kg');
+    cy.contains('1 kilogramme');
 
     // Check Change Links
     // Commodity Information

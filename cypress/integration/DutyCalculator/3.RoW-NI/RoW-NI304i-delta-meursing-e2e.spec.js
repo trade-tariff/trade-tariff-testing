@@ -11,9 +11,7 @@ describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursi
     // destination
     cy.selectDestination('xi');
     // origin
-
     // select country from list
-
     cy.otherOriginList({value: 'Andorra'});
 
     // Trader Scheme
@@ -29,7 +27,7 @@ describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursi
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtn: '1'});
+    cy.quantity({dtn: '100'});
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
@@ -37,7 +35,6 @@ describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursi
     cy.contains('Third-country duty (UK)');
     cy.contains('8.00% * £1,000.00');
     cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.');
-
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
     cy.contains('Option 2: Tariff preference - Andorra');
     cy.contains('Tariff preference (EU)');
@@ -48,9 +45,8 @@ describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursi
     cy.meursingCode({value: '049'});
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
     // Import Quantity
-    cy.quantity({dtn: '1'});
+    cy.quantity({dtn: '100'});
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();

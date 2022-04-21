@@ -11,7 +11,6 @@ describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 | 🔼 Delta Route
     // origin
     // select country from list
     cy.otherOriginList({value: 'United Arab Emirates'});
-    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -24,7 +23,7 @@ describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 | 🔼 Delta Route
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtnr: '100', tne: '1', dap: '1'});
+    cy.quantity({dtnr: '10000', tne: '1', dap: '1'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();

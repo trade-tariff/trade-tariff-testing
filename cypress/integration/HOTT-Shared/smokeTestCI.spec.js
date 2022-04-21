@@ -369,7 +369,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtnr: '100', tne: '1', dap: '1'});
+    cy.quantity({dtnr: '10000', tne: '1', dap: '1'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
@@ -404,7 +404,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtn: '100'});
+    cy.quantity({dtn: '10000'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');

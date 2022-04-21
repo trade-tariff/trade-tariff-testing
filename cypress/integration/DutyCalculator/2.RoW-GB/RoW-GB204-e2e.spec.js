@@ -52,7 +52,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.selectDestination('gb');
     cy.originList({value: 'France'});
     cy.customsValue({monetary: '4000.00', shipping: '500.00', cost: '500.00'});
-    cy.quantity({hlt: '1', ltr: '100'});
+    cy.quantity({hlt: '100', ltr: '100'});
     // Excise code
     cy.exciseCode('411');
     cy.confirmPage();
