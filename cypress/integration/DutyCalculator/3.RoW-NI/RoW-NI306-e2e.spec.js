@@ -8,9 +8,7 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // destination
     cy.selectDestination('xi');
     // origin
-
     // select country from list
-
     cy.otherOriginList({value: 'Greenland'});
     // Trader Scheme
     cy.traderScheme('no');
@@ -34,11 +32,8 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // destination
     cy.selectDestination('xi');
     // origin
-
     // select country from list
-
     cy.otherOriginList({value: 'China'});
-
     // Trader Scheme
     cy.traderScheme('no');
     // Duties Apply
