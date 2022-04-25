@@ -49,6 +49,6 @@ describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'ro
     cy.go('back');
 
     cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(5) > a').contains('The EU\'s trading relationship with Chile').click();
-    cy.contains('Modernisation of the trade part of the EU - Chile Association Agreement');
+    cy.contains('EU trade relations with Chile. Facts, figures and latest developments.');
   });
 });
