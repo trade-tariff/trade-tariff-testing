@@ -191,7 +191,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('gb');
     cy.originList({value: 'United States'});
     cy.customsValue({monetary: '1000.00', shipping: '50.00', cost: '50.00'});
-    cy.quantity({asv: '40', hlt: '45', lpa: '1800'});
+    cy.quantity({asv: '40', hlt: '4500', lpa: '1800'});
     cy.exciseCode('451');
     cy.confirmPage();
     cy.dutyPage();
