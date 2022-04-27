@@ -54,7 +54,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('£10,002.24');
-      cy.contains('23098 kilogrammes');
+      cy.contains('23098 kilograms');
       // confirm
       cy.get('.govuk-button').click();
 
@@ -92,7 +92,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       // import duty
       cy.contains('Import duty Third-country duty (EU)');
       cy.contains('Import quantity');
-      cy.contains('230.98 kilogrammes');
+      cy.contains('230.98 kilograms');
       cy.contains('33.90 EUR / 100 kg std qual * 230.98');
 
       cy.contains('Duty Total');
