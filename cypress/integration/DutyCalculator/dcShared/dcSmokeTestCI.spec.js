@@ -31,7 +31,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
   it(`🚀 UK 🇬🇧 Duty Calculator - RoW to GB 🇦🇫 Afghanistan to 🇬🇧 GB | 204 |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/3926909790/import-date`);
-    
+
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
@@ -51,7 +51,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Option 3: Airworthiness tariff suspension');
   });
-  it.only('🚀 XI 🇪🇺 - Duty Calculator e2e - RoW 🇦🇩 (Andorra) - XI 304i | UK Tariffs apply with Meursing code 7000 ,EU Tariffs apply with Meursing code 7049 |', function() {
+  it('🚀 XI 🇪🇺 - Duty Calculator e2e - RoW 🇦🇩 (Andorra) - XI 304i | UK Tariffs apply with Meursing code 7000 ,EU Tariffs apply with Meursing code 7049 |', function() {
     cy.visit('/duty-calculator/xi/1905311100/import-date');
     // date
     cy.validDate();
@@ -105,7 +105,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.contains('9.00 % + EA MAX 24.20 % +ADSZ');
   });
 
-  it.only(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) | 406 |`, function() {
+  it(`🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) | 406 |`, function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
 
     cy.validDate();
@@ -158,7 +158,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.get('div:nth-of-type(10) > .govuk-summary-list__value').contains('No');
     cy.get('div:nth-of-type(11) > .govuk-summary-list__value').contains('£10,002.24');
 
-    cy.contains('23.98 kilogrammes');
+    cy.contains('23.98 kilograms');
     cy.get('.govuk-button').click();
 
     // Final Page

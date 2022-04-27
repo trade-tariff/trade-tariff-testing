@@ -69,7 +69,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       cy.get('div:nth-of-type(10) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(11) > .govuk-summary-list__value').contains('£10,002.24');
 
-      cy.contains('2398 kilogrammes');
+      cy.contains('2398 kilograms');
 
       cy.get('.govuk-button').click();
 

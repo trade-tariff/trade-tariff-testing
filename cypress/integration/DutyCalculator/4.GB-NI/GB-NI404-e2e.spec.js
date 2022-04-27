@@ -66,7 +66,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
       cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(9) > .govuk-summary-list__value').contains('£10,002.24');
       // cy.contains('12.50 x 100 kg')
-      cy.contains('2300.98 kilogrammes');
+      cy.contains('2300.98 kilograms');
       // cy.contains('72.56 tonnes')
       // cy.contains('87.25 x 10,000 kg')
       cy.get('.govuk-button').click();
