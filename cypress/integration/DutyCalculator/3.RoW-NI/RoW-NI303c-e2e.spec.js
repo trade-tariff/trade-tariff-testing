@@ -9,7 +9,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.selectDestination('xi');
     // select country from list
     cy.otherOriginList({value: 'Morocco'});
-    
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -34,9 +34,9 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // origin
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Norway'});
-    
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
