@@ -78,7 +78,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.get('.govuk-button').click();
     //  cy.certificate('no')
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtn: '230.98'});
+    cy.quantity({kgm: '230.98'});
     cy.get('.govuk-button').click();
     cy.contains('VAT');
     cy.contains('Zero rate');

@@ -30,7 +30,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       // Monetary value page
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
       // quantity
-      cy.quantity({dtnr: '23098'});
+      cy.quantity({kgm: '23098'});
 
       cy.docCode({xi: 'n990'});
       cy.contains('Continue').click();
@@ -92,7 +92,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       // import duty
       cy.contains('Import duty Third-country duty (EU)');
       cy.contains('Import quantity');
-      cy.contains('230.98 kilograms');
+      cy.contains('230.98 x 100 kg');
       cy.contains('33.90 EUR / 100 kg std qual * 230.98');
 
       cy.contains('Duty Total');

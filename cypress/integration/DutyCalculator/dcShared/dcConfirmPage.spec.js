@@ -13,7 +13,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     // cy.contains('Continue').click();
 
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
@@ -35,7 +35,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.contains('No');
     cy.contains('No');
     cy.contains('£850.00');
-    cy.contains('1 kilogramme');
+    cy.contains('1 kilogram');
 
     // Check Change Links
     // Commodity Information
@@ -52,7 +52,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.certificate('no');
     cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
@@ -69,7 +69,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.certificate('no');
     cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
@@ -85,7 +85,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.certificate('no');
     cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
@@ -101,7 +101,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.certificate('no');
     cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
@@ -117,7 +117,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.certificate('no');
     cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
@@ -133,7 +133,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.certificate('no');
     cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
@@ -149,7 +149,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.certificate('no');
     cy.dutiesApply1();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({dtnr: '1'});
+    cy.quantity({kgm: '1'});
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');

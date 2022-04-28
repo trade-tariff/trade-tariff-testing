@@ -85,6 +85,6 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.checkCommPage('0702000007');
     cy.go('back');
 
-    cy.quantity({dtn: '23.98'});
+    cy.quantity({kgm: '23.98'});
   });
 });

@@ -22,7 +22,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '10000'});
+    cy.quantity({kgm: '10000'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
@@ -54,7 +54,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '100'});
+    cy.quantity({kgm: '100'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
@@ -68,7 +68,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({dtn: '10000'});
+    cy.quantity({kgm: '10000'});
     cy.confirmPage();
     cy.dutyPage();
 

@@ -30,7 +30,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // text values entered
-    cy.quantity({tne: 'aaaa', dtnr: 'jjjj', dap: 'bbbb'});
+    cy.quantity({tne: 'aaaa', kgm: 'jjjj', dap: 'bbbb'});
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Enter a numeric import quantity. Enter the value in kilograms');
@@ -39,7 +39,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // negative values entered
-    cy.quantity({tne: -999, dtnr: -888, dap: -4.989});
+    cy.quantity({tne: -999, kgm: -888, dap: -4.989});
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Enter an import quantity value greater than zero. Enter the value in kilograms');
@@ -48,7 +48,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // Valid inputs given
-    cy.quantity({tne: '1', dtnr: '1', dap: '1'});
+    cy.quantity({tne: '1', kgm: '1', dap: '1'});
     // Select Document Code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
@@ -82,14 +82,14 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // Negative values entered
-    cy.quantity({asv: -999, hlt: -777});
+    cy.quantity({asv: -999, ltr: -777});
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Enter an import quantity value greater than zero. Enter the value in litres');
     cy.contains('Enter a valid import quantity. Enter the value in litres');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // valid inputs entered
-    cy.quantity({asv: 1000, hlt: 2345.987, lpa: 2});
+    cy.quantity({asv: 1000, ltr: 2345.987, lpa: 2});
     // Excise code
     cy.exciseCode('451');
     cy.confirmPage();

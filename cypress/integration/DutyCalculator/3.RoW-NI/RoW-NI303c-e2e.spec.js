@@ -9,7 +9,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.selectDestination('xi');
     // select country from list
     cy.otherOriginList({value: 'Morocco'});
-    
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -19,7 +19,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '230.98'});
+    cy.quantity({kgm: '230.98'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
@@ -34,9 +34,9 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // origin
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Norway'});
-    
+
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -47,7 +47,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '230.98'});
+    cy.quantity({kgm: '230.98'});
     cy.docCode({xi: 'y021'});
     cy.contains('Continue').click();
     cy.vat('20');
@@ -63,7 +63,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '230.98'});
+    cy.quantity({kgm: '230.98'});
     cy.docCode({xi: 'y021'});
     cy.contains('Continue').click();
     cy.vat('20');
