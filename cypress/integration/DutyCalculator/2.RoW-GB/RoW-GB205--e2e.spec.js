@@ -8,7 +8,7 @@ describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', functio
     cy.selectDestination('gb');
     cy.originList({value: 'Singapore'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({tne: '1', dtnr: '1', dap: '1'});
+    cy.quantity({tne: '1', kgm: '1', dap: '1'});
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
     cy.docCode({uk: 'n990'});

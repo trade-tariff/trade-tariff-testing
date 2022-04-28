@@ -38,7 +38,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       // Monetary value page
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
       // Measure amount page
-      cy.quantity({dtnr: '2398'});
+      cy.quantity({kgm: '2398'});
       // doc code
       cy.docCode({xi: 'n990'});
       cy.contains('Continue').click();
@@ -113,7 +113,7 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
 
     // quantity
-    cy.quantity({dtn: '23.98'});
+    cy.quantity({kgm: '23.98'});
     cy.vat('20');
 
     // Check your answers page

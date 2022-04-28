@@ -45,7 +45,7 @@ describe('🛃 📱 UK XI 💡 | dcSmokeTest-Mobile-UK | Duty Calculator Smoke |
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
       cy.mobileMenu();
       // Measure amount page
-      cy.quantity({dtnr: '23.98'});
+      cy.quantity({kgm: '23.98'});
       cy.mobileMenu();
       // doc code
       cy.docCode({xi: 'n990'});
@@ -102,7 +102,7 @@ describe('🛃 📱 UK XI 💡 | dcSmokeTest-Mobile-UK | Duty Calculator Smoke |
       cy.mobileMenu();
 
       // Import Quantity
-      cy.quantity({dtn: '100'});
+      cy.quantity({kgm: '100'});
       cy.mobileMenu();
       cy.confirmPage();
       cy.mobileMenu();

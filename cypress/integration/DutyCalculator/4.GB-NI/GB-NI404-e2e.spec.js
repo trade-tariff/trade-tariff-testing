@@ -38,7 +38,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
 
       // quantity
-      cy.quantity({dtnr: '2300.98'});
+      cy.quantity({kgm: '2300.98'});
 
       cy.docCode({xi: 'n990'});
       cy.contains('Continue').click();
@@ -108,7 +108,7 @@ describe('| GB-NI404-e2e.spec | GB to NI route 🚐 04  - 🚫 Trade Remedies - 
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
 
       // quantity
-      cy.quantity({dtn: '23.98'});
+      cy.quantity({kgm: '23.98'});
       cy.vat('20');
 
       // Check your answers page

@@ -21,7 +21,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     // Monetary value page
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Measure units
-    cy.quantity({asv: '40', hlt: '45'});
+    cy.quantity({asv: '40', ltr: '45'});
     cy.contains('Which class of excise is applicable to your trade?');
     cy.contains('Excise duty applies to trade in this commodity code. Select which class of excise duty applies to your trade');
     cy.contains('Please note that the work to calculate the');
@@ -45,7 +45,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.get('.govuk-error-message').contains('Select an excise class');
     cy.get('.govuk-back-link').click();
     // Measure units
-    cy.quantity({asv: '40', hlt: '45'});
+    cy.quantity({asv: '40', ltr: '45'});
     cy.contains('Which class of excise is applicable to your trade?');
     // select a valid option
     // Excise code 431
@@ -191,7 +191,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('gb');
     cy.originList({value: 'United States'});
     cy.customsValue({monetary: '1000.00', shipping: '50.00', cost: '50.00'});
-    cy.quantity({asv: '40', hlt: '4500', lpa: '1800'});
+    cy.quantity({asv: '40', ltr: '4500', lpa: '1800'});
     cy.exciseCode('451');
     cy.confirmPage();
     cy.dutyPage();

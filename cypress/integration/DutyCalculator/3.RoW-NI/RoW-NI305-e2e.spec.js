@@ -19,7 +19,7 @@ describe('| RoW-NI305-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '23000.98'});
+    cy.quantity({kgm: '23000.98'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');

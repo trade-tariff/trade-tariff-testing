@@ -340,7 +340,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({hlt: '1', ltr: '1', lpa: '1'});
+    cy.quantity({ltr: '1', lpa: '1'});
     // Excise code
     cy.exciseCode('419');
 
@@ -369,7 +369,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtnr: '10000', tne: '1', dap: '1'});
+    cy.quantity({kgm: '10000', tne: '1', dap: '1'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
@@ -404,7 +404,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtn: '10000'});
+    cy.quantity({kgm: '10000'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
@@ -440,7 +440,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     // customs value
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     // quantity
-    cy.quantity({dtn: '23.98'});
+    cy.quantity({kgm: '23.98'});
     cy.vat('20');
     // Check your answers page
     cy.contains('Check your answers');

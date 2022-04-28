@@ -27,7 +27,7 @@ describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursi
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtn: '100'});
+    cy.quantity({kgm: '100'});
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
@@ -46,7 +46,7 @@ describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursi
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '100'});
+    cy.quantity({kgm: '100'});
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();

@@ -47,7 +47,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     cy.docCode({uk: 'none'});
     cy.contains('Continue').click();
     // // Import Quantity
-    // cy.quantity({dtn: '1.0'});
+    // cy.quantity({kgm: '1.0'});
     // cy.docCode({uk: 'c990'});
     // cy.contains('Continue').click();
     // // VAT Page
@@ -66,7 +66,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // cy.get('.govuk-back-link').click().wait(200);
     // cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     // // Import Quantity
-    // cy.quantity({dtn: '100.0'});
+    // cy.quantity({kgm: '100.0'});
     // // doc code
     // cy.docCode({uk: 'c990'});
     // cy.contains('Continue').click();
@@ -107,7 +107,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
     // Import Quantity
-    cy.quantity({dtn: '10.0'});
+    cy.quantity({kgm: '10.0'});
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
     // VAT Page

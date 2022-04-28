@@ -91,7 +91,7 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
     // Monetary value page
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({dtn: '230.98'});
+    cy.quantity({kgm: '230.98'});
     cy.docCode({xi: 'y021'});
     cy.contains('Continue').click();
     // VAT Page

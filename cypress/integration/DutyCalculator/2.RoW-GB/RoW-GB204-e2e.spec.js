@@ -9,7 +9,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    //  cy.quantity({tne:'1',dtnr:'1',dap:'1'})
+    //  cy.quantity({tne:'1',kgm:'1',dap:'1'})
     cy.additionalCode({uk: '2601'});
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
@@ -33,7 +33,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({hlt: '1', ltr: '1', lpa: '1'});
+    cy.quantity({ltr: '1', lpa: '1'});
     // Excise code
     cy.exciseCode('419');
 
@@ -52,7 +52,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.selectDestination('gb');
     cy.originList({value: 'France'});
     cy.customsValue({monetary: '4000.00', shipping: '500.00', cost: '500.00'});
-    cy.quantity({hlt: '100', ltr: '100'});
+    cy.quantity({ltr: '100'});
     // Excise code
     cy.exciseCode('411');
     cy.confirmPage();

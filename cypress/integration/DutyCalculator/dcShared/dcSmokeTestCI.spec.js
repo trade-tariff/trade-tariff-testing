@@ -36,7 +36,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    //  cy.quantity({tne:'1',dtnr:'1',dap:'1'})
+    //  cy.quantity({tne:'1',kgm:'1',dap:'1'})
     cy.additionalCode({uk: '2601'});
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
@@ -72,7 +72,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtn: '1000'});
+    cy.quantity({kgm: '1000'});
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
@@ -93,7 +93,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({dtn: '1000'});
+    cy.quantity({kgm: '1000'});
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
@@ -129,7 +129,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.dutiesApply1();
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     // Measure amount page
-    cy.quantity({dtnr: '23.98'});
+    cy.quantity({kgm: '23.98'});
     // doc code
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
