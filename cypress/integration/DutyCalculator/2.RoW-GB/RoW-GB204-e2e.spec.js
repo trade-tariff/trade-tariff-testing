@@ -47,7 +47,6 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
   it(`e2e RoW to GB | 🇫🇷 France to 🇬🇧 GB | Excise code | Champagne |`, function() {
     // select future date
     cy.visit(`/duty-calculator/uk/2204101100/import-date`);
-
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'France'});
@@ -60,7 +59,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - European Union');
     cy.contains('£1,457.38');
-    cy.contains('£1,488.58');
+    cy.contains('£4,577.38');
     cy.contains('411 - Sparkling wine of fresh grape with an alcoholic strength exceeding 8.5% ABV but not exceeding 15% ABV');
   });
 });

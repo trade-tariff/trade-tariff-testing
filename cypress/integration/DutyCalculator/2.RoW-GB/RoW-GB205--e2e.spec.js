@@ -13,12 +13,16 @@ describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', functio
     cy.contains('Continue').click();
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
+    cy.contains('1 x 100 kg');
+    cy.contains('1 tonnes');
+    cy.contains('1 x 10,000 kg');
     cy.confirmPage();
+    // Duty Calculations
     cy.dutyPage();
-
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - Singapore');
     cy.contains('Option 3: Non-preferential quota 057713');
     cy.contains('Option 4: Non-preferential tariff quota under end-use 054320');
+    cy.contains('£28.00');
   });
 });

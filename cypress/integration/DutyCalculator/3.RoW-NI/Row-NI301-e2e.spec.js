@@ -20,6 +20,7 @@ describe('| RoW-NI301-e2e.spec | RoW to Northern Ireland ', function() {
       cy.contains('Option 1: Third-country duty');
       cy.contains('Option 2: Tariff preference - Israel');
       cy.contains('Tariff preference (UK)');
+      cy.contains('£170.00');
     });
   }
 });
