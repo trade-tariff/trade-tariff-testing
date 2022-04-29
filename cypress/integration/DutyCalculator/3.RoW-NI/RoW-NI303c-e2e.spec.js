@@ -9,7 +9,6 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.selectDestination('xi');
     // select country from list
     cy.otherOriginList({value: 'Morocco'});
-
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -23,6 +22,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
+    cy.contains('£0.00');
     // cy.contains('Option 2: Tariff preference - Morocco');
   });
   it('RoW (Norway)) to Northern Ireland - Meursing - Delta', function() {
@@ -71,5 +71,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('Tariff preference (EU)');
+    cy.contains('£1,354.78');
+    cy.contains('£1,162.86');
   });
 });

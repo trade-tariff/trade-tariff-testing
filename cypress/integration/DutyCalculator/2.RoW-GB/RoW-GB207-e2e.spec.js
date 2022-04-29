@@ -13,9 +13,10 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - Norway');
     cy.contains('615 - Cigars');
+    cy.contains('£893.50');
   });
 
-  it('🛢️ Fuel | RoW 🇱🇮 Liechtenstein - 🇬🇧 GB   | 6.fuels or various types - White oils, liquid paraffin |', function() {
+  it('🛢️ Fuel | RoW 🇱🇮 Liechtenstein - 🇬🇧 GB   | 6.fuels of various types - White oils, liquid paraffin |', function() {
     cy.visit('/duty-calculator/uk/3811210027/import-date');
 
     cy.validDate();
@@ -45,6 +46,8 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     cy.contains('Option 2: Tariff preference - Liechtenstein');
     cy.contains('Option 3: Autonomous suspension under end-use');
     cy.contains('Option 4: Airworthiness tariff suspension');
+    cy.contains('£248.75');
+    cy.contains('£200.75');
     // Case 2 - Change excise code with 0 % excise
     cy.get('.govuk-back-link').click();
     // Change Excise code to 551 - 0% excise duty

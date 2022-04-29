@@ -71,5 +71,7 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
     cy.contains(`Import duty (B999)`);
     cy.contains('Definitive anti-dumping duty (UK)');
     cy.contains('Definitive countervailing duty (UK)');
+    cy.contains('£741.72');
+    cy.contains('£610.92');
   });
 });

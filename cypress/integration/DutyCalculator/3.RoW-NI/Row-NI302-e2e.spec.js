@@ -21,10 +21,7 @@ describe('| RoW-NI302-e2e.spec | RoW to Northern Ireland ', function() {
       cy.dutyPage();
       cy.contains('Option 1: Third-country duty');
       cy.contains('4.70% * £1,000.00');
-      // cy.contains('6.70% * £1,000.00');
-      // cy.contains('Option 2: Tariff preference - Turkey');
-      // cy.contains('0.00% * £1,000.00');
-      // cy.contains('6.70% * £1,000.00');
+      cy.contains('£256.40');
     });
   }
 });

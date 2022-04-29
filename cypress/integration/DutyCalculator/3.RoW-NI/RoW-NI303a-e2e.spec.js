@@ -28,8 +28,7 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (EU)');
-    // cy.contains('Option 2: Tariff preference - Morocco');
-    // cy.contains('Tariff preference (EU)');
+    cy.contains('£0.00');
   });
   it('RoW 🇲🇦 (Costa Rica) to Northern Ireland - Meursing Code', function() {
     cy.visit('/duty-calculator/xi/1901100000/import-date');
@@ -40,9 +39,7 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // origin
     cy.selectOrigin('other');
     // select country from list
-    
     cy.otherOriginList({value: 'Costa Rica'});
-    
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -64,5 +61,6 @@ describe('| RoW-NI303a-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.contains('Third-country duty (EU)');
     cy.contains('7.60 % + 0.00 EUR / 100 kg');
     cy.contains('Option 2: Tariff preference - Central America');
+    cy.contains('£247.52');
   });
 });
