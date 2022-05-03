@@ -44,10 +44,10 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.contains('You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on 31 May 2022.');
     cy.contains('Option 1: Third-country duty');
     cy.contains('10.90% * £1,000.00');
-    cy.contains('172.20 EUR / 1000 kg/biodiesel * 1000.00');
+    cy.contains('172.20 EUR / 1000 kg/biodiesel');
     cy.contains('Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('0.00% * £1,000.00');
-    cy.contains('172.20 EUR / 1000 kg/biodiesel * 1000.00');
+    cy.contains('172.20 EUR / 1000 kg/biodiesel');
     // go back to previous page to change doc code
     cy.get('.govuk-back-link').click().wait(300);
     // Change to different Document Code
@@ -77,7 +77,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.contains('10.90% * £1,000.00');
     cy.contains('Import duty (C999)');
     cy.contains('Definitive anti-dumping duty (EU)');
-    cy.contains('172.20 EUR / 1000 kg/biodiesel * 1000.00');
+    cy.contains('172.20 EUR / 1000 kg/biodiesel');
     cy.contains('Import duty (C496)');
     cy.contains('Definitive countervailing duty (EU)');
     cy.contains('25.00% * £1,000.00');

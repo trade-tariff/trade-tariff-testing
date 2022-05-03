@@ -93,7 +93,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       cy.contains('Import duty Third-country duty (EU)');
       cy.contains('Import quantity');
       cy.contains('230.98 x 100 kg');
-      cy.contains('33.90 EUR / 100 kg std qual * 230.98');
+      cy.contains('33.90 EUR / 100 kg std qual');
 
       cy.contains('Duty Total');
       // Final Page
