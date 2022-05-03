@@ -59,7 +59,9 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - European Union');
     cy.contains('£1,457.38');
-    cy.contains('£4,577.38');
+    cy.contains('£1,488.58');
+    cy.contains('100 litres');
+    cy.contains('Import quantity');
     cy.contains('411 - Sparkling wine of fresh grape with an alcoholic strength exceeding 8.5% ABV but not exceeding 15% ABV');
   });
 });

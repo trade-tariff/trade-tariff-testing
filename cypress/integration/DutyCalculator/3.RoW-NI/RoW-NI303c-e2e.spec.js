@@ -43,27 +43,27 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.finalUseNI('yes');
     // turn over < 500k = no
     cy.turnOver('less');
-    cy.meursingCode({value: '000'});
-    // customs value
-    cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    // Import Quantity
-    cy.quantity({kgm: '230.98'});
-    cy.docCode({xi: 'y021'});
-    cy.contains('Continue').click();
-    cy.vat('20');
-    cy.confirmPage();
-    cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Third-country duty (UK)');
-    // change meursing code to 7049
+    // cy.meursingCode({value: '000'});
+    // // customs value
+    // cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
+    // // Import Quantity
+    // cy.quantity({kgm: '230.98'});
+    // cy.docCode({xi: 'y021'});
+    // cy.contains('Continue').click();
+    // cy.vat('20');
+    // cy.confirmPage();
+    // cy.dutyPage();
+    // cy.contains('Option 1: Third-country duty');
+    // cy.contains('Third-country duty (UK)');
+    // // change meursing code to 7049
 
-    cy.get('.govuk-back-link').click();
-    cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click();
+    // cy.get('.govuk-back-link').click();
+    // cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click();
     cy.meursingCode({value: '049'});
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({kgm: '230.98'});
+    cy.quantity({kgm: '1000.00'});
     cy.docCode({xi: 'y021'});
     cy.contains('Continue').click();
     cy.vat('20');
@@ -71,7 +71,7 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('Tariff preference (EU)');
-    cy.contains('£1,354.78');
-    cy.contains('£1,162.86');
+    cy.contains('£423.25');
+    cy.contains('£414.95');
   });
 });
