@@ -242,11 +242,11 @@ describe('|commHistory.spec.js| commodity/heading history to be displayed when t
       cy.get('p:nth-of-type(3) > a').click();
       cy.contains('Chapter 88 - Aircraft, spacecraft, and parts thereof');
     });
-    it(`${country[i]} -  Heading Scenario  2 (using search box) - Heading starts on 1st Jan 2022 `, function() {
+    it.skip(`${country[i]} -  Heading Scenario  2 (using search box) - Heading starts on 1st Jan 2022 `, function() {
     // commodity is available on 1st Jan 2022
       cy.visit({url: '/browse?day=31&month=12&year=2021', failOnStatusCode: false});
-      cy.searchForCommodity2('8806');
-      cy.contains('Heading 8806');
+      cy.searchForCommodity2('8809');
+      cy.contains('Heading 8809');
       cy.contains(`${titles[i]}`);
       cy.contains('The heading you entered could not be found for the date selected. The code is present for the dates shown below.');
       cy.contains('Click on a date to see the measures present on that date.');
