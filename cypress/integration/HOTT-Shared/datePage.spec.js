@@ -68,7 +68,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       cy.datePickerPage({day: 22, month: 10, year: 2021});
       cy.contains('22 October 2021');
     });
-    it(`${country[i]} Page validation `, function() {
+    it(`${country[i]} Page validations + back link + cancel button `, function() {
       cy.visit(`${country[i]}/commodities/6406905010?day=1&month=1&year=2022`);
       cy.contains('1 January 2022');
       // change date invalid
@@ -91,6 +91,30 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       cy.contains('Enter a valid date');
       cy.get('.govuk-error-message')
           .contains('Enter a valid date');
+      cy.get('.govuk-back-link').click();
+      cy.contains('Commodity 6406905010');
+      cy.contains('1 January 2022');
+    });
+    it(`${country[i]} subheading page `, function() {
+      cy.visit(`${country[i]}/subheadings/0208900000-80?day=31&month=5&year=2022`);
+      cy.contains('31 May 2022');
+      // Change date
+      cy.get('.govuk-summary-list .govuk-link').click();
+      cy.title().should('eq', `${titles[i]} - When will your goods be traded - GOV.UK`);
+      cy.contains('As commodities, duties and quotas change over time, it may be important to enter the date you think your goods will be traded. Use the format day, month, year, for example 27 3 2021. If you don\'t enter a date, today\'s date will be used.');
+      cy.contains('Click on \'Cancel\' to return to the previous page.');
+      // Cancel
+      cy.get('.govuk-link').contains('Cancel').click();
+      cy.contains('Subheading 020890 - Other');
+      cy.contains('31 May 2022');
+      // change date to future date
+      cy.get('.govuk-summary-list .govuk-link').click();
+      cy.datePickerPage({day: 22, month: 12, year: 2022});
+      cy.contains('22 December 2022');
+      // change date to past date
+      cy.get('.govuk-summary-list .govuk-link').click();
+      cy.datePickerPage({day: 22, month: 10, year: 2021});
+      cy.contains('22 October 2021');
     });
   }
 });
