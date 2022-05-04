@@ -33,7 +33,7 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', {tag
     cy.visit('/xi/sections');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('38089410');
-    cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+    cy.contains('Commodity 3808941000');
   });
   it('XI - Search unknown commodity ', function() {
     cy.visit('/xi/sections');

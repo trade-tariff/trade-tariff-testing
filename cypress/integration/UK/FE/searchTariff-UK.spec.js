@@ -30,11 +30,11 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', {t
     cy.checkCommPage('3808941000');
   });
 
-  it('UK - Search Commodity by sub heading code - displays headings page', function() {
+  it('UK - Search Commodity by sub heading code - displays comoodity page', function() {
     cy.visit('/sections');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('38089410');
-    cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+    cy.contains('Commodity 3808941000');
   });
   it('UK - Search unknown commodity ', function() {
     cy.visit('/sections');
