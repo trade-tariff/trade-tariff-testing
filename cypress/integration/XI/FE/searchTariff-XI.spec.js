@@ -83,4 +83,8 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', {tag
       cy.contains(`${searchResults[i]}`);
     }
   });
+  it('XI - Commodity endpoint redirects to subheading', function() {
+    cy.visit('/xi/commodities/0713900000');
+    cy.contains('Subheading 071390 - Other');
+  });
 });
