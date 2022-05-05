@@ -84,4 +84,8 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', {t
       cy.contains(`${searchResults[i]}`);
     }
   });
+  it('UK - Commodity endpoint redirects to subheading', function() {
+    cy.visit('/commodities/0713900000');
+    cy.contains('Subheading 071390 - Other');
+  });
 });
