@@ -37,9 +37,9 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
     cy.get('.js-quota-country-picker').click();
-    
+
     cy.get('input#geographical_area_id').type('Morocco (MA)');
-    
+
     cy.get('form#new_search > input[name=\'new_search\']').click();
     cy.contains('Quota search results');
     cy.get('.govuk-table__row')
@@ -49,9 +49,9 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
     cy.get('.js-quota-country-picker').click();
-    
+
     cy.get('input#geographical_area_id').type('Burkina Faso (BF)');
-    
+
     cy.get('form#new_search > input[name=\'new_search\']').click();
     cy.contains('There are no matching results');
   });
@@ -59,12 +59,12 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
     cy.get('.js-quota-country-picker').click();
-    
+
     cy.get('input#geographical_area_id').type('Switzerland (CH)');
-    
+
     // reset to all countries
     cy.get('.reset-country-picker').click();
-    
+
     cy.get('form#new_search > input[name=\'new_search\']').click();
 
     cy.contains('Sorry, there is a problem with the search query. Please specify one or more search criteria.');
