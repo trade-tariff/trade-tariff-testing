@@ -131,11 +131,6 @@ Cypress.Commands.add('searchForCommodity2', (searchString) => {
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
   cy.get('input[name=\'submit_search\']').click();
-  // cy.get('.js-commodity-picker-select:last').click().type(searchString);
-  // input#tariff-search-banner__q
-  //  cy.waitForCommoditySearchResults();
-  // return cy.get('input[name=\'new_search\']').click();
-  // cy.get('input[name=\'commit\']').click();
 });
 
 
@@ -208,4 +203,16 @@ Cypress.Commands.add('commodityGuidance', ()=>{
   cy.contains('CHIEF guidance');
   cy.get('.info-inner').contains('document status codes: ');
   cy.get('.info-inner').contains(' status codes');
+});
+Cypress.Commands.add('quotaSearch', (options)=>{
+  cy.visit('/quota_search');
+  cy.contains('Search for quotas');
+  cy.get('input#order_number').click().clear().type(options.ordernumber);
+  cy.get('input#goods_nomenclature_item_id').click().clear().type(options.commcode);
+  cy.get('input#geographical_area_id').click().clear().type(options.country);
+  cy.get('input#day').click().clear().type(options.day);
+  cy.get('input#month').click().clear().type(options.month);
+  cy.get('input#year').click().clear().type(options.year);
+  cy.get('select#critical').select(options.critical);
+  cy.get('select#status').select(options.status);
 });
