@@ -17,6 +17,7 @@
 import './commands'
 import './dutyCommands'
 import './apiCommands'
+import './csvCommands'
 //import 'cypress-axe'
 import 'cypress-fill-command'
 //require('@shelex/cypress-allure-plugin');
@@ -33,4 +34,3 @@ const Helpers = {
 }
 
 require('cypress-grep')();
-

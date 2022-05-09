@@ -22,17 +22,20 @@ Cypress.Commands.add('datePickerPage', (date)=>{
   cy.get('input[name=\'import_export_date[import_date(1i)]\']').click().clear().type(date.year);
   cy.contains('Update date').click();
 });
+
 Cypress.Commands.add('countryPickerpage', (country)=>{
   cy.contains('Select a country');
   cy.get('input#trading-partner-country-field').click().clear().type(country.value);
   cy.contains('Select country').click();
 });
+
 // validate commodity page heading
 Cypress.Commands.add('checkCommPage', (commcode)=>{
 //  cy.contains('Commodity ' +commcode);
   // cy.contains(/Commodity .*3808941000/i);
   cy.contains(new RegExp(`Commodity .*${commcode}`, 'i'));
 });
+
 // validate headings page
 Cypress.Commands.add('checkHeadingsPage', (headingsCode)=>{
   cy.contains(new RegExp(`Heading .*${headingsCode}`, 'i'));
@@ -54,7 +57,6 @@ Cypress.Commands.add('mainPageUK', ()=>{
   cy.contains('Enter the name of the goods or a commodity code');
 });
 
-
 // XI Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('mainPageXI', ()=>{
   // check header has UK information
@@ -70,15 +72,16 @@ Cypress.Commands.add('mainPageXI', ()=>{
   cy.contains('Enter the name of the goods or a commodity code');
 });
 
-
 Cypress.Commands.add('browsePage', ()=>{
   cy.contains('Browse the tariff');
   cy.contains('The goods classification contains 21 sections, listed below. Choose the section that best matches your goods to see the HS chapters that are contained in the section.');
 });
+
 Cypress.Commands.add('commPage', ()=>{
   cy.contains('Look up commodity codes, import duties, taxes and controls');
   cy.title().should('matches', /UK Integrated Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
 });
+
 Cypress.Commands.add('newsBannerUK', ()=>{
   cy.contains('Are you importing goods into Northern Ireland?');
   // check correct text is displayed on banner as per UK - If they are at risk
@@ -90,6 +93,7 @@ Cypress.Commands.add('newsBannerUK', ()=>{
   cy.contains('if your goods are not ‘at risk’ of onward movement to the EU');
   cy.contains('If they are at risk of onward movement to the EU, use the');
 });
+
 Cypress.Commands.add('newsBannerXI', ()=>{
   cy.contains('Are your goods at risk of onward movement to the EU?');
   // check correct text is displayed on banner as per UK - If they are at risk
@@ -101,15 +105,16 @@ Cypress.Commands.add('newsBannerXI', ()=>{
   cy.contains('if your goods are ‘at risk’ of onward movement to the EU');
   cy.contains('. If they are not at risk of onward movement to the EU, use the ');
 });
+
 Cypress.Commands.add('specialBanner', ()=>{
   cy.contains('New guidance has been published in regard to additional duties on goods originating in Russia and Belarus.');
   cy.get('header[role=\'banner\'] a[target=\'_blank\']').should('have.attr', 'href', 'https://www.gov.uk/guidance/additional-duties-on-goods-originating-in-russia-and-belarus');
 });
+
 Cypress.Commands.add('contextSelector', ()=>{
   cy.get('.govuk-table__body').contains('Classification');
   cy.get('.govuk-table__body').contains('Date of trade');
 });
-
 
 Cypress.Commands.add('waitForCommoditySearchResults', () => {
   cy.get('ul#q__listbox li:not(.autocomplete__option--no-results)').should('be.visible');
@@ -122,12 +127,14 @@ Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.get('input[name=\'commit\']').click();
   //  cy.get('input[name=\'new_search\']').click();
 });
+
 Cypress.Commands.add('searchForCommodity2', (searchString) => {
   cy.get('.js-commodity-picker-select:last').click().type(searchString);
   cy.waitForCommoditySearchResults();
   return cy.get('input[name=\'new_search\']').click();
   // cy.get('input[name=\'commit\']').click();
 });
+
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
   cy.get('input[name=\'submit_search\']').click();
@@ -143,6 +150,7 @@ Cypress.Commands.add('searchForCountry', (searchString) => {
   cy.waitForCountrySearchResults();
   return cy.get('ul#search_country__listbox li');
 });
+
 Cypress.Commands.add('mobileMenu', ()=>{
   cy.get('.govuk-header__menu-button').click();
   cy.contains('Search');
@@ -153,6 +161,7 @@ Cypress.Commands.add('mobileMenu', ()=>{
   cy.contains('Help');
   cy.get('.govuk-header__menu-button').click();
 });
+
 Cypress.Commands.add('CommCodeHistory', (commCode, date)=>{
   let dateParams = '';
   if (date) {
@@ -161,6 +170,7 @@ Cypress.Commands.add('CommCodeHistory', (commCode, date)=>{
   cy.visit({url: `/commodities/${commCode}${dateParams}`, failOnStatusCode: false});
   cy.checkCommPage(commCode);
 });
+
 Cypress.Commands.add('headingsHistory', (headingsCode, date)=>{
   let dateParams = '';
   if (date) {
@@ -169,15 +179,18 @@ Cypress.Commands.add('headingsHistory', (headingsCode, date)=>{
   cy.visit({url: `/headings/${headingsCode}${dateParams}`, failOnStatusCode: false});
   cy.checkHeadingsPage(headingsCode);
 });
+
 Cypress.Commands.add('RoOContent', (options)=>{
   cy.contains(`Product-specific rules for commodity ${options.commCode}`);
   cy.contains(`If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or ${options.country}.`);
   cy.contains('If there are alternative rules, your product needs to comply with only one of them.');
 });
+
 Cypress.Commands.add('groiContent', ()=>{
   cy.contains('General Rules for the Interpretation of goods').click();
   cy.contains('Classification of goods in the Tariff shall be governed by the following principles:');
 });
+
 Cypress.Commands.add('certificateSearch', ()=>{
   cy.contains('Search for a certificate, licence or document');
   cy.contains('Search for certificates, licences and other document codes and the commodities which reference them. Document codes may be needed to complete your import or export declaration.');
@@ -187,16 +200,19 @@ Cypress.Commands.add('certificateSearch', ()=>{
   cy.contains('Description');
   cy.contains('Enter key terms from the certificate description');
 });
+
 Cypress.Commands.add('code999L', ()=>{
   cy.get('.info-content').contains('Customs Declaration Service (CDS) universal waiver');
   cy.get('.info-content').contains('Requirement for a licence is waived by entering the 999L document code and the document identifier CDS WAIVER in the additional documentation field for this commodity item. 999L can be used for CDS in a similar way to LIC99 on the CHIEF system, when a waiver may be applied.');
 });
+
 Cypress.Commands.add('certificateGuidance', ()=>{
   cy.contains('Using this certificate on CDS or CHIEF').click();
   cy.contains('CDS guidance:');
   cy.contains('CHIEF guidance:');
   cy.contains('Commodity codes that require this certificate').click();
 });
+
 Cypress.Commands.add('commodityGuidance', ()=>{
   cy.get('.info-inner').contains('Guidance for completing Box 44 or Data Element 2/3').click();
   cy.contains('CDS guidance');
@@ -204,6 +220,7 @@ Cypress.Commands.add('commodityGuidance', ()=>{
   cy.get('.info-inner').contains('document status codes: ');
   cy.get('.info-inner').contains(' status codes');
 });
+
 Cypress.Commands.add('quotaSearch', (options)=>{
   cy.visit('/quota_search');
   cy.contains('Search for quotas');
@@ -216,3 +233,4 @@ Cypress.Commands.add('quotaSearch', (options)=>{
   cy.get('select#critical').select(options.critical);
   cy.get('select#status').select(options.status);
 });
+
