@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
-describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
-  it.skip('test', function() {
+describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
+  it('test', function() {
     const num = '0409000000';
     const m = num.substring(0, 4);
     console.log(m);
@@ -10,7 +10,7 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     console.log(n);
     //  cy.contains(`Commodity ${headings[j]}`+ '000000');
   });
-  it.skip('mainpage', function() {
+  it('mainpage', function() {
     cy.visit('/sections');
     console.log(cy.title());
     cy.visit('/chapters/01');
@@ -20,14 +20,14 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     console.log(cy.title());
   //  cy.title().should('match', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
   });
-  it.skip('test spec', function() {
+  it('test spec', function() {
     console.log(Cypress.env('baseUrl'));
   });
-  it.skip('check comm code spacing', function() {
+  it('check comm code spacing', function() {
     cy.visit('/commodities/0409000000');
     cy.checkCommPage('0409000000');
   });
-  it.skip('UK - V2 - Headers,Status,Length,duration', function() {
+  it('UK - V2 - Headers,Status,Length,duration', function() {
     cy.request('/api/v2/commodities/2007993943').as('comments');
     cy.get('@comments').then(cy.validJsonAPIresponse);
   });
@@ -38,23 +38,23 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
 
   // function(name) { console.log('hello' + name);
   // (name) => { console.log('hello' + name)
-  it.skip('custom commands test', function() {
+  it('custom commands test', function() {
     Helpers.sayHello('Madhu');
   });
-  it.skip('new main page', function() {
+  it('new main page', function() {
     cy.visit('/sections');
     cy.commPage();
     cy.newsBannerUK();
     cy.visit('xi/sections');
     cy.newsBannerXI();
   });
-  it.skip('context selector', function() {
+  it('context selector', function() {
     cy.visit('/chapters/02');
     cy.contextSelector();
     cy.visit('/headings/0202');
     cy.contextSelector();
   });
-  it.skip('page titles', function() {
+  it('page titles', function() {
     cy.visit('/sections');
     console.log(cy.title());
     cy.visit('/browse');
@@ -62,11 +62,11 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.visit('/tools');
     console.log(cy.title());
   });
-  it.skip('test tags', function() {
+  it('test tags', function() {
     cy.visit('/import_export_dates');
     cy.datePickerPage({day: 22, month: 12, year: 2022});
   });
-  it.skip('Search Tariff on other pages', function() {
+  it('Search Tariff on other pages', function() {
     const pages = ['sections', 'browse', 'find_commodity', 'sections/6'];
     for (let i=0; i<pages.length; i++) {
       cy.visit(`/${pages[i]}`);
@@ -74,10 +74,10 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
       cy.checkCommPage('3808941000');
     }
   });
-  it.skip('CommCodeTest', function() {
+  it('CommCodeTest', function() {
     cy.CommCodeHistory('8527290010', {day: '22', month: '02', year: '2022'});
   });
-  it.skip('Heading Test', function() {
+  it('Heading Test', function() {
     cy.headingsHistory('8803', {day: '22', month: '02', year: '2022'});
   });
   it('title', function() {
@@ -86,11 +86,11 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     console.log(cy.title());
     // Edible vegetables and certain roots and tubers - UK Integrated Online Tariff - GOV.UK
   });
-  it.skip('RoO block', function() {
+  it('RoO block', function() {
     cy.visit('/commodities/1508101000?country=IN#rules-of-origin');
     cy.RoOContent({commCode: '1508101000', country: 'India'});
   });
-  it.skip('RoO 2', function() {
+  it('RoO 2', function() {
     const commCode = '1508101000';
     const newCode = RegExp(`.*${commCode}`, 'i');
     const newCode1 = (`${commCode}`);
@@ -104,5 +104,11 @@ describe('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.groiContent();
     cy.visit('/chapters/15');
     cy.groiContent();
+  });
+  it.only('Quota search Test', function() {
+    cy.quotaSearch({ordernumber: '057140', commcode: ' ', country: ' ', day: ' ', month: ' ', year: ' ', critical: '', status: ''});
+    cy.get('a[title=\'Reset country picker\'] > .long-text').click();
+    cy.get('form#new_search > input[name=\'new_search\']').click();
+    cy.contains('Quota search results');
   });
 });
