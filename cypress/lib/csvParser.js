@@ -1,28 +1,28 @@
-const { Parser } = require('csv-parse');
+const {Parser} = require('csv-parse');
 
 // csv-parse/sync is ESM only so incompatible with Electron, and therefore Cypress
 // hence just vendoring it here
 
 module.exports = (data, options={}) => {
-  if(typeof data === 'string'){
+  if (typeof data === 'string') {
     data = Buffer.from(data);
   }
   const records = options && options.objname ? {} : [];
   const parser = new Parser(options);
-  parser.push = function(record){
-    if(record === null){
+  parser.push = function(record) {
+    if (record === null) {
       return;
     }
-    if(options.objname === undefined)
+    if (options.objname === undefined) {
       records.push(record);
-    else{
+    } else {
       records[record[0]] = record[1];
     }
   };
   const err1 = parser.__parse(data, false);
-  if(err1 !== undefined) throw err1;
+  if (err1 !== undefined) throw err1;
   const err2 = parser.__parse(undefined, true);
-  if(err2 !== undefined) throw err2;
+  if (err2 !== undefined) throw err2;
   return records;
 };
 
