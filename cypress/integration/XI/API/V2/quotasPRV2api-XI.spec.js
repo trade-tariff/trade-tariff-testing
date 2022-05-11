@@ -1,20 +1,13 @@
 /* eslint-disable camelcase */
 describe('🇪🇺 ⚙️ quotasPRV2api-XI | XI-version v2 api Quotas , P&R suppression', function() {
   // ----------------Quotas to be suppressed for XI -------------
-  it('1.Quotas:046 Tariff quota/ceiling -   suppressed ', function() {
-    cy.request('/xi/api/v2/commodities/6301909021#import.json')
+  it.only('1.Quotas:046 Tariff quota/ceiling -   suppressed ', function() {
+    cy.request('/xi/api/v2/commodities/6301909021')
         .then((response) => {
-          const measure_types = response.body.included;
-          let found = false;
-          for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].attributes.description == 'Non preferential tariff quota') {
-              found = true;
-              break;
-            }
-          }
-          expect(found).to.be.false;
+          cy.doesNotHaveMeasureType(response, '122');
         });
   });
+
   it('2.Quotas:122-Non Preferential quota -   suppressed ', function() {
     cy.request('/xi/api/v2/commodities/1006209600#import.json')
         .then((response) => {
