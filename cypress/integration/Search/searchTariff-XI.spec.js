@@ -20,14 +20,15 @@ describe(' 🇪🇺 💡 🔍 | searchTariff-XI |Search the Tariff - XI |', {tag
       cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
     }
   });
-  it('XI - Search Commodity by code ', function() {
+  it.only('XI - Search Commodity by code ', function() {
     cy.visit('/xi/sections');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('3808941000');
     cy.checkCommPage('3808941000');
+    cy.searchForCommodity2('2933998000');
+    cy.contains('Subheading 29339980 - Other');
   });
-
 
   it('XI - Search Commodity by heading code - displays headings page', function() {
     cy.visit('/xi/sections');
