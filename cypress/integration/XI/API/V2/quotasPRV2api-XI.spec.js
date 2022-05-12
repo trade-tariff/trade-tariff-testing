@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 describe('🇪🇺 ⚙️ quotasPRV2api-XI | XI-version v2 api Quotas , P&R suppression', function() {
   // ----------------Quotas to be suppressed for XI -------------
-  it.only('1.Quotas:046 Tariff quota/ceiling -   suppressed ', function() {
+  it('1.Quotas:046 Tariff quota/ceiling -   suppressed ', function() {
     cy.request('/xi/api/v2/commodities/6301909021')
         .then((response) => {
           cy.doesNotHaveMeasureType(response, '122');
