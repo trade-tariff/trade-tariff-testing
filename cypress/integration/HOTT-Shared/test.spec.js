@@ -105,7 +105,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.visit('/chapters/15');
     cy.groiContent();
   });
-  it.only('Quota search Test', function() {
+  it('Quota search Test', function() {
     cy.quotaSearch({ordernumber: '057140', commcode: ' ', country: ' ', day: ' ', month: ' ', year: ' ', critical: '', status: ''});
     cy.get('a[title=\'Reset country picker\'] > .long-text').click();
     cy.get('form#new_search > input[name=\'new_search\']').click();
