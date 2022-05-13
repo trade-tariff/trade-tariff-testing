@@ -1,20 +1,19 @@
 /* eslint-disable max-len */
-describe('UK 🇬🇧 XI 🇪🇺 | documentCodeTitles.spec.js | Validate document / certificate description + validity period |', function() {
+describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / certificate description + validity period |', function() {
   // HOTT-1255 - remove certificate document title from pop up window
   it(`UK - Certificate / Document details pop up `, function() {
     cy.visit(`/commodities/0104103000`);
     cy.get('.govuk-breadcrumbs__list').contains('Commodity 0104103000');
     cy.checkCommPage('0104103000');
-    //
-    cy.get('table:nth-of-type(1) > .govuk-table__body > tr:nth-of-type(1)  a[role=\'button\']').click();
-    cy.contains('Other certificates:').should('not.exist');
-    cy.contains('Particular provisions:').should('not.exist');
+    cy.get('div#import > table:nth-of-type(1) > .govuk-table__body > tr:nth-of-type(1)  a[role=\'button\']').click();
+    cy.get('.info-inner').contains('Other certificates:').should('not.exist');
+    cy.get('.info-inner').contains('Particular provisions:').should('not.exist');
     cy.get('.info-inner').contains('Import control - CITES for All countries');
     cy.get('.info-inner').contains(' From 29 Jan 2022 to 30 Sep 2023');
     // div#popup a
     cy.get('.close [href]').click();
   });
-  it.only(`XI - Certificate / Document details pop up `, function() {
+  it(`XI - Certificate / Document details pop up `, function() {
     cy.visit(`xi/commodities/9706100000`);
     cy.get('.govuk-breadcrumbs__list').contains('Commodity 9706100000');
     cy.checkCommPage('9706100000');
@@ -25,7 +24,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | documentCodeTitles.spec.js | Validate docume
     cy.get('.info-inner').contains('Import control - CITES for All countries');
     cy.contains('From 19 Jan 2022');
     cy.get('.close [href]').click().wait(350);
-    cy.get('#measure-20065049').contains('Conditions').click().wait(600);
+    cy.get('table:nth-of-type(4) > .govuk-table__body > .KP.govuk-table__row  a[role=\'button\']').wait(200).click().wait(0);
     // cy.contains('Particular provisions:').should('not.exist');
     cy.get('.info-inner').contains('Import control on luxury goods for North Korea');
     cy.get('.info-inner').contains('From 1 Jan 2021');
