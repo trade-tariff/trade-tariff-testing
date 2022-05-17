@@ -30,7 +30,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', {t
     cy.checkCommPage('3808941000');
   });
 
-  it.only('UK - Search Commodity by sub heading code - displays comoodity page', function() {
+  it('UK - Search Commodity by sub heading code - displays comoodity page', function() {
     cy.visit('/sections');
     cy.searchForCommodity('38089410');
     cy.contains('Commodity 3808941000');
@@ -77,8 +77,8 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UK | Search the Tariff - UK |', {t
     }
   });
   it('UK - Search using subheadings (6 digits) or CN code (8 digits) - intermediary page', function() {
-    const searchSynonyms = ['face masks', 'leg of lamb', 'jute bags', 'curry leaves', 'dried red chillies', 'himalayan salt', 'chilli pepper'];
-    const searchResults = ['Subheading 63079093 - Protective face masks', 'Subheading 02042250 - Legs', 'Subheading 531010 - Unbleached', 'Subheading 09109991 - Other', 'Subheading 090421 - Dried, neither crushed nor ground', 'Subheading 25010091 - Other', 'Subheading 090411 - Pepper'];
+    const searchSynonyms = ['face masks', 'leg of lamb', 'jute bags', 'curry leaves', 'dried red chillies', 'ironing board', 'chilli pepper'];
+    const searchResults = ['Subheading 63079093 - Protective face masks', 'Subheading 02042250 - Legs', 'Subheading 531010 - Unbleached', 'Subheading 09109991 - Other', 'Subheading 090421 - Dried, neither crushed nor ground', 'Subheading 392490 - Other', 'Subheading 090411 - Pepper'];
     cy.visit('/browse');
     for (let i=0; i<searchSynonyms.length; i++) {
       cy.searchForCommodity2(`${searchSynonyms[i]}`);
