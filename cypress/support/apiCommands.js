@@ -24,7 +24,6 @@ Cypress.Commands.add('doesNotHaveMeasureType', (response, expectedId) => {
 });
 Cypress.Commands.add('hasLegalActs', (response, expectedId, expectedDescription) => {
   expect(response.status).to.eq(200);
-  // console.log(JSON.stringify(response.body));
   expect(response.body).not.to.be.null;
   const matchingMeasureType = response.body.included.filter(function(resource) {
     return (resource.type === 'legal_act' && resource.id === expectedId);
