@@ -10,7 +10,6 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     cy.get('.info-inner').contains('Particular provisions:').should('not.exist');
     cy.get('.info-inner').contains('Import control - CITES for All countries');
     cy.get('.info-inner').contains(' From 29 Jan 2022 to 30 Sep 2023');
-    // div#popup a
     cy.get('.close [href]').click();
   });
   it(`XI - Certificate / Document details pop up `, function() {
@@ -40,6 +39,18 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     cy.visit('xi/commodities/0702000007');
     cy.get('#measure-20164273').contains('Conditions').click();
     cy.get('.info-content').contains('Phytosanitary Certificate (import) for All countries');
+    cy.get('.info-content').should('not.contain', '999L');
+  });
+  it('XI EPS - Entry Price System on Cherry tomatoes', function() {
+    cy.visit('/xi/commodities/0702000007');
+    cy.get('#measure-3878180').contains('Conditions').click();
+    cy.get('.info-content').contains('Third country duty for All countries');
+    cy.contains('Threshold condition');
+    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
+    cy.contains('The price of your goods must not exceed 72.60 EUR / 100 kg');
+    cy.contains('Apply the amount of the action 14.40 %');
+    cy.contains('The price of your goods must not exceed 0.00 EUR / 100 kg');
+    cy.contains('Apply the amount of the action 14.40 % + 29.80 EUR / 100 kg');
     cy.get('.info-content').should('not.contain', '999L');
   });
   // Matts examples HOTT -1449
