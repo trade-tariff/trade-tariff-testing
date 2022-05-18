@@ -52,8 +52,9 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     cy.contains('The price of your goods must not exceed 0.00 EUR / 100 kg');
     cy.contains('Apply the amount of the action 14.40 % + 29.80 EUR / 100 kg');
     cy.get('.info-content').should('not.contain', '999L');
+    cy.get('.info-content').should('not.contain', 'Guidance for completing Box 44 or Data Element 2/3');
   });
-  // Matts examples HOTT -1449
+  // Matt's examples HOTT -1449
   const countries = ['', 'xi'];
   for (let j=0; j<countries.length; j++) {
     it(`${countries[j]} - Animal Health Certificate on frog\'s legs`, function() {
