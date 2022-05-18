@@ -145,5 +145,23 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.contains('Enter the Certificate reference number followed by the appropriate document status code');
       cy.contains('Enter the reference number of the Certificate.');
     });
+    // Small brewery Relief - excise duty on beer
+    it(`${countries[j]} - Small Brewery Relief - Excise duty on beer`, function() {
+      cy.visit(`${countries[j]}/commodities/2203000100`);
+      cy.get('#measure--1009514008').contains('Conditions').click();
+      cy.get('.info-content').contains('Excises for All countries');
+      cy.contains('Threshold condition');
+      cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
+      cy.contains('5000.00 Gross Production');
+      cy.contains('Apply the amount of the action (see components) 9.54 GBP / % vol');
+      cy.contains('600000.00 Gross Production');
+      cy.contains('Apply the amount of the action (see components) 19.08 GBP / % vol');
+      cy.get('.info-content').should('not.contain', '999L');
+      cy.get('.info-content').should('not.contain', 'Guidance for completing Box 44 or Data Element 2/3');
+      cy.contains('Excise duty on beer from small breweries');
+      cy.contains('Excise code 440 - Beer made in the UK – small brewery beer eligible to reduced rates (variable rate, that is, annual production more than 5,000 hectolitres but not exceeding for 60,000 hectolitres)');
+      cy.get('div#popup article  a')
+          .should('have.attr', 'href').and('include', 'https://www.gov.uk/government/publications/excise-notice-226-beer-duty/excise-notice-226-beer-duty--2#small-brewery-beer');
+    });
   }
 });
