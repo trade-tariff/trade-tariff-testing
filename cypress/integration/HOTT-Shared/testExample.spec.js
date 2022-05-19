@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
+// TEST SPEC - DO NOT DELETE
 describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it('test', function() {
     const num = '0409000000';
@@ -23,9 +24,10 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it('test spec', function() {
     console.log(Cypress.env('baseUrl'));
   });
-  it('check comm code spacing', function() {
-    cy.visit('/commodities/0409000000');
-    cy.checkCommPage('0409000000');
+  it.only('check comm code spacing', function() {
+    cy.visit('/commodities/0702000007');
+    // cy.checkCommPage('0702000007');
+    cy.dutyCalLink('0702000007');
   });
   it('UK - V2 - Headers,Status,Length,duration', function() {
     cy.request('/api/v2/commodities/2007993943').as('comments');

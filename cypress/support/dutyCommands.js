@@ -2,13 +2,19 @@
 /* eslint-disable new-cap */
 /* eslint-disable max-len */
 
+// Duty Cal link on commodity
+Cypress.Commands.add('dutyCalLink', (commCode)=>{
+  cy.checkCommPage(commCode);
+  cy.get('.calculator-panel > p:nth-of-type(2) > a').click();
+  cy.contains('When will the goods be imported?');
+});
+
 // Duty Calculator main page
 Cypress.Commands.add('DCMainPage', ()=>{
   cy.get('.govuk-header__navigation ');
   cy.contains('Browse');
   cy.contains('A-Z');
   cy.contains('Tools');
-  //  cy.contains('Latest News')
   cy.get('.govuk-caption-xl')
       .contains('Calculate import duties');
   cy.get('.govuk-form-group');
@@ -49,7 +55,6 @@ Cypress.Commands.add('selectDestination', (destination)=>{
   cy.wait(100);
   cy.contains('Continue').click();
 });
-
 Cypress.Commands.add('selectOrigin', (origin)=>{
   cy.contains('Which country are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
