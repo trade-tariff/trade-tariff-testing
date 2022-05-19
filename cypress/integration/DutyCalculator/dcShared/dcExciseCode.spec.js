@@ -10,14 +10,11 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
   */
   it('🍻 RoW 🇮🇱 (Israel) - XI | Greyed out Beer excise duties | 3.beer |', function() {
     cy.visit('/duty-calculator/uk/2203001000/import-date');
-
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-
     cy.otherOriginList({value: 'Israel'});
-
     // Monetary value page
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Measure units
@@ -37,6 +34,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.get('div:nth-of-type(1) > input[name=\'steps_excise[additional_code]\']').should('not.be.disabled');
     cy.contains('440 - Beer made in the UK – small brewery beer eligible to reduced rates (variable rate, that is, annual production more than 5,000 hectolitres but not exceeding for 60,000 hectolitres)');
     cy.get('div:nth-of-type(2) > input[name=\'steps_excise[additional_code]\']').should('be.disabled');
+    cy.get('div:nth-of-type(3) > input[name=\'steps_excise[additional_code]\']').should('be.disabled');
 
     cy.contains('Continue').click();
     // Error Message Capture
@@ -97,9 +95,6 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.contains('611');
     cy.confirmPage();
     cy.dutyPage();
-    // validate duty calculations
-    //  cy.contains('16.50 % / Retail Price + 244.78 GBP / 1000 p/st MIN 320.90 GBP / 1000 p/st');
-    // cy.contains('£532.17');
   });
 
   it('⚡ RoW 🇮🇩 (Indonesia) - UK | 5.climate change levy |', function() {
