@@ -1,7 +1,7 @@
 // 🇨🇳 China to  🇬🇧 GB
 // Comm code :0304829010 - no Measure Units
 
-describe('| RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | ', function() {
+describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | ', function() {
   //
 
   const country = ['uk', 'xi'];
@@ -11,16 +11,14 @@ describe('| RoW-GB202-e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec |
 
     it(`e2e RoW to GB 🐠 - 🇹🇷 Turkey to  🇬🇧 GB  - ${country[i]}`, function() {
       // select future date
-      cy.visit(`/duty-calculator/${country[i]}/0304829010/import-date`);
-      //   cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0304829010`)
+      cy.visit(`/${country[i]}/commodities/0304829010/`);
+      cy.dutyCalLink('0304829010');
       cy.validDate();
-      
       cy.contains('Which part of the UK are you importing into?');
 
       // select GB as country of destination
       cy.get('#steps-import-destination-import-destination-uk-field').check();
       cy.contains('Continue').click();
-      
       cy.contains('Which country are the goods coming from?');
 
       // select country from list

@@ -18,7 +18,6 @@ context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for 
       });
     }
   });
-  //
 
   it('🇬🇧 ⚙️ V2 - Should return a Valid payload and Schema should match', function() {
     const fixture_timestamp = Cypress.config('fixtures_timestamp');

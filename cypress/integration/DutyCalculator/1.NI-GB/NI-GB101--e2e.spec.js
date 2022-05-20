@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
-describe('| NI-GB101-e2e | Northern Ireland to GB United Kingdom |', function() {
+describe('| NI-GB101--e2e | Northern Ireland to GB United Kingdom |', function() {
   it('e2e NI to GB | 101 |', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/commodities/0702000007');
+    cy.dutyCalLink('0702000007');
     cy.contains('UK Integrated Online Tariff');
     cy.validDate();
     // select England ,Scotland or Wales (GB)
