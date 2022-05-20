@@ -3,9 +3,10 @@
 
 // 1905311100 Merusing code 7000 = UK , Meursing code 7049 = EU
 // Andorra - Delta mfn < 3% for 7000 , >3% for 7049
-describe('| RoW-NI304i-delta-meursing-e2e.spec.js | 🔼 Delta Route with Meursing | | ', function() {
+describe('| RoW-NI304i-delta-meursing--e2e.spec.js | 🔼 Delta Route with Meursing | | ', function() {
   it('RoW 🇦🇩 (Andorra) - XI | UK Tariffs apply with Meursing code 7000 ,EU Tariffs apply with Meursing code 7049 |', function() {
-    cy.visit('/duty-calculator/xi/1905311100/import-date');
+    cy.visit('/xi/commodities/1905311100');
+    cy.dutyCalLink(1905311100);
     // date
     cy.validDate();
     // destination

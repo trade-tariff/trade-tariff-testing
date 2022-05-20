@@ -2,7 +2,7 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - 🚫  Certified as UK Origin
 // Comm code :1701141000 - item with measure units
 
-describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - 🚫 Certified as UK Origin |', function() {
+describe('| GB-NI406--e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - 🚫 Certified as UK Origin |', function() {
   //
   const country = ['uk'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
@@ -10,8 +10,8 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
     console.log(i);
     it(`e2e GB to NI - ${country[i]}`, function() {
       // select future date
-      cy.visit(`/duty-calculator/${country[i]}/1701141000/import-date`);
-      //   cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
+      cy.visit(`/${country[i]}/commodities/1701141000`);
+      cy.dutyCalLink('1701141000');
       cy.contains(`${pagetitles[i]}`);
       // date
       cy.validDate();
@@ -23,8 +23,6 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       cy.traderScheme('yes');
       // ✅  Final use in NI - Yes
       cy.finalUse('yes');
-
-
       // ⬆️ turnover > £500,000
       cy.turnOver('more');
 
@@ -45,7 +43,6 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
       // Check your answers page
       cy.contains('Check your answers');
 
-      //   cy.get('.govuk-summary-list__key')
       cy.contains('Commodity code');
       cy.contains('Date of import');
       cy.contains('Destination');
@@ -95,8 +92,6 @@ describe('| GB-NI406-e2e.spec | EU Duties apply | GB to NI route 06 - 🚫 Trade
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
-
-
     // ⬆️ turnover > £500,000
     cy.turnOver('more');
 

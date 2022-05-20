@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-context('🇪🇺 ⚙️ XI -Validate API response for commodities on V1 and V2 ', () => {
+context('🇪🇺 ⚙️ | commcodesAPIvalidation-XI | Validate API response for commodities on V1 and V2 ', () => {
   it.skip('XI - Validate API response for V2', () => {
     const fixture_timestamp = Cypress.config('fixtures_timestamp');
     const commodity_ids = Cypress.config('commcodes');
@@ -24,7 +24,7 @@ context('🇪🇺 ⚙️ XI -Validate API response for commodities on V1 and V2 
     const fixture_timestamp = Cypress.config('fixtures_timestamp');
     const commodity_ids = Cypress.config('commcodes');
     for (let i = 0; i < commodity_ids.length; i++) {
-      cy.log(`🇪🇺 ⚙️  for comm code ${commodity_ids[i]}`);
+      // cy.log(`🇪🇺 ⚙️  for comm code ${commodity_ids[i]}`);
       cy.request(`./api/v2/commodities/${commodity_ids[i]}`).then(($response) => {
         expect($response.status).to.eq(200);
         cy.task('validateJsonSchema', {
@@ -59,7 +59,7 @@ context('🇪🇺 ⚙️ XI -Validate API response for commodities on V1 and V2 
     const fixture_timestamp = Cypress.config('fixtures_timestamp');
     const commodity_ids = Cypress.config('commcodes');
     for (let i = 0; i < commodity_ids.length; i++) {
-      cy.log(`🇪🇺 ⚙️  for comm code ${commodity_ids[i]}`);
+      // cy.log(`🇪🇺 ⚙️  for comm code ${commodity_ids[i]}`);
       cy.request(`./api/v1/commodities/${commodity_ids[i]}`).then(($response) => {
         expect($response.status).to.eq(200);
 
