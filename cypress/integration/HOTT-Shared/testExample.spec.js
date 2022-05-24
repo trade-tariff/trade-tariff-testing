@@ -24,7 +24,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   it('test spec', function() {
     console.log(Cypress.env('baseUrl'));
   });
-  it.only('check comm code spacing', function() {
+  it('check comm code spacing', function() {
     cy.visit('/commodities/0702000007');
     // cy.checkCommPage('0702000007');
     cy.dutyCalLink('0702000007');
@@ -112,5 +112,20 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.get('a[title=\'Reset country picker\'] > .long-text').click();
     cy.get('form#new_search > input[name=\'new_search\']').click();
     cy.contains('Quota search results');
+  });
+  it.only('escape', function() {
+    cy.visit('/browse');
+    // case 1
+    cy.get('.js-commodity-picker-select').click().type('ba').wait(100).type('{esc}');
+    cy.contains('Search results for ‘ba’').should('not.exist');
+    // case 2
+    cy.get('.js-commodity-picker-select').click().clear().type('ba').wait(100).type('{enter}');
+    cy.contains('Search results for ‘ba’').should('exist');
+    //
+    cy.searchForCommodity2('3808941000');
+    cy.checkCommPage('3808941000');
+    //
+    cy.searchForCommodity2('wheat');
+    cy.checkCommPage('wheat');
   });
 });
