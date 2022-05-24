@@ -38,6 +38,21 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
       cy.searchForCommodity2('0102295911');
       cy.get('.govuk-heading-l').contains('Commodity');
     });
+    it(`${countries[j]} - Search suggestion typeahead`, function() {
+      cy.visit(`${countries[j]}/browse`);
+      // case 1 - escape should not select first item in suggestions
+      cy.get('.js-commodity-picker-select').click().type('ba').wait(100).type('{esc}');
+      cy.contains('Search results for ‘ba’').should('not.exist');
+      // case 2 - enter should take the text entered in search box
+      cy.get('.js-commodity-picker-select').click().clear().type('ba').wait(100).type('{enter}');
+      cy.contains('Search results for ‘ba’').should('exist');
+      // case 3 - search using comm code
+      cy.searchForCommodity2('3808941000');
+      cy.checkCommPage('3808941000');
+      // case 4 - search using text
+      cy.searchForCommodity2('wheat');
+      cy.checkCommPage('wheat');
+    });
   }
   it(`UK - Clicks on a link from the Quota search tool`, function() {
     // A user clicks a 4-digit non-declarable code (heading).
@@ -55,7 +70,7 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
       cy.contains('Quota search results');
       cy.contains(`${decCodes[k]}`).click();
       cy.get(`.govuk-heading-${maps[k]}`).contains(`${type[k]}`);
-    // A user clicks a 4-digit declarable code (commodity).
+      // A user clicks a 4-digit declarable code (commodity).
     }
   });
   it('UK - subheading from A-Z directs to correct subheading page', function() {
