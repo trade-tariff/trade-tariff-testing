@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('| excludedCountriesList.spec | Exclude certain countries from the autocompleting country list |', function() {
+describe('| excludedCountryList.spec | Exclude certain countries from the autocompleting country list |', function() {
   // QU', 'QR', 'EU', 'QZ', 'QV', 'QW', 'QY', 'QX', 'QP', 'XU', 'IO', 'QS', 'XI', 'QQ', 'ZB', 'ZD', 'ZF', 'ZG', 'ZE', 'ZH', 'ZN', 'ZU', 'GG', 'JE'
   const country = ['', 'xi'];
   const countries = ['certificates', '1005', '1006', '6006', 'Home Office', 'OECD', 'goods'];
