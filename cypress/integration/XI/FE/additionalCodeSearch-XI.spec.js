@@ -11,7 +11,6 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${tpadcodes_ids[i]}`);
-      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
