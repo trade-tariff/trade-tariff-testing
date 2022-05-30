@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // Interim mods to RoO for Ukraine - include additional text
 describe('🇺🇦 | ukraineRoO.spec |', function() {
-  const countries = ['', 'xi'];
+  const countries = [''];
   const service = ['UK', 'xi'];
   for (let i=0; i<countries.length; i++) {
     it(`| ${service[i]} RoO message on Ukraine`, function() {

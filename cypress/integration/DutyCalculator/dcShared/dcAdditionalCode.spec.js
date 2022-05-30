@@ -21,7 +21,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('You are importing commodity');
-    cy.contains('from Israel on 31 May 2022.');
+    cy.contains('from Israel on 31 October 2022.');
     cy.contains('6307 90 92 00 (2600)');
     cy.contains('Option 1: Third-country duty');
   });

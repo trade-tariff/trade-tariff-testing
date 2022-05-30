@@ -97,7 +97,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
     });
     it(`${country[i]} subheading page `, function() {
       cy.visit(`${country[i]}/subheadings/0208900000-80?day=31&month=5&year=2022`);
-      cy.contains('31 May 2022');
+      cy.contains('31 October 2022');
       // Change date
       cy.get('.govuk-summary-list .govuk-link').click();
       cy.title().should('eq', `${titles[i]} - When will your goods be traded - GOV.UK`);
@@ -106,7 +106,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       // Cancel
       cy.get('.govuk-link').contains('Cancel').click();
       cy.contains('Subheading 020890 - Other');
-      cy.contains('31 May 2022');
+      cy.contains('31 October 2022');
       // change date to future date
       cy.get('.govuk-summary-list .govuk-link').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
