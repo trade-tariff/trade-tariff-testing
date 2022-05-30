@@ -199,6 +199,12 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     cy.request('/api/v2/commodities/5001000000').as('comments');
     cy.get('@comments').then(cy.validJsonAPIresponse);
   });
+  it('🚀 UK 🇬🇧 - API V2 Health Check', function() {
+    cy.request('/api/v2/healthcheck').then((response) => {
+      expect(response).to.have.property('status', 200);
+      expect(response.body).to.have.property('sidekiq').to.eq(true);
+    });
+  });
   // ************ XI tests ************
 
   // Main Page
@@ -315,6 +321,12 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   it('🚀 XI 🇪🇺 - API V2 - Heading - validate response headers,status,content ', function() {
     cy.request('xi/api/v2/commodities/5001000000').as('comments');
     cy.get('@comments').then(cy.validJsonAPIresponse);
+  });
+  it('🚀 XI 🇪🇺 - API V2 Health Check', function() {
+    cy.request('xi/api/v2/healthcheck').then((response) => {
+      expect(response).to.have.property('status', 200);
+      expect(response.body).to.have.property('sidekiq').to.eq(true);
+    });
   });
   // ************ Duty Calculator tests ************
 
