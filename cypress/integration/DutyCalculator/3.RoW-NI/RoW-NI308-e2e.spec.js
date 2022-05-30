@@ -36,7 +36,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('611');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 May 2022.');
+    cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 October 2022.');
     // doc code y021 =  Apply the mentioned duty 27.95%
     cy.contains('Option 1: Third-country duty');
     cy.contains('611 - Cigarettes');
@@ -63,7 +63,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('611');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 May 2022.');
+    cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 October 2022.');
     // doc code No code  =  Measure not applicable
     cy.contains('Option 1: Third-country duty');
     cy.contains('611 - Cigarettes');

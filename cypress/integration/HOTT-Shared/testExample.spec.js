@@ -113,7 +113,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.get('form#new_search > input[name=\'new_search\']').click();
     cy.contains('Quota search results');
   });
-  it.only('escape', function() {
+  it('escape', function() {
     cy.visit('/browse');
     // case 1
     cy.get('.js-commodity-picker-select').click().type('ba').wait(100).type('{esc}');
@@ -127,5 +127,11 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     //
     cy.searchForCommodity2('wheat');
     cy.checkCommPage('wheat');
+  });
+  it('API health check', function() {
+    cy.request('/api/v2/healthcheck').then((response) => {
+      expect(response).to.have.property('status', 200);
+      expect(response.body).to.have.property('sidekiq').to.eq(true);
+    });
   });
 });
