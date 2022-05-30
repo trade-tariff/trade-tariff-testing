@@ -1,7 +1,7 @@
 // 🇻🇳 Vietnam to  🇬🇧 GB
 // Comm code :0702000007 - no Measure Units
 
-describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', function() {
+describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB | ', function() {
   //
 
   const country = ['uk', 'xi'];
@@ -12,7 +12,7 @@ describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', f
 
     it(`🍅 - e2e RoW to GB 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`, function() {
       // select future date
-      cy.visit(`/duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`/duty-calculator/${country[i]}/0703101900/import-date`);
       //  cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=0702000007`)
       // page title
       cy.contains(`${pagetitles[i]}`);
@@ -34,7 +34,7 @@ describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', f
       cy.contains('Coming from');
       cy.contains('Customs value');
 
-      cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0702 00 00 07');
+      cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0703 10 19 00');
       cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 May 2022');
       cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Vietnam');
@@ -56,8 +56,8 @@ describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB  | 201-e2e.spec | ', f
       cy.contains('Import date:');
       cy.contains('Valuation of import:');
       // values
-      cy.contains('0702 00 00 07');
-      cy.contains('Cherry tomatoes');
+      cy.contains('0703 10 19 00');
+      cy.contains('other');
       cy.contains('31 May 2022');
       cy.contains('£10,002.24');
 

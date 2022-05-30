@@ -11,9 +11,9 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
 
     it(`e2e RoW to GB - 🇻🇳 Vietnam to 🇬🇧 GB - ${country[i]}`, function() {
       // select future date
-      cy.visit(`/${country[i]}/commodities/0702000007`);
+      cy.visit(`/${country[i]}/commodities/0703101900`);
       cy.contains(`${pagetitles[i]}`);
-      cy.dutyCalLink('0702000007');
+      cy.dutyCalLink('0703101900');
       cy.validDate();
       // select GB as country of destination
       cy.selectDestination('gb');
@@ -28,7 +28,7 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       cy.contains('Destination');
       cy.contains('Coming from');
       cy.contains('Customs value');
-      cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0702 00 00 07');
+      cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0703 10 19 00');
       cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 May 2022');
       cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Vietnam');
@@ -49,8 +49,8 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       cy.contains('Import date:');
       cy.contains('Valuation of import:');
       // values
-      cy.contains('0702 00 00 07');
-      cy.contains('Cherry tomatoes');
+      cy.contains('0703 10 19 00');
+      cy.contains('other');
       cy.contains('31 May 2022');
       cy.contains('£1,000.00');
 
@@ -71,9 +71,9 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£0.00');
       // Final Page
       cy.contains('Import duty calculation');
-      cy.contains('You are importing commodity 0702 00 00 07 from Vietnam on 31 May 2022.');
+      cy.contains('You are importing commodity 0703 10 19 00 from Vietnam on 31 May 2022.');
       cy.contains('Option 1: Third-country duty');
-      cy.contains('Option 2: Tariff preference - Vietnam');
+      cy.contains('Option 2: Tariff preference - GSP – General Framework');
       cy.dcRooLink({country: 'Vietnam'});
     });
   }
