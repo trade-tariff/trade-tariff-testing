@@ -39,20 +39,19 @@ describe('🇬🇧 💡 | quotasOrders-UK | Check specific quota Quotadetails |'
   });
 
   it('Quota information available - litres ', function() {
-    cy.visit('/commodities/2202999910#import');
+    cy.visit('/commodities/2207100020#import');
     cy.get('.govuk-tabs__panel');
     cy.contains('Preferential tariff quota');
     cy.contains('Quotas allow a limited amount of goods to be imported at a lower duty rate. Once the quota has been used up, you will revert to the out-of-quota rate, which may be the third-country duty or a preferential rate.');
     cy.contains('Quotas can be non-preferential (open to many countries) or preferential (restricted to a particular trading partner).');
     cy.get('.table-line');
-    cy.contains('056721').click();
+    cy.contains('051894').click();
     cy.get('.tariff-info').focus()
-        .contains('Quota 056721');
+        .contains('Quota 051894');
     cy.contains('In an effort to facilitate UK importers HMRC endeavours to keep quotas \'OPEN\' where possible, therefore the information displayed above may differ slightly from the current UK position. If you require further information contact the Tariff Quota Management Team by email: tariff.management@hmrc.gov.uk.');
     cy.contains('Quota order number');
     cy.contains('Current balance');
     cy.contains('Opening balance');
-    cy.contains('68000.0 Kilogram (kg)');
     cy.contains('Start and end dates');
     cy.contains('Status');
     cy.contains('Last allocation date');
@@ -62,19 +61,18 @@ describe('🇬🇧 💡 | quotasOrders-UK | Check specific quota Quotadetails |'
     cy.get('.close [href]').click();
   });
   it('Quota information available - kilogram ', function() {
-    cy.visit('/commodities/2302101000#import');
+    cy.visit('/commodities/7211233091#import');
     cy.get('.govuk-tabs__panel');
-    cy.contains('Preferential tariff quota');
+    cy.contains('Non preferential tariff quota');
     cy.contains('Quotas allow a limited amount of goods to be imported at a lower duty rate. Once the quota has been used up, you will revert to the out-of-quota rate, which may be the third-country duty or a preferential rate.');
     cy.contains('Quotas can be non-preferential (open to many countries) or preferential (restricted to a particular trading partner).');
     cy.get('.table-line');
-    cy.contains('056711').click();
+    cy.contains('058005').click();
     cy.get('.tariff-info').focus()
-        .contains('Quota 056711');
+        .contains('Quota 058005');
     cy.contains('Quota order number');
     cy.contains('Current balance');
     cy.contains('Opening balance');
-    cy.contains('2860000.0');
     cy.contains('Start and end dates');
     cy.contains('Status');
     cy.contains('Last allocation date');

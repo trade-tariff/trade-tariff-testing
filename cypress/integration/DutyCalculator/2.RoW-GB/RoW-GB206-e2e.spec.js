@@ -5,8 +5,6 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
 
   it(`e2e RoW 🇦🇷 to 🇬🇧 GB 🛢️  - One additional code / Changing code`, function() {
     cy.visit(`/duty-calculator/uk/1516209821/import-date`);
-
-
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Argentina'});
@@ -47,7 +45,6 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
   });
   it(`e2e RoW 🇨🇦 to 🇬🇧 GB 🛢️  - More than one additional code`, function() {
     cy.visit(`duty-calculator/uk/1516209821/import-date`);
-
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Canada'});
