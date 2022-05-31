@@ -2,7 +2,7 @@
 describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke tests for dev |', function() {
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.mainPageUK();
     cy.contains('browse the goods classification').click();
     cy.contains('Browse the tariff');
@@ -10,7 +10,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   // Date Picker validation
   it('🚀 UK 🇬🇧 - Check date picker function is working', function() {
     cy.visit('/find_commodity');
-    
+
     // select Change Date and OK with current date
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
@@ -22,22 +22,22 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     // select Change Date and CANCEL
     // cy.get(' .js-show.text > a[role=\'button\']').click();
     // cy.contains('Set date').click();
-    // 
+    //
 
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    
+
     cy.contains('22 December 2022');
   });
   // switching link works
   it.only('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // click on the XI link and it should navigate to XI version
     cy.get('.govuk-main-wrapper')
-        .contains('Northern Ireland Online Tariff')
+      .contains('Northern Ireland Online Tariff', {"timeout": 2000})
         .click();
     cy.get('header.govuk-header div.govuk-header__container div.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
@@ -53,7 +53,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   });
   // Commodity Search functionality - text search
   it('🚀 UK 🇬🇧 - Search Commodity by name ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.contains('Search for a commodity');
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
@@ -62,7 +62,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   });
   // Commodity Search functionality - comm code search
   it('🚀 UK 🇬🇧 - Search Commodity by code ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
@@ -71,7 +71,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
 
   // Date picker working and persists on UK XI sites
   it('🚀 UK 🇬🇧 / XI 🇪🇺 - Change date and verify if the data shown is same for both XI and UK', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // select Change Date and change months and years
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
@@ -80,7 +80,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.searchForCommodity('3808941000');
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
     // cy.contains('Set date').click();
-    // 
+    //
     cy.contains('21 December 2021');
     // switch to XI tariff
     cy.contains('Northern Ireland Online Tariff').click();
@@ -101,7 +101,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
   });
   it('🚀 XI 🇪🇺 - Check Calendar is functioning', function() {
     cy.visit('/xi/sections');
-    
+
     // select Change Date and OK with current date
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
@@ -113,12 +113,12 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     // select Change Date and CANCEL
     // cy.get(' .js-show.text > a[role=\'button\']').click();
     // cy.contains('Set date').click();
-    // 
+    //
 
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    
+
     cy.contains('22 December 2022');
   });
   // switching link works

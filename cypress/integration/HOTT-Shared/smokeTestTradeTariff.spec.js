@@ -2,12 +2,12 @@
 describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke tests for UK & XI services |', function() {
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.mainPageUK();
   });
   // switching link works
   it('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // click on the XI link and it should navigate to XI version
@@ -62,7 +62,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   });
   // Commodity Search functionality - text search
   it('🚀 UK 🇬🇧 - Search Commodity by name ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // changed on 11/02/2021
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     // changed on 11/02/2021
@@ -72,7 +72,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
 
   // Commodity Search functionality - comm code search
   it('🚀 UK 🇬🇧 - Search Commodity by code ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('3808941000');
     cy.checkCommPage('3808941000');
@@ -127,7 +127,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   });
   // Date picker working and persists on UK XI sites
   it('🚀 UK 🇬🇧 - (past date) Change date and verify if the data shown is same for both XI and UK', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
 
     // select Change Date and change months and years
     cy.get(' .js-show.text > a[role=\'button\']').click();
@@ -200,7 +200,7 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
     for (let i = 0; i < sizes.length; i++) {
       cy.viewport(`${sizes[i]}`);
 
-      cy.visit('/sections');
+      cy.visit('/find_commodity');
       cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff');
       cy.get('.govuk-header__menu-button').click();
       cy.contains('A-Z');

@@ -1,6 +1,6 @@
 describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  from Chile 🇨🇱 |', function() {
   it('Search and import cheese from Chile ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('0406103010');
     cy.title().should('contains', '0406103010');

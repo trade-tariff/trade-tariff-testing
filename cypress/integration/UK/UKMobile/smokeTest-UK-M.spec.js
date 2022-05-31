@@ -6,7 +6,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Main Page
   it('🚀 UK - Main Page Validation', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.mobileMenu();
     // check header has UK information
     // cy.contains('Look up commodity codes, duty and VAT rates');;
@@ -31,7 +31,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // switching link works
   it('🚀 UK - Main Page - Switching link to XI available & works', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // click on the XI link and it should navigate to XI version
@@ -89,7 +89,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Commodity Search functionality - text search
   it('🚀 UK - Search Commodity by name ', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.mobileMenu();
     // changed on 11/02/2021
     // cy.contains('Look up commodity codes, duty and VAT rates');;
@@ -100,7 +100,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Commodity Search functionality - code search
   it('🚀 UK - Search Commodity by code ', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
@@ -159,7 +159,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Date picker working and persists on UK XI sites
   it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // select Change Date and change months and years
     cy.get('.govuk-details__summary-text').click();
     cy.get('#tariff_date_day').click().clear().type(31);

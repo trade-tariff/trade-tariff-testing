@@ -1,6 +1,6 @@
 describe('🇬🇧 💡 | titleTags-UK | Validating page titles tags - meta data -UK |', function() {
   it('🧷 Landing Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.title().should('match', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
   });
   it('🧷 Browse Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK', function() {
