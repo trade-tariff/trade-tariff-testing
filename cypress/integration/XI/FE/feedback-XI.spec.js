@@ -19,7 +19,7 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
   });
 
   it('XI - Feedback link works - Edge cases ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('.govuk-footer__navigation');
     cy.contains('Feedback')
         .click();
@@ -70,7 +70,7 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
     cy.contains('Look up commodity codes, import duties, taxes and controls');
   });
   it('XI - The UK has left the EU', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.get('.govuk-footer__row');
     cy.contains('The UK has left the EU');
   });

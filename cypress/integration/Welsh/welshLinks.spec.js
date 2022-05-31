@@ -8,7 +8,7 @@ describe.skip('🏴󠁧󠁢󠁷󠁬󠁳󠁿 | welshLinks.spec.js | Welsh languag
     cy.get('.govuk-main-wrapper')
         .contains('Northern Ireland Online Tariff')
         .click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('Northern Ireland Online Tariff in Welsh');
   });
   it('XI Welsh translated link', function() {
@@ -18,7 +18,7 @@ describe.skip('🏴󠁧󠁢󠁷󠁬󠁳󠁿 | welshLinks.spec.js | Welsh languag
     // switching link takes to UK welsh service
     cy.get('.govuk-main-wrapper')
         .contains('UK Integrated Online Tariff').click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff in Welsh');
   });
 });

@@ -3,7 +3,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   // ************ UK tests ************
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.mainPageUK();
   });
   // Date Picker validation
@@ -27,21 +27,21 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   });
   // switching link works
   it('🚀 UK 🇬🇧 - Main Page - Switching link to XI available & works', function() {
-    cy.visit('/sections');
-    cy.get('.govuk-header ')
+    cy.visit('/find_commodity');
+    cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // click on the XI link and it should navigate to XI version
     cy.get('.govuk-main-wrapper')
         .contains('Northern Ireland Online Tariff')
         .click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('Northern Ireland Online Tariff');
 
     // click on the XI link and it should navigate to XI version
     cy.get('.govuk-main-wrapper');
     cy.contains('UK Integrated Online Tariff')
         .click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     cy.get('.govuk-main-wrapper')
         .contains('Northern Ireland Online Tariff');
@@ -79,7 +79,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   });
   // Commodity Search functionality - text search
   it('🚀 UK 🇬🇧 - Search Commodity by name ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.contains('Search for a commodity');
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
@@ -88,7 +88,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   });
   // Commodity Search functionality - comm code search
   it('🚀 UK 🇬🇧 - Search Commodity by code ', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
@@ -171,7 +171,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
     for (let i = 0; i < sizes.length; i++) {
       cy.viewport(`${sizes[i]}`);
 
-      cy.visit('/sections');
+      cy.visit('/find_commodity');
       cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff');
       cy.get('.govuk-header__menu-button').click();
       cy.contains('A-Z').click();
@@ -233,19 +233,19 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
   // switching link works
   it('🚀 XI 🇪🇺 - Main Page - Switching link to UK available & works', function() {
     cy.visit('/xi/sections');
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('Northern Ireland Online Tariff');
 
     // click on the UK link and it should navigate to UK version
     cy.get('.govuk-main-wrapper')
         .contains('UK Integrated Online Tariff').click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // click on the XI link and it should navigate to XI version
     cy.get('.govuk-main-wrapper');
     cy.contains('Northern Ireland Online Tariff')
         .click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('Northern Ireland Online Tariff');
     cy.get('.govuk-main-wrapper')
         .contains('UK Integrated Online Tariff');

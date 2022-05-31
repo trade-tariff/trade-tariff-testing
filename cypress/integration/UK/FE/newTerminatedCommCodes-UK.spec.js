@@ -5,7 +5,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
     const termcodes_ids = Cypress.config('termcodes');
 
     for (let i = 0; i < termcodes_ids.length; i++) {
-      cy.visit('/sections');
+      cy.visit('/find_commodity');
       cy.searchForCommodity(`${termcodes_ids[i]}`);
       cy.contains('The commodity code you entered could not be found for the date selected. The code is present for the dates shown below.');
     }
@@ -15,7 +15,7 @@ describe(' 🇬🇧 💡 | newTerminatedCommCodes-UK | New ,Terminated comm code
     const newcodes_ids = Cypress.config('newcodes');
 
     for (let i = 0; i < newcodes_ids.length; i++) {
-      cy.visit('/sections');
+      cy.visit('/find_commodity');
       cy.searchForCommodity(`${newcodes_ids[i]}`);
       cy.checkCommPage(`${newcodes_ids[i]}`);
     }

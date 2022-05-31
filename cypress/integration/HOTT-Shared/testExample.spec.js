@@ -12,7 +12,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     //  cy.contains(`Commodity ${headings[j]}`+ '000000');
   });
   it('mainpage', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     console.log(cy.title());
     cy.visit('/chapters/01');
     console.log(cy.title());
@@ -44,7 +44,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     Helpers.sayHello('Madhu');
   });
   it('new main page', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.commPage();
     cy.newsBannerUK();
     cy.visit('xi/sections');
@@ -57,7 +57,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
     cy.contextSelector();
   });
   it('page titles', function() {
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     console.log(cy.title());
     cy.visit('/browse');
     console.log(cy.title());

@@ -6,12 +6,12 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Main Page
   it('🚀 UK - Main Page Validation', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.mobileMenu();
     // check header has UK information
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // check correct text is displayed on banner as per UK - If they are at risk
     cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.');
@@ -31,21 +31,21 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // switching link works
   it('🚀 UK - Main Page - Switching link to XI available & works', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
-    cy.get('.govuk-header ')
+    cy.visit('/find_commodity');
+    cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // click on the XI link and it should navigate to XI version
     cy.get('.govuk-main-wrapper')
         .contains('Northern Ireland Online Tariff')
         .click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('Northern Ireland Online Tariff');
 
     // click on the XI link and it should navigate to XI version
     cy.get('.govuk-main-wrapper');
     cy.contains('UK Integrated Online Tariff')
         .click();
-    cy.get('.govuk-header ')
+    cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     cy.get('.govuk-main-wrapper')
         .contains('Northern Ireland Online Tariff');
@@ -89,7 +89,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Commodity Search functionality - text search
   it('🚀 UK - Search Commodity by name ', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     cy.mobileMenu();
     // changed on 11/02/2021
     // cy.contains('Look up commodity codes, duty and VAT rates');;
@@ -100,7 +100,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Commodity Search functionality - code search
   it('🚀 UK - Search Commodity by code ', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
@@ -159,7 +159,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
   // Date picker working and persists on UK XI sites
   it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
     cy.viewport('iphone-x');
-    cy.visit('/sections');
+    cy.visit('/find_commodity');
     // select Change Date and change months and years
     cy.get('.govuk-details__summary-text').click();
     cy.get('#tariff_date_day').click().clear().type(31);

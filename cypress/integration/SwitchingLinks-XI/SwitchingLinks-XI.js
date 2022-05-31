@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 Given('I am on XI Trade Tariff main page', ()=>{
   cy.visit('/xi/sections');
-  cy.get('.govuk-header ')
+  cy.get('.govuk-header')
       .contains('Northern Ireland Online Tariff');
   cy.get('.tariff-breadcrumbs')
       .should('have.text', 'If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the Online Tariff.');
@@ -12,7 +12,7 @@ When('I click on switch link on XI page', ()=>{
 });
 
 Then('UK version of Trade Tariff page is displayed', ()=>{
-  cy.get('.govuk-header ')
+  cy.get('.govuk-header')
       .contains('The Online Trade Tariff');
   cy.get('.tariff-breadcrumbs')
       .should('have.text', 'If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland (EU) Tariff.');
@@ -25,7 +25,7 @@ When('I click on switch link on UK page', ()=>{
 
 
 Then('XI version of Trade Tariff page is displayed', ()=>{
-  cy.get('.govuk-header ')
+  cy.get('.govuk-header')
       .contains('Northern Ireland Online Tariff');
   cy.get('.tariff-breadcrumbs ')
       .should('have.text', 'If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are not at risk of onward movement to the EU, use the UK Integrated Online Tariff.');
