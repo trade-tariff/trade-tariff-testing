@@ -96,7 +96,7 @@ describe('🇪🇺 💡 | datePage.spec.js | date page on Chapter , Heading and 
       cy.contains('1 January 2022');
     });
     it(`${country[i]} subheading page `, function() {
-      cy.visit(`${country[i]}/subheadings/0208900000-80?day=31&month=5&year=2022`);
+      cy.visit(`${country[i]}/subheadings/0208900000-80?day=31&month=10&year=2022`);
       cy.contains('31 October 2022');
       // Change date
       cy.get('.govuk-summary-list .govuk-link').click();
