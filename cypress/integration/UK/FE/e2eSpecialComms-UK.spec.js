@@ -56,18 +56,17 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.contains('8.00 %');
   });
 
-  it(' 🍅 Cherry Tomatoes 🇲🇦 \n- Check that the duty is a standard ad valorem (8.00%) ,Check that there is no condition against the ad valorem third country duty,Check that there is a single quota for Morocco', function() {
-    cy.visit('/commodities/0702000007?country=MA#import');
+  it.only(' 🍅 Cherry Tomatoes 🇲🇦 \n- Check that Israel has a preferential tariff quota', function() {
+    cy.visit('/commodities/0702000007?country=IL');
     cy.checkCommPage('0702000007');
     cy.get('.govuk-header__content')
         .contains('UK Integrated Online Tariff');
     cy.contains('Third country duty');
     cy.contains('Preferential tariff quota');
-    cy.contains('051193').click();
-    cy.contains('Quota 051193');
+    cy.contains('051304').click();
+    cy.contains('Quota 051304');
     cy.contains('Quota order number');
     cy.get('.close [href]').click();
-    cy.contains('Preferential tariff quota');
   });
   it(' 🍺 Beer \n Has multiple excise lines expressed in litres,\n Identical to UK', function() {
     cy.visit('/commodities/2203001000#import');
