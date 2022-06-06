@@ -56,7 +56,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.contains('8.00 %');
   });
 
-  it.only(' 🍅 Cherry Tomatoes 🇲🇦 \n- Check that Israel has a preferential tariff quota', function() {
+  it(' 🍅 Cherry Tomatoes 🇲🇦 \n- Check that Israel has a preferential tariff quota', function() {
     cy.visit('/commodities/0702000007?country=IL');
     cy.checkCommPage('0702000007');
     cy.get('.govuk-header__content')
