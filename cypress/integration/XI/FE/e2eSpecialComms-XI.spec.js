@@ -67,12 +67,12 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         '\n' +
         'Check that there are no quotas at all' +
         '\n', function() {
-    cy.visit('/xi/commodities/0702000007#import');
+    cy.visit('/xi/commodities/0702000007');
     cy.checkCommPage('0702000007');
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.contains('Third country duty');
-    cy.get('#measure-3878180')
+    cy.get('#measure-3878181')
         .contains('Conditions')
         .click();
 
