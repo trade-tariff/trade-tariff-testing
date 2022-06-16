@@ -5,10 +5,12 @@ beforeEach(() => {
 
 Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
   const space = Cypress.env('SPACE');
+  const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
+    Cypress.env(`${space}_BASIC_AUTH`) === 'true';
 
   options = options || {};
 
-  if (Cypress.env(`${space}_BASIC_AUTH`)) {
+  if (basicAuthEnabled) {
     options.auth = {
       username: Cypress.env(`${space}_BASIC_USERNAME`),
       password: Cypress.env(`${space}_BASIC_PASSWORD`),
@@ -20,11 +22,14 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
 
 Cypress.Commands.overwrite('request', (originalFn, url, options) => {
   const space = Cypress.env('SPACE');
+  const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
+    Cypress.env(`${space}_BASIC_AUTH`) === 'true';
 
   options = options || {};
   options.url = url || options.url;
 
-  if (Cypress.env(`${space}_BASIC_AUTH`)) {
+
+  if (basicAuthEnabled) {
     options.auth = {
       username: Cypress.env(`${space}_BASIC_USERNAME`),
       password: Cypress.env(`${space}_BASIC_PASSWORD`),
