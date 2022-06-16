@@ -7,8 +7,10 @@ on:
 
 jobs:
   cypress-run:
+    environment: trade-tariff
     env:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
+      CYPRESS_SPACE: 'STAGING'
     name: " 🛎️ Regression Tests - UK and XI - Staging "
     runs-on: ubuntu-18.04
     strategy:

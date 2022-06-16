@@ -2,8 +2,10 @@ name: "💨 Duty Cal smoke test"
 on: [workflow_dispatch]
 jobs:
   cypress-run:
+    environment: trade-tariff
     env:
       CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
+      CYPRESS_SPACE: 'STAGING'
     name: DC Smoke on Chrome
     runs-on: ubuntu-18.04
     strategy:
