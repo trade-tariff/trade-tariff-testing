@@ -5,7 +5,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         'There is no preference against the European Economic Area (2012)\n' +
         '\n' +
         'There are no duties that are expressed in currencies ', function() {
-    cy.visit('/commodities/7202118000#import');
+    cy.visit('/commodities/7202118000');
     cy.checkCommPage('7202118000');
     cy.get('.govuk-header__content')
         .contains('UK Integrated Online Tariff');

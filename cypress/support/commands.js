@@ -1,20 +1,42 @@
 /* eslint-disable max-len */
-before(() => {
-//   cy.injectAxe()
-  //  cy.clearCookies()
-  //   cy.viewport('iphone-x')
-  //  cy.viewport('samsung-note9')
-
-});
 beforeEach(() => {
   cy.clearCookies();
-  //  cy.injectAxe()
-  //  cy.viewport('iphone-x')
-  //  cy.viewport('samsung-note9')
 });
+
+Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
+  const space = Cypress.env('SPACE');
+
+  options = options || {};
+
+  if (Cypress.env(`${space}_BASIC_AUTH`)) {
+    options.auth = {
+      username: Cypress.env(`${space}_BASIC_USERNAME`),
+      password: Cypress.env(`${space}_BASIC_PASSWORD`),
+    };
+  }
+
+  return originalFn(url, options);
+});
+
+Cypress.Commands.overwrite('request', (originalFn, url, options) => {
+  const space = Cypress.env('SPACE');
+
+  options = options || {};
+  options.url = url || options.url;
+
+  if (Cypress.env(`${space}_BASIC_AUTH`)) {
+    options.auth = {
+      username: Cypress.env(`${space}_BASIC_USERNAME`),
+      password: Cypress.env(`${space}_BASIC_PASSWORD`),
+    };
+  }
+
+  return originalFn(options);
+});
+
+
 // ******* Custom Commands *******
 
-// date picker page
 Cypress.Commands.add('datePickerPage', (date)=>{
   cy.contains('When are you planning to trade the goods?');
   cy.get('input[name=\'import_export_date[import_date(3i)]\']').click().clear().type(date.day);
@@ -31,8 +53,6 @@ Cypress.Commands.add('countryPickerpage', (country)=>{
 
 // validate commodity page heading
 Cypress.Commands.add('checkCommPage', (commcode)=>{
-//  cy.contains('Commodity ' +commcode);
-  // cy.contains(/Commodity .*3808941000/i);
   cy.contains(new RegExp(`Commodity .*${commcode}`, 'i'));
 });
 
