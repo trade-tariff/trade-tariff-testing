@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   cypress-run:
+    environment: trade-tariff
     env:
       CYPRESS_BASE_URL: "https://www.trade-tariff.service.gov.uk"
     name: "🚦 Regression Tests - UK and XI"

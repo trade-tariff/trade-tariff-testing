@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   cypress-run:
+    environment: trade-tariff
     env:
       CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
     name: "smoke tests - UK and XI"
