@@ -6,6 +6,7 @@ jobs:
     environment: trade-tariff
     env:
       CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
+      CYPRESS_SPACE: 'STAGING'
     name: "smoke tests - UK and XI"
     runs-on: ubuntu-18.04
     strategy:

@@ -5,6 +5,7 @@ jobs:
     environment: trade-tariff
     env:
       CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
+      CYPRESS_SPACE: 'STAGING'
     name: "💰 Duty Calculator Regression Tests"
     runs-on: ubuntu-18.04
     strategy:
