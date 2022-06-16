@@ -2305,9 +2305,9 @@ cypress-dark@^1.7.14:
     postcss "7.0.39"
     postcss-css-variables "0.17.0"
 
-"cypress-dotenv@github:morficus/cypress-dotenv":
+"cypress-dotenv@https://github.com/morficus/cypress-dotenv":
   version "2.0.0"
-  resolved "git+ssh://git@github.com/morficus/cypress-dotenv.git#dd64638780377da64e7889b4cd3935c46c1e55b5"
+  resolved "https://github.com/morficus/cypress-dotenv#dd64638780377da64e7889b4cd3935c46c1e55b5"
   dependencies:
     camelcase "^6.2.0"
     dotenv-parse-variables "^2.0.0"
