@@ -1,26 +1,17 @@
 /* eslint-disable new-cap */
 
 module.exports = (on, config) => {
+  const dotenvPlugin = require('cypress-dotenv');
   const cucumber = require('cypress-cucumber-preprocessor').default;
-  on('file:preprocessor', cucumber());
   const {JsonSchemaValidation} = require('@jc21/cypress-jsonschema-validation');
-  on('task', JsonSchemaValidation(config));
   const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
+  const cypressGrep = require('cypress-grep/src/plugin');
+  on('file:preprocessor', cucumber());
+  on('task', JsonSchemaValidation(config));
   on('task', SwaggerValidation(config));
-  require('cypress-grep/src/plugin')(config);
-  return config;
 
-  const {lighthouse, prepareAudit} = require('cypress-audit');
-  on('before:browser:launch', (browser = {}, launchOptions) => {
-    prepareAudit(launchOptions);
-  });
+  config = cypressGrep(config);
+  config = dotenvPlugin(config, {}, true);
 
-  on('task', {
-    lighthouse: lighthouse(),
-  });
-
-  require('cypress-grep/src/plugin')(config);
-  // make sure to return the config object
-  // as it might have been modified by the plugin
   return config;
 };
