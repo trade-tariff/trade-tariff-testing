@@ -4,8 +4,8 @@ jobs:
   cypress-run:
     environment: trade-tariff
     env:
-      CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
-      CYPRESS_SPACE: 'STAGING'
+      CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
+      CYPRESS_SPACE: "STAGING"
     name: "💰 Duty Calculator Regression Tests"
     runs-on: ubuntu-18.04
     strategy:
@@ -13,15 +13,14 @@ jobs:
     steps:
       - run: date
       - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v4
         name: "DC Tests"
         continue-on-error: true
         with:
           record: true
           quiet: true
           browser: chrome
-          headless: true       
+          headless: true
           spec: "cypress/integration/DutyCalculator/**/*spec.js"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
-

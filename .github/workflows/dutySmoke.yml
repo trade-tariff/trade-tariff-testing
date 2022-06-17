@@ -15,7 +15,7 @@ jobs:
         with:
           repository: TransformCore/trade-tariff-testing
           ref: refs/heads/main
-      - uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v4
         with:
           quiet: false
           browser: chrome
