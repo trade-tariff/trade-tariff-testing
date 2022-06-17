@@ -1,3 +1,8 @@
+import './dutyCommands'
+import './apiCommands'
+import './csvCommands'
+import 'cypress-fill-command'
+
 /* eslint-disable max-len */
 beforeEach(() => {
   cy.clearCookies();
@@ -22,6 +27,8 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
 
 Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
   const space = Cypress.env('SPACE');
+  const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
+    Cypress.env(`${space}_BASIC_AUTH`) === 'true';
 
   let options = {};
 
@@ -31,7 +38,7 @@ Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
     options = {url: urlOrOptions};
   };
 
-  if (Cypress.env(`${space}_BASIC_AUTH`)) {
+  if (basicAuthEnabled) {
     options.auth = {
       username: Cypress.env(`${space}_BASIC_USERNAME`),
       password: Cypress.env(`${space}_BASIC_PASSWORD`),
