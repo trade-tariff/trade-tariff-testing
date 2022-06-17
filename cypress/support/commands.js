@@ -20,16 +20,18 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
   return originalFn(url, options);
 });
 
-Cypress.Commands.overwrite('request', (originalFn, url, options) => {
+Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
   const space = Cypress.env('SPACE');
-  const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
-    Cypress.env(`${space}_BASIC_AUTH`) === 'true';
 
-  options = options || {};
-  options.url = url || options.url;
+  let options = {};
 
+  if (urlOrOptions instanceof Object) {
+    options = urlOrOptions;
+  } else {
+    options = {url: urlOrOptions};
+  };
 
-  if (basicAuthEnabled) {
+  if (Cypress.env(`${space}_BASIC_AUTH`)) {
     options.auth = {
       username: Cypress.env(`${space}_BASIC_USERNAME`),
       password: Cypress.env(`${space}_BASIC_PASSWORD`),
@@ -38,7 +40,6 @@ Cypress.Commands.overwrite('request', (originalFn, url, options) => {
 
   return originalFn(options);
 });
-
 
 // ******* Custom Commands *******
 
