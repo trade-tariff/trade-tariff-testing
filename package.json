@@ -40,9 +40,9 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "open:dev": "CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk SPACE=DEVELOPMENT npx cypress open",
-    "open:staging": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk SPACE=STAGING npx cypress open",
-    "open:prod": "CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk SPACE=PRODUCTION npx cypress open",
+    "open:dev": "CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk CYPRESS_SPACE=DEVELOPMENT npx cypress open",
+    "open:staging": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk CYPRESS_SPACE=STAGING npx cypress open",
+    "open:prod": "CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk CYPRESS_SPACE=PRODUCTION npx cypress open",
     "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
     "pretests": "npm run clean:reports",
     "scripts": "cypress run",
