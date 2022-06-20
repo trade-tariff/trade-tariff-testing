@@ -10,18 +10,18 @@ jobs:
     environment: trade-tariff
     env:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
-      CYPRESS_SPACE: 'STAGING'
+      CYPRESS_SPACE: "STAGING"
+      CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
+      CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
+      CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
     name: " 🛎️ Regression Tests - UK and XI - Staging "
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
     steps:
       - run: date
-
       - uses: actions/checkout@v2
-
       - run: mkdir -p cypress/reports/mochareports
-
       - uses: cypress-io/github-action@v2
         name: cypress
         id: cypress
@@ -32,7 +32,6 @@ jobs:
           headless: true
           spec: "cypress/integration/HOTT-Shared/smokeTestCI.spec.js"
 
-        
       - run: npm run posttests
 
       - run: ls -l
@@ -72,7 +71,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         if: ${{ steps.cypress.outcome == 'failure' }}
         env:
-          SLACK_CHANNEL: 'tariffs-regression'
+          SLACK_CHANNEL: "tariffs-regression"
           SLACK_USERNAME: "Staging Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
