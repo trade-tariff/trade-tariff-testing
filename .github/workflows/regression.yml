@@ -74,8 +74,7 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-p:"
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ steps.date.outputs.date }}/
-
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/production/${{ steps.date.outputs.date }}/
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
