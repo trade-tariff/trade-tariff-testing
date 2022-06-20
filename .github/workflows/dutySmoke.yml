@@ -6,10 +6,11 @@ jobs:
     env:
       CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
       CYPRESS_SPACE: 'STAGING'
+      CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
+      CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
+      CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
     name: DC Smoke on Chrome
     runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: true
     steps:
       - uses: actions/checkout@v2
         with:
