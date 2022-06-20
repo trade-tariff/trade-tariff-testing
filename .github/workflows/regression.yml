@@ -8,15 +8,19 @@ jobs:
     environment: trade-tariff
     env:
       CYPRESS_BASE_URL: "https://www.trade-tariff.service.gov.uk"
-      CYPRESS_SPACE: "PRODUCTION"
+      CYPRESS_SPACE: 'PRODUCTION'
     name: "🚦 Regression Tests - UK and XI"
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
     steps:
       - run: date
+
       - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v4
+
+      - run: mkdir -p cypress/reports/mochareports
+
+      - uses: cypress-io/github-action@v2
         name: cypress
         id: cypress
         continue-on-error: true
@@ -25,27 +29,38 @@ jobs:
           browser: chrome
           headless: true
           spec: "*/**/**/*spec.js"
+
+      - run: npm run posttests
+
+      - run: ls -l
+
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: ./cypress/reports/mochawesome/
+          path: ./cypress/reports/mochareports/
+
       - name: Checkout reports repo
         uses: actions/checkout@v2
         with:
           ref: reports
           path: reports_repo
+
       - name: Copy report into reports repo
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          cp -a ../cypress/reports/mochawesome  docs/production/$DATE
+          mkdir -p docs/$DATE
+          cp -r ../cypress/reports/mochareports/*  docs/$DATE/
+          cp ../cypress/reports/mochareports/report.html docs/$DATE/index.html
           git add docs .
+
       - name: Commit todays report to reports branch
         run: |
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Production report for $(date +%d-%m-%Y)" -a
+
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
@@ -60,12 +75,14 @@ jobs:
           SLACK_ICON_EMOJI: ":alphabet-yellow-p:"
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ steps.date.outputs.date }}/
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
+
       - uses: cypress-io/github-action@v2
         name: " Cypress Dashboard "
         continue-on-error: true
