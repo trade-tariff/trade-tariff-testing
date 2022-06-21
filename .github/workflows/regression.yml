@@ -28,7 +28,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "*/**/**/*spec.js"
+          spec: "cypress/integration/HOTT-Shared/smokeTestCI.spec.js"
 
       - run: npm run posttests
 
