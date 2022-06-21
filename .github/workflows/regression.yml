@@ -49,7 +49,7 @@ jobs:
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          mkdir -p docs/$DATE
+          mkdir -p docs/production/$DATE
           cp -r ../cypress/reports/mochareports/*  docs/production/$DATE/
           cp docs/production/$DATE/report.html docs/production/$DATE/index.html
           git add docs .
