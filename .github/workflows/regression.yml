@@ -49,10 +49,9 @@ jobs:
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          mkdir -p docs/$DATE
+          mkdir -p docs/production/$DATE
           cp -r ../cypress/reports/mochareports/*  docs/production/$DATE/
-          cp docs/production/$DATE/report.html docs/production/$DATE/index.html
-          git add docs .
+          cp ../cypress/reports/mochareports/report.html docs/production/$DATE/index.html
 
       - name: Commit todays report to reports branch
         run: |
@@ -66,7 +65,6 @@ jobs:
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
-        if: ${{ steps.cypress.outcome == 'failure' }}
         env:
           SLACK_CHANNEL: "tariffs-regression"
           SLACK_USERNAME: "Production Regression"
