@@ -195,7 +195,7 @@ Cypress.Commands.add('CommCodeHistory', (commCode, date)=>{
   if (date) {
     dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
   }
-  cy.visit({url: `/commodities/${commCode}${dateParams}`, failOnStatusCode: false});
+  cy.visit(`/commodities/${commCode}${dateParams}`, {failOnStatusCode: false});
   cy.checkCommPage(commCode);
 });
 
@@ -204,7 +204,7 @@ Cypress.Commands.add('headingsHistory', (headingsCode, date)=>{
   if (date) {
     dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
   }
-  cy.visit({url: `/headings/${headingsCode}${dateParams}`, failOnStatusCode: false});
+  cy.visit(`/headings/${headingsCode}${dateParams}`, {failOnStatusCode: false});
   cy.checkHeadingsPage(headingsCode);
 });
 
