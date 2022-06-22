@@ -17,7 +17,6 @@ context('Validating API response with previous response stored in Json file', ()
       ``;
       cy.task('validateJsonSchema', {
         data: $response.body,
-        verbose: true,
         schemaFile: data1,
       }).should('equal', null);
     });

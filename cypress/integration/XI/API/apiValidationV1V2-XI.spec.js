@@ -6,7 +6,6 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
 
       cy.task('validateJsonSchema', {
         data: $response.body,
-        verbose: true,
         schemaFile: './cypress/Data/uk/v2/7202118000-2021-01-07.json',
       }).should('equal', null);
     });
@@ -43,7 +42,6 @@ describe('🇪🇺 ⚙️ | apiValidationV1V2-XI | XI Basic API checks |', () =>
 
       cy.task('validateJsonSchema', {
         data: $response.body,
-        verbose: true,
         schemaFile: './cypress/Data/uk/v1/7202118000-2021-01-07.json',
       }).should('equal', null);
     });

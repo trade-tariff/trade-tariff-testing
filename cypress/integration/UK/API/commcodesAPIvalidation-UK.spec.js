@@ -29,7 +29,6 @@ context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for 
 
         cy.task('validateJsonSchema', {
           data: $response.body,
-          verbose: true,
           schemaFile: `cypress/Data/uk/v2/${commodity_ids[i]}-${fixture_timestamp}.json`,
 
         })
@@ -68,7 +67,6 @@ context('🇬🇧 ⚙️ | commcodesAPIvalidation-UK |Validate API response for 
 
         cy.task('validateJsonSchema', {
           data: $response.body,
-          verbose: true,
           schemaFile: `cypress/Data/uk/v1/${commodity_ids[i]}-${fixture_timestamp}.json`,
 
         })

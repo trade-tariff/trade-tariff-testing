@@ -10,7 +10,6 @@ describe.skip('🇪🇺 | countriesApi-XI | XI Country Selection |', function() 
 
         cy.task('validateJsonSchema', {
           data: $response.body,
-          verbose: true,
           schemaFile: './cypress/Data/xi/countriesXI.json',
         }).should('equal', null);
       });

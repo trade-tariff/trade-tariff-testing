@@ -29,7 +29,6 @@ context('🇪🇺 ⚙️ | commcodesAPIvalidation-XI | Validate API response for
         expect($response.status).to.eq(200);
         cy.task('validateJsonSchema', {
           data: $response.body,
-          verbose: true,
           schemaFile: `cypress/Data/uk/v2/${commodity_ids[i]}-${fixture_timestamp}.json`,
 
         })
@@ -65,7 +64,6 @@ context('🇪🇺 ⚙️ | commcodesAPIvalidation-XI | Validate API response for
 
         cy.task('validateJsonSchema', {
           data: $response.body,
-          verbose: true,
           schemaFile: `cypress/Data/uk/v1/${commodity_ids[i]}-${fixture_timestamp}.json`,
 
         })
