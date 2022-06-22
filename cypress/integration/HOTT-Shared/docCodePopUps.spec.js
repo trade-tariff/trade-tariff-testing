@@ -43,12 +43,12 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
   });
   it('XI EPS - Entry Price System on Cherry tomatoes', function() {
     cy.visit('/xi/commodities/0702000007');
-    cy.get('#measure-3878180').contains('Conditions').click();
+    cy.get('#measure-3878181').contains('Conditions').click();
     cy.get('.info-content').contains('Third country duty for All countries');
     cy.contains('Threshold condition');
     cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-    cy.contains('The price of your goods must not exceed 72.60 EUR / 100 kg');
-    cy.contains('Apply the amount of the action 14.40 %');
+    cy.contains('The price of your goods must not exceed');
+    cy.contains('Apply the amount of the action');
     cy.contains('The price of your goods must not exceed 0.00 EUR / 100 kg');
     cy.contains('Apply the amount of the action 14.40 % + 29.80 EUR / 100 kg');
     cy.get('.info-content').should('not.contain', '999L');
@@ -68,7 +68,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     });
     it(`${countries[j]} - Organic control on frog\'s legs`, function() {
       cy.visit(`${countries[j]}/commodities/0208907000`);
-      cy.get('#measure-20179087').contains('Conditions').click();
+      cy.get('#measure-20183386').contains('Conditions').click();
       cy.get('.info-content').contains('Import control of organic products for All countries');
       cy.get('.info-content').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
       cy.get('.info-content').should('not.contain', 'No document provided');

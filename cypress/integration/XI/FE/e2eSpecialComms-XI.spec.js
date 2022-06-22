@@ -61,7 +61,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('9.00 % + EA MAX 24.20 % +ADSZ');
   });
 
-  it('🍅 Cherry Tomatoes \n Check that there is no directly assigned third country duty\n' +
+  it('🍅 Cherry Tomatoes \n EPS + Check that there is no directly assigned third country duty\n' +
         '\n' +
         'Check that on clicking on the conditions link, that a conditions popup appears that has a table with 7 rows in it: creative license to do what you need on this one.\n' +
         '\n' +
@@ -75,14 +75,9 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.get('#measure-3878181')
         .contains('Conditions')
         .click();
-
     cy.contains('Third country duty for All countries');
-    cy.contains('V: Import price must be equal to or greater than the entry price (see components)');
-
-    cy.contains('Greater than or equal to 0.00 EUR / 100 kg');
-    cy.contains('Apply the amount of the action');
-    //  cy.contains('14.40 % + 29.80 EUR / 100 kg');
-    //    cy.contains('Greater than or equal to 0.00 EUR / 100 kg Apply the amount of the action 8.80 % + 29.80 EUR / 100 kg')
+    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
+    cy.contains('The price of your goods must not exceed');
     cy.get('.close [href]').click();
   });
 
@@ -102,8 +97,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         .click();
 
     cy.contains('Excises for All countries');
-    cy.contains('E: The quantity or the price per unit declared, as appropriate, is equal or less than the specified maximum, or presentation of the required document');
-    cy.contains('5000.00 Gross Production Apply the amount of the action (see components) 9.54 GBP / % vol');
+    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
+    cy.get('.tariff-info').contains('Excise duty on beer from small breweries');
     cy.get('.close [href]').click();
   });
 

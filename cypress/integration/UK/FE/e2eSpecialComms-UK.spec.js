@@ -84,8 +84,8 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         .click();
     cy.get('.tariff-info');
     cy.contains('Excises for All countries');
-    cy.contains('E: The quantity or the price per unit declared, as appropriate, is equal or less than the specified maximum, or presentation of the required document');
-    cy.contains('5000.00 Gross Production Apply the amount of the action (see components) 9.54 GBP / % vol');
+    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
+    cy.get('.tariff-info').contains('Excise duty on beer from small breweries');
     cy.get('.close [href]').click();
   });
 
