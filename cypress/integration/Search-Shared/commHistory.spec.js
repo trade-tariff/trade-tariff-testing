@@ -54,7 +54,7 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
       cy.CommCodeHistory('2934999085', {day: '1', month: '1', year: '2022'});
       cy.contains(`${titles[i]}`);
       // commodity does not exist before 1st Jan 2022 ( 31st December 2021)
-      cy.visit({url: '/commodities/2934999085?day=1&month=12&year=2020', failOnStatusCode: false});
+      cy.visit('/commodities/2934999085?day=1&month=12&year=2020', {failOnStatusCode: false});
       cy.contains('Commodity 2934999085');
       cy.contains('The commodity code you entered could not be found for the date selected. The code is present for the dates shown below.');
       cy.contains('Click on a date to see the measures present on that date.');
@@ -87,8 +87,6 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     });
     it(`${country[i]} -  Commodity Scenario  3 (URL) - Commodity has never existed (and never will)`, function() {
       cy.CommCodeHistory('1010191919', {day: '', month: '', year: ''});
-      // cy.visit({url: '/commodities/1010191919', failOnStatusCode: false});
-      // cy.contains('Commodity 1010191919');
       cy.contains(`${titles[i]}`);
       cy.contains('The commodity code you searched for can\'t be found. Try searching again.');
       cy.contains('Alternatively, you can visit heading 1010 or chapter 10.');
@@ -97,7 +95,6 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     it(`${country[i]} -  Heading Scenario  1 (URL) - Heading does not exist after 31 december 2021 `, function() {
     // commodity is available on 1st Jan 2022
       cy.headingsHistory('8803', {day: '1', month: '2', year: '2022'});
-      // cy.visit({url: 'headings/8803?day=1&month=2&year=2022', failOnStatusCode: false});
       cy.contains(`${titles[i]}`);
       cy.contains('The heading you entered could not be found for the date selected. The code is present for the dates shown below.');
       cy.contains('Click on a date to see the measures present on that date.');
@@ -114,8 +111,6 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     it(`${country[i]} -  Heading Scenario  2 (URL) - Heading starts on 1st Jan 2022 `, function() {
     // commodity is available on 1st Jan 2022
       cy.headingsHistory('8806', {day: '31', month: '12', year: '2021'});
-      // cy.visit({url: 'headings/8806?day=31&month=12&year=2021', failOnStatusCode: false});
-      // cy.contains('Heading 8806');
       cy.contains(`${titles[i]}`);
       cy.contains('The heading you entered could not be found for the date selected. The code is present for the dates shown below.');
       cy.contains('Click on a date to see the measures present on that date.');
@@ -131,8 +126,6 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     });
     it(`${country[i]} -  Heading Scenario  3 (URL) - Heading has never existed (and never will)`, function() {
       cy.headingsHistory('3848', {day: '', month: '', year: ''});
-      // cy.visit({url: `${country[i]}/headings/3848`, failOnStatusCode: false});
-      // cy.contains('Heading 3848');
       cy.contains(`${titles[i]}`);
       cy.contains('The heading you searched for can\'t be found. Try searching again.');
       cy.contains('Alternatively, you can visit chapter 38.');
@@ -140,7 +133,7 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     // ------------------------------  Using search box ------------------------------
     it(`${country[i]} - Commodity Scenario 1 (using search box)- Commodity does not exist after 31 december 2021 `, function() {
       // commodity is available on 1st Jan 2022
-      cy.visit({url: '/browse?day=21&month=2&year=2022', failOnStatusCode: false});
+      cy.visit('/browse?day=21&month=2&year=2022', {failOnStatusCode: false});
       cy.searchForCommodity2('8527290010');
       cy.contains('Commodity 8527290010');
       cy.contains(`${titles[i]}`);
@@ -181,12 +174,12 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     });
     it(`${country[i]} -  Commodity Scenario  2 (using search box) - Commodity starts on 1st Jan 2022 `, function() {
     // commodity is available on 1st Jan 2022
-      cy.visit({url: '/browse?day=1&month=1&year=2022', failOnStatusCode: false});
+      cy.visit('/browse?day=1&month=1&year=2022', {failOnStatusCode: false});
       cy.searchForCommodity2('2934999085');
       cy.contains('Commodity 2934999085');
       cy.contains(`${titles[i]}`);
       // commodity does not exist before 1st Jan 2022 ( 31st December 2021)
-      cy.visit({url: '/commodities/2934999085?day=1&month=12&year=2020', failOnStatusCode: false});
+      cy.visit('/commodities/2934999085?day=1&month=12&year=2020', {failOnStatusCode: false});
       cy.contains('Commodity 2934999085');
       cy.contains('The commodity code you entered could not be found for the date selected. The code is present for the dates shown below.');
       cy.contains('Click on a date to see the measures present on that date.');
@@ -218,7 +211,7 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
       cy.contains('Alternatively, you can visit heading 2934 or chapter 29 for 1 December 2020.');
     });
     it(`${country[i]} -  Commodity Scenario  3 (using search box) - Commodity has never existed (and never will)`, function() {
-      cy.visit({url: '/browse?day=1&month=1&year=2022', failOnStatusCode: false});
+      cy.visit('/browse?day=1&month=1&year=2022', {failOnStatusCode: false});
       cy.searchForCommodity2('1010191919');
       cy.contains('Commodity 1010191919');
       cy.contains(`${titles[i]}`);
@@ -228,7 +221,7 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     // --------------- Headings history ------------------------------
     it(`${country[i]} -  Heading Scenario 1 (using search box) - Heading does not exist after 31 december 2021 `, function() {
     // commodity is available on 1st Jan 2022
-      cy.visit({url: '/browse?day=1&month=1&year=2022', failOnStatusCode: false});
+      cy.visit('/browse?day=1&month=1&year=2022', {failOnStatusCode: false});
       cy.searchForCommodity2('8803');
       cy.contains('Heading 8803');
       cy.contains(`${titles[i]}`);
@@ -246,7 +239,7 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
     });
     it(`${country[i]} -  Heading Scenario  2 (using search box) - Heading starts on 1st Jan 2022 `, function() {
     // commodity is available on 1st Jan 2022
-      cy.visit({url: '/browse?day=31&month=12&year=2021', failOnStatusCode: false});
+      cy.visit('/browse?day=31&month=12&year=2021', {failOnStatusCode: false});
       cy.searchForCommodity2('8807');
       cy.contains('Heading 8807');
       cy.contains(`${titles[i]}`);
@@ -263,7 +256,7 @@ describe('|commHistory.spec.js| UK and XI | commodity/heading history to be disp
       cy.contains('Chapter 88 - Aircraft, spacecraft, and parts thereof');
     });
     it(`${country[i]} -  Heading Scenario  3 (using search box) - Heading has never existed (and never will)`, function() {
-      cy.visit({url: '/browse?day=1&month=1&year=2022', failOnStatusCode: false});
+      cy.visit('/browse?day=1&month=1&year=2022', {failOnStatusCode: false});
       cy.searchForCommodity2('3848');
       cy.contains('Heading 3848');
       cy.contains(`${titles[i]}`);

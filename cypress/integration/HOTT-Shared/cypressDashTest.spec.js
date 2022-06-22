@@ -4,7 +4,7 @@ describe('Cypress Dashboard', function () {
     it('Cypress Dashboard from GHA', function () {
         cy.wait(100)
         console.log(`${todaysDate}`)
-        cy.visit({ url: `https://trade-tariff.github.io/trade-tariff-testing/${todaysDate}/`, failOnStatusCode: false })
+        cy.visit(`https://trade-tariff.github.io/trade-tariff-testing/${todaysDate}/`, {failOnStatusCode: false })
 
         let title = cy.title()
         console.log(title)

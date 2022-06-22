@@ -49,11 +49,11 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UKXI | Search the Tariff - UK and 
       cy.contains('Browse the tariff');
     });
     it(`${countries[j]} - Search Tariff on other pages`, function() {
-      cy.visit({url: `${countries[j]}/404`, failOnStatusCode: false});
+      cy.visit(`${countries[j]}/404`, {failOnStatusCode: false});
       cy.searchForCommodity2('3808941000');
       cy.contains(/Commodity .*3808941000/i);
 
-      cy.visit({url: `${countries[j]}/500`, failOnStatusCode: false});
+      cy.visit(`${countries[j]}/500`, {failOnStatusCode: false});
       cy.searchForCommodity2('3808941000');
       cy.contains(/Commodity .*3808941000/i);
 
