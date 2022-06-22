@@ -52,6 +52,7 @@ jobs:
           mkdir -p docs/production/$DATE
           cp -r ../cypress/reports/mochareports/*  docs/production/$DATE/
           cp ../cypress/reports/mochareports/report.html docs/production/$DATE/index.html
+          git add docs
 
       - name: Commit todays report to reports branch
         run: |
