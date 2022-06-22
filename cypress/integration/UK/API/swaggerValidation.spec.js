@@ -14,7 +14,6 @@ describe.skip('| swaggerValidation | Basic API checks |', () => {
         method: 'get',
         statusCode: 200,
         responseSchema: $response.body,
-        verbose: true, // optional, default: false
       });
     });
   });
