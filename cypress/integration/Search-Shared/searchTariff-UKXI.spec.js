@@ -49,13 +49,13 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UKXI | Search the Tariff - UK and 
       cy.contains('Browse the tariff');
     });
     it(`${countries[j]} - Search Tariff on other pages`, function() {
-      cy.visit(`${countries[j]}/404`, {failOnStatusCode: false});
-      cy.searchForCommodity2('3808941000');
-      cy.contains(/Commodity .*3808941000/i);
+      // cy.visit(`${countries[j]}/404`, {failOnStatusCode: false});
+      // cy.searchForCommodity2('3808941000');
+      // cy.contains(/Commodity .*3808941000/i);
 
-      cy.visit(`${countries[j]}/500`, {failOnStatusCode: false});
-      cy.searchForCommodity2('3808941000');
-      cy.contains(/Commodity .*3808941000/i);
+      // cy.visit(`${countries[j]}/500`, {failOnStatusCode: false});
+      // cy.searchForCommodity2('3808941000');
+      // cy.contains(/Commodity .*3808941000/i);
 
       const pages = ['browse', 'sections/6', 'chapters/28', 'headings/2802', 'commodities/2805120010', 'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd', 'a-z-index/a'];
       for (let i=0; i<pages.length; i++) {
