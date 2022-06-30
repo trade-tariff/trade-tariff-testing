@@ -5,11 +5,8 @@ jobs:
   cypress-run:
     environment: trade-tariff
     env:
-      CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
-      CYPRESS_SPACE: 'STAGING'
-      CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
-      CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
-      CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
+      CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
+      CYPRESS_SPACE: "STAGING"
     name: "smoke tests - UK and XI"
     runs-on: ubuntu-18.04
     strategy:
@@ -17,36 +14,16 @@ jobs:
     steps:
       - run: date
       - uses: actions/checkout@v2
-      - run: mkdir -p cypress/reports/mochareports
-      - uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v4
         name: "UK and XI smoke tests"
         continue-on-error: true
         with:
           quiet: true
           browser: chrome
           headless: true
-
-          spec: "*/**/smokeTestTradeTariff.spec.js"
-      - run: npm run posttests
-      - run: ls -l
+          # spec: "*/**/smokeTestTradeTariff.spec.js"
+          spec: "cypress/e2e/HOTT-Shared/smokeTestCI.spec.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: ./cypress/reports/mochareports/
-      - run: |
-          DATE=$(date +%d-%m-%Y)
-          mkdir -p docs/$DATE
-          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
-          cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
-          git add docs .
-      - run: |
-           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
-           git config --local user.name "github-actions[bot]"
-           git commit -m "Add changes" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          force: true
-
+          path: ./cypress/reports/mochawesome/
