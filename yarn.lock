@@ -2277,10 +2277,9 @@ cucumber@^4.2.1:
     util-arity "^1.0.2"
     verror "^1.9.0"
 
-cypress-cucumber-preprocessor@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.npmjs.org/cypress-cucumber-preprocessor/-/cypress-cucumber-preprocessor-4.3.1.tgz"
-  integrity sha512-BKUYXqoTeKzkPXohEczDtpAwRCY0ZPtIpfRwJut16yNLqdXQMV+aItwanxe3cbJTFlwg562NAjL4LMdiOhkAjg==
+"cypress-cucumber-preprocessor@https://github.com/trade-tariff/cypress-cucumber-preprocessor#temp":
+  version "0.0.0-development"
+  resolved "https://github.com/trade-tariff/cypress-cucumber-preprocessor#bf6be7473bf71174bf218005a879ea931daffb51"
   dependencies:
     "@cypress/browserify-preprocessor" "^3.0.2"
     chai "^4.2.0"
