@@ -24,7 +24,6 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          # spec: "cypress/integration/DutyCalculator/**/*spec.js"
-          spec: "cypress/e2e/HOTT-Shared/smokeTestCI.spec.js"
+          spec: "cypress/e2e/DutyCalculator/**/*spec.js"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}

@@ -24,8 +24,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          # spec: "*/**/**/*spec.js"
-          spec: "cypress/e2e/HOTT-Shared/smokeTestCI.spec.js"
+          spec: "cypress/e2e/**/*.spec.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report

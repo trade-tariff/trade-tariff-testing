@@ -21,5 +21,4 @@ jobs:
           quiet: false
           browser: chrome
           headless: true
-          # spec: "cypress/integration/DutyCalculator/dcShared/dcSmokeTestCI.spec.js"
-          spec: "cypress/e2e/HOTT-Shared/smokeTestCI.spec.js"
+          spec: "cypress/e2e/DutyCalculator/dcShared/dcSmokeTestCI.spec.js"
