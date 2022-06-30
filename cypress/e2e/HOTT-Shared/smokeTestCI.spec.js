@@ -2,7 +2,7 @@
 describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke tests ( Front end and API ) to cover basic functionality UK and XI services + Duty Calculator |', function() {
   // ************ UK tests ************
   // Main Page
-  it.only('🚀 UK 🇬🇧 - Main Page Validation', function() {
+  it('🚀 UK 🇬🇧 - Main Page Validation', function() {
     cy.visit('/find_commodity');
     cy.mainPageUK();
   });
