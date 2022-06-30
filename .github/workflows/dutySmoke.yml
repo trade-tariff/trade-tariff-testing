@@ -4,8 +4,8 @@ jobs:
   cypress-run:
     environment: trade-tariff
     env:
-      CYPRESS_BASE_URL: 'https://staging.trade-tariff.service.gov.uk'
-      CYPRESS_SPACE: 'STAGING'
+      CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
+      CYPRESS_SPACE: "STAGING"
       CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
       CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
       CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
@@ -16,9 +16,9 @@ jobs:
         with:
           repository: TransformCore/trade-tariff-testing
           ref: refs/heads/main
-      - uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v4
         with:
           quiet: false
           browser: chrome
           headless: true
-          spec: "cypress/integration/DutyCalculator/dcShared/dcSmokeTestCI.spec.js"
+          spec: "cypress/e2e/DutyCalculator/dcShared/dcSmokeTestCI.spec.js"

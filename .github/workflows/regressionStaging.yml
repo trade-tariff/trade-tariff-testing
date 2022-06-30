@@ -21,8 +21,7 @@ jobs:
     steps:
       - run: date
       - uses: actions/checkout@v2
-      - run: mkdir -p cypress/reports/mochareports
-      - uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v4
         name: cypress
         id: cypress
         continue-on-error: true
@@ -30,16 +29,11 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "*/**/**/*spec.js"
-
-      - run: npm run posttests
-
-      - run: ls -l
-
+          spec: "cypress/e2e/**/*.spec.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: ./cypress/reports/mochareports/
+          path: ./cypress/reports/mochawesome/
 
       - name: Checkout reports repo
         uses: actions/checkout@v2
@@ -51,10 +45,7 @@ jobs:
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          mkdir -p docs/staging/$DATE
-          cp -r ../cypress/reports/mochareports/*  docs/staging/$DATE/
-          cp ../cypress/reports/mochareports/report.html docs/staging/$DATE/index.html
-
+          cp -r ../cypress/reports/mochawesome/*  docs/staging/$DATE/
           git add docs .
 
       - name: Commit todays report to reports branch
