@@ -1,9 +1,26 @@
 const {defineConfig} = require('cypress');
 
+const cucumber = require('cypress-cucumber-preprocessor').default;
+const cypressGrep = require('cypress-grep/src/plugin');
+const dotenvPlugin = require('cypress-dotenv');
+const {JsonSchemaValidation} = require('@jc21/cypress-jsonschema-validation');
+const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
+
 module.exports = defineConfig({
   e2e: {
     'baseUrl': 'https://staging.trade-tariff.service.gov.uk',
     'specPattern': ['**/*.spec.js', '**/*.feature'],
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on)
+
+      on('file:preprocessor', cucumber());
+      on('task', JsonSchemaValidation(config));
+      on('task', SwaggerValidation(config));
+      config = cypressGrep(config);
+      config = dotenvPlugin(config, {}, true);
+
+      return config;
+    },
     'commcodes': [
       '7202118000',
       '0201100021',
@@ -31,17 +48,6 @@ module.exports = defineConfig({
     ],
     'accessibility': true,
     'fixtures_timestamp': '2021-02-09',
-    'reporter': 'cypress-multi-reporters',
-    'reporterOptions': {
-      reporterEnabled: 'mochawesome',
-      mochawesomeReporterOptions: {
-        reportDir: 'cypress/reports/mocha',
-        quiet: true,
-        overwrite: false,
-        html: false,
-        json: true,
-      },
-    },
     'chromeWebSecurity': false,
     'firefoxWebSecurity': false,
     'video': false,
@@ -50,21 +56,11 @@ module.exports = defineConfig({
     'parseSpecialCharSequences': false,
     'defaultCommandTimeout': 15000,
     'responseTimeout': 60000,
-    setupNodeEvents(on, config) {
-      const cucumber = require('cypress-cucumber-preprocessor').default;
-      const cypressGrep = require('cypress-grep/src/plugin');
-      const dotenvPlugin = require('cypress-dotenv');
-      const {JsonSchemaValidation} = require('@jc21/cypress-jsonschema-validation');
-      const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
-
-      on('file:preprocessor', cucumber());
-      on('task', JsonSchemaValidation(config));
-      on('task', SwaggerValidation(config));
-
-      config = cypressGrep(config);
-      config = dotenvPlugin(config, {}, true);
-
-      return config;
+    'reporter': 'cypress-mochawesome-reporter',
+    'reporterOptions': {
+      'reportDir': 'cypress/reports/mochawesome',
+      'charts': true,
+      'quiet': true,
     },
   },
 });
