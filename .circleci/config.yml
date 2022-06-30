@@ -32,8 +32,7 @@ jobs:
           environment:
             CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
             CYPRESS_SPACE: "STAGING"
-          command: |
-            yarn run cypress run --spec "cypress/e2e/HOTT-Shared/devSmokeTestCI.spec.js"
+          command: bin/all-smoke-tests.sh
 
 workflows:
   debug:

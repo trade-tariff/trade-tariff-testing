@@ -62,7 +62,10 @@
     "tags:roo": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=roo-tag,grepFilterSpecs=true",
     "tags:unreleased": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=unreleased-tag,grepFilterSpecs=true",
     "tags:xbrowser": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=xbrowser-tag,grepFilterSpecs=true",
-    "open:reviewapp": "bin/cypress-review-app.sh"
+    "open:reviewapp": "bin/cypress-review-app.sh",
+    "dev-tariff-frontend-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/HOTT-Shared/devSmokeTestCI.spec.js",
+    "dev-tariff-backend-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/HOTT-Shared/devSmokeTestCI.spec.js",
+    "dev-tariff-duty-calculator-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/DutyCalculator/dcShared/dcSmokeTestCI.spec.js"
   },
   "repository": {
     "type": "git",
