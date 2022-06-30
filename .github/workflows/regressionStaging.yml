@@ -11,6 +11,9 @@ jobs:
     env:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: "STAGING"
+      CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
+      CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
+      CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
     name: " 🛎️ Regression Tests - UK and XI - Staging "
     runs-on: ubuntu-18.04
     strategy:
@@ -57,7 +60,6 @@ jobs:
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
-        if: ${{ steps.cypress.outcome == 'failure' }}
         env:
           SLACK_CHANNEL: "tariffs-regression"
           SLACK_USERNAME: "Staging Regression"
