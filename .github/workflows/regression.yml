@@ -42,7 +42,7 @@ jobs:
           MONTH=$(date +%m)
           DAY=$(date +%d)
 
-          aws s3 cp --recursive cypress/reports/mochawesome s3://$S3_BUCKET_NAME/trade-tariff-testing/production/$YEAR/$MONTH/$DAY/
+          aws s3 cp --quiet --recursive cypress/reports/mochawesome s3://$S3_BUCKET_NAME/trade-tariff-testing/production/$YEAR/$MONTH/$DAY/
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
