@@ -19,7 +19,9 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - run: date
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v4
         name: cypress
@@ -29,35 +31,28 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "cypress/e2e/**/*.spec.js"
+          spec: "cypress/e2e/HOTT-Shared/smokeTestCI.spec.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report
           path: ./cypress/reports/mochawesome/
-
       - name: Checkout reports repo
         uses: actions/checkout@v2
         with:
           ref: reports
           path: reports_repo
-
-      - name: Copy report into reports repo
+      - name: Upload today's report to s3
+        env:
+          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: eu-west-2
         run: |
-          cd reports_repo
-          DATE=$(date +%d-%m-%Y)
-          cp -r ../cypress/reports/mochawesome/*  docs/staging/$DATE/
-          git add docs .
+          YEAR=$(date +%Y)
+          MONTH=$(date +%m)
+          DAY=$(date +%d)
 
-      - name: Commit todays report to reports branch
-        run: |
-          cd reports_repo
-          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Staging report for $(date +%d-%m-%Y)" -a
-
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
+          aws s3 cp --recursive cypress/reports/mochawesome s3://$S3_BUCKET_NAME/trade-tariff-testing/staging/$YEAR/$MONTH/$DAY/
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -68,14 +63,6 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          directory: reports_repo
-
       - uses: cypress-io/github-action@v2
         name: " Cypress Dashboard "
         continue-on-error: true
