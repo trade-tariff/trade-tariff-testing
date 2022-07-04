@@ -105,7 +105,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
     // Import Quantity
-    cy.quantity({kgm: '1000.0'});
+    cy.quantity({kgm: '100.0'});
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
     // VAT Page
@@ -114,6 +114,5 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
-    cy.contains('£1,448.00');
   });
 });

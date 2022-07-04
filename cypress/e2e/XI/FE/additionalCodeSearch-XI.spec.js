@@ -110,14 +110,13 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
     cy.visit('/xi/additional_code_search');
     cy.contains('Search by Additional Code');
 
-    const badcadcodes_ids = ['001', '002'];
+    const badcadcodes_ids = ['001'];
     for (let i = 0; i < badcadcodes_ids.length; i++) {
       // select type of certificate from drop down menu
       cy.get('select#type').select('B - Anti-dumping/countervailing');
       cy.get('input#code')
           .clear()
           .type(`${badcadcodes_ids[i]}`);
-      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -138,7 +137,6 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${cadcadcodes_ids[i]}`);
-      
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
