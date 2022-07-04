@@ -28,7 +28,7 @@
     "cypress-mochawesome-reporter": "^3.1.0",
     "cypress-utils": "^2.3.0",
     "dotenv": "^16.0.1",
-    "eslint": "^8.18.0",
+    "eslint": "^8.19.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-cypress": "^2.11.3",
     "flow-bin": "^0.181.1",
