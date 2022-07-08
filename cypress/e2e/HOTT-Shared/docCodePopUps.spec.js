@@ -163,5 +163,15 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('div#popup article  a')
           .should('have.attr', 'href').and('include', 'https://www.gov.uk/government/publications/excise-notice-226-beer-duty/excise-notice-226-beer-duty--2#small-brewery-beer');
     });
+    // Declarable headings - headings which are also commodities
+    it(`${countries[j]} - Headings which are declarable / also commodities- fall back option enabled`, function() {
+      cy.visit(`${countries[j]}/commodities/5609000000`);
+      cy.get('#measure-20131331').contains('Conditions').click();
+      cy.get('.info-content').contains('Import control on cat and dog fur for All countries');
+      cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
+      cy.get('.info-content').contains('B: Presentation of a certificate/licence/document');
+      cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
+      cy.contains('Complete either statement ‘Education and taxidermy only’ or ‘No cat or dog fur’.');
+    });
   }
 });
