@@ -178,20 +178,4 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.contains('Continue').click();
     cy.dcStoppingPage();
   });
-  // alcohol percentage calclations
-  it('RoW 🇺🇸 (USA) - UK - Excise code alcohol percentage', function() {
-    cy.visit(`duty-calculator/uk/2208403900/import-date`);
-
-    cy.validDate();
-    cy.selectDestination('gb');
-    cy.originList({value: 'United States'});
-    cy.customsValue({monetary: '1000.00', shipping: '50.00', cost: '50.00'});
-    cy.quantity({asv: '40', ltr: '4500', lpa: '1800'});
-    cy.exciseCode('451');
-    cy.confirmPage();
-    cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('0.50 GBP / % vol/hl + 2.60 GBP / hl');
-    cy.contains('£1,017.00');
-  });
 });
