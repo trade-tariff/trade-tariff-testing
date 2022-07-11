@@ -8,7 +8,7 @@
     "@jc21/cypress-swagger-validation": "^0.1.0",
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.1.0",
-    "csv-parse": "^5.2.2",
+    "csv-parse": "^5.3.0",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
     "cypress-tags": "^0.3.0",
     "glob-parent": "^6.0.2",
