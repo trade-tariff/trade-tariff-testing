@@ -170,8 +170,10 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('.info-content').contains('Import control on cat and dog fur for All countries');
       cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
       cy.get('.info-content').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
+      cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)')
       cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
       cy.contains('Complete either statement ‘Education and taxidermy only’ or ‘No cat or dog fur’.');
+      cy.get('.close [href]').click();
     });
   }
   it('UK Belarus/Russia conditions', function() {
