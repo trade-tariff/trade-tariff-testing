@@ -18,6 +18,7 @@ import './commands'
 import './dutyCommands'
 import './apiCommands'
 import './csvCommands'
+import './rooCommands'
 //import 'cypress-axe'
 import 'cypress-fill-command'
 //require('@shelex/cypress-allure-plugin');
