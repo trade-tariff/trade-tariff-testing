@@ -77,7 +77,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         .click();
     cy.contains('Third country duty for All countries');
     cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-    cy.contains('The price of your goods must not exceed');
+    cy.get('.info-content').contains('The price of your goods is greater than or equal to 0.00 EUR / 100 kg');
     cy.get('.close [href]').click();
   });
 
