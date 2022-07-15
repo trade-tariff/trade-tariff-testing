@@ -128,6 +128,23 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.contains('What are the main types of tariffs and charges').should('not.exist');
     cy.contains('Exporting from the UK');
   });
+  it('UK - Other pages 404 - links', function() {
+    cy.visit('/404', {failOnStatusCode: false});
+    cy.contains('Page not found');
+    cy.contains('If you entered a web address please check it was correct.');
+    cy.contains('You can also:');
+    cy.contains('Search for a commodity').click();
+    cy.contains('Look up commodity codes, import duties, taxes and controls');
+    cy.contains('UK Integrated Online Tariff');
+    cy.go(-1);
+    cy.contains('Browse through the goods classification').click();
+    cy.contains('UK Integrated Online Tariff');
+    cy.contains('Browse the tariff');
+    cy.go(-1);
+    cy.contains('Use the A-Z of classified goods').click();
+    cy.contains('UK Integrated Online Tariff');
+    cy.contains('A–Z of Classified Goods');
+  });
 });
 
 

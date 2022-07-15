@@ -28,7 +28,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
         .contains('Cookies');
     cy.get('.govuk-breadcrumbs__list')
         .contains('Home').click();
-    //cy.contains('Look up commodity codes, duty and VAT rates');;
+    // cy.contains('Look up commodity codes, duty and VAT rates');;
   });
   it('XI - Privacy-navigates to right XI page ', function() {
     cy.visit('/xi/sections');
@@ -128,11 +128,27 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
   });
 
   // OGL link
-
   it('XI - Open Government Licence v3.0', function() {
     cy.visit('/xi/sections');
     cy.get('.govuk-footer__meta.govuk-footer__row');
     cy.contains('Open Government Licence v3.0');
     cy.get('span > .govuk-footer__link').should('have.attr', 'href', 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/');
+  });
+  it('XI - Other pages 404 - links', function() {
+    cy.visit('xi/404', {failOnStatusCode: false});
+    cy.contains('Page not found');
+    cy.contains('If you entered a web address please check it was correct.');
+    cy.contains('You can also:');
+    cy.contains('Search for a commodity').click();
+    cy.contains('Look up commodity codes, import duties, taxes and controls');
+    cy.contains('Northern Ireland Online Tariff');
+    cy.go(-1);
+    cy.contains('Browse through the goods classification').click();
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('Browse the tariff');
+    cy.go(-1);
+    cy.contains('Use the A-Z of classified goods').click();
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('A–Z of Classified Goods');
   });
 });
