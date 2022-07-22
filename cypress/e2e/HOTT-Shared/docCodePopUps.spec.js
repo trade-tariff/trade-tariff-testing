@@ -45,12 +45,12 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     cy.visit('/xi/commodities/0702000007');
     cy.get('#measure-3878181').contains('Conditions').click();
     cy.get('.info-content').contains('Third country duty for All countries');
-    cy.contains('Threshold condition');
-    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-    cy.contains('The price of your goods must not exceed');
-    cy.contains('Apply the amount of the action');
-    cy.contains('The price of your goods must not exceed 0.00 EUR / 100 kg');
-    cy.contains('Apply the amount of the action 14.40 % + 29.80 EUR / 100 kg');
+    cy.get('.info-content').contains('Threshold condition');
+    cy.get('.info-content').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
+    cy.get('.info-content').contains('The price of your goods is greater than or equal to');
+    cy.get('.info-content').contains('Apply the amount of the action');
+    cy.get('.info-content').contains('The price of your goods is greater than or equal to 0.00 EUR / 100 kg');
+    cy.get('.info-content').contains('Apply the amount of the action 14.40 % + 29.80 EUR / 100 kg');
     cy.get('.info-content').should('not.contain', '999L');
     cy.get('.info-content').should('not.contain', 'Guidance for completing Box 44 or Data Element 2/3');
   });
@@ -83,7 +83,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('.info-content').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
       cy.get('.info-content').contains('Y058 + Threshold condition');
       cy.contains('Meet both conditions');
-      cy.contains('The weight of your goods must not exceed 2.00 kg');
+      cy.contains('The weight of your goods does not exceed 2.00 kg');
       cy.get('.info-content').should('not.contain', 'No document provided');
       cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
       cy.get('.info-content').contains('Enter GBCHDyyyy. and the reference number of the CHED-P.');
@@ -96,7 +96,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('.info-content').contains('Restriction on entry into free circulation for Switzerland');
       cy.get('.info-content').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
       cy.get('.info-content').contains('Threshold condition');
-      cy.contains('The volume of your goods must not exceed 100.00 l');
+      cy.contains('The volume of your goods does not exceed 100.00 l');
       cy.get('.info-content').should('not.contain', 'No document provided');
       cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
       cy.get('.info-content').contains('Enter the country code for the country of issue (GB for the UK) followed by the Measure type (VID) and the reference number of the document.');
@@ -170,7 +170,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('.info-content').contains('Import control on cat and dog fur for All countries');
       cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
       cy.get('.info-content').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
-      cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)')
+      cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
       cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
       cy.contains('Complete either statement ‘Education and taxidermy only’ or ‘No cat or dog fur’.');
       cy.get('.close [href]').click();
@@ -183,6 +183,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP');
     cy.get('.close [href]').click();
     // Russia conditions
+    cy.wait(100);
     cy.get('#measure-20179932').contains('Conditions').click();
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
     cy.get('.close [href]').click();
