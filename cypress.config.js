@@ -51,7 +51,7 @@ module.exports = defineConfig({
     'chromeWebSecurity': false,
     'firefoxWebSecurity': false,
     'video': false,
-    'screenshotOnRunFailure': false,
+    'screenshotOnRunFailure': true,
     'projectId': '7p655m',
     'parseSpecialCharSequences': false,
     'defaultCommandTimeout': 15000,
