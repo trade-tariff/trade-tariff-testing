@@ -33,6 +33,8 @@ jobs:
             CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
             CYPRESS_SPACE: "STAGING"
           command: bin/all-smoke-tests.sh
+      - store_artifacts:
+          path: cypress/screenshots
 
 workflows:
   debug:
