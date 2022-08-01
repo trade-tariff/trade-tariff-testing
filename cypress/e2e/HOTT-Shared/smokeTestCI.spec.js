@@ -160,9 +160,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke t
         .contains('Order number');
 
     //  cy.get('.quota-results.govuk-table');
-    cy.contains('057015').click();
+    cy.contains('057501').click();
     cy.get('.tariff-info')
-        .should('contain', 'Quota', '057015', 'Start date', '01/01/2021');
+        .should('contain', 'Quota', '057015', 'Start date');
     cy.get('.close [href]').click();
   });
   it(`🚀 UK 🇬🇧 📱 - Mobile - nav-bar validation`, function() {
