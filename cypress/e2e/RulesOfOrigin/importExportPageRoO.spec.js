@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('importExportRoO.spec.js | Rules of Origin Import/Export , Import only page', function() {
+describe('importExportPageRoO.spec | Rules of Origin Import/Export , Import only page', function() {
   it('UK - Page validations - Japan - Import/Export page', function() {
     cy.visit('/commodities/6004100091?country=JP#rules-of-origin');
     cy.contains('Work out if your goods meet the rules of origin');
@@ -43,7 +43,7 @@ describe('importExportRoO.spec.js | Rules of Origin Import/Export , Import only 
     cy.contains('Are your goods originating?');
     cy.contains('How to work out if your goods are classed as \'originating\' in United Kingdom');
   });
-  it('XI - Page validations - Japan - Import/Export page', function() {
+  it.skip('XI - Page validations - Japan - Import/Export page', function() {
     cy.visit('xi/commodities/6004100091?country=JP#rules-of-origin');
     cy.contains('Work out if your goods meet the rules of origin');
     cy.contains('Check rules of origin').click();
@@ -61,7 +61,7 @@ describe('importExportRoO.spec.js | Rules of Origin Import/Export , Import only 
     cy.contains('Preferential rules of origin for trading with Japan');
     cy.contains('Work out if your trade fulfils the rules of origin and can therefore be considered originating.');
   });
-  it('XI - Page validations - Vietnam - import/export options - more than one agreement in place', function() {
+  it.skip('XI - Page validations - Vietnam - import/export options - more than one agreement in place', function() {
     cy.visit('xi/commodities/6004100091?country=VN#rules-of-origin');
     cy.contains('EU-Vietnam Free Trade Agreement');
     cy.contains('Generalised Scheme of Preferences (GSP)');

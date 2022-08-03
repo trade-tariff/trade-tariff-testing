@@ -166,7 +166,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     // Declarable headings - headings which are also commodities
     it(`${countries[j]} - Headings which are declarable / also commodities- fall back option enabled`, function() {
       cy.visit(`${countries[j]}/commodities/5609000000`);
-      cy.get('#measure-20131331').contains('Conditions').click();
+      cy.get('#measure-20187981').contains('Conditions').click();
       cy.get('.info-content').contains('Import control on cat and dog fur for All countries');
       cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
       cy.get('.info-content').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
@@ -183,7 +183,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP');
     cy.get('.close [href]').click();
     // Russia conditions
-    cy.wait(100);
+    cy.wait(200);
     cy.get('#measure-20179932').contains('Conditions').click();
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
     cy.get('.close [href]').click();
