@@ -1,5 +1,5 @@
 // WO - one scheme
-describe('| RoO-e2e-WOO-001.spec | WO + One Scheme |', function() {
+describe('| RoO-e2e-WhollyObtained-OneScheme.spec | WO + One Scheme |', function() {
   it('WO+One Scheme - South Africa', function() {
     cy.visit('/commodities/0201100021?country=ZA#rules-of-origin');
     // click Check Rules of Origin button

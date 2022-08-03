@@ -64,7 +64,18 @@ Cypress.Commands.add('originMet', (country, code, agreement)=>{
   cy.get('.govuk-list').contains('How proofs of origin are verified').click();
   cy.contains('Obtaining and verifying proofs of origin');
   cy.get('.govuk-back-link').click();
-})
+});
+
+// Importing page - GSP
+Cypress.Commands.add('importGSP', (code, country)=>{
+  cy.contains(`Trading commodity ${code} with ${country}`);
+  cy.contains('Importing goods into the United Kingdom from countries which belong to the GSP scheme');
+  cy.get('.govuk-body-l').contains('Generalised System of Preferences (GSP)').click();
+  cy.contains('Trading with developing nations');
+  cy.go(-1);
+  cy.contains(`Importing goods from ${country}`);
+  cy.get('.govuk-button').contains('Continue').click();
+});
 
 // not Wholly Obtained
 Cypress.Commands.add('notWhollyObtained', (country)=>{
