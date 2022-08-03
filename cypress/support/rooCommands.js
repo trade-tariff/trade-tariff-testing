@@ -13,6 +13,13 @@ Cypress.Commands.add('impOrExp', (country, selection)=>{
   cy.get(`#rules-of-origin-steps-import-export-import-or-export-${selection}-field`).check();
   cy.get('.govuk-button').contains('Continue').click();
 });
+Cypress.Commands.add('multipleAgreements', (country, selection)=>{
+  cy.contains('Details of your trade');
+  cy.contains(`Select agreement for trading with ${country}`);
+  cy.get(`#rules-of-origin-steps-scheme-scheme-code-${selection}-field`).check();
+  cy.get('.govuk-button').contains('Continue').click();
+});
+
 // how originating is defined
 Cypress.Commands.add('howOrginating', (country, agreement)=>{
   cy.contains('Are your goods originating?');
