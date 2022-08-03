@@ -27,7 +27,7 @@ describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', functio
     cy.get('.govuk-back-link').click();
     cy.contains('Trading commodity 6004100091 with Afghanistan');
   });
-  it('XI - Page validations - Afghanistan - Import only page', function() {
+  it.skip('XI - Page validations - Afghanistan - Import only page', function() {
     cy.visit('xi/commodities/6004100091?country=AF#rules-of-origin');
     cy.contains('Work out if your goods meet the rules of origin');
     cy.contains('Check rules of origin').click();
