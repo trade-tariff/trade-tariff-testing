@@ -86,13 +86,59 @@ Cypress.Commands.add('importGSP', (code, country)=>{
 
 // not Wholly Obtained
 Cypress.Commands.add('notWhollyObtained', (country)=>{
-  cy.contains('Are your goods originating?t');
+  cy.contains('Are your goods originating?');
   cy.contains('Your goods are not wholly obtained');
   cy.contains(`If your product is not wholly obtained in ${country}, it will have to comply with other product-specific rules.`);
+  cy.get('.govuk-button').contains('Continue').click();
 });
+// including parts
+Cypress.Commands.add('cumulation', (scheme)=>{
+  cy.contains('Are your goods originating?');
+  cy.contains('Including parts or components from other countries');
+  cy.contains('In order to qualify for preferential treatment, you may be able to include parts that come from other countries. This depends on the cumulation rules of the trade agreement, which are described below.');
+  cy.contains(`Cumulation in the ${scheme}`);
+  cy.get('.govuk-button').contains('Continue').click();
+});
+// minimal operations
+Cypress.Commands.add('minimalOps', (scheme, selection)=>{
+  cy.contains('Are your goods originating?');
+  cy.contains('Minimal operations: Have non-originating parts been sufficiently processed?');
+  cy.contains(`'Insufficient processing' operations according to the ${scheme}`);
+  cy.contains('Have non-originating parts been subject to sufficient processing to qualify for preferential treatment?');
+  cy.get(`#rules-of-origin-steps-sufficient-processing-sufficient-processing-${selection}-field`).check();
+  cy.get('.govuk-button').contains('Continue').click();
+});
+
 // Origin requirement not met
-Cypress.Commands.add('OrgReqMet', (country)=>{
+Cypress.Commands.add('rooReqMet', (country, code, scheme)=>{
   cy.contains(`Importing commodity 6004100091 from ${country}`);
   cy.contains('Origin requirements met');
-  cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the UK-Vietnam Free Trade Agreement.`);
+  cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${scheme}.`);
 });
+// Origin not met
+Cypress.Commands.add('rooNotMet', (country, code, scheme)=>{
+  cy.contains(`Importing commodity ${code} from ${country}`);
+  cy.contains('Rules of Origin not met');
+  cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
+  cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
+  // tolerance link
+
+  // cumulation link
+
+
+  cy.contains('What\'s next');
+  cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
+  cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
+  cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
+  cy.contains('Valid proofs of origin');
+  cy.go(-1);
+  cy.get('.govuk-warning-text__text').contains('start again').click();
+  cy.contains(`Are you importing goods into the UK or into ${country}?`);
+});
+Cypress.Commands.add('prodSpecRules', (rule)=>{
+  cy.contains('Do your goods meet the product-specific rules?');
+  cy.contains('Your goods must meet one of these rules in order to qualify for originating status. Select an option to indicate if you meet the rule.');
+  cy.contains(`${rule}`).click();
+  // cy.get(`#rules-of-origin-steps-product-specific-rules-rule-${rule}-field`).check();
+  cy.get('.govuk-button').contains('Continue').click();
+} );
