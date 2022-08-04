@@ -1,5 +1,5 @@
 // e2e journey validating alcohol percentage calculations Singapore to XI
-describe('| RoW-GB209--e2e.spec | alcohol percentage |', function() {
+describe('| RoW-GB309--e2e.spec | alcohol percentage |', function() {
   // alcohol percentage calclations
   it(' RoW 🇸🇬 Singapore - 🇬🇧 XI - Alcohol percentage calculations ', function() {
     cy.visit('/commodities/2208401100');

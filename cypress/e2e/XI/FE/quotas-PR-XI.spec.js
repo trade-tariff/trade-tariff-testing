@@ -121,7 +121,7 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   });
   it('✅ 20.P&R:QRC Quarantine Release Certificate', function() {
     cy.visit('/xi/commodities/4403219090#import');
-    cy.get('#measure-20174972').contains('Conditions').click();
+    cy.get('#measure-20186913').contains('Conditions').click();
     cy.contains('Quarantine Release Certificate');
     cy.commodityGuidance();
   });

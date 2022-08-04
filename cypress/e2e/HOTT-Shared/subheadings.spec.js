@@ -19,9 +19,9 @@ describe('| subheadings.spec | validate subheadings on UK and XI services - Fron
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1000);
+          expect(response.duration).to.lessThan(2000);
           // body lengths
-          expect(response.body.included).to.have.length(203);
+          expect(response.body.included).to.have.length(202);
           // validate properties
           expect(response.body.data).to.have.property('id');
           expect(response.body.data).to.have.property('type').equals('subheading');
@@ -36,7 +36,7 @@ describe('| subheadings.spec | validate subheadings on UK and XI services - Fron
   it('XI subheading front end', function() {
     cy.visit('xi/subheadings/2933998000-80');
     cy.contains('Subheading 29339980 - Other ');
-    cy.contains('There are 61 commodities in this category.');
+    cy.contains('There are 64 commodities in this category.');
     // cy.contains('Footnotes');
     cy.contains('Chapter notes');
     cy.contains('Subheading notes');
@@ -53,9 +53,9 @@ describe('| subheadings.spec | validate subheadings on UK and XI services - Fron
           expect(response.headers).to.include({'content-type': 'application/json; charset=utf-8'});
           // response duration less than 2000
           expect(response).to.have.property('duration');
-          expect(response.duration).to.lessThan(1000);
+          expect(response.duration).to.lessThan(2000);
           // body lengths
-          expect(response.body.included).to.have.length(316);
+          expect(response.body.included).to.have.length(229);
           // validate properties
           expect(response.body.data).to.have.property('id');
           expect(response.body.data).to.have.property('type').equals('subheading');
