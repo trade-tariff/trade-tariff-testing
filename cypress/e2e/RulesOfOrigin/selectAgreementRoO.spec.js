@@ -28,7 +28,7 @@ describe('selectAgreementRoO.spec.js | Rules of Origin - Select Agreement page',
     cy.contains('Continue').click();
     cy.contains('Importing goods into the United Kingdom from countries which belong to the GSP scheme');
   });
-  it('XI - Page validations - Vietnam - more than one agreement in place', function() {
+  it.skip('XI - Page validations - Vietnam - more than one agreement in place', function() {
     cy.visit('xi/commodities/6004100091?country=VN#rules-of-origin');
     cy.contains('EU-Vietnam Free Trade Agreement');
     cy.contains('Generalised Scheme of Preferences (GSP)');

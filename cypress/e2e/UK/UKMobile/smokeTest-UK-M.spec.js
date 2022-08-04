@@ -224,12 +224,11 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
         .contains('Order number');
 
     cy.get('.search-results');
-    cy.contains('057015').click();
-    cy.get('.tariff-info');
-    cy.contains('Quota order number');
-    cy.contains('057015');
-    cy.contains('Start and end dates');
-    cy.contains('1 January 2022 to 31 December 2022');
+    cy.contains('057140').click();
+    cy.get('.tariff-info').contains('Quota order number');
+    cy.get('.tariff-info').contains('057140');
+    cy.get('.tariff-info').contains('Start and end dates');
+    cy.get('.tariff-info').contains('1 August 2022 to 31 July 2023');
     cy.get('.close [href]').click();
   });
 });
