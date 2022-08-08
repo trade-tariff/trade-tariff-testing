@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke tests for dev |', function() {
+describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI | Smoke tests for dev |', function() {
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
     cy.visit('/find_commodity');
@@ -17,17 +17,15 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('#tariff_date_month').click().clear().type(12);
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.searchForCommodity('3808941000');
-    cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
+    cy.contains('Search results for \'3808941000\'');
+    cy.contains('The following commodity codes match your search:');
+    cy.contains('Based on quaternary ammonium salts').click();
+    cy.contains(/Commodity .*3808941000/i);
     cy.contains('21 December 2022');
-    // select Change Date and CANCEL
-    // cy.get(' .js-show.text > a[role=\'button\']').click();
-    // cy.contains('Set date').click();
-    //
 
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-
     cy.contains('22 December 2022');
   });
   // switching link works
@@ -58,7 +56,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('gherkins');
-    cy.contains('Search results for ‘gherkins’');
+    cy.contains('Search results for \'gherkins\'');
   });
   // Commodity Search functionality - comm code search
   it('🚀 UK 🇬🇧 - Search Commodity by code ', function() {
@@ -66,6 +64,9 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
+    cy.contains('Search results for \'3808941000\'');
+    cy.contains('The following commodity codes match your search:');
+    cy.contains('Based on quaternary ammonium salts').click();
     cy.contains(/Commodity .*3808941000/i);
   });
 
@@ -76,19 +77,22 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('.govuk-details__summary').click();
     cy.get('#tariff_date_day').click().clear().type(21);
     cy.get('#tariff_date_month').click().clear().type(12);
-    cy.get('#tariff_date_year').click().clear().type(2021);
+    cy.get('#tariff_date_year').click().clear().type(2023);
+
     cy.searchForCommodity('3808941000');
-    cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
-    // cy.contains('Set date').click();
-    //
-    cy.contains('21 December 2021');
+    cy.contains('Search results for \'3808941000\'');
+    cy.contains('The following commodity codes match your search:');
+    cy.contains('Based on quaternary ammonium salts').click();
+    cy.contains(/Commodity .*3808941000/i);
+    cy.contains('21 December 2023');
+
     // switch to XI tariff
     cy.contains('Northern Ireland Online Tariff').click();
     cy.contains('Northern Ireland Online Tariff');
-    cy.contains('21 December 2021');
+    cy.contains('21 December 2023');
     // switch to UK tariff
     cy.contains('UK Integrated Online Tariff').click();
-    cy.contains('21 December 2021');
+    cy.contains('21 December 2023');
   });
 
   // **** XI tests ****
@@ -108,12 +112,10 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     cy.get('#tariff_date_month').click().clear().type(12);
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.searchForCommodity('3808941000');
-    cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
-    cy.contains('21 December 2022');
-    // select Change Date and CANCEL
-    // cy.get(' .js-show.text > a[role=\'button\']').click();
-    // cy.contains('Set date').click();
-    //
+    cy.contains('Search results for \'3808941000\'');
+    cy.contains('The following commodity codes match your search:');
+    cy.contains('Based on quaternary ammonium salts').click();
+    cy.contains(/Commodity .*3808941000/i);
 
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
@@ -149,7 +151,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI| Smoke test
     // changed on 11/02/2021
     cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('gherkins');
-    cy.contains('Search results for ‘gherkins’');
+    cy.contains('Search results for \'gherkins\'');
   });
   // Commodity Search functionality - comm code search
   it('🚀 XI 🇪🇺- Search Commodity by code ', function() {
