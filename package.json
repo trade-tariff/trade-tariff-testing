@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "allure-commandline": "^2.18.1",
-    "cypress": "10.3.1",
+    "cypress": "10.4.0",
     "cypress-cucumber-preprocessor": "https://github.com/trade-tariff/cypress-cucumber-preprocessor#temp",
     "cypress-dark": "^1.7.14",
     "cypress-file-upload": "^5.0.8",
