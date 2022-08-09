@@ -124,8 +124,6 @@ Cypress.Commands.add('rooNotMet', (country, code, scheme)=>{
   // tolerance link
 
   // cumulation link
-
-
   cy.contains('What\'s next');
   cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
   cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
@@ -134,6 +132,25 @@ Cypress.Commands.add('rooNotMet', (country, code, scheme)=>{
   cy.go(-1);
   cy.get('.govuk-warning-text__text').contains('start again').click();
   cy.contains(`Are you importing goods into the UK or into ${country}?`);
+});
+
+// Origin not met GSP
+Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
+  cy.contains(`Importing commodity ${code} from ${country}`);
+  cy.contains('Rules of Origin not met');
+  cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
+  cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
+  // tolerance link
+
+  // cumulation link
+  cy.contains('What\'s next');
+  cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
+  cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
+  cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
+  cy.contains('Valid proofs of origin');
+  cy.go(-1);
+  cy.get('.govuk-warning-text__text').contains('start again').click();
+  cy.contains(`Importing goods into the United Kingdom from countries which belong to the GSP scheme`)
 });
 Cypress.Commands.add('prodSpecRules', (rule)=>{
   cy.contains('Do your goods meet the product-specific rules?');
