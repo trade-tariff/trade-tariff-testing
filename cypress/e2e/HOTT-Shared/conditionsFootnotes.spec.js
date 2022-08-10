@@ -39,4 +39,14 @@ describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate 
       cy.contains('There are important notes for classifying your goods shown further down this page');
     });
   }
+  // HOTT 1794 - Comm code specific messaging re: chapter 99
+  it('UK - Critical Commodity - Warning message on commodity page', function() {
+    const commCodes = ['commodities/9905000000', 'headings/9919', 'commodities/9919000010', 'commodities/9919000020'];
+    for (let i=0; i<commCodes.length; i++) {
+      cy.visit(`/${commCodes[i]}`);
+      cy.contains('This code cannot be without prior authorisation from HMRC under the Transfer of Residence Relief. To apply for this please see guidance at:');
+      cy.contains('Application for transfer of residence relief guidance').click();
+      cy.contains('Application for transfer of residence relief (ToR1)');
+    }
+  });
 });
