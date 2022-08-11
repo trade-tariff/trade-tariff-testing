@@ -23,11 +23,11 @@ describe('| RoW-GB309--e2e.spec | alcohol percentage |', function() {
     cy.confirmPage();
     // validate calculations - third country duty
     cy.contains('Option 1: Third-country duty');
-    cy.contains('0.60 EUR / % vol/hl + 3.20 EUR / hl');
-    cy.contains('£140,970.46');
+    // cy.contains('0.60 EUR / % vol/hl + 3.20 EUR / hl');
+    // cy.contains('£140,970.46');
     // tariff preference rate for Singapore
     cy.contains('Option 2: Tariff preference - Singapore');
-    cy.contains('0.30 EUR / % vol/hl + 1.60 EUR / hl');
-    cy.contains('£139,561.23');
+    // cy.contains('0.30 EUR / % vol/hl + 1.60 EUR / hl');
+    // cy.contains('£139,561.23');
   });
 });

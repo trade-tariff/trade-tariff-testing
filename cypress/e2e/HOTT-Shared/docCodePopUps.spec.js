@@ -176,16 +176,16 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('.close [href]').click();
     });
   }
-  it('UK Belarus/Russia conditions', function() {
+  it('UK - 🇧🇾🇷🇺 Belarus/ Russia conditions', function() {
     cy.visit('/commodities/0101210000#export');
+    // Russia conditions
+    cy.get('#measure-20179932').contains('Conditions').click();
+    cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
+    cy.get('.close [href]').click();
+    cy.wait(200);
     // Belarus conditions
     cy.get('#measure-20185288').contains('Conditions').click();
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP');
-    cy.get('.close [href]').click();
-    // Russia conditions
-    cy.wait(200);
-    cy.get('#measure-20179932').contains('Conditions').click();
-    cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
     cy.get('.close [href]').click();
   });
 });
