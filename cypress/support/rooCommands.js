@@ -150,7 +150,25 @@ Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
   cy.contains('Valid proofs of origin');
   cy.go(-1);
   cy.get('.govuk-warning-text__text').contains('start again').click();
-  cy.contains(`Importing goods into the United Kingdom from countries which belong to the GSP scheme`)
+  cy.contains(`Importing goods into the United Kingdom from countries which belong to the GSP scheme`);
+});
+// Origin not met non GSP-multipleAgreements
+Cypress.Commands.add('rooNotMetMulti', (country, code, scheme)=>{
+  cy.contains(`Importing commodity ${code} from ${country}`);
+  cy.contains('Rules of Origin not met');
+  cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
+  cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
+  // tolerance link
+
+  // cumulation link
+  cy.contains('What\'s next');
+  cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
+  cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
+  cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
+  cy.contains('Valid proofs of origin');
+  cy.go(-1);
+  cy.get('.govuk-warning-text__text').contains('start again').click();
+  cy.contains(`Select agreement for trading with ${country}`);
 });
 Cypress.Commands.add('prodSpecRules', (rule)=>{
   cy.contains('Do your goods meet the product-specific rules?');
@@ -159,3 +177,9 @@ Cypress.Commands.add('prodSpecRules', (rule)=>{
   // cy.get(`#rules-of-origin-steps-product-specific-rules-rule-${rule}-field`).check();
   cy.get('.govuk-button').contains('Continue').click();
 } );
+Cypress.Commands.add('subDivision', (code, subDiv)=>{
+  cy.contains('Provide more information about your product');
+  cy.contains(`The rules of origin for commodity ${code} depend on the type of product that you are trading.`);
+  cy.contains(`${subDiv}`).click();
+  cy.get('.govuk-button').contains('Continue').click();
+})
