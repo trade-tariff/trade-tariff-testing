@@ -2404,10 +2404,10 @@ cypress-grep@^3.0.2:
     find-test-names "^1.17.2"
     globby "^11.0.4"
 
-cypress-mochawesome-reporter@^3.1.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/cypress-mochawesome-reporter/-/cypress-mochawesome-reporter-3.2.0.tgz#4e335b674973bd0d5bbfa3e8ff1229b98df0bba3"
-  integrity sha512-2cTKgjQmmCdNvMTca1ieCcfF8fFih7Ums/iJxqXpN9RCIE/4wIGzwjmEDDNgRm+SyGOUac6EdfAVe48S82Bw0Q==
+cypress-mochawesome-reporter@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/cypress-mochawesome-reporter/-/cypress-mochawesome-reporter-3.2.2.tgz#ea3a96572964704a7c60b8f3466c34bb53058b05"
+  integrity sha512-Ldoim06xGTRWXwdOkZf+wlV50Rm0oigSmR76jY3b2/GkM4sFudG5KF+RY0T/h6DF6zWFmFXrr1XAWYX/uL6L0Q==
   dependencies:
     fs-extra "^10.0.1"
     mochawesome "^7.1.3"
