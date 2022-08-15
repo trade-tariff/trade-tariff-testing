@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // NWO + Multi-NonGSP + Sufficient processing + SubDivision + PSR
 //
-describe('| RoO-e2e-NWO-MultiScheme-NonGSP-SuffProc.spec | NWO + Multi-NonGSP + Sufficient processing + SubDivision + PSR  |', function() {
+describe('| RoO-e2e-NWO-MultiSchm-NonGSP-SuffPro.spec | NWO + Multi-NonGSP + Sufficient processing + SubDivision + PSR  |', function() {
   it('Importing - NWO + Multi-NonGSP + Sufficient processing  + Vietnam + Prod specific rules - Yes/No', function() {
     cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
     // click Check Rules of Origin button
