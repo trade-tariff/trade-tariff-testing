@@ -1,6 +1,6 @@
 // WO - Multiple schemes - GSP
 describe('| RoO-e2e-WO-Multiple-GSP.spec | WO + Multiple Schemes + GSP - Vietnam |', function() {
-  it('WO + Multiple Schemes + GSP - Vietnam', function() {
+  it('Import - WO + Multiple Schemes + GSP - Vietnam', function() {
     cy.visit('/commodities/0201100021?country=VN#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();

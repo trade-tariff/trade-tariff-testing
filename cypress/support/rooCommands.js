@@ -83,7 +83,6 @@ Cypress.Commands.add('importGSP', (code, country)=>{
   cy.contains(`Importing goods from ${country}`);
   cy.get('.govuk-button').contains('Continue').click();
 });
-
 // not Wholly Obtained
 Cypress.Commands.add('notWhollyObtained', (country)=>{
   cy.contains('Are your goods originating?');
@@ -111,7 +110,7 @@ Cypress.Commands.add('minimalOps', (scheme, selection)=>{
 
 // Origin requirement not met
 Cypress.Commands.add('rooReqMet', (country, code, scheme)=>{
-  cy.contains(`Importing commodity 6004100091 from ${country}`);
+  cy.contains(`Importing commodity ${code} from ${country}`);
   cy.contains('Origin requirements met');
   cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${scheme}.`);
 });
