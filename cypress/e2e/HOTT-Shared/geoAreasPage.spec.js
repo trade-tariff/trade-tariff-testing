@@ -9,7 +9,7 @@ describe('geoAreasPage.spec.js | split the geographical areas from commodity pag
     cy.contains('All countries (1011)').click();
     cy.contains('UK Integrated Online Tariff');
     cy.contains('Geographical area 1011 - All countries');
-    cy.contains('Geographical area 1011, All countries, includes the following 245 countries / regions.');
+    cy.contains('Geographical area 1011, All countries, includes the following 254 countries / regions.');
     console.log(cy.title());
     cy.contains('Eswatini');
     cy.get('.govuk-back-link').click();
