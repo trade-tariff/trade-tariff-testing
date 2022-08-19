@@ -54,7 +54,7 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI | Smoke tes
     cy.visit('/find_commodity');
     cy.contains('Search for a commodity');
     // changed on 11/02/2021
-    cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
+    cy.contains('Search for a commodity');
     cy.searchForCommodity('gherkins');
     cy.contains('Search results for \'gherkins\'');
   });
@@ -149,7 +149,6 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI | Smoke tes
     cy.visit('xi/sections');
     cy.contains('Search for a commodity');
     // changed on 11/02/2021
-    cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
     cy.searchForCommodity('gherkins');
     cy.contains('Search results for \'gherkins\'');
   });
