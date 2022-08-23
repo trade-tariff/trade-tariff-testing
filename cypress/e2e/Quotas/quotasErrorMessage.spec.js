@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
-describe('| quotasErrorMessage.spec | interim error message on quota orders |', function() {
+describe.skip('| quotasErrorMessage.spec | interim error message on quota orders |', function() {
   const QuotaOrderNos = ['052106', '052012', '052105'];
   const CommCodes =['0204230019', '0204507100', '0204230011'];
   const ErrMessage = 'There is currently a known issue with the balance and status of this quota. We are working hard to resolve this issue as soon as possible. Until further notice the quota remains ‘open’ and quota claims should be submitted as normal.';
