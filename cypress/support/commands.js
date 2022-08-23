@@ -78,7 +78,7 @@ Cypress.Commands.add('mainPageUK', ()=>{
       .contains('UK Integrated Online Tariff');
   // Search the tariff section
   cy.get('.govuk-heading-m').contains('Search for a commodity');
-  cy.contains('Enter the name of the goods or a commodity code');
+  cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
 });
 
 // XI Checks main page title , sections , content and switching link available , search section
@@ -89,7 +89,7 @@ Cypress.Commands.add('mainPageXI', ()=>{
   cy.get('.govuk-header')
       .contains('Northern Ireland Online Tariff');
   cy.contains('Search for a commodity');
-  cy.contains('Enter the name of the goods or a commodity code');
+  cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
 });
 
 Cypress.Commands.add('browsePage', ()=>{
