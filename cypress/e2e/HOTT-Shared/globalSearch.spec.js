@@ -4,7 +4,7 @@ describe('globalSearch.spec| global search function on UK and XI service ** Unre
     cy.visit('/find_commodity');
     cy.get('.tariff-search-banner__toggle').click();
     cy.contains('Search the Online Tariff');
-    cy.contains('Enter the name of the goods or a commodity code. Commodity codes are 10-digit numbers that classify goods so you can fill in declarations and other paperwork. You must use the right commodity code.');
+    cy.get('.govuk-heading-m').contains('Search for a commodity');
 
     // search for commodity by name
     cy.globalSearchForCommodity('gherkins');

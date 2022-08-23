@@ -23,8 +23,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('find the taxes and duties that apply to those imports');
     cy.contains('find out which certificates and licences apply to the import of your goods');
     cy.contains('The first step is to find the commodity that you are importing or exporting.');
-    cy.contains('Enter the name of the goods or a commodity code');
-    cy.contains('Commodity codes are 10-digit numbers that classify goods so you can fill in declarations and other paperwork. You must use the right commodity code.');
+    cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
     cy.contains('Alternatively, you can browse the goods classification or look for your product in the A-Z.');
   });
   it('UK - Browse page ', function() {
