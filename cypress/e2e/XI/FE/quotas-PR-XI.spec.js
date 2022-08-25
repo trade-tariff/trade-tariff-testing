@@ -3,39 +3,37 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   it('🚫 1.Quotas:046 Tariff quota/ceiling', function() {
     cy.clearCookies();
     cy.visit('/xi/commodities/6301909021#import');
-    //   cy.get('.govuk-tabs__panel').should('not.have.value', 'quota')
-    cy.get('.govuk-tabs__panel');
-    cy.contains('quota').should('not.exist');
+    cy.get('.govuk-tabs__panel').should('not.have.value', 'quota');
   });
   it('🚫 2.Quotas:122-Non Preferential quota', function() {
     cy.visit('/xi/commodities/1006209600#import');
-    cy.get('.govuk-tabs__panel');
-    cy.contains('quota').should('not.exist');
+
+    cy.get('.govuk-tabs__panel').should('not.have.value', 'quota');
   });
   it('🚫 3.Quotas:123 - Non preferential quota under end use', function() {
     cy.visit('/xi/commodities/1701131000#import');
-    cy.get('.govuk-tabs__panel');
-    cy.contains('quota').should('not.exist');
+
+    cy.get('.govuk-tabs__panel').should('not.have.value', 'quota');
   });
   it('🚫 4.Quotas:143 Preferential tariff quota', function() {
     cy.visit('/xi/commodities/1601009991#import');
-    cy.get('.govuk-tabs__panel');
-    cy.contains('quota').should('not.exist');
+
+    cy.get('.govuk-tabs__panel').should('not.have.value', 'quota');
   });
   it('🚫 5.Quotas:146 Preferential tariff quota under end-use', function() {
     cy.visit('/xi/commodities/0709921000#import');
-    cy.get('.govuk-tabs__panel');
-    cy.contains('quota').should('not.exist');
+
+    cy.get('.govuk-tabs__panel').should('not.have.value', 'quota');
   });
   it('🚫 6.Quotas:147 Customs Union Quota', function() {
     cy.visit('/xi/commodities/1806208012#import');
-    cy.get('.govuk-tabs__panel');
-    cy.contains('quota').should('not.exist');
+
+    cy.get('.govuk-tabs__panel').should('not.have.value', 'quota');
   });
   it('🚫 7.Quotas:653 Security based on representative price, reduced under the benefit of a tariff quota', function() {
     cy.visit('/xi/commodities/1701149000#import');
-    cy.get('.govuk-tabs__panel');
-    cy.contains('quota').should('not.exist');
+
+    cy.get('.govuk-tabs__panel').should('not.have.value', 'quota');
   });
   // ---------------------------National Prohibitions and restrictions (P&R)---------------------------
   it('✅ 1.P&R:AHC - Animal Health Certificate', function() {
@@ -67,7 +65,7 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   // exports
   it.skip('🚫 6.P&R:COE - Home Office Controlled Drugs (export)', function() {
     cy.visit('/xi/commodities/2934910000#export');
-    cy.get('.govuk-tabs__panel');
+
     cy.contains('Home Office Controlled Drugs (export)').should('not.exist');
   });
   it('✅ 7.P&R:COI HMI Conformity Certificate (fruit and veg) issued in UK', function() {
@@ -85,13 +83,13 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
   // export
   it.skip('🚫 12.P&R:EQC Certificate of Conformity - export ', function() {
     cy.visit('/xi/commodities/0709939000#export');
-    cy.get('.govuk-tabs__panel');
+
     cy.contains('Certificate of Conformity').should('not.exist');
   });
   // export
   it.skip('🚫 14.P&R:HOP Home Office pre-cursor chemical authorisation - export ', function() {
     cy.visit('/xi/commodities/2932940000#export');
-    cy.get('.govuk-tabs__panel');
+
     cy.contains('Home Office Pre-cursor chemicals').should('not.exist');
   });
 
@@ -111,7 +109,7 @@ describe('🇪🇺 💡 quotas-PR-XI.spec | Quotas to be suppressed for XI versi
     cy.visit('/xi/commodities/2934100015#export');
     cy.reload();
     //
-    cy.get('.govuk-tabs__panel');
+
     cy.contains('Home Office Pre-cursor chemicals').should('not.exist');
   });
   it('✅ 19.P&R:PRT Home Office Controlled Drugs (import)', function() {

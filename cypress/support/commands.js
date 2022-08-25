@@ -79,6 +79,11 @@ Cypress.Commands.add('mainPageUK', ()=>{
   // Search the tariff section
   cy.get('.govuk-heading-m').contains('Search for a commodity');
   cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
+  cy.contains('browse the goods classification').click();
+  cy.contains('Browse the tariff');
+  cy.go(-1);
+  cy.contains('look for your product in the A-Z.').click();
+  cy.contains('look for your product in the A-Z.');
 });
 
 // XI Checks main page title , sections , content and switching link available , search section
@@ -90,6 +95,11 @@ Cypress.Commands.add('mainPageXI', ()=>{
       .contains('Northern Ireland Online Tariff');
   cy.contains('Search for a commodity');
   cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
+  cy.contains('browse the goods classification').click();
+  cy.contains('Browse the tariff');
+  cy.go(-1);
+  cy.contains('look for your product in the A-Z.').click();
+  cy.contains('look for your product in the A-Z.');
 });
 
 Cypress.Commands.add('browsePage', ()=>{

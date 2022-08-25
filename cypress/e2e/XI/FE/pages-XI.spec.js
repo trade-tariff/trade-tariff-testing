@@ -13,18 +13,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
   });
   it('XI - find_commodity page', function() {
     cy.visit('xi/find_commodity');
-    cy.contains('Northern Ireland Online Tariff');
-    cy.contains('Look up commodity codes, import duties, taxes and controls');
-    cy.contains('Are your goods at risk of onward movement to the EU?');
-    //  cy.contains('If you\'re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not \'at risk\' of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.');
-    cy.contains('Search for a commodity');
-    cy.contains('The Northern Ireland Online Tariff helps you to:');
-    cy.contains('find commodity codes for imports into or exports out of Northern Ireland');
-    cy.contains('find the taxes and duties that apply to those imports');
-    cy.contains('find out which certificates and licences apply to the import of your goods');
-    cy.contains('The first step is to find the commodity that you are importing or exporting.');
-    cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
-    cy.contains('Alternatively, you can browse the goods classification or look for your product in the A-Z.');
+    cy.mainPageXI();
   });
   it('XI - Browse page ', function() {
     cy.visit('xi/browse');
