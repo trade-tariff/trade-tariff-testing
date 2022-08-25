@@ -19,7 +19,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Suffici
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Botswana');
     // cumulation
-    cy.cumulation('SACUM-UK economic partnership agreement (EPA)');
+    cy.cumulation('Botswana', 'SACUM-UK economic partnership agreement (EPA)');
     // min Operations met ?
     cy.minimalOps('SACUM-UK economic partnership agreement (EPA)', 'yes');
     // subdivision

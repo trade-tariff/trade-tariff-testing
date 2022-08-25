@@ -16,7 +16,7 @@ describe('| RoO-e2e-NWO-GSP-InsuffProcess.spec | NWO + GSP Scheme + insufficient
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Bangladesh');
     // cumulation
-    cy.cumulation('Generalised Scheme of Preferences (GSP)');
+    cy.cumulation('Bangladesh', 'Generalised Scheme of Preferences (GSP)');
     // Min Processing NO
     cy.minimalOps('Generalised Scheme of Preferences (GSP)', 'no');
     // Origin requirements met

@@ -21,7 +21,7 @@ describe('| RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-NonGSP + I
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Vietnam');
     // cumulation
-    cy.cumulation('UK-Vietnam Free Trade Agreement');
+    cy.cumulation('Vietnam', 'UK-Vietnam Free Trade Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Vietnam Free Trade Agreement', 'no');
     // Origin requirements NOT met
