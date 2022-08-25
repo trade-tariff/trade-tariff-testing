@@ -6,6 +6,20 @@ Cypress.Commands.add('checkRoO', ()=>{
   cy.contains('UK Integrated Online Tariff ');
   cy.get('div#rules-of-origin  button[name=\'button\']').click();
 });
+Cypress.Commands.add('roOTab', ()=>{
+  cy.contains('Non-preferential rules of origin');
+  cy.contains('Non-preferential rules of origin allows the implementation of several commercial policy measures such as:');
+  cy.contains('The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020 (opens in new tab)');
+ 
+  cy.get('p:nth-of-type(1) > a[target=\'blank\']').should('have.attr', 'href', 'https://www.gov.uk/government/publications/reference-document-for-the-customs-origin-of-chargeable-goods-eu-exit-regulations-2020');
+  cy.contains('anti-dumping duties');
+  cy.contains('countervailing duties');
+  cy.contains('trade embargoes');
+  cy.contains('safeguarding measures');
+  cy.contains('quantitative restrictions');
+  cy.contains('tariff quotas');
+  cy.contains('They are also used for trade statistics, public tenders and origin marking.');
+});
 // import or export
 Cypress.Commands.add('impOrExp', (country, selection)=>{
   cy.contains('Details of your trade');
@@ -181,4 +195,4 @@ Cypress.Commands.add('subDivision', (code, subDiv)=>{
   cy.contains(`The rules of origin for commodity ${code} depend on the type of product that you are trading.`);
   cy.contains(`${subDiv}`).click();
   cy.get('.govuk-button').contains('Continue').click();
-})
+});
