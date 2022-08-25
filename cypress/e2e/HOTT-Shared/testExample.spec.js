@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
 // TEST SPEC - DO NOT DELETE
@@ -134,4 +136,16 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
       expect(response.body).to.have.property('sidekiq').to.eq(true);
     });
   });
+  // RoO tab exists and links work
+  const service_urls = ['', 'xi'];
+  // const service_agreements = ['UK', 'EU'];
+  for (const service_url of service_urls) {
+    it.only(`| ${service_url} | Check RoO tab exsits on commodity page + links |`, function() {
+      cy.visit(`${service_url}/commodities/0702000007`);
+      cy.contains('Rules of origin').click();
+      cy.contains('Preferential rules of origin');
+      // cy.contains(`To view rules of origin, select a country with which the ${service_agreement[i]} has a trade agreement from the list above`);
+      cy.contains('Find out more about preferential rules of origin:');
+    });
+  }
 });

@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
-describe('| linksSTW-OTT.spec | STW links on OTT sections page |', function() {
+// removed as part of restructuring main page
+describe.skip('| linksSTW-OTT.spec | STW links on OTT sections page |', function() {
   const countries = ['uk', 'xi'];
   for (let i =0; i<countries.length; i++) {
     it(`| ${countries[i]} - Advance tariff rulings | Validate STW copy and links on OTT main page `, function() {

@@ -14,17 +14,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   });
   it('UK - find_commodity page', function() {
     cy.visit('/find_commodity');
-    cy.contains('The UK Integrated Online Tariff');
-    cy.contains('Look up commodity codes, import duties, taxes and controls');
-    cy.contains('Are you importing goods into Northern Ireland?');
-    cy.contains('Search for a commodity');
-    cy.contains('The UK Integrated Online Tariff helps you to:');
-    cy.contains('find commodity codes for imports into or exports out of the UK');
-    cy.contains('find the taxes and duties that apply to those imports');
-    cy.contains('find out which certificates and licences apply to the import of your goods');
-    cy.contains('The first step is to find the commodity that you are importing or exporting.');
-    cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
-    cy.contains('Alternatively, you can browse the goods classification or look for your product in the A-Z.');
+    cy.mainPageUK();
   });
   it('UK - Browse page ', function() {
     cy.visit('/browse');

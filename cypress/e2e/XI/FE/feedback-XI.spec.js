@@ -11,10 +11,10 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
   });
   it('XI - feedback link on help section', function() {
     cy.visit('/find_commodity');
-    cy.get('li:nth-of-type(6) > .govuk-header__link').click();
+   cy.get('li:nth-of-type(6) > .govuk-header__link').click();
     cy.contains('Help on using the tariff');
-    cy.contains('Get help or leave feedback').click();
-    cy.contains('Leave feedback on this service').click();
+    cy.contains('Leave feedback').click();
+    cy.contains('Leave feedback or suggestions for improvements to this service.').click();
     cy.contains('Send your feedback');
   });
 
