@@ -10,7 +10,6 @@ Cypress.Commands.add('roOTab', ()=>{
   cy.contains('Non-preferential rules of origin');
   cy.contains('Non-preferential rules of origin allows the implementation of several commercial policy measures such as:');
   cy.contains('The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020 (opens in new tab)');
- 
   cy.get('p:nth-of-type(1) > a[target=\'blank\']').should('have.attr', 'href', 'https://www.gov.uk/government/publications/reference-document-for-the-customs-origin-of-chargeable-goods-eu-exit-regulations-2020');
   cy.contains('anti-dumping duties');
   cy.contains('countervailing duties');
@@ -105,13 +104,16 @@ Cypress.Commands.add('notWhollyObtained', (country)=>{
   cy.get('.govuk-button').contains('Continue').click();
 });
 // including parts
-Cypress.Commands.add('cumulation', (scheme)=>{
+Cypress.Commands.add('cumulation', (country, scheme)=>{
   cy.contains('Are your goods originating?');
   cy.contains('Including parts or components from other countries');
   cy.contains('In order to qualify for preferential treatment, you may be able to include parts that come from other countries. This depends on the cumulation rules of the trade agreement, which are described below.');
   cy.contains(`Cumulation in the ${scheme}`);
+  cy.contains(`Map showing countries where cumulation may apply to the ${scheme}`);
+  cy.get('form#edit_rules_of_origin_steps_cumulation_cumulation  a[target=\'_blank\']').should('have.attr', 'href', `/cumulation_maps/${country}.png`);
   cy.get('.govuk-button').contains('Continue').click();
 });
+// form#edit_rules_of_origin_steps_cumulation_cumulation > img
 // minimal operations
 Cypress.Commands.add('minimalOps', (scheme, selection)=>{
   cy.contains('Are your goods originating?');

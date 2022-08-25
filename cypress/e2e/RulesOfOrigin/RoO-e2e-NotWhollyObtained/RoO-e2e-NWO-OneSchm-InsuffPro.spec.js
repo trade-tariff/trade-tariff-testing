@@ -18,7 +18,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Japan');
     // cumulation
-    cy.cumulation('Comprehensive Economic Partnership Agreement UK Japan');
+    cy.cumulation('Japan', 'Comprehensive Economic Partnership Agreement UK Japan');
     cy.minimalOps('Comprehensive Economic Partnership Agreement UK Japan', 'no');
     // Origin requirements met
     cy.rooNotMet('Japan', '5808100000', 'Comprehensive Economic Partnership Agreement UK Japan');
