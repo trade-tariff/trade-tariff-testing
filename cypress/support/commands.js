@@ -172,13 +172,13 @@ Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
 
 
 Cypress.Commands.add('waitForCountrySearchResults', () => {
-  cy.get('ul#search_country__listbox').should('be.visible');
+  cy.get('ul#trading_partner_country__listbox').should('be.visible');
 });
 
 Cypress.Commands.add('searchForCountry', (searchString) => {
-  cy.get('input#search_country').click().clear().type(searchString);
+  cy.get('input#trading_partner_country').click().clear().type(searchString);
   cy.waitForCountrySearchResults();
-  return cy.get('ul#search_country__listbox li');
+  return cy.get('ul#trading_partner_country__listbox li');
 });
 
 Cypress.Commands.add('mobileMenu', ()=>{
