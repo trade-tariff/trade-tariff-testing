@@ -3,13 +3,12 @@
 describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']}, function() {
   it('| UK Service - UK Trading relations with Chile - Related Content |', function() {
     cy.visit('/commodities/0702000007');
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     cy.contains('Rules of origin').click();
     cy.contains('Preferential rules of origin for trading with Chile');
     cy.contains('UK-Chile association agreement');
-    cy.contains('If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or Chile.');
     cy.contains('Related content');
     cy.contains('Check your goods meet the rules of origin').click();
     cy.contains('Find out the rules to establish the country of origin of imported and exported goods and to help identify goods which qualify for lower or no Customs Duty.');
@@ -24,7 +23,7 @@ describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'ro
   });
   it('| XI Service - EU Trading relations with Chile - Related Content |', function() {
     cy.visit('xi/commodities/0702000007');
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     cy.contains('Rules of origin').click();

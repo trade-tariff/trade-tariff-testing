@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable max-len */
 // page title , dynamic content - agreements ,ticket number
 
@@ -5,6 +6,17 @@
 Cypress.Commands.add('checkRoO', ()=>{
   cy.contains('UK Integrated Online Tariff ');
   cy.get('div#rules-of-origin  button[name=\'button\']').click();
+});
+
+Cypress.Commands.add('RoOContentCountrySelected', (agreement, country, origin )=>{
+  cy.contains(`Preferential rules of origin for trading with ${country}`);
+  cy.contains(`Preferential tariff treatment reduces the duties you are required to pay when importing or exporting goods to or from ${country}`);
+  cy.contains(`In order to qualify for preferential tariff treatment under the ${agreement}, the product must originate in the ${origin} or ${country}.`);
+});
+Cypress.Commands.add('RoORelatedContent', ()=>{
+  cy.get('#rules-of-origin__related-content').contains('Related content');
+  cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(1) > a').should('have.attr', 'href', 'https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin');
+  // cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(2) > a').should('have.attr', 'href', `https://www.gov.uk/government/collections/${agreement}`);
 });
 Cypress.Commands.add('roOTab', ()=>{
   cy.contains('Non-preferential rules of origin');
@@ -168,8 +180,8 @@ Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
   cy.contains(`Importing goods into the United Kingdom from countries which belong to the GSP scheme`);
 });
 // Origin not met non GSP-multipleAgreements
-Cypress.Commands.add('rooNotMetMulti', (country, code, scheme)=>{
-  cy.contains(`Importing commodity ${code} from ${country}`);
+Cypress.Commands.add('rooNotMetMulti', (trade_selection, country, code, scheme)=>{
+  cy.contains(`${trade_selection} commodity ${code} from ${country}`);
   cy.contains('Rules of Origin not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');

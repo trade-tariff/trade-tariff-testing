@@ -26,7 +26,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('.govuk-main-wrapper')
         .contains('Importing into the UK');
     // select country from drop down list
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted
@@ -48,7 +48,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('.govuk-main-wrapper')
         .contains('Importing into the UK');
     // select country from drop down list
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     cy.get('a#tab_import').click();
@@ -78,7 +78,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.url().should('include', 'day=22&month=12&year=2022');
 
     // select country from drop down list
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted
@@ -100,7 +100,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('.govuk-main-wrapper')
         .contains('Check how to export commodity goods (link opens in new tab)');
     // select country from drop down list
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     // verify if the date is persisted

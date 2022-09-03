@@ -20,7 +20,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
         .contains('Importing into Northern Ireland');
 
     // Select Chile from All countries list',()=>{
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     

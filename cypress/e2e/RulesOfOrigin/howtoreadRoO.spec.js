@@ -1,14 +1,14 @@
 // How to read rules of origin
 /* eslint-disable max-len */
 // HOTT-
-describe('| howtoreadRoO - link and copy ', {tags: ['config', 'roo-tag']}, function() {
+describe.skip('| howtoreadRoO - link and copy ', {tags: ['config', 'roo-tag']}, function() {
   const countries = ['', 'xi'];
   const service = ['UK', 'EU'];
   for (let i=0; i<countries.length; i++) {
     it(`${service[i]} | Service - HTR link |`, function() {
       cy.visit(`${countries[i]}/commodities/0702000007`);
       cy.contains('Rules of origin').click();
-      cy.get('input#search_country').click().clear().wait(500)
+      cy.get('input#trading_partner_country').click().clear().wait(500)
           .type('Japan').wait(500)
           .type('{enter}');
       cy.contains('Rules of origin').click();

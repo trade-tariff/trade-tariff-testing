@@ -16,8 +16,8 @@ describe('🇪🇺 | excludedCountriesApi-XI | HOTT-887 | GB excluded countries 
     cy.visit('/xi/commodities/9701210000#export');
     cy.get('.735').contains('Export control on cultural goods');
     cy.get('#measure-3088491').contains('United Kingdom (excluding Northern Ireland)');
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(GB)').wait(500);
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('United Kingdom (excluding Northern Ireland) (GB)').click().wait(500);
     cy.contains('Export control on cultural goods').should('not.exist');
   });
