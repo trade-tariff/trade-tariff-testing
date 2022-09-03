@@ -16,7 +16,7 @@ describe('componentsDefRoO.spec.js | Rules of Origin - Components page', functio
     // back button should take user to commodity page
     cy.get('.govuk-back-link').click();
     cy.contains('Preferential rules of origin for trading with Vietnam');
-    cy.contains('Work out if your trade fulfils the rules of origin and can therefore be considered originating.');
+    cy.contains('Work out if your goods meet the rules of origin');
     // select GSP agreement
     cy.contains('Check rules of origin').click();
     cy.get('#rules-of-origin-steps-scheme-scheme-code-vietnam-field').check();

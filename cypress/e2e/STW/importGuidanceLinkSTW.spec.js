@@ -11,7 +11,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     cy.get('a#tab_import').click();
     cy.contains('Importing into the UK');
     cy.contains('To check how to import commodity 2612201000, select the country from which you are importing.');
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Andorra')
         .type('{enter}');
     //  cy.searchForCountry('Andorra');
@@ -28,7 +28,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     cy.contains('To check how to import commodity 2612201000, select the country from which you are importing.');
 
     cy.get('a#tab_import').click().wait(100);
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('India')
         .type('{enter}');
 
@@ -48,7 +48,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     // check import tab
     cy.get('a#tab_import').click();
     cy.contains('To check how to import commodity 8804000000, select the country from which you are importing.');
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Iraq')
         .type('{enter}');
     cy.contains('Check how to import or export goods');

@@ -3,7 +3,7 @@
 describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config', 'roo-tag']}, function() {
   it('| Trading relations with Chile - UK-Chile association agreement |', function() {
     cy.visit('/commodities/0702000007');
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     cy.contains('Rules of origin').click();
@@ -12,7 +12,7 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
   });
   it('| Trading relations with Chile - EU - Chile association agreement |', function() {
     cy.visit('xi/commodities/0702000007');
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
     cy.contains('Rules of origin').click();
@@ -23,7 +23,7 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
   // add trading with GSP countries comoros
   it('| Trading relations with Kenya - UK-Vietnam agreement + GSP |', function() {
     cy.visit('/commodities/0702000007');
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Vietnam').wait(500)
         .type('{enter}');
     cy.contains('Rules of origin').click();

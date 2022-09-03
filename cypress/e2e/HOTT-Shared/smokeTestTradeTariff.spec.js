@@ -81,23 +81,23 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   it('🚀 UK 🇬🇧 - Country Selection - imports ', function() {
     cy.visit('/commodities/0208909800#import');
     // no XI
-    cy.get('input#search_country').click().clear().wait(200).type('(XI)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(200).type('(XI)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
     // Andorra should be present
-    cy.get('input#search_country').click().clear().wait(200).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(200).type('(AD)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
 
     // no GB - United Kingdom (excluding Northern Ireland) (GB)
-    cy.get('input#search_country').click().clear().wait(200).type('(GB)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(200).type('(GB)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
     // no XU
-    cy.get('input#search_country').click().clear().wait(200).type('(XU)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(200).type('(XU)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
     //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
         .contains('No results found');
   });
@@ -105,23 +105,23 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   it('🚀 UK 🇬🇧 - Country Selection - exports ', function() {
     cy.visit('/commodities/0208909800#export');
     // no XI
-    cy.get('input#search_country').click().clear().wait(500).type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(XI)').wait(500);
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
     // Andorra should be present
-    cy.get('input#search_country').click().clear().wait(500).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(AD)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
 
     // no GB - United Kingdom (excluding Northern Ireland) (GB)
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(GB)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
     // no XU
-    cy.get('input#search_country').click().clear().wait(500).type('XU');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('XU');
+    cy.get('[id=\'trading_partner_country__listbox\']')
     //  .contains('United Kingdom (excluding Northern Ireland) (GB)').should('not.exist')
         .contains('No results found');
   });
@@ -270,40 +270,40 @@ describe.skip('🚀 | smokeTestTradeTariff.spec.js |UK & XI | Front end - Smoke 
   it('🚀 XI 🇪🇺 - Country Selection -import ', function() {
     cy.visit('/xi/commodities/0208909800#import');
     // XI Present
-    cy.get('input#search_country').click().clear().wait(500).type('(XI)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(XI)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Northern Ireland (XI)');
     // Andora should be present
-    cy.get('input#search_country').click().clear().wait(500).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(AD)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
     //  GB Present
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(GB)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('United Kingdom (excluding Northern Ireland) (GB)');
     // no XU
-    cy.get('input#search_country').click().clear().wait(500).type('(XU)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(XU)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
   });
   it('🚀 XI 🇪🇺 - Country Selection -export ', function() {
     cy.visit('/xi/commodities/0208909800#export');
     // XI Present
-    cy.get('input#search_country').click().clear().wait(500)
+    cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('(XI)').wait(500);
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Northern Ireland (XI)');
     // Andora should be present
-    cy.get('input#search_country').click().clear().wait(500).type('(AD)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(AD)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
     //  GB Present
-    cy.get('input#search_country').click().clear().wait(500).type('(GB)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(GB)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('United Kingdom (excluding Northern Ireland) (GB)');
     // no XU
-    cy.get('input#search_country').click().clear().wait(500).type('(XU)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(XU)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
   });
   // Date picker working and persists on UK XI sites

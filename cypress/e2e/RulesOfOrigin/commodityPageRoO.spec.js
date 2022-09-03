@@ -25,7 +25,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     it(`| ${service_agreements[i]} | Chile 🇨🇱 - Service_urls with which there is a singular (1 to 1) trade agreement (e.g. Chile, which has an agreement on its own, not as part of a bloc) |`, function() {
       cy.visit('/commodities/0702000007');
       // Select Chile from All countries list', () => {
-      cy.get('input#search_country').click().clear().wait(500)
+      cy.get('input#trading_partner_country').click().clear().wait(500)
           .type('Chile').wait(500)
           .type('{enter}');
       cy.contains('Rules of origin').click();
@@ -43,10 +43,11 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
       cy.visit('/commodities/0702000007');
       cy.get('a#tab_rules-of-origin').contains('Rules of origin').click().wait(200);
       // Select USA from All countries list
-      cy.get('input#search_country').click().clear().wait(500)
+      cy.get('input#trading_partner_country').click().clear().wait(500)
           .type('United States (US)').wait(500)
           .type('{enter}');
       cy.contains('Preferential rules of origin for trading with United States');
+      cy.contains('Rules of origin').click();
       cy.get('img[alt=\'Flag for United States\']').should('be.visible');
 
       cy.contains('There is no preferential agreement in place with United States, therefore rules of origin are not applicable.');
@@ -59,16 +60,16 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
       cy.visit('/commodities/0702000007');
       cy.contains('Rules of origin').click();
       // Select USA from All countries list
-      cy.get('input#search_country').click().clear().wait(500)
+      cy.get('input#trading_partner_country').click().clear().wait(500)
           .type('The Bahamas').wait(500)
           .type('{enter}');
       cy.contains('Preferential rules of origin for trading with The Bahamas');
+      cy.contains('Rules of origin').click();
       cy.get('img[alt=\'Flag for The Bahamas\']').should('be.visible');
 
       cy.contains('In order to qualify for the lower or zero preferential tariff under the CARIFORUM-UK economic partnership agreement, the product must originate in the UK or one of the partner countries.');
 
       cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
-      
       cy.RoOContent({commCode: '0702000007', country: 'The Bahamas'});
       cy.contains('Non-preferential rules of origin');
     });
@@ -77,10 +78,11 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
       cy.visit('/commodities/0702000007');
       cy.contains('Rules of origin').click();
       // Select USA from All countries list
-      cy.get('input#search_country').click().clear().wait(500)
+      cy.get('input#trading_partner_country').click().clear().wait(500)
           .type('Moldova').wait(500)
           .type('{enter}');
       cy.contains('Preferential rules of origin for trading with Moldova');
+      cy.contains('Rules of origin').click();
       cy.get('img[alt=\'Flag for Moldova\']').should('be.visible');
 
       // TODO: Verify if the section "Proving originating status and claiming preferential treatment" has been rightly removed.
@@ -92,10 +94,11 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
       cy.visit('/commodities/0702000007');
       cy.contains('Rules of origin').click();
       // Select USA from All countries list
-      cy.get('input#search_country').click().clear().wait(500)
+      cy.get('input#trading_partner_country').click().clear().wait(500)
           .type('India').wait(500)
           .type('{enter}');
       cy.contains('Preferential rules of origin for trading with India');
+      cy.contains('Rules of origin').click();
       cy.get('img[alt=\'Flag for India\']').should('be.visible');
 
       cy.contains('In order to qualify for the lower or zero preferential tariff under the Generalised Scheme of Preferences (GSP), the product must originate in one of the partner countries.');

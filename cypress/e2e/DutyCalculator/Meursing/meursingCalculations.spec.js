@@ -23,8 +23,8 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   it('| EA , EAR | 1901100000 - Costa Rica |', function() {
     cy.visit('/xi/commodities/1901100000');
     cy.checkCommPage('1901100000');
-    cy.get('input#search_country').click().clear().wait(500).type('CR');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('CR');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Costa Rica (CR)').click();
     cy.get('a#tab_import').click();
     cy.get('#measure-2772105').contains('7.60 % + EA');
@@ -41,9 +41,10 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   it('| ASDZ , ASDZR | 1806909019 - Iceland |', function() {
     cy.visit('/xi/commodities/1806909019');
     cy.checkCommPage('1806909019');
-    cy.get('input#search_country').click().clear().wait(500).type('(IS)');
-    cy.get('[id=\'search_country__listbox\']')
-        .contains('Iceland (IS)').click();
+    cy.searchForCountry('(IS)');
+    // cy.get('input#trading_partner_country').click().clear().wait(500).type('(IS)');
+    // cy.get('[id=\'trading_partner_country__listbox\']')
+    //     .contains('Iceland (IS)').click();
     cy.get('a#tab_import').click();
     cy.get('#measure-2051553').contains('8.30 % + EA MAX 18.70 % +ADSZ');
     cy.get('#measure-2972478').contains('0.00 % + EAR MAX 18.70 % +ADSZR');
@@ -59,8 +60,8 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   it('| ADFM , ADFMR | 1905320500 - Norway |', function() {
     cy.visit('/xi/commodities/1905320500');
     cy.checkCommPage('1905320500');
-    cy.get('input#search_country').click().clear().wait(500).type('(NO)');
-    cy.get('[id=\'search_country__listbox\']')
+    cy.get('input#trading_partner_country').click().clear().wait(500).type('(NO)');
+    cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Norway (NO)').click();
     cy.get('a#tab_import').click();
     cy.get('#measure-2544964').contains('9.00 % + EA MAX 20.70 % +ADFM');

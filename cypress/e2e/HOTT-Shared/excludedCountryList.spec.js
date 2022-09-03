@@ -8,14 +8,14 @@ describe('| excludedCountryList.spec | Exclude certain countries from the autoco
     it(`${country[k]} - Autocomplete excluded countries list`, function() {
       cy.visit(`${country[k]}/commodities/0702000007#import`);
       for (let i = 0; i < countries.length; i++) {
-        cy.get('input#search_country').clear().wait(500).type(`${countries[i]}`).wait(300);
-        cy.get('[id=\'search_country__listbox\']')
+        cy.get('input#trading_partner_country').clear().wait(500).type(`${countries[i]}`).wait(300);
+        cy.get('[id=\'trading_partner_country__listbox\']')
             .contains('No results found');
       }
       // will fail on XI as data is incorrect
       for (let j = 0; j < xcountries.length; j++) {
-        cy.get('input#search_country').clear().wait(500).type(`${xcountries[j]}`).wait(300);
-        cy.get('[id=\'search_country__listbox\']')
+        cy.get('input#trading_partner_country').clear().wait(500).type(`${xcountries[j]}`).wait(300);
+        cy.get('[id=\'trading_partner_country__listbox\']')
             .contains(`${xcountries[j]}`);
       }
     });

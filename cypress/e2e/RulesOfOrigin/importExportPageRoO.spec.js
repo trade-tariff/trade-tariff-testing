@@ -16,7 +16,7 @@ describe('importExportPageRoO.spec | Rules of Origin Import/Export , Import only
     // back button should take user to commodity page
     cy.get('.govuk-back-link').click();
     cy.contains('Preferential rules of origin for trading with Japan');
-    cy.contains('Work out if your trade fulfils the rules of origin and can therefore be considered originating.');
+    cy.contains('Work out if your goods meet the rules of origin');
   });
   it('UK - Page validations - Vietnam - import/export options - more than one agreement in place', function() {
     cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
