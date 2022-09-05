@@ -176,7 +176,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('.close [href]').click();
     });
   }
-  it.only('UK - 🇧🇾🇷🇺 Belarus/ Russia conditions', function() {
+  it('UK - 🇧🇾🇷🇺 Belarus/ Russia conditions', function() {
     cy.visit('/commodities/0101210000#export');
     // Belarus conditions
     cy.get('#measure-20185288').contains('Conditions').click();
