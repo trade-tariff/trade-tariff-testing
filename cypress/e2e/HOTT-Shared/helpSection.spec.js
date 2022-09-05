@@ -28,12 +28,12 @@ describe('UK 🇬🇧 XI 🇪🇺 | helpSection.spec.js | validate help section 
       cy.contains('Look up commodity codes, import duties, taxes and controls');
     }
   });
-  it('Validate links', function() {
+  it.only('Validate links', function() {
     cy.visit('/help');
     cy.contains('Leave feedback').click();
     cy.get('.govuk-grid-column-two-thirds > p:nth-of-type(1) > a').should('have.attr', 'href', '/feedback');
     // Getting help from HMRC if you need to find a commodity code
-    cy.get('p:nth-of-type(2) > a').should('have.attr', 'href', '/help/help-find-commodity');
+    cy.get('p:nth-of-type(2) > a').should('have.attr', 'href', '/help/help_find_commodity');
     // Goods that cannot be imported in a single consignment
     cy.get('p:nth-of-type(4) > .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/split-consignments-tariff-classification-and-import-procedures');
 
