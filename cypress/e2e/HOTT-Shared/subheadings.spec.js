@@ -2,7 +2,7 @@ describe('| subheadings.spec | validate subheadings on UK and XI services - Fron
   it('UK subheading front end', function() {
     cy.visit('subheadings/2933998000-80');
     cy.contains('Subheading 29339980 - Other ');
-    cy.contains('There are 61 commodities in this category.');
+    cy.contains('There are 64 commodities in this category.');
     cy.contains('Footnotes');
     cy.contains('Chapter notes');
     cy.contains('Subheading notes');
@@ -21,7 +21,7 @@ describe('| subheadings.spec | validate subheadings on UK and XI services - Fron
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(2000);
           // body lengths
-          expect(response.body.included).to.have.length(202);
+          expect(response.body.included).to.have.length(205);
           // validate properties
           expect(response.body.data).to.have.property('id');
           expect(response.body.data).to.have.property('type').equals('subheading');
