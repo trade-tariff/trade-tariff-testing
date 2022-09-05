@@ -140,7 +140,7 @@ describe.skip('test spec - mini tests', {tags: 'miniTestTag'}, function() {
   const service_urls = ['', 'xi'];
   // const service_agreements = ['UK', 'EU'];
   for (const service_url of service_urls) {
-    it.only(`| ${service_url} | Check RoO tab exsits on commodity page + links |`, function() {
+    it(`| ${service_url} | Check RoO tab exsits on commodity page + links |`, function() {
       cy.visit(`${service_url}/commodities/0702000007`);
       cy.contains('Rules of origin').click();
       cy.contains('Preferential rules of origin');

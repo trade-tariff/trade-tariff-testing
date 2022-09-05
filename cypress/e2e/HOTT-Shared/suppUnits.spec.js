@@ -31,7 +31,7 @@ describe('🇬🇧 💡 | suppUnits.spec.js | Supplementary Units on UK and XI s
       cy.get('.govuk-summary-list').contains('Classification');
       cy.contains('Inulin syrup');
       cy.get('.govuk-summary-list').contains('Supplementary unit');
-      cy.get('.govuk-summary-list').contains('No supplementary unit required.');
+      cy.get('.govuk-summary-list').contains('Kilogram (kg/raw sugar)');
       cy.get('.govuk-summary-list').contains('Date of trade');
       cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
       cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');

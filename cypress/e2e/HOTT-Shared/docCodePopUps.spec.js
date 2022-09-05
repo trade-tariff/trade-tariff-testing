@@ -68,7 +68,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     });
     it(`${countries[j]} - Organic control on frog\'s legs`, function() {
       cy.visit(`${countries[j]}/commodities/0208907000`);
-      cy.get('#measure-20183386').contains('Conditions').click();
+      cy.get('#measure-20188551').contains('Conditions').click();
       cy.get('.info-content').contains('Import control of organic products for All countries');
       cy.get('.info-content').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
       cy.get('.info-content').should('not.contain', 'No document provided');
@@ -178,14 +178,13 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
   }
   it('UK - 🇧🇾🇷🇺 Belarus/ Russia conditions', function() {
     cy.visit('/commodities/0101210000#export');
-    // Russia conditions
-    cy.get('#measure-20179932').contains('Conditions').click();
-    cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
-    cy.get('.close [href]').click();
-    cy.wait(200);
     // Belarus conditions
     cy.get('#measure-20185288').contains('Conditions').click();
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP');
+    cy.wait(200);
     cy.get('.close [href]').click();
+    // Russia conditions
+    cy.get('#measure-20179932').contains('Conditions').click();
+    cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
   });
 });
