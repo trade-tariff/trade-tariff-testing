@@ -10,7 +10,7 @@
     "ansi-styles": "^6.1.1",
     "csv-parse": "^5.3.0",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
-    "cypress-tags": "^1.0.0",
+    "cypress-tags": "^1.0.2",
     "glob-parent": "^6.0.2",
     "nanoid": "^4.0.0",
     "postcss": "^8.4.16",
