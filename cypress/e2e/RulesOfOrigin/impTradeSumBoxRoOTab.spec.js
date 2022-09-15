@@ -25,7 +25,7 @@ describe('| impTradeSumBoxRoOTab.spec.spec - Rules of Origin tab - Logic for dut
     cy.contains('Rules of origin').click();
     cy.contains('Preferential rules of origin');
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
-    cy.impDutyBox('Basic third country duty = 1.00 GBP / kg/lactic matter + 23.00 GBP / 100 kg');
+    cy.impDutyBox('Basic third country duty');
     cy.impDutyBox('Preferential quota duty = 0.00 %');
   });
   it(`| UK | No Preference + No Quota |`, function() {
