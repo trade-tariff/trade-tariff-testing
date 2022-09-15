@@ -210,3 +210,6 @@ Cypress.Commands.add('subDivision', (code, subDiv)=>{
   cy.contains(`${subDiv}`).click();
   cy.get('.govuk-button').contains('Continue').click();
 });
+Cypress.Commands.add('impDutyBox', (copy)=>{
+  cy.get('.govuk-list.govuk-list--bullet').contains(`${copy}`);
+});
