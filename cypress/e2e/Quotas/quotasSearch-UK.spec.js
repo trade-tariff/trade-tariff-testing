@@ -151,7 +151,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.get('.govuk-table__row').contains('30 September 2022');
   });
   // https://transformuk.atlassian.net/browse/HOTT-1427
-  it.skip('Quotas Search - Order Number - excluded EU country', function() {
+  it('Quotas Search - Order Number - excluded EU country', function() {
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
     cy.get('input#order_number')
@@ -169,6 +169,6 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.get('.js-quota-country-picker').click();
     cy.get('input#geographical_area_id').type('Italy');
     cy.get('form#new_search > input[name=\'new_search\']').click();
-    cy.contains('There are no matching results');
+    cy.contains('Quota search results');
   });
 });
