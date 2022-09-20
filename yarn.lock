@@ -2438,10 +2438,21 @@ cypress-utils@^2.3.0:
     lodash "^4.17.15"
     yargs "^15.3.1"
 
+<<<<<<< Updated upstream
 cypress@10.8.0:
   version "10.8.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-10.8.0.tgz#12a681f2642b6f13d636bab65d5b71abdb1497a5"
   integrity sha512-QVse0dnLm018hgti2enKMVZR9qbIO488YGX06nH5j3Dg1isL38DwrBtyrax02CANU6y8F4EJUuyW6HJKw1jsFA==
+=======
+<<<<<<< Updated upstream
+cypress@10.7.0:
+=======
+cypress@^10.7.0:
+>>>>>>> Stashed changes
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-10.7.0.tgz#2d37f8b9751c6de33ee48639cb7e67a2ce593231"
+  integrity sha512-gTFvjrUoBnqPPOu9Vl5SBHuFlzx/Wxg/ZXIz2H4lzoOLFelKeF7mbwYUOzgzgF0oieU2WhJAestQdkgwJMMTvQ==
+>>>>>>> Stashed changes
   dependencies:
     "@cypress/request" "^2.88.10"
     "@cypress/xvfb" "^1.2.4"

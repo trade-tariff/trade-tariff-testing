@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |', {tags: ['config', 'xbrowser-tag']}, function() {
+describe('🇬🇧 💡 | countrySelection-UK | Country Selection |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('UK Country Selection - imports ', function() {
     cy.visit('/commodities/0208909800#import');
     //  XI
@@ -68,7 +68,7 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection - hjid tests |
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Germany');
 
     // reset to all countries
-    cy.get('a[role=\'button\'] > .long-text').click();
+    cy.get('.reset-country-picker').click();
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');
   });
   it('UK Country selection page - No country selected ', function() {
