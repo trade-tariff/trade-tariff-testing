@@ -248,7 +248,11 @@ Cypress.Commands.add('commodityGuidance', ()=>{
   cy.get('.info-inner').contains('document status codes: ');
   cy.get('.info-inner').contains(' status codes');
 });
-
+// Validate API Document page
+Cypress.Commands.add('apiDocPage', ()=>{
+  cy.visit('https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api');
+  cy.get('#gov-uk-trade-tariff-api').contains('GOV.UK Trade Tariff API');
+});
 Cypress.Commands.add('quotaSearch', (options)=>{
   cy.visit('/quota_search');
   cy.contains('Search for quotas');
