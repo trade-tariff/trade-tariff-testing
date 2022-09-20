@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // 1932 , 1974 Import Control Section for prohibhited commodities
 describe('impControlsSection.spec ', function() {
-  it('Conditionally prohibhited - additional code', function() {
+  it('Conditionally prohibited - additional code', function() {
     cy.visit('/commodities/8708923500');
     // no country selected
     cy.contains('To check how to import commodity 8708923500, select the country from which you are importing.');
