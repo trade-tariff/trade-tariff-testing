@@ -1,7 +1,8 @@
-describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |', {tags: ['config', 'xbrowser-tag']}, function() {
+/* eslint-disable camelcase */
+describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('XI Country Selection -import ', function() {
     cy.visit('/xi/commodities/0208909800#import');
-    // XI 
+    // XI
     cy.get('input#trading_partner_country').click().clear().wait(500).type('(XI)').wait(500);
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
@@ -62,15 +63,15 @@ describe('🇪🇺 💡 |countrySelection-XI | Country Selection - hjid tests |'
     cy.title().should('eq', 'Northern Ireland Online Tariff - Set country filter - GOV.UK');
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
-    
+
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     // Typing the country code
     cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
     cy.countryPickerpage({value: '(DE)'});
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Germany');
-    
+
     // reset to all countries
-    cy.get('a[role=\'button\'] > .long-text').click();
+    cy.get('.reset-country-picker').click();
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');
   });
   it('XI Country selection page - No country selected ', function() {
