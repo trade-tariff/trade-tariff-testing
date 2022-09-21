@@ -16,10 +16,8 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    
     cy.contains('22 December 2022');
     cy.url().should('include', 'day=22&month=12&year=2022');
-
 
     // select import tab
     cy.get('a#tab_import').click();
@@ -31,14 +29,14 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         .type('{enter}');
     // verify if the date is persisted
     cy.get('a#tab_import').click();
-    cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
+    // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.url().should('include', 'day=22&month=12&year=2022');
 
     // Change to different date in past and validate date is persisted
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 1, month: 1, year: 2022});
-    
+
     cy.contains('1 January 2022');
     cy.url().should('include', 'day=1&month=1&year=2022');
 
@@ -53,7 +51,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         .type('{enter}');
     cy.get('a#tab_import').click();
     // verify if the date is persisted
-    cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
+    // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.contains('1 January 2022');
     cy.url().should('include', 'day=1&month=1&year=2022');
 
@@ -73,7 +71,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 22, month: 12, year: 2022});
-    
+
     cy.contains('22 December 2022');
     cy.url().should('include', 'day=22&month=12&year=2022');
 
@@ -90,7 +88,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     // select Change Date and change months and years
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 1, month: 1, year: 2022});
-    
+
     cy.contains('1 January 2022');
     cy.url().should('include', 'day=1&month=1&year=2022');
 
@@ -131,7 +129,7 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
         // select Change Date and change months and years
         cy.get('.govuk-summary-list__actions').contains('Change').click();
         cy.datePickerPage({day: 22, month: 12, year: 2022});
-        
+
         cy.contains('22 December 2022');
         cy.url().should('include', 'day=22&month=12&year=2022');
       }
