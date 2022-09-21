@@ -230,8 +230,9 @@ Cypress.Commands.add('certificateSearch', ()=>{
 });
 
 Cypress.Commands.add('code999L', ()=>{
-  cy.get('.info-content').contains('Customs Declaration Service (CDS) universal waiver');
-  cy.get('.info-content').contains('Requirement for a licence is waived by entering the 999L document code and the document identifier CDS WAIVER in the additional documentation field for this commodity item. 999L can be used for CDS in a similar way to LIC99 on the CHIEF system, when a waiver may be applied.');
+  cy.get('.info-content').contains('Customs Declaration Service (CDS) Licence Waiver');
+  cy.get('.info-content').contains('The use of 999L allows a CDS waiver code to be declared for prohibited and restricted goods, allowing declarants to confirm that the goods are not subject to specific licencing measures. You must enter ‘CDS Waiver’ in the additional documentation field for this commodity item.');
+  cy.get('.info-content').contains('This waiver cannot be used for goods that are imported/exported or moved to/from Northern Ireland.');
 });
 
 Cypress.Commands.add('certificateGuidance', ()=>{
