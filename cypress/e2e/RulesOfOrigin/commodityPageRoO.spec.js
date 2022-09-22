@@ -84,6 +84,22 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
 
     // TODO: Verify if the section "Proving originating status and claiming preferential treatment" has been rightly removed.
     // cy.contains('Proving originating status and claiming preferential treatment');
+    // TODO: Verify if the section "Proving originating status and claiming preferential treatment" has been rightly removed.
+    // cy.contains('Proving originating status and claiming preferential treatment');
+    cy.roOTab();
+    cy.contains('Non-preferential rules of origin');
+  });
+  it(`| ${service_agreements[i]} | India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |`, function() {
+    cy.visit('/commodities/0702000007');
+    cy.contains('Rules of origin').click();
+    // Select USA from All countries list
+    cy.get('input#trading_partner_country').click().clear().wait(500)
+        .type('India').wait(500)
+        .type('{enter}');
+    cy.contains('Preferential rules of origin for trading with India');
+    cy.contains('Rules of origin').click();
+    cy.get('img[alt=\'Flag for India\']').should('be.visible');
+    cy.roOTab();
 
     cy.contains('Non-preferential rules of origin');
   });
