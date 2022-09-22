@@ -120,7 +120,7 @@ Cypress.Commands.add('cumulation', (country, scheme)=>{
   cy.contains('Are your goods originating?');
   cy.contains('Including parts or components from other countries');
   cy.contains('In order to qualify for preferential treatment, you may be able to include parts that come from other countries. This depends on the cumulation rules of the trade agreement, which are described below.');
-  cy.contains(`Cumulation in the ${scheme}`);
+  cy.contains(`Methods of cumulation in the ${scheme}`);
   cy.contains(`Map showing countries where cumulation may apply to the ${scheme}`);
   cy.get('form#edit_rules_of_origin_steps_cumulation_cumulation  a[target=\'_blank\']').should('have.attr', 'href', `/cumulation_maps/${country}.png`);
   cy.get('.govuk-button').contains('Continue').click();
@@ -136,15 +136,21 @@ Cypress.Commands.add('minimalOps', (scheme, selection)=>{
   cy.get('.govuk-button').contains('Continue').click();
 });
 
-// Origin requirement not met
-Cypress.Commands.add('rooReqMet', (country, code, scheme)=>{
-  cy.contains(`Importing commodity ${code} from ${country}`);
+// Origin requirement not met - Import
+Cypress.Commands.add('rooReqMet', (tradetype, country, code, scheme)=>{
+  cy.contains(`${tradetype} commodity ${code} from ${country} to the UK`);
   cy.contains('Origin requirements met');
   cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${scheme}.`);
 });
-// Origin not met
-Cypress.Commands.add('rooNotMet', (country, code, scheme)=>{
-  cy.contains(`Importing commodity ${code} from ${country}`);
+// Origin requirement not met - Export
+Cypress.Commands.add('rooReqMetEx', (tradetype, country, code, scheme)=>{
+  cy.contains(`${tradetype} commodity ${code} from ${country}`);
+  cy.contains('Origin requirements met');
+  cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${scheme}.`);
+});
+// Origin not met - Import
+Cypress.Commands.add('rooNotMet', (tradetype, country, code, scheme)=>{
+  cy.contains(`${tradetype} commodity ${code} from ${country}`);
   cy.contains('Rules of Origin not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
@@ -160,6 +166,26 @@ Cypress.Commands.add('rooNotMet', (country, code, scheme)=>{
   cy.get('.govuk-warning-text__text').contains('start again').click();
   cy.contains(`Are you importing goods into the UK or into ${country}?`);
 });
+// Origin not met - Export
+Cypress.Commands.add('rooNotMetEx', (tradetype, country1, code, scheme, country2)=>{
+  cy.contains(`${tradetype} commodity ${code} from ${country1}`);
+  cy.contains('Rules of Origin not met');
+  cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
+  cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
+  // tolerance link
+
+  // cumulation link
+  cy.contains('What\'s next');
+  cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
+  cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
+  cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
+  cy.contains('Valid proofs of origin');
+  cy.go(-1);
+  cy.get('.govuk-warning-text__text').contains('start again').click();
+  // cy.contains(`Are you importing goods into the UK or into ${country}?`);
+  cy.contains(`Are you importing goods into the UK or into ${country2}?`);
+});
+
 
 // Origin not met GSP
 Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
