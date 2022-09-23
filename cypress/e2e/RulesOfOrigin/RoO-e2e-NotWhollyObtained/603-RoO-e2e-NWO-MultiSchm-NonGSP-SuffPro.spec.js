@@ -21,7 +21,7 @@ describe('| RoO-e2e-NWO-MultiSchm-NonGSP-SuffPro.spec | NWO + Multi-NonGSP + Suf
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Vietnam');
     // cumulation
-    cy.cumulation('Vietnam','UK-Vietnam Free Trade Agreement');
+    cy.cumulation('vietnam', 'UK-Vietnam Free Trade Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Vietnam Free Trade Agreement', 'yes');
     // sub Division

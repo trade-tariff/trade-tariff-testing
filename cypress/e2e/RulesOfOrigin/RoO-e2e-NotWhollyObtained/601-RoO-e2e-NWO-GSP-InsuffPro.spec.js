@@ -1,5 +1,6 @@
 // NWO- GSP Scheme_Insufficient processing
-describe('| RoO-e2e-NWO-GSP-InsuffProcess.spec | NWO + GSP Scheme + insufficient processing |', function() {
+// ONLY IMPORT JOURNEY
+describe('| 601-RoO-e2e-NWO-GSP-InsuffProcess.spec | NWO + GSP Scheme + insufficient processing |', function() {
   it('Importing - NWO + GSP Scheme + insufficient processing - Bangladesh + PSR', function() {
     cy.visit('/commodities/5808100000?country=BD#rules-of-origin');
     cy.checkRoO();
@@ -16,7 +17,7 @@ describe('| RoO-e2e-NWO-GSP-InsuffProcess.spec | NWO + GSP Scheme + insufficient
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Bangladesh');
     // cumulation
-    cy.cumulation('Bangladesh', 'Generalised Scheme of Preferences (GSP)');
+    cy.cumulation('gsp', 'Generalised Scheme of Preferences (GSP)');
     // Min Processing NO
     cy.minimalOps('Generalised Scheme of Preferences (GSP)', 'no');
     // Origin requirements met
