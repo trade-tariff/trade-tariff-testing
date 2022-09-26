@@ -26,7 +26,7 @@
     "cypress-fill-command": "^1.0.1",
     "cypress-grep": "^3.0.3",
     "cypress-mochawesome-reporter": "^3.2.2",
-    "cypress-utils": "^2.3.0",
+    "cypress-utils": "^3.0.0",
     "dotenv": "^16.0.2",
     "eslint": "^8.23.1",
     "eslint-config-google": "^0.14.0",
