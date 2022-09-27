@@ -70,7 +70,7 @@ describe(' 🇬🇧 💡 🔍  | searchTariff-UKXI | Search the Tariff - UK and 
         cy.contains(/Commodity .*3808941000/i);
       }
     });
-    it(`${countries[j]} - Search using subheadings (6 digits) or CN code (8 digits) - intermediary page`, function() {
+    it.skip(`${countries[j]} - Search using subheadings (6 digits) or CN code (8 digits) - intermediary page`, function() {
       const searchSynonyms = ['face masks', 'leg of lamb', 'jute bags', 'curry leaves', 'dried red chillies', 'chilli pepper'];
       const searchResults = ['Subheading 63079093 - Protective face masks', 'Subheading 02042250 - Legs', 'Subheading 531010 - Unbleached', 'Subheading 09109991 - Other', 'Subheading 090421 - Dried, neither crushed nor ground', 'Subheading 090411 - Pepper'];
       cy.visit(`${countries[j]}/browse`);

@@ -3,7 +3,7 @@
 // check file has been downloaded with correct name i.e., date etc
 // validate file size
 // parse csv to array and validate content of the file?
-describe('| csvExports.spec.js | UK XI services download CSV files', () => {
+describe.skip('| csvExports.spec.js | UK XI services download CSV files', () => {
   const countries = ['', 'xi'];
   for (let j=0; j<countries.length; j++) {
     it(`${countries[j]} - sections.csv + as_of`, function() {
