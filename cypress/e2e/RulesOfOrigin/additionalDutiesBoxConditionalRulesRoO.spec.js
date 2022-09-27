@@ -14,7 +14,7 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
     cy.get('.tariff-breadcrumbs').contains('If you would still like to continue, click the \'Check rules of origin\' button.');
     cy.get('form > .govuk-button').should('be.visible').should('contain.text', 'Check rules of origin');
   });
-  it.only(`| UK | There is neither a preference nor a quota |`, function() {
+  it(`| UK | There is neither a preference nor a quota |`, function() {
     cy.visit(`/commodities/0201100029?country=ZA#rules_of_origin`);
     cy.contains('Rules of origin').click();
     cy.contains('Preferential rules of origin');

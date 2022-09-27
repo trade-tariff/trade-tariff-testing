@@ -44,7 +44,6 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
 
     it(`${countries[j]} Certificate Search : C - Other certificates`, function() {
       cy.visit(`${countries[j]}/certificate_search`);
-      // const ccerts_ids = ['C014', 'C015', 'C017', 'C018', 'C052', 'C084', 'C644', 'C652'];
       const ccerts_ids = ['C014', 'C015', 'C017', 'C018', 'C052', 'C084', 'C644', 'C652'];
       for (let i = 0; i < ccerts_ids.length; i++) {
       // select type of certificate from drop down menu
@@ -80,7 +79,6 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
             .type(`${dcerts_ids[i]}`);
 
         cy.get('form#new_search > input[name=\'new_search\']').click();
-        cy.wait(500);
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
@@ -146,10 +144,9 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
       } else {
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
-        const kcerts_ids = ['K020', 'K021', 'K022', 'K023'];
-        for (let i = 0; i < kcerts_ids.length; i++) {
+        ['K020', 'K021', 'K022', 'K023'].forEach(function(kcerts_ids) {
           cy.contains(`${kcerts_ids[i]}`);
-        }
+        });
       }
     });
 
