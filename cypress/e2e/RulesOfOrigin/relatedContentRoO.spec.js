@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // HOTT- 954 ,
 describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']}, function() {
-  it('| UK Service - UK Trading relations with Chile - Related Content |', function() {
+  it.skip('| UK Service - UK Trading relations with Chile - Related Content |', function() {
     cy.visit('/commodities/0702000007');
     cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
