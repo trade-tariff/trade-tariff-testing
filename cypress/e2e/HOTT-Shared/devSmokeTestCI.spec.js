@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable max-len */
 describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI | Smoke tests for dev |', function() {
   // Main Page
@@ -159,5 +160,31 @@ describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | devSmokeTestCI- UK,XI | Smoke tes
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
     cy.contains(/Commodity .*3808941000/i);
+  });
+
+  // Search strategic - implement guides on the UI - HOTT-2002
+  ['uk', 'xi'].forEach(function(country) {
+    const search_items = ['potatoes (fresh)', 'computers'];
+    for (let j=0; j < search_items.length; j++) {
+      it(`${country} - Beta Search - Search using name of the goods - ${search_items[j]} - implement guides on the UI`, function() {
+        cy.visit(`${country}/find_commodity`);
+        cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
+        cy.contains('Search for a commodity');
+        cy.searchForCommodity(`${search_items[j]}`);
+        cy.get('.image-guide').should('exist');
+        cy.get('#search-filter-navigation').contains('Classification guide');
+        if (`${search_items[j]}` === 'potatoes (fresh)') {
+          cy.get('#search-filter-navigation').contains('Edible fruits, nuts and peel');
+          cy.get('#search-filter-navigation').contains('Get help to classify edible vegetables, roots, tubers, herbs, spices, fruit, nuts and peel for import and export.');
+          cy.get('#search-filter-navigation').contains('View classification guide for Edible fruits, nuts and peel (opens in new tab)');
+          cy.get('#search-filter-navigation div div p a').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-edible-fruits-nuts-and-peel');
+        } else {
+          cy.get('#search-filter-navigation').contains('Computers and software');
+          cy.get('#search-filter-navigation').contains('Get help classifying computers, inkjet and toner cartridges and their components.');
+          cy.get('#search-filter-navigation').contains('View classification guide for Computers and software (opens in new tab)');
+          cy.get('#search-filter-navigation div div p a').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-computers-and-software');
+        }
+      });
+    }
   });
 });
