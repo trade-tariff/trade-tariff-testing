@@ -10,13 +10,13 @@ module.exports = defineConfig({
   e2e: {
     'baseUrl': 'https://staging.trade-tariff.service.gov.uk',
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on)
+      require('cypress-mochawesome-reporter/plugin')(on);
 
       on('file:preprocessor', cucumber());
       on('task', JsonSchemaValidation(config));
       on('task', SwaggerValidation(config));
-      config = cypressGrep(config);
       config = dotenvPlugin(config, {}, true);
+      config = cypressGrep(config);
 
       return config;
     },
