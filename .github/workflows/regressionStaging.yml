@@ -14,7 +14,8 @@ jobs:
       CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
       CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
       CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
-    name: " 🛎️ Regression Tests - UK and XI - Staging "
+      CYPRESS_grepTags: "-devOnly" # Skips devOnly tagged cy tests
+    name: " 🛎️ RegressionTests - UK and XI - Staging "
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -29,7 +30,6 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "cypress/e2e/**/*.spec.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report
