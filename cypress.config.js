@@ -61,5 +61,8 @@ module.exports = defineConfig({
       'charts': true,
       'quiet': true,
     },
+    'env': {
+      'grepFilterSpecs': true,
+    },
   },
 });
