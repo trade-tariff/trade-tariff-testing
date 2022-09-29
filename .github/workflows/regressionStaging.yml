@@ -30,7 +30,6 @@ jobs:
           browser: chrome
           headless: true
           spec: "cypress/e2e/**/*.spec.js"
-          env: "fgrepTags=devOnly,grepFilterSpecs=true"
       - uses: actions/upload-artifact@v2
         with:
           name: report
