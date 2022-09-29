@@ -60,6 +60,7 @@
     "test:allure": "npm run dctests && npm run report:allure",
     "open:localhost": "CYPRESS_BASE_URL=http://localhost:3001 npx cypress open",
     "tags:devOnly": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=devOnly,grepFilterSpecs=true",
+    "tags:NOTdevOnly": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --env=fgrepTags=devOnly,grepFilterSpecs=true",
     "tags:roo": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=roo-tag,grepFilterSpecs=true",
     "tags:unreleased": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=unreleased-tag,grepFilterSpecs=true",
     "tags:xbrowser": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=xbrowser-tag,grepFilterSpecs=true",
