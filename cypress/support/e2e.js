@@ -19,18 +19,11 @@ import './dutyCommands'
 import './apiCommands'
 import './csvCommands'
 import './rooCommands'
-//import 'cypress-axe'
 import 'cypress-fill-command'
-//require('@shelex/cypress-allure-plugin');
-//import ‘cypress-audit/commands’
+require('cypress-grep')()
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test
   return false
 })
-const Helpers = {
-  sayHello: (name)=> { console.log('hello ' + name) }
-}
 
 require('cypress-grep')();
