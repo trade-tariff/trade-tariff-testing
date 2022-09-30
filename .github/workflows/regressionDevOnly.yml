@@ -45,7 +45,7 @@ jobs:
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          cp -a ../cypress/reports/mochawesome  docs/devonly/$DATE
+          cp -a ../cypress/reports/mochawesome  docs/development/$DATE
           git add docs .
       - name: Commit todays report to reports branch
         run: |
