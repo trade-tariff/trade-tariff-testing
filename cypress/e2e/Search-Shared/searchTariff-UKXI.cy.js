@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 describe(' 🇬🇧 💡 🔍  | searchTariff-UKXI | Search the Tariff - UK and XI |', {tags: ['config', 'xbrowser-tag']}, function() {

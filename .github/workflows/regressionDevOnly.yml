@@ -1,4 +1,4 @@
-name: "| Staging | Regression Pack |"
+name: "| Dev Only | Regression Pack |"
 
 on:
   schedule:
@@ -9,13 +9,13 @@ jobs:
   cypress-run:
     environment: trade-tariff
     env:
-      CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
-      CYPRESS_SPACE: "STAGING"
-      CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
-      CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
-      CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
-      CYPRESS_grepTags: "-devOnly" # Skips devOnly tagged cy tests
-    name: " 🛎️ RegressionTests - UK and XI - Staging "
+      CYPRESS_BASE_URL: "https://dev.trade-tariff.service.gov.uk"
+      CYPRESS_SPACE: "DEVELOPMENT"
+      CYPRESS_DEVELOPMENT_BASIC_AUTH: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_AUTH }}
+      CYPRESS_DEVELOPMENT_BASIC_PASSWORD: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_PASSWORD }}
+      CYPRESS_DEVELOPMENT_BASIC_USERNAME: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_USERNAME }}
+      CYPRESS_grepTags: "devOnly" # runs devOnly tagged cy tests
+    name: " 🛎️ RegressionTests - UK and XI - Dev Only Features"
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -45,14 +45,14 @@ jobs:
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          cp -a ../cypress/reports/mochawesome  docs/staging/$DATE
+          cp -a ../cypress/reports/mochawesome  docs/development/$DATE
           git add docs .
       - name: Commit todays report to reports branch
         run: |
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "Staging report for $(date +%d-%m-%Y)" -a
+          git commit -m "Development report for $(date +%d-%m-%Y)" -a
 
       - name: Get current date
         id: date
@@ -61,12 +61,12 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: "tariffs-regression"
-          SLACK_USERNAME: "Staging Regression"
+          SLACK_USERNAME: "Development Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}/
 
       - name: Push changes
         uses: ad-m/github-push-action@master
