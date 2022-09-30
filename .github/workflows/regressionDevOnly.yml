@@ -1,4 +1,4 @@
-name: "| Development | Regression Pack |"
+name: "| Dev Only | Regression Pack |"
 
 on:
   schedule:
