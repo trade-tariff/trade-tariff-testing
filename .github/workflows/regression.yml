@@ -25,7 +25,7 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
-          spec: "cypress/e2e/**/*.spec.js"
+          spec: "cypress/e2e/**/*.cy.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report
@@ -71,6 +71,6 @@ jobs:
         continue-on-error: true
         with:
           record: true
-          spec: "*/*/*/cypressDashTest.spec.js"
+          spec: "*/*/*/cypressDashTest.cy.js"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}

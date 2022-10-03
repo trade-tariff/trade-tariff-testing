@@ -44,7 +44,7 @@ workflows:
           name: "🚀 UK XI & DC Smoke tests"
           browser: chrome
           store_artifacts: true
-          spec: "*/**/smokeTestCI.spec.js"
+          spec: "*/**/smokeTestCI.cy.js"
           yarn: true
           config: 'defaultCommandTimeout=25000'
           post-steps:
@@ -94,7 +94,7 @@ workflows:
           name: "🚀 Tariff & DC Smoke tests scheduled - Staging"
           browser: chrome
           store_artifacts: true
-          spec: "*/**/smokeTestCI.spec.js"
+          spec: "*/**/smokeTestCI.cy.js"
           yarn: true
           post-steps:
             - store_test_results:

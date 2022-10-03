@@ -1,4 +1,4 @@
-name: "| DevOnly | Regression Pack |"
+name: "| Development | Regression Pack |"
 
 on:
   schedule:
@@ -15,7 +15,7 @@ jobs:
       CYPRESS_DEVELOPMENT_BASIC_PASSWORD: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_PASSWORD }}
       CYPRESS_DEVELOPMENT_BASIC_USERNAME: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_USERNAME }}
       CYPRESS_grepTags: "devOnly" # runs devOnly tagged cy tests
-    name: " 🛎️ RegressionTests - UK and XI - DevOnly Features"
+    name: "RegressionTests - Development - Features"
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -80,6 +80,6 @@ jobs:
         continue-on-error: true
         with:
           record: true
-          spec: "*/*/*/cypressDashTest.spec.js"
+          spec: "*/*/*/cypressDashTest.cy.js"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}

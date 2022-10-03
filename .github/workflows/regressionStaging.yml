@@ -80,6 +80,6 @@ jobs:
         continue-on-error: true
         with:
           record: true
-          spec: "*/*/*/cypressDashTest.spec.js"
+          spec: "*/*/*/cypressDashTest.cy.js"
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
