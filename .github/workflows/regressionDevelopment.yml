@@ -61,12 +61,12 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: "tariffs-regression"
-          SLACK_USERNAME: "DevOnly Regression"
+          SLACK_USERNAME: "Development Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/devonly/${{ steps.date.outputs.date }}/
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}/
 
       - name: Push changes
         uses: ad-m/github-push-action@master
