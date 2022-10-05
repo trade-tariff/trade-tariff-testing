@@ -1,31 +1,71 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
-describe(' 🇬🇧 💡 🔍  | searchTariff-UKXI | Search the Tariff - UK and XI |', {tags: ['devOnly']}, function() {
-  // Search strategic - implement guides on the UI - HOTT-2002
-  const countries = ['', 'xi'];
-  for (let j=0; j<countries.length; j++) {
-    const search_items = ['potatoes (fresh)', 'abs'];
-    for (let j=0; j < search_items.length; j++) {
-      it(`${countries[j]} - Beta Search - Search using name of the goods - ${search_items[j]} - implement guides on the UI`, function() {
-        cy.visit(`${countries[j]}/find_commodity`);
-        cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
-        cy.contains('Search for a commodity');
-        cy.searchForCommodity(`${search_items[j]}`);
-        cy.get('.image-guide').should('exist');
-        cy.get('#search-filter-navigation').contains('Classification guide');
-        if (`${search_items[j]}` === 'potatoes (fresh)') {
-          cy.get('#search-filter-navigation').contains('Edible fruits, nuts and peel');
-          cy.get('#search-filter-navigation').contains('Get help to classify edible vegetables, roots, tubers, herbs, spices, fruit, nuts and peel for import and export.');
-          cy.get('#search-filter-navigation').contains('View classification guide for Edible fruits, nuts and peel (opens in new tab)');
-          cy.get('#search-filter-navigation div div p a').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-edible-fruits-nuts-and-peel');
-        } else {
-          cy.get('#search-filter-navigation').contains('Vehicles, parts and accessories');
-          cy.get('#search-filter-navigation').contains('Get help to classify various types of vehicles such as mobility scooters, dumpers and utility vehicles, all-terrain vehicles and E-Bikes for import and export.');
-          cy.get('#search-filter-navigation').contains('View classification guide for Vehicles, parts and accessories (opens in new tab)');
-          cy.get('#search-filter-navigation div div p a').should('have.attr', 'href', 'https://www.gov.uk/guidance/classifying-vehicles');
-        }
-      });
-    }
-  }
+describe('Using beta search', {tags: ['devOnly']}, function() {
+  it('Search result returns guides for `abs`', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('abs');
+
+    cy.get('.image-guide').should('exist');
+
+    cy.get('#search-filter-navigation div div p a').should(
+        'have.attr',
+        'href',
+        'https://www.gov.uk/guidance/classifying-vehicles',
+    );
+  });
+
+  it('Search result returns no guides for `clothing sets`', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('clothing sets');
+
+    cy.get('.image-guide').should('not.exist');
+  });
+
+  it('Search result corrects spelling for `halbiut`', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('halbiut');
+
+    cy.get('h1').contains('Search results for \'halibut\'');
+  });
+
+  it('Search result returns results for synonyms', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('tripe');
+    cy.get('table').find('tr').find('td').contains('MEAT AND EDIBLE MEAT OFFAL');
+  });
+
+  it('Search redirects for expired goods nomenclature', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('0503');
+    cy.url().should('include', '/headings/0503');
+  });
+
+  // TODO: This needs to return results
+  it('Search does not redirect for existing goods nomenclature', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('0101');
+    cy.url().should('include', '/search?q=0101');
+  });
+
+  it('Search filters results with facet clothing_gender', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('clothing sets');
+    cy.get('.govuk-accordion__section').eq(0).click();
+    cy.get('a').contains('Women\'s and girls\'').click();
+    cy.url().should('include', 'clothing_gender');
+    cy.get('a').contains('Women\'s or girls\' blouses, shirts and shirt-blouses');
+    cy.get('#search-filter-navigation').contains('Results are filtered by:');
+    cy.get('.facet-classifications-tag').contains('[x] Women\'s and girls').click();
+    cy.get('.facet-classifications-tag').should('not.exist');
+    cy.url().should('not.include', 'clothing_gender');
+  });
+
+  it('Search filters results with heading 6211', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('clothing sets');
+    cy.get('a').contains('Tracksuits, ski suits and swimwear; other garments').click();
+    cy.url().should('include', '6211');
+    cy.get('#search-filter-navigation').contains('Results are filtered by:');
+    cy.get('.facet-classifications-tag').contains('[x] Heading 6211').click();
+    cy.get('.facet-classifications-tag').should('not.exist');
+    cy.url().should('not.include', '6211');
+  });
 });
