@@ -45,7 +45,13 @@ jobs:
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
+          [ -e docs/staging/$DATE ] && rm -rf docs/staging/$DATE
           cp -a ../cypress/reports/mochawesome  docs/staging/$DATE
+          pushd docs/staging/$DATE
+          rm -rf assets
+          rm -rf screenshots
+          ln -s ../../assets/
+          popd
           git add docs .
       - name: Commit todays report to reports branch
         run: |
