@@ -45,8 +45,9 @@ jobs:
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          cp -a ../cypress/reports/mochawesome  docs/production/$DATE
-          pushd docs/production/$DATE
+          [ -e docs/staging/$DATE ] && rm -rf docs/staging/$DATE
+          cp -a ../cypress/reports/mochawesome  docs/staging/$DATE
+          pushd docs/staging/$DATE
           rm -rf assets
           rm -rf screenshots
           ln -s ../../assets/
