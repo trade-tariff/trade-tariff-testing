@@ -98,6 +98,19 @@ Cypress.Commands.add('originMet', (country, code, agreement)=>{
   cy.get('.govuk-back-link').click();
 });
 
+// Duty drawback stage into the RoO journey
+Cypress.Commands.add('dutyDrawback', (country, agreement)=>{
+  cy.get('.govuk-list').contains('Find out about duty drawback').click();
+  cy.contains('Obtaining and verifying proofs of origin');
+  cy.contains(`Duty drawback for trade with ${country}`);
+  cy.contains('Some trade agreements allow a duty drawback.');
+  cy.contains('This means that, if you pay duties on non-originating materials that you use to make a product which you then export under a preferential tariff, you can apply for a refund of those duties.');
+  cy.contains('Duty drawback - an example');
+  cy.contains('The provision of duty drawback depends on the specifics of the trade agreement.');
+  cy.contains(`Prohibition of drawback of, or exemption from, customs duties according to the ${agreement}`);
+  cy.get('.govuk-back-link').click();
+});
+
 // Importing page - GSP
 Cypress.Commands.add('importGSP', (code, country)=>{
   cy.contains(`Trading commodity ${code} with ${country}`);
@@ -160,12 +173,35 @@ Cypress.Commands.add('rooNotMet', (tradetype, country, code, scheme)=>{
   cy.contains('What\'s next');
   cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
   cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
+
+  // No duty drawback link
+  cy.should('not.have.text', 'Find out about duty drawback');
+
   cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
   cy.contains('Valid proofs of origin');
   cy.go(-1);
   cy.get('.govuk-warning-text__text').contains('start again').click();
   cy.contains(`Are you importing goods into the UK or into ${country}?`);
 });
+
+// Origin not met - Import
+Cypress.Commands.add('rooNotMetImp', (tradetype, country, code, scheme)=>{
+  cy.contains(`${tradetype} commodity ${code} from ${country}`);
+  cy.contains('Rules of Origin not met');
+  cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
+  cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
+  // tolerance link
+
+  // cumulation link
+  cy.contains('What\'s next');
+  cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
+  cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
+  // No duty drawback link
+  cy.should('not.have.text', 'Find out about duty drawback');
+  cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
+  cy.contains('Valid proofs of origin').click();
+});
+
 // Origin not met - Export
 Cypress.Commands.add('rooNotMetEx', (tradetype, country1, code, scheme, country2)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country1}`);
@@ -178,6 +214,10 @@ Cypress.Commands.add('rooNotMetEx', (tradetype, country1, code, scheme, country2
   cy.contains('What\'s next');
   cy.contains('If you have read the flexibilities above and you now consider your goods to be originating in the United Kingdom, read more about obtaining and verifying proofs of origin.');
   cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
+
+  // No duty drawback link
+  cy.should('not.have.text', 'Find out about duty drawback');
+
   cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
   cy.contains('Valid proofs of origin');
   cy.go(-1);
