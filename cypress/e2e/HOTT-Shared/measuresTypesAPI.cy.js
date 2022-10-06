@@ -99,7 +99,7 @@ describe('measuresTypesAPI.spec.js for both UK and XI  |', function() {
   });
 
   // xi measures
-  it('XI measures API - type ,length , properties ', function() {
+  it.only('XI measures API - type ,length , properties ', function() {
   //  cy.request('/api/v2/measure-types.json').as('comments');
     cy.request('/xi/api/v2/measure_types').as('comments');
     cy.get('@comments')
@@ -113,7 +113,7 @@ describe('measuresTypesAPI.spec.js for both UK and XI  |', function() {
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(4000);
           // body length
-          expect(response.body.data).to.have.length(250);
+          expect(response.body.data).to.have.length(251);
           // validate properties
           expect(response.body.data[0]).to.have.property('id');
           expect(response.body.data[0]).to.have.property('type');
@@ -161,14 +161,14 @@ describe('measuresTypesAPI.spec.js for both UK and XI  |', function() {
         });
   });
 
-  it('XI measures API - as of validate data | as_of takes current date ', function() {
+  it.only('XI measures API - as of validate data | as_of takes current date ', function() {
     cy.request('xi/api/v2/measure_types?as_of=').as('comments');
     cy.get('@comments')
         .then((response) => {
           // status code
           expect(response.status).to.eq(200);
           // body length
-          expect(response.body.data).to.have.length(250);
+          expect(response.body.data).to.have.length(251);
           // response duration less than 2000
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(4000);
