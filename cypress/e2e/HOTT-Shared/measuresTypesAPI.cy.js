@@ -99,7 +99,7 @@ describe('measuresTypesAPI.spec.js for both UK and XI  |', function() {
   });
 
   // xi measures
-  it.only('XI measures API - type ,length , properties ', function() {
+  it('XI measures API - type ,length , properties ', function() {
   //  cy.request('/api/v2/measure-types.json').as('comments');
     cy.request('/xi/api/v2/measure_types').as('comments');
     cy.get('@comments')
@@ -161,7 +161,7 @@ describe('measuresTypesAPI.spec.js for both UK and XI  |', function() {
         });
   });
 
-  it.only('XI measures API - as of validate data | as_of takes current date ', function() {
+  it('XI measures API - as of validate data | as_of takes current date ', function() {
     cy.request('xi/api/v2/measure_types?as_of=').as('comments');
     cy.get('@comments')
         .then((response) => {
