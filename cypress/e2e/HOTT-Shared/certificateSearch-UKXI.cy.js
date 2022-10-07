@@ -54,16 +54,9 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
 
         cy.get('form#new_search > input[name=\'new_search\']').click();
         // check it contains relevant certificate information as requested
-        if (`${countries[j]}` === 'xi') {
-          if (`${ccerts_ids[i]}` === 'C052' || `${ccerts_ids[i]}` === 'C644') {
-            cy.get('.govuk-heading-l')
-                .contains('There are no matching results');
-          }
-        } else {
-          cy.get('.govuk-heading-l')
-              .contains('Certificate search results');
-          cy.contains(`${ccerts_ids[i]}`);
-        }
+        cy.get('.govuk-heading-l')
+            .contains('Certificate search results');
+        cy.contains(`${ccerts_ids[i]}`);
       }
     });
 
@@ -145,14 +138,13 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         cy.get('.govuk-heading-l')
             .contains('Certificate search results');
         ['K020', 'K021', 'K022', 'K023'].forEach(function(kcerts_ids) {
-          cy.contains(`${kcerts_ids[i]}`);
+          cy.contains(`${kcerts_ids}`);
         });
       }
     });
 
     it(`${countries[j]} Certificate Search : L - Import certificate/licence/document`, function() {
       cy.visit(`${countries[j]}/certificate_search`);
-
 
       const lcerts_ids = ['L079'];
       for (let i = 0; i < lcerts_ids.length; i++) {
@@ -183,15 +175,9 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
 
         cy.get('form#new_search > input[name=\'new_search\']').click();
         // check it contains relevant certificate information as requested
-
-        if (`${countries[j]}` === 'xi' && `${ncerts_ids[i]}` === '853') {
-          cy.get('.govuk-heading-l')
-              .contains('There are no matching results');
-        } else {
-          cy.get('.govuk-heading-l')
-              .contains('Certificate search results');
-          cy.contains(`${ncerts_ids[i]}`);
-        }
+        cy.get('.govuk-heading-l')
+            .contains('Certificate search results');
+        cy.contains(`${ncerts_ids[i]}`);
       }
     });
 
@@ -254,14 +240,9 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
 
         cy.get('form#new_search > input[name=\'new_search\']').click();
         // check it contains relevant certificate information as requested
-        if (`${countries[j]}` === 'xi' && `${xcerts_ids[i]}` === '001') {
-          cy.get('.govuk-heading-l')
-              .contains('There are no matching results');
-        } else {
-          cy.get('.govuk-heading-l')
-              .contains('Certificate search results');
-          cy.contains(`${xcerts_ids[i]}`);
-        }
+        cy.get('.govuk-heading-l')
+            .contains('Certificate search results');
+        cy.contains(`${xcerts_ids[i]}`);
       }
     });
 
