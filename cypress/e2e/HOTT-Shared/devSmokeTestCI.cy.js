@@ -6,15 +6,14 @@ describe('Smoke tests for dev', {tags: ['devOnly']}, function() {
       cy.contains('browse the goods classification').click();
       cy.contains('Browse the tariff');
     });
-    it('Check date picker functionis working', function() {
+    it('Check date picker function is working', function() {
       cy.visit('/find_commodity');
 
-      cy.get('.govuk-details__summary').click();
       cy.get('#tariff_date_day').click().clear().type(21);
       cy.get('#tariff_date_month').click().clear().type(12);
       cy.get('#tariff_date_year').click().clear().type(2022);
       cy.searchForCommodity('3808941000');
-      cy.contains('Search results for "3808941000"');
+      cy.contains('Search results for \'3808941000\'');
       cy.contains('The following commodity codes match your search:');
       cy.contains('Based on quaternary ammonium salts').click();
       cy.contains(/Commodity .*3808941000/i);
@@ -54,7 +53,7 @@ describe('Smoke tests for dev', {tags: ['devOnly']}, function() {
       cy.get('#tariff_date_month').click().clear().type(12);
       cy.get('#tariff_date_year').click().clear().type(2022);
       cy.searchForCommodity('3808941000');
-      cy.contains('Search results for "3808941000"');
+      cy.contains('Search results for \'3808941000\'');
       cy.contains('The following commodity codes match your search:');
       cy.contains('Based on quaternary ammonium salts').click();
       cy.contains(/Commodity .*3808941000/i);
@@ -90,7 +89,7 @@ describe('Smoke tests for dev', {tags: ['devOnly']}, function() {
     cy.get('#tariff_date_year').click().clear().type(2023);
 
     cy.searchForCommodity('3808941000');
-    cy.contains('Search results for "3808941000"');
+    cy.contains('Search results for \'3808941000\'');
     cy.contains('The following commodity codes match your search:');
     cy.contains('Based on quaternary ammonium salts').click();
     cy.contains(/Commodity .*3808941000/i);
