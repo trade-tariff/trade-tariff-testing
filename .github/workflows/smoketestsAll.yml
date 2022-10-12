@@ -10,6 +10,7 @@ jobs:
       CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
       CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
       CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
+      CYPRESS_grepTags: "smokeTest"
 
     name: "smoke tests - UK and XI"
     runs-on: ubuntu-18.04
@@ -19,13 +20,12 @@ jobs:
       - run: date
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v4
-        name: "UK and XI smoke tests"
+        name: "Scheduled smoke tests"
         continue-on-error: true
         with:
           quiet: true
           browser: chrome
           headless: true
-          spec: "cypress/e2e/HOTT-Shared/smokeTestCI.cy.js"
       - uses: actions/upload-artifact@v2
         with:
           name: report
