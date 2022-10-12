@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
-
-describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic functionality on XI services ', function() {
+describe('Smoke test to cover basic mobile functionality on XI services', {tags: ['smokeTest']}, function() {
   // Main Page
   it(`🚀 XI - Mobile - nav-bar validation`, function() {
     const sizes = ['iphone-6', 'samsung-note9'];
@@ -115,7 +113,7 @@ describe('🚀 XI 🇪🇺 💡 | smokeTest-XI-M | Smoke test to cover basic fun
     cy.searchForCommodity('3808941000');
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
     // cy.contains('Set date').click();
-    // 
+    //
     cy.contains('21 December 2021');
     cy.contains('Northern Ireland Online Tariff');
     cy.contains('21 December 2021');

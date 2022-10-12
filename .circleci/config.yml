@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.29.0
+  cypress: cypress-io/cypress@2.2.0
   slack: circleci/slack@4.1
 
 executors: # This is totally crazy but it's the only way to configure the environment: https://circleci.com/developer/orbs/orb/cypress-io/cypress#usage-env-vars
@@ -10,11 +10,10 @@ executors: # This is totally crazy but it's the only way to configure the enviro
     environment:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: 'STAGING'
-      CYPRESS_grepTags: "-devOnly" # Skips devOnly tagged cy tests
+      CYPRESS_grepTags: "-devOnly+smokeTest"
 jobs:
   test:
-    docker:
-      - image: "cypress/base:16.5.0"
+    executor: custom_chrome
     steps:
       - checkout
       - restore_cache:
@@ -28,57 +27,9 @@ jobs:
             - /root/.cache/Cypress
       - run:
           name: "Cypress Smoke tests"
-          environment:
-            CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
-            CYPRESS_SPACE: "STAGING"
-          command: bin/all-smoke-tests.sh
-      - store_artifacts:
-          path: cypress/screenshots
+          command: yarn run cypress run
 
 workflows:
-  debug:
-    jobs:
-      - cypress/run:
-          executor: custom_chrome
-          context: trade-tariff
-          name: "🚀 UK XI & DC Smoke tests"
-          browser: chrome
-          store_artifacts: true
-          spec: "*/**/smokeTestCI.cy.js"
-          yarn: true
-          config: 'defaultCommandTimeout=25000'
-          post-steps:
-            - store_test_results:
-                path: cypress/results
-            - store_artifacts:
-                path: cypress/reports
-            - slack/notify:
-                channel: tariffs-regression
-                event: fail
-                template: basic_fail_1
-            - slack/notify:
-                channel: tariffs-regression
-                event: pass
-                custom: |
-                  {
-                    "blocks": [
-                      {
-                        "type": "section",
-                        "fields": [
-                          {
-                            "type": "plain_text",
-                            "text": "*Smoke tests passed* :white_check_mark:",
-                            "emoji": true
-                          }
-                        ]
-                      }
-                    ]
-                  }
-          filters:
-            branches:
-              only:
-                - debug-cron
-
   nightly:
     triggers:
       - schedule:
@@ -91,16 +42,10 @@ workflows:
       - cypress/run:
           executor: custom_chrome
           context: trade-tariff
-          name: "🚀 Tariff & DC Smoke tests scheduled - Staging"
+          name: "Scheduled smoke tests on staging"
           browser: chrome
-          store_artifacts: true
-          spec: "*/**/smokeTestCI.cy.js"
           yarn: true
           post-steps:
-            - store_test_results:
-                path: cypress/results
-            - store_artifacts:
-                path: cypress/reports
             - slack/notify:
                 channel: tariffs-regression
                 event: fail
