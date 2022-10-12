@@ -18,7 +18,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
     cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Chile').wait(500)
         .type('{enter}');
-    
+
 
     // Third country duty  measure has value 154.00 GBP / 100 kg', function () {
     cy.visit('/commodities/0406103010?country=CL#import');
@@ -33,7 +33,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
         .contains('051924').click();
     //  cy.get('[href=\'\\#import-3408148-order-number-094591\']').click()
     cy.get('.tariff-info')
-        .contains('Quota 051924');
+        .contains('Quota order number 051924');
     cy.get('.close [href]').click();
 
     // 'Footnotes is visible', function () {

@@ -79,7 +79,7 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
     cy.get('.table-line');
     cy.contains('057300').click();
     cy.get('.tariff-info')
-        .contains('Quota 057300');
+        .contains('Quota order number 057300');
     cy.get('.close [href]').click();
   });
   // Commodity Search functionality - text search

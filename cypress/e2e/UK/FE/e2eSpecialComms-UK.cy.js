@@ -64,7 +64,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.contains('Third country duty');
     cy.contains('Preferential tariff quota');
     cy.contains('051304').click();
-    cy.contains('Quota 051304');
+    cy.contains('Quota order number 051304');
     cy.contains('Quota order number');
     cy.get('.close [href]').click();
   });
