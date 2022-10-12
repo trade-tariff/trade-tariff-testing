@@ -1,14 +1,14 @@
 describe('Using beta search', {tags: ['devOnly']}, function() {
-  it('Search result returns guides for `abs`', function() {
+  it('Search result returns guides for `fresh potatoes`', function() {
     cy.visit('/find_commodity');
-    cy.searchForCommodity('abs');
+    cy.searchForCommodity('fresh potatoes');
 
     cy.get('.image-guide').should('exist');
 
     cy.get('#search-filter-navigation div div p a').should(
         'have.attr',
         'href',
-        'https://www.gov.uk/guidance/classifying-vehicles',
+        'https://www.gov.uk/guidance/classifying-edible-fruits-nuts-and-peel',
     );
   });
 
