@@ -11,7 +11,6 @@ executors: # This is totally crazy but it's the only way to configure the enviro
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: 'STAGING'
       CYPRESS_grepTags: "-devOnly+smokeTest"
-      CYPRESS_grepFilterSpecs: "true"
 jobs:
   test:
     executor: custom_chrome
