@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
+describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
   // Duty Calculator tests
   it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )| 102 |`, function() {
     cy.visit('/duty-calculator/uk/1516209821/import-date');
@@ -11,7 +10,7 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.contains('Which country are the goods coming from?');
     cy.contains('The duty you are charged may be dependent on the country from which the goods are coming.');
     cy.contains('Where are the goods coming from?');
-    cy.contains('When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures.');
+    cy.contains('When autocomplete results are available');
 
     // select country from list
     cy.originList({value: 'Northern Ireland'});
@@ -19,7 +18,11 @@ describe('| dcSmokeTestCI.spec | Duty Calculator smoke test |', function() {
     cy.contains('There is no import duty to pay');
     cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.');
     cy.contains('Find out more about trading and moving goods in and out of Northern Ireland (opens in a new window).');
-    cy.get('.govuk-grid-row .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland');
+    cy.get('.govuk-grid-row .govuk-link').should(
+        'have.attr',
+        'href',
+        'https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland',
+    );
     // Back Button on page
     cy.get('.govuk-back-link').click();
     cy.contains('Which country are the goods coming from?');

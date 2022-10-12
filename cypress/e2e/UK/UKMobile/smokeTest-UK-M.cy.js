@@ -1,8 +1,4 @@
-/* eslint-disable no-unused-vars */
-// const {isTaggedTemplateExpression} = require('typescript');
-
-/* eslint-disable max-len */
-describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover basic functionality on UK services |', function() {
+describe('smoke test to cover basic mobile functionality on UK services |', {tags: ['smokeTest']}, function() {
   // Main Page
   it('🚀 UK - Main Page Validation', function() {
     cy.viewport('iphone-x');
@@ -14,7 +10,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     // check correct text is displayed on banner as per UK - If they are at risk
-    cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate if your goods are not ‘at risk’ of onward movement to the EU. If they are at risk of onward movement to the EU, use the Northern Ireland Online Tariff.');
+    cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU');
     // Search the tariff section
     cy.contains('Search for a commodity');
     cy.get('.govuk-header__menu-button').click();
@@ -166,7 +162,7 @@ describe('🚀 📱 UK 🇬🇧 💡 | smokeTest-UK-M.spec | smoke test to cover
     cy.get('#tariff_date_month').click().clear().type(10);
     cy.get('#tariff_date_year').click().clear().type(2022);
     cy.get('input[name=\'commit\']').click();
-    
+
     cy.visit('/browse');
     cy.contains(' Live animals; animal products').click();
     cy.get('tr:nth-of-type(1) > .govuk-table__cell > a').click();

@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-
-describe('🛃 📱 UK XI 💡 | dcSmokeTest-Mobile-UK | Duty Calculator Smoke |', function() {
+describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function() {
 //   https://transformuk.atlassian.net/browse/HOTT-1321
   const device = ['iphone-6', 'samsung-note9'];
   for (let i=0; i<device.length; i++) {
@@ -81,10 +79,10 @@ describe('🛃 📱 UK XI 💡 | dcSmokeTest-Mobile-UK | Duty Calculator Smoke |
       cy.selectOrigin('other');
       cy.mobileMenu();
       // select country from list
-      
+
       cy.otherOriginList({value: 'Canada'});
       cy.mobileMenu();
-      
+
       // Trader Scheme
       cy.traderScheme('yes');
       cy.mobileMenu();

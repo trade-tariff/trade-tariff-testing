@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-describe('🚀  UK 🇬🇧 XI 🇪🇺 💡 | smokeTestCI- UK,XI & DC | Smoke tests ( Front end and API ) to cover basic functionality UK and XI services + Duty Calculator |', function() {
+describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, function() {
   // ************ UK tests ************
   // Main Page
   it('🚀 UK 🇬🇧 - Main Page Validation', function() {
