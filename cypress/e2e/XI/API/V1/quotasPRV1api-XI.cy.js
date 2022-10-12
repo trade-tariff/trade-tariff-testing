@@ -15,20 +15,6 @@ describe('🇪🇺  ⚙️ quotasPRV1api-XI | XI-version v1 api Quotas , P&R sup
           expect(found).to.be.false;
         });
   });
-  it('2.Quotas:122-Non Preferential quota - suppressed', function() {
-    cy.request('xi/api/v1/commodities/1006209600#import.json')
-        .then((response) => {
-          const measure_types = response.body.import_measures;
-          let found = false;
-          for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Non preferential tariff quota') {
-              found = true;
-              break;
-            }
-          }
-          expect(found).to.be.false;
-        });
-  });
   it('3.Quotas:123 - Non preferential quota under end use - suppressed', function() {
     cy.request('xi/api/v1/commodities/1701131000#import.json')
         .then((response) => {
@@ -245,20 +231,6 @@ describe('🇪🇺  ⚙️ quotasPRV1api-XI | XI-version v1 api Quotas , P&R sup
       let found = false;
       for (let i = 0; i < measure_types.length; i++) {
         if (measure_types[i].measure_type.description == 'Phytosanitary Certificate (import)') {
-          found = true;
-          break;
-        }
-      }
-      expect(found).to.be.false;
-    });
-  });
-  // export
-  it.skip('18.P&R:PRE Home Office Pre-cursor chemicals - suppressed', function() {
-    cy.request('xi/api/v1/commodities/2915240000#export').then((response) => {
-      const measure_types = response.body.export_measures;
-      let found = false;
-      for (let i = 0; i < measure_types.length; i++) {
-        if (measure_types[i].measure_type.description == 'Home Office Pre-cursor chemicals') {
           found = true;
           break;
         }
