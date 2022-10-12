@@ -1,68 +1,62 @@
-Cypress automation framework 🔧
-----------------------------------------
+# trade-tariff-testing
 
-[![ ✏️ | Regression Pack | Production |](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
-[![ 🚀 smokeTest](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/smoketestsAll.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/smoketestsAll.yml)
+[![Github Actions Regression Production](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
+[![Github Actions Regression Staging](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml)
+[![Github Actions Regression Development](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionDevelopment.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml)
+[![CircleCI Smoke Tests](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 
-* front end UI testing 
-* API testing 
-* integration / end-to-end testing 
-	
-### Prerequisites📚  
-```
-•node 
-•npm
-•yarn
-```
+This repository is responsible for validating integrations between different applications in the Online Trade Tariff service
 
-Download or clone this repo.
-Install dependencies by running the following command in terminal (from app directory i.e.,where package.json is located) 
+There are currently three enviornments we might run end-to-end tests against:
 
-```
-yarn install 
-```
+- development
+- staging
+- production
 
-### Running tests 🧳:
-Default run is against Live Prod environment.This can be configured in cypress.json if required.
+Regression suites for each of these environments are configured using github actions
 
-Running tests can be done with the following commands:
+### Prerequisites
 
-```
-Running using Cypress Application :npx cypress open (opens cypress application) 
-Running specific file   :yarn run cypress run --spec "/file path/filename.js"
-Running all files       :yarn run cypress run ( runs all files in Integration folder)
-Running smoke tests     :yarn run smoketests
-Running specific folder :yarn run cypress run --spec "/*/**/XI/**/*spec.js"
-                        :yarn run cypress run --spec "/*/**/UK/**/*spec.js"
+- node
+- yarn
+- an up-to-date .env file
+
+Install dependencies with yarn
+
+```shell
+yarn install
 ```
 
-## Running UI against environments
+### Running tests
 
-There are different commands to open the Cypress UI to run against different environments
+Run a single test:
 
+```shell
+yarn run cypress run --spec cypress/e2e/HOTT-Shared/devSmokeTestCI.cy.js
 ```
-yarn run open:localhost
+
+Run all tests
+
+```shell
+yarn run cypress run
+```
+
+Run devOnly tagged tests
+
+```shell
+yarn run cypress run --env grepTags=devOnly
+```
+
+Run smokeTests but not the devOnly ones
+
+```shell
+yarn run cypress run --env grepTags=-devOnly+smokeTest
+```
+
+Run interactive cypress UI
+
+```shell
 yarn run open:dev
 yarn run open:staging
 yarn run open:prod
 ```
-## tags
-Running specific set of tests using tags
-
-```
-| tag name  | run specs |
-| ------------- | ------------- |
-| tags:unreleased  | unreleased specs  |
-| tags:api  | API specs  |
-| tags:stw | Single trade window specs |
-| tags:roo | Rules of Origin specs |
-| tags:dc | Duty Calculator specs |
-| tags:xbrowser | Cross browser specs |
-
-yarn run tags:xbrowser
-```
-
-## Environment variables
-
-`CYPRESS_BASE_URL` - sets the target website, eg https://staging.trade-tariff.service.gov.uk
-
