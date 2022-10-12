@@ -28,7 +28,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | helpSection.spec.js | validate help section 
       cy.contains('Look up commodity codes, import duties, taxes and controls');
     }
   });
-  it.only('Validate links', function() {
+  it('Validate links', function() {
     cy.visit('/help');
     cy.contains('Leave feedback').click();
     cy.get('.govuk-grid-column-two-thirds > p:nth-of-type(1) > a').should('have.attr', 'href', '/feedback');
