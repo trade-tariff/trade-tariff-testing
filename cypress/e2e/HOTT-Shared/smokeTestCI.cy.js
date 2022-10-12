@@ -333,28 +333,46 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.searchForCountry('(XU)').contains('No results found');
     });
 
-    it('Mobile - nav-bar validation', function() {
-      const sizes = ['iphone-6', 'samsung-note9'];
-      for (let i = 0; i < sizes.length; i++) {
-        cy.viewport('${sizes[i]}');
-        cy.visit('/xi/sections');
-        cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('A-Z').click();
-        cy.contains('A–Z of Classified Goods');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Tools').click();
-        cy.contains('Tariff tools');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Browse').click();
-        cy.contains('Browse the tariff');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Search').click();
-        cy.contains('Look up commodity codes, import duties, taxes and controls');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Help').click();
-        cy.contains('Help on using the tariff');
-      }
+    it('Mobile - nav-bar validation iphone-6', function() {
+      cy.viewport('iphone-6');
+      cy.visit('/xi/sections');
+      cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('A-Z').click();
+      cy.contains('A–Z of Classified Goods');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Tools').click();
+      cy.contains('Tariff tools');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Browse').click();
+      cy.contains('Browse the tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Search').click();
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Help').click();
+      cy.contains('Help on using the tariff');
+    });
+
+    it('Mobile - nav-bar validation - samsung-note9', function() {
+      cy.viewport('samsung-note9');
+      cy.visit('/xi/sections');
+      cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('A-Z').click();
+      cy.contains('A–Z of Classified Goods');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Tools').click();
+      cy.contains('Tariff tools');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Browse').click();
+      cy.contains('Browse the tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Search').click();
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Help').click();
+      cy.contains('Help on using the tariff');
     });
 
     it('API V2 - Commodity - validate response headers,status,content', function() {
