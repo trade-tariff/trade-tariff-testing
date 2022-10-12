@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.29.0
+  cypress: cypress-io/cypress@2.2.0
   slack: circleci/slack@4.1
 
 executors: # This is totally crazy but it's the only way to configure the environment: https://circleci.com/developer/orbs/orb/cypress-io/cypress#usage-env-vars
@@ -13,24 +13,21 @@ executors: # This is totally crazy but it's the only way to configure the enviro
       CYPRESS_grepTags: "-devOnly,smokeTest"
 jobs:
   test:
-    docker:
-      - image: "cypress/base:16.5.0"
+    executor: custom_chrome
     steps:
       - checkout
       - restore_cache:
           keys:
             - v2-test-deps-{{ checksum "yarn.lock" }}
       - run: "yarn install"
-      - cypress/run:
-          browser: chrome
-          executor: custom_chrome
-          context: trade-tariff
-          yarn: true
       - save_cache:
           key: v2-test-deps-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
             - /root/.cache/Cypress
+      - run:
+          name: "Cypress Smoke tests"
+          command: yarn run cypress run
 
 workflows:
   nightly:
