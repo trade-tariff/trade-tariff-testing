@@ -142,31 +142,50 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.get('.close [href]').click();
     });
 
-    it('Mobile - nav-bar validation', function() {
-      const sizes = ['iphone-6', 'samsung-note9'];
+    it('Mobile - nav-bar validation iphone-6', function() {
+      cy.viewport('iphone-6');
 
-      for (let i = 0; i < sizes.length; i++) {
-        cy.viewport('${sizes[i]}');
-
-        cy.visit('/find_commodity');
-        cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('A-Z').click();
-        cy.contains('A–Z of Classified Goods');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Tools').click();
-        cy.contains('Tariff tools');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Browse').click();
-        cy.contains('Browse the tariff');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Search').click();
-        cy.contains('Look up commodity codes, import duties, taxes and controls');
-        cy.get('.govuk-header__menu-button').click();
-        cy.contains('Help').click();
-        cy.contains('Help on using the tariff');
-      }
+      cy.visit('/find_commodity');
+      cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('A-Z').click();
+      cy.contains('A–Z of Classified Goods');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Tools').click();
+      cy.contains('Tariff tools');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Browse').click();
+      cy.contains('Browse the tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Search').click();
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Help').click();
+      cy.contains('Help on using the tariff');
     });
+
+    it('Mobile - nav-bar validation samsung-note9', function() {
+      cy.viewport('samsung-note9');
+
+      cy.visit('/find_commodity');
+      cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('A-Z').click();
+      cy.contains('A–Z of Classified Goods');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Tools').click();
+      cy.contains('Tariff tools');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Browse').click();
+      cy.contains('Browse the tariff');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Search').click();
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
+      cy.get('.govuk-header__menu-button').click();
+      cy.contains('Help').click();
+      cy.contains('Help on using the tariff');
+    });
+
 
     it('API V2 - Commodity - validate response headers,status,content', function() {
       cy.request('/api/v2/commodities/2007993943').as('comments');
