@@ -72,20 +72,6 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
           expect(found).to.be.true;
         });
   });
-  it.skip('🟩 6.Quotas:147 Customs Union Quota - available', function() {
-    cy.request('/api/v1/commodities/1806208012#import.json')
-        .then((response) => {
-          const measure_types = response.body.import_measures;
-          let found = false;
-          for (let i = 0; i < measure_types.length; i++) {
-            if (measure_types[i].measure_type.description == 'Customs Union Quota') {
-              found = true;
-              break;
-            }
-          }
-          expect(found).to.be.true;
-        });
-  });
   it('🟩 7.Quotas:653 Security based on representative price, reduced under the benefit of a tariff quota - available', function() {
     cy.request('/api/v1/commodities/1701149000#import.json')
         .then((response) => {
@@ -294,3 +280,4 @@ describe('🇬🇧 ⚙️ | quotasPRV1api-UK | UK- version v1 api Quotas , P&R t
     });
   });
 });
+
