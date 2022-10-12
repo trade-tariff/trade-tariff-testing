@@ -1,6 +1,5 @@
 const {defineConfig} = require('cypress');
 
-const cucumber = require('cypress-cucumber-preprocessor').default;
 const cypressGrep = require('cypress-grep/src/plugin');
 const dotenvPlugin = require('cypress-dotenv');
 const {JsonSchemaValidation} = require('@jc21/cypress-jsonschema-validation');
@@ -12,7 +11,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
 
-      on('file:preprocessor', cucumber());
       on('task', JsonSchemaValidation(config));
       on('task', SwaggerValidation(config));
       config = dotenvPlugin(config, {}, true);

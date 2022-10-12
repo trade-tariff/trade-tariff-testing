@@ -1,8 +1,7 @@
 {
   "name": "trade-tariff-testing",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "E2E testing of the Online Trade Tariff",
   "dependencies": {
     "@jc21/cypress-jsonschema-validation": "^0.0.1",
     "@jc21/cypress-swagger-validation": "^0.1.0",
@@ -20,7 +19,6 @@
   "devDependencies": {
     "allure-commandline": "^2.18.1",
     "cypress": "10.9.0",
-    "cypress-cucumber-preprocessor": "https://github.com/trade-tariff/cypress-cucumber-preprocessor#temp",
     "cypress-dark": "^1.7.14",
     "cypress-file-upload": "^5.0.8",
     "cypress-fill-command": "^1.0.1",
@@ -69,19 +67,5 @@
     "dev-tariff-frontend-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/HOTT-Shared/devSmokeTestCI.cy.js",
     "dev-tariff-backend-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/HOTT-Shared/devSmokeTestCI.cy.js",
     "dev-tariff-duty-calculator-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/DutyCalculator/dcShared/dcSmokeTestCI.cy.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TransformCore/trade-tariff-testing.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TransformCore/trade-tariff-testing/issues"
-  },
-  "homepage": "https://github.com/TransformCore/trade-tariff-testing#readme",
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
   }
 }
