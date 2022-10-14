@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 // page title , dynamic content - agreements ,ticket number
 
+
 // Click Check rules of origin button
 Cypress.Commands.add('checkRoO', ()=>{
   cy.contains('UK Integrated Online Tariff ');
@@ -146,6 +147,16 @@ Cypress.Commands.add('minimalOps', (scheme, selection)=>{
   cy.contains(`'Insufficient processing' operations according to the ${scheme}`);
   cy.contains('Have non-originating parts been subject to sufficient processing to qualify for preferential treatment?');
   cy.get(`#rules-of-origin-steps-sufficient-processing-sufficient-processing-${selection}-field`).check();
+  cy.get('.govuk-button').contains('Continue').click();
+});
+
+// Provide more information about your product
+Cypress.Commands.add('moreInfoAboutProduct', (code, selection) => {
+  cy.contains('Are your goods originating?');
+  cy.contains('Provide more information about your product');
+  cy.contains(`The rules of origin for commodity ${code} depend on the type of product that you are trading.`);
+  cy.get('.govuk-grid-column-two-thirds > details > summary > span').contains('About this commodity code');
+  cy.get('.govuk-radios > div > label').contains(`${selection}`).click();
   cy.get('.govuk-button').contains('Continue').click();
 });
 
