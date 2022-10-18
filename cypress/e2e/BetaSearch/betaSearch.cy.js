@@ -68,4 +68,11 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('.facet-classifications-tag').should('not.exist');
     cy.url().should('not.include', '6211');
   });
+
+  it('Searching for `access equipment` returns an intercept message', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('access equipment');
+    cy.get('#intercept-message > a').eq(1).click();
+    cy.url().should('include', '/chapters/85');
+  });
 });
