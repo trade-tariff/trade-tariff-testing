@@ -23,7 +23,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/find_commodity');
     cy.searchForCommodity('halbiut');
 
-    cy.get('h1').contains('Search results for \'halibut\'');
+    cy.get('h1').contains('Search results for ‘halibut’');
   });
 
   it('Search result returns results for synonyms', function() {
