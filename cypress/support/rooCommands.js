@@ -195,6 +195,28 @@ Cypress.Commands.add('rooNotMet', (tradetype, country, code, scheme)=>{
   cy.contains(`Are you importing goods into the UK or into ${country}?`);
 });
 
+// Tolerance page verification
+Cypress.Commands.add('tolerance', (tradetype, code, country, scheme) => {
+  cy.contains('Tolerances');
+  cy.contains('Tolerance rules allow you to use a limited quantity of non-originating materials that are normally prohibited by the product specific rule.');
+  cy.get('#tolerances-section > p:nth-child(3) > a').contains('Find out more about tolerances').click();
+  cy.contains('Are your goods originating?');
+  cy.contains('Tolerances');
+  cy.contains('‘Tolerances’ represent a provision for the relaxation of the rules of origin under certain conditions.');
+  cy.contains(`Tolerances in the ${scheme}`);
+  cy.go(-1);
+  cy.contains(`${tradetype} commodity ${code} from ${country}`);
+  cy.contains('Rules of Origin not met');
+  cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
+});
+
+// Click cumulation link on Rules of Origin Not Met
+Cypress.Commands.add('clkCumulationLnk', () => {
+  cy.contains('Cumulation rules');
+  cy.contains('Check what cumulation rules apply to the movement of goods under the UK-Japan Comprehensive Economic Partnership Agreement.');
+  cy.get('#cumulation-section > p:nth-child(3) > a').click();
+});
+
 // Origin not met - Import
 Cypress.Commands.add('rooNotMetImp', (tradetype, country, code, scheme)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country}`);
