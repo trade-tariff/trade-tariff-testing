@@ -20,8 +20,6 @@ describe('| subheadings.spec | validate subheadings on UK and XI services - Fron
           // response duration less than 2000
           expect(response).to.have.property('duration');
           expect(response.duration).to.lessThan(2000);
-          // body lengths
-          expect(response.body.included).to.have.length(205);
           // validate properties
           expect(response.body.data).to.have.property('id');
           expect(response.body.data).to.have.property('type').equals('subheading');
