@@ -25,6 +25,8 @@ describe('| 601-RoO-e2e-NWO-GSP-InsuffProcess.spec | NWO + GSP Scheme + insuffic
     // Min Processing Yes
     cy.go(-2);
     cy.minimalOps('Generalised Scheme of Preferences (GSP)', 'yes');
+    // Product subDivisions
+    cy.subDivision('5808100000', 'Special woven fabrics; tufted textile fabrics; lace; tapestries; trimmings; embroidery');
     // product specific rules?
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements met
