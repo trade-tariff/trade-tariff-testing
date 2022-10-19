@@ -1,4 +1,4 @@
-describe('Using beta search', {tags: ['devOnly']}, function() {
+describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, function() {
   it('Search result returns guides for `fresh potatoes`', function() {
     cy.visit('/find_commodity');
     cy.searchForCommodity('fresh potatoes');
