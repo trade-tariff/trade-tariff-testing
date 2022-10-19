@@ -27,7 +27,7 @@ jobs:
             - /root/.cache/Cypress
       - run:
           name: "Cypress Smoke tests"
-          command: yarn run cypress run --spec cypress/e2e/HOTT-Shared/smokeTestCI.cy.js
+          command: yarn run cypress run --spec cypress/e2e/smoketests/smokeTestCI.cy.js
 
 workflows:
   nightly:
