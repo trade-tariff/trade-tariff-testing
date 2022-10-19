@@ -12,9 +12,9 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     );
   });
 
-  it('Search result returns no guides for `clothing sets`', function() {
+  it('Search result returns no guides for `indian`', function() {
     cy.visit('/find_commodity');
-    cy.searchForCommodity('clothing sets');
+    cy.searchForCommodity('indian');
 
     cy.get('.image-guide').should('not.exist');
   });
@@ -72,7 +72,22 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   it('Searching for `access equipment` returns an intercept message', function() {
     cy.visit('/find_commodity');
     cy.searchForCommodity('access equipment');
-    cy.get('#intercept-message > a').eq(1).click();
+    cy.get('#intercept-message > p > a').eq(0).click();
     cy.url().should('include', '/chapters/85');
+  });
+
+  it('Search result returns the no results page for `nothing`', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('nothing');
+
+    cy.get('div.govuk-warning-text > strong').contains('There are no results');
+
+    cy.get('div#webchat-link > p > a')
+        .eq(1)
+        .should(
+            'have.attr',
+            'href',
+            'https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff',
+        );
   });
 });
