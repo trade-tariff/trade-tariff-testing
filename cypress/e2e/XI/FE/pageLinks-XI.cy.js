@@ -129,12 +129,13 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
   });
 
   // OGL link
-  it('XI - Open Government Licence v3.0', function() {
+  it.skip('XI - Open Government Licence v3.0', function() {
     cy.visit('/xi/sections');
     cy.get('.govuk-footer__meta.govuk-footer__row');
     cy.contains('Open Government Licence v3.0');
     cy.get('span > .govuk-footer__link').should('have.attr', 'href', 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/');
   });
+
   it('XI - Other pages 404 - links', function() {
     cy.visit('xi/404', {failOnStatusCode: false});
     cy.contains('Page not found');
