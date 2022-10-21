@@ -19,7 +19,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('.image-guide').should('not.exist');
   });
 
-  it('Search result corrects spelling for `halbiut` and supports uncorrecting the spelling', function() {
+  it('Search result corrects spelling for `halbiut` and supports using the original search query', function() {
     cy.visit('/find_commodity');
     cy.searchForCommodity('halbiut');
 
