@@ -19,11 +19,20 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('.image-guide').should('not.exist');
   });
 
-  it('Search result corrects spelling for `halbiut`', function() {
+  it('Search result corrects spelling for `halbiut` and supports using the original search query', function() {
     cy.visit('/find_commodity');
     cy.searchForCommodity('halbiut');
 
     cy.get('h1').contains('Search results for ‘halibut’');
+    cy.get('div#search-results-spelling > p.corrected-search-results > span.non-corrected-search-results > a')
+        .click();
+
+    cy.url().should(
+        'include',
+        '/search?q=halbiut&spell=0',
+    );
+
+    cy.get('#intercept-message').contains('There are no results');
   });
 
   it('Search result returns results for synonyms', function() {
