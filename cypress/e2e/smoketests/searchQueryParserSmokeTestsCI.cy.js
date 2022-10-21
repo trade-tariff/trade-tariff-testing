@@ -1,0 +1,1 @@
+../betaSearch.cy.js
