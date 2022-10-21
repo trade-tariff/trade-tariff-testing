@@ -89,7 +89,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.roOTab();
     cy.contains('Non-preferential rules of origin');
   });
-  it(`| ${service_agreements[i]} | India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |`, function() {
+  it('India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP)', function() {
     cy.visit('/commodities/0702000007');
     cy.contains('Rules of origin').click();
     // Select USA from All countries list

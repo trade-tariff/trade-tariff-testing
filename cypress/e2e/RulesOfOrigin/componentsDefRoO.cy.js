@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 describe('componentsDefRoO.spec.js | Rules of Origin - Components page', function() {
-  it('UK - Page validations - Vietnam - What components do you need to take into account?', function() {
+  it.skip('UK - Page validations - Vietnam - What components do you need to take into account?', function() {
     cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
     cy.contains('UK-Vietnam Free Trade Agreement');
     cy.contains('Generalised Scheme of Preferences (GSP)');
