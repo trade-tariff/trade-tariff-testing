@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 describe('selectAgreementRoO.spec.js | Rules of Origin - Select Agreement page', function() {
-  it('UK - Page validations - Vietnam - more than one agreement in place', function() {
+  it.skip('UK - Page validations - Vietnam - more than one agreement in place', function() {
     cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
     cy.contains('UK-Vietnam Free Trade Agreement');
     cy.contains('Generalised Scheme of Preferences (GSP)');
