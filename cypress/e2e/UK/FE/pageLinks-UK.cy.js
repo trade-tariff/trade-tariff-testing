@@ -114,9 +114,11 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
   // OGL link
   it('UK - Open Government Licence v3.0', function() {
     cy.visit('/find_commodity');
-    cy.get('.govuk-footer__meta.govuk-footer__row');
-    cy.contains('Open Government Licence v3.0');
-    cy.get('span > .govuk-footer__link').should('have.attr', 'href', 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/');
+    cy.get('span > .govuk-footer__link')
+        .contains('Open Government Licence v3.0');
+    cy.get('span > .govuk-footer__link')
+        .should('have.attr', 'href', 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/')
+        .click();
   });
 
   // import measures page static links
