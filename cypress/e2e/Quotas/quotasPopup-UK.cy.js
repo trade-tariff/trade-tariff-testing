@@ -38,7 +38,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2) > td').contains(',');
     cy.get('.close [href]').click();
   });
-  it('Quota Popup - Show pending balance', function() {
+  it.skip('Quota Popup - Show pending balance', function() {
     cy.visit('/commodities/7306110000#quotas');
     cy.contains('058039').click();
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Kilogram (kg) remains available from the previous quota period. This will be transferred to the current quota period c. 20 working days after the end of the previous quota period.');
@@ -61,13 +61,12 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Status');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(3) > .numerical').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Last allocation date');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension / blocking periods');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('n/a');
     cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');
     cy.get('.close [href]').click();
   });
@@ -82,13 +81,12 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Status');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(3) > .numerical').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Last allocation date');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension / blocking periods');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('n/a');
     cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');
     cy.get('.close [href]').click();
   });
