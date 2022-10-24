@@ -164,7 +164,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Importing into the UK');
     cy.contains('To check how to import commodity 0702000007, select the country from which you are importing.');
     cy.get('#content > dl > div:nth-child(5) > dd.govuk-summary-list__actions > a').click();
-    // cy.get('.govuk-summary-list__actions').contains('Change').click();
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('#content > dl > div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
 
