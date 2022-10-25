@@ -42,7 +42,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.selectDestination('xi');
     // origin
     // select country from list
-    cy.otherOriginList({value: 'Turkey'});
+    cy.otherOriginList({value: 'Turkmenistan'});
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes

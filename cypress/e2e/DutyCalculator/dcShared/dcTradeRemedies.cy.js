@@ -24,11 +24,11 @@ describe('📑 | dcTradeRemedies | Trade remedies page |', function() {
     // origin
     cy.selectOrigin('other');
     // select country from list
-    cy.otherOriginList({value: 'Turkey'});
+    cy.otherOriginList({value: 'Turkmenistan'});
     // main page title
     cy.contains('EU duties apply to this import');
     cy.contains('As this commodity attracts a trade defence measure, imports of this commodity are treated as \'at risk\'.');
 
-//    cy.contains('Click on the \'Continue\' button to enter the customs value of your import, to help to calculate the applicable import duties.');
+  //    cy.contains('Click on the \'Continue\' button to enter the customs value of your import, to help to calculate the applicable import duties.');
   });
 });
