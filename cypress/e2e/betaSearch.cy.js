@@ -41,17 +41,22 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('table').find('tr').find('td').contains('MEAT AND EDIBLE MEAT OFFAL');
   });
 
-  it('Search redirects for expired goods nomenclature', function() {
-    cy.visit('/find_commodity');
-    cy.searchForCommodity('0503');
-    cy.url().should('include', '/headings/0503');
-  });
-
-  // TODO: This needs to return results
-  it('Search does not redirect for existing goods nomenclature', function() {
+  it('Search redirects for search heading `0101`', function() {
     cy.visit('/find_commodity');
     cy.searchForCommodity('0101');
-    cy.url().should('include', '/search?q=0101');
+    cy.url().should('include', '/headings/0101');
+  });
+
+  it('Search redirects for search subheading `010129`', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('010129');
+    cy.url().should('include', '/subheadings/0101290000-80');
+  });
+
+  it('Search redirects for search commodity `0101210000`', function() {
+    cy.visit('/find_commodity');
+    cy.searchForCommodity('0101210000');
+    cy.url().should('include', '/commodities/0101210000');
   });
 
   it('Search filters results with facet clothing_gender', function() {
