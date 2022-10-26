@@ -13,9 +13,6 @@ describe('Smoke tests for dev', {tags: ['devOnly', 'smokeTest']}, function() {
       cy.get('#tariff_date_month').click().clear().type(12);
       cy.get('#tariff_date_year').click().clear().type(2022);
       cy.searchForCommodity('3808941000');
-      cy.contains('Search results for ‘3808941000’');
-      cy.contains('The following commodity codes match your search:');
-      cy.contains('Based on quaternary ammonium salts').click();
       cy.contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
 
@@ -23,6 +20,7 @@ describe('Smoke tests for dev', {tags: ['devOnly', 'smokeTest']}, function() {
       cy.datePickerPage({day: 22, month: 12, year: 2022});
       cy.contains('22 December 2022');
     });
+
     it('Main Page - Switching link to XI available & works', function() {
       cy.visit('/find_commodity');
       cy.get('.govuk-header').contains('UK Integrated Online Tariff');
@@ -45,6 +43,7 @@ describe('Smoke tests for dev', {tags: ['devOnly', 'smokeTest']}, function() {
       cy.contains('browse the goods classification').click();
       cy.contains('Browse the tariff');
     });
+
     it('Check Calendar is functioning', function() {
       cy.visit('/xi/sections');
 
@@ -53,18 +52,14 @@ describe('Smoke tests for dev', {tags: ['devOnly', 'smokeTest']}, function() {
       cy.get('#tariff_date_month').click().clear().type(12);
       cy.get('#tariff_date_year').click().clear().type(2022);
       cy.searchForCommodity('3808941000');
-      cy.contains('Search results for ‘3808941000’');
-      cy.contains('The following commodity codes match your search:');
-      cy.contains('Based on quaternary ammonium salts').click();
       cy.contains(/Commodity .*3808941000/i);
 
-      cy.get(
-          'div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link',
-      ).click();
+      cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
 
       cy.contains('22 December 2022');
     });
+
     it('Main Page - Switching link to UK available & works', function() {
       cy.visit('/xi/sections');
       cy.get('.govuk-header').contains('Northern Ireland Online Tariff');
@@ -89,9 +84,6 @@ describe('Smoke tests for dev', {tags: ['devOnly', 'smokeTest']}, function() {
     cy.get('#tariff_date_year').click().clear().type(2023);
 
     cy.searchForCommodity('3808941000');
-    cy.contains('Search results for ‘3808941000’');
-    cy.contains('The following commodity codes match your search:');
-    cy.contains('Based on quaternary ammonium salts').click();
     cy.contains(/Commodity .*3808941000/i);
     cy.contains('21 December 2023');
 
