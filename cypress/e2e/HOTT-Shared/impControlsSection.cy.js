@@ -24,8 +24,7 @@ describe('impControlsSection.spec ', function() {
     // select France
     cy.searchForCountry('(FR)').type('{enter}');
     cy.contains('Check how to import commodity 0307299010 from France (opens in a new tab).');
-    cy.get('[href=\'https\:\/\/check-how-to-import-export-goods\.service\.gov\.uk\/manage-this-trade\/check-licences-certificates-and-other-restrictions\?commodity\=0307299010\&destinationCountry\=GB\&goodsIntent\=bringGoodsToSell\&importDateDay\=11\&importDateMonth\=11\&importDateYear\=2022\&importDeclarations\=yes\&importOrigin\=\&originCountry\=FR\&tradeType\=import\&userTypeTrader\=true\']').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/manage-this-trade/check-licences-certificates-and-other-restrictions?commodity=0307299010&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=11&importDateMonth=11&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=FR&tradeType=import&userTypeTrader=true');
-
+    cy.get('.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/import/check-licences-certificates-and-other-restrictions?commodity=0307299010&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=11&importDateMonth=11&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=FR&tradeType=import&userTypeTrader=true');
     // Change to Turkey - Prohibited
     cy.searchForCountry('(TR)').type('{enter}');
     cy.contains('The import of commodity 0307299010 from Turkey is prohibited.');

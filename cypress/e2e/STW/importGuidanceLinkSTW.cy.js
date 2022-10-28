@@ -14,7 +14,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
     cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Andorra')
         .type('{enter}');
-    cy.get('[href=\'https\:\/\/check-how-to-import-export-goods\.service\.gov\.uk\/manage-this-trade\/check-licences-certificates-and-other-restrictions\?commodity\=2612201000\&destinationCountry\=GB\&goodsIntent\=bringGoodsToSell\&importDateDay\=11\&importDateMonth\=11\&importDateYear\=2022\&importDeclarations\=yes\&importOrigin\=\&originCountry\=AD\&tradeType\=import\&userTypeTrader\=true\']').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/manage-this-trade/check-licences-certificates-and-other-restrictions?commodity=2612201000&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=11&importDateMonth=11&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AD&tradeType=import&userTypeTrader=true');
+    cy.get('.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/import/check-licences-certificates-and-other-restrictions?commodity=2612201000&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=11&importDateMonth=11&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AD&tradeType=import&userTypeTrader=true');
 
     // Change Date and country and validate
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
@@ -30,7 +30,7 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
 
     cy.contains('Check how to import commodity 2612201000 from India (opens in a new tab).');
 
-    cy.get('[href=\'https\:\/\/check-how-to-import-export-goods\.service\.gov\.uk\/manage-this-trade\/check-licences-certificates-and-other-restrictions\?commodity\=2612201000\&destinationCountry\=GB\&goodsIntent\=bringGoodsToSell\&importDateDay\=12\&importDateMonth\=10\&importDateYear\=2022\&importDeclarations\=yes\&importOrigin\=\&originCountry\=IN\&tradeType\=import\&userTypeTrader\=true\']').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/manage-this-trade/check-licences-certificates-and-other-restrictions?commodity=2612201000&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=12&importDateMonth=10&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=IN&tradeType=import&userTypeTrader=true');
+    cy.get('.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/import/check-licences-certificates-and-other-restrictions?commodity=2612201000&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=12&importDateMonth=10&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=IN&tradeType=import&userTypeTrader=true');
   });
   it('| UK Service - STW content on heading which is also a commodity import page |', function() {
     cy.visit('/commodities/8804000000#import');

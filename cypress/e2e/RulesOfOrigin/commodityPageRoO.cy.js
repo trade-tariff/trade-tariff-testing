@@ -36,7 +36,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     // proving originating status + claiming pref treatment links
   });
 
-  it(`USA 🇺🇸 - Countries with which there is no trade agreement  |`, function() {
+  it.skip(`USA 🇺🇸 - Countries with which there is no trade agreement  |`, function() {
     cy.visit('/commodities/0702000007');
     cy.get('a#tab_rules-of-origin').contains('Rules of origin').click().wait(200);
     // Select USA from All countries list
@@ -103,7 +103,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
 
     cy.contains('Non-preferential rules of origin');
   });
-  it(`India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |`, function() {
+  it.skip(`India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |`, function() {
     cy.visit('/commodities/0702000007');
     cy.contains('Rules of origin').click();
     // Select USA from All countries list
