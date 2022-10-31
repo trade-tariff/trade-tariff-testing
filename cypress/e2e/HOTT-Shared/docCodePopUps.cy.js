@@ -86,7 +86,6 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.contains('The weight of your goods does not exceed 2.00 kg');
       cy.get('.info-content').should('not.contain', 'No document provided');
       cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
-      cy.get('.info-content').contains('Enter GBCHDyyyy. and the reference number of the CHED-P.');
       cy.get('.info-content').contains('Complete the statement ‘regulation 2019/2122 exempt’.');
       cy.get('.info-content').contains('Complete the statement: ‘Exempt personal consignment’ in the Document Identifier (Second Component).');
     });

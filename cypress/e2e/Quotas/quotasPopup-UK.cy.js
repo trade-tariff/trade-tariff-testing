@@ -10,7 +10,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
   const year = dayjs().subtract(0, 'y').year();
   const future_Date = dayjs().add(7, 'day').format('DD MMM YYYY');
   const future_date = dayjs().add(7, 'day').date();
-  const future_month = dayjs().add(1, 'M').month();
+  const future_month = dayjs().add(2, 'M').month();
 
   it('Quota Popup - Verify change the title to quota order number', function() {
     cy.visit('/commodities/7306110000#quotas');
@@ -74,7 +74,12 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.visit(`/commodities/7306110000?day=${future_date}&month=${future_month}&year=${year}#quotas`);
     cy.contains('058949').click();
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${future_Date})`);
+    if (`${future_Date}`.includes('0')) {
+      const futureDate = `${future_Date}`.replace(/^0|[^\/]0./, '');
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${futureDate})`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${future_Date})`);
+    }
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
     // Click View balance for xxxxx - link and verify balance as of xxxxx
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();

@@ -164,7 +164,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Importing into the UK');
     cy.contains('To check how to import commodity 0702000007, select the country from which you are importing.');
     cy.get('#content > dl > div:nth-child(5) > dd.govuk-summary-list__actions > a').click();
-    // cy.get('.govuk-summary-list__actions').contains('Change').click();
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('#content > dl > div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
 
@@ -172,6 +171,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('a#tab_import').click();
     // check link after country selection
     // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Argentina.');
-    cy.get('#import > div.govuk-inset-text.govuk-inset-text--s.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/manage-this-trade/check-licences-certificates-and-other-restrictions?commodity=0702000007&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=10&importDateMonth=12&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AR&tradeType=import&userTypeTrader=true');
+    cy.get('#import > div.govuk-inset-text.govuk-inset-text--s.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/import/check-licences-certificates-and-other-restrictions?commodity=0702000007&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=10&importDateMonth=12&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AR&tradeType=import&userTypeTrader=true');
   });
 });
