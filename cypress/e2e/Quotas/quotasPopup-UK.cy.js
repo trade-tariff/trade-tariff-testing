@@ -11,6 +11,10 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
   const future_Date = dayjs().add(7, 'day').format('DD MMM YYYY');
   const future_date = dayjs().add(7, 'day').date();
   const future_month = dayjs().add(2, 'M').month();
+  const todays_Date = `${todaysDate}`.replace(/^0|[^\/]0./, '');
+  const previousDate = `${previous_Date}`.replace(/^0|[^\/]0./, '');
+  const futureDate = `${future_Date}`.replace(/^0|[^\/]0./, '');
+  const futureMonth = dayjs().add(1, 'M').month();
 
   it('Quota Popup - Verify change the title to quota order number', function() {
     cy.visit('/commodities/7306110000#quotas');
@@ -25,7 +29,11 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.visit('/commodities/7306110000#quotas');
     cy.contains('058039').click();
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058039');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todays_Date})`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    }
     cy.should('not.contain', 'Current balance');
     cy.get('.close [href]').click();
   });
@@ -54,12 +62,24 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.visit(`/commodities/7306110000?day=${past_date}&month=${past_month}&year=${year}#quotas`);
     cy.contains('058041').click();
     cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${previous_Date})`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    if (`${previous_Date}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${previousDate})`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${previous_Date})`);
+    }
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todays_Date}`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    }
     // Click View balance for xxxxx - link and verify balance as of xxxxx
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();
     cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todays_Date})`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    }
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Status');
     cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(3) > .numerical').contains('Open');
@@ -71,20 +91,28 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.close [href]').click();
   });
   it(`Quota Popup - Verify balance as of ${future_Date} and click and view balance for ${todaysDate} popup`, function() {
-    cy.visit(`/commodities/7306110000?day=${future_date}&month=${future_month}&year=${year}#quotas`);
+    if (`${future_month}`.includes('0')) {
+      cy.visit(`/commodities/7306110000?day=${future_date}&month=${futureMonth}&year=${year}#quotas`);
+    } else {
+      cy.visit(`/commodities/7306110000?day=${future_date}&month=${future_month}&year=${year}#quotas`);
+    }
     cy.contains('058949').click();
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
     if (`${future_Date}`.includes('0')) {
-      const futureDate = `${future_Date}`.replace(/^0|[^\/]0./, '');
       cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${futureDate})`);
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todays_Date}`);
     } else {
       cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${future_Date})`);
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
     }
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
     // Click View balance for xxxxx - link and verify balance as of xxxxx
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todays_Date})`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    }
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Status');
     cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(3) > .numerical').contains('Open');
@@ -98,7 +126,11 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
   it('Quota Popup - No pending balance in the past date', function() {
     cy.visit('/commodities/7306111000?day=11&month=10&year=2021');
     cy.contains('058039').click();
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todays_Date}`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    }
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
     cy.get('.close [href]').click();
   });
@@ -106,7 +138,11 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.visit('/commodities/0302990040?country=IS#quotas');
     cy.contains('050793').click();
     cy.get('#popup > div > div > article > h2').contains('Quota order number 050793');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todays_Date})`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    }
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('0.000 Kilogram (kg)');
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
@@ -121,7 +157,11 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 090716');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 31 Dec 2020)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todays_Date}`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    }
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Open');
@@ -135,7 +175,11 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 051180');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 1 May 2022)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todays_Date}`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    }
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Open');
@@ -153,7 +197,11 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 096806');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 23 Jan 2020)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todays_Date}`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    }
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Critical');
@@ -174,7 +222,11 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 050027');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 29 Apr 2022)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    if (`${todaysDate}`.includes('0')) {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todays_Date}`);
+    } else {
+      cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
+    }
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Open');

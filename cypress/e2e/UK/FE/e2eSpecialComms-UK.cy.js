@@ -12,9 +12,6 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('#measure-20008997');
     cy.contains('Third country duty');
     cy.contains('0.00 %');
-    cy.get('#measure-20125908');
-    cy.contains('European Union (1013)');
-    cy.contains('0.00 %');
   });
   it(' 🦬 Bison\n- Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Integrated Tariff) Duties are expressed in GBP', function() {
     cy.visit('/commodities/0201100021#import');

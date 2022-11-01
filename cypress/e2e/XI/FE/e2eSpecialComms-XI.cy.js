@@ -72,7 +72,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.contains('Third country duty');
-    cy.get('#measure-3878182 > td.conditions-col.govuk-table__cell')
+    cy.get('#measure-3878183 > td.conditions-col.govuk-table__cell > a')
         .contains('Conditions')
         .click();
     cy.contains('Third country duty for All countries');
