@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
-const dayjs = require('dayjs');
+import dayjs from 'dayjs';
+import helpers from '../../lib/helpers'
 
 describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
   const currentDate = dayjs().format('DD MMM YYYY');
@@ -102,7 +103,8 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.close [href]').click();
   });
   it('Quota Popup - No pending balance in the past date', function() {
-    cy.visit('/commodities/7306111000?day=11&month=10&year=2021');
+    const oct11 = dayjs('2021-10-11')
+    cy.visit(`/commodities/7306111000?${helpers.dateToUrl(oct11)}`);
     cy.contains('058039').click();
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
