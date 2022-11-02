@@ -235,19 +235,14 @@ Cypress.Commands.add('code999L', ()=>{
   cy.get('.info-content').contains('This waiver cannot be used for goods that are imported/exported or moved to/from Northern Ireland.');
 });
 
-Cypress.Commands.add('certificateGuidance', ()=>{
-  cy.contains('Using this certificate on CDS or CHIEF').click();
-  cy.contains('CDS guidance:');
-  cy.contains('CHIEF guidance:');
-  cy.contains('Commodity codes that require this certificate').click();
+Cypress.Commands.add('commodityImportGuidance', ()=>{
+  cy.get('#import-measure-references').should('contain', 'CDS guidance');
+  cy.get('#import-measure-references').should('not.contain', 'CHIEF guidance');
 });
 
-Cypress.Commands.add('commodityGuidance', ()=>{
-  cy.get('.info-inner').contains('Guidance for completing Box 44 or Data Element 2/3').click();
-  cy.contains('CDS guidance');
-  cy.contains('CHIEF guidance');
-  cy.get('.info-inner').contains('document status codes: ');
-  cy.get('.info-inner').contains(' status codes');
+Cypress.Commands.add('commodityExportGuidance', ()=>{
+  cy.get('#export-measure-references').should('contain', 'CDS guidance');
+  cy.get('#export-measure-references').should('contain', 'CHIEF guidance');
 });
 // Validate API Document page
 Cypress.Commands.add('apiDocPage', ()=>{
