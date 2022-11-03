@@ -43,14 +43,14 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
   });
   it('XI EPS - Entry Price System on Cherry tomatoes', function() {
     cy.visit('/xi/commodities/0702000007');
-    cy.get('#measure-3878182 > td.conditions-col.govuk-table__cell > a').contains('Conditions').click();
+    cy.get('#measure-3878183').contains('Conditions').click();
     cy.get('.info-content').contains('Third country duty for All countries');
     cy.get('.info-content').contains('Threshold condition');
     cy.get('.info-content').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
     cy.get('.info-content').contains('The price of your goods is greater than or equal to');
     cy.get('.info-content').contains('Apply the amount of the action');
     cy.get('.info-content').contains('The price of your goods is greater than or equal to 0.00 EUR / 100 kg');
-    cy.get('.info-content').contains('Apply the amount of the action 14.40 % + 29.80 EUR / 100 kg');
+    cy.get('.info-content').contains('Apply the amount of the action 8.80 % + 29.80 EUR / 100 kg');
     cy.get('.info-content').should('not.contain', '999L');
     cy.get('.info-content').should('not.contain', 'Guidance for completing Box 44 or Data Element 2/3');
   });
