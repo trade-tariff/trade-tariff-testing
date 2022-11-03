@@ -4,18 +4,9 @@ import dayjs from 'dayjs';
 import helpers from '../../lib/helpers'
 
 describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
-  const currentDate = dayjs().format('DD MMM YYYY');
-  const previous_Date = dayjs().subtract(1, 'M').format('DD MMM YYYY');
-  const past_month = dayjs().subtract(0, 'M').month();
-  const past_date = dayjs().subtract(0, 'd').date();
-  const year = dayjs().subtract(0, 'y').year();
-  const future_Date = dayjs().add(7, 'day').format('DD MMM YYYY');
-  const future_date = dayjs().add(7, 'day').date();
-  const future_month = dayjs().add(2, 'M').month();
-  const todaysDate = `${currentDate}`.replace(/^0/, '');
-  const previousDate = `${previous_Date}`.replace(/^0/, '');
-  const futureDate = `${future_Date}`.replace(/^0/, '');
-  const futureMonth = dayjs().add(1, 'M').month();
+  const todaysDate = dayjs().format('D MMM YYYY');
+  const previousDate = dayjs().subtract(1, 'M').format('D MMM YYYY');
+  const futureDate = dayjs().add(7, 'day').format('D MMM YYYY');
 
   it('Quota Popup - Verify change the title to quota order number', function() {
     cy.visit('/commodities/7306110000#quotas');
@@ -58,8 +49,8 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.close [href]').click();
   });
 
-  it(`Quota Popup - Verify balance as of ${previous_Date} and click and view balance for ${todaysDate} popup`, function() {
-    cy.visit(`/commodities/7306110000?day=${past_date}&month=${past_month}&year=${year}#quotas`);
+  it(`Quota Popup - Verify balance as of ${previousDate} and click and view balance for ${todaysDate} popup`, function() {
+    cy.visit(`/commodities/7306110000?${helpers.dateToUrl(previousDate)}#quotas`);
     cy.contains('058041').click();
     cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
@@ -78,12 +69,9 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');
     cy.get('.close [href]').click();
   });
-  it(`Quota Popup - Verify balance as of ${future_Date} and click and view balance for ${todaysDate} popup`, function() {
-    if (`${future_month}`.includes('0')) {
-      cy.visit(`/commodities/7306110000?day=${future_date}&month=${futureMonth}&year=${year}#quotas`);
-    } else {
-      cy.visit(`/commodities/7306110000?day=${future_date}&month=${future_month}&year=${year}#quotas`);
-    }
+
+  it(`Quota Popup - Verify balance as of ${futureDate} and click and view balance for ${todaysDate} popup`, function() {
+    cy.visit(`/commodities/7306110000?${helpers.dateToUrl(futureDate)}#quotas`);
     cy.contains('058949').click();
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${futureDate})`);
@@ -102,9 +90,9 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');
     cy.get('.close [href]').click();
   });
+
   it('Quota Popup - No pending balance in the past date', function() {
-    const oct11 = dayjs('2021-10-11')
-    cy.visit(`/commodities/7306111000?${helpers.dateToUrl(oct11)}`);
+    cy.visit(`/commodities/7306111000?${helpers.dateToUrl('2021-10-11')}`);
     cy.contains('058039').click();
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
     cy.get('#popup > div > div').should('not.contain', 'Pending balance');
