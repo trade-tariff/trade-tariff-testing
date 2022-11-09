@@ -19,7 +19,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.get('form#new_steps_customs_value  .govuk-link').should('have.attr', 'href', 'https://www.gov.uk/government/publications/notice-252-valuation-of-imported-goods-for-customs-purposes-vat-and-trade-statistics');
     // Explore the topic
     cy.get('.govuk-list  .govuk-link').click();
-    cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics');
+    cy.contains('Working out the customs value of your imported goods');
     cy.go('back');
 
     // value in GBP of goods being imported ?
