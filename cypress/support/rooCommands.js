@@ -80,9 +80,9 @@ Cypress.Commands.add('whollyObtained', (country, select)=>{
   cy.get(`#rules-of-origin-steps-wholly-obtained-wholly-obtained-${select}-field`).check();
   cy.get('.govuk-button').contains('Continue').click();
 });
-// Origin requirements met
+// Product-specific rules met
 Cypress.Commands.add('originMet', (country, code, agreement)=>{
-  cy.contains('Origin requirements met');
+  cy.contains('Product-specific rules met');
   cy.contains(`Importing commodity ${code} from ${country}`);
   cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${agreement}.`);
   // links
@@ -163,19 +163,19 @@ Cypress.Commands.add('moreInfoAboutProduct', (code, selection) => {
 // Origin requirement not met - Import
 Cypress.Commands.add('rooReqMet', (tradetype, country, code, scheme)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country} to the UK`);
-  cy.contains('Origin requirements met');
+  cy.contains('Product-specific rules met');
   cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${scheme}.`);
 });
 // Origin requirement not met - Export
 Cypress.Commands.add('rooReqMetEx', (tradetype, country, code, scheme)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country}`);
-  cy.contains('Origin requirements met');
+  cy.contains('Product-specific rules met');
   cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${scheme}.`);
 });
 // Origin not met - Import
 Cypress.Commands.add('rooNotMet', (tradetype, country, code, scheme)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country}`);
-  cy.contains('Rules of Origin not met');
+  cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
   // tolerance link
@@ -206,11 +206,11 @@ Cypress.Commands.add('tolerance', (tradetype, code, country, scheme) => {
   cy.contains(`Tolerances in the ${scheme}`);
   cy.go(-1);
   cy.contains(`${tradetype} commodity ${code} from ${country}`);
-  cy.contains('Rules of Origin not met');
+  cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
 });
 
-// Click cumulation link on Rules of Origin Not Met
+// Click cumulation link on Product-specific rules not met
 Cypress.Commands.add('clkCumulationLnk', () => {
   cy.contains('Cumulation rules');
   cy.contains('Check what cumulation rules apply to the movement of goods under the UK-Japan Comprehensive Economic Partnership Agreement.');
@@ -220,7 +220,7 @@ Cypress.Commands.add('clkCumulationLnk', () => {
 // Origin not met - Import
 Cypress.Commands.add('rooNotMetImp', (tradetype, country, code, scheme)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country}`);
-  cy.contains('Rules of Origin not met');
+  cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
   // tolerance link
@@ -238,7 +238,7 @@ Cypress.Commands.add('rooNotMetImp', (tradetype, country, code, scheme)=>{
 // Origin not met - Export
 Cypress.Commands.add('rooNotMetEx', (tradetype, country1, code, scheme, country2)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country1}`);
-  cy.contains('Rules of Origin not met');
+  cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
   // tolerance link
@@ -263,7 +263,7 @@ Cypress.Commands.add('rooNotMetEx', (tradetype, country1, code, scheme, country2
 // Origin not met GSP
 Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
   cy.contains(`Importing commodity ${code} from ${country}`);
-  cy.contains('Rules of Origin not met');
+  cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
   // tolerance link
@@ -281,7 +281,7 @@ Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
 // Origin not met non GSP-multipleAgreements
 Cypress.Commands.add('rooNotMetMulti', (trade_selection, country, code, scheme)=>{
   cy.contains(`${trade_selection} commodity ${code} from ${country}`);
-  cy.contains('Rules of Origin not met');
+  cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
   // tolerance link

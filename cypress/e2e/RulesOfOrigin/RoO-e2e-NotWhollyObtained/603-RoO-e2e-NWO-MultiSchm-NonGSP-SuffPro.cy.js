@@ -2,7 +2,7 @@
 // NWO + Multi-NonGSP + Sufficient processing + SubDivision + PSR
 //
 describe('| RoO-e2e-NWO-MultiSchm-NonGSP-SuffPro.spec | NWO + Multi-NonGSP + Sufficient processing + SubDivision + PSR  |', function() {
-  it.skip('Importing - NWO + Multi-NonGSP + Sufficient processing  + Vietnam + Prod specific rules - Yes/No', function() {
+  it('Importing - NWO + Multi-NonGSP + Sufficient processing  + Vietnam + Prod specific rules - Yes/No', function() {
     cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
@@ -27,13 +27,14 @@ describe('| RoO-e2e-NWO-MultiSchm-NonGSP-SuffPro.spec | NWO + Multi-NonGSP + Suf
     // sub Division
     cy.subDivision('6004100091', 'Knitted or crocheted fabrics.');
     // product specific rules?
-    cy.prodSpecRules('Spinning of natural or man-made staple fibres or extrusion of manmade filament yarn, in each case accompanied by knitting; knitting accompanied by dyeing or by flocking or by coating; flocking accompanied by dyeing or by printing; dyeing of yarn of natural fibres accompanied by knitting; or twisting or texturing accompanied by knitting provided that the value of the non-twisted/non-textured yarns used does not exceed 47.5% of the ex-works price of the product.3.');
+    cy.prodSpecRules('Spinning of natural or man-made staple fibres or extrusion of manmade filament yarn, in each case accompanied by knitting');
+    // knitting accompanied by dyeing or by flocking or by coating; flocking accompanied by dyeing or by printing; dyeing of yarn of natural fibres accompanied by knitting; or twisting or texturing accompanied by knitting provided that the value of the non-twisted/non-textured yarns used does not exceed 47.5% of the ex-works price of the product.');
     // Origin requirements met
-    cy.rooReqMet('Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');
+    cy.rooReqMet('Importing', 'Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');
     // Validate if product specific rules are not met
     cy.go(-1);
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
-    cy.rooNotMetMulti('Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');
+    cy.rooNotMetMulti('Importing', 'Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');
   });
 });

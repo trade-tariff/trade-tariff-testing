@@ -16,7 +16,7 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     // explore this topic
     cy.contains('Explore the topic');
     cy.contains('Valuation of imported goods for customs purposes, VAT and trade statistics').click();
-    cy.contains('Notice 252: valuation of imported goods for customs purposes, VAT and trade statistics');
+    cy.contains('Working out the customs value of your imported goods');
     cy.go(-1);
     cy.contains('Enter import quantity');
 
