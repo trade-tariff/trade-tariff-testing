@@ -99,6 +99,14 @@ Cypress.Commands.add('originMet', (country, code, agreement)=>{
   cy.get('.govuk-back-link').click();
 });
 
+// proof verification
+Cypress.Commands.add('proofVerification', (country)=>{
+  cy.contains('Obtaining and verifying proofs of origin');
+  cy.contains(`Verification for proving the origin for goods coming from ${country}`);
+  cy.contains('Refer to the full text of the Origin Reference Document').click();
+  cy.get('.downloadable-document__text').contains('Articles 32 and 33 ');
+});
+
 // Duty drawback stage into the RoO journey
 Cypress.Commands.add('dutyDrawback', (country, agreement)=>{
   cy.get('.govuk-list').contains('Find out about duty drawback').click();
@@ -109,6 +117,26 @@ Cypress.Commands.add('dutyDrawback', (country, agreement)=>{
   cy.contains('Duty drawback - an example');
   cy.contains('The provision of duty drawback depends on the specifics of the trade agreement.');
   cy.contains(`Prohibition of drawback of, or exemption from, customs duties according to the ${agreement}`);
+  cy.get('.govuk-back-link').click();
+});
+
+// Direct Transport rule validation
+Cypress.Commands.add('directTransport', (agreement)=>{
+  cy.get('.govuk-list').contains('Find out about the direct transport rule').click();
+  cy.contains('Obtaining and verifying proofs of origin');
+  cy.contains(`Direct transport rule for ${agreement}`);
+  cy.contains('The purpose of the direct transport rule is to ensure that the goods arriving in the country of import are the same as those which left the country of export without alteration.');
+  cy.contains('Refer to the full text of the Origin Reference Document');
+  cy.get('.govuk-back-link').click();
+});
+
+// Direct Transport rule validation
+Cypress.Commands.add('nonAlteration', (country)=>{
+  cy.get('.govuk-list').contains('Find out about the non-alteration rule').click();
+  cy.contains('Obtaining and verifying proofs of origin');
+  cy.contains(`Non-alteration rule for trade with ${country}`);
+  cy.contains('The purpose of the non-alteration rule is to ensure that the goods arriving in the country of import are the same as those which left the country of export without alteration.');
+  cy.contains('Refer to the full text of the Origin Reference Document');
   cy.get('.govuk-back-link').click();
 });
 
@@ -147,6 +175,25 @@ Cypress.Commands.add('minimalOps', (scheme, selection)=>{
   cy.contains(`'Insufficient processing' operations according to the ${scheme}`);
   cy.contains('Have non-originating parts been subject to sufficient processing to qualify for preferential treatment?');
   cy.get(`#rules-of-origin-steps-sufficient-processing-sufficient-processing-${selection}-field`).check();
+  cy.get('.govuk-button').contains('Continue').click();
+});
+
+// product-specific rules
+Cypress.Commands.add('prodSpecificRules', (rule)=>{
+  cy.contains('Do your goods meet the product-specific rules?');
+  cy.contains('Your goods must meet one of these rules in order to qualify for originating status. Select an option to indicate if you meet the rule.');
+  cy.contains('CC except from chapter 2.');
+  cy.get('div.govuk-radios > div:nth-child(1) > label > p > a').should('have.attr', 'href', '/chapters/02');
+  cy.contains('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MaxNOM).');
+  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a').should('have.attr', 'href', '/glossary/exw');
+  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a:nth-child(3)').should('have.attr', 'href', '/glossary/max_nom');
+  cy.contains('Your goods contain a Regional Value Content (RVC) of at least 45% of the Free on Board (FOB) cost of the goods.');
+  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a').should('have.attr', 'href', '/glossary/rvc');
+  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a:nth-child(3)').should('have.attr', 'href', '/glossary/fob');
+  cy.contains('Your goods do not meet any of these rules.');
+  cy.contains('Introductory notes to the product-specific rules');
+  cy.contains('About this commodity code');
+  cy.contains(`${rule}`).click();
   cy.get('.govuk-button').contains('Continue').click();
 });
 
@@ -280,7 +327,11 @@ Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
 });
 // Origin not met non GSP-multipleAgreements
 Cypress.Commands.add('rooNotMetMulti', (trade_selection, country, code, scheme)=>{
-  cy.contains(`${trade_selection} commodity ${code} from ${country}`);
+  if (`${trade_selection}` === 'Exporting') {
+    cy.contains(`${trade_selection} commodity ${code} from the UK to ${country}`);
+  } else {
+    cy.contains(`${trade_selection} commodity ${code} from ${country}`);
+  }
   cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
   cy.contains('Based on your answers, it is likely that your product does not class as ‘originating’ and cannot benefit from preferential tariff treatment under the agreement.');
