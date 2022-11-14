@@ -18,7 +18,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Japan');
     // cumulation
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '5808100000', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
     // Origin requirements met
     cy.rooNotMet('Importing', 'Japan', '5808100000', 'UK-Japan Comprehensive Economic Partnership Agreement');
@@ -40,7 +40,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     // Your goods are not wholly obtained
     cy.notWhollyObtained('the UK');
     // cumulation
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '5808100000', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
     // Origin requirements met
     cy.rooNotMetEx('Exporting', 'the UK', '5808100000', 'UK-Japan Comprehensive Economic Partnership Agreement', 'Japan');
@@ -62,7 +62,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Japan');
     // cumulation
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '5808100000', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
     // Origin requirements not met
     cy.rooNotMetImp('Importing', 'Japan', '5808100000', 'UK-Japan Comprehensive Economic Partnership Agreement');
@@ -71,7 +71,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     cy.tolerance('Importing', '5808100000', 'Japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // Verify cumulation page
     cy.clkCumulationLnk();
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '5808100000', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
   });
   it('Importing - NWO + One Scheme + Insufficient processing + without cumulation block - Japan', function() {
     cy.visit('/commodities/0101291000?country=JP#rules-of-origin');
@@ -112,13 +112,13 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Japan');
     // cumulation
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
     // Origin requirements not met
     cy.rooNotMetImp('Importing', 'Japan', '1602321110', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.go(-1);
     // with cumulation block
     cy.clkCumulationLnk();
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
   });
 });

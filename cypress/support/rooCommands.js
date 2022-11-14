@@ -158,13 +158,15 @@ Cypress.Commands.add('notWhollyObtained', (country)=>{
   cy.get('.govuk-button').contains('Continue').click();
 });
 // including parts
-Cypress.Commands.add('cumulation', (country, scheme)=>{
+Cypress.Commands.add('cumulation', (country, code, country_short_name, scheme)=>{
   cy.contains('Are your goods originating?');
   cy.contains('Including parts or components from other countries');
   cy.contains('In order to qualify for preferential treatment, you may be able to include parts that come from other countries. This depends on the cumulation rules of the trade agreement, which are described below.');
   cy.contains(`Methods of cumulation in the ${scheme}`);
   cy.contains(`Map showing countries where cumulation may apply to the ${scheme}`);
   cy.get('form#edit_rules_of_origin_steps_cumulation_cumulation  a[target=\'_blank\']').should('have.attr', 'href', `/cumulation_maps/${country}.png`);
+  cy.contains('Bilateral cumulation - an example').click();
+  cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${country_short_name}/sufficient_processing`);
   cy.get('.govuk-button').contains('Continue').click();
 });
 // form#edit_rules_of_origin_steps_cumulation_cumulation > img

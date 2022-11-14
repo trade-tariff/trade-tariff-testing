@@ -18,7 +18,7 @@ describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Japan');
     // cumulation
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
     // product specific rules
     cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MaxNOM).');
@@ -42,7 +42,7 @@ describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Iceland');
     // cumulation
-    cy.cumulation('iceland-norway', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.cumulation('iceland-norway', '6101201000', 'IS', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
     // moreInfoAboutProduct
     cy.moreInfoAboutProduct('6101201000', 'Articles of apparel and clothing accessories, knitted or crocheted: ➔ Other');
