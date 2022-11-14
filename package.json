@@ -17,7 +17,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "allure-commandline": "^2.18.1",
+    "allure-commandline": "^2.20.1",
     "cypress": "10.11.0",
     "cypress-dark": "^1.7.14",
     "cypress-file-upload": "^5.0.8",
