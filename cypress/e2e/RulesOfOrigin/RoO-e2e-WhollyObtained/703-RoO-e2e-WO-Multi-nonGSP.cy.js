@@ -19,7 +19,7 @@ describe('| RoO-e2e-WO-Multiple-nonGSP.spec | WO + Multiple Schemes + nonGSP - V
     // Origin requirements met
     cy.originMet('Vietnam', '0201100021', 'UK-Vietnam Free Trade Agreement');
   });
-  it.skip('Export - WO + Multiple Schemes + GSP - Vietnam', function() {
+  it('Export - WO + Multiple Schemes + GSP - Vietnam', function() {
     cy.visit('/commodities/0201100021?country=VN#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
@@ -34,8 +34,19 @@ describe('| RoO-e2e-WO-Multiple-nonGSP.spec | WO + Multiple Schemes + nonGSP - V
     // what components
     cy.whatComponents('UK-Vietnam Free Trade Agreement');
     // Wholly Obtained ?
-    cy.whollyObtained('Vietnam', 'yes');
+    cy.whollyObtained('the UK', 'yes');
     // Origin requirements met
-    cy.originMet('Vietnam', '0201100021', 'UK-Vietnam Free Trade Agreement');
+    cy.rooReqMetEx('Exporting', 'the UK', '0201100021', 'UK-Vietnam Free Trade Agreement');
+    cy.get('.govuk-list').contains('See valid proofs of origin').click();
+    cy.contains('Valid proofs of origin');
+    cy.get('.govuk-back-link').click();
+
+    cy.get('.govuk-list').contains('See detailed processes and requirements for proving the origin for goods').click();
+    cy.contains('Obtaining and verifying proofs of origin');
+    cy.get('.govuk-back-link').click();
+
+    cy.get('.govuk-list').contains('How proofs of origin are verified').click();
+    cy.contains('Obtaining and verifying proofs of origin');
+    cy.get('.govuk-back-link').click();
   });
 });

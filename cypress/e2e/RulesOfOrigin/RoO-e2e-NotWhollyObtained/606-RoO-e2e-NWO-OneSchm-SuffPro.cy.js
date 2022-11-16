@@ -19,7 +19,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Japan');
     // cumulation
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
     // product specific rules?
@@ -49,7 +49,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Your goods are not wholly obtained
     cy.notWhollyObtained('the UK');
     // cumulation
-    cy.cumulation('japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
     // product specific rules?
@@ -79,7 +79,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Egypt');
     // cumulation
-    cy.cumulation('egypt', 'UK-Egypt Association Agreement');
+    cy.cumulation('egypt', '1301200000', 'EG', 'UK-Egypt Association Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Egypt Association Agreement', 'yes');
     // Provide more information about your product
@@ -111,7 +111,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Egypt');
     // cumulation
-    cy.cumulation('egypt', 'UK-Egypt Association Agreement');
+    cy.cumulation('egypt', '0502100000', 'EG', 'UK-Egypt Association Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Egypt Association Agreement', 'yes');
     // Provide more information about your product

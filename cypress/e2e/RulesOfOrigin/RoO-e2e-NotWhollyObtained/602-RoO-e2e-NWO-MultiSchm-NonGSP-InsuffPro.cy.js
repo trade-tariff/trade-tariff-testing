@@ -3,11 +3,11 @@
 /* eslint-disable max-len */
 // NWO + Multi-NonGSP + Insufficient processing = RoO Not met
 //
-describe.skip('| 602-RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-NonGSP + Insufficient processing |', function() {
+describe('| 602-RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-NonGSP + Insufficient processing |', function() {
   const trade_type = ['import', 'export'];
   const trade_country = ['Vietnam', 'United Kingdom'];
   const trade_country2 = ['Vietnam', 'the UK'];
-  const trade_selection = ['Vietnam', 'UK'];
+  const trade_selection = ['Vietnam', 'the UK'];
   for ( let i=0; i<trade_type.length; i++) {
     it(`${trade_type[i]} - NWO + Multi-NonGSP + Insufficient processing  + Vietnam`, function() {
       cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
@@ -28,11 +28,12 @@ describe.skip('| 602-RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-N
       // Your goods are not wholly obtained
       cy.notWhollyObtained(`${trade_selection[i]}`);
       // cumulation
-      cy.cumulation('vietnam', 'UK-Vietnam Free Trade Agreement');
+      cy.cumulation('vietnam', '6004100091', 'VN', 'UK-Vietnam Free Trade Agreement');
       // min Operations met ?
       cy.minimalOps('UK-Vietnam Free Trade Agreement', 'no');
       // Origin requirements NOT met
-      cy.rooNotMetMulti('Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');
+      const trade_type_str = `${trade_type[i]}`[0].toUpperCase() + `${trade_type[i]}`.slice(1) + 'ing';
+      cy.rooNotMetMulti(`${trade_type_str}`, 'Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');
     });
   }
 });
