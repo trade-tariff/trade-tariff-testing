@@ -38,7 +38,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   it('Search result returns results for synonyms', function() {
     cy.visit('/find_commodity');
     cy.searchForCommodity('tripe');
-    cy.get('table').find('tr').find('td').contains('MEAT AND EDIBLE MEAT OFFAL');
+    cy.get('.search-results').contains('Meat and edible meat offal');
   });
 
   it('Search redirects for search heading `0101`', function() {
