@@ -22,6 +22,7 @@ Cypress.Commands.add('doesNotHaveMeasureType', (response, expectedId) => {
 
   expect(matchingMeasureTypes).to.be.empty;
 });
+
 Cypress.Commands.add('hasLegalActs', (response, expectedId, expectedDescription) => {
   const matchingMeasureType = response.body.included.filter(function(resource) {
     return (resource.type === 'legal_act' && resource.id === expectedId);
@@ -29,4 +30,22 @@ Cypress.Commands.add('hasLegalActs', (response, expectedId, expectedDescription)
   expect(response.status).to.eq(200);
   expect(response.body).not.to.be.null;
   expect(matchingMeasureType.attributes.regulation_url).to.eq(expectedDescription);
+});
+
+Cypress.Commands.add('measures', (response, id, type, role, justId, justType) => {
+  expect(response.status).to.eq(200);
+  expect(response.body).not.to.be.null;
+  expect(response.body.data.relationships.legal_acts.data[0].id).to.eq(id);
+  expect(response.body.data.relationships.legal_acts.data[0].type).to.eq(type);
+  expect(response.body.data.relationships.measure_generating_legal_act.data.id).to.eq(id);
+  expect(response.body.data.relationships.measure_generating_legal_act.data.type).to.eq(type);
+  if (`${justId}` === 'null' || `${justType}` === 'null') {
+    expect(response.body.data.relationships.justification_legal_act.data).to.be.null;
+  } else {
+    expect(response.body.data.relationships.relationships.justification_legal_act.data.id).to.eq(justId);
+    expect(response.body.data.relationships.relationships.justification_legal_act.data.type).to.eq(justType);
+  }
+  expect(response.body.included[2].id).to.eq(id);
+  expect(response.body.included[2].type).to.eq(type);
+  expect(response.body.included[2].attributes.role).to.eq(role);
 });
