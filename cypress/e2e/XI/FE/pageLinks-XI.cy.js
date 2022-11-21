@@ -129,10 +129,10 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
   });
 
   // OGL link
-  it.skip('XI - Open Government Licence v3.0', function() {
+  it('XI - Open Government Licence v3.0', function() {
     cy.visit('/xi/sections');
-    cy.get('.govuk-footer__meta.govuk-footer__row');
-    cy.contains('Open Government Licence v3.0');
+    cy.get('span > .govuk-footer__link')
+        .contains('Open Government Licence v3.0');
     cy.get('span > .govuk-footer__link').should('have.attr', 'href', 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/');
   });
 
@@ -152,5 +152,12 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     cy.contains('Use the A-Z of classified goods').click();
     cy.contains('Northern Ireland Online Tariff');
     cy.contains('A–Z of Classified Goods');
+  });
+
+  it('XI - Country parameter lower case validation', function() {
+    cy.visit('/xi/commodities/9403903090?country=am&day=31&month=12&year=2021');
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('Commodity 9403903090');
+    cy.contains('Importing into Northern Ireland');
   });
 });
