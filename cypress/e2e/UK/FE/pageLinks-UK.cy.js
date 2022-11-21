@@ -149,7 +149,7 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.contains('A–Z of Classified Goods');
   });
 
-  it('UK - Country parameter lowcase validation', function() {
+  it('UK - Country parameter lower case validation', function() {
     cy.visit('/commodities/9403903090?country=am&day=31&month=12&year=2021');
     cy.contains('UK Integrated Online Tariff');
     cy.contains('Commodity 9403903090');

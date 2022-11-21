@@ -154,7 +154,7 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     cy.contains('A–Z of Classified Goods');
   });
 
-  it('XI - Country parameter lowcase validation', function() {
+  it('XI - Country parameter lower case validation', function() {
     cy.visit('/xi/commodities/9403903090?country=am&day=31&month=12&year=2021');
     cy.contains('Northern Ireland Online Tariff');
     cy.contains('Commodity 9403903090');
