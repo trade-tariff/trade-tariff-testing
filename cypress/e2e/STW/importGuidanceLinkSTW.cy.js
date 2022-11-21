@@ -34,14 +34,14 @@ describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |'
   });
   it('| UK Service - STW content on heading which is also a commodity import page |', function() {
     cy.visit('/commodities/8804000000#import');
-    cy.contains('To check how to import commodity 8804000000, select the country from which you are importing.');
+    // cy.contains('To check how to import commodity 8804000000, select the country from which you are importing.');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
     cy.datePickerPage({day: 11, month: 11, year: 2022});
 
     cy.contains('11 November 2022');
     // check import tab
     cy.get('a#tab_import').click();
-    cy.contains('To check how to import commodity 8804000000, select the country from which you are importing.');
+    // cy.contains('To check how to import commodity 8804000000, select the country from which you are importing.');
     cy.get('input#trading_partner_country').click().clear().wait(500)
         .type('Iraq')
         .type('{enter}');
