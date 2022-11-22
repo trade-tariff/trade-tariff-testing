@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
-describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfic Rules |', function() {
+describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfic Rules |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + One Scheme + Insufficient processing + product specific rules - Japan', function() {
     cy.visit('/commodities/1602321110?country=JP#rules-of-origin');
     // click Check Rules of Origin button

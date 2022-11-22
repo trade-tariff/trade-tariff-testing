@@ -3,7 +3,7 @@
 /* eslint-disable max-len */
 // NWO + Multi-NonGSP + Insufficient processing = RoO Not met
 //
-describe('| 602-RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-NonGSP + Insufficient processing |', function() {
+describe('| 602-RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-NonGSP + Insufficient processing |', {tags: ['notProduction']}, function() {
   const trade_type = ['import', 'export'];
   const trade_country = ['Vietnam', 'United Kingdom'];
   const trade_country2 = ['Vietnam', 'the UK'];

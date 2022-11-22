@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // NWO-One Scheme_Insufficient processing
 // WO - one scheme
-describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient processing +  |', function() {
+describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient processing |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + One Scheme + Sufficient processing + Japan + Prod specific rules - Yes/No', function() {
     cy.visit('/commodities/6004100091?country=JP#rules-of-origin');
     // click Check Rules of Origin button

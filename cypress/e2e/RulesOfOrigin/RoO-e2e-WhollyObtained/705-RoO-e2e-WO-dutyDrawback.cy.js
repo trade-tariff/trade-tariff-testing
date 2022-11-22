@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
 // WO + Duty Drawback
-describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', function() {
+describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', {tags: ['notProduction']}, function() {
   it('Import - WO + Duty Drawback - Chile', function() {
     cy.visit('/commodities/0701909090?country=CL#rules-of-origin');
     // click Check Rules of Origin button

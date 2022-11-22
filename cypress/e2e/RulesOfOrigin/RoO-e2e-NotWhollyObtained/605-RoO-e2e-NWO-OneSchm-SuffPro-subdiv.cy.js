@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 // NWO-One Scheme_Insufficient processing
 // WO - one scheme
-describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Sufficient processing +  |', function() {
+describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Sufficient processing |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + One Scheme + Sufficient processing + Botswana + Subdivision + Prod specific rules - Yes/No', function() {
     cy.visit('/commodities/5208121620?country=BW#rules-of-origin');
     // click Check Rules of Origin button

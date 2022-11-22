@@ -1,5 +1,5 @@
 // WO + GSP Scheme - Bangladesh
-describe('| RoO-e2e-WhollyObtained-GSP.spec | WO + GSP Scheme - Bangladesh |', function() {
+describe('| RoO-e2e-WhollyObtained-GSP.spec | WO + GSP Scheme - Bangladesh |', {tags: ['notProduction']}, function() {
   it('Import - WO + GSP Scheme - Bangladesh', function() {
     cy.visit('/commodities/0201100021?country=BD#rules-of-origin');
     // click Check Rules of Origin button
