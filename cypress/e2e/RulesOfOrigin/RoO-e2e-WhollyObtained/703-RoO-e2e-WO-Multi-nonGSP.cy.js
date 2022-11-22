@@ -1,5 +1,5 @@
 // WO - Multiple schemes - nonGSP
-describe('| RoO-e2e-WO-Multiple-nonGSP.spec | WO + Multiple Schemes + nonGSP - Vietnam |', function() {
+describe('| RoO-e2e-WO-Multiple-nonGSP.spec | WO + Multiple Schemes + nonGSP - Vietnam |', {tags: ['notProduction']}, function() {
   it('Import - WO + Multiple Schemes + GSP - Vietnam', function() {
     cy.visit('/commodities/0201100021?country=VN#rules-of-origin');
     // click Check Rules of Origin button

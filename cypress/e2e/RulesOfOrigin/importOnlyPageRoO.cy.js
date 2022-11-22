@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', function() {
+describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', {tags: ['notProduction']}, function() {
   it('UK - Page validations - Afghanistan - Import only page', function() {
     cy.visit('/commodities/6004100091?country=AF#rules-of-origin');
     cy.contains('Work out if your goods meet the rules of origin');

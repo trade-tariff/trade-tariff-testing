@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
-describe('| RoO-e2e-WhollyObtained-DirectTransport.spec | WO + Direct Transport |', function() {
+describe('| RoO-e2e-WhollyObtained-DirectTransport.spec | WO + Direct Transport |', {tags: ['notProduction']}, function() {
   it('Import - WO + Direct Transport - Chile', function() {
     cy.visit('/commodities/0701909090?country=CL#rules-of-origin');
     // click Check Rules of Origin button

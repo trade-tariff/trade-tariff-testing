@@ -1,6 +1,6 @@
 // NWO- GSP Scheme_Insufficient processing
 // ONLY IMPORT JOURNEY
-describe('| 601-RoO-e2e-NWO-GSP-InsuffProcess.spec | NWO + GSP Scheme + insufficient processing |', function() {
+describe('| 601-RoO-e2e-NWO-GSP-InsuffProcess.spec | NWO + GSP Scheme + insufficient processing |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + GSP Scheme + insufficient processing - Bangladesh + PSR', function() {
     cy.visit('/commodities/5808100000?country=BD#rules-of-origin');
     cy.checkRoO();
