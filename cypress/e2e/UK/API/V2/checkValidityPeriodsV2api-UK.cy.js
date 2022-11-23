@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates for APIs', {tags: ['notDevelopment, notProduction']}, function() {
+describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates', {tags: ['notDevelopment', 'notProduction']}, function() {
   it('UK - Sections API - Verify validity start and end dates for chapters', function() {
     cy.request('/api/v2/sections/01')
         .then((response) => {
