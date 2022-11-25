@@ -173,4 +173,19 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Argentina.');
     cy.get('#import > div.govuk-inset-text.govuk-inset-text--s.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/import/check-licences-certificates-and-other-restrictions?commodity=0702000007&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=10&importDateMonth=12&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AR&tradeType=import&userTypeTrader=true');
   });
+  it('UK - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
+    cy.visit('/help/rules_of_origin/duty_drawback');
+    cy.contains('UK Integrated Online Tariff');
+    cy.contains('Guide to rules of origin');
+    cy.contains('Duty drawback');
+    cy.contains('What is duty drawback');
+    cy.contains('Duty drawback - an example');
+    cy.contains('Agreements which include a duty drawback provision');
+    cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(1)').contains('UK-Albania Partnership, Trade and Cooperation Agreement');
+    cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2) > ul > li > a').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement');
+    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1)').contains('Rules of origin glossary');
+    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
+    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');
+    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2) > a').should('have.attr', 'href', '/help/rules_of_origin/duty_drawback');
+  });
 });

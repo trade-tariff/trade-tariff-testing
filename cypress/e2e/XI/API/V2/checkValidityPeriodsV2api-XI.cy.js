@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates', {tags: ['notDevelopment', 'notProduction']}, function() {
-  it('UK - Sections API - Verify validity start and end dates for chapters', function() {
-    cy.request('/api/v2/sections/01')
+describe('🇬🇧 checkValidityPeriodsV2api-XI| Validaity start and end dates', {tags: ['notDevelopment', 'notProduction']}, function() {
+  it('XI - Sections API - Verify validity start and end dates for chapters', function() {
+    cy.request('/xi/api/v2/sections/01')
         .then((response) => {
           cy.validJsonAPIresponse(response);
           // sections
@@ -17,8 +17,8 @@ describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates',
         });
   });
 
-  it('UK - Chapters API - Verify validity start and end dates for chapters', function() {
-    cy.request('/api/v2/chapters/01')
+  it('XI - Chapters API - Verify validity start and end dates for chapters', function() {
+    cy.request('/xi/api/v2/chapters/01')
         .then((response) => {
           cy.validJsonAPIresponse(response);
           // chapters
@@ -37,8 +37,8 @@ describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates',
         });
   });
 
-  it('UK - Headings API - Verify validity start and end dates for headings and chapters', function() {
-    cy.request('/api/v2/headings/0102')
+  it('XI - Headings API - Verify validity start and end dates for headings and chapters', function() {
+    cy.request('/xi/api/v2/headings/0102')
         .then((response) => {
           cy.validJsonAPIresponse(response);
           // headings
@@ -59,8 +59,8 @@ describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates',
         });
   });
 
-  it('UK - Subheadings API - Verify validity start and end dates for subheadings, heading, chapters and verify verbose_duty', function() {
-    cy.request('/api/v2/subheadings/0102291000-80')
+  it('XI - Subheadings API - Verify validity start and end dates for subheadings, heading, chapters and verify verbose_duty', function() {
+    cy.request('/xi/api/v2/subheadings/0102291000-80')
         .then((response) => {
           cy.validJsonAPIresponse(response);
           expect(response.body.data.id).to.be.eq('94057');
@@ -87,22 +87,22 @@ describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates',
           expect(response.body.included[3].type).to.be.eq('duty_expression');
           expect(response.body.included[3].attributes.verbose_duty).to.be.eq('Items (p/st)');
           // commodity
-          expect(response.body.included[9].id).to.be.eq('94053');
-          expect(response.body.included[9].type).to.be.eq('commodity');
-          expect(response.body.included[9].attributes.validity_start_date).to.be.eq('2012-01-01T00:00:00.000Z');
-          expect(response.body.included[9].attributes.validity_end_date).to.be.null;
+          expect(response.body.included[6].id).to.be.eq('94053');
+          expect(response.body.included[6].type).to.be.eq('commodity');
+          expect(response.body.included[6].attributes.validity_start_date).to.be.eq('2012-01-01T00:00:00.000Z');
+          expect(response.body.included[6].attributes.validity_end_date).to.be.null;
         });
   });
 
   // Verbose duty attribute check for commodities
-  it('UK - Verify verbose duty expression for commodity', function() {
-    const verbose_duty = '£0.30 / 100 kg per % of sucrose by weight, including other sugars expressed as sucrose (%sacchar.)';
-    cy.request('/api/v2/commodities/1702201010')
+  it('XI - Verify verbose duty expression for commodity', function() {
+    const verbose_duty = '€0.40 / 100 kg per % of sucrose by weight, including other sugars expressed as sucrose (%sacchar.)';
+    cy.request('/xi/api/v2/commodities/1702201010')
         .then((response) => {
           cy.validJsonAPIresponse(response);
-          expect(response.body.included[4].id).to.be.eq('20001843-duty_expression');
-          expect(response.body.included[4].type).to.be.eq('duty_expression');
-          expect(response.body.included[4].attributes.verbose_duty).to.be.eq(`${verbose_duty}`);
+          expect(response.body.included[18].id).to.be.eq('2051521-duty_expression');
+          expect(response.body.included[18].type).to.be.eq('duty_expression');
+          expect(response.body.included[18].attributes.verbose_duty).to.be.eq(`${verbose_duty}`);
         });
   });
 });
