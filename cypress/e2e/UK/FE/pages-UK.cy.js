@@ -173,7 +173,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Argentina.');
     cy.get('#import > div.govuk-inset-text.govuk-inset-text--s.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/import/check-licences-certificates-and-other-restrictions?commodity=0702000007&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=10&importDateMonth=12&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AR&tradeType=import&userTypeTrader=true');
   });
-  it.only('UK - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
+  it('UK - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
     cy.visit('/help/rules_of_origin/duty_drawback');
     cy.contains('UK Integrated Online Tariff');
     cy.contains('Guide to rules of origin');
