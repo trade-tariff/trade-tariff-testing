@@ -5,7 +5,7 @@ describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
     it(`${country[i]} Multiple excise rates, single VAT rate`, function() {
       cy.visit(`${country[i]}/commodities/2203000100`);
       cy.get('h3#vat_excise').contains('Import VAT and excise');
-      cy.get('.calculator-panel.vat-excise-panel').contains('Goods are subject to an import VAT rate of 20.00 %');
+      cy.get('.calculator-panel.vat-excise-panel').contains('Goods are subject to an import VAT rate of 20.00%');
       cy.contains('Excise duties apply to the import of commodity 2203000100.');
       cy.get('.calculator-panel.vat-excise-panel').contains('Excise duties').click();
       cy.contains('UK Trade Tariff: excise duties, reliefs, drawbacks and allowances');
