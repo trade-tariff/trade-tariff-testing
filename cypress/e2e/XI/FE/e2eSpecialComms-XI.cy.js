@@ -11,7 +11,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         .contains('Northern Ireland Online Tariff');
     cy.get('.103');
     cy.contains('Third country duty');
-    cy.contains('2.70 %');
+    cy.contains('2.70%');
     cy.get('#measure-3632528');
     cy.contains('European Economic Area (2012)');
     cy.contains('0.00 %');
@@ -28,7 +28,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2049567');
     cy.contains('Third country duty');
-    cy.contains('12.80 % + 176.80 EUR / 100 kg');
+    cy.contains('12.80% + €176.80 / 100 kg');
   });
   it('  🔊 Amplifiers\n also has a supplementary unit measure of p/st', function() {
     cy.visit('/xi/commodities/8518400010#import');
@@ -58,7 +58,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
         .contains('Northern Ireland Online Tariff');
     cy.get('#measure-2772110');
     cy.contains('Third country duty');
-    cy.contains('9.00 % + EA MAX 24.20 % +ADSZ');
+    cy.contains('9.00% + EA MAX 24.20% +ADSZ');
   });
 
   it('🍅 Cherry Tomatoes \n EPS + Check that there is no directly assigned third country duty\n' +
@@ -134,6 +134,6 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.get('.govuk-header__content')
         .contains('Northern Ireland Online Tariff');
     cy.contains('Third country duty');
-    cy.contains('1.30 EUR / % vol/hl MIN 7.20 EUR / hl');
+    cy.contains('€1.30 / percentage ABV (% vol) per 100 litre (hl) MIN €7.20 / 100 litre (hl)');
   });
 });

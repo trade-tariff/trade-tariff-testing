@@ -23,7 +23,7 @@ describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  fro
     // Third country duty  measure has value 154.00 GBP / 100 kg', function () {
     cy.visit('/commodities/0406103010?country=CL#import');
     cy.get('.small-table.measures.govuk-table')
-        .contains('154.00 GBP / 100 kg');
+        .contains('£154.00 / 100 kg');
 
     // hott-189 - expand further with otehr commodities and order numbers
     // Preferential tariff quota order No:051924 is visible', function () {
