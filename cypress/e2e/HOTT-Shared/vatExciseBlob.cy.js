@@ -13,7 +13,7 @@ describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
     it(`${country[i]} Multiple VAT rates - 2, but no excise`, function() {
       cy.visit(`${country[i]}/commodities/6101201000`);
       cy.get('h3#vat_excise').contains('Import VAT and excise');
-      cy.get('.calculator-panel.vat-excise-panel').contains('An import VAT rate of 20.00 % or 0.00 % may apply if certain conditions are met.');
+      cy.get('.calculator-panel.vat-excise-panel').contains('An import VAT rate of 20.00% or 0.00% may apply if certain conditions are met.');
       cy.contains('Read more about VAT rates on different goods and services and the conditions that apply to these rates.');
       cy.contains('Excise duties are not chargeable on this commodity.');
       cy.get('.calculator-panel.vat-excise-panel').contains('Excise duties').click();
@@ -23,7 +23,7 @@ describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
     it(`${country[i]} Multiple VAT rates - 3, but no excise`, function() {
       cy.visit(`${country[i]}/commodities/8716109800`);
       cy.get('h3#vat_excise').contains('Import VAT and excise');
-      cy.get('.calculator-panel.vat-excise-panel').contains('An import VAT rate of 20.00 %, 5.00 % or 0.00 % may apply if certain conditions are met.');
+      cy.get('.calculator-panel.vat-excise-panel').contains('An import VAT rate of 20.00%, 5.00% or 0.00% may apply if certain conditions are met.');
       cy.contains('Read more about VAT rates on different goods and services and the conditions that apply to these rates.');
       cy.get('.calculator-panel.vat-excise-panel').contains('VAT rates on different goods and services').click();
       cy.contains('VAT rates on different goods and services');

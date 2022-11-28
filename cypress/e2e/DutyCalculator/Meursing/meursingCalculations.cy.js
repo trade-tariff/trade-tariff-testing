@@ -27,11 +27,11 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Costa Rica (CR)').click();
     cy.get('a#tab_import').click();
-    cy.get('#measure-2772105').contains('7.60 % + EA');
+    cy.get('#measure-2772105').contains('7.60% + EA');
     //  cy.get('#measure-3803683').contains('0.00 % + EAR');
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').click().clear().type('507');
     cy.get('form#new_meursing_lookup_result > .govuk-button').click();
-    cy.get('#measure-2772105').contains('7.60 % + 99.88 EUR / 100 kg');
+    cy.get('#measure-2772105').contains('7.60% + 99.88 EUR / 100 kg');
     // 7.60 % + 99.88 EUR/100kg
     // cy.get('#measure-3803683').contains('0.00 % + 9.90 EUR / 100 kg');
     // 0 % + 9.90 EUR/100kg
@@ -64,8 +64,8 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Norway (NO)').click();
     cy.get('a#tab_import').click();
-    cy.get('#measure-2544964').contains('9.00 % + EA MAX 20.70 % +ADFM');
-    cy.get('#measure-2972782').contains('0.00 % + EAR MAX 20.70 % +ADFMR');
+    cy.get('#measure-2544964').contains('9.00% + EA MAX 20.70 % +ADFM');
+    cy.get('#measure-2972782').contains('0.00% + EAR MAX 20.70 % +ADFMR');
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').click().clear().type('476');
     cy.get('form#new_meursing_lookup_result > .govuk-button').click();
     cy.get('#measure-2544964').contains('9.00 % + 117.11 EUR / 100 kg MAX 20.70 % + 13.99 EUR / 100 kg');

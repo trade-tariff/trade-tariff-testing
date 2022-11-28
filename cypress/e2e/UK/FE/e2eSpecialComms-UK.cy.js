@@ -11,7 +11,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         .contains('UK Integrated Online Tariff');
     cy.get('#measure-20008997');
     cy.contains('Third country duty');
-    cy.contains('0.00 %');
+    cy.contains('0.00%');
   });
   it(' 🦬 Bison\n- Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Integrated Tariff) Duties are expressed in GBP', function() {
     cy.visit('/commodities/0201100021#import');
@@ -20,7 +20,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
         .contains('UK Integrated Online Tariff');
     cy.get('#measure-20000065');
     cy.contains('Third country duty');
-    cy.contains('12.00 % + 147.00 GBP / 100 kg');
+    cy.contains('12.00% + £147.00 / 100 kg');
   });
   it(' 🔊 Amplifiers\n also has a supplementary unit measure of p/st', function() {
     cy.visit('/commodities/8518400010#import');
@@ -50,7 +50,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
 
     cy.get('#measure-20001944');
     cy.contains('Third country duty');
-    cy.contains('8.00 %');
+    cy.contains('8.00%');
   });
 
   it(' 🍅 Cherry Tomatoes 🇲🇦 \n- Check that Israel has a preferential tariff quota', function() {
@@ -118,7 +118,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('#measure-20002794')
         .contains('Third country duty');
     cy.get('#measure-20002794')
-        .contains('1.00 GBP / % vol/hl');
+        .contains('£1.00 / percentage ABV (% vol) per 100 litre (hl)');
   });
   it(' 🐸 Frogs legs \n ', function() {
     cy.visit('/commodities/0208907000#import');

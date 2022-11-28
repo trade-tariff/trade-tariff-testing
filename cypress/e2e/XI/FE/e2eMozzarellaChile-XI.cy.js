@@ -31,7 +31,7 @@ describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from
 
     // Third country duty  measure has value 185.20 EUR / 100 kg',function(){
     cy.get('.small-table.measures.govuk-table')
-        .contains('185.20 EUR / 100 kg');
+        .contains('€185.20 / 100 kg');
 
 
     // Footnotes is visible',function() {
