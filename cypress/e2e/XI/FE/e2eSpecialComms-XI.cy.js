@@ -14,10 +14,10 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('2.70%');
     cy.get('#measure-3632528');
     cy.contains('European Economic Area (2012)');
-    cy.contains('0.00 %');
+    cy.contains('0.00%');
     cy.get('#measure-3165671');
     cy.contains('Tariff preference');
-    cy.contains('0.00 %');
+    cy.contains('0.00%');
   });
   it(' 🦬 Bison \n Third country duty should be a compound duty of 12.80 % + 176.80 EUR / 100 kg\n' +
         '\n' +

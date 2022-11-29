@@ -4,5 +4,6 @@
     "debug.console.fontSize": 12,
     "markdown.preview.fontSize": 12,
     "terminal.integrated.fontSize": 12,
-    "mssql.resultsFontSize": 12
+    "mssql.resultsFontSize": 12,
+    "liveServer.settings.port": 5501
 }
