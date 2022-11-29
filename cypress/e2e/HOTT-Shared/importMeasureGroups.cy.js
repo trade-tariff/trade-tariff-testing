@@ -3,7 +3,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate i
   it('XI - VAT and Excise , Custom Duties ,Trade remedies ,EU import controls ,UK import controls', function() {
     cy.visit('/xi/commodities/0304829010#import');
     cy.get('li:nth-of-type(1) > .govuk-link').contains('Import duties').click();
-    cy.get('li:nth-of-type(2) > .govuk-link').contains('Trade Remedies, safeguards and retaliatory duties').click();
+    cy.get('li:nth-of-type(2) > .govuk-link').contains('Trade remedies, safeguards and retaliatory duties').click();
     cy.get('li:nth-of-type(3) > .govuk-link').contains('Import VAT and excise').click();
     cy.get('h3#vat_excise').contains('Import VAT and excise');
     cy.get('li:nth-of-type(4) > .govuk-link').contains('EU import controls').click();
@@ -11,7 +11,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate i
 
     cy.contains('Import VAT and excise').click();
     cy.contains('Import duties').click();
-    cy.contains('Trade Remedies, safeguards and retaliatory duties').click();
+    cy.get('#trade_remedies').contains('Trade remedies, safeguards and retaliatory duties').click();
     cy.contains('EU import controls').click();
     cy.contains('UK import controls').click();
   });
@@ -20,12 +20,12 @@ describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate i
     cy.get('li:nth-of-type(1) > .govuk-link').contains('Import controls').click();
     cy.get('li:nth-of-type(2) > .govuk-link').contains('Import duties').click();
     cy.get('li:nth-of-type(3) > .govuk-link').contains('Quotas').click();
-    cy.get('li:nth-of-type(4) > .govuk-link').contains('Trade Remedies, safeguards and retaliatory duties').click();
+    cy.get('li:nth-of-type(4) > .govuk-link').contains('Trade remedies, safeguards and retaliatory duties').click();
     cy.get('li:nth-of-type(5) > .govuk-link').contains('Import VAT and excise').click();
   });
   it('UK - Verify CDS guidance - additional duties for Russia', function() {
     cy.visit('/commodities/0304719010');
-    cy.get('li:nth-of-type(4) > .govuk-link').contains('Trade Remedies, safeguards and retaliatory duties');
+    cy.get('li:nth-of-type(4) > .govuk-link').contains('Trade remedies, safeguards and retaliatory duties');
     cy.get('#measure-20186730').contains('Russia (RU)');
     cy.get('#measure-20186730').contains('Additional duties');
     cy.get('#measure-20186730 > td.conditions-col.govuk-table__cell > a').click();

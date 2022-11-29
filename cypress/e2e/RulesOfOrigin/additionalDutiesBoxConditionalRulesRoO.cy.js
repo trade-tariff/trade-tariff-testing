@@ -21,7 +21,8 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
     cy.get('.basic-third-country-duty').contains('Basic third country duty =');
     cy.get('.basic-third-country-duty').contains('12.00 % + 147.00 GBP / 100 kg');
-    cy.get('.govuk-inset-text').contains('SACUM-UK Economic Partnership Agreement (EPA)');
+    cy.get('.govuk-inset-text.import-trade-summary > ul > li.no-preferential-duties').contains('There is no preferential tariff duty or quota available for this commodity');
+    cy.get('#rules-of-origin__intro--bloc-scheme').contains('SACUM-UK Economic Partnership Agreement (EPA)');
     cy.get('#rules-of-origin > div > div.govuk-grid-column-two-thirds > h3').contains('Work out if your goods meet the rules of origin');
     cy.get('button.govuk-button').contains('Check rules of origin');
   });
