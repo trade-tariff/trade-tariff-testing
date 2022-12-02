@@ -3,6 +3,19 @@
 /* eslint-disable new-cap */
 /* eslint-disable max-len */
 describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['config', 'roo-tag']}, function() {
+  it('Check RoO tab preserves anchor', function() {
+    // given we're on the roo tab
+    cy.visit(`/commodities/0702000007`);
+    cy.contains('Rules of origin').click();
+    cy.url().should('include', '#rules-of-origin');
+    // when we change the trading partner
+    cy.get('input#trading_partner_country').click().clear().wait(500)
+        .type('Chile').wait(500)
+        .type('{enter}');
+    // then we're are still on the roo tab
+    cy.url().should('include', '#rules-of-origin');
+  });
+
   // RoO tab exists and links work
   it(`Check RoO tab exists on commodity page + links |`, function() {
     cy.visit(`/commodities/0702000007`);
