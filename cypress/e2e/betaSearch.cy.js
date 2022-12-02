@@ -127,7 +127,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     // when we do a search
     cy.searchWithSearchField('eggs');
     // we see beta search results
-    cy.get('#beta-search-results-773dd862981453a4e2352875484abd83')
+    cy.get('[id^="beta-search-results-"]')
     // on the /search url
     cy.url().should('include', '/search');
     // when we switch back
