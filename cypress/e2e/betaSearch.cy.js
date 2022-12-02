@@ -104,4 +104,27 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
             'https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff',
         );
   });
+
+  it.only('Search result returns the no results page for `nothing`', function() {
+    // given we're on the browse page
+    cy.visit('/browse');
+    // when we click the use the beta search link
+    cy.get('#enable-beta-search.govuk-inset-text > a').contains('Use the Beta Search').click()
+    // we're still on the browse page
+    cy.url().should('include', '/browse');
+    // and the beta search inset is now enabled
+    cy.get('#enable-beta-search.govuk-inset-text > a').contains('switch back to legacy search')
+    // when we do a search
+    cy.searchWithSearchField('eggs');
+    // we see beta search results
+    cy.get('#beta-search-results-773dd862981453a4e2352875484abd83')
+    // on the /search url
+    cy.url().should('include', '/search');
+    // when we switch back
+    cy.get('#enable-beta-search > a').click()
+    // we see legacy search results
+    cy.get('.search-results').contains('Results matching ‘eggs’')
+    // on the /search url
+    cy.url().should('include', '/search');
+  });
 });
