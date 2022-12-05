@@ -1,4 +1,4 @@
-describe('Using beta search', {tags: ['devOnly']}, function() {
+describe('Using beta search', function() {
   it('Search result returns guides for `fresh potatoes`', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
