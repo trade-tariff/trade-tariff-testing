@@ -167,6 +167,13 @@ Cypress.Commands.add('cumulation', (country, code, country_short_name, scheme)=>
   cy.get('form#edit_rules_of_origin_steps_cumulation_cumulation  a[target=\'_blank\']').should('have.attr', 'href', `/cumulation_maps/${country}.png`);
   cy.contains('Bilateral cumulation - an example').click();
   cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${country_short_name}/sufficient_processing`);
+  if (`${country_short_name}` === 'JP') {
+    cy.contains('Extended cumulation - an example').click();
+    cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${country_short_name}/sufficient_processing`);
+  } else if (`${country_short_name}` === 'KR') {
+    cy.contains('Diagonal cumulation - an example').click();
+    cy.should('not.contain.text', 'insufficient processing clause');
+  }
   cy.get('.govuk-button').contains('Continue').click();
 });
 // form#edit_rules_of_origin_steps_cumulation_cumulation > img
