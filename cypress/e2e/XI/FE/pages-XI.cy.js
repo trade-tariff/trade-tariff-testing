@@ -98,7 +98,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
   it('XI - News section', function() {
     cy.visit('xi/find_commodity');
     cy.get('li:nth-of-type(5) > .govuk-header__link').click();
-    cy.contains('Latest news');
+    cy.contains('Trade tariff news bulletin');
   });
 
   // HOTT-164
