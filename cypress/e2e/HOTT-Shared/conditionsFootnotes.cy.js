@@ -22,10 +22,6 @@ describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate 
   // important notes for classifying your goods - link to be removed when there are no notes for chapters headings
   const country = ['', 'xi'];
   for (let j = 0; j < country.length; j++) {
-    it(`${country[j]} - No link to important notes section when there are no notes - headings `, function() {
-      cy.visit(`${country[j]}/headings/9880`);
-      cy.contains('There are important notes for classifying your goods shown further down this page').should('not.exist');
-    });
     it(`${country[j]} - No link to important notes section when there are no notes - chapters`, function() {
       cy.visit(`${country[j]}/chapters/98`);
       cy.contains('There are important notes for classifying your goods shown further down this page').should('not.exist');
