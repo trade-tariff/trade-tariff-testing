@@ -101,7 +101,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - News section', function() {
     cy.visit('/find_commodity');
     cy.get('li:nth-of-type(5) > .govuk-header__link').click();
-    cy.contains('Latest news');
+    cy.contains('Trade tariff news bulletin');
   });
   // HOTT-164
   it('UK - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function() {

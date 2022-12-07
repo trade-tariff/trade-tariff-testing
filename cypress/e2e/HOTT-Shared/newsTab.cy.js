@@ -6,7 +6,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
     it(`${countries[i]} News page`, function() {
       cy.visit(`${countries[i]}/sections`);
       cy.get('li:nth-of-type(5) > .govuk-header__link').contains('News').click();
-      cy.contains('Latest news');
+      cy.contains('Trade tariff news bulletin');
       cy.contains('Subscribe to the news feed');
     });
   }
