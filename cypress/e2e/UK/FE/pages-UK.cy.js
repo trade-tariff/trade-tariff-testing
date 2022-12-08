@@ -180,6 +180,8 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Agreements which include a duty drawback provision');
     cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(1)').contains('UK-Albania Partnership, Trade and Cooperation Agreement');
     cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2) > ul > li > a').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement');
+    cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2)').contains('View origin reference document');
+    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2) > ul > li:nth-child(2) > a').should('have.attr', 'href', '/roo_origin_reference_documents/211228_ORD_Albania_V1.1.odt');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1)').contains('Rules of origin glossary');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');
