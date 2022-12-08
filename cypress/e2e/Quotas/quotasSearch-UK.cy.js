@@ -59,7 +59,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.contains('Colombia (CO)');
     cy.contains('01 August 2022');
     cy.contains('31 July 2023');
-    cy.contains('2043000.0 Kilogram (kg)');
+    cy.contains('2,043,000.000 Kilogram (kg)');
   });
 
   it('Quotas Search - Critical state', function() {
