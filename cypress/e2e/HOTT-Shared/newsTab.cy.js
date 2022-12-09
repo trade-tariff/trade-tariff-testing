@@ -64,6 +64,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.contains(`${pagetitles[i]}`);
       cy.contains('HM Revenue & Customs');
       cy.should('have.attr', 'href', 'https://www.gov.uk/government/organisations/hm-revenue-customs');
+      cy.contains('Print this page');
       cy.contains('Back to top');
       cy.url().should('include', '/news/stories/');
     });
@@ -79,6 +80,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.contains(`${pagetitles[i]}`);
       cy.contains('HM Revenue & Customs');
       cy.should('have.attr', 'href', 'https://www.gov.uk/government/organisations/hm-revenue-customs');
+      cy.contains('Print this page');
       cy.contains('Back to top');
       cy.url().should('include', '/news/stories/');
     });
@@ -94,6 +96,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.contains(`${pagetitles[i]}`);
       cy.contains('HM Revenue & Customs');
       cy.should('have.attr', 'href', 'https://www.gov.uk/government/organisations/hm-revenue-customs');
+      cy.contains('Print this page');
       cy.contains('Back to top');
       cy.url().should('include', '/news/stories/');
     });
