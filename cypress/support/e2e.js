@@ -20,6 +20,7 @@ import './apiCommands'
 import './csvCommands'
 import './rooCommands'
 import 'cypress-fill-command'
+import 'cypress-xpath'
 require('cypress-grep')()
 
 Cypress.on('uncaught:exception', (err, runnable) => {
