@@ -20,6 +20,29 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
   return originalFn(url, options);
 });
 
+Cypress.Commands.add('adminVisit', (path)=>{
+  // const space = Cypress.env('SPACE');
+  // const adminSuffix = Cypress.env(`${space}_ADMIN_SUFFIX`);
+  const adminUrl = `https://tariff-admin-dev.london.cloudapps.digital`;
+  cy.visit(`${adminUrl}${path}`);
+});
+
+// Admin tool login
+Cypress.Commands.add('adminLogin', ()=>{
+  cy.adminVisit('/');
+  cy.contains('Sign in to GOV.UK');
+  cy.contains('Email');
+  cy.contains('Password');
+  cy.get('#new_user > button').contains('Sign in');
+  cy.contains('Forgot your password?');
+
+  const username = Cypress.env('ADMIN_USERNAME');
+  const password = Cypress.env('ADMIN_PASSWORD');
+
+  cy.get('input[name="user[email]"]').type(`${username}`);
+  cy.get('input[name="user[password]"]').type(`${password}`);
+});
+
 Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
   const space = Cypress.env('SPACE');
   const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
