@@ -9,6 +9,7 @@
     "ansi-styles": "^6.2.1",
     "csv-parse": "^5.3.3",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
+    "cypress-otp": "^1.0.3",
     "cypress-tags": "^1.0.2",
     "glob-parent": "^6.0.2",
     "nanoid": "^4.0.0",
