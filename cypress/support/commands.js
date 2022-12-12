@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+
+
 beforeEach(() => {
   cy.clearCookies();
 });
@@ -42,6 +44,16 @@ Cypress.Commands.add('adminLogin', ()=>{
   cy.get('input[name="user[email]"]').type(`${username}`);
   cy.get('input[name="user[password]"]').type(`${password}`);
   cy.get('[type="submit"]').click();
+
+  cy.contains('2-step verification');
+
+  const otpSecret = Cypress.env('ADMIN_OTP_SECRET');
+  cy.task("generateOTP", otpSecret).then(token => {
+    cy.get('input[name="code"]').type(token);
+  });
+  cy.get('[type=submit]').click();
+
+  cy.contains('Section notes');
 });
 
 Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
