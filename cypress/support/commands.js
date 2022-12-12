@@ -21,9 +21,9 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
 });
 
 Cypress.Commands.add('adminVisit', (path)=>{
-  // const space = Cypress.env('SPACE');
-  // const adminSuffix = Cypress.env(`${space}_ADMIN_SUFFIX`);
-  const adminUrl = `https://tariff-admin-dev.london.cloudapps.digital`;
+  const space = Cypress.env('SPACE');
+  const adminSuffix = Cypress.env(`${space}_ADMIN_SUFFIX`);
+  const adminUrl = `https://tariff-admin-${adminSuffix}.london.cloudapps.digital`;
   cy.visit(`${adminUrl}${path}`);
 });
 
@@ -41,6 +41,7 @@ Cypress.Commands.add('adminLogin', ()=>{
 
   cy.get('input[name="user[email]"]').type(`${username}`);
   cy.get('input[name="user[password]"]').type(`${password}`);
+  cy.get('[type="submit"]').click();
 });
 
 Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
