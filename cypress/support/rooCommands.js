@@ -372,8 +372,9 @@ Cypress.Commands.add('subDivision', (code, subDiv)=>{
 Cypress.Commands.add('impDutyBox', (copy)=>{
   cy.get('.govuk-list.govuk-list--bullet').contains(`${copy}`);
 });
-Cypress.Commands.add('feebackSection', (country_short_name)=>{
+Cypress.Commands.add('feebackSection', ()=>{
   cy.get('.govuk-inset-text.tariff-inset-meursing').contains('The rules of origin wizard is new functionality.');
   cy.get('.govuk-inset-text.tariff-inset-meursing').contains('Your feedback will help us to improve it.');
-  cy.get('.govuk-inset-text.tariff-inset-meursing > p:nth-child(2) > a').should('have.attr', 'href', `/feedback?country=${country_short_name}`);
+  cy.get('.govuk-inset-text a[href^="/feedback"]').contains('feedback');
+  // cy.get('.govuk-inset-text.tariff-inset-meursing > p:nth-child(2) > a').should('have.attr', 'href', `/feedback?country=${country_short_name}`);
 });

@@ -17,7 +17,7 @@ describe('| RoO-e2e-WO-Multiple-GSP.spec | WO + Multiple Schemes + GSP - Vietnam
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Vietnam', 'yes');
     // Verify feeback section on product rules met screen
-    cy.feebackSection('VN');
+    cy.feebackSection();
     // Origin requirements met
     cy.originMet('Vietnam', '0201100021', 'Generalised Scheme of Preferences (GSP)');
   });
