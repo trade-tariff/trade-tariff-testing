@@ -150,8 +150,12 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.moreInfoAboutProduct('1702201010', 'Sugars and sugar confectionery');
     // product specific rules?
     cy.prodSpecRules('Manufacture from materials of any heading, except that of the product.');
+    // Verify feeback section on product rules met screen
+    cy.feebackSection('KR');
     // Origin requirements met
     cy.rooReqMet('Importing', 'South Korea', '1702201010', 'UK-South Korea Trade Agreement');
+    // Verify feeback section on product rules met screen
+    cy.feebackSection('KR');
     // Validate if product specific rules are met
     cy.go(-1);
     cy.prodSpecRules('Your goods do not meet any of these rules.');
