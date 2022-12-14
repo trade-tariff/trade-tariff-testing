@@ -9,6 +9,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.visit(`${countries[i]}/sections`);
       cy.get('li:nth-of-type(5) > .govuk-header__link').contains('News').click();
       cy.contains('Trade tariff news bulletin');
+      cy.get('head link[type="application/atom+xml"]').should('have.attr', 'title', 'Trade tariff news bulletin')
     });
     it(`${countries[i]} - Amend display of filters list on the listing page`, function() {
       cy.visit(`${countries[i]}/sections`);
@@ -67,6 +68,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.contains('Print this page');
       cy.contains('Back to top');
       cy.url().should('include', '/news/stories/');
+      cy.get('head link[type="application/atom+xml"]').should('have.attr', 'title', 'Trade tariff news bulletin')
     });
     it(`${countries[i]} - Filter Tariff stop press and click first link in the Tariff stop press list`, function() {
       cy.visit(`${countries[i]}/sections`);
