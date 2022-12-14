@@ -362,7 +362,7 @@ Cypress.Commands.add('prodSpecRules', (rule)=>{
   cy.contains(`${rule}`).click();
   // cy.get(`#rules-of-origin-steps-product-specific-rules-rule-${rule}-field`).check();
   cy.get('.govuk-button').contains('Continue').click();
-} );
+});
 Cypress.Commands.add('subDivision', (code, subDiv)=>{
   cy.contains('Provide more information about your product');
   cy.contains(`The rules of origin for commodity ${code} depend on the type of product that you are trading.`);
@@ -371,4 +371,9 @@ Cypress.Commands.add('subDivision', (code, subDiv)=>{
 });
 Cypress.Commands.add('impDutyBox', (copy)=>{
   cy.get('.govuk-list.govuk-list--bullet').contains(`${copy}`);
+});
+Cypress.Commands.add('feebackSection', ()=>{
+  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('The rules of origin wizard is new functionality.');
+  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('Your feedback will help us to improve it.');
+  cy.get('.govuk-inset-text a[href^="/feedback"]').contains('feedback');
 });
