@@ -7,7 +7,7 @@ const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
 
 module.exports = defineConfig({
   e2e: {
-    'baseUrl': 'https://tariff-frontend-pr1228.london.cloudapps.digital/',
+    'baseUrl': 'https://staging.trade-tariff.service.gov.uk',
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
 
