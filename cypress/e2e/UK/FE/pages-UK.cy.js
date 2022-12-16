@@ -37,15 +37,13 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Section XII contains 4 chapters. Choose the chapter that best matches your goods.');
   });
   it('UK - Chapter page ', function() {
-    cy.visit('/chapters/98');
+    cy.visit('/chapters/97');
     cy.contains('Choose the heading that best matches your goods');
     cy.get('.govuk-summary-list').contains('Chapter');
     cy.get('.govuk-summary-list').contains('Classification');
     cy.get('.govuk-summary-list').contains('Date of trade');
-    cy.contains('Chapter 98 contains 1 heading. Choose the heading that best matches your goods.');
-
-    cy.contains('Component parts of complete industrial plant in the framework of external trade (Commission Implementing Regulation (EU) 2020/1197 of 30 July 2020)').click();
-    cy.contains('There are 96 commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+    cy.contains('Chapter 97 contains 6 headings. Choose the heading that best matches your goods.');
+    cy.contains('There are important notes for classifying your goods shown further down this page');
   });
   it('UK - Heading page', function() {
     const headings = ['4301', '4802'];
@@ -55,7 +53,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
       cy.get('.govuk-summary-list').contains('Heading');
       cy.get('.govuk-summary-list').contains('Classification');
       cy.get('.govuk-summary-list').contains('Date of trade');
-
       cy.contains(`There are ${comms[i]} commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.`);
     }
   });
@@ -101,7 +98,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - News section', function() {
     cy.visit('/find_commodity');
     cy.get('li:nth-of-type(5) > .govuk-header__link').click();
-    cy.contains('Latest news');
+    cy.contains('Trade tariff news bulletin');
   });
   // HOTT-164
   it('UK - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function() {
@@ -183,6 +180,12 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Agreements which include a duty drawback provision');
     cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(1)').contains('UK-Albania Partnership, Trade and Cooperation Agreement');
     cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2) > ul > li > a').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement');
+    cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2)').contains('View origin reference document');
+    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2) > ul > li:nth-child(2) > a').should('have.attr', 'href', '/roo_origin_reference_documents/211228_ORD_Albania_V1.1.odt');
+    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(1)').contains('Generalised Scheme of Preferences (GSP)');
+    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(2) > ul > li').contains('View agreement details');
+    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(2) > ul > li > a').should('have.attr', 'href', 'https://www.gov.uk/government/publications/trading-with-developing-nations');
+    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(2) > ul > li').should('not.contain', 'View origin reference document');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1)').contains('Rules of origin glossary');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');

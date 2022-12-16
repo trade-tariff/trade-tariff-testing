@@ -167,6 +167,13 @@ Cypress.Commands.add('cumulation', (country, code, country_short_name, scheme)=>
   cy.get('form#edit_rules_of_origin_steps_cumulation_cumulation  a[target=\'_blank\']').should('have.attr', 'href', `/cumulation_maps/${country}.png`);
   cy.contains('Bilateral cumulation - an example').click();
   cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${country_short_name}/sufficient_processing`);
+  if (`${country_short_name}` === 'JP') {
+    cy.contains('Extended cumulation - an example').click();
+    cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${country_short_name}/sufficient_processing`);
+  } else if (`${country_short_name}` === 'KR') {
+    cy.contains('Diagonal cumulation - an example').click();
+    cy.should('not.contain.text', 'insufficient processing clause');
+  }
   cy.get('.govuk-button').contains('Continue').click();
 });
 // form#edit_rules_of_origin_steps_cumulation_cumulation > img
@@ -355,7 +362,7 @@ Cypress.Commands.add('prodSpecRules', (rule)=>{
   cy.contains(`${rule}`).click();
   // cy.get(`#rules-of-origin-steps-product-specific-rules-rule-${rule}-field`).check();
   cy.get('.govuk-button').contains('Continue').click();
-} );
+});
 Cypress.Commands.add('subDivision', (code, subDiv)=>{
   cy.contains('Provide more information about your product');
   cy.contains(`The rules of origin for commodity ${code} depend on the type of product that you are trading.`);
@@ -364,4 +371,9 @@ Cypress.Commands.add('subDivision', (code, subDiv)=>{
 });
 Cypress.Commands.add('impDutyBox', (copy)=>{
   cy.get('.govuk-list.govuk-list--bullet').contains(`${copy}`);
+});
+Cypress.Commands.add('feebackSection', ()=>{
+  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('The rules of origin wizard is new functionality.');
+  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('Your feedback will help us to improve it.');
+  cy.get('.govuk-inset-text a[href^="/feedback"]').contains('feedback');
 });

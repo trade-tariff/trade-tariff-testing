@@ -36,15 +36,13 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('Section XII contains 4 chapters. Choose the chapter that best matches your goods.');
   });
   it('XI - Chapter page ', function() {
-    cy.visit('xi/chapters/98');
+    cy.visit('xi/chapters/97');
     cy.contains('Choose the heading that best matches your goods');
     cy.get('.govuk-summary-list').contains('Chapter');
     cy.get('.govuk-summary-list').contains('Classification');
     cy.get('.govuk-summary-list').contains('Date of trade');
-    cy.contains('Chapter 98 contains 1 heading. Choose the heading that best matches your goods.');
-
-    cy.contains('Component parts of complete industrial plant in the framework of external trade (Commission Implementing Regulation (EU) 2020/1197 of 30 July 2020)').click();
-    cy.contains('There are 96 commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+    cy.contains('Chapter 97 contains 6 headings. Choose the heading that best matches your goods.');
+    cy.contains('There are important notes for classifying your goods shown further down this page');
   });
   it('XI - Heading page', function() {
     const headings = ['4301', '4802', '1702'];
@@ -98,7 +96,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
   it('XI - News section', function() {
     cy.visit('xi/find_commodity');
     cy.get('li:nth-of-type(5) > .govuk-header__link').click();
-    cy.contains('Latest news');
+    cy.contains('Trade tariff news bulletin');
   });
 
   // HOTT-164

@@ -165,6 +165,12 @@ Cypress.Commands.add('searchForCommodity2', (searchString) => {
   // cy.get('input[name=\'commit\']').click();
 });
 
+Cypress.Commands.add('searchWithSearchField', (searchString) => {
+  cy.get('input#q').click().type(searchString);
+  cy.waitForCommoditySearchResults();
+  cy.get('input[name=\'new_search\']').click();
+});
+
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
   cy.get('input[name=\'submit_search\']').click();

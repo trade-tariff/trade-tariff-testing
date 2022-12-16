@@ -18,7 +18,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.whollyObtained('Japan', 'no');
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Japan');
-    // cumulation
+    // cumulation - Bilateral cumulation and Extended cumulation example
     cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
@@ -48,7 +48,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.whollyObtained('the UK', 'no');
     // Your goods are not wholly obtained
     cy.notWhollyObtained('the UK');
-    // cumulation
+    // cumulation - Bilateral cumulation and Extended cumulation example
     cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
@@ -125,5 +125,41 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMet('Importing', 'Egypt', '0502100000', 'UK-Egypt Association Agreement');
+  });
+  it('Importing - NWO + Diagonal Cumulation Example + South Korea + Prod Specific Rules Met', function() {
+    cy.visit('/commodities/1702201010?country=KR#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('South Korea', 'import');
+    // How Originating is defined
+    cy.howOrginating('South Korea', 'UK-South Korea Trade Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-South Korea Trade Agreement');
+    // what components
+    cy.whatComponents('UK-South Korea Trade Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('South Korea', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('South Korea');
+    // cumulation - Bilateral cumulation and Diagonal cumulation example
+    cy.cumulation('south-korea', '1702201010', 'KR', 'UK-South Korea Trade Agreement');
+    // min Operations met ?
+    cy.minimalOps('UK-South Korea Trade Agreement', 'yes');
+    // Provide more information about your product
+    cy.moreInfoAboutProduct('1702201010', 'Sugars and sugar confectionery');
+    // product specific rules?
+    cy.prodSpecRules('Manufacture from materials of any heading, except that of the product.');
+    // Verify feeback section on product rules met screen
+    cy.feebackSection();
+    // Origin requirements met
+    cy.rooReqMet('Importing', 'South Korea', '1702201010', 'UK-South Korea Trade Agreement');
+    // Verify feeback section on product rules met screen
+    cy.feebackSection();
+    // Validate if product specific rules are met
+    cy.go(-1);
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMet('Importing', 'South Korea', '1702201010', 'UK-South Korea Trade Agreement');
   });
 });

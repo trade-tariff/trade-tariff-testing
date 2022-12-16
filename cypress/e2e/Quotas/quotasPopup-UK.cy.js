@@ -35,10 +35,47 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.close [href]').click();
   });
 
-  it.skip('Quota Popup - Show pending balance', function() {
-    cy.visit('/commodities/7306110000#quotas');
-    cy.contains('058039').click();
+  it('Quota Popup - Display the pending balance before the closing date', function() {
+    cy.visit('/commodities/7306290000?day=14&month=10&year=2022');
+    cy.contains('058041').click();
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Pending balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Kilogram (kg) remains available from the previous quota period. This will be transferred to the current quota period c. 20 working days after the end of the previous quota period.');
+    cy.get('.close [href]').click();
+  });
+
+  it('Quota Popup - Quota is a safeguard quota and a transfer event', function() {
+    cy.visit('/commodities/7306290000#quotas');
+    cy.contains('058041').click();
+    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Transferred balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Kilogram (kg), transferred from the previous quota period (1 July 2022 to 30 September 2022) on 28 October 2022.');
+    cy.get('.close [href]').click();
+  });
+
+  it('Quota Popup - Quota is not a safeguard quota and has `no` transferred balance ', function(){
+    cy.visit('/commodities/2106909828#quotas');
+    cy.contains('050088').click();
+    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
+    cy.get('#popup > div > div > article').should('not.have.text', 'Transferred balance');
+    cy.get('.close [href]').click();
+  });
+
+  it('Quota Popup - Quota balance transfer on or before date selected', function() {
+    cy.visit('/commodities/7305110000#quotas');
+    cy.contains('058108').click();
+    cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058108');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Transferred balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Kilogram (kg), transferred from the previous quota period (1 July 2022 to 30 September 2022) on 15 November 2022.');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('15 November 2022');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
+    cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');  
     cy.get('.close [href]').click();
   });
 
@@ -60,12 +97,13 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Status');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(3) > .numerical').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Transferred balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
     cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');
     cy.get('.close [href]').click();
   });
@@ -81,21 +119,14 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Status');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(3) > .numerical').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Transferred balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
     cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');
-    cy.get('.close [href]').click();
-  });
-
-  it('Quota Popup - No pending balance in the past date', function() {
-    cy.visit(`/commodities/7306111000?${helpers.dateToUrl('2021-10-11')}`);
-    cy.contains('058039').click();
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div').should('not.contain', 'Pending balance');
     cy.get('.close [href]').click();
   });
 
@@ -105,11 +136,12 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 050793');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('0.000 Kilogram (kg)');
-    cy.get('#popup > div > div').should('not.contain', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Exhausted');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
+    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Exhausted');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
     cy.get('.close [href]').click();
   });
 
@@ -120,11 +152,12 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 31 Dec 2020)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div').should('not.contain', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Blocking period');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('11 December 2020 to 31 December 2020');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
+    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Blocking period');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('11 December 2020 to 31 December 2020');
     cy.get('.close [href]').click();
   });
 
@@ -135,15 +168,16 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 1 May 2022)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div').should('not.contain', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('1 October 2021 to 11 July 2022');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('n/a');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension period');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('1 May 2022 to 31 May 2022');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
+    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('1 October 2021 to 11 July 2022');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Last allocation date');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension period');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('1 May 2022 to 31 May 2022');
     cy.get('.close [href]').click();
   });
 
@@ -154,17 +188,18 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 23 Jan 2020)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div').should('not.contain', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Critical');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('23 January 2020 to 31 December 2020');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('n/a');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension period');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(6) > .numerical').contains('23 January 2020 to 30 April 2020');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Blocking period');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('23 January 2020 to 7 May 2020');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
+    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Critical');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('23 January 2020 to 31 December 2020');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Last allocation date');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension period');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('23 January 2020 to 30 April 2020');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(8)').contains('Blocking period');
+    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(8) > .numerical').contains('23 January 2020 to 7 May 2020');
     cy.get('.close [href]').click();
   });
 
@@ -176,15 +211,16 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 29 Apr 2022)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div').should('not.contain', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3) > td').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('1 February 2022 to 30 April 2022');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('n/a');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Suspension / blocking periods');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
+    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Open');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Start and end dates');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('1 February 2022 to 30 April 2022');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Last allocation date');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('n/a');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
+    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('n/a');
     // Click view balance for todaysDate link and verify `This quota is not available on the selected date message` message
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();
     cy.get('#popup > div > div > article > h2').contains('Quota order number 050027');
