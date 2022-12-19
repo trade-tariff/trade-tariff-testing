@@ -99,6 +99,19 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.url().should('include', '/chapters/85');
   });
 
+  it('Searching intercept message term `fitbit` returns results', function() {
+    // given we're on the find commodity page
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    // when we search for a known intercept term which is not included in goods nomenclature descriptions
+    cy.searchForCommodity('fitbit');
+    // then we see an intercept message
+    cy.get('#intercept-message')
+    // and are shown results
+    cy.url().should('include', '/search');
+    cy.get('[id^="beta-search-results-"]');
+  });
+
   it('Search result returns the no results page for `flibble`', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
