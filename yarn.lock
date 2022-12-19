@@ -4054,10 +4054,10 @@ mocha-allure-reporter@^1.4.0:
   dependencies:
     allure-js-commons "^1.3.2"
 
-mochawesome-merge@^4.2.0, mochawesome-merge@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/mochawesome-merge/-/mochawesome-merge-4.2.1.tgz#484e5c500dd5d88b33adb440e6dfef80d9109a18"
-  integrity sha512-G7+LqIKgixShKG4FyWDn1PIrzpKEwCofrJip/VzdqghNGqZl4S5MNoXx5YDfk9KLe+pr4qGa1TOzCc/oVw/8Kw==
+mochawesome-merge@^4.2.1, mochawesome-merge@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/mochawesome-merge/-/mochawesome-merge-4.2.2.tgz#67164973f8efeefcc206764c3702aa2d5f0ba406"
+  integrity sha512-ZHeZcChGhb3If7fjSVuyB9rmDH86inNtsTb1ONYq1h0L1IduldFu38bJDcow46alMpiYQgJ7cPhv6nwpCwbJQw==
   dependencies:
     fs-extra "^7.0.1"
     glob "^7.1.6"
