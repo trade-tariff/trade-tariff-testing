@@ -38,25 +38,6 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     cy.get('.govuk-breadcrumbs__link').click();
     cy.contains('Northern Ireland Online Tariff');
   });
-  // HOTT-166
-  it.skip('XI - List of supplementary units and their descriptions in imports to be HIDDEN', function() {
-    cy.visit('/xi/commodities/9702000010?currency=EUR#import');
-    cy.get('.govuk-tabs__panel')
-        .contains('What are the main types of tariffs and charges').click();
-    cy.get('span#details-import-supplementary-unit-heading')
-        .contains('Supplementary unit').click()
-        .contains('Check a list of supplementary units and their descriptions').should('not.exist');
-  });
-  it.skip('XI - List of supplementary units and their descriptions in exports to be HIDDEN', function() {
-    cy.visit('/xi/commodities/9702000010?currency=EUR#export');
-    cy.get('span#details-export-heading')
-        .contains('What are the main types of tariffs and charges').click();
-    cy.get('span#details-export-supplementary-unit-heading')
-        .contains('Supplementary unit')
-        .click()
-        .contains('Check a list of supplementary units and their descriptions').should('not.exist');
-  });
-
   // The UK has left the EU
   it('XI - The UK has left the EU - Check the new rules for January 2021 ', function() {
     cy.visit('/xi/sections');

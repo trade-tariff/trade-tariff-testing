@@ -172,6 +172,7 @@ Cypress.Commands.add('searchWithSearchField', (searchString) => {
 });
 
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
+  cy.get('.tariff-search-banner__toggle').click();
   cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
   cy.get('input[name=\'submit_search\']').click();
 });
