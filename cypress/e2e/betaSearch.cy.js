@@ -115,7 +115,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
         );
   });
 
-  it.only('Enables switching between beta and legacy search implementations', function() {
+  it('Enables switching between beta and legacy search implementations', function() {
     // given we're on the browse page
     cy.visit('/browse');
     // when we click the use the beta search link
