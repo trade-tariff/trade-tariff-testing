@@ -1,4 +1,4 @@
-describe('Smoke tests for dev', {tags: ['devOnly', 'smokeTest']}, function() {
+describe('Smoke tests for dev', function() {
   context('when on the UK service', function() {
     it('Main Page Validation', function() {
       cy.visit('/find_commodity');

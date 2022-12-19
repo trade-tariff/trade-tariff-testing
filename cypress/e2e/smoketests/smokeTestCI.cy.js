@@ -75,7 +75,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.contains('Search for a commodity');
       cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
       cy.searchForCommodity('gherkins');
-      cy.contains('Search results for ‘gherkins’');
+      cy.url().should('include', '/commodities/0707009000');
     });
 
     it('Search Commodity by code', function() {
@@ -260,12 +260,12 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
 
   context('when on the XI service', function() {
     it('Main Page Validation', function() {
-      cy.visit('/xi/sections');
+      cy.visit('/xi/find_commodity');
       cy.mainPageXI();
     });
 
     it('Check Calendar is functioning', function() {
-      cy.visit('/xi/sections');
+      cy.visit('/xi/find_commodity');
 
       cy.get('.govuk-details__summary').click();
       cy.get('#tariff_date_day').click().clear().type(21);
@@ -281,7 +281,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
 
     it('Main Page - Switching link to UK available & works', function() {
-      cy.visit('/xi/sections');
+      cy.visit('/xi/find_commodity');
       cy.get('.govuk-header')
           .contains('Northern Ireland Online Tariff');
 
@@ -308,15 +308,15 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
 
     it('Search Commodity by name', function() {
-      cy.visit('xi/sections');
+      cy.visit('/xi/find_commodity');
       cy.contains('Search for a commodity');
       cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
       cy.searchForCommodity('gherkins');
-      cy.contains('Search results for ‘gherkins’');
+      cy.url().should('include', '/commodities/0707009000');
     });
 
     it('Search Commodity by code', function() {
-      cy.visit('xi/sections');
+      cy.visit('/xi/find_commodity');
       cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
       cy.contains('Search for a commodity');
       cy.searchForCommodity('3808941000');
@@ -335,7 +335,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
 
     it('Mobile - nav-bar validation iphone-6', function() {
       cy.viewport('iphone-6');
-      cy.visit('/xi/sections');
+      cy.visit('/xi/find_commodity');
       cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff');
       cy.get('.govuk-header__menu-button').click();
       cy.contains('A-Z').click();
@@ -356,7 +356,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
 
     it('Mobile - nav-bar validation - samsung-note9', function() {
       cy.viewport('samsung-note9');
-      cy.visit('/xi/sections');
+      cy.visit('/xi/find_commodity');
       cy.get('.govuk-header').should('be.visible', 'Northern Ireland Online Tariff');
       cy.get('.govuk-header__menu-button').click();
       cy.contains('A-Z').click();

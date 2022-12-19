@@ -4,11 +4,11 @@ describe('globalSearch.spec| global search function on UK and XI service ** Unre
     // search for commodity by number
     cy.visit('/find_commodity');
     cy.globalSearchForCommodity('0702000007');
-    cy.url().should( 'include', '/commodties/0702000007');
+    cy.url().should('include', '/commodities/0702000007');
 
     // search for commodity by search reference
     cy.visit('/find_commodity');
     cy.globalSearchForCommodity('gherkins');
-    cy.url().should( 'include', '/commodties/0707009000');
+    cy.url().should('include', '/commodities/0707009000');
   });
 });
