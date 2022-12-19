@@ -115,7 +115,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
         );
   });
 
-  it('Enables switching between beta and legacy search implementations', function() {
+  it.only('Enables switching between beta and legacy search implementations', function() {
     // given we're on the browse page
     cy.visit('/browse');
     // when we click the use the beta search link
@@ -125,7 +125,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     // and the beta search inset is now enabled
     cy.get('#enable-beta-search.govuk-inset-text > a').contains('switch back to legacy search');
     // when we do a search
-    cy.searchWithSearchField('eggs');
+    cy.searchWithSearchField('ham');
     // we see beta search results
     cy.get('[id^="beta-search-results-"]');
     // on the /search url
@@ -133,7 +133,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     // when we switch back
     cy.get('#enable-beta-search > a').click();
     // we see legacy search results
-    cy.get('.search-results').contains('Results matching ‘eggs’');
+    cy.get('.search-results').contains('Results matching ‘ham’');
     // on the /search url
     cy.url().should('include', '/search');
   });
