@@ -109,7 +109,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('#intercept-message')
     // and are shown results
     cy.url().should('include', '/search');
-    cy.get('[id^="beta-search-results-"]');
+    cy.get('#search-result-with-hits');
   });
 
   it('Search result returns the no results page for `flibble`', function() {
