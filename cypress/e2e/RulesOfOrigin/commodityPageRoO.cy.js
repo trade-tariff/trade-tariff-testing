@@ -49,23 +49,6 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     // proving originating status + claiming pref treatment links
   });
 
-  it.skip(`USA 🇺🇸 - Countries with which there is no trade agreement  |`, function() {
-    cy.visit('/commodities/0702000007');
-    cy.get('a#tab_rules-of-origin').contains('Rules of origin').click().wait(200);
-    // Select USA from All countries list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('United States (US)').wait(500)
-        .type('{enter}');
-    cy.contains('Preferential rules of origin for trading with United States');
-    cy.contains('Rules of origin').click();
-    cy.get('img[alt=\'Flag for United States\']').should('be.visible');
-
-    cy.contains('There is no preferential agreement in place with United States, therefore rules of origin are not applicable.');
-    cy.contains('Non-preferential rules of origin');
-    cy.get('.govuk-table__row').contains('Heading').should('not.exist');
-    cy.roOTab();
-  });
-
   it(`Bahamas (Cariforum) 🇧🇸 - Countries with which there is an agreement with a bloc - EU (France) |`, function() {
     cy.visit('/commodities/0702000007');
     cy.contains('Rules of origin').click();
@@ -115,20 +98,5 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.roOTab();
 
     cy.contains('Non-preferential rules of origin');
-  });
-  it.skip(`India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP) |`, function() {
-    cy.visit('/commodities/0702000007');
-    cy.contains('Rules of origin').click();
-    // Select USA from All countries list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('India').wait(500)
-        .type('{enter}');
-    cy.contains('Preferential rules of origin for trading with India');
-    cy.contains('Rules of origin').click();
-    cy.get('img[alt=\'Flag for India\']').should('be.visible');
-
-    cy.contains('In order to qualify for the lower or zero preferential tariff under the Generalised Scheme of Preferences (GSP), the product must originate in one of the partner countries.');
-
-    cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
   });
 });
