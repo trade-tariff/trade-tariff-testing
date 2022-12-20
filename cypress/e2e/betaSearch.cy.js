@@ -65,6 +65,13 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.url().should('include', '/commodities/0101210000');
   });
 
+  it('Search redirects for `raw` search reference', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('raw');
+    cy.url().should('include', '/headings/5201');
+  });
+
   it('Search filters results with facet clothing_gender', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
