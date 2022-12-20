@@ -61,6 +61,8 @@
     "tags:unreleased": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=unreleased-tag,grepFilterSpecs=true",
     "tags:xbrowser": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --env=grepTags=xbrowser-tag,grepFilterSpecs=true",
     "open:reviewapp": "bin/cypress-review-app.sh",
+    "dev:admin": "CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk CYPRESS_SPACE=DEVELOPMENT CYPRESS_grepTags=adminOnly yarn run cypress run",
+    "staging:admin": "CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk CYPRESS_SPACE=STAGING CYPRESS_grepTags=adminOnly yarn run cypress run",
     "staging-tariff-frontend-smoketests": "CYPRESS_SPACE=STAGING CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/smokeTestCI.cy.js",
     "staging-tariff-backend-smoketests": "CYPRESS_SPACE=STAGING CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/smokeTestCI.cy.js",
     "staging-tariff-duty-calculator-smoketests": "CYPRESS_SPACE=STAGING CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/smokeTestCI.cy.js",

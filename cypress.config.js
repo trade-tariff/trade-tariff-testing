@@ -5,10 +5,10 @@ const dotenvPlugin = require('cypress-dotenv');
 const {JsonSchemaValidation} = require('@jc21/cypress-jsonschema-validation');
 const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
 
-module.exports = on => {
-  on("task", {
-    generateOTP: require("cypress-otp")
-  });
+module.exports=(on)=>{
+  on('task', {
+    generateOTP: require('cypress-otp'),
+  });
 };
 
 module.exports = defineConfig({
@@ -19,7 +19,7 @@ module.exports = defineConfig({
 
       on('task', JsonSchemaValidation(config));
       on('task', SwaggerValidation(config));
-      on("task", { generateOTP: require("cypress-otp") });
+      on('task', {generateOTP: require('cypress-otp')});
       config = dotenvPlugin(config, {}, true);
       config = cypressGrep(config);
 
@@ -44,5 +44,6 @@ module.exports = defineConfig({
     'env': {
       'grepFilterSpecs': true,
     },
+    'experimentalSessionAndOrigin': true,
   },
 });
