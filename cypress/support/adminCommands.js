@@ -113,7 +113,6 @@ Cypress.Commands.add('createNewsItem', () => {
   cy.contains('Show on UK service').click();
   cy.contains('Show on XI service').click();
   cy.contains('Show News story on the Updates page').click();
-  // cy.contains('Show News story on the Banner').click();
   cy.contains('Show in News collections');
   cy.contains('Tariff notices').click();
   cy.contains('Tariff stop press').click();
