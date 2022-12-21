@@ -53,6 +53,15 @@ describe('Api validations', function() {
       });
     });
   });
+  describe('Api response for /api/v2/geographical_areas', function() {
+    const path = '/api/v2/geographical_areas';
+
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
   describe('Api response for /api/v2/geographical_areas/1013', function() {
     const path = '/api/v2/geographical_areas/1013';
 
