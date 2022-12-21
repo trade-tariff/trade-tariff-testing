@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+
+
 beforeEach(() => {
   cy.clearCookies();
 });
