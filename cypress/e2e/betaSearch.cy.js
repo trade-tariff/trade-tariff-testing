@@ -9,7 +9,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('#search-filter-navigation div div p a').should(
         'have.attr',
         'href',
-        'https://www.gov.uk/guidance/classifying-edible-fruits-nuts-and-peel',
+        'https://www.gov.uk/guidance/classifying-edible-fruit-vegetables-and-nuts-for-import-and-export',
     );
   });
 
