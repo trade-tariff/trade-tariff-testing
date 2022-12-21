@@ -44,6 +44,5 @@ module.exports = defineConfig({
     'env': {
       'grepFilterSpecs': true,
     },
-    'experimentalSessionAndOrigin': true,
   },
 });
