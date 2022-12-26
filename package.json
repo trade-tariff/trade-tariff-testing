@@ -20,7 +20,7 @@
   "devDependencies": {
     "allure-commandline": "^2.20.1",
     "cypress": "12.2.0",
-    "cypress-dark": "^1.7.14",
+    "cypress-dark": "^1.8.3",
     "cypress-file-upload": "^5.0.8",
     "cypress-fill-command": "^1.0.1",
     "cypress-grep": "^3.0.4",
