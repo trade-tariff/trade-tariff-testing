@@ -1,7 +1,7 @@
 // admin portal e2e regression tests
 
 describe('XI - Admin tool regression tests', {tags: ['adminOnly']}, function() {
-  it('xi - verify sections and chapater notes', function() {
+  it('xi - verify sections and chapter notes', function() {
     cy.adminLogin('/xi');
     cy.verifySectionChapterNotes();
   });

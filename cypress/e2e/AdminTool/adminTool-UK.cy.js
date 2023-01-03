@@ -1,7 +1,7 @@
 // uk - admin portal e2e regression tests
 
 describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
-  it('uk - verify sections and chapater notes', function() {
+  it('uk - verify sections and chapter notes', function() {
     cy.adminLogin('/');
     cy.verifySectionChapterNotes();
   });
