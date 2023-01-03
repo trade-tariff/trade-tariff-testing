@@ -72,11 +72,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
-      - uses: cypress-io/github-action@v2
-        name: " Cypress Dashboard "
-        continue-on-error: true
-        with:
-          record: true
-          spec: "*/*/*/cypressDashTest.cy.js"
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.RECORD_KEY }}
