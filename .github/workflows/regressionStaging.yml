@@ -15,7 +15,7 @@ jobs:
       CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
       CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
       CYPRESS_grepTags: "-devOnly+-smokeTest+-notStaging"
-    name: " 🛎️ RegressionTests - UK and XI - Staging "
+    name: "RegressionTests - Staging"
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
