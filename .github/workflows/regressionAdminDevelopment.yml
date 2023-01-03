@@ -51,7 +51,7 @@ jobs:
           pushd docs/development/admin/$DATE
           rm -rf assets
           rm -rf screenshots
-          ln -s ../../assets/
+          ln -s ../../../assets/
           popd
           git add docs .
       - name: Commit todays report to reports branch
