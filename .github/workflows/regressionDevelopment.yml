@@ -27,7 +27,7 @@ jobs:
         id: cypress
         continue-on-error: true
         with:
-          spec: cypress/e2e/betaSearch.cy.js
+          spec: "cypress/e2e/**/*.cy.js"
           quiet: true
           browser: chrome
           headless: true
