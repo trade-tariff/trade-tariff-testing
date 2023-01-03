@@ -1,26 +1,6 @@
 /* eslint-disable max-len */
 // HOTT- 954 ,
 describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']}, function() {
-  it.skip('| UK Service - UK Trading relations with Chile - Related Content |', function() {
-    cy.visit('/commodities/0702000007');
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Chile').wait(500)
-        .type('{enter}');
-    cy.contains('Rules of origin').click();
-    cy.contains('Preferential rules of origin for trading with Chile');
-    cy.contains('UK-Chile association agreement');
-    cy.contains('Related content');
-    cy.contains('Check your goods meet the rules of origin').click();
-    cy.contains('Find out the rules to establish the country of origin of imported and exported goods and to help identify goods which qualify for lower or no Customs Duty.');
-    cy.go('back');
-    cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(2) > a').contains('UK-Chile association agreement').click();
-    cy.contains('Documents containing treaty information and a summary of the agreement on trade between the UK and Chile.');
-
-    cy.go('back');
-    cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(3) > a').contains('Trade with Chile').click();
-    cy.contains('How you import from and export to Chile.');
-    cy.go('back');
-  });
   it('| XI Service - EU Trading relations with Chile - Related Content |', function() {
     cy.visit('xi/commodities/0702000007');
     cy.get('input#trading_partner_country').click().clear().wait(500)

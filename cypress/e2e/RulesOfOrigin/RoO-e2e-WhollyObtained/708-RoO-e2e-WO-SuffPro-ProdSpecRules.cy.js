@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable max-len */
 describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfic Rules |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + One Scheme + Insufficient processing + product specific rules - Japan', function() {
     cy.visit('/commodities/1602321110?country=JP#rules-of-origin');
@@ -25,7 +23,7 @@ describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     // Origin requirements met
     cy.originMet('Japan', '1602321110', 'UK-Japan Comprehensive Economic Partnership Agreement');
   });
-  it.only('Importing - NWO + One Scheme + product specific rules - Iceland', function() {
+  it('Importing - NWO + One Scheme + product specific rules - Iceland', function() {
     cy.visit('/commodities/6101201000?country=IS#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();

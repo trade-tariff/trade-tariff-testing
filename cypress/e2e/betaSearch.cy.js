@@ -9,7 +9,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('#search-filter-navigation div div p a').should(
         'have.attr',
         'href',
-        'https://www.gov.uk/guidance/classifying-edible-fruits-nuts-and-peel',
+        'https://www.gov.uk/guidance/classifying-edible-fruit-vegetables-and-nuts-for-import-and-export',
     );
   });
 
@@ -99,6 +99,19 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.url().should('include', '/chapters/85');
   });
 
+  it('Searching intercept message term `fitbit` returns results', function() {
+    // given we're on the find commodity page
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    // when we search for a known intercept term which is not included in goods nomenclature descriptions
+    cy.searchForCommodity('fitbit');
+    // then we see an intercept message
+    cy.get('#intercept-message')
+    // and are shown results
+    cy.url().should('include', '/search');
+    cy.get('#search-result-with-hits');
+  });
+
   it('Search result returns the no results page for `flibble`', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
@@ -125,7 +138,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     // and the beta search inset is now enabled
     cy.get('#enable-beta-search.govuk-inset-text > a').contains('switch back to legacy search');
     // when we do a search
-    cy.searchWithSearchField('eggs');
+    cy.searchWithSearchField('ham');
     // we see beta search results
     cy.get('[id^="beta-search-results-"]');
     // on the /search url
@@ -133,7 +146,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     // when we switch back
     cy.get('#enable-beta-search > a').click();
     // we see legacy search results
-    cy.get('.search-results').contains('Results matching ‘eggs’');
+    cy.get('.search-results').contains('Results matching ‘ham’');
     // on the /search url
     cy.url().should('include', '/search');
   });
