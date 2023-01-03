@@ -84,14 +84,14 @@ jobs:
 
 
   cypress-admin-run:
-    environment: tariff-admin-staging
+    environment: trade-tariff
     env:
+      ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: "STAGING"
-      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: ${{ secrets.CYPRESS_STAGING_ADMIN_SUFFIX }}
+      CYPRESS_STAGING_ADMIN_SUFFIX: "staging"
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
       CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
-      ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_grepTags: "adminOnly+-devOnly+-smokeTest+-notStaging"
     name: "RegressionTests - Staging - Admin"
     runs-on: ubuntu-18.04

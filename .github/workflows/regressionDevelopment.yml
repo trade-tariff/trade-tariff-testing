@@ -82,14 +82,14 @@ jobs:
   #         directory: reports_repo
 
   cypress-admin-run:
-    environment: tariff-admin-dev
+    environment: trade-tariff
     env:
+      ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_BASE_URL: "https://dev.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: "DEVELOPMENT"
-      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: ${{ secrets.CYPRESS_DEVELOPMENT_ADMIN_SUFFIX }}
+      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: "dev"
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
       CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
-      ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_grepTags: "adminOnly+-devOnly+-smokeTest+-notDevelopment"
     name: "RegressionTests - Development - Admin"
     runs-on: ubuntu-18.04
