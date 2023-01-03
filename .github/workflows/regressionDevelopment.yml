@@ -84,7 +84,7 @@ jobs:
   cypress-admin-run:
     environment: trade-tariff
     env:
-      ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
+      CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_BASE_URL: "https://dev.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: "DEVELOPMENT"
       CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: "dev"
