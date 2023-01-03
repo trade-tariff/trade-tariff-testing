@@ -136,7 +136,7 @@ jobs:
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "devonly report for $(date +%d-%m-%Y)" -a
+          git commit -m "Staging report for $(date +%d-%m-%Y)" -a
 
       - name: Get current date
         id: date
