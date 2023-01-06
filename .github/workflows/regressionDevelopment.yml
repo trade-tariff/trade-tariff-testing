@@ -14,7 +14,7 @@ jobs:
       CYPRESS_DEVELOPMENT_BASIC_AUTH: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_AUTH }}
       CYPRESS_DEVELOPMENT_BASIC_PASSWORD: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_PASSWORD }}
       CYPRESS_DEVELOPMENT_BASIC_USERNAME: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_USERNAME }}
-      CYPRESS_grepTags: "devOnly+-smokeTest+-notDevelopment"
+      CYPRESS_grepTags: "devOnly+-smokeTest+-notDevelopment+-adminOnly"
     name: "RegressionTests - Development"
     runs-on: ubuntu-18.04
     strategy:
