@@ -98,7 +98,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    // cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Transferred balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
     cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
@@ -120,7 +119,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    // cy.get('#popup > div > div > article > table > tbody > tr:nth-child(3)').contains('Transferred balance');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
     cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');

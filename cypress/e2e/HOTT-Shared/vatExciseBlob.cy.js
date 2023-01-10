@@ -25,11 +25,6 @@ describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
       cy.get('h3#vat_excise').contains('Import VAT and excise');
       cy.get('.calculator-panel.vat-excise-panel').contains('Goods are subject to an import VAT rate of 20.00%');
       cy.get('.calculator-panel.vat-excise-panel').contains('Excise duties are not chargeable on this commodity.');
-      // cy.contains('Read more about VAT rates on different goods and services and the conditions that apply to these rates.');
-      // cy.get('.calculator-panel.vat-excise-panel').contains('VAT rates on different goods and services').click();
-      // cy.contains('VAT rates on different goods and services');
-      // cy.go(-1);
-      // cy.contains('Excise duties are not chargeable on this commodity.');
       cy.get('.calculator-panel.vat-excise-panel').contains('Excise duties').click();
       cy.contains('UK Trade Tariff: excise duties, reliefs, drawbacks and allowances');
     });
