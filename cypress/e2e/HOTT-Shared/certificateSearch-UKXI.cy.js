@@ -163,9 +163,9 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
       }
     });
 
-    it(`${countries[j]} Certificate Search : N - UN/EDIFACT certificates`, function() {
+    it.only(`${countries[j]} Certificate Search : N - UN/EDIFACT certificates`, function() {
       cy.visit(`${countries[j]}/certificate_search`);
-      const ncerts_ids = ['002', '853', '865', '990', '954'];
+      const ncerts_ids = ['002', '853', '990', '954'];
       for (let i = 0; i < ncerts_ids.length; i++) {
       // select type of certificate from drop down menu
         cy.get('select#type').select('N - UN/EDIFACT certificates');

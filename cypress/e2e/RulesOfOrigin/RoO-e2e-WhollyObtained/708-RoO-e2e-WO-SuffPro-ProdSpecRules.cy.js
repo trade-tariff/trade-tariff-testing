@@ -1,4 +1,4 @@
-describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfic Rules |', {tags: ['notProduction']}, function() {
+describe('| 708-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfic Rules |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + One Scheme + Insufficient processing + product specific rules - Japan', function() {
     cy.visit('/commodities/1602321110?country=JP#rules-of-origin');
     // click Check Rules of Origin button
@@ -19,7 +19,7 @@ describe('| 707-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
     // product specific rules
-    cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MaxNOM).');
+    cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MaxNOM).', 'JP');
     // Origin requirements met
     cy.originMet('Japan', '1602321110', 'UK-Japan Comprehensive Economic Partnership Agreement');
   });

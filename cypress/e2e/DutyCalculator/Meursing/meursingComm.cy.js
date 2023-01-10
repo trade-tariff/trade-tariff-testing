@@ -3,6 +3,7 @@ describe('| meursingComm.spec.js | Store Commodity value in session for Meursing
   it('| meursing - Store Commodity code + Meursing code in Session |', function() {
     const commcode = ['1905311100', '1704906500', '1704909991'];
     for (let i=0; i<commcode.length; i++) {
+      cy.clearCookies();
       cy.visit(`/xi/commodities/${commcode[i]}`);
       cy.contains('Tools').click();
       cy.contains('Meursing code finder').click();

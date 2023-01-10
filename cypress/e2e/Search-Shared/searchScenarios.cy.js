@@ -44,7 +44,7 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
       cy.get('.js-commodity-picker-select').click().type('ba').wait(100).type('{esc}');
       cy.contains('Search results for ‘ba’').should('not.exist');
       // case 2 - enter should take the text entered in search box
-      cy.get('.js-commodity-picker-select').click().clear().type('ba').wait(100).type('{enter}');
+      cy.get('.js-commodity-picker-select').click().type('{backspace}').type('{backspace}').type('ba').wait(100).type('{enter}');
       cy.contains('Search results for ‘ba’').should('exist');
       // case 3 - search using comm code
       cy.searchForCommodity2('3808941000');

@@ -43,7 +43,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
   });
   it('XI EPS - Entry Price System on Cherry tomatoes', function() {
     cy.visit('/xi/commodities/0702000007');
-    cy.get('#measure-3878183').contains('Conditions').click();
+    cy.get('#measure-3939909').contains('Conditions').click();
     cy.get('.info-content').contains('Third country duty for All countries');
     cy.get('.info-content').contains('Threshold condition');
     cy.get('.info-content').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
@@ -182,6 +182,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP');
     cy.wait(200);
     cy.get('.close [href]').click();
+    cy.wait(500);
     // Russia conditions
     cy.get('#measure-20179932').contains('Conditions').click();
     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');

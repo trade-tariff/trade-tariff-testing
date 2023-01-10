@@ -22,12 +22,11 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
       cy.visit('/duty-calculator/uk/7202118000/import-date');
       cy.enterDate({day: importDay, month: importMonth, year: importYear});
 
-      cy.contains('Continue').click();
       // destination
       cy.get('#steps-import-destination-import-destination-xi-field').check();
       cy.contains('Continue').click();
       // origin
-      cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click();
+      cy.get('#steps-country-of-origin-country-of-origin-gb-field').click();
       cy.contains('Continue').click();
       // trader scheme
       cy.get('div:nth-of-type(2) > input[name=\'steps_trader_scheme[trader_scheme]\']').check();

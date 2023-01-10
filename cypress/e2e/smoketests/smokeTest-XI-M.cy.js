@@ -63,6 +63,7 @@ describe('Smoke test to cover basic mobile functionality on XI services', {tags:
     cy.contains('Look up commodity codes, import duties, taxes and controls');
     cy.contains('Search for a commodity');
     cy.searchForCommodity('gherkins');
+    cy.contains('Gherkins').click();
     cy.url().should('include', '/commodities/0707009000');
   });
   // Commodity Search functionality - comm code search
