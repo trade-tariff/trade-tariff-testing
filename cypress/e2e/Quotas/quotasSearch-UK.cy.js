@@ -143,8 +143,8 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.contains('Quota search results');
     cy.get('.govuk-table__row').contains('050086');
     cy.contains('All countries (1011)');
-    cy.get('.govuk-table__row').contains('01 January 2022');
-    cy.get('.govuk-table__row').contains('31 December 2022');
+    cy.get('.govuk-table__row').contains('01 January 2023');
+    cy.get('.govuk-table__row').contains('31 December 2023');
     // European country
     cy.get('.js-quota-country-picker').click();
     cy.get('input#geographical_area_id').type('Italy');

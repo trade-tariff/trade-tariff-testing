@@ -8,6 +8,7 @@ describe('searchTariff-UKXI | Search the Tariff - UK and XI |', {tags: ['config'
     it(`${countries[j]} - Search Commodity by name `, function() {
       cy.visit(`${countries[j]}/find_commodity`);
       cy.searchForCommodity('gherkins');
+      cy.contains('Gherkins').click();
       cy.url().should('include', '/commodities/0707009000');
     });
 

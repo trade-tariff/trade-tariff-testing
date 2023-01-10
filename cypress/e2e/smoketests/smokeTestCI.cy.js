@@ -75,6 +75,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.contains('Search for a commodity');
       cy.get('.govuk-label').contains('Search the UK Integrated Online Tariff');
       cy.searchForCommodity('gherkins');
+      cy.contains('Gherkins').click();
       cy.url().should('include', '/commodities/0707009000');
     });
 
@@ -312,6 +313,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.contains('Search for a commodity');
       cy.get('.govuk-label').contains('Search the Northern Ireland Online Tariff');
       cy.searchForCommodity('gherkins');
+      cy.contains('Gherkins').click();
       cy.url().should('include', '/commodities/0707009000');
     });
 

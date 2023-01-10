@@ -188,17 +188,17 @@ Cypress.Commands.add('minimalOps', (scheme, selection)=>{
 });
 
 // product-specific rules
-Cypress.Commands.add('prodSpecificRules', (rule)=>{
+Cypress.Commands.add('prodSpecificRules', (rule, country_short_name)=>{
   cy.contains('Do your goods meet the product-specific rules?');
   cy.contains('Your goods must meet one of these rules in order to qualify for originating status. Select an option to indicate if you meet the rule.');
   cy.contains('CC except from chapter 2.');
   cy.get('div.govuk-radios > div:nth-child(1) > label > p > a').should('have.attr', 'href', '/chapters/02');
   cy.contains('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MaxNOM).');
-  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a').should('have.attr', 'href', '/glossary/exw');
-  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a:nth-child(3)').should('have.attr', 'href', '/glossary/max_nom');
+  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a').should('have.attr', 'href', `/glossary/exw?country=${country_short_name}`);
+  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a:nth-child(3)').should('have.attr', 'href', `/glossary/max_nom?country=${country_short_name}`);
   cy.contains('Your goods contain a Regional Value Content (RVC) of at least 45% of the Free on Board (FOB) cost of the goods.');
-  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a').should('have.attr', 'href', '/glossary/rvc');
-  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a:nth-child(3)').should('have.attr', 'href', '/glossary/fob');
+  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a').should('have.attr', 'href', `/glossary/rvc?country=${country_short_name}`);
+  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a:nth-child(3)').should('have.attr', 'href', `/glossary/fob?country=${country_short_name}`);
   cy.contains('Your goods do not meet any of these rules.');
   cy.contains('Introductory notes to the product-specific rules');
   cy.contains('About this commodity code');

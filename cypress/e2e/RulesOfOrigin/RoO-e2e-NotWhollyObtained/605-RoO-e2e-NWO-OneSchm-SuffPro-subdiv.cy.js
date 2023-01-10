@@ -3,7 +3,7 @@
 // WO - one scheme
 describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Sufficient processing |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + One Scheme + Sufficient processing + Botswana + Subdivision + Prod specific rules - Yes/No', function() {
-    cy.visit('/commodities/5208121620?country=BW#rules-of-origin');
+    cy.visit('/commodities/5808100000?country=BW#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -19,24 +19,24 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Suffici
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Botswana');
     // cumulation
-    cy.cumulation('sacum', '5208121620', 'BW', 'SACUM-UK Economic Partnership Agreement (EPA)');
+    cy.cumulation('sacum', '5808100000', 'BW', 'SACUM-UK Economic Partnership Agreement (EPA)');
     // min Operations met ?
     cy.minimalOps('SACUM-UK Economic Partnership Agreement (EPA)', 'yes');
     // subdivision
-    cy.subDivision('5208121620', 'Woven fabrics of cotton');
+    cy.subDivision('5808100000', 'Special woven fabrics; tufted textile fabrics; lace; tapestries; trimmings; embroidery');
     // product specific rules?
     cy.prodSpecRules('Manufacture from yarn');
     // cy.prodSpecRules('Manufacture from yarn ; or Printing accompanied by at least two preparatory or finishing operations (such as scouring, bleaching, mercerising, heat setting, raising, calendering, shrink resistance processing, permanent finishing, decatising, impregnating, mending and burling) where the value of the unprinted fabric used does not exceed 47.5% of the ex-works price of the product.');
     // Origin requirements met
-    cy.rooReqMet('Importing', 'Botswana', '5208121620', 'SACUM-UK Economic Partnership Agreement (EPA)');
+    cy.rooReqMet('Importing', 'Botswana', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)');
     // Validate if product specific rules are not met
     cy.go(-1);
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
-    cy.rooNotMet('Importing', 'Botswana', '5208121620', 'SACUM-UK Economic Partnership Agreement (EPA)');
+    cy.rooNotMet('Importing', 'Botswana', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)');
   });
   it('Exporting - NWO + One Scheme + Sufficient processing + Botswana + Subdivision + Prod specific rules - Yes/No', function() {
-    cy.visit('/commodities/5208121620?country=BW#rules-of-origin');
+    cy.visit('/commodities/5808100000?country=BW#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -52,19 +52,19 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Suffici
     // Your goods are not wholly obtained
     cy.notWhollyObtained('the UK');
     // cumulation
-    cy.cumulation('sacum', '5208121620', 'BW', 'SACUM-UK Economic Partnership Agreement (EPA)');
+    cy.cumulation('sacum', '5808100000', 'BW', 'SACUM-UK Economic Partnership Agreement (EPA)');
     // min Operations met ?
     cy.minimalOps('SACUM-UK Economic Partnership Agreement (EPA)', 'yes');
     // subdivision
-    cy.subDivision('5208121620', 'Woven fabrics of cotton');
+    cy.subDivision('5808100000', 'Special woven fabrics; tufted textile fabrics; lace; tapestries; trimmings; embroidery');
     // product specific rules?
     cy.prodSpecRules('Printing accompanied by at least two preparatory or finishing operations (such as scouring, bleaching, mercerising, heat setting, raising, calendering, shrink resistance processing, permanent finishing, decatising, impregnating, mending and burling) where the value of the unprinted fabric used does not exceed 47.5% of the ex-works price of the product.');
     // Origin requirements met
-    cy.rooReqMetEx('Exporting', 'the UK', '5208121620', 'SACUM-UK Economic Partnership Agreement (EPA)');
+    cy.rooReqMetEx('Exporting', 'the UK', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)');
     // Validate if product specific rules are not met
     cy.go(-1);
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
-    cy.rooNotMetEx('Exporting', 'the UK', '5208121620', 'SACUM-UK Economic Partnership Agreement (EPA)', 'Botswana');
+    cy.rooNotMetEx('Exporting', 'the UK', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)', 'Botswana');
   });
 });

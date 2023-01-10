@@ -81,6 +81,7 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
     cy.mobileMenu();
     cy.contains('Search for a commodity');
     cy.searchForCommodity('gherkins');
+    cy.contains('Gherkins').click();
     cy.url().should('include', '/commodities/0707009000');
   });
 

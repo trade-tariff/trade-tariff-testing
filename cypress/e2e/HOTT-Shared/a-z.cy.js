@@ -23,17 +23,18 @@ describe('🇬🇧 💡 | A-Z - UK and XI services |', function() {
     for (let j = 0; j < country.length; j++) {
       cy.visit(`${country[j]}/a-z-index/s`);
       cy.get('.govuk-main-wrapper')
-          .contains('Scanner, Computer')
+          .contains('Scanning Electron Microscopes')
           .click();
       cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
     }
   });
   it('Selecting specific item from list - Chapter ', function() {
     for (let j = 0; j < country.length; j++) {
-      cy.visit(`${country[j]}/a-z-index/m`);
+      cy.visit(`${country[j]}/a-z-index/i`);
       cy.get('.govuk-main-wrapper')
-          .contains('Mineral Products')
+          .contains('Insects')
           .click();
+      cy.get('.service.govuk-width-container > nav > ol > li:nth-child(4)').contains('Chapter').click();
       cy.contains('Choose the heading that best matches your goods');
     }
   });

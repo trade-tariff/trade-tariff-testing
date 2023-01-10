@@ -87,10 +87,10 @@ describe('🇬🇧 checkValidityPeriodsV2api-UK| Validaity start and end dates',
           expect(response.body.included[3].type).to.be.eq('duty_expression');
           expect(response.body.included[3].attributes.verbose_duty).to.be.eq('Items (p/st)');
           // commodity
-          expect(response.body.included[9].id).to.be.eq('94053');
-          expect(response.body.included[9].type).to.be.eq('commodity');
-          expect(response.body.included[9].attributes.validity_start_date).to.be.eq('2012-01-01T00:00:00.000Z');
-          expect(response.body.included[9].attributes.validity_end_date).to.be.null;
+          expect(response.body.included[11].id).to.be.eq('94053');
+          expect(response.body.included[11].type).to.be.eq('commodity');
+          expect(response.body.included[11].attributes.validity_start_date).to.be.eq('2012-01-01T00:00:00.000Z');
+          expect(response.body.included[11].attributes.validity_end_date).to.be.null;
         });
   });
 
