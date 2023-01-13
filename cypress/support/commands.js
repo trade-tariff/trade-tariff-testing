@@ -253,11 +253,13 @@ Cypress.Commands.add('commodityExportGuidance', () => {
   cy.get('#export-measure-references').should('contain', 'CDS guidance');
   cy.get('#export-measure-references').should('contain', 'CHIEF guidance');
 });
+
 // Validate API Document page
 Cypress.Commands.add('apiDocPage', () => {
   cy.visit('https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api');
   cy.get('#gov-uk-trade-tariff-api').contains('GOV.UK Trade Tariff API');
 });
+
 Cypress.Commands.add('quotaSearch', (options) => {
   cy.visit('/quota_search');
   cy.contains('Search for quotas');
@@ -270,6 +272,7 @@ Cypress.Commands.add('quotaSearch', (options) => {
   cy.get('select#critical').select(options.critical);
   cy.get('select#status').select(options.status);
 });
+
 Cypress.Commands.add('verifySuspensions', (country, commCode, titles, measureTypeId, prefCode) => {
   cy.visit(`${country}/commodities/${commCode}#suspensions`);
   cy.contains(`${titles}`);
@@ -288,3 +291,13 @@ Cypress.Commands.add('verifySuspensions', (country, commCode, titles, measureTyp
     }
   });
 });
+
+Cypress.Commands.add('openPopup', { prevSubject: true }, (subject) => {
+  cy.wrap(subject).click() ;
+  return cy.get('.info-content').should('be.visible') ;
+}) ;
+
+Cypress.Commands.add('closePopup', () => {
+  cy.get('.close [href]').should('be.visible').click() ;
+  cy.get('#mask').should('not.exist') ; // wait for popup to close
+}) ;
