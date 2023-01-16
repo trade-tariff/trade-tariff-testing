@@ -4,7 +4,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('fresh potatoes');
     cy.contains('Potatoes, fresh or chilled').click()
-    cy.get('.image-guide').should('exist');
+    cy.get('.image-guide').should('exist')
 
     cy.get('#search-filter-navigation div div p a').should(
         'have.attr',
