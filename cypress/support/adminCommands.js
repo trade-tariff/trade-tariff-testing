@@ -97,7 +97,7 @@ Cypress.Commands.add('createNewsItem', () => {
   cy.contains('Precis');
   cy.contains('Preview');
   cy.get('#news-item-precis-field').type('Automated Test - Sample News Story');
-  cy.get('[data-preview-for=\'#news-item-precis-field\']').contains('Automated Test - Sample News Stor');
+  cy.get('[data-preview-for="#news-item-precis-field"]').contains('Automated Test - Sample News Stor');
   cy.get('.govuk-grid-column-one-half a[href^="http://govspeak-preview.herokuapp.com/guide"]').contains('Markdown guide');
   cy.contains('Content');
   cy.get('#news-item-content-field').type('Automated Test - Sample News Story');
@@ -186,8 +186,7 @@ Cypress.Commands.add('SearchQuotas', (quotaNumber) => {
   cy.contains('Search for a quota order number');
   cy.contains('Enter the 6-digit quota order number ID to return the details of the quota\'s definitions, balance updates and other events.');
   cy.get('#quota-search-order-number-field').type(`${quotaNumber}`);
-  cy.get('button.govuk-button').contains('Create Quota search').click();
-  cy.contains('Back');
+  cy.get('button.govuk-button').contains('Search').click();
   cy.contains(`Quota ${quotaNumber}`);
   cy.contains('Changes to quota balance for quota definition');
   cy.contains('Initial volume is');
