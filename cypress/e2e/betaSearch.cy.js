@@ -3,8 +3,8 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('fresh potatoes');
-    cy.contains('Potatoes, fresh or chilled').click()
-    cy.get('.image-guide').should('exist')
+    cy.contains('Potatoes, fresh or chilled').click();
+    cy.get('.image-guide').should('exist');
 
     cy.get('#search-filter-navigation div div p a').should(
         'have.attr',
@@ -69,7 +69,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('clothing sets');
-    cy.contains('Show all sections').click()
+    cy.contains('Show all sections').click();
     cy.contains('Women\'s and girls\'').click();
     cy.url().should('include', 'clothing_gender');
     cy.contains('Women\'s or girls\' blouses, shirts and shirt-blouses');
@@ -106,7 +106,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     // when we search for a known intercept term which is not included in goods nomenclature descriptions
     cy.searchForCommodity('fitbit');
     // then we see an intercept message
-    cy.get('#intercept-message')
+    cy.get('#intercept-message');
     // and are shown results
     cy.url().should('include', '/search');
     cy.get('#search-result-with-hits');
