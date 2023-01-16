@@ -30,7 +30,7 @@
     "eslint": "^8.31.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-cypress": "^2.11.3",
-    "flow-bin": "^0.196.0",
+    "flow-bin": "^0.197.0",
     "mocha-allure-reporter": "^1.4.0",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.2.2",
