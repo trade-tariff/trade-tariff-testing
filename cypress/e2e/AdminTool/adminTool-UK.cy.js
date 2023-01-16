@@ -30,7 +30,7 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
     cy.RemoveNewsItem();
   });
   it('search quota order number', function() {
-    cy.adminLogin('/quotas/new');
+    cy.adminLogin('/quota_search');
     cy.SearchQuotas('058011');
   });
   it('verify tariff updates', function() {
