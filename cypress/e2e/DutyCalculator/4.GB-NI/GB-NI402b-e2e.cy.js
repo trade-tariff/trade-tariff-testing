@@ -17,14 +17,14 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
       //   cy.visit(`/import-date?referred_service=${country[i]}&commodity_code=1701141000`)
       cy.contains(`${pagetitles[i]}`);
       cy.validDate();
-      
+
       cy.contains('Which part of the UK are you importing into?');
       // check URL
 
       // select NI as country of destination
       cy.get('#steps-import-destination-import-destination-xi-field').check();
       cy.contains('Continue').click();
-      
+
       cy.contains('Which country are the goods coming from?');
 
       // select United Kingdom as country of Origin
@@ -41,7 +41,7 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
 
       // ✅ Non processing - Yes - First Option selected
       cy.plannedXI('commercialprocessing');
-      
+
       // duty page validation
       cy.contains('There is no import duty to pay');
       cy.contains('There is no import duty to pay because:');
@@ -52,17 +52,17 @@ describe('| GB-NI402b-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
 
       cy.contains('You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.');
 
-      
+
       // selection is persisted
       cy.contains('Back').click();
-      
+
       cy.get('input#steps-planned-processing-planned-processing-commercial-processing-field')
           .parent()
           .find('input')
           .should('be.checked');
 
       cy.contains('Continue').click();
-      
+
       cy.contains('Start again').click();
       cy.contains('When will the goods be imported?');
     });

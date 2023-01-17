@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable max-len */
 import dayjs from 'dayjs';
-import helpers from '../../lib/helpers'
+import helpers from '../../lib/helpers';
 
 describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
   const todaysDate = dayjs().format('D MMM YYYY');
@@ -52,7 +52,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.close [href]').click();
   });
 
-  it('Quota Popup - Quota is not a safeguard quota and has `no` transferred balance ', function(){
+  it('Quota Popup - Quota is not a safeguard quota and has `no` transferred balance ', function() {
     cy.visit('/commodities/2106909828#quotas');
     cy.contains('050088').click();
     cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
@@ -76,7 +76,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('31 January 2022');
     cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
     cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
-    cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');  
+    cy.get('#popup > div > div > article > p').contains('The status given is correct at the time of the ‘last allocation’. Quota allocations are processed daily (excluding weekends and bank holidays), and the updated balance will be displayed on the Online Tariff Tool the next working day. The information provided within this tool is the most up-to-date information that HMRC can provide at any given time.');
     cy.get('.close [href]').click();
   });
 

@@ -92,7 +92,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route |
   });
   it('RoW 🇦🇺 (Australia) - XI | Turnover < £500,000 | EU Tariffs apply without Quotas |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
-    // Delta mfn = 
+    // Delta mfn =
     // date
     cy.validDate();
     // destination

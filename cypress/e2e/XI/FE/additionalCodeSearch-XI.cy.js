@@ -30,7 +30,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${prsadcodes_ids[i]}`);
-      
+
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -50,7 +50,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${radcodes_ids[i]}`);
-      
+
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -72,7 +72,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${adadcodes_ids[i]}`);
-      
+
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')
@@ -81,7 +81,6 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.contains(`${adadcodes_ids[i]}`);
     }
   });
-
 
 
   it(' XI Additional Code Search : A - Anti-dumping/countervailing', function() {
@@ -95,7 +94,7 @@ describe('🇪🇺 💡  Additional Code Search -XI services)', function() {
       cy.get('input#code')
           .clear()
           .type(`${adcadcodes_ids[i]}`);
-      
+
       cy.get('form#new_search > input[name=\'new_search\']').click();
       // check it contains relevant certificate information as requested
       cy.get('.govuk-heading-l')

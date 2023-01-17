@@ -45,7 +45,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.contains('Section I - Live animals; animal products');
       // Home
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
 
@@ -59,7 +59,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.contains('Section I - Live animals; animal products');
       // Home
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
 
@@ -81,7 +81,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.get('.govuk-breadcrumbs__list').contains('Section I').click();
       cy.contains('Section I - Live animals; animal products');
       cy.get('.govuk-breadcrumbs__list').contains('Home').click();
-      cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
       cy.get('.govuk-header__content').contains(`${pageheadings[i]}`);
     });
   }
