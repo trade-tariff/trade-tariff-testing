@@ -9,6 +9,10 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
     cy.adminLogin('/search_references/sections');
     cy.searchReferences();
   });
+  it('verify search references heading', function() {
+    cy.adminLogin('/search_references/sections');
+    cy.searchReferencesHeading('');
+  });
   it('verify rollbacks', function() {
     cy.adminLogin('/rollbacks');
     cy.rollbacks();
@@ -27,11 +31,11 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
   });
   it('remove news item - newly created', function() {
     cy.adminLogin('/news_items');
-    cy.RemoveNewsItem();
+    cy.removeNewsItem();
   });
   it('search quota order number', function() {
     cy.adminLogin('/quota_search');
-    cy.SearchQuotas('058011');
+    cy.searchQuotas('058011');
   });
   it('verify tariff updates', function() {
     cy.adminLogin('/tariff_updates');
@@ -40,5 +44,5 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
   it('reports', function() {
     cy.adminLogin('/reports');
     cy.reports('');
-  })
+  });
 });
