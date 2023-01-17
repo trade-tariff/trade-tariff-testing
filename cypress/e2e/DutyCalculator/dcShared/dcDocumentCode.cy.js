@@ -7,7 +7,7 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Canada'});
     // EU duties apply
     cy.euDutiesApply();
@@ -75,7 +75,7 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
     cy.selectDestination('xi');
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Norway'});
     // Trader Scheme
     cy.traderScheme('no');

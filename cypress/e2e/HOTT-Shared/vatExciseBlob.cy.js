@@ -28,5 +28,5 @@ describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
       cy.get('.calculator-panel.vat-excise-panel').contains('Excise duties').click();
       cy.contains('UK Trade Tariff: excise duties, reliefs, drawbacks and allowances');
     });
-  };
+  }
 });

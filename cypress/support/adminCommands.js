@@ -3,10 +3,6 @@ import dayjs from 'dayjs';
 const todaysDate = dayjs().format('YYYY/MM/DD');
 const datePrefixFormat = dayjs().format('DD/MM/YYYY');
 
-beforeEach(() => {
-  cy.clearCookies();
-});
-
 // Admin tool login
 Cypress.Commands.add('adminLogin', (path) => {
   const space = Cypress.env('SPACE');

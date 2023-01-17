@@ -81,7 +81,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
 
     it('Search Commodity by code', function() {
       cy.visit('/find_commodity');
-      cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
       cy.contains('Search for a commodity');
       cy.searchForCommodity('3808941000');
       cy.contains(/Commodity .*3808941000/i);
@@ -319,7 +319,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
 
     it('Search Commodity by code', function() {
       cy.visit('/xi/find_commodity');
-      cy.contains('Look up commodity codes, import duties, taxes and controls'); ;
+      cy.contains('Look up commodity codes, import duties, taxes and controls');
       cy.contains('Search for a commodity');
       cy.searchForCommodity('3808941000');
       cy.contains(/Commodity .*3808941000/i);

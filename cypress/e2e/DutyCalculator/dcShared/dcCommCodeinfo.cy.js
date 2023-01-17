@@ -58,7 +58,6 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.go('back');
 
 
-
     cy.certificate('no');
     // duties apply page
     cy.dutiesApply1();

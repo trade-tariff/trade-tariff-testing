@@ -23,7 +23,7 @@ describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
       // select NI as country of destination
       cy.get('#steps-import-destination-import-destination-xi-field').check();
       cy.contains('Continue').click();
-      
+
       cy.contains('Which country are the goods coming from?');
 
       // select United Kingdom as country of Origin
@@ -45,7 +45,7 @@ describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
       cy.contains('Your import is for sale to, or final use by, end-consumers located in Northern Ireland');
       cy.contains('The importer had a total annual turnover of less than £500,000 in its most recent complete financial year');
       cy.contains('You may be called upon to provide proof of your membership of the UK Trader Scheme and that your goods are not going to be subject to further processing.');
-      
+
 
       // selection is persisted
       cy.go(-1);
@@ -55,7 +55,7 @@ describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02  - 🚫 Trade Remedies -
           .should('be.checked');
 
       cy.contains('Continue').click();
-      
+
       cy.contains('Start again').click();
       cy.contains('When will the goods be imported?');
     });

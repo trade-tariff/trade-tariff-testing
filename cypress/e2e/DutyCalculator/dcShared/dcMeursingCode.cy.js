@@ -11,9 +11,9 @@ describe('| dcMeursingCode.spec.js | Meursing Code page validations | ', functio
     // origin
     cy.selectOrigin('other');
     // select country from list
-    
+
     cy.otherOriginList({value: 'Andorra'});
-    
+
     // Trader Scheme
     cy.traderScheme('no');
     // // ✅  Final use in NI - Yes
