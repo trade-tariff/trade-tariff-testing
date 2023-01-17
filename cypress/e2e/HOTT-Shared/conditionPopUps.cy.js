@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / certificate description + validity period |', function() {
+describe('Measure condition pop ups', function() {
   // HOTT-1255 - remove certificate document title from pop up window
   it(`UK - Certificate / Document details pop up `, function() {
     cy.visit(`/commodities/0104103000`);
@@ -175,16 +175,26 @@ describe('UK 🇬🇧 XI 🇪🇺 | docCodePopUps.spec.js | Validate document / 
       cy.get('.close [href]').click();
     });
   }
+
   it('UK - 🇧🇾🇷🇺 Belarus/ Russia conditions', function() {
     cy.visit('/commodities/0101210000#export');
     // Belarus conditions
     cy.get('#measure-20185288').contains('Conditions').openPopup();
     cy.get('.info-content')
-      .contains('The price of your goods does not exceed 250.00 GBP');
+        .contains('The price of your goods does not exceed 250.00 GBP');
     cy.closePopup();
     // Russia conditions
     cy.get('#measure-20179932').contains('Conditions').openPopup();
     cy.get('.info-content')
-      .contains('The price of your goods does not exceed 250.00 GBP / p/st');
+        .contains('The price of your goods does not exceed 250.00 GBP / p/st');
+  });
+
+  context('when a commodity has a threshold measure which uses the entry price system', function() {
+    it('shows the correct threshold requirements', function() {
+      cy.visit('/xi/commodities/0805501010');
+      cy.get('#measure-3939981').contains('Conditions').click();
+      cy.get('.info-content').contains('Threshold condition');
+      cy.contains('The price of your goods is greater than or equal to 46.20 EUR / 100 kg');
+    });
   });
 });
