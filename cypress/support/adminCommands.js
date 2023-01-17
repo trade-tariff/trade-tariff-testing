@@ -35,10 +35,9 @@ Cypress.Commands.add('adminLogin', (path) => {
   });
   cy.get('[type=submit]').click();
 
-  const sentArgs = { adminUrl: `${adminUrl}`, path: `${path}` };
+  const sentArgs = {adminUrl: `${adminUrl}`, path: `${path}`};
 
-  cy.origin(`${adminUrl}`, { args: sentArgs }, ({ adminUrl, path }) => {
-
+  cy.origin(`${adminUrl}`, {args: sentArgs}, ({adminUrl, path}) => {
     cy.visit(`${adminUrl}${path}`);
     if (`${path}` === '/') {
       cy.contains('Section Notes');
@@ -88,6 +87,24 @@ Cypress.Commands.add('searchReferences', () => {
   cy.contains('Back');
 });
 
+Cypress.Commands.add('searchReferencesHeading', (country) => {
+  cy.contains('Search references');
+  cy.url().should('include', `${country}/search_references/sections`);
+  cy.get('#section_4').contains('Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes');
+  cy.get('#section_4 td a').click();
+  cy.url().should('include', `${country}/search_references/sections/4/chapters`);
+  cy.get('#chapter_20').contains('Preparations Of Vegetables, Fruit, Nuts Or Other Parts Of Plants');
+  cy.get('#chapter_20').contains('1 to 9').click();
+  cy.url().should('include', `${country}/search_references/chapters/20/headings`);
+  cy.get('#heading_2008').contains('Fruit, Nuts And Other Edible Parts Of Plants');
+  cy.get('#heading_2008').contains('Edit').click();
+  cy.url().should('include', `${country}/search_references/headings/2008/search_references`);
+  cy.contains('Search references Heading (2008)');
+  cy.contains('New Search reference');
+  cy.get('#main-content > div.govuk-auto-classes > table').contains('Title');
+  cy.get('#main-content > div.govuk-auto-classes > table').contains('Actions');
+});
+
 // Create news item for all services and all collections
 Cypress.Commands.add('createNewsItem', () => {
   cy.contains('News stories');
@@ -129,7 +146,8 @@ Cypress.Commands.add('verifyNewsItemOnTariffServices', (tariffServiceName, servi
   cy.get('.govuk-breadcrumbs__list').contains('News bulletin');
   cy.contains(`${tariffServiceName}`);
   if (`${serviceName}` === 'xi') {
-    cy.get(`.news-item a[href^="/${serviceName}/news/stories/automated-test---sample-news-story"]`).contains('Automated Test - Sample News Story');
+    cy.get(`.news-item a[href^="/${serviceName}/news/stories/automated-test---sample-news-story"]`)
+        .contains('Automated Test - Sample News Story');
   } else {
     cy.get(`.news-item a[href^="/news/stories/automated-test---sample-news-story"]`).contains('Automated Test - Sample News Story');
   }
@@ -142,15 +160,15 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', () => {
     const t = $elm.text();
     // matching criteria
     if (t.includes('Automated Test - Sample')) {
-      //assertion
+      // assertion
       expect(t).to.contains('Automated Test - Sample');
-      cy.get('tbody > tr > td:nth-child(2)').eq(index).next().then(function (d) {
-        const r = d.text()
-        //assertion
+      cy.get('tbody > tr > td:nth-child(2)').eq(index).next().then(function(d) {
+        const r = d.text();
+        // assertion
         expect(r).to.contains(`${datePrefixFormat}`);
-      })
+      });
     }
-  })
+  });
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
 
@@ -170,7 +188,7 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', () => {
 });
 
 // Remove news item
-Cypress.Commands.add('RemoveNewsItem', () => {
+Cypress.Commands.add('removeNewsItem', () => {
   cy.contains('News stories');
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
@@ -182,9 +200,9 @@ Cypress.Commands.add('RemoveNewsItem', () => {
 });
 
 // Search quotas
-Cypress.Commands.add('SearchQuotas', (quotaNumber) => {
+Cypress.Commands.add('searchQuotas', (quotaNumber) => {
   cy.contains('Search for a quota order number');
-  cy.contains('Enter the 6-digit quota order number ID to return the details of the quota\'s definitions, balance updates and other events.');
+  cy.contains('Enter the 6-digit quota order number ID to return the details of the quota\'s definitions, balance updates');
   cy.get('#quota-search-order-number-field').type(`${quotaNumber}`);
   cy.get('button.govuk-button').contains('Search').click();
   cy.contains(`Quota ${quotaNumber}`);

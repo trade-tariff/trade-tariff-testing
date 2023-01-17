@@ -9,6 +9,10 @@ describe('XI - Admin tool regression tests', {tags: ['adminOnly']}, function() {
     cy.adminLogin('/xi/search_references/sections');
     cy.searchReferences();
   });
+  it('verify search references heading', function() {
+    cy.adminLogin('/xi/search_references/sections');
+    cy.searchReferencesHeading('xi');
+  });
   it('verify rollbacks', function() {
     cy.adminLogin('/xi/rollbacks');
     cy.rollbacks();
@@ -27,7 +31,7 @@ describe('XI - Admin tool regression tests', {tags: ['adminOnly']}, function() {
   });
   it('remove news item - newly created', function() {
     cy.adminLogin('/xi/news_items');
-    cy.RemoveNewsItem();
+    cy.removeNewsItem();
   });
   it('verify tariff updates', function() {
     cy.adminLogin('/xi/tariff_updates');
@@ -36,5 +40,5 @@ describe('XI - Admin tool regression tests', {tags: ['adminOnly']}, function() {
   it('reports', function() {
     cy.adminLogin('/xi/reports');
     cy.reports('xi');
-  })
+  });
 });
