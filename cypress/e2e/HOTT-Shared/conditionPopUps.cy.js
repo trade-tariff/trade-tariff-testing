@@ -202,4 +202,15 @@ describe('Measure condition pop ups', function() {
       cy.contains('The price of your goods is greater than or equal to 46.20 EUR / 100 kg');
     });
   });
+
+  context('when a commodity has credibility checks', function() {
+    it('shows credibility checks correctly', function() {
+      cy.visit('/xi/commodities/2204219313');
+      cy.get('.484').contains('Declaration of subheading submitted to physical restrictions (net weight/supplementary unit)');
+
+      cy.get('#measure-3832343').contains('Conditions').openPopup();
+      cy.get('.info-content').contains('The weight of your goods is equal to or exceeds 1.50 kg');
+      cy.get('#measure-3832343').contains('Conditions').closePopup();
+    });
+  });
 });
