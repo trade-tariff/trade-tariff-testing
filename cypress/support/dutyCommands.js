@@ -1,7 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable new-cap */
-/* eslint-disable max-len */
-
 // Duty Cal link on commodity
 Cypress.Commands.add('dutyCalLink', (commCode)=>{
   cy.checkCommPage(commCode);
@@ -19,7 +15,7 @@ Cypress.Commands.add('DCMainPage', ()=>{
       .contains('Calculate import duties');
   cy.get('.govuk-form-group');
   cy.contains('When will the goods be imported?');
-  cy.contains('As duties and quotas change over time, it may be important to enter the date you think your goods your goods will be imported.');
+  cy.contains('As duties and quotas change over time');
   cy.contains('Day');
   cy.contains('Month');
   cy.contains('Year');
@@ -52,7 +48,6 @@ Cypress.Commands.add('selectDestination', (destination)=>{
   } else {
     cy.get('#steps-import-destination-import-destination-uk-field').check();
   }
-  cy.wait(100);
   cy.contains('Continue').click();
 });
 Cypress.Commands.add('selectOrigin', (origin)=>{
@@ -85,26 +80,22 @@ Cypress.Commands.add('otherOriginList', (otherorigin) => {
 Cypress.Commands.add('dutiesApply', ()=>{
   cy.contains('Duties apply to this import');
   cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
-  cy.wait(100);
   cy.get('.govuk-button').click();
 });
 Cypress.Commands.add('euDutiesApply', () => {
   cy.contains('EU duties apply to this import');
   cy.title().should('eq', 'EU duties apply to this import - Online Tariff Duty calculator');
-  cy.wait(100);
   cy.get('.govuk-button').click();
 });
 Cypress.Commands.add('dutiesApply1', ()=>{
   cy.contains('EU duties apply to this import');
   cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
-  cy.wait(100);
   cy.get('.govuk-button').click();
 });
 Cypress.Commands.add('meursingCode', (mcode)=>{
   cy.contains('Enter a \'Meursing code\' to work out applicable duties');
   cy.title().should('eq', 'Enter a \'Meursing Code\' for this commodity - Online Tariff Duty calculator');
   cy.get('#steps-meursing-additional-code-meursing-additional-code-field').click().clear().type(mcode.value);
-  cy.wait(100);
   cy.get('.govuk-button').click();
 });
 // Duties apply to this import - Online Tariff Duty calculator
@@ -175,7 +166,6 @@ Cypress.Commands.add('confirmPage', ()=>{
   cy.contains('Check your answers');
   cy.title().should('eq', 'Check your answers - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
-  cy.wait(200);
 });
 
 Cypress.Commands.add('dutyPage', ()=>{
