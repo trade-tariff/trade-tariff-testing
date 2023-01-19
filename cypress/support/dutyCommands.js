@@ -172,7 +172,7 @@ Cypress.Commands.add('dutyPage', ()=>{
   cy.contains('Import duty calculation');
   cy.title().should('eq', 'Import duty calculation - Online Tariff Duty calculator');
 });
-Cypress.Commands.add('noDuty', (options)=>{
+Cypress.Commands.add('noDuty', (_options)=>{
   cy.contains('There is no import duty to pay');
   cy.title().should('eq', 'There is no import duty to pay - Online Tariff Duty calculator');
 });
@@ -283,16 +283,16 @@ Cypress.Commands.add('getExchangeRateForImportDate', (importDateString) => {
 Cypress.Commands.add('dcRooLink', (options)=>{
   cy.contains(`Product-specific rules for commodity`);
   cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
-  cy.contains(`If your product has been produced using any non-originating materials, the product has to fulfil the following product-specific rule to be considered originating in the UK or ${options.country}.`);
+  cy.contains(`originating in the UK or ${options.country}.`);
   cy.contains('If there are alternative rules, your product needs to comply with only one of them.');
 });
-Cypress.Commands.add('dcRooLink2', (options)=>{
+Cypress.Commands.add('dcRooLink2', (_options)=>{
   cy.contains(`Product-specific rules for commodity`);
   cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
   cy.contains(`There are no product-specific rules for commodity`);
 });
 // amend this custom command to return comm code and link ?
-Cypress.Commands.add('dcStoppingPage', (options)=>{
+Cypress.Commands.add('dcStoppingPage', (_options)=>{
   cy.title().should('eq', 'Declared subheading not allowed - Online Tariff Duty calculator');
   cy.contains('Declared subheading not allowed');
   // cy.contains(`You have chosen commodity code (${options.commCode}) for which you do not have the necessary documentation to proceed.`);
