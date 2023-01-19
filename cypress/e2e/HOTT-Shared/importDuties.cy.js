@@ -19,7 +19,7 @@ Move reassigned measure types (464, 481, 482, 483) from 'hide me' to import duti
       cy.visit(`${country[i]}/commodities/2204219413#import`);
       cy.contains(`${titles[i]}`);
       cy.contains('Import duties').click();
-      cy.contains('Declaration of subheading submitted to restrictions (import)').should('not.exist');
+      cy.contains('Declaration of subheading submitted to restrictions (import)');
       // cy.contains('TM640').click();
       // cy.contains('Declaration of subheading submitted to restrictions (import) for All countries');
     });

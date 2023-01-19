@@ -3,7 +3,7 @@ describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', functio
   it(`e2e RoW to GB 🇸🇬 Singapore  to 🇬🇧 GB`, function() {
     cy.visit('/xi/commodities/1701141000');
     cy.contains('Northern Ireland Online Tariff');
-    cy.get('.calculator-panel > p:nth-of-type(2) > a').click();
+    cy.get('.measure-inset > p:nth-of-type(2) > a').click();
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Singapore'});
