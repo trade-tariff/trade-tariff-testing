@@ -1,3 +1,4 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 
 
@@ -32,8 +33,8 @@ Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
   if (urlOrOptions instanceof Object) {
     options = urlOrOptions;
   } else {
-    options = { url: urlOrOptions };
-  };
+    options = {url: urlOrOptions};
+  }
 
   if (basicAuthEnabled) {
     options.auth = {
@@ -74,10 +75,10 @@ Cypress.Commands.add('checkHeadingsPage', (headingsCode) => {
 // UK Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('mainPageUK', () => {
   // check header has UK information
-  cy.contains('Look up commodity codes, import duties, taxes and controls');;
+  cy.contains('Look up commodity codes, import duties, taxes and controls');
   cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header')
-    .contains('UK Integrated Online Tariff');
+      .contains('UK Integrated Online Tariff');
   // Search the tariff section
   cy.get('.govuk-heading-m').contains('Search for a commodity');
   cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
@@ -91,10 +92,10 @@ Cypress.Commands.add('mainPageUK', () => {
 // XI Checks main page title , sections , content and switching link available , search section
 Cypress.Commands.add('mainPageXI', () => {
   // check header has UK information
-  cy.contains('Look up commodity codes, import duties, taxes and controls');;
+  cy.contains('Look up commodity codes, import duties, taxes and controls');
   cy.title().should('matches', /Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header')
-    .contains('Northern Ireland Online Tariff');
+      .contains('Northern Ireland Online Tariff');
   cy.contains('Search for a commodity');
   cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
   cy.contains('browse the goods classification').click();
@@ -206,7 +207,7 @@ Cypress.Commands.add('CommCodeHistory', (commCode, date) => {
   if (date) {
     dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
   }
-  cy.visit(`/commodities/${commCode}${dateParams}`, { failOnStatusCode: false });
+  cy.visit(`/commodities/${commCode}${dateParams}`, {failOnStatusCode: false});
   cy.checkCommPage(commCode);
 });
 
@@ -215,7 +216,7 @@ Cypress.Commands.add('headingsHistory', (headingsCode, date) => {
   if (date) {
     dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
   }
-  cy.visit(`/headings/${headingsCode}${dateParams}`, { failOnStatusCode: false });
+  cy.visit(`/headings/${headingsCode}${dateParams}`, {failOnStatusCode: false});
   cy.checkHeadingsPage(headingsCode);
 });
 
@@ -292,12 +293,12 @@ Cypress.Commands.add('verifySuspensions', (country, commCode, titles, measureTyp
   });
 });
 
-Cypress.Commands.add('openPopup', { prevSubject: true }, (subject) => {
-  cy.wrap(subject).click() ;
-  return cy.get('.info-content').should('be.visible') ;
-}) ;
+Cypress.Commands.add('openPopup', {prevSubject: true}, (subject) => {
+  cy.wrap(subject).click();
+  return cy.get('.info-content').should('be.visible');
+});
 
 Cypress.Commands.add('closePopup', () => {
-  cy.get('.close [href]').should('be.visible').click() ;
-  cy.get('#mask').should('not.exist') ; // wait for popup to close
-}) ;
+  cy.get('.close [href]').should('be.visible').click();
+  cy.get('#mask').should('not.exist'); // wait for popup to close
+});
