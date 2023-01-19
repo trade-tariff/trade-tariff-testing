@@ -1,5 +1,5 @@
 describe('measure type preference codes', function() {
-  it('should generate a link that is navigatable', function() {
+  it('should generate a link that is navigable', function() {
     cy.visit('/commodities/1516209821');
 
     cy.get('#measure-20001695 > td > span > a')
