@@ -17,7 +17,7 @@ describe('| dcCommodityCodeLink | Duty Calculation link on commodities', functio
       cy.contains(`${pagetitles[i]}`);
       cy.contains(`The table below lists the import duties that apply to the import of commodity ${commcodes[i]}.`);
       cy.contains('Use our tariff duty calculator to work out the');
-      cy.get('.calculator-panel > p:nth-of-type(2) > a').click();
+      cy.get('.measure-inset > p:nth-of-type(2) > a').click();
       cy.contains('When will the goods be imported?');
     });
   }
