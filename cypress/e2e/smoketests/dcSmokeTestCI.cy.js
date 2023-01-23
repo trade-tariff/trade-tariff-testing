@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
   // Duty Calculator tests
   it(`🚀 UK 🇬🇧 - Duty Calculator e2e - ( NI to GB )| 102 |`, function() {

@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 const {defineConfig} = require('cypress');
 
 const cypressGrep = require('cypress-grep/src/plugin');
@@ -5,7 +6,7 @@ const dotenvPlugin = require('cypress-dotenv');
 const {JsonSchemaValidation} = require('@jc21/cypress-jsonschema-validation');
 const {SwaggerValidation} = require('@jc21/cypress-swagger-validation');
 
-module.exports=(on)=>{
+module.exports = (on) => {
   on('task', {
     generateOTP: require('cypress-otp'),
   });
@@ -35,11 +36,12 @@ module.exports = defineConfig({
     'parseSpecialCharSequences': false,
     'defaultCommandTimeout': 15000,
     'responseTimeout': 60000,
-    'reporter': 'cypress-mochawesome-reporter',
+    'reporter': 'mochawesome',
     'reporterOptions': {
-      'reportDir': 'cypress/reports/mochawesome',
-      'charts': true,
-      'quiet': true,
+      'reportDir': 'cypress/reports',
+      'overwrite': false,
+      'html': false,
+      'json': true,
     },
     'env': {
       'grepFilterSpecs': true,
