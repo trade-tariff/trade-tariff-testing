@@ -29,7 +29,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: ./cypress/reports/mochawesome/
+          path: ./cypress/reports/
       - name: Checkout reports repo
         uses: actions/checkout@v2
         with:
@@ -40,7 +40,7 @@ jobs:
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
           [ -e docs/production/$DATE ] && rm -rf docs/production/$DATE
-          cp -a ../cypress/reports/mochawesome  docs/production/$DATE
+          cp -a ../cypress/reports/  docs/production/$DATE
           pushd docs/production/$DATE
           rm -rf assets
           rm -rf screenshots

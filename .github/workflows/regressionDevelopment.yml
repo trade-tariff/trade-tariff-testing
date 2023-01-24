@@ -34,7 +34,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: ./cypress/reports/mochawesome/
+          path: ./cypress/reports/
 
       - name: Checkout reports repo
         uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
           [ -e docs/development/$DATE ] && rm -rf docs/development/$DATE
-          cp -a ../cypress/reports/mochawesome  docs/development/$DATE
+          cp -a ../cypress/reports/  docs/development/$DATE
           pushd docs/development/$DATE
           rm -rf assets
           rm -rf screenshots
@@ -110,7 +110,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: ./cypress/reports/mochawesome/
+          path: ./cypress/reports/
 
       - name: Checkout reports repo
         uses: actions/checkout@v2
@@ -123,7 +123,7 @@ jobs:
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
           [ -e docs/development/admin/$DATE ] && rm -rf docs/development/admin/$DATE
-          cp -a ../cypress/reports/mochawesome  docs/development/admin/$DATE
+          cp -a ../cypress/reports/  docs/development/admin/$DATE
           pushd docs/development/admin/$DATE
           rm -rf assets
           rm -rf screenshots
