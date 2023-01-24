@@ -169,6 +169,11 @@ jobs:
         with:
           name: report
           path: ./cypress/reports/
+      - name: Merge and generate reports
+        run: |
+          mkdir report
+          npx mochawesome-merge cypress/report/*.json > report/report.json
+          npx marge --inline report/report.json -o report/
 
       - name: Checkout reports repo
         uses: actions/checkout@v2
@@ -181,7 +186,7 @@ jobs:
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
           [ -e docs/staging/admin/$DATE ] && rm -rf docs/staging/admin/$DATE
-          cp -a ../cypress/reports/  docs/staging/admin/$DATE
+          cp -a ../reports/  docs/staging/admin/$DATE
           pushd docs/staging/admin/$DATE
           rm -rf assets
           rm -rf screenshots
@@ -207,7 +212,7 @@ jobs:
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/admin/${{ steps.date.outputs.date }}/
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/admin/${{ steps.date.outputs.date }}/report.html
 
       - name: Push changes
         uses: ad-m/github-push-action@master
