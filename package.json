@@ -1,6 +1,7 @@
 {
   "name": "trade-tariff-testing",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "E2E testing of the Online Trade Tariff",
   "dependencies": {
     "@cypress/grep": "^3.1.3",
