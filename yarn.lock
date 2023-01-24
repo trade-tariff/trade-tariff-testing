@@ -996,6 +996,15 @@
     through2 "^2.0.0"
     watchify "^4.0.0"
 
+"@cypress/grep@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@cypress/grep/-/grep-3.1.3.tgz#3cfaf7b08e352e80c820133cd00a606f9491701d"
+  integrity sha512-kuifujYlCBKzOtkiFwa8mg18SusXoQOELMgJu8l4ffqpgZg2fukwLGaO1K7qgL8V9ZSu6OhJh8CJRbI99A+snQ==
+  dependencies:
+    debug "^4.3.2"
+    find-test-names "^1.19.0"
+    globby "^11.0.4"
+
 "@cypress/request@^2.88.10":
   version "2.88.10"
   resolved "https://registry.yarnpkg.com/@cypress/request/-/request-2.88.10.tgz#b66d76b07f860d3a4b8d7a0604d020c662752cce"
@@ -2174,15 +2183,6 @@ cypress-fill-command@^1.0.1:
   resolved "https://registry.yarnpkg.com/cypress-fill-command/-/cypress-fill-command-1.0.2.tgz#52dbd9a8714e0c5893e2721e413bdc0bed142521"
   integrity sha512-lUkeP1vPfvRP0SnbfZBIv3oje4L0qenM/uwYrViXVtuqDADa6MI3ptvNrDWyDnPYcX3p2SyNGRhnRifoOhxlRg==
 
-cypress-grep@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/cypress-grep/-/cypress-grep-3.0.4.tgz#0a6779a3c7faec6d26e5c02495a815a2aa4b6933"
-  integrity sha512-m2iYy7L7Klh1cz5WQhCKcNXGkOzeT6Y8DD8/PaxOQbsUaz7JqOUBs/W1DfY01YBVu9vhxY+5YUpaiD5LydSKkw==
-  dependencies:
-    debug "4.3.1"
-    find-test-names "^1.17.2"
-    globby "^11.0.4"
-
 cypress-mochawesome-reporter@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/cypress-mochawesome-reporter/-/cypress-mochawesome-reporter-3.2.3.tgz#01f19c626b651d964cf0e56e10ee72d8e251fe12"
@@ -2296,13 +2296,6 @@ debug@3.2.7, debug@^3.1.0:
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
-
-debug@4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
-  integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
-  dependencies:
-    ms "2.1.2"
 
 debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.3:
   version "4.3.4"
@@ -2814,10 +2807,10 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-find-test-names@^1.17.2:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/find-test-names/-/find-test-names-1.19.0.tgz#aae8bd6d2defd61393142ae5d79cf69a987e78a5"
-  integrity sha512-pAa+CyHs3KUtFVPQPfpw5HpZ7GWQNKdYrMRwyGnuiXbqERXhZmTM7K2z7Uccqo84c+GFrmxDptAW4BDi2k7srQ==
+find-test-names@^1.19.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/find-test-names/-/find-test-names-1.25.0.tgz#d2db42903f39b5ca8fcdce18fdbb345b98ec4984"
+  integrity sha512-Aj+txwltmtuthwE4nBkl7Jlw/Dge5WPIS3v6NCiOQYqpGhryWdJVgcNzLCpG7QlEqQ7rtcJmLAS4Yg2Cntfg0g==
   dependencies:
     "@babel/parser" "^7.16.5"
     acorn-walk "^8.2.0"

@@ -1,6 +1,6 @@
 const {defineConfig} = require('cypress');
 
-const cypressGrep = require('cypress-grep/src/plugin');
+const cypressGrep = require('@cypress/grep/src/plugin');
 const dotenvPlugin = require('cypress-dotenv');
 
 module.exports=(on)=>{
