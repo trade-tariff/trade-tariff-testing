@@ -19,85 +19,27 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
-      matrix:
-        containers: [0, 1, 2, 3]
     steps:
       - run: date
-      - name: Check out repository code
-        uses: actions/checkout@v2
-      - name: Run cypress tests with chrome
-        uses: cypress-io/github-action@v4
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v4
+        name: cypress
+        id: cypress
         continue-on-error: true
         with:
-          spec: "cypress/e2e/**/${{ matrix.containers }}.*.cy.js"
+          spec: "cypress/e2e/**/*.cy.js"
           quiet: true
           browser: chrome
           headless: true
-      - name: Upload E2E test reports
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
-          name: test-reports-${{ matrix.containers }}
+          name: report
           path: ./cypress/reports/
-  
-  gen_report:
-    name: Generate test report
-    needs: cypress-run
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install dependencies
-        run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
-      - name: Create reports directory
-        run: mkdir reports
-      - name: Download test-reports-0
-        uses: actions/download-artifact@v2
-        with:
-          name: test-reports-0
-          path: reports/0
-      - name: Download test-reports-1
-        uses: actions/download-artifact@v2
-        with:
-          name: test-reports-1
-          path: reports/1
-      - name: Download test-reports-2
-        uses: actions/download-artifact@v2
-        with:
-          name: test-reports-2
-          path: reports/2
-      - name: Download test-reports-3
-        uses: actions/download-artifact@v2
-        with:
-          name: test-reports-3
-          path: reports/3
-
-      - name: Move all reports into one directory
-        run: |
-          mkdir -p mochawesome-report
-          i=0
-          for file in $(find reports -type f -name mochawesome\*.json); do
-            filename=$(basename "$file" .json)-"$i".json
-            mv "$file" mochawesome-report/"$filename"
-            ls mochawesome-report
-            i=$((i + 1))
-          done
-
       - name: Merge and generate reports
         run: |
           mkdir report
-          npx mochawesome-merge > report/report.json
+          npx mochawesome-merge ./cypress/reports/*.json > report/report.json
           npx marge --inline report/report.json -o report/
-
-      - name: Upload report
-        uses: actions/upload-artifact@v2
-        with:
-          name: E2E Test Reports
-          path: report/
-
-      - name: Checkout reports repo
-        uses: actions/checkout@v2
-        with:
-          ref: reports
-          path: reports_repo
 
       - name: Copy report into reports repo
         run: |
@@ -117,11 +59,9 @@ jobs:
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Development report for $(date +%d-%m-%Y)" -a
-
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
-
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -139,7 +79,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
-
 
   cypress-admin-run:
     environment: trade-tariff
