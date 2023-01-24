@@ -22,9 +22,7 @@ jobs:
       - run:
           name: "Lint changed files"
           command: |
-            echo "yarn run eslint $(git diff --name-only --diff-filter=ACM $(git merge-base main HEAD)..HEAD | egrep '\.js')"
-
-            yarn run eslint $(git diff --name-only --diff-filter=ACM $(git merge-base main HEAD)..HEAD | egrep '\.js')
+            yarn run eslint $(git diff --name-only --diff-filter=ACM $(git merge-base main HEAD)..HEAD | egrep '\.js' | grep -v json)
   test:
     executor: custom_chrome
     steps:
