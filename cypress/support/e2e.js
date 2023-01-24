@@ -14,17 +14,16 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
-import './adminCommands'
-import './dutyCommands'
-import './apiCommands'
-import './csvCommands'
-import './rooCommands'
-import 'cypress-fill-command'
-require('cypress-grep')()
+import './commands';
+import './adminCommands';
+import './dutyCommands';
+import './apiCommands';
+import './csvCommands';
+import './rooCommands';
+import 'cypress-fill-command';
+require('@cypress/grep')();
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-  return false
-})
+  return false;
+});
 
-require('cypress-grep')();
