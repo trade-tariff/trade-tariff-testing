@@ -41,6 +41,12 @@ jobs:
           npx mochawesome-merge ./cypress/reports/*.json > report/report.json
           npx marge --inline report/report.json -o report/
 
+      - name: Checkout reports repo
+        uses: actions/checkout@v2
+        with:
+          ref: reports
+          path: reports_repo
+
       - name: Copy report into reports repo
         run: |
           cd reports_repo
