@@ -1,10 +1,9 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 describe('smoke test to cover basic mobile functionality on UK services |', {tags: ['smokeTest']}, function() {
   it('🚀 UK - Main Page Validation', function() {
     cy.viewport('iphone-x');
     cy.visit('/find_commodity');
     cy.mobileMenu();
-    cy.title().should('matches', '/UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i');
+    cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
     cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
     cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU');

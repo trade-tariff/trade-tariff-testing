@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 describe('🇪🇺 💡 🧀  | e2eMozarellaChile-XI | importing Mozzarella from Chile |', function() {
   it('Navigate to trade tariff page ', function() {
     cy.visit('/xi/sections');

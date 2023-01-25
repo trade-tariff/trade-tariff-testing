@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |', function() {
   it('Page Validation - RoW-GB ', function() {

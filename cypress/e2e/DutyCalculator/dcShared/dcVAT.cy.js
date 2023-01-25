@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
   it(`UK service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function() {

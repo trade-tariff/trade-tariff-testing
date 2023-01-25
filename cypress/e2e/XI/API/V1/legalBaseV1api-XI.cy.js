@@ -1,4 +1,3 @@
-/* eslint-disable no-prototype-builtins */
 /* eslint-disable camelcase */
 describe('🇪🇺 ⚙️ XI-version v1 api - legal base should be present in the backend API response  API', function() {
   it('Prove that the data remains in the JSON API (v1)', () => {

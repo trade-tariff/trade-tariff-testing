@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 // taken from scenario document
 describe('| searchScenarios.spec.js | UK and XI services |', function() {

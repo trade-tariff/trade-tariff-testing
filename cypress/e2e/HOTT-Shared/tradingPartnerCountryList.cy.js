@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('Validating trading partner countries', function() {
   it(`Autocomplete excluded countries list`, function() {

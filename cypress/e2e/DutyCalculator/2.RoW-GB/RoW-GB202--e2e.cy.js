@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 // 🇨🇳 China to  🇬🇧 GB
 // Comm code :0304829010 - no Measure Units
 

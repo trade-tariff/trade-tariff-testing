@@ -1,5 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
-/* eslint-disable max-len */
 describe('🇬🇧 💡 | legalBaseColumn-UK | Legal base Column UK |', function() {
 // HOT-58 Suppressing Legal Base Column for UK
   // front end

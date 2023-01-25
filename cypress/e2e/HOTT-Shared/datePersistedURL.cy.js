@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
 /* eslint-disable max-len */

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('| 708-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfic Rules |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + One Scheme + Insufficient processing + product specific rules - Japan', function() {
     cy.visit('/commodities/1602321110?country=JP#rules-of-origin');

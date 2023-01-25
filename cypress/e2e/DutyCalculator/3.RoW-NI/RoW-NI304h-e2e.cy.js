@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - 🚫 Measure Units
 /* 9503002110 22nd December 2021

@@ -1,5 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
-/* eslint-disable max-len */
 describe('UK 🇬🇧 XI 🇪🇺 | conditionsFootnotes | XI Service - Validate Conditions and Footnotes on commodity page + important notes link |', function() {
   it('Conditions on UK imports on XI service ', function() {
     cy.visit('/xi/commodities/6403990510/#import');

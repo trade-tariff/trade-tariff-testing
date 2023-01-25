@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator |', function() {
   /*

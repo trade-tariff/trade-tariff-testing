@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('| dcCountriesList | RoW to GB - Exclude certain countries from the autocompleting country list |', function() {
   it(`RoW - GB - Autocomplete excluded countries list - `, function() {

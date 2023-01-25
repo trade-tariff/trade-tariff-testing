@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
   it(`UK service - 5% - Multiple VAT rates 🇮🇱 RoW-GB`, function() {
     cy.visit('/duty-calculator/uk/8716109800/import-date');

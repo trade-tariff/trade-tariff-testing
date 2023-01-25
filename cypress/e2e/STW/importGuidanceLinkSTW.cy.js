@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('| importGuidanceLinkSTW.spec | STW content on commodity import page |', function() {
   it('| UK Service - STW content on Commodity import page |', function() {

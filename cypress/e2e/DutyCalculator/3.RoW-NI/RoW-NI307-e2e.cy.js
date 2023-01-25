@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - 🚫 UK Trader Scheme
 describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Document Codes |', function() {

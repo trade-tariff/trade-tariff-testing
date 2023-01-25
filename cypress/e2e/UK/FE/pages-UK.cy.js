@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 /* eslint-disable max-len */
 describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK version)|', function() {
   // --- Headings to be changed for UK -------------

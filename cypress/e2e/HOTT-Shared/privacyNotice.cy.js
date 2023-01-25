@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 /* eslint-disable max-len */
 describe('🇬🇧 🇪🇺 💡 | PrivacyNotice.spec | Privacy Notice for UK and XI |', function() {
   const country = ['uk', 'xi'];

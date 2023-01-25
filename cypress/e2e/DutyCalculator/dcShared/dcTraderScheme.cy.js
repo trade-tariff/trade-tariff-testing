@@ -1,5 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
-/* eslint-disable new-cap */
 /* eslint-disable max-len */
 describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
   it('RoW - GB Page Validation', function() {

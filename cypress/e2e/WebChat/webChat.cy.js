@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 describe('Verify Webchat URL link and access on various pages and popup after 30 seconds on comm code page', function() {
   ['', 'xi'].forEach(function(country) {
     it(`${country} - verify webchat link on help page`, function() {

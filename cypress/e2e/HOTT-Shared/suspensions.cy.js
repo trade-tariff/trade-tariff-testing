@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('UK 🇬🇧 XI 🇪🇺 | suspensions.cy.js | validate suspensions on Front end | ', function() {
   const country = ['', 'xi'];
   const titles = ['Northern Ireland Online Tariff', 'UK Integrated Online Tariff'];

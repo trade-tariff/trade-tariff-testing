@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable camelcase */
 describe('🇬🇧 💡 | countrySelection-UK | Country Selection |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('UK Country Selection - imports ', function() {

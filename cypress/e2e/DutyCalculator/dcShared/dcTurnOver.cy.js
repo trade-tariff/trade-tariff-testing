@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('🧮 | dcTurnOver.spec | Duty Calculator TurnOver page  |', function() {
   it('Page Validation - RoW-GB ', function() {

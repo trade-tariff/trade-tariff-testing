@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable no-tabs */
 /* eslint-disable max-len */
 /*

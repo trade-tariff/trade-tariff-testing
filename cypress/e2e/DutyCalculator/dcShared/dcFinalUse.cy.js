@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('🧮 | dcFinalUse | Final Use - page |', function() {
   it('UK - Page Validation', function() {

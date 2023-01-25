@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page |', function() {
   it('ESW (GB) ', function() {

@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy links - UK |', function() {
 //  HOTT-192

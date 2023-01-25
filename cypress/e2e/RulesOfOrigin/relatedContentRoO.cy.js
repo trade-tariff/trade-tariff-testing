@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 // HOTT- 954 ,
 describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']}, function() {

@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 // Retail Price
 describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Price , Excise Code  |', function() {
   it('RoW 🇳🇴 Norway  to NI | Document Code , Retail Price , Excise Code |', function() {

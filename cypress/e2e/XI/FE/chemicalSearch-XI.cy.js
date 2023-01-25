@@ -1,6 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
-/* eslint-disable max-len */
-/* eslint-disable camelcase */
 describe('🇪🇺 💡   Chemical Search 🧪 -  XI services)', function() {
   it('XI Chemical Search -using CAS number', function() {
     cy.visit('/xi/chemical_search');

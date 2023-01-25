@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 describe('🇬🇧 💡 | e2eMozzarellaChile-UK | importing Mozzarella 🧀  from Chile 🇨🇱 |', function() {
   it('Search and import cheese from Chile ', function() {
     cy.visit('/find_commodity');

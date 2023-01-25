@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 // HOTT  ,
 describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config', 'roo-tag']}, function() {

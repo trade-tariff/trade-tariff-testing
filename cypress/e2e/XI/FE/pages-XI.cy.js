@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 /* eslint-disable max-len */
 describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI version) |', function() {
   // --- HOTT-82 -------------

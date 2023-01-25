@@ -1,4 +1,3 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 
 describe('| RoW-GB206-e2e.spec | additional codes |', function() {
