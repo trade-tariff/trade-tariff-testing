@@ -30,7 +30,7 @@ jobs:
       - name: Generate lists of specs
         id: speclist
         run: |
-          ls cypress/e2e/**/*.cy.js > all_specs.txt
+          find cypress/e2e -type f -name '*.cy.js' > all_specs.txt
           split -n l/4 -d -a 1 all_specs.txt spec_group_
           echo "specfiles=$(paste -d, -s spec_group_${{ matrix.containers }})" >> $GITHUB_OUTPUT
 
