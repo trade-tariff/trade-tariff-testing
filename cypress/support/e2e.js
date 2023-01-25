@@ -21,6 +21,7 @@ import './apiCommands';
 import './csvCommands';
 import './rooCommands';
 import 'cypress-fill-command';
+require('@cypress/grep')();
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false;

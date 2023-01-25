@@ -1,5 +1,6 @@
 /* eslint-disable new-cap */
 const {defineConfig} = require('cypress');
+const cypressGrep = require('@cypress/grep/src/plugin');
 const dotenvPlugin = require('cypress-dotenv');
 
 module.exports = (on) => {
@@ -14,6 +15,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       on('task', {generateOTP: require('cypress-otp')});
       config = dotenvPlugin(config, {}, true);
+      config = cypressGrep(config);
       return config;
     },
     'accessibility': true,
