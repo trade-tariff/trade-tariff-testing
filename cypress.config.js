@@ -1,7 +1,5 @@
 /* eslint-disable new-cap */
 const {defineConfig} = require('cypress');
-
-const cypressGrep = require('@cypress/grep/src/plugin');
 const dotenvPlugin = require('cypress-dotenv');
 
 module.exports = (on) => {
@@ -14,12 +12,8 @@ module.exports = defineConfig({
   e2e: {
     'baseUrl': 'https://staging.trade-tariff.service.gov.uk',
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
-
       on('task', {generateOTP: require('cypress-otp')});
       config = dotenvPlugin(config, {}, true);
-      config = cypressGrep(config);
-
       return config;
     },
     'accessibility': true,

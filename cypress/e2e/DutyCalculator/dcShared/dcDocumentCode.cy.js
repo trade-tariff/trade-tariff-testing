@@ -1,3 +1,4 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable max-len */
 describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calculator |', function() {
 // Scenario - document code c990 is associated with 0% suspensions on XI and no document will lead to measure not applicable

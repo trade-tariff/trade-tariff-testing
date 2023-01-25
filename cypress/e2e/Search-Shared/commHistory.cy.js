@@ -1,3 +1,4 @@
+/* eslint-disable cypress/no-unnecessary-waiting */
 /* eslint-disable new-cap */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-tabs */
