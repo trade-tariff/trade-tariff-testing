@@ -207,6 +207,28 @@ Cypress.Commands.add('searchQuotas', (quotaNumber) => {
   cy.url().should('include', `${quotaNumber}`);
 });
 
+Cypress.Commands.add('quotaDefinationsBalances', (quotaNumber, eventType, definationID) => {
+  cy.contains(`Quota ${quotaNumber} - definitions and balances`);
+  cy.get(`.govuk-auto-classes a[href^="/quotas/new"]`).contains('Back');
+  cy.contains('Core quota data');
+  cy.contains(`Definition periods for quota ${quotaNumber}`);
+  cy.contains('Show all definitions').click();
+  cy.contains('Core definition data');
+  cy.get('#accordion-default-content-1 > dl > div:nth-child(6)').contains('Critical state');
+  cy.get('#accordion-default-content-1 > dl > div:nth-child(6)').contains('Y');
+  cy.contains(`Balance events for quota ${quotaNumber}`);
+  cy.contains('Additional events');
+  cy.contains(`${eventType}`);
+  cy.get(`.govuk-accordion__section-content a[href^="/quotas/${definationID}?order_number=${quotaNumber}"]`)
+      .contains('See the graph of quota balance events').click();
+  // cy.contains('See the graph of quota balance events').click();
+  cy.get(`.govuk-auto-classes a[href^="/quotas/search?quota_search%5Border_number%5D=${quotaNumber}"]`).contains('Back');
+  cy.contains(`Quota ${quotaNumber}`);
+  cy.contains('Changes to quota balance for quota definition');
+  cy.contains('Initial volume is');
+  cy.url().should('include', `${quotaNumber}`);
+});
+
 // Verify rollbacks
 Cypress.Commands.add('rollbacks', () => {
   cy.contains('Database rollbacks');
