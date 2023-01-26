@@ -189,7 +189,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
   });
 
   context('when the commodity safeguard quota measure has transfer events', function() {
-    it('does not show any balances transfers before HMRC starting managing them', function() {
+    it('does not show any balance transfers before HMRC started managing them', function() {
       cy.visit('/commodities/7306290000?day=1&month=2&year=2022');
       cy.contains('058041').click();
       cy.get('#popup').should('not.contain', 'Transferred balance');
