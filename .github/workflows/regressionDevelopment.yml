@@ -38,8 +38,8 @@ jobs:
       - name: Merge and generate reports
         run: |
           mkdir report
-          npx mochawesome-merge ./cypress/reports/*.json > report/report.json
-          npx marge --inline report/report.json -o report/
+          npx mochawesome-merge ./cypress/reports/*.json > report/index.json
+          npx marge --inline report/index.json -o report/
 
       - name: Checkout reports repo
         uses: actions/checkout@v2
@@ -77,7 +77,7 @@ jobs:
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}/report.html
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}
 
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -158,7 +158,7 @@ jobs:
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/admin/${{ steps.date.outputs.date }}/report.html
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/admin/${{ steps.date.outputs.date }}
 
       - name: Push changes
         uses: ad-m/github-push-action@master
