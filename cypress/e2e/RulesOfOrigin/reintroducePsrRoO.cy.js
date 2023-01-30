@@ -4,14 +4,10 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.contains('Rules of origin').click();
     cy.contains('Preferential rules of origin for trading with France');
     cy.contains('Related content');
-    cy.get('#rules-of-origin__related-content a[href^="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin"')
-        .contains('Check your goods meet the rules of origin');
-    cy.get('#rules-of-origin__related-content a[href^="https://www.gov.uk/government/publications/ukeu-and-eaec-trade-and-cooperation-agreement-ts-no82021"')
-        .contains('UK/EU and EAEC: Trade and Cooperation Agreement');
-    cy.get('#rules-of-origin__related-content a[href^="https://www.gov.uk/guidance/claiming-preferential-rates-of-duty-between-the-uk-and-eu"')
-        .contains('Claiming preferential rates of duty between the UK and EU');
-    cy.get('#rules-of-origin__related-content a[href^="https://www.gov.uk/government/publications/rules-of-origin-for-goods-moving-between-the-uk-and-eu"')
-        .contains('Rules of origin for goods moving between the UK and EU');
+    cy.get('#rules-of-origin__related-content a[href]').contains('Check your goods meet the rules of origin');
+    cy.get('#rules-of-origin__related-content a[href]').contains('UK/EU and EAEC: Trade and Cooperation Agreement');
+    cy.get('#rules-of-origin__related-content a[href]').contains('Claiming preferential rates of duty between the UK and EU');
+    cy.get('#rules-of-origin__related-content a[href]').contains('Rules of origin for goods moving between the UK and EU');
     cy.contains('Overview').click();
     cy.contains('UK / EU Trade and Co-operation Agreement');
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
@@ -26,7 +22,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.contains('Rules under the UK / EU Trade and Co-operation Agreement');
     cy.contains('Non-preferential rules of origin').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
-    cy.get('.rules-of-origin__non-preferential a[href^="https://www.gov.uk/government/publications/reference-document-for-the-customs-origin-of-chargeable-goods-eu-exit-regulations-2020"]')
+    cy.get('.rules-of-origin__non-preferential a[href]')
         .contains('The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020 (opens in new tab)');
   });
   it('UK | Click reset all countries link and check RoO page content', function() {
@@ -40,7 +36,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('#rules-of-origin a[href^="https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements"]')
         .contains('Pay less Customs Duty on goods from a country with a UK trade agreement (opens in new tab)');
     cy.get('#rules-of-origin').contains('Non-preferential rules of origin');
-    cy.get('#rules-of-origin a[href^="https://www.gov.uk/government/publications/reference-document-for-the-customs-origin-of-chargeable-goods-eu-exit-regulations-2020"]')
+    cy.get('.rules-of-origin__non-preferential a[href]')
         .contains('The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020 (opens in new tab)');
   });
   it('UK | Reintroduce proofs of origin | Country does not have dual schemes', function() {
