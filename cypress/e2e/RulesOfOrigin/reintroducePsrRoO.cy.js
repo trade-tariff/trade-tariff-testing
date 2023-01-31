@@ -20,6 +20,10 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.contains('Product-specific rules').click();
     cy.get('h3#product-specific-rules').contains('Product-specific rules - trade with France');
     cy.contains('Rules under the UK / EU Trade and Co-operation Agreement');
+    cy.contains('Proofs of origin').click();
+    cy.get('h3#proofs-of-origin').contains('Proofs of origin');
+    cy.get('#rules-of-origin-proofs').contains('Statement on origin').click();
+    cy.get('#rules-of-origin-proofs').contains('Importer\'s knowledge').click();
     cy.contains('Non-preferential rules of origin').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
     cy.get('.rules-of-origin__non-preferential a[href]')
@@ -54,6 +58,9 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width')
         .contains('Production in which all the materials of chapter 7 used are wholly obtained');
     cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width a[href^="/chapters/07"]').contains('chapter 7');
+    cy.get('h3#proofs-of-origin').contains('Proofs of origin');
+    cy.get('#rules-of-origin-proofs').contains('Statement on origin').click();
+    cy.get('#rules-of-origin-proofs').contains('Importer\'s knowledge').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
   });
   it('UK | Reintroduce proofs of origin | Country has dual schemes', function() {
@@ -80,6 +87,11 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('.govuk-table.govuk-table--responsive.commodity-rules-of-origin').contains('Rule');
     cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width')
         .contains('Manufacture in which all the materials of chapter 7 used are wholly obtained.');
+    cy.get('h3#proofs-of-origin').contains('Proofs of origin');
+    cy.get('#rules-of-origin-proofs').contains('EUR1 or EUR.MED movement certificate').click();
+    cy.get('#rules-of-origin-proofs').contains('Origin declaration').click();
+    cy.get('#rules-of-origin-proofs').contains('Generalised Scheme of Preferences form A').click();
+    cy.get('#rules-of-origin-proofs').contains('Invoice declaration').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
   });
 });
