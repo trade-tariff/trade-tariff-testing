@@ -1,5 +1,5 @@
 // TODO: All of these specs are effectively disabled until STW and DIT get there issues resolved.
-describe.skip('STW integration', function() {
+describe('STW integration', function() {
   context('when the commodity has conditionally prohibitive measures', function() {
     it('shows the correct STW message', function() {
       // given a commodity with a conditionally prohibitive measure
