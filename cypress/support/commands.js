@@ -307,9 +307,6 @@ Cypress.Commands.add('pickTradingPartner', (tradingPartner) => {
   cy.get('input#trading_partner_country')
       .click()
       .clear()
-      .wait(500)
       .type(tradingPartner)
-      .wait(500)
-      .type('{enter}')
-      .wait(500);
+      .type('{enter}');
 });
