@@ -302,3 +302,11 @@ Cypress.Commands.add('closePopup', () => {
   cy.get('.close [href]').should('be.visible').click();
   cy.get('#mask').should('not.exist'); // wait for popup to close
 });
+
+Cypress.Commands.add('pickTradingPartner', (tradingPartner) => {
+  cy.get('input#trading_partner_country')
+      .click()
+      .clear()
+      .type(tradingPartner)
+      .type('{enter}');
+});
