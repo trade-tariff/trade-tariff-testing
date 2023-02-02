@@ -44,6 +44,13 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('.search-results').contains('Meat and edible meat offal');
   });
 
+  it('Search result returns results for synonyms with a goods nomenclature item id', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('hedgehog');
+    cy.get('.search-results').contains('Other live animals');
+  });
+
   it('Search redirects for search heading `0101`', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
