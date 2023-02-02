@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 const todaysDate = dayjs().format('YYYY/MM/DD');
 const datePrefixFormat = dayjs().format('DD/MM/YYYY');
 
-// Admin tool login
 Cypress.Commands.add('adminLogin', (path) => {
   const space = Cypress.env('SPACE');
   const adminSuffix = Cypress.env(`${space}_ADMIN_SUFFIX`);
@@ -31,17 +30,16 @@ Cypress.Commands.add('adminLogin', (path) => {
   });
   cy.get('[type=submit]').click();
 
-  const sentArgs = {adminUrl: `${adminUrl}`, path: `${path}`};
+  const sentArgs = {adminUrl: adminUrl, path: path};
 
   cy.origin(`${adminUrl}`, {args: sentArgs}, ({adminUrl, path}) => {
     cy.visit(`${adminUrl}${path}`);
-    if (`${path}` === '/') {
+    if (path === '/') {
       cy.contains('Section Notes');
     }
   });
 });
 
-// Verify sections and chapter notes
 Cypress.Commands.add('verifySectionChapterNotes', () => {
   cy.contains('Section Notes');
   cy.contains('Edit').click();
@@ -56,7 +54,6 @@ Cypress.Commands.add('verifySectionChapterNotes', () => {
   cy.get('a.govuk-button:nth-child(5)').contains('Remove');
 });
 
-// Search references
 Cypress.Commands.add('searchReferences', () => {
   cy.contains('Search references');
   cy.url().should('include', '/search_references/sections');
@@ -101,7 +98,6 @@ Cypress.Commands.add('searchReferencesHeading', (country) => {
   cy.get('#main-content > div.govuk-auto-classes > table').contains('Actions');
 });
 
-// Create news item for all services and all collections
 Cypress.Commands.add('createNewsItem', () => {
   cy.contains('News stories');
   cy.contains('Add News story').click();
@@ -137,7 +133,6 @@ Cypress.Commands.add('createNewsItem', () => {
   cy.contains('News item created');
 });
 
-// Verify news item on uk and xi services
 Cypress.Commands.add('verifyNewsItemOnTariffServices', (tariffServiceName, serviceName) => {
   cy.get('.govuk-breadcrumbs__list').contains('News bulletin');
   cy.contains(`${tariffServiceName}`);
@@ -149,7 +144,6 @@ Cypress.Commands.add('verifyNewsItemOnTariffServices', (tariffServiceName, servi
   }
 });
 
-// Verify and update news item created
 Cypress.Commands.add('verifyAndUpdateNewsItem', () => {
   cy.get('tbody > tr > td:nth-child(2)').each(($elm, index, $list) => {
     // text captured from column1
@@ -183,7 +177,6 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', () => {
   cy.contains('News item updated');
 });
 
-// Remove news item
 Cypress.Commands.add('removeNewsItem', () => {
   cy.contains('News stories');
   cy.contains('Edit').click();
@@ -195,7 +188,6 @@ Cypress.Commands.add('removeNewsItem', () => {
   cy.contains('News item removed');
 });
 
-// Search quotas
 Cypress.Commands.add('searchQuotas', (quotaNumber) => {
   cy.contains('Search for a quota order number');
   cy.contains('Enter the 6-digit quota order number ID');
@@ -229,7 +221,6 @@ Cypress.Commands.add('quotaDefinationsBalances', (quotaNumber, eventType, defina
   cy.url().should('include', `${quotaNumber}`);
 });
 
-// Verify rollbacks
 Cypress.Commands.add('rollbacks', () => {
   cy.contains('Database rollbacks');
   cy.url().should('include', 'rollbacks');
@@ -242,7 +233,6 @@ Cypress.Commands.add('rollbacks', () => {
   cy.get('button.govuk-button').contains('Create Rollback');
 });
 
-// Verify tariff updates
 Cypress.Commands.add('tariffUpdates', (databaseName) => {
   cy.contains(`Tariff Updates - ${databaseName}`);
   cy.contains('Review inserts');
@@ -252,7 +242,6 @@ Cypress.Commands.add('tariffUpdates', (databaseName) => {
   cy.get('.govuk-pagination').contains('Next');
 });
 
-// Verify reports tab
 Cypress.Commands.add('reports', (serviceName) => {
   cy.contains('Reports');
   cy.get('#table-reports').contains('Commodities extract');
