@@ -198,12 +198,12 @@ Cypress.Commands.add('removeNewsItem', () => {
 // Search quotas
 Cypress.Commands.add('searchQuotas', (quotaNumber) => {
   cy.contains('Search for a quota order number');
-  cy.contains('Enter the 6-digit quota order number ID to return the details of the quota\'s definitions, balance updates');
-  cy.get('#quota-search-order-number-field').type(`${quotaNumber}`);
+  cy.contains('Enter the 6-digit quota order number ID');
+  cy.get('#quota-search-order-number-field').type(quotaNumber);
   cy.get('button.govuk-button').contains('Search').click();
   cy.contains(`Quota ${quotaNumber}`);
-  cy.contains('Changes to quota balance for quota definition');
-  cy.contains('Initial volume is');
+  cy.contains(`Quota ${quotaNumber} - definitions and balances`);
+  cy.contains(`Definition periods for quota ${quotaNumber}`);
   cy.url().should('include', `${quotaNumber}`);
 });
 

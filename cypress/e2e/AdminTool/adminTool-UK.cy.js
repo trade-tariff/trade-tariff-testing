@@ -1,5 +1,3 @@
-// admin portal e2e regression tests
-
 describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
   it('verify sections and chapter notes', function() {
     cy.adminLogin('/');
@@ -34,7 +32,7 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
     cy.removeNewsItem();
   });
   it('search quota order number', function() {
-    cy.adminLogin('/quota_search');
+    cy.adminLogin('/quotas/new');
     cy.searchQuotas('058011');
   });
   it('quota - definitions and balances - exhaustion event', function() {
