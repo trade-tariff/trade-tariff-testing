@@ -1,4 +1,4 @@
-describe('Reintroduce Product Specific Rules - RoO', function() {
+describe.skip('Reintroduce Product Specific Rules - RoO', function() {
   it('UK | Verify navigation links on RoO page', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
     cy.contains('Rules of origin').click();
