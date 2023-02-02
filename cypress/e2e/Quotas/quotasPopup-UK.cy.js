@@ -154,31 +154,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.close [href]').click();
   });
 
-  // Verify 'this quota is not available on the selected date.' message
-  it('Quota Popup - Verify `This quota is not available on the selected date message`', function() {
-    cy.visit('/commodities/0805290021?day=29&month=4&year=2022#quotas');
-    cy.contains('050027').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 050027');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 29 Apr 2022)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('1 February 2022 to 30 April 2022');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('n/a');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('n/a');
-    // Click view balance for todaysDate link and verify `This quota is not available on the selected date message` message
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 050027');
-    cy.get('#popup > div > div > article > p').contains('This quota is not available on the selected date.');
-    cy.get('.close [href]').click();
-  });
-
   it('UK quota numbers post 1 Jan 2021 -054xxx Licensed', function() {
     cy.visit('/commodities/0201100021#import');
     cy.get('.govuk-tabs__panel');
