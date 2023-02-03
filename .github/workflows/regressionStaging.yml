@@ -2,7 +2,7 @@ name: "| Staging | Regression Pack |"
 
 on:
   schedule:
-    - cron: "45 06 * * *"
+    - cron: "00 12 * * *"
   workflow_dispatch:
 
 jobs:
