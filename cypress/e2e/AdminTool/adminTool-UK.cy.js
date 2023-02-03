@@ -39,18 +39,18 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
   });
 
   it('quota - definitions and balances - exhaustion event', function() {
-    cy.quotaDefinationsBalances('050071', 'Exhaustion event', '20846');
+    cy.quotaDefinitionsBalances('050071', 'Exhaustion event', '20846');
   });
 
   it('quota - definitions and balances - reopening event', function() {
-    cy.quotaDefinationsBalances('050086', 'Reopening event', '20852');
+    cy.quotaDefinitionsBalances('050086', 'Reopening event', '20852');
   });
 
   it('quota - definitions and balances - unblocking event', function() {
-    cy.quotaDefinationsBalances('090007', 'Unblocking event', '1892');
+    cy.quotaDefinitionsBalances('090007', 'Unblocking event', '1892');
   });
 
   it('quota - definitions and balances - unsuspension event', function() {
-    cy.quotaDefinationsBalances('090204', 'Unsuspension event', '1691');
+    cy.quotaDefinitionsBalances('090204', 'Unsuspension event', '1691');
   });
 });

@@ -197,7 +197,7 @@ Cypress.Commands.add('searchQuotas', (quotaOrderNumber) => {
   cy.url().should('include', `${quotaOrderNumber}`);
 });
 
-Cypress.Commands.add('quotaDefinationsBalances', (quotaOrderNumber, eventType, definitionID) => {
+Cypress.Commands.add('quotaDefinitionsBalances', (quotaOrderNumber, eventType, definitionID) => {
   cy.visit(`${adminUrl}/quotas/search?quota_search%5Border_number%5D=${quotaOrderNumber}`);
   cy.contains(`Quota ${quotaOrderNumber} - definitions and balances`);
   cy.get(`.govuk-auto-classes a[href^="/quotas/new"]`).contains('Back');
