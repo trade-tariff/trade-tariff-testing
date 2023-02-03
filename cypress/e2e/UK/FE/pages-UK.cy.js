@@ -204,7 +204,15 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
         'https://www.gov.uk/government/publications/trading-with-developing-nations',
     );
 
-    cy.get('ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
-    cy.get('ul > li:nth-child(2) > a').should('have.attr', 'href', '/help/rules_of_origin/duty_drawback');
+    cy.contains('Rules of origin glossary');
+    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
+    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');
+    cy
+        .get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2) > a')
+        .should(
+            'have.attr',
+            'href',
+            '/help/rules_of_origin/duty_drawback',
+        );
   });
 });
