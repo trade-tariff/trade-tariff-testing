@@ -1,5 +1,6 @@
 describe('Using beta search', {tags: ['devOnly']}, function() {
-  it('Search result returns guides for `fresh potatoes`', function() {
+  // TODO: Reinstate this test when guides are adjusted/come back from HMRC
+  it.skip('Search result returns guides for `fresh potatoes`', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('fresh potatoes');
