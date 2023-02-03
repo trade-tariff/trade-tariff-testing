@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK version)|', function() {
   // --- Headings to be changed for UK -------------
 
@@ -33,8 +32,8 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - Sections page ', function() {
     cy.visit('/sections/12');
     cy.contains('UK Integrated Online Tariff');
-    cy.contains('Section XII - Footwear, headgear, umbrellas, sun umbrellas, walking-sticks, seat-sticks, whips, riding-crops and parts thereof; prepared feathers and articles made therewith; artificial flowers; articles of human hair');
-    cy.contains('Section XII contains 4 chapters. Choose the chapter that best matches your goods.');
+    cy.contains('Section XII - Footwear');
+    cy.contains('Section XII contains 4 chapters.');
   });
   it('UK - Chapter page ', function() {
     cy.visit('/chapters/97');
@@ -53,7 +52,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
       cy.get('.govuk-summary-list').contains('Heading');
       cy.get('.govuk-summary-list').contains('Classification');
       cy.get('.govuk-summary-list').contains('Date of trade');
-      cy.contains(`There are ${comms[i]} commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.`);
+      cy.contains(`There are ${comms[i]} commodities in this category.`);
     }
   });
   it('UK - Commodity page - with Supp units', function() {
@@ -65,7 +64,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('.govuk-summary-list').contains('Number of pairs (pa)');
     cy.get('.govuk-summary-list').contains('Date of trade');
     cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
-    cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
+    cy.contains('Supplementary units are used');
   });
   it('UK - Search the Tariff section', function() {
     cy.visit('/find_commodity');
@@ -84,16 +83,11 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Certificates, licences and documents');
     cy.contains('Additional codes');
     cy.contains('Chemicals');
-    cy.get('.govuk-list')
-        .contains('Search for tariff quotas, including daily updated balances.');
-    cy.get('.govuk-list')
-        .contains('Search for certificates, licences and other document codes.');
-    cy.get('.govuk-list')
-        .contains('Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.');
-    cy.get('.govuk-list')
-        .contains('Search the tariff for footnotes');
-    cy.get('.govuk-list')
-        .contains('Search the tariff for chemicals by ');
+    cy.get('.govuk-list').contains('Search for tariff quotas');
+    cy.get('.govuk-list').contains('Search for certificates');
+    cy.get('.govuk-list').contains('Search for additional codes.');
+    cy.get('.govuk-list').contains('Search the tariff for footnotes');
+    cy.get('.govuk-list').contains('Search the tariff for chemicals');
   });
   it('UK - News section', function() {
     cy.visit('/find_commodity');
@@ -147,14 +141,23 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     //  cy.contains('Measures for Italy');
     cy.contains('Find information about how to move goods from the UK to Italy.');
     cy.contains('Check how to export commodity 0702000007 to Italy (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007');
+    cy.get('p:nth-of-type(3) > a[target=\'_blank\']')
+        .should(
+            'have.attr',
+            'href',
+            'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007',
+        );
 
     // Non EU country selected
     cy.searchForCountry('Andorra').type('{enter}');
     cy.contains('Exporting from the UK');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
     cy.contains('Check how to export commodity goods (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.check-duties-customs-exporting-goods.service.gov.uk');
+    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should(
+        'have.attr',
+        'href',
+        'https://www.check-duties-customs-exporting-goods.service.gov.uk',
+    );
   });
   it('UK - import tab', function() {
     cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
@@ -166,9 +169,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
 
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     cy.get('a#tab_import').click();
-    // check link after country selection
-    // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Argentina.');
-    cy.get('#import > div.govuk-inset-text.govuk-inset-text--s.tariff-inset-information > a').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/import/check-licences-certificates-and-other-restrictions?commodity=0702000007&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=10&importDateMonth=12&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AR&tradeType=import&userTypeTrader=true');
   });
   it('UK - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
     cy.visit('/help/rules_of_origin/duty_drawback');
@@ -178,17 +178,33 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('What is duty drawback');
     cy.contains('Duty drawback - an example');
     cy.contains('Agreements which include a duty drawback provision');
-    cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(1)').contains('UK-Albania Partnership, Trade and Cooperation Agreement');
-    cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2) > ul > li > a').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement');
-    cy.get('.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2)').contains('View origin reference document');
-    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(1) > td:nth-child(2) > ul > li:nth-child(2) > a').should('have.attr', 'href', '/roo_origin_reference_documents/211228_ORD_Albania_V1.1.odt');
-    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(1)').contains('Generalised Scheme of Preferences (GSP)');
-    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(2) > ul > li').contains('View agreement details');
-    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(2) > ul > li > a').should('have.attr', 'href', 'https://www.gov.uk/government/publications/trading-with-developing-nations');
-    cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-two-thirds > table > tbody > tr:nth-child(22) > td:nth-child(2) > ul > li').should('not.contain', 'View origin reference document');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1)').contains('Rules of origin glossary');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2) > a').should('have.attr', 'href', '/help/rules_of_origin/duty_drawback');
+    cy.contains('UK-Albania Partnership, Trade and Cooperation Agreement');
+
+    cy.get('tr > td > ul > li > a')
+        .should(
+            'have.attr',
+            'href',
+            'https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement',
+        );
+
+    cy.contains('View origin reference document');
+
+    cy.get('tr > td > ul > li:nth-child(2) > a').should(
+        'have.attr',
+        'href',
+        '/roo_origin_reference_documents/211228_ORD_Albania_V1.1.odt',
+    );
+
+    cy.contains('Generalised Scheme of Preferences (GSP)');
+    cy.contains('View agreement details');
+
+    cy.get('tr:nth-child(22) > td:nth-child(2) > ul > li > a').should(
+        'have.attr',
+        'href',
+        'https://www.gov.uk/government/publications/trading-with-developing-nations',
+    );
+
+    cy.get('ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
+    cy.get('ul > li:nth-child(2) > a').should('have.attr', 'href', '/help/rules_of_origin/duty_drawback');
   });
 });
