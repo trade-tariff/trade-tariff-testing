@@ -1,44 +1,36 @@
-// admin portal e2e regression tests
-
 describe('XI - Admin tool regression tests', {tags: ['adminOnly']}, function() {
+  beforeEach(() => {
+    cy.loginOrRestoreAdminSession();
+  });
+
   it('verify sections and chapter notes', function() {
-    cy.adminLogin('/xi');
-    cy.verifySectionChapterNotes();
+    cy.verifySectionChapterNotes('xi');
   });
+
   it('verify search references', function() {
-    cy.adminLogin('/xi/search_references/sections');
-    cy.searchReferences();
+    cy.verifySectionSearchReferences('xi');
   });
+
   it('verify search references heading', function() {
-    cy.adminLogin('/xi/search_references/sections');
-    cy.searchReferencesHeading('xi');
+    cy.verifySearchReferencesHeading('xi');
   });
+
   it('verify rollbacks', function() {
-    cy.adminLogin('/xi/rollbacks');
-    cy.rollbacks();
+    cy.verifyRollbacks('xi');
   });
-  it('create news item for all services and all collections', function() {
-    cy.adminLogin('/xi/news_items');
-    cy.createNewsItem();
+
+  it('CRUD a news item', function() {
+    cy.createNewsItem('xi');
+    cy.verifyNewsItemOnTariffServices('Northern Ireland Online Tariff');
+    cy.verifyAndUpdateNewsItem('xi');
+    cy.removeNewsItem('xi');
   });
-  it('verify new item on xi tariff service', function() {
-    cy.visit('/xi/news');
-    cy.verifyNewsItemOnTariffServices('Northern Ireland Online Tariff', 'xi');
-  });
-  it('verify newly added news item and update the services', function() {
-    cy.adminLogin('/xi/news_items');
-    cy.verifyAndUpdateNewsItem();
-  });
-  it('remove news item - newly created', function() {
-    cy.adminLogin('/xi/news_items');
-    cy.removeNewsItem();
-  });
+
   it('verify tariff updates', function() {
-    cy.adminLogin('/xi/tariff_updates');
-    cy.tariffUpdates('Taric');
+    cy.tariffUpdates('xi');
   });
+
   it('reports', function() {
-    cy.adminLogin('/xi/reports');
     cy.reports('xi');
   });
 });

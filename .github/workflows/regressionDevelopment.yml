@@ -2,19 +2,23 @@ name: "| Development | Regression Pack |"
 
 on:
   schedule:
-    - cron: "30 05 * * *"
+    - cron: "00 12 * * *"
   workflow_dispatch:
 
 jobs:
   cypress-run:
     environment: trade-tariff
     env:
+      CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
+      CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
+      CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
       CYPRESS_BASE_URL: "https://dev.trade-tariff.service.gov.uk"
-      CYPRESS_SPACE: "DEVELOPMENT"
+      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: "dev"
       CYPRESS_DEVELOPMENT_BASIC_AUTH: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_AUTH }}
       CYPRESS_DEVELOPMENT_BASIC_PASSWORD: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_PASSWORD }}
       CYPRESS_DEVELOPMENT_BASIC_USERNAME: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_USERNAME }}
-      CYPRESS_grepTags: "devOnly+-smokeTest+-notDevelopment+-adminOnly"
+      CYPRESS_SPACE: "DEVELOPMENT"
+      CYPRESS_grepTags: "devOnly adminOnly"
     name: "RegressionTests - Development"
     runs-on: ubuntu-18.04
     strategy:
@@ -74,82 +78,6 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}/
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          directory: reports_repo
-
-  cypress-admin-run:
-    environment: trade-tariff
-    env:
-      CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
-      CYPRESS_BASE_URL: "https://dev.trade-tariff.service.gov.uk"
-      CYPRESS_SPACE: "DEVELOPMENT"
-      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: "dev"
-      CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
-      CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
-      CYPRESS_grepTags: "adminOnly+-devOnly+-smokeTest+-notDevelopment"
-    name: "RegressionTests - Development - Admin"
-    runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false
-    steps:
-      - run: date
-      - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v4
-        name: cypress
-        id: cypress
-        continue-on-error: true
-        with:
-          quiet: true
-          browser: chrome
-          headless: true
-      - uses: actions/upload-artifact@v2
-        with:
-          name: report
-          path: ./cypress/reports/mochawesome/
-
-      - name: Checkout reports repo
-        uses: actions/checkout@v2
-        with:
-          ref: reports
-          path: reports_repo
-
-      - name: Copy report into reports repo
-        run: |
-          cd reports_repo
-          DATE=$(date +%d-%m-%Y)
-          [ -e docs/development/admin/$DATE ] && rm -rf docs/development/admin/$DATE
-          cp -a ../cypress/reports/mochawesome  docs/development/admin/$DATE
-          pushd docs/development/admin/$DATE
-          rm -rf assets
-          rm -rf screenshots
-          ln -s ../../../assets/
-          popd
-          git add docs .
-      - name: Commit todays report to reports branch
-        run: |
-          cd reports_repo
-          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Development admin report for $(date +%d-%m-%Y)" -a
-
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: "tariffs-regression"
-          SLACK_USERNAME: "Development Admin Regression"
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/admin/${{ steps.date.outputs.date }}/
 
       - name: Push changes
         uses: ad-m/github-push-action@master
