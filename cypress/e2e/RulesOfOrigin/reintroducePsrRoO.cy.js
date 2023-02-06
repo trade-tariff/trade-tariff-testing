@@ -88,10 +88,10 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width')
         .contains('Manufacture in which all the materials of chapter 7 used are wholly obtained.');
     cy.get('h3#proofs-of-origin').contains('Proofs of origin');
-    cy.get('#rules-of-origin-proofs').contains('EUR1 or EUR.MED movement certificate').click();
+    cy.get('#rules-of-origin-proofs').contains('EUR.1 movement certificate').click();
     cy.get('#rules-of-origin-proofs').contains('Origin declaration').click();
     cy.get('#rules-of-origin-proofs').contains('Generalised Scheme of Preferences form A').click();
-    cy.get('#rules-of-origin-proofs').contains('Invoice declaration').click();
+    cy.get('#rules-of-origin-proofs').contains('Origin declaration').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
   });
   it('UK | Verify Proofs of origin page - RoO', function() {
