@@ -37,4 +37,26 @@ Move reassigned measure types (464, 481, 482, 483) from 'hide me' to import duti
     cy.contains('Import duties').click();
     cy.contains('Representative price').should('not.exist');
   });
+  it.only('UK third country duties - multiple duties - heading', function() {
+    cy.viewport(1200, 1080);
+    cy.visit('/headings/3906');
+    cy.get('ul > li.level-3.last-child').contains('Other');
+    cy.get('.govuk-table.additional-code-table').contains('Depends on additional code');
+    cy.get('.govuk-table.additional-code-table').contains('Code');
+    cy.get('.govuk-table.additional-code-table').contains('Duty');
+    cy.get('.govuk-table.additional-code-table').contains('2500');
+    cy.get('.govuk-table.additional-code-table').contains('0.00 %');
+    cy.get('.govuk-table.additional-code-table').contains('2501');
+    cy.get('.govuk-table.additional-code-table').contains('6.00 %');
+  });
+  it.only('XI third country duties - multiple duties - heading', function() {
+    cy.viewport(1200, 1080);
+    cy.visit('xi/headings/3906');
+    cy.get('ul > li.level-3.last-child').contains('Other');
+    cy.get('.govuk-table.additional-code-table').contains('Depends on additional code');
+    cy.get('.govuk-table.additional-code-table').contains('Code');
+    cy.get('.govuk-table.additional-code-table').contains('Duty');
+    cy.get('.govuk-table.additional-code-table').contains('0.00 %');
+    cy.get('.govuk-table.additional-code-table').contains('6.50 %');
+  });
 });

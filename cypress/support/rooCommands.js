@@ -377,3 +377,16 @@ Cypress.Commands.add('feebackSection', ()=>{
   cy.get('.govuk-inset-text.tariff-inset-meursing').contains('Your feedback will help us to improve it.');
   cy.get('.govuk-inset-text a[href^="/feedback"]').contains('feedback');
 });
+// Verify proofs of origin page
+Cypress.Commands.add('proofsOfOriginPage', (commCode, country, country_short_name) => {
+  cy.url().should('include', `/rules_of_origin/${commCode}/${country_short_name}/proofs_of_origin`);
+  cy.contains(`Importing commodity ${commCode} from ${country} to the UK`);
+  cy.contains('Valid proofs of origin');
+  cy.contains('Proof of origin - overview');
+  cy.contains('Statement on origin').click();
+  cy.contains('Importer\'s knowledge').click();
+  cy.contains('Next step');
+  cy.contains('See detailed processes and requirements for proving the origin for goods');
+  cy.contains('How proofs of origin are verified');
+  cy.get('.govuk-back-link').contains('Back');
+});

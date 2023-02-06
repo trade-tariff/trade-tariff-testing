@@ -1,4 +1,4 @@
-describe.skip('Reintroduce Product Specific Rules - RoO', function() {
+describe('Reintroduce Product Specific Rules - RoO', function() {
   it('UK | Verify navigation links on RoO page', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
     cy.contains('Rules of origin').click();
@@ -93,5 +93,33 @@ describe.skip('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('#rules-of-origin-proofs').contains('Generalised Scheme of Preferences form A').click();
     cy.get('#rules-of-origin-proofs').contains('Invoice declaration').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
+  });
+  it('UK | Verify Proofs of origin page - RoO', function() {
+    cy.visit('/commodities/6004100091?country=JP#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Japan', 'import');
+    // How Originating is defined
+    cy.howOrginating('Japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Japan Comprehensive Economic Partnership Agreement');
+    // what components
+    cy.whatComponents('UK-Japan Comprehensive Economic Partnership Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('Japan', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('Japan');
+    // cumulation - Bilateral cumulation and Extended cumulation example
+    cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    // min Operations met ?
+    cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
+    // product specific rules?
+    cy.prodSpecRules('Spinning of natural or man-made staple fibres combined with knitting or with crocheting.');
+    // Origin requirements met
+    cy.rooReqMet('Importing', 'Japan', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement');
+    cy.contains('See valid proofs of origin').click();
+    // Verify proofs of origin page
+    cy.proofsOfOriginPage('6004100091', 'Japan', 'JP');
   });
 });
