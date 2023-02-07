@@ -2,7 +2,7 @@ name: "| Staging | Regression Pack |"
 
 on:
   schedule:
-    - cron: "45 06 * * *"
+    - cron: "00 00 * * *"
   workflow_dispatch:
 
 jobs:
@@ -10,11 +10,15 @@ jobs:
     environment: trade-tariff
     env:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
+      CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
+      CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
+      CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
+      CYPRESS_STAGING_ADMIN_SUFFIX: "staging"
       CYPRESS_SPACE: "STAGING"
       CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
       CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
       CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
-      CYPRESS_grepTags: "-devOnly+-smokeTest+-notStaging+-adminOnly"
+      CYPRESS_grepTags: "-devOnly+-smokeTest+-notStaging"
     name: "RegressionTests - Staging"
     runs-on: ubuntu-22.04
     strategy:
@@ -57,23 +61,28 @@ jobs:
     steps:
       - name: Install dependencies
         run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+
       - name: Create reports directory
         run: mkdir reports
+
       - name: Download test-reports-0
         uses: actions/download-artifact@v2
         with:
           name: test-reports-0
           path: reports/0
+
       - name: Download test-reports-1
         uses: actions/download-artifact@v2
         with:
           name: test-reports-1
           path: reports/1
+
       - name: Download test-reports-2
         uses: actions/download-artifact@v2
         with:
           name: test-reports-2
           path: reports/2
+
       - name: Download test-reports-3
         uses: actions/download-artifact@v2
         with:
@@ -121,12 +130,20 @@ jobs:
           ln -s ../../assets/
           popd
           git add docs .
+
       - name: Commit todays report to reports branch
         run: |
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Staging report for $(date +%d-%m-%Y)" -a
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
+          directory: reports_repo
 
       - name: Get current date
         id: date
@@ -142,91 +159,3 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          directory: reports_repo
-
-  cypress-admin-run:
-    environment: trade-tariff
-    env:
-      CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
-      CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
-      CYPRESS_SPACE: "STAGING"
-      CYPRESS_STAGING_ADMIN_SUFFIX: "staging"
-      CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
-      CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
-      CYPRESS_grepTags: "adminOnly+-devOnly+-smokeTest+-notStaging"
-    name: "RegressionTests - Staging - Admin"
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-    steps:
-      - run: date
-      - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v4
-        name: cypress
-        id: cypress
-        continue-on-error: true
-        with:
-          quiet: true
-          browser: chrome
-          headless: true
-      - uses: actions/upload-artifact@v2
-        with:
-          name: report
-          path: ./cypress/reports/
-      - name: Merge and generate reports
-        run: |
-          mkdir report
-          npx mochawesome-merge ./cypress/reports/*.json > report/index.json
-          npx marge --inline report/index.json -o report/
-
-      - name: Checkout reports repo
-        uses: actions/checkout@v2
-        with:
-          ref: reports
-          path: reports_repo
-
-      - name: Copy report into reports repo
-        run: |
-          cd reports_repo
-          DATE=$(date +%d-%m-%Y)
-          [ -e docs/staging/admin/$DATE ] && rm -rf docs/staging/admin/$DATE
-          cp -a ../report/  docs/staging/admin/$DATE
-          pushd docs/staging/admin/$DATE
-          rm -rf assets
-          rm -rf screenshots
-          ln -s ../../../assets/
-          popd
-          git add docs .
-      - name: Commit todays report to reports branch
-        run: |
-          cd reports_repo
-          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Staging admin report for $(date +%d-%m-%Y)" -a
-
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: "tariffs-regression"
-          SLACK_USERNAME: "Staging Admin Regression"
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/admin/${{ steps.date.outputs.date }}
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          directory: reports_repo
