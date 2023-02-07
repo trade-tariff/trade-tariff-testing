@@ -42,6 +42,20 @@ jobs:
             yarn run cypress run \
               --spec \
               $(git diff --name-only --diff-filter=ACM $(git merge-base main HEAD)..HEAD | grep 'cypress/e2e/' | grep '.cy.js' | tr -s '\n' ',')cypress/e2e/smoketests/smokeTestCI.cy.js
+  rotate_reports:
+    docker:
+      - image: cimg/base:current-22.04
+    steps:
+      - checkout
+      - run: "bin/rotate_reports.sh"
+      - slack/notify:
+          channel: tariffs-regression
+          event: fail
+          template: basic_fail_1
+      - slack/notify:
+          channel: tariffs-regression
+          event: pass
+          template: basic_success_1
 
 workflows:
   ci:
@@ -56,4 +70,20 @@ workflows:
           filters:
             branches:
               ignore:
+                - main
+
+  weekly:
+    triggers:
+      - schedule:
+          cron: "0 5 * * *"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - rotate_reports:
+          context: trade-tariff
+          filters:
+            branches:
+              only:
                 - main
