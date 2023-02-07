@@ -44,44 +44,6 @@ jobs:
               $(git diff --name-only --diff-filter=ACM $(git merge-base main HEAD)..HEAD | grep 'cypress/e2e/' | grep '.cy.js' | tr -s '\n' ',')cypress/e2e/smoketests/smokeTestCI.cy.js
 
 workflows:
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 5 * * *"
-          filters:
-            branches:
-              only:
-                - main
-    jobs:
-      - cypress/run:
-          executor: custom_chrome
-          context: trade-tariff
-          name: "Scheduled smoke tests on staging"
-          browser: chrome
-          yarn: true
-          post-steps:
-            - slack/notify:
-                channel: tariffs-regression
-                event: fail
-                template: basic_fail_1
-            - slack/notify:
-                channel: tariffs-regression
-                event: pass
-                custom: |
-                  {
-                    "blocks": [
-                      {
-                        "type": "section",
-                        "fields": [
-                          {
-                            "type": "plain_text",
-                            "text": "*Smoke tests passed* :white_check_mark:",
-                            "emoji": true
-                          }
-                        ]
-                      }
-                    ]
-                  }
   ci:
     jobs:
       - test:
