@@ -26,7 +26,7 @@ jobs:
       matrix:
         containers: [0, 1, 2, 3]
     outputs:
-      output1: ${{ steps.outputs.outcome }}
+      output1: ${{ steps.cypress-outcome.outputs.test-status }}
     steps:
       - run: date
 
@@ -51,8 +51,9 @@ jobs:
           headless: true
       
       - name: Cypress test outcome
+        id: cypress-outcome
         run: |
-          echo "outcome=${{ steps.cypress.outputs}}" >> $GITHUB_OUTPUT
+          echo "test-status=${{ steps.cypress.outcome }}" >> $GITHUB_OUTPUT
 
       - name: Upload E2E test reports
         uses: actions/upload-artifact@v2
