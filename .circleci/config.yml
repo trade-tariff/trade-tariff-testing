@@ -73,13 +73,13 @@ workflows:
                 - main
 
   weekly:
-    triggers:
-      - schedule:
-          cron: "0 5 * * *"
-          filters:
-            branches:
-              only:
-                - main
+    # triggers:
+    #   - schedule:
+    #       cron: "0 5 * * *"
+    #       filters:
+    #         branches:
+    #           only:
+    #             - main
     jobs:
       - rotate_reports:
           context: trade-tariff
