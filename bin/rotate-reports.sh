@@ -56,13 +56,11 @@ rotate_recent_reports() {
 
   git branch -d reports
   git branch -m reports
+  git push -u origin reports --force
 
-  # Push the changes to the remote repository
-  # git push -u origin reports
-  #
-  # git checkout main
+  git checkout main
 }
 
-commits=$(get_combined_git_log 30 "Development" "Staging" "Production")
+commits=$(get_combined_git_log 10 "Development" "Staging" "Production")
 
 rotate_recent_reports "$commits"
