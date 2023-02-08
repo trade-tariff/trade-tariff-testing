@@ -1,4 +1,4 @@
-name: "Rotate Development, Staging and Production reports"
+name: "| Rotate All Regression Reports |"
 
 on:
   schedule:
