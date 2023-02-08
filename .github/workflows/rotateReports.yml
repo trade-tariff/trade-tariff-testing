@@ -1,9 +1,6 @@
 name: "Rotate Development, Staging and Production reports"
 
 on:
-  push:
-    branches:
-      - "HOTT-2632-rotate-mochawesome-reports"
   schedule:
     - cron: "00 5 * * 0"
   workflow_dispatch:
