@@ -1,48 +1,56 @@
-// admin portal e2e regression tests
-
 describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
+  beforeEach(() => {
+    cy.loginOrRestoreAdminSession();
+  });
+
   it('verify sections and chapter notes', function() {
-    cy.adminLogin('/');
-    cy.verifySectionChapterNotes();
+    cy.verifySectionChapterNotes('uk');
   });
-  it('verify search references', function() {
-    cy.adminLogin('/search_references/sections');
-    cy.searchReferences();
+
+  it('verify section search references', function() {
+    cy.verifySectionSearchReferences('uk');
   });
-  it('verify search references heading', function() {
-    cy.adminLogin('/search_references/sections');
-    cy.searchReferencesHeading('');
+
+  it('verify heading search references', function() {
+    cy.verifySearchReferencesHeading('uk');
   });
+
   it('verify rollbacks', function() {
-    cy.adminLogin('/rollbacks');
-    cy.rollbacks();
+    cy.verifyRollbacks('uk');
   });
-  it('create news item for all services and all collections', function() {
-    cy.adminLogin('/news_items');
-    cy.createNewsItem();
+
+  it('CRUD a news item', function() {
+    cy.createNewsItem('uk');
+    cy.verifyNewsItemOnTariffServices('UK Integrated Online Tariff');
+    cy.verifyAndUpdateNewsItem('uk');
+    cy.removeNewsItem('uk');
   });
-  it('verify new item on uk tariff service', function() {
-    cy.visit('/news');
-    cy.verifyNewsItemOnTariffServices('UK Integrated Online Tariff', '');
+
+  it('verify tariff updates', function() {
+    cy.tariffUpdates('uk');
   });
-  it('verify newly added news item and update the services', function() {
-    cy.adminLogin('/news_items');
-    cy.verifyAndUpdateNewsItem();
+
+  it('reports', function() {
+    cy.reports('uk');
   });
-  it('remove news item - newly created', function() {
-    cy.adminLogin('/news_items');
-    cy.removeNewsItem();
-  });
+
   it('search quota order number', function() {
-    cy.adminLogin('/quota_search');
     cy.searchQuotas('058011');
   });
-  it('verify tariff updates', function() {
-    cy.adminLogin('/tariff_updates');
-    cy.tariffUpdates('CDS');
+
+  it('quota - definitions and balances - exhaustion event', function() {
+    cy.quotaDefinitionsBalances('050071', 'Exhaustion event', '20846');
   });
-  it('reports', function() {
-    cy.adminLogin('/reports');
-    cy.reports('');
+
+  it('quota - definitions and balances - reopening event', function() {
+    cy.quotaDefinitionsBalances('050086', 'Reopening event', '20852');
+  });
+
+  it('quota - definitions and balances - unblocking event', function() {
+    cy.quotaDefinitionsBalances('090007', 'Unblocking event', '1892');
+  });
+
+  it('quota - definitions and balances - unsuspension event', function() {
+    cy.quotaDefinitionsBalances('090204', 'Unsuspension event', '1691');
   });
 });

@@ -10,8 +10,8 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
     cy.get('.basic-third-country-duty').contains('0.0');
     cy.get('.preferential-tariff-duty').contains('Preferential tariff duty =');
     cy.get('.preferential-tariff-duty').contains('0.0');
-    cy.get('.tariff-breadcrumbs').contains('As the third country duty is zero, you do not need to apply for a preferential tariff or comply with preferential rules of origin.');
-    cy.get('.tariff-breadcrumbs').contains('If you would still like to continue, click the \'Check rules of origin\' button.');
+    cy.get('.panel.panel--grey').contains('As the third country duty is zero, you do not need to apply for a preferential tariff or comply with preferential rules of origin.');
+    cy.get('.panel.panel--grey').contains('If you would still like to continue, click the \'Check rules of origin\' button.');
     cy.get('form > .govuk-button').should('be.visible').should('contain.text', 'Check rules of origin');
   });
   it(`| UK | There is neither a preference nor a quota |`, function() {
@@ -23,7 +23,7 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
     cy.get('.basic-third-country-duty').contains('12.00 % + 147.00 GBP / 100 kg');
     cy.get('.govuk-inset-text.import-trade-summary > ul > li.no-preferential-duties').contains('There is no preferential tariff duty or quota available for this commodity');
     cy.get('#rules-of-origin__intro--bloc-scheme').contains('SACUM-UK Economic Partnership Agreement (EPA)');
-    cy.get('#rules-of-origin > div > div.govuk-grid-column-two-thirds > h3').contains('Work out if your goods meet the rules of origin');
+    cy.get('.panel.panel--grey').contains('Work out if your goods meet the rules of origin');
     cy.get('button.govuk-button').contains('Check rules of origin');
   });
 });

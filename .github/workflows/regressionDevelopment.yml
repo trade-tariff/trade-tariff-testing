@@ -2,19 +2,23 @@ name: "| Development | Regression Pack |"
 
 on:
   schedule:
-    - cron: "30 05 * * *"
+    - cron: "00 00 * * *"
   workflow_dispatch:
 
 jobs:
   cypress-run:
     environment: trade-tariff
     env:
+      CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
+      CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
+      CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
       CYPRESS_BASE_URL: "https://dev.trade-tariff.service.gov.uk"
-      CYPRESS_SPACE: "DEVELOPMENT"
+      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: "dev"
       CYPRESS_DEVELOPMENT_BASIC_AUTH: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_AUTH }}
       CYPRESS_DEVELOPMENT_BASIC_PASSWORD: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_PASSWORD }}
       CYPRESS_DEVELOPMENT_BASIC_USERNAME: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_USERNAME }}
-      CYPRESS_grepTags: "devOnly+-smokeTest+-notDevelopment+-adminOnly"
+      CYPRESS_SPACE: "DEVELOPMENT"
+      CYPRESS_grepTags: "devOnly adminOnly"
     name: "RegressionTests - Development"
     runs-on: ubuntu-22.04
     strategy:

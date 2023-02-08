@@ -25,6 +25,8 @@ jobs:
       fail-fast: false
       matrix:
         containers: [0, 1, 2, 3]
+    outputs:
+      output1: ${{ steps.outputs.outcome }}
     steps:
       - run: date
 
@@ -39,6 +41,7 @@ jobs:
           echo "specfiles=$(paste -d, -s spec_group_${{ matrix.containers }})" >> $GITHUB_OUTPUT
 
       - name: Run cypress tests with chrome
+        id: cypress
         uses: cypress-io/github-action@v4
         continue-on-error: true
         with:
@@ -46,13 +49,15 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
+        run: |
+          echo "outcome=${{ steps.cypress.outputs}}" >> $GITHUB_OUTPUT
 
       - name: Upload E2E test reports
         uses: actions/upload-artifact@v2
         with:
           name: test-reports-${{ matrix.containers }}
           path: ./cypress/reports/
-  
+
   gen_report:
     name: Generate test report
     needs: cypress-run
@@ -157,5 +162,5 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
-          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_TITLE: Cypress finished with - ${{ needs.cypress-run.outputs.output1 }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}

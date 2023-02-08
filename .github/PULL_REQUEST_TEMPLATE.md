@@ -19,9 +19,8 @@ I am doing this because:
 
 ### Have you? (optional)
 
-- [ ] Reviewed view changes with stake holders
-- [ ] Validated mobile responsive behaviour of view changes
-
-### Deployment risks (optional)
-
-- Makes changes to our complex routing setup that may affect apis to proxying to backend
+- [ ] Created clear commits for traceability?
+- [ ] Avoided brittle tests which need constant fixing due to data/or static content changes?
+- [ ] Made sure there isn't already a test for this feature?
+- [ ] Avoided testing logic that isn't part of an integration between multiple systems and that is effectively a unit test in the application already?
+- [ ] Reviewed changes with affected stakeholders?

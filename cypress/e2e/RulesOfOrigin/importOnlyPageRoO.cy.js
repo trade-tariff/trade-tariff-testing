@@ -19,7 +19,6 @@ describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', {tags: 
     // back button should take user to commodity page
     cy.get('.govuk-back-link').click();
     cy.contains('Preferential rules of origin for trading with Afghanistan');
-    cy.contains('Work out if your trade fulfils the rules of origin and can therefore be considered originating.');
     // click continue
     cy.contains('Check rules of origin').click();
     cy.get('.govuk-button').contains('Continue').click();
