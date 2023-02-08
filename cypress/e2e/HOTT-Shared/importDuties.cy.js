@@ -50,6 +50,7 @@ Move reassigned measure types (464, 481, 482, 483) from 'hide me' to import duti
     cy.get('.govuk-table.additional-code-table').contains('6.00 %');
   });
   it('XI third country duties - multiple duties - heading', function() {
+    // View port is to set the resolution of the page so that we can clear see the below changes
     cy.viewport(1200, 1080);
     cy.visit('xi/headings/3906');
     cy.get('ul > li.level-3.last-child').contains('Other');
