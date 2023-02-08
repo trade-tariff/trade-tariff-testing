@@ -52,8 +52,10 @@ workflows:
             branches:
               ignore:
                 - main
+                - reports
       - linters:
           filters:
             branches:
               ignore:
                 - main
+                - reports
