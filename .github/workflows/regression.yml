@@ -16,6 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         containers: [0, 1, 2, 3]
+    outputs:
+      output1: ${{ steps.cypress-outcome.outputs.test-status }}
     steps:
       - run: date
 
@@ -30,6 +32,7 @@ jobs:
           echo "specfiles=$(paste -d, -s spec_group_${{ matrix.containers }})" >> $GITHUB_OUTPUT
 
       - name: Run cypress tests with chrome
+        id: cypress
         uses: cypress-io/github-action@v4
         continue-on-error: true
         with:
@@ -37,6 +40,11 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
+      
+      - name: Cypress test outcome
+        id: cypress-outcome
+        run: |
+          echo "test-status=${{ steps.cypress.outcome }}" >> $GITHUB_OUTPUT
 
       - name: Upload E2E test reports
         uses: actions/upload-artifact@v2
@@ -52,23 +60,28 @@ jobs:
     steps:
       - name: Install dependencies
         run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+
       - name: Create reports directory
         run: mkdir reports
+
       - name: Download test-reports-0
         uses: actions/download-artifact@v2
         with:
           name: test-reports-0
           path: reports/0
+
       - name: Download test-reports-1
         uses: actions/download-artifact@v2
         with:
           name: test-reports-1
           path: reports/1
+
       - name: Download test-reports-2
         uses: actions/download-artifact@v2
         with:
           name: test-reports-2
           path: reports/2
+
       - name: Download test-reports-3
         uses: actions/download-artifact@v2
         with:
@@ -116,12 +129,20 @@ jobs:
           ln -s ../../assets/
           popd
           git add docs .
+
       - name: Commit todays report to reports branch
         run: |
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Production report for $(date +%d-%m-%Y)" -a
+        
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
+          directory: reports_repo
 
       - name: Get current date
         id: date
@@ -135,12 +156,5 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
-          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_TITLE: Cypress finished with - ${{ needs.cypress-run.outputs.output1 }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/production/${{ steps.date.outputs.date }}
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          directory: reports_repo
