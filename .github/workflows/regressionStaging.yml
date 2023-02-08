@@ -49,6 +49,8 @@ jobs:
           quiet: true
           browser: chrome
           headless: true
+      
+      - name: Cypress test outcome
         run: |
           echo "outcome=${{ steps.cypress.outputs}}" >> $GITHUB_OUTPUT
 
