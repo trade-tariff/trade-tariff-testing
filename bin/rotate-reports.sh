@@ -9,7 +9,7 @@ get_git_log_for() {
 
   local reports_to_keep=$2
 
-  git log reports --pretty=format:"%h %ad %s" --date=short --name-only \
+  git log origin/reports --pretty=format:"%h %ad %s" --date=short --name-only \
     | grep "$environment" \
     | awk "/$environment report for/{if (!seen[\$2]) {print \$1; seen[\$2]=1}}" \
     | head -"$reports_to_keep" \
@@ -36,7 +36,7 @@ create_commits_for_latest_reports() {
     files=$(git log -1 --name-only $commit | grep "docs")
 
     for file in $files; do
-      git checkout reports "$file"
+      git checkout origin/reports "$file"
     done
 
     message=$(git log -1 --pretty=format:"%s" $commit)
@@ -48,6 +48,7 @@ create_commits_for_latest_reports() {
 rotate_recent_reports() {
   local commits=$1
 
+  git checkout reports
   git checkout main
   git checkout -b reports_temp
 
