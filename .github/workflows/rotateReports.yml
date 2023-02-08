@@ -1,0 +1,31 @@
+name: "| Rotate All Regression Reports |"
+
+on:
+  schedule:
+    - cron: "00 5 * * 0"
+  workflow_dispatch:
+
+jobs:
+  rotate:
+    environment: trade-tariff
+    name: "rotate"
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+      - run: "bin/rotate-reports.sh"
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: "tariffs-regression"
+          SLACK_USERNAME: "Report rotation"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_TITLE: Rotate reports
+          SLACK_MESSAGE: "Rotated development, staging and production reports"
