@@ -63,6 +63,6 @@ rotate_recent_reports() {
   # git checkout main
 }
 
-commits=$(get_combined_git_log 7 "Development" "Staging" "Production")
+commits=$(get_combined_git_log 30 "Development" "Staging" "Production")
 
 rotate_recent_reports "$commits"
