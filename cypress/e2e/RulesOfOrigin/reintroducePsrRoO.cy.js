@@ -122,4 +122,29 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     // Verify proofs of origin page
     cy.proofsOfOriginPage('6004100091', 'Japan', 'JP');
   });
+  it('UK | Show all proofs on the single page', function() {
+    cy.visit('/rules_of_origin/proofs');
+    cy.contains('Proofs of origin for all trade agreements');
+    cy.contains('UK / EU Trade and Co-operation Agreement').click();
+    cy.get('h2#proofs-for-eu').contains('UK / EU Trade and Co-operation Agreement');
+    cy.contains('UK-Chile Association Agreement').click();
+    cy.get('h2#proofs-for-chile').contains('UK-Chile Association Agreement');
+    cy.contains('Generalised Scheme of Preferences (GSP)').click();
+    cy.get('h2#proofs-for-gsp').contains('Generalised Scheme of Preferences (GSP)');
+  });
+  it('UK | Show all PSRs on the single page', function() {
+    cy.visit('/commodities/6210400000?country=CL#rules-of-origin');
+    cy.contains('Product-specific rules').click();
+    cy.get('h3#product-specific-rules').contains('Product-specific rules - trade with Chile');
+    cy.contains('View product-specific rules for other countries').click();
+    cy.url().should('include', '/rules_of_origin/6210400000?country=CL');
+    cy.contains('Commodity 6210400000');
+    cy.contains('UK / EU Trade and Co-operation Agreement').click();
+    cy.get('h2#rules-for-eu').contains('UK / EU Trade and Co-operation Agreement');
+    cy.get('#content > p > a').contains('Back to top').click();
+    cy.contains('UK-Chile Association Agreement').click();
+    cy.get('h2#rules-for-chile').contains('UK-Chile Association Agreement');
+    cy.contains('Generalised Scheme of Preferences (GSP)').click();
+    cy.get('h2#rules-for-gsp').contains('Generalised Scheme of Preferences (GSP)');
+  });
 });
