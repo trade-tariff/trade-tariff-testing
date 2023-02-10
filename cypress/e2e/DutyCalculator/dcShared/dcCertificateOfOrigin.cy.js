@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', function() {
   it('Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');

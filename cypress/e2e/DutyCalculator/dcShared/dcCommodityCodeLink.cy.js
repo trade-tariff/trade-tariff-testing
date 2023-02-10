@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 describe('| dcCommodityCodeLink | Duty Calculation link on commodities', function() {
   const country = ['uk', 'xi'];
   const destination = ['United Kingdom', 'Northern Ireland'];

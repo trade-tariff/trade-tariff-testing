@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
   it('RoW - GB Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');

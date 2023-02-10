@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
 // Comm code :7202118000 - Commodity with no measure units
 

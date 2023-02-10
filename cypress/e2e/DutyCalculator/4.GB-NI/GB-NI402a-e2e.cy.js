@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ✅ Non processing
 // Comm code :0702000007
 

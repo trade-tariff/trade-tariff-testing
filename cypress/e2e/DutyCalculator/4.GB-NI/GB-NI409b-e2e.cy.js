@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // ✅  Trade Remedies - ℹ️
 // Comm code : 0304829010 + with measure units
 

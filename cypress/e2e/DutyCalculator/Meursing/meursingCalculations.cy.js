@@ -1,4 +1,3 @@
-/* eslint-disable no-tabs */
 /* eslint-disable max-len */
 /*
 EA,EA(R)     - AC

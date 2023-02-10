@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🧮 | dcFinalUse | Final Use - page |', function() {
   it('UK - Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');

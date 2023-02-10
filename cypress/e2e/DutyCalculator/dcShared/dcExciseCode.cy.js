@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator |', function() {
   /*
   1.wine and spirits - 2204299895
