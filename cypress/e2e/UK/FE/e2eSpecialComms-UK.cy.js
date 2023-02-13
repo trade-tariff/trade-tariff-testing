@@ -31,17 +31,17 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.contains('Supplementary unit');
     cy.contains('p/st');
   });
-  it('Ceramic tiles \n- has anti-dumping measures for China - shows by a bold B999 against a Final anti-dumping duty measure\n' +
-        '\n' +
-        'Note that in the UK, the measure type will be called Final, not Definitive', function() {
+
+  it('China has definitive anti-dumping duties on Ceramics', function() {
     cy.visit('/commodities/6907220000?country=CN#import');
-    cy.get('.govuk-header__content')
-        .contains('UK Integrated Online Tariff');
-    cy.get('#measure-20042370')
-        .contains('Definitive anti-dumping duty Additional code: B999');
-    // cy.get('#measure-20042370')
-    //   .contains('Final anti-dumping duty Additional code: B999')
+
+    cy.get('#measure-20042370 > td.measure-type-col > span')
+        .contains('Definitive anti-dumping');
+
+    cy.get('#measure-20042370 > td.measure-type-col > div')
+        .contains('Control applies to goods covered under additional code: B999');
   });
+
   it(' 🍪 Sandwich biscuits\n Check that the third country duty has no Meursing-related components: it should be 8.00%', function() {
     cy.visit('/commodities/1905319100#import');
     cy.checkCommPage('1905319100');
@@ -102,12 +102,14 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('.close [href]').click();
   });
 
-  it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK', function() {
-    cy.visit('/commodities/2402100000#import');
-    cy.checkCommPage('2402100000');
-    cy.contains('UK Integrated Online Tariff');
-    cy.contains('EXCISE - FULL, 615, CIGARS');
-    cy.contains('Additional code: X615');
+  it('excise duties on Cigars', function() {
+    cy.visit('/commodities/2402100000');
+
+    cy.get('#measure--1011386180 > td.measure-type-col > span')
+        .contains('Excises');
+
+    cy.get('#measure--1011386180 > td.measure-type-col > div')
+        .contains('Control applies to goods covered under additional code: X615');
   });
 
   it(' 🍷 Piquette (type of wine) \n- Has a third country duty of:1.00 GBP/%vol/hl (check the peculiar units)', function() {
