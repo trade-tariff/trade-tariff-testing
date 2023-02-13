@@ -1,4 +1,3 @@
-/* eslint-disable new-cap */
 /* eslint-disable max-len */
 describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
   const country = ['uk', 'xi'];

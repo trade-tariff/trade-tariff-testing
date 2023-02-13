@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 describe('🇬🇧 💡 | countrySelection-UK | Country Selection |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('UK Country Selection - imports ', function() {
     cy.visit('/commodities/0208909800#import');

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('| meursingPages | Page validations |', function() {
   it('| Start page |  text and links |', function() {
     cy.visit('/xi/tools');

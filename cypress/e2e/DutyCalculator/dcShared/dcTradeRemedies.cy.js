@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('📑 | dcTradeRemedies | Trade remedies page |', function() {
   it('GB - Page Validation', function() {
     cy.visit('/duty-calculator/uk/0304829010/import-date');

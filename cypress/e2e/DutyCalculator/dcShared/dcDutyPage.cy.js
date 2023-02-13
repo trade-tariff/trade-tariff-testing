@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
   it('Final Duty Calculation page', function() {
     // import date

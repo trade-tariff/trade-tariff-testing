@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 
 describe('| RoW-GB206-e2e.spec | additional codes |', function() {
   const Codes = ['C491', 'C490', 'C493', 'C497'];

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is able to send feedback |', function() {
   it('UK - All pages - Access feedback link from bottom of page ', function() {
     const pages = ['/sections/1', '/chapters/01', '/headings/0101', '/commodities/0101210000'];

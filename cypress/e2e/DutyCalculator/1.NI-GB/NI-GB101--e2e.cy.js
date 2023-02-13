@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('| NI-GB101--e2e | Northern Ireland to GB United Kingdom |', function() {
   it('e2e NI to GB | 101 |', function() {
     cy.visit('/commodities/0702000007');

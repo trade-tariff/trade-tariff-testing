@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
   it(`UK service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function() {
     cy.visit('/duty-calculator/uk/8716109800/import-date');

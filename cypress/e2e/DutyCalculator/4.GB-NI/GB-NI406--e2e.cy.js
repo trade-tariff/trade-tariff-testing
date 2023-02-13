@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover > £500,000 - 🚫  Non processing - 🚫  Certified as UK Origin
 // Comm code :1701141000 - item with measure units
 

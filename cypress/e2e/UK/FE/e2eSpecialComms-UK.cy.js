@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure details |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('Ferro-alloy \n Third country duty should be ad valorem 0.00% (known from the UK Integrated Tariff)\n' +
         '\n' +

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 
 describe('Non preferential quota options from Taiwan to UK', function() {
   it('removes safeguards from the quota option', function() {

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page |', function() {
   it('ESW (GB) ', function() {
     cy.visit(`duty-calculator/uk/0702000007/import-date`);

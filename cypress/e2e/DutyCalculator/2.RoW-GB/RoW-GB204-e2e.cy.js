@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 
 describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', function() {
   it(`e2e RoW to GB | 🇦🇫 Afghanistan to 🇬🇧 GB | Document code |`, function() {

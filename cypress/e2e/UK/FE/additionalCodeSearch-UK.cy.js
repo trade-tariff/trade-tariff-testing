@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 describe('🇬🇧 💡 | additionalCode-UK | Additional Code Search - UK services |', function() {
   it('UK Additional Code Search : 2 - Tariff preference', function() {
     cy.visit('/additional_code_search');
