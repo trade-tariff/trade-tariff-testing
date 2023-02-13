@@ -117,14 +117,14 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.get('.close [href]').click();
   });
 
-  it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK', function() {
+  it('excise duties on Cigars', function() {
     cy.visit('/xi/commodities/2402100000#import');
-    cy.checkCommPage('2402100000');
-    cy.get('.govuk-header__content')
-        .contains('Northern Ireland Online Tariff');
-    cy.get('#measure--1011386180');
-    cy.contains('EXCISE - FULL, 615, CIGARS');
-    // cy.contains('305.32 GBP / kg');
+
+    cy.get('#measure--1011386180 > td.measure-type-col > span')
+        .contains('Excises');
+
+    cy.get('#measure--1011386180 > td.measure-type-col > div')
+        .contains('Control applies to goods covered under additional code: X615');
   });
 
   it(' 🍷 Piquette(type of wine) \n-Has a third country duty of:\n' +
