@@ -40,15 +40,16 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('p/st');
   });
 
-  it('Ceramic tiles \n has anti-dumping measures for China\n' +
-        '\n' +
-        'Shown by a bold B999 against a Definitive anti-dumping duty measure', function() {
+  it('China has definitive anti-dumping duties on Ceramics', function() {
     cy.visit('/xi/commodities/6907220000?country=CN#import');
-    cy.get('.govuk-header__content')
-        .contains('Northern Ireland Online Tariff');
-    cy.get('#measure-3703755')
-        .contains('Definitive anti-dumping duty Additional code: C505');
+
+    cy.get('#measure-3703755 > td.measure-type-col > span')
+        .contains('Definitive anti-dumping');
+
+    cy.get('#measure-3703755 > td.measure-type-col > div')
+        .contains('Control applies to goods covered under additional code: C505');
   });
+
   it(' 🍪 Sandwich biscuits\n Check that the third country duty contains Meursing-related components, e.g. check for strings EA and ADSZ\n' +
         '\n' +
         '9.00 % + EA MAX 24.20 % +ADSZ', function() {
