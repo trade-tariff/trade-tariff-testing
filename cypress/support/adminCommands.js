@@ -94,7 +94,6 @@ Cypress.Commands.add('verifySearchReferencesHeading', (service) => {
 
 Cypress.Commands.add('createNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.verifyService(service);
   cy.contains('News stories');
   cy.contains('Add News story').click();
   cy.contains('New News story');
@@ -138,7 +137,6 @@ Cypress.Commands.add('verifyNewsItemOnTariffServices', (tariffServiceHeading) =>
 
 Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.verifyService(service);
   cy.get('.current-service').contains(`You are currently using the ${service.toUpperCase()} service`);
   cy.get('tbody > tr > td:nth-child(2)').each(($elm, index, _$list) => {
     // text captured from column1
@@ -174,7 +172,6 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
 
 Cypress.Commands.add('removeNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.verifyService(service);
   cy.contains('News stories');
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
