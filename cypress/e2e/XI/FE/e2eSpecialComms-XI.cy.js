@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and measure details |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('Ferro-alloy \n' + 'Third country duty should be ad valorem 2.7%\n' +
         '\n' +
@@ -43,11 +42,11 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   it('China has definitive anti-dumping duties on Ceramics', function() {
     cy.visit('/xi/commodities/6907220000?country=CN#import');
 
-    cy.get('#measure-3703755 > td.measure-type-col > span')
+    cy.get('#measure-3703755 > td.measure-type-col')
         .contains('Definitive anti-dumping');
 
-    cy.get('#measure-3703755 > td.measure-type-col > div')
-        .contains('Control applies to goods covered under additional code: C505');
+    cy.get('#measure-3703755 > td.measure-type-col')
+        .contains('Additional code: C505');
   });
 
   it(' 🍪 Sandwich biscuits\n Check that the third country duty contains Meursing-related components, e.g. check for strings EA and ADSZ\n' +
@@ -62,12 +61,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('9.00% + EA MAX 24.20% +ADSZ');
   });
 
-  it('🍅 Cherry Tomatoes \n EPS + Check that there is no directly assigned third country duty\n' +
-        '\n' +
-        'Check that on clicking on the conditions link, that a conditions popup appears that has a table with 7 rows in it: creative license to do what you need on this one.\n' +
-        '\n' +
-        'Check that there are no quotas at all' +
-        '\n', function() {
+  it('third country measure on cherry tomatoes', function() {
     cy.visit('/xi/commodities/0702000007');
     cy.checkCommPage('0702000007');
     cy.get('.govuk-header__content')
@@ -103,7 +97,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.get('.close [href]').click();
   });
 
-  it('Turbines \n Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms', function() {
+  it('suspension measure on Turbines', function() {
     cy.visit('/xi/commodities/8406810000#import');
     cy.checkCommPage('8406810000');
     cy.get('.govuk-header__content')
@@ -112,19 +106,29 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.get('#measure-3489354')
         .contains('Conditions').click();
-    cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms for All countries');
-    cy.contains('End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ');
+    cy.contains('Suspension - goods for certain categories of ships, boats');
+    cy.contains('End use authorisation ships and platforms');
     cy.get('.close [href]').click();
   });
 
   it('excise duties on Cigars', function() {
     cy.visit('/xi/commodities/2402100000#import');
 
-    cy.get('#measure--1011386180 > td.measure-type-col > span')
+    cy.get('#measure--1011386180 > td.measure-type-col')
         .contains('Excises');
 
-    cy.get('#measure--1011386180 > td.measure-type-col > div')
-        .contains('Control applies to goods covered under additional code: X615');
+    cy.get('#measure--1011386180 > td.measure-type-col')
+        .contains('Additional code: X615');
+  });
+
+  it('prohibition measure on plastics', function() {
+    cy.visit('/xi/commodities/3921139000');
+
+    cy.get('#measure-20101500 > td.measure-type-col > span')
+        .contains('Import prohibition');
+
+    cy.get('#measure-20101500 > td.measure-type-col > div.residual-inset')
+        .contains('Prohibition applies to goods covered under additional code: 4115');
   });
 
   it(' 🍷 Piquette(type of wine) \n-Has a third country duty of:\n' +
