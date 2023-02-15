@@ -24,7 +24,7 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
 
     it('CRUD a news item', function() {
       cy.createNewsItem(service);
-      cy.verifyNewsItemOnTariffServices('UK Integrated Online Tariff');
+      cy.verifyNewsItemOnTariffServices();
       cy.verifyAndUpdateNewsItem(service);
       cy.removeNewsItem(service);
     });
@@ -79,7 +79,7 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
 
     it('CRUD a news item', function() {
       cy.createNewsItem(service);
-      cy.verifyNewsItemOnTariffServices('Northern Ireland Online Tariff');
+      cy.verifyNewsItemOnTariffServices();
       cy.verifyAndUpdateNewsItem(service);
       cy.removeNewsItem(service);
     });

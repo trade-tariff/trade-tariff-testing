@@ -21,7 +21,7 @@ describe('XI - Admin tool regression tests', {tags: ['adminOnly']}, function() {
 
   it('CRUD a news item', function() {
     cy.createNewsItem('xi');
-    cy.verifyNewsItemOnTariffServices('Northern Ireland Online Tariff');
+    cy.verifyNewsItemOnTariffServices();
     cy.verifyAndUpdateNewsItem('xi');
     cy.removeNewsItem('xi');
   });
