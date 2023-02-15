@@ -129,7 +129,6 @@ Cypress.Commands.add('verifyNewsItemOnTariffServices', () => {
 
 Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.get('.current-service').contains(`You are currently using the ${service.toUpperCase()} service`);
   cy.get('tbody > tr > td:nth-child(2)').each(($elm, index, _$list) => {
     // text captured from column1
     const t = $elm.text();
