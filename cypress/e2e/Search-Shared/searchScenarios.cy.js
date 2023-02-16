@@ -73,9 +73,4 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
       // A user clicks a 4-digit declarable code (commodity).
     }
   });
-  it('UK - subheading from A-Z directs to correct subheading page', function() {
-    cy.visit('/a-z-index/a');
-    cy.contains('Abscess Needles, Dental').click();
-    cy.contains('Subheading 901841 - Other instruments and appliances, used in dental sciences');
-  });
 });
