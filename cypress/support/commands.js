@@ -5,6 +5,21 @@ beforeEach(() => {
   cy.clearCookies();
 });
 
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
 Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
   const space = Cypress.env('SPACE');
   const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
@@ -201,24 +216,6 @@ Cypress.Commands.add('mobileMenu', () => {
   cy.get('.govuk-header__menu-button').click();
 });
 
-Cypress.Commands.add('CommCodeHistory', (commCode, date) => {
-  let dateParams = '';
-  if (date) {
-    dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
-  }
-  cy.visit(`/commodities/${commCode}${dateParams}`, {failOnStatusCode: false});
-  cy.checkCommPage(commCode);
-});
-
-Cypress.Commands.add('headingsHistory', (headingsCode, date) => {
-  let dateParams = '';
-  if (date) {
-    dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
-  }
-  cy.visit(`/headings/${headingsCode}${dateParams}`, {failOnStatusCode: false});
-  cy.checkHeadingsPage(headingsCode);
-});
-
 Cypress.Commands.add('RoOContent', (options) => {
   cy.contains(`Preferential rules of origin`);
 });
@@ -236,12 +233,6 @@ Cypress.Commands.add('certificateSearch', () => {
   cy.contains('Enter the 3 digit certificate code');
   cy.contains('Description');
   cy.contains('Enter key terms from the certificate description');
-});
-
-Cypress.Commands.add('code999L', () => {
-  cy.get('.info-content').contains('Customs Declaration Service (CDS) Licence Waiver');
-  cy.get('.info-content').contains('The use of 999L allows a CDS waiver code to be declared for prohibited and restricted goods, allowing declarants to confirm that the goods are not subject to specific licencing measures. You must enter ‘CDS Waiver’ in the additional documentation field for this commodity item.');
-  cy.get('.info-content').contains('This waiver cannot be used for goods that are imported/exported or moved to/from Northern Ireland.');
 });
 
 Cypress.Commands.add('commodityImportGuidance', () => {
@@ -308,4 +299,32 @@ Cypress.Commands.add('pickTradingPartner', (tradingPartner) => {
       .clear()
       .type(tradingPartner)
       .type('{enter}');
+});
+
+Cypress.Commands.add('checkValidityPeriodsCount', (expectedCount) => {
+  const dateLineRegex = new RegExp(`[0-9]{1,2}\\s(${months.join('|')})\\s[0-9]{4}\\s+to\\s+[0-9]{1,2}\\s(${months.join('|')})\\s[0-9]{4}`);
+
+  cy.get('ul > li').filter((_index, li) => {
+    return dateLineRegex.test(li.innerText);
+  }).should('have.length', expectedCount);
+});
+
+Cypress.Commands.add('checkDerivingGoodsNomenclaturesCount', (expectedCount) => {
+  const dateRegex = new RegExp(`^[0-9]{1,2}\\s(${months.join('|')})\\s[0-9]{4}$`);
+
+  cy.get('thead').find('th').as('headerColumns');
+  cy.get('tbody').find('td').as('bodyColumns');
+
+  cy.get('@headerColumns').eq(0).should('have.text', 'Classification');
+  cy.get('@headerColumns').eq(1).should('have.text', 'Description');
+  cy.get('@headerColumns').eq(2).should('have.text', 'Transfer date');
+
+  cy.get('@bodyColumns').eq(0).find('a')
+      .should('have.attr', 'href')
+      .and('match', /\/(headings|subheadings|commodities)\/[0-9]{4}(?:-[0-9]{2})?/);
+
+  cy.get('@bodyColumns').eq(1).should('not.be.empty');
+  cy.get('@bodyColumns').eq(2).contains(dateRegex);
+
+  cy.get('.govuk-table__row').should('have.length', expectedCount + 1);
 });
