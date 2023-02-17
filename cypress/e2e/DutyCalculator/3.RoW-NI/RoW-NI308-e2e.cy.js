@@ -15,12 +15,9 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     // Duties Apply
     cy.euDutiesApply();
     // // Duties Apply
-    // cy.euDutiesApply();
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // // Document Code
-    // cy.docCode({xi: 'y021'}).check();
-    // cy.contains('Continue').click();
     // Import Quantity
     cy.quantity({ret: '1000', mil: '1000'});
     // Document Code

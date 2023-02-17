@@ -42,7 +42,6 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.get('img[alt=\'Flag for Chile\']').should('be.visible');
     cy.contains('Preferential rules of origin for trading with Chile');
     //
-    // cy.contains('In order to qualify for preferential tariff treatment under the UK-Chile association agreement, the product must originate in the UK or Chile.');
     //
     cy.roOTab();
     cy.contains('Preferential rules of origin');
@@ -60,7 +59,6 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('Rules of origin').click();
     cy.get('img[alt=\'Flag for The Bahamas\']').should('be.visible');
 
-    // cy.contains('In order to qualify for the lower or zero preferential tariff under the CARIFORUM-UK economic partnership agreement, the product must originate in the UK or one of the partner countries.');
 
     cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
     cy.RoOContent({commCode: '0702000007', country: 'The Bahamas'});
@@ -78,10 +76,6 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('Rules of origin').click();
     cy.get('img[alt=\'Flag for Moldova\']').should('be.visible');
 
-    // TODO: Verify if the section "Proving originating status and claiming preferential treatment" has been rightly removed.
-    // cy.contains('Proving originating status and claiming preferential treatment');
-    // TODO: Verify if the section "Proving originating status and claiming preferential treatment" has been rightly removed.
-    // cy.contains('Proving originating status and claiming preferential treatment');
     cy.roOTab();
     cy.contains('Non-preferential rules of origin');
   });

@@ -23,7 +23,6 @@ describe('| RoW-NI305-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
-    // cy.contains('Option 2: Tariff preference - Morocco');
     cy.contains('Third-country duty (EU)');
   });
 });

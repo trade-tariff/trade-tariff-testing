@@ -136,7 +136,6 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.contains('Continue').click();
     // selection is persisted
     cy.go(-1);
-    // cy.get('.govuk-back-link').click();
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field')
         .parent()
         .find('input')

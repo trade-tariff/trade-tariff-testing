@@ -83,9 +83,7 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
     // meursing code
     cy.meursingCode({value: '000'});
     // // ✅  Final use in NI - Yes
-    // cy.finalUseNI('no');
     // // turn over < 500k = no
-    // cy.turnOver('less');
     // customs value
     // Monetary value page
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});

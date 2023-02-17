@@ -34,9 +34,7 @@ describe('🧮 | dcFinalUse | Final Use - page |', function() {
     // planned-processing page
     cy.contains('How will these goods be processed after they are moved into Northern Ireland?');
     // // selection is persisted
-    // cy.get('.govuk-back-link').click();
 
-    // cy.get('div:nth-of-type(1) > input[name=\'steps_final_use[final_use]\']')
     //     .parent()
     //     .find('input')
     //     .should('be.checked');

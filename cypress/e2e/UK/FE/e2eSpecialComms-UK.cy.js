@@ -69,7 +69,6 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.checkCommPage('2203001000');
     cy.get('.govuk-header__content')
         .contains('UK Integrated Online Tariff');
-    // cy.get('#measure-2982608')
     cy.get('#measure-2982608');
     cy.contains('Supplementary unit');
     cy.contains('l');

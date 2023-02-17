@@ -26,7 +26,6 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Suffici
     cy.subDivision('5808100000', 'Special woven fabrics; tufted textile fabrics; lace; tapestries; trimmings; embroidery');
     // product specific rules?
     cy.prodSpecRules('Manufacture from yarn');
-    // cy.prodSpecRules('Manufacture from yarn ; or Printing accompanied by at least two preparatory or finishing operations (such as scouring, bleaching, mercerising, heat setting, raising, calendering, shrink resistance processing, permanent finishing, decatising, impregnating, mending and burling) where the value of the unprinted fabric used does not exceed 47.5% of the ex-works price of the product.');
     // Origin requirements met
     cy.rooReqMet('Importing', 'Botswana', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)');
     // Validate if product specific rules are not met

@@ -23,7 +23,6 @@ describe('| RoW-NI303c-e2e.spec |🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('£0.00');
-    // cy.contains('Option 2: Tariff preference - Morocco');
   });
   it('RoW 🇳🇴 (Norway) to Northern Ireland - Meursing - Delta', function() {
     cy.visit('/duty-calculator/uk/1905320500/import-date');
