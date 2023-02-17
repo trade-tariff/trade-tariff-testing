@@ -1,6 +1,9 @@
 describe('smoke test to cover basic mobile functionality on UK services |', {tags: ['smokeTest']}, function() {
-  it('🚀 UK - Main Page Validation', function() {
+  beforeEach(function() {
     cy.viewport('iphone-x');
+  });
+
+  it('🚀 UK - Main Page Validation', function() {
     cy.visit('/find_commodity');
     cy.mobileMenu();
     cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
@@ -14,14 +17,12 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - Legal base column suppressed ', function() {
-    cy.viewport('iphone-x');
     cy.visit('/commodities/0101210000#import');
     cy.contains('UK Integrated Online Tariff');
     cy.contains('Legal base').should('not.be.visible');
   });
 
   it('🚀 UK - Main Page - Switching link to XI available & works', function() {
-    cy.viewport('iphone-x');
     cy.visit('/find_commodity');
     cy.get('.govuk-header')
         .contains('UK Integrated Online Tariff');
@@ -41,7 +42,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - United Kingdom should not be shown in EU country list', function() {
-    cy.viewport('iphone-x');
     cy.visit('/commodities/2403991000#import');
     cy.get('.govuk-tabs__panel')
         .contains('European Union (1013)').click();
@@ -51,7 +51,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - quota numbers - 054xxx Licensed', function() {
-    cy.viewport('iphone-x');
     cy.visit('/commodities/0201100021#import');
     cy.get('.govuk-tabs__panel');
     cy.contains('Non preferential tariff quota');
@@ -63,7 +62,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - quota numbers - 057xxx Non-Licensed', function() {
-    cy.viewport('iphone-x');
     cy.visit('/commodities/0201100021#import');
     cy.mobileMenu();
     cy.get('.govuk-tabs__panel');
@@ -76,7 +74,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - Search Commodity by name ', function() {
-    cy.viewport('iphone-x');
     cy.visit('/find_commodity');
     cy.mobileMenu();
     cy.contains('Search for a commodity');
@@ -86,7 +83,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - Search Commodity by code ', function() {
-    cy.viewport('iphone-x');
     cy.visit('/find_commodity');
     cy.contains('Search for a commodity');
     cy.searchForCommodity('3808941000');
@@ -94,47 +90,44 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - Country Selection - imports ', function() {
-    cy.viewport('iphone-x');
     cy.visit('/commodities/0208909800#import');
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('(XI)').wait(500);
+    cy.get('input#trading_partner_country').click().clear().type('(XI)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('AD').wait(700);
+    cy.get('input#trading_partner_country').click().clear().type('AD');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
 
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('(GB)').wait(900);
+    cy.get('input#trading_partner_country').click().clear().type('(GB)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('XU').wait(500);
+    cy.get('input#trading_partner_country').click().clear().type('XU');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
   });
 
   it('🚀 UK - Country Selection - exports ', function() {
-    cy.viewport('iphone-x');
     cy.visit('/commodities/0208909800#export');
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('(XI)').wait(500);
+    cy.get('input#trading_partner_country').click().clear().type('(XI)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('AD').wait(700);
+    cy.get('input#trading_partner_country').click().clear().type('AD');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
 
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('(GB)').wait(900);
+    cy.get('input#trading_partner_country').click().clear().type('(GB)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('XU').wait(500);
+    cy.get('input#trading_partner_country').click().clear().type('XU');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
   });
 
   it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
-    cy.viewport('iphone-x');
     cy.visit('/find_commodity');
     cy.get('.govuk-details__summary-text').click();
     cy.get('#tariff_date_day').click().clear().type(31);
@@ -162,7 +155,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - United Kingdom should not be shown in EU country list', function() {
-    cy.viewport('iphone-x');
     cy.visit('/commodities/2403991000#import');
     cy.get('.govuk-tabs__panel')
         .contains('European Union (1013)').click();
@@ -172,7 +164,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - Quotas Search - Order Number', function() {
-    cy.viewport('iphone-x');
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
     cy.get('input#order_number')
@@ -183,7 +174,6 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   });
 
   it('🚀 UK - Quotas Search - Commodity Code', function() {
-    cy.viewport('iphone-x');
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
     cy.get('input#goods_nomenclature_item_id')

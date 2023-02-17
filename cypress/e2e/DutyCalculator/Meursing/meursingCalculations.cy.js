@@ -22,7 +22,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   it('| EA , EAR | 1901100000 - Costa Rica |', function() {
     cy.visit('/xi/commodities/1901100000');
     cy.checkCommPage('1901100000');
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('CR');
+    cy.get('input#trading_partner_country').click().clear().type('CR');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Costa Rica (CR)').click();
     cy.get('a#tab_import').click();
@@ -41,7 +41,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.visit('/xi/commodities/1806909019');
     cy.checkCommPage('1806909019');
     cy.searchForCountry('(IS)');
-    // cy.get('input#trading_partner_country').click().clear().wait(500).type('(IS)');
+    // cy.get('input#trading_partner_country').click().clear().type('(IS)');
     // cy.get('[id=\'trading_partner_country__listbox\']')
     //     .contains('Iceland (IS)').click();
     cy.get('a#tab_import').click();
@@ -59,7 +59,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   it('| ADFM , ADFMR | 1905320500 - Norway |', function() {
     cy.visit('/xi/commodities/1905320500');
     cy.checkCommPage('1905320500');
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('(NO)');
+    cy.get('input#trading_partner_country').click().clear().type('(NO)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Norway (NO)').click();
     cy.get('a#tab_import').click();

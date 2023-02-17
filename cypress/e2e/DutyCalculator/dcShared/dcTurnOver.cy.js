@@ -27,16 +27,16 @@ describe('🧮 | dcTurnOver.spec | Duty Calculator TurnOver page  |', function()
 
     cy.get('#steps-annual-turnover-annual-turnover-error')
         .contains('Select one of the two options');
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     cy.turnOver('less');
     // no duty to pay page
     cy.contains('There is no import duty to pay');
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.turnOver('more');
     // planned processing screen
     cy.contains('How will these goods be processed after they are moved into Northern Ireland?');
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
   });

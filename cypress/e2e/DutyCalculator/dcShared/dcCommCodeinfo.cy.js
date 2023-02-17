@@ -8,7 +8,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('Commodity code');
     cy.contains('0702000007');
     cy.contains('Cherry tomatoes');
-    cy.get('.govuk-details  .govuk-link').click().wait(300);
+    cy.get('.govuk-details  .govuk-link').click();
     cy.checkCommPage('0702000007');
     cy.go('back');
 
@@ -19,7 +19,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('Commodity code');
     cy.contains('0702000007');
     cy.contains('Cherry tomatoes');
-    cy.get('.govuk-details  .govuk-link').click().wait(300);
+    cy.get('.govuk-details  .govuk-link').click();
     cy.checkCommPage('0702000007');
     cy.go('back');
 
@@ -30,7 +30,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('Commodity code');
     cy.contains('0702000007');
     cy.contains('Cherry tomatoes');
-    cy.get('.govuk-details  .govuk-link').click().wait(300);
+    cy.get('.govuk-details  .govuk-link').click();
     cy.checkCommPage('0702000007');
     cy.go('back');
 
@@ -42,7 +42,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('Commodity code');
     cy.contains('0702000007');
     cy.contains('Cherry tomatoes');
-    cy.get('.govuk-details  .govuk-link').click().wait(300);
+    cy.get('.govuk-details  .govuk-link').click();
     cy.checkCommPage('0702000007');
     cy.go('back');
 
@@ -53,7 +53,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('Commodity code');
     cy.contains('0702000007');
     cy.contains('Cherry tomatoes');
-    cy.get('.govuk-details  .govuk-link').click().wait(300);
+    cy.get('.govuk-details  .govuk-link').click();
     cy.checkCommPage('0702000007');
     cy.go('back');
 
@@ -68,7 +68,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     // cy.contains('Commodity code');
     // cy.contains('0702000007');
     // cy.contains('Cherry tomatoes');
-    // cy.get('.govuk-details  .govuk-link').click().wait(300);
+    // cy.get('.govuk-details  .govuk-link').click();
     // cy.checkCommPage('0702000007');
     // cy.go('back');
 
@@ -80,7 +80,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('Commodity code');
     cy.contains('0702000007');
     cy.contains('Cherry tomatoes');
-    cy.get('.govuk-details  .govuk-link').click().wait(300);
+    cy.get('.govuk-details  .govuk-link').click();
     cy.checkCommPage('0702000007');
     cy.go('back');
 

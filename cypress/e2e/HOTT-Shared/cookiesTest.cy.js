@@ -39,8 +39,8 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |', function() {
 
     it(`${country[i]} - Accept Cookies ,Hide Banner`, function() {
       cy.visit(`${ country[i]}/sections`);
-      cy.contains('Accept additional cookies').wait(500).click().wait(400);
-      cy.contains('Hide this message').wait(200).click();
+      cy.contains('Accept additional cookies').click();
+      cy.contains('Hide this message').click();
       cy.getCookie('cookies_policy').should('have.property', 'value', '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22true%22%2C%22remember_settings%22%3A%22true%22%7D');
       cy.getCookie('cookies_preferences_set').should('have.property', 'value', 'true');
       cy.searchForCommodity('3808941000');
@@ -51,8 +51,8 @@ describe('🇬🇧 🇪🇺 💡 | 🍪 CookiesTest |', function() {
 
     it(`${country[i]} - Reject Cookies ,Hide Banner`, function() {
       cy.visit(`${country[i]}/sections`);
-      cy.contains('Reject additional cookies').wait(500).click().wait(400);
-      cy.contains('Hide this message').wait(200).click();
+      cy.contains('Reject additional cookies').click();
+      cy.contains('Hide this message').click();
       cy.getCookie('cookies_policy').should('have.property', 'value',
           '%7B%22settings%22%3Atrue%2C%22usage%22%3A%22false%22%2C%22remember_settings%22%3A%22false%22%7D');
       cy.getCookie('cookies_preferences_set').should('have.property', 'value', 'true');

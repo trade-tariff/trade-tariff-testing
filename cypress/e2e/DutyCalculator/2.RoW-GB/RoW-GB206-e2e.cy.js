@@ -27,7 +27,7 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
     cy.contains('0.00% * £850.00');
 
     for (let i = 0; i < Codes.length; i++) {
-      cy.get('.govuk-back-link').click().wait(700);
+      cy.get('.govuk-back-link').click();
       cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
       cy.additionalCode({uk: `${Codes[i]}`});
       // Select Document Code

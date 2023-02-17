@@ -11,13 +11,13 @@ describe('🇬🇧 💡 | legalBaseColumn-UK | Legal base Column UK |', function
         //uk regulation
         cy.get('#measure-20134281').contains('S.I. 2021/241')
         cy.get(".AL  a[title^='The Customs Tariff (Preferential Trade Arrangements) (EU Exi']").should('have.attr', 'href', 'https://www.legislation.gov.uk/uksi/2021/241')
-        cy.get(".AL  a[title^='The Customs Tariff (Preferential Trade Arrangements) (EU Exi']").trigger('mouseover').wait(600)
+        cy.get(".AL  a[title^='The Customs Tariff (Preferential Trade Arrangements) (EU Exi']").trigger('mouseover')
     */
   });
 
   it('☑️ 2.Prove that the legal base column exists on export measures tab on UK - commodity 0101210000', function() {
     cy.visit('/commodities/0101210000#export');
-    cy.wait(500);
+    cy;
     cy.get('.govuk-tabs__panel');
     cy.contains('Legal base').should('not.be.visible');
     /*   cy.get('.numerical').contains('R2658/87')

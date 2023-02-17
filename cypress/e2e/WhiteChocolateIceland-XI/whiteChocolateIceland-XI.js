@@ -9,8 +9,8 @@ When('i select Import button', () => {
   cy.get('a#tab_import').click();
 });
 When('select Iceland from All countries list', () => {
-  cy.get('input#trading_partner_country').click().clear().wait(500)
-      .type('Iceland').wait(500)
+  cy.get('input#trading_partner_country').click().clear()
+      .type('Iceland')
       .type('{enter}');
   //
 });

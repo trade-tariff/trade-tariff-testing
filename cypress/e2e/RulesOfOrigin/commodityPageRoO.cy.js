@@ -9,8 +9,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('Rules of origin').click();
     cy.url().should('include', '#rules-of-origin');
     // when we change the trading partner
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Chile').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('Chile')
         .type('{enter}');
     // then we're are still on the roo tab
     cy.url().should('include', '#rules-of-origin');
@@ -35,8 +35,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
   it(`Chile 🇨🇱 - Service_urls with which there is a singular (1 to 1) trade agreement (e.g. Chile, which has an agreement on its own, not as part of a bloc) |`, function() {
     cy.visit('/commodities/0702000007');
     // Select Chile from All countries list', () => {
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Chile').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('Chile')
         .type('{enter}');
     cy.contains('Rules of origin').click();
     cy.get('img[alt=\'Flag for Chile\']').should('be.visible');
@@ -53,8 +53,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.visit('/commodities/0702000007');
     cy.contains('Rules of origin').click();
     // Select USA from All countries list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('The Bahamas').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('The Bahamas')
         .type('{enter}');
     cy.contains('Preferential rules of origin for trading with The Bahamas');
     cy.contains('Rules of origin').click();
@@ -71,8 +71,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.visit('/commodities/0702000007');
     cy.contains('Rules of origin').click();
     // Select USA from All countries list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Moldova').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('Moldova')
         .type('{enter}');
     cy.contains('Preferential rules of origin for trading with Moldova');
     cy.contains('Rules of origin').click();
@@ -89,8 +89,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.visit('/commodities/0702000007');
     cy.contains('Rules of origin').click();
     // Select USA from All countries list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('India').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('India')
         .type('{enter}');
     cy.contains('Preferential rules of origin for trading with India');
     cy.contains('Rules of origin').click();

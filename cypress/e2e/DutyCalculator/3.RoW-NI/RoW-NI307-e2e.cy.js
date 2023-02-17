@@ -49,7 +49,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.contains('0.00% * £1,000.00');
     cy.contains('172.20 EUR / 1000 kg/biodiesel');
     // go back to previous page to change doc code
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     // Change to different Document Code
     cy.get('div:nth-of-type(3) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Do you have any of the following documents?');

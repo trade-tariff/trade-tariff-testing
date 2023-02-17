@@ -46,7 +46,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('Tariff preference (EU)');
 
     // go back to previous page to change doc code
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     // Change to different Document Code
     cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Do you have any of the following documents?');
