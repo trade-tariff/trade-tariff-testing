@@ -90,7 +90,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     // Select Yes, I am registered with the UK Trader Scheme
     cy.traderScheme('yes');
     // selection is persisted
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(1) > input[name=\'steps_trader_scheme[trader_scheme]\']')
         .parent()
         .find('input')
@@ -100,7 +100,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.traderScheme('no');
     // selection is persisted
 
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(2) > input[name=\'steps_trader_scheme[trader_scheme]\']')
         .parent()
         .find('input')

@@ -18,8 +18,8 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
 
     // select country from list
     cy.get('#steps-country-of-origin-country-of-origin-field')
-        .click().clear().wait(500)
-        .type('United Kingdom (Northern Ireland)').wait(500);
+        .click().clear()
+        .type('United Kingdom (Northern Ireland)');
     cy.contains('Continue').click();
   });
   it('Northern Ireland ', function() {

@@ -35,7 +35,6 @@ describe('| subheadings.spec | validate subheadings on UK and XI services - Fron
     cy.visit('xi/subheadings/2933998000-80');
     cy.contains('Subheading 29339980 - Other ');
     cy.contains('There are 67 commodities in this category.');
-    // cy.contains('Footnotes');
     cy.contains('Chapter notes');
     cy.contains('Subheading notes');
     cy.contains('Section notes');

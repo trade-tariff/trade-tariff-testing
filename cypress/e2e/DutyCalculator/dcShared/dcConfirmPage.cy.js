@@ -10,7 +10,6 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
 
     cy.certificate('no');
     cy.dutiesApply1();
-    // cy.contains('Continue').click();
 
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({kgm: '1'});
@@ -40,7 +39,6 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     // Check Change Links
     // Commodity Information
     cy.get('div:nth-of-type(1) > .govuk-summary-list__actions > .govuk-link').click();
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
 
 
     // Import Date

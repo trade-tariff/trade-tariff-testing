@@ -179,7 +179,6 @@ Cypress.Commands.add('searchForCommodity2', (searchString) => {
   cy.get('.js-commodity-picker-select:last').click().type(searchString);
   cy.waitForCommoditySearchResults();
   return cy.get('input[name=\'new_search\']').click();
-  // cy.get('input[name=\'commit\']').click();
 });
 
 Cypress.Commands.add('searchWithSearchField', (searchString) => {
@@ -190,7 +189,7 @@ Cypress.Commands.add('searchWithSearchField', (searchString) => {
 
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('.tariff-search-banner__toggle').click();
-  cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
+  cy.get('input#tariff-search-banner__q').click().type(searchString);
   cy.get('input[name=\'submit_search\']').click();
 });
 

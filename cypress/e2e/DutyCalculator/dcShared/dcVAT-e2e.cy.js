@@ -61,7 +61,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.get('.govuk-button').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
-    cy.get('.govuk-back-link').click().wait(200);
+    cy.get('.govuk-back-link').click();
     cy.get('.govuk-back-link').click();
     cy.contains('What is the customs value of this import?');
   });
@@ -83,7 +83,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('VAT');
     cy.contains('Zero rate');
 
-    cy.get('.govuk-back-link').click().wait(200);
+    cy.get('.govuk-back-link').click();
     cy.get('.govuk-back-link').click();
     cy.contains('Enter import quantity');
   });
@@ -106,7 +106,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.get('.govuk-button').click();
     cy.contains('VAT');
     cy.contains('Standard rate');
-    cy.get('.govuk-back-link').click().wait(200);
+    cy.get('.govuk-back-link').click();
     // Change to different VAT rate
     cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
@@ -116,7 +116,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.get('.govuk-button').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
-    cy.get('.govuk-back-link').click().wait(200);
+    cy.get('.govuk-back-link').click();
     // Change to different VAT rate
     cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
@@ -156,7 +156,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.get('.govuk-button').click();
     cy.contains('VAT');
     cy.contains('Standard rate');
-    cy.get('.govuk-back-link').click().wait(200);
+    cy.get('.govuk-back-link').click();
     // Change to different VAT rate
     cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
@@ -166,7 +166,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.get('.govuk-button').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
-    cy.get('.govuk-back-link').click().wait(200);
+    cy.get('.govuk-back-link').click();
     // Change to different VAT rate
     cy.get('div:nth-of-type(11) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');

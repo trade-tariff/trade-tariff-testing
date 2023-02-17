@@ -41,10 +41,10 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
     it(`${countries[j]} - Search suggestion typeahead`, function() {
       cy.visit(`${countries[j]}/browse`);
       // case 1 - escape should not select first item in suggestions
-      cy.get('.js-commodity-picker-select').click().type('ba').wait(100).type('{esc}');
+      cy.get('.js-commodity-picker-select').click().type('ba').type('{esc}');
       cy.contains('Search results for ‘ba’').should('not.exist');
       // case 2 - enter should take the text entered in search box
-      cy.get('.js-commodity-picker-select').click().type('{backspace}').type('{backspace}').type('ba').wait(100).type('{enter}');
+      cy.get('.js-commodity-picker-select').click().type('{backspace}').type('{backspace}').type('ba').type('{enter}');
       cy.contains('Search results for ‘ba’').should('exist');
       // case 3 - search using comm code
       cy.searchForCommodity2('3808941000');

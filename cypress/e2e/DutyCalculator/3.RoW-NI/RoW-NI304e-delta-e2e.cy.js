@@ -60,9 +60,6 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
-    // cy.contains('Option 2: Tariff preference - Turkmenistan');
-    // cy.contains('Tariff preference (UK)');
-    // cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.');
 
     // Change quantity to 100 for EU tariffs , Delta Preferential > 3% Import Value
     cy.get('.govuk-back-link').click();

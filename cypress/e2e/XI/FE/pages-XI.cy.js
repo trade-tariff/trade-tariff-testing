@@ -160,16 +160,6 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
   it('XI - import tab', function() {
     cy.visit('xi/commodities/0706901000?day=10&month=12&year=2022#import');
     cy.contains('Importing into Northern Ireland');
-    // this block exists on UK but not on XI from conversation with Matt and Will
-    // cy.contains('To check how to import commodity 0706901000, select the country from which you are importing.');
-    // cy.get('.tariff-inset-information [href]').click();
-    // cy.countryPickerpage({value: 'Argentina'});
-    // cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
-    // cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
-    // cy.get('a#tab_import').click();
-    // // check link after country selection
-    // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Argentina.');
-    // cy.get('p:nth-of-type(2) > .govuk-link').should('have.attr', 'href', 'https://check-how-to-import-export-goods.service.gov.uk/manage-this-trade/check-licences-certificates-and-other-restrictions?commodity=0702000007&destinationCountry=GB&goodsIntent=bringGoodsToSell&importDateDay=10&importDateMonth=12&importDateYear=2022&importDeclarations=yes&importOrigin=&originCountry=AR&tradeType=import&userTypeTrader=true');
   });
   it('XI - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
     cy.visit('/xi/help/rules_of_origin/duty_drawback');

@@ -15,12 +15,9 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     // Duties Apply
     cy.euDutiesApply();
     // // Duties Apply
-    // cy.euDutiesApply();
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // // Document Code
-    // cy.docCode({xi: 'y021'}).check();
-    // cy.contains('Continue').click();
     // Import Quantity
     cy.quantity({ret: '1000', mil: '1000'});
     // Document Code
@@ -46,7 +43,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('Tariff preference (EU)');
 
     // go back to previous page to change doc code
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     // Change to different Document Code
     cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Do you have any of the following documents?');

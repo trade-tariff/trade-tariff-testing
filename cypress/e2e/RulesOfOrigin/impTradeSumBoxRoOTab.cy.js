@@ -34,6 +34,5 @@ describe('| impTradeSumBoxRoOTab.spec.spec - Rules of Origin tab - Logic for dut
     cy.contains('Preferential rules of origin');
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
     cy.impDutyBox('Basic third country duty =');
-    // cy.impDutyBox('There is no preferential tarif duty or quota available for this commodity');
   });
 });
