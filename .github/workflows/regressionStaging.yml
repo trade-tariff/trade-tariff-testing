@@ -21,8 +21,6 @@ jobs:
       CYPRESS_grepTags: "-devOnly+-smokeTest+-notStaging"
     name: "RegressionTests - Staging"
     runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false
     steps:
       - run: date
       - uses: actions/checkout@v2
@@ -83,6 +81,6 @@ jobs:
           SLACK_USERNAME: "Staging Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
-          SLACK_COLOR: ${{ job.status }}
+          SLACK_COLOR: ${{ steps.cypress.outcome }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
