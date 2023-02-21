@@ -78,7 +78,7 @@ Cypress.Commands.add('verifySearchReferencesHeading', (service) => {
   cy.get('#chapter_20').contains('1 to 9').click();
   cy.get('#heading_2008').contains('Fruit, Nuts And Other Edible Parts Of Plants');
   cy.get('#heading_2008').contains('Edit').click();
-  cy.contains('Search references for Heading (2008)');
+  cy.contains('Search references for heading 2008: Fruit, nuts');
   cy.contains('Create new search reference');
   cy.get('#main-content > div.govuk-auto-classes > table').contains('Title');
   cy.get('#main-content > div.govuk-auto-classes > table').contains('Actions');
