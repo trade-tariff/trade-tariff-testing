@@ -12,8 +12,6 @@ jobs:
       CYPRESS_grepTags: "-devOnly+-smokeTest+-notProduction+-adminOnly"
     name: "🚦 Regression Tests - UK and XI"
     runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false
     steps:
       - run: date
       - uses: actions/checkout@v2
@@ -62,7 +60,7 @@ jobs:
           SLACK_CHANNEL: "tariffs-regression"
           SLACK_USERNAME: "Production Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_COLOR: ${{ job.status }}
+          SLACK_COLOR: ${{ steps.cypress.outcome }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-p:"
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/production/${{ steps.date.outputs.date }}/

@@ -21,8 +21,6 @@ jobs:
       CYPRESS_grepTags: "devOnly adminOnly"
     name: "RegressionTests - Development"
     runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: false
     steps:
       - run: date
       - uses: actions/checkout@v2
@@ -68,6 +66,7 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
+
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -75,7 +74,7 @@ jobs:
           SLACK_USERNAME: "Development Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
-          SLACK_COLOR: ${{ job.status }}
+          SLACK_COLOR: ${{ steps.cypress.outcome }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}/
 
