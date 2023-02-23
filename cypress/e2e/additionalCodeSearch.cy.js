@@ -6,11 +6,11 @@ describe('additional code search', function() {
       // given I am on the additional code search page
       cy.visit(path);
       // when I search for a specific additional code
-      cy.get('#additional-code-search-form-code-field').type('8180');
+      cy.get('#additional-code-search-form-code-field').type('8A04');
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(4);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(29);
     });
 
     it('returns goods nomenclature search results by description', function() {
@@ -21,7 +21,7 @@ describe('additional code search', function() {
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(4);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(2);
     });
   });
 
@@ -32,11 +32,11 @@ describe('additional code search', function() {
       // given I am on the additional code search page
       cy.visit(path);
       // when I search for a specific additional code
-      cy.get('#additional-code-search-form-code-field').type('8180');
+      cy.get('#additional-code-search-form-code-field').type('A986');
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(4);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(1);
     });
 
     it('returns goods nomenclature search results by description', function() {
@@ -47,7 +47,7 @@ describe('additional code search', function() {
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(5);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(3);
     });
   });
 });
