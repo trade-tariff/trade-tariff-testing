@@ -86,9 +86,9 @@ Cypress.Commands.add('verifySearchReferencesHeading', (service) => {
 
 Cypress.Commands.add('createNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.contains('News stories');
+  cy.contains('Manage news stories');
   cy.removeNewsItemIfExists('Automated Test');
-  cy.contains('Add News story').click();
+  cy.contains('Add a News story').click();
   cy.contains('New News story');
   cy.get('#news-item-title-field').type('Automated Test - Sample News Story');
   cy.contains('Precis');
@@ -163,7 +163,7 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
 
 Cypress.Commands.add('removeNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.contains('News stories');
+  cy.contains('Manage news stories');
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
   cy.contains('Remove News item');
