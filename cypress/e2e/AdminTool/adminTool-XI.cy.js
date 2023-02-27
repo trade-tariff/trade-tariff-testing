@@ -26,6 +26,14 @@ describe('XI - Admin tool regression tests', {tags: ['adminOnly']}, function() {
     cy.removeNewsItem('xi');
   });
 
+  it('Edit news story collections', function() {
+    cy.editNewsStoryCollections('xi');
+  });
+
+  it('Verify add news story collections', function() {
+    cy.verifyAddNewsStoryCollections('xi');
+  });
+
   it('verify tariff updates', function() {
     cy.tariffUpdates('xi');
   });
