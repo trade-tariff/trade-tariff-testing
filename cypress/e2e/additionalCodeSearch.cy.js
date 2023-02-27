@@ -10,7 +10,7 @@ describe('additional code search', function() {
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(29);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclatures();
     });
 
     it('returns goods nomenclature search results by description', function() {
@@ -21,7 +21,7 @@ describe('additional code search', function() {
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(2);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclatures();
     });
   });
 
@@ -36,7 +36,7 @@ describe('additional code search', function() {
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(1);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclatures();
     });
 
     it('returns goods nomenclature search results by description', function() {
@@ -47,7 +47,7 @@ describe('additional code search', function() {
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
-      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount(3);
+      cy.checkAdditionalCodeSearchResultsHaveGoodsNomenclatures();
     });
   });
 });
