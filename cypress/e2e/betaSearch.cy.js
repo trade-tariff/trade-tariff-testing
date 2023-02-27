@@ -73,6 +73,20 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.url().should('include', '/commodities/0101210000');
   });
 
+  it('Search redirects for search references when they match exactly', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('raw');
+    cy.url().should('include', '/headings/5201');
+  });
+
+  it('Search redirects for a direct hit', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('paracetamol');
+    cy.url().should('include', '/commodities/2924297087');
+  });
+
   it('Search filters results with facet clothing_gender', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
@@ -157,16 +171,6 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.get('.search-results').contains('Results matching ‘ham’');
     // on the /search url
     cy.url().should('include', '/search');
-  });
-
-  it('Redirects to search references when they match exactly', function() {
-    // given we're on the beta search page
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
-    // when we search for a known search reference title
-    cy.searchForCommodity('raw');
-    // then we get redirected to the referenced goods nomenclature
-    cy.url().should('include', '/headings/5201');
   });
 
   it('Shows commodity results with matching search reference tokens', function() {
