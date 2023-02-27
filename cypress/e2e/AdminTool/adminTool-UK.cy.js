@@ -26,6 +26,14 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
     cy.removeNewsItem('uk');
   });
 
+  it('Edit news story collections', function() {
+    cy.editNewsStoryCollections('uk');
+  });
+
+  it('Verify add news story collections', function() {
+    cy.verifyAddNewsStoryCollections('uk');
+  });
+
   it('verify tariff updates', function() {
     cy.tariffUpdates('uk');
   });

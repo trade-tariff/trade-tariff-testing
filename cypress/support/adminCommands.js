@@ -121,6 +121,44 @@ Cypress.Commands.add('createNewsItem', (service) => {
   cy.contains('News item created');
 });
 
+Cypress.Commands.add('editNewsStoryCollections', (service) => {
+  cy.visit(`${adminUrl}/${service}/news_items`);
+  cy.contains('Manage news stories');
+  cy.contains('manage news story collections').click();
+  cy.url().should('include', '/news_collections');
+  cy.contains('Manage news story collections');
+  cy.get('.govuk-button').contains('Add a news story collection');
+  cy.contains('Edit').click();
+  cy.url().should('include', '/news_collections/1/edit');
+  cy.contains('Edit a news story collection');
+  cy.get('#news-collection-name-field').should('have.value', 'Trade news');
+  cy.get('#news-collection-priority-field').should('have.value', '1');
+  cy.contains('Is this collection published?');
+  cy.get('#news-collection-published-true-field').check();
+  cy.get('.govuk-button').contains('Update Collection');
+  cy.get('.govuk-button.govuk-button--secondary').contains('Back');
+  cy.get('.govuk-breadcrumbs__link').contains('Back to news story collections');
+});
+
+Cypress.Commands.add('verifyAddNewsStoryCollections', (service) => {
+  cy.visit(`${adminUrl}/${service}/news_items`);
+  cy.contains('Manage news stories');
+  cy.contains('manage news story collections').click();
+  cy.url().should('include', '/news_collections');
+  cy.contains('Manage news story collections');
+  cy.get('.govuk-button').contains('Add a news story collection').click();
+  cy.contains('Add a news story collection');
+  cy.get('#news-collection-name-field').should('have.value', '');
+  cy.get('#news-collection-priority-field').should('have.value', '');
+  cy.get('#news-collection-description-field').should('have.value', '');
+  cy.contains('Is this collection published?');
+  cy.contains('Yes');
+  cy.contains('No');
+  cy.get('.govuk-button').contains('Create Collection');
+  cy.get('.govuk-button.govuk-button--secondary').contains('Back');
+  cy.get('.govuk-breadcrumbs__link').contains('Back to news story collections');
+});
+
 Cypress.Commands.add('verifyNewsItemOnTariffServices', () => {
   cy.visit('/news');
   cy.get('.govuk-breadcrumbs__list').contains('News bulletin');
