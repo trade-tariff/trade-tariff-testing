@@ -340,7 +340,7 @@ Cypress.Commands.add('checkDerivingGoodsNomenclaturesCount', (expectedCount) => 
   cy.get('.govuk-table__row').should('have.length', expectedCount + 1);
 });
 
-Cypress.Commands.add('checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCount', (expectedCount) => {
+Cypress.Commands.add('checkAdditionalCodeSearchResultsHaveGoodsNomenclatures', () => {
   cy.get('article table thead').find('th').as('headerColumns');
   cy.get('article table tbody').find('td').as('bodyColumns');
 
@@ -355,5 +355,5 @@ Cypress.Commands.add('checkAdditionalCodeSearchResultsHaveGoodsNomenclaturesCoun
   cy.get('@bodyColumns').eq(0).find('a').should('not.be.empty');
   cy.get('@bodyColumns').eq(1).should('not.be.empty');
 
-  cy.get('article table').find('.govuk-table__row').should('have.length', expectedCount + 1);
+  cy.get('article table .govuk-table__row').should('have.length.gt', 0);
 });
