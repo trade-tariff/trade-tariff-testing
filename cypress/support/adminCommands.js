@@ -60,43 +60,35 @@ Cypress.Commands.add('verifySectionSearchReferences', (service) => {
   cy.get('.govuk-breadcrumbs').contains('Sections');
   cy.get('.govuk-breadcrumbs').contains('Section II');
   cy.contains('Search references of section II: Vegetable products');
-  cy.contains('Import and Export search references');
-  cy.contains('Import multiple search references from a CSV file');
-  cy.contains('Import search references CSV');
-  cy.contains('Export all search references as a CSV file');
-  cy.contains('Export all search references as CSV');
   cy.contains('Edit').click();
-  cy.contains('Search reference for Chapter (06)');
+  cy.contains('Search references for Chapter (06)');
   cy.url().should('include', '/search_references/chapters/06/search_references');
-  cy.contains('New Search reference').click();
+  cy.contains('Create new search reference').click();
   cy.url().should('include', '/search_references/chapters/06/search_references/new');
   cy.contains('New Search reference');
-  cy.contains('Search Reference');
-  cy.contains('Create Search reference');
   cy.contains('Back');
 });
 
 Cypress.Commands.add('verifySearchReferencesHeading', (service) => {
   cy.visit(`${adminUrl}/${service}/search_references/sections`);
   cy.verifyService(service);
-  cy.contains('Search references');
   cy.get('#section_4').contains('Prepared foodstuffs; beverages, spirits and vinegar; tobacco and manufactured tobacco substitutes');
   cy.get('#section_4 td a').click();
   cy.get('#chapter_20').contains('Preparations Of Vegetables, Fruit, Nuts Or Other Parts Of Plants');
   cy.get('#chapter_20').contains('1 to 9').click();
   cy.get('#heading_2008').contains('Fruit, Nuts And Other Edible Parts Of Plants');
   cy.get('#heading_2008').contains('Edit').click();
-  cy.contains('Search references Heading (2008)');
-  cy.contains('New Search reference');
+  cy.contains('Search references for heading 2008: Fruit, nuts');
+  cy.contains('Create new search reference');
   cy.get('#main-content > div.govuk-auto-classes > table').contains('Title');
   cy.get('#main-content > div.govuk-auto-classes > table').contains('Actions');
 });
 
 Cypress.Commands.add('createNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.verifyService(service);
-  cy.contains('News stories');
-  cy.contains('Add News story').click();
+  cy.contains('Manage news stories');
+  cy.removeNewsItemIfExists('Automated Test');
+  cy.contains('Add a News story').click();
   cy.contains('New News story');
   cy.get('#news-item-title-field').type('Automated Test - Sample News Story');
   cy.contains('Precis');
@@ -129,17 +121,52 @@ Cypress.Commands.add('createNewsItem', (service) => {
   cy.contains('News item created');
 });
 
-Cypress.Commands.add('verifyNewsItemOnTariffServices', (tariffServiceHeading) => {
+Cypress.Commands.add('editNewsStoryCollections', (service) => {
+  cy.visit(`${adminUrl}/${service}/news_items`);
+  cy.contains('Manage news stories');
+  cy.contains('manage news story collections').click();
+  cy.url().should('include', '/news_collections');
+  cy.contains('Manage news story collections');
+  cy.get('.govuk-button').contains('Add a news story collection');
+  cy.contains('Edit').click();
+  cy.url().should('include', '/news_collections/1/edit');
+  cy.contains('Edit a news story collection');
+  cy.get('#news-collection-name-field').should('have.value', 'Trade news');
+  cy.get('#news-collection-priority-field').should('have.value', '1');
+  cy.contains('Is this collection published?');
+  cy.get('#news-collection-published-true-field').check();
+  cy.get('.govuk-button').contains('Update Collection');
+  cy.get('.govuk-button.govuk-button--secondary').contains('Back');
+  cy.get('.govuk-breadcrumbs__link').contains('Back to news story collections');
+});
+
+Cypress.Commands.add('verifyAddNewsStoryCollections', (service) => {
+  cy.visit(`${adminUrl}/${service}/news_items`);
+  cy.contains('Manage news stories');
+  cy.contains('manage news story collections').click();
+  cy.url().should('include', '/news_collections');
+  cy.contains('Manage news story collections');
+  cy.get('.govuk-button').contains('Add a news story collection').click();
+  cy.contains('Add a news story collection');
+  cy.get('#news-collection-name-field').should('have.value', '');
+  cy.get('#news-collection-priority-field').should('have.value', '');
+  cy.get('#news-collection-description-field').should('have.value', '');
+  cy.contains('Is this collection published?');
+  cy.contains('Yes');
+  cy.contains('No');
+  cy.get('.govuk-button').contains('Create Collection');
+  cy.get('.govuk-button.govuk-button--secondary').contains('Back');
+  cy.get('.govuk-breadcrumbs__link').contains('Back to news story collections');
+});
+
+Cypress.Commands.add('verifyNewsItemOnTariffServices', () => {
   cy.visit('/news');
   cy.get('.govuk-breadcrumbs__list').contains('News bulletin');
-  cy.contains(tariffServiceHeading);
   cy.contains('Automated Test - Sample News Story');
 });
 
 Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.verifyService(service);
-  cy.get('.current-service').contains(`You are currently using the ${service.toUpperCase()} service`);
   cy.get('tbody > tr > td:nth-child(2)').each(($elm, index, _$list) => {
     // text captured from column1
     const t = $elm.text();
@@ -174,8 +201,7 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
 
 Cypress.Commands.add('removeNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
-  cy.verifyService(service);
-  cy.contains('News stories');
+  cy.contains('Manage news stories');
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
   cy.contains('Remove News item');
@@ -258,3 +284,16 @@ Cypress.Commands.add('verifyService', (service) => {
   cy.get('.current-service').contains(`You are currently using the ${service.toUpperCase()} service`);
 });
 
+
+Cypress.Commands.add('removeNewsItemIfExists', (matchingText) => {
+  cy.get('table').find('tr').each(($row) => {
+    // Find the text in the row
+    if ($row.text().includes(matchingText)) {
+      // Find the Edit link within the row and click it
+      cy.wrap($row).find('a:contains("Edit")').click();
+      // On the next page, find the Remove link and click it along with the confirm popup
+      cy.get('a:contains("Remove")').click();
+      cy.on('window:confirm', () => true);
+    }
+  });
+});

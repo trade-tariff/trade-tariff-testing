@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure details |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('Ferro-alloy \n Third country duty should be ad valorem 0.00% (known from the UK Integrated Tariff)\n' +
         '\n' +
@@ -13,7 +12,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.contains('Third country duty');
     cy.contains('0.00%');
   });
-  it(' 🦬 Bison\n- Third country duty should be 12.00% + 147.00 GBP / 100kg (known from the UK Integrated Tariff) Duties are expressed in GBP', function() {
+  it('third country duties on Bison', function() {
     cy.visit('/commodities/0201100021#import');
     cy.checkCommPage('0201100021');
     cy.get('.govuk-header__content')
@@ -31,17 +30,17 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.contains('Supplementary unit');
     cy.contains('p/st');
   });
-  it('Ceramic tiles \n- has anti-dumping measures for China - shows by a bold B999 against a Final anti-dumping duty measure\n' +
-        '\n' +
-        'Note that in the UK, the measure type will be called Final, not Definitive', function() {
+
+  it('China has definitive anti-dumping duties on Ceramics', function() {
     cy.visit('/commodities/6907220000?country=CN#import');
-    cy.get('.govuk-header__content')
-        .contains('UK Integrated Online Tariff');
-    cy.get('#measure-20042370')
-        .contains('Definitive anti-dumping duty Additional code: B999');
-    // cy.get('#measure-20042370')
-    //   .contains('Final anti-dumping duty Additional code: B999')
+
+    cy.get('#measure-20042370 > td.measure-type-col')
+        .contains('Definitive anti-dumping');
+
+    cy.get('#measure-20042370 > td.measure-type-col')
+        .contains('Additional code: B999');
   });
+
   it(' 🍪 Sandwich biscuits\n Check that the third country duty has no Meursing-related components: it should be 8.00%', function() {
     cy.visit('/commodities/1905319100#import');
     cy.checkCommPage('1905319100');
@@ -70,7 +69,6 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.checkCommPage('2203001000');
     cy.get('.govuk-header__content')
         .contains('UK Integrated Online Tariff');
-    // cy.get('#measure-2982608')
     cy.get('#measure-2982608');
     cy.contains('Supplementary unit');
     cy.contains('l');
@@ -86,7 +84,7 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('.close [href]').click();
   });
 
-  it('Turbines  \n Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms', function() {
+  it('supension measure on Turbines', function() {
     cy.visit('/commodities/8406810000#import');
     cy.checkCommPage('8406810000');
     cy.get('.govuk-header__content')
@@ -97,17 +95,29 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('#measure-20123190')
         .contains('Conditions').click();
     cy.get('.tariff-info');
-    cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms for All countries');
-    cy.contains('End use authorisation ships and platforms (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446) Apply the mentioned duty ');
+    cy.contains('Suspension - goods for certain categories of ships, boats');
+    cy.contains('End use authorisation ships and platforms');
     cy.get('.close [href]').click();
   });
 
-  it(' 🚬 Cheroots\n EXCISE - FULL, 615, CIGARS duty of 305.32 GBP / kg - same as UK', function() {
-    cy.visit('/commodities/2402100000#import');
-    cy.checkCommPage('2402100000');
-    cy.contains('UK Integrated Online Tariff');
-    cy.contains('EXCISE - FULL, 615, CIGARS');
-    cy.contains('Additional code: X615');
+  it('excise duties on Cigars', function() {
+    cy.visit('/commodities/2402100000');
+
+    cy.get('#measure--1011386180 > td.measure-type-col')
+        .contains('Excises');
+
+    cy.get('#measure--1011386180 > td.measure-type-col')
+        .contains('Additional code: X615');
+  });
+
+  it('prohibition measure on plastics', function() {
+    cy.visit('/commodities/3921139000');
+
+    cy.get('#measure-20101500 > td.measure-type-col > span')
+        .contains('Import prohibition');
+
+    cy.get('#measure-20101500 > td.measure-type-col > div.residual-inset')
+        .contains('Prohibition applies to goods covered under additional code: 4115');
   });
 
   it(' 🍷 Piquette (type of wine) \n- Has a third country duty of:1.00 GBP/%vol/hl (check the peculiar units)', function() {

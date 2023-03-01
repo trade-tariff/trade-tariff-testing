@@ -91,6 +91,6 @@ jobs:
           SLACK_USERNAME: "Development Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
-          SLACK_COLOR: ${{ job.status }}
+          SLACK_COLOR: ${{ steps.cypress.outcome }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🧮 | dcFinalUse | Final Use - page |', function() {
   it('UK - Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
@@ -35,15 +34,13 @@ describe('🧮 | dcFinalUse | Final Use - page |', function() {
     // planned-processing page
     cy.contains('How will these goods be processed after they are moved into Northern Ireland?');
     // // selection is persisted
-    // cy.get('.govuk-back-link').click().wait(300);
 
-    // cy.get('div:nth-of-type(1) > input[name=\'steps_final_use[final_use]\']')
     //     .parent()
     //     .find('input')
     //     .should('be.checked');
 
     // Select No, this import will not be for final use in the United Kingdom
     cy.get('#steps-planned-processing-planned-processing-commercial-processing-field').check();
-    cy.contains('Continue').click().wait(500);
+    cy.contains('Continue').click();
   });
 });

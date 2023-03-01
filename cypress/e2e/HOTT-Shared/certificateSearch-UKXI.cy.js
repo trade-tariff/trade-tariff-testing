@@ -13,7 +13,6 @@ describe('🇬🇧 🇪🇺 💡 | certificateSearch - UK & XI | Certificate Sea
         cy.get('input#code')
             .clear()
             .type(`${ndcerts_ids[i]}`);
-        //  cy.wait(500)
         cy.get('form#new_search > input[name=\'new_search\']').click();
         // check it contains relevant certificate information as requested
         cy.get('.govuk-heading-l')

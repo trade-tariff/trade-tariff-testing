@@ -28,7 +28,6 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
         .contains('Cookies');
     cy.get('.govuk-breadcrumbs__list')
         .contains('Home').click();
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
   });
   it('XI - Privacy-navigates to right XI page ', function() {
     cy.visit('/xi/sections');

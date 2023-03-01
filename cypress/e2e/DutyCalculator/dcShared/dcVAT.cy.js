@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
   it(`UK service - Page Validation - Multiple VAT rates 🇮🇱 RoW-GB`, function() {
     cy.visit('/duty-calculator/uk/8716109800/import-date');
@@ -41,7 +40,7 @@ describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
     cy.contains('Applicable VAT rate');
     cy.contains('VAT reduced rate 5%');
     // Using Back link
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
     // Select second option - VAT zero rate
     cy.get('input#steps-vat-vat-vatz-field').click();
@@ -49,7 +48,7 @@ describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
     cy.contains('Applicable VAT rate');
     cy.contains('VAT zero rate');
     // Using Back link
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
     // selection is persisted
     cy.get('input#steps-vat-vat-vatz-field')
@@ -62,7 +61,7 @@ describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
     cy.contains('Applicable VAT rate');
     cy.contains('Value added tax (20.0%)');
     // Using Back link
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.contains('Which VAT rate is applicable to your trade?');
     // selection is persisted
     cy.get('input#steps-vat-vat-vat-field')

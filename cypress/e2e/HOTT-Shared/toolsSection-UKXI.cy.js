@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrumbs  - UK and XI services |', function() {
   const countries = ['uk', 'xi'];
   for ( let i =0; i< countries.length; i++) {
@@ -11,7 +10,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
       cy.contains('Search for certificates, licences and other document codes.');
 
       cy.contains('Additional codes');
-      cy.contains('Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.');
+      cy.contains('Search for additional codes.');
 
       cy.contains('Footnotes Search');
       cy.contains('Search the tariff for footnotes.');
@@ -31,7 +30,7 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
     });
     it(`Additional codes - breadcrumbs ${countries[i]}`, function() {
       cy.visit(`${countries[i]}/additional_code_search`);
-      cy.contains('Search by Additional Code');
+      cy.contains('Search for additional codes');
       cy.get('.govuk-breadcrumbs')
           .contains('Additional codes');
       cy.get('.govuk-breadcrumbs__list')
@@ -69,7 +68,6 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
     cy.contains('Tariff tools');
     cy.get('.govuk-breadcrumbs__list')
         .contains('Home').click();
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
   });
   it(' Meursing Code finder -XI', function() {
     cy.visit('/xi/tools');

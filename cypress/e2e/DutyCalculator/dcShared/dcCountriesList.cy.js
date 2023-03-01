@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('| dcCountriesList | RoW to GB - Exclude certain countries from the autocompleting country list |', function() {
   it(`RoW - GB - Autocomplete excluded countries list - `, function() {
     // select future date
@@ -13,14 +12,14 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
     const countries = ['European Union', 'Guernsey', 'Jersey', 'High seas (Maritime domain outside of territorial waters)', 'Stores and provisions', 'Stores and provisions within the framework of intra-EU trade', 'Stores and provisions within the framework of trade with Third Countries', 'Countries and territories not specified', 'Countries and territories not specified within the framework of intra-EU trade', 'Countries and territories not specified within the framework of trade with third countries', 'Countries and territories not specified for commercial or military reasons', 'Countries and territories not specified for commercial or military reasons in the framework of intra-EU trade', 'Countries and territories not specified for commercial or military reasons in the framework of trade with third countries'];
     for (let i = 0; i < countries.length; i++) {
       cy.get('#steps-country-of-origin-country-of-origin-field')
-          .clear().wait(100).type(`${countries[i]}`).wait(300);
+          .clear().type(`${countries[i]}`);
       cy.get('[id=\'steps-country-of-origin-country-of-origin-field__listbox\']')
           .contains('No results found');
     }
     const xcountries =['United Kingdom Continental Shelf', 'Norwegian Continental Shelf', 'Netherlands Continental Shelf', 'Irish Continental Shelf', 'German Continental Shelf', 'French Continental Shelf', 'Danish Continental Shelf', 'Belgian Continental Shelf'];
     for (let j = 0; j < xcountries.length; j++) {
       cy.get('#steps-country-of-origin-country-of-origin-field')
-          .clear().wait(100).type(`${xcountries[j]}`).wait(300);
+          .clear().type(`${xcountries[j]}`);
       cy.get('[id=\'steps-country-of-origin-country-of-origin-field__listbox\']')
           .contains(`${xcountries[j]}`);
     }
@@ -40,8 +39,8 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
 
 
     cy.get('#steps-country-of-origin-country-of-origin-field')
-        .click().clear().wait(500)
-        .type('United Kingdom (Northern Ireland)').wait(500);
+        .click().clear()
+        .type('United Kingdom (Northern Ireland)');
     cy.get('[id=\'steps-country-of-origin-country-of-origin-field__listbox\']')
         .contains('United Kingdom (Northern Ireland)');
   });
@@ -59,8 +58,8 @@ describe('| dcCountriesList | RoW to GB - Exclude certain countries from the aut
 
     for (let i = 0; i < EU_countries.length; i++) {
       cy.get('#steps-country-of-origin-other-country-of-origin-field')
-          .click().clear().wait(200)
-          .type(`${EU_countries[i]}`).wait(200).click();
+          .click().clear()
+          .type(`${EU_countries[i]}`).click();
       cy.get('[id=\'steps-country-of-origin-other-country-of-origin-field__listbox\']')
           .contains('No results found');
       //  cy.contains('Continue').click()

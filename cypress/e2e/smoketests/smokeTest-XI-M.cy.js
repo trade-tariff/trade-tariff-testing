@@ -113,7 +113,6 @@ describe('Smoke test to cover basic mobile functionality on XI services', {tags:
     cy.get('#tariff_date_year').click().clear().type(2021);
     cy.searchForCommodity('3808941000');
     cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
-    // cy.contains('Set date').click();
     //
     cy.contains('21 December 2021');
     cy.contains('Northern Ireland Online Tariff');

@@ -24,7 +24,7 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
       // select country from list
       cy.get('#steps-country-of-origin-country-of-origin-field')
           .click().clear()
-          .type('Turkey').wait(500);
+          .type('Turkey');
       cy.contains('Continue').click();
       // Monetary value page
       cy.contains('What is the customs value of this import?');
@@ -55,7 +55,7 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('£10,002.24');
 
       // confirm
-      cy.get('.govuk-button').click().wait(200);
+      cy.get('.govuk-button').click();
 
       // Final Page - duty page
       cy.contains('Import duty calculation');

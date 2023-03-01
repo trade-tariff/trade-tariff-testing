@@ -98,7 +98,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function() {
     cy.visit('/find_commodity');
     cy.contains('API Documentation');
-    // cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
     cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist');
   });
   it('UK - Notes tab ', function() {
@@ -162,7 +161,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - import tab', function() {
     cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
     cy.contains('Importing into the UK');
-    // cy.contains('To check how to import commodity 0702000007, select the country from which you are importing.');
     cy.get('#content > dl > div:nth-child(5) > dd.govuk-summary-list__actions > a').click();
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('#content > dl > div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');

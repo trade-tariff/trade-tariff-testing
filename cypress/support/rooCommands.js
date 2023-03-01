@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable max-len */
 // page title , dynamic content - agreements ,ticket number
 
@@ -17,7 +16,6 @@ Cypress.Commands.add('RoOContentCountrySelected', (agreement, country, origin )=
 Cypress.Commands.add('RoORelatedContent', ()=>{
   cy.get('#rules-of-origin__related-content').contains('Related content');
   cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(1) > a').should('have.attr', 'href', 'https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin');
-  // cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(2) > a').should('have.attr', 'href', `https://www.gov.uk/government/collections/${agreement}`);
 });
 Cypress.Commands.add('roOTab', ()=>{
   cy.contains('Non-preferential rules of origin');
@@ -311,7 +309,6 @@ Cypress.Commands.add('rooNotMetEx', (tradetype, country1, code, scheme, country2
   cy.contains('Valid proofs of origin');
   cy.go(-1);
   cy.get('.govuk-warning-text__text').contains('start again').click();
-  // cy.contains(`Are you importing goods into the UK or into ${country}?`);
   cy.contains(`Are you importing goods into the UK or into ${country2}?`);
 });
 
@@ -360,7 +357,6 @@ Cypress.Commands.add('prodSpecRules', (rule)=>{
   cy.contains('Do your goods meet the product-specific rules?');
   cy.contains('Your goods must meet one of these rules in order to qualify for originating status. Select an option to indicate if you meet the rule.');
   cy.contains(`${rule}`).click();
-  // cy.get(`#rules-of-origin-steps-product-specific-rules-rule-${rule}-field`).check();
   cy.get('.govuk-button').contains('Continue').click();
 });
 Cypress.Commands.add('subDivision', (code, subDiv)=>{

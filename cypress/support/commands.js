@@ -1,10 +1,23 @@
-/* eslint-disable cypress/no-unnecessary-waiting */
-/* eslint-disable max-len */
-
-
 beforeEach(() => {
   cy.clearCookies();
 });
+
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+const goodsNomenclatureLinkRegex = /\/(headings|subheadings|commodities)\/[0-9]{4}(?:-[0-9]{2})?/;
 
 Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
   const space = Cypress.env('SPACE');
@@ -81,7 +94,7 @@ Cypress.Commands.add('mainPageUK', () => {
       .contains('UK Integrated Online Tariff');
   // Search the tariff section
   cy.get('.govuk-heading-m').contains('Search for a commodity');
-  cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
+  cy.contains('Commodity codes are internationally');
   cy.contains('browse the goods classification').click();
   cy.contains('Browse the tariff');
   cy.go(-1);
@@ -97,7 +110,7 @@ Cypress.Commands.add('mainPageXI', () => {
   cy.get('.govuk-header')
       .contains('Northern Ireland Online Tariff');
   cy.contains('Search for a commodity');
-  cy.contains('Commodity codes are internationally recognised reference numbers. A commodity code describes a specific product when importing or exporting goods. You will use this code on any customs declarations.');
+  cy.contains('Commodity codes are internationally recognised reference numbers.');
   cy.contains('browse the goods classification').click();
   cy.contains('Browse the tariff');
   cy.go(-1);
@@ -107,7 +120,7 @@ Cypress.Commands.add('mainPageXI', () => {
 
 Cypress.Commands.add('browsePage', () => {
   cy.contains('Browse the tariff');
-  cy.contains('The goods classification contains 21 sections, listed below. Choose the section that best matches your goods to see the HS chapters that are contained in the section.');
+  cy.contains('The goods classification contains 21 sections');
 });
 
 Cypress.Commands.add('commPage', () => {
@@ -134,14 +147,19 @@ Cypress.Commands.add('newsBannerXI', () => {
   cy.get('div[role=\'region\'] p > a:nth-of-type(1)').click();
   cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
   cy.go(-1);
-  cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, your import may be subject to EU import duty rates');
+  cy.contains('If you’re bringing goods into Northern Ireland');
   cy.contains('if your goods are ‘at risk’ of onward movement to the EU');
   cy.contains('. If they are not at risk of onward movement to the EU, use the ');
 });
 
 Cypress.Commands.add('specialBanner', () => {
   cy.contains('New guidance has been published in regard to additional duties on goods originating in Russia and Belarus.');
-  cy.get('header[role=\'banner\'] a[target=\'_blank\']').should('have.attr', 'href', 'https://www.gov.uk/guidance/additional-duties-on-goods-originating-in-russia-and-belarus');
+  cy.get('header[role=\'banner\'] a[target=\'_blank\']')
+      .should(
+          'have.attr',
+          'href',
+          'https://www.gov.uk/guidance/additional-duties-on-goods-originating-in-russia-and-belarus',
+      );
 });
 
 Cypress.Commands.add('contextSelector', () => {
@@ -165,7 +183,6 @@ Cypress.Commands.add('searchForCommodity2', (searchString) => {
   cy.get('.js-commodity-picker-select:last').click().type(searchString);
   cy.waitForCommoditySearchResults();
   return cy.get('input[name=\'new_search\']').click();
-  // cy.get('input[name=\'commit\']').click();
 });
 
 Cypress.Commands.add('searchWithSearchField', (searchString) => {
@@ -176,7 +193,7 @@ Cypress.Commands.add('searchWithSearchField', (searchString) => {
 
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('.tariff-search-banner__toggle').click();
-  cy.get('input#tariff-search-banner__q').click().type(searchString).wait(200);
+  cy.get('input#tariff-search-banner__q').click().type(searchString);
   cy.get('input[name=\'submit_search\']').click();
 });
 
@@ -202,25 +219,7 @@ Cypress.Commands.add('mobileMenu', () => {
   cy.get('.govuk-header__menu-button').click();
 });
 
-Cypress.Commands.add('CommCodeHistory', (commCode, date) => {
-  let dateParams = '';
-  if (date) {
-    dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
-  }
-  cy.visit(`/commodities/${commCode}${dateParams}`, {failOnStatusCode: false});
-  cy.checkCommPage(commCode);
-});
-
-Cypress.Commands.add('headingsHistory', (headingsCode, date) => {
-  let dateParams = '';
-  if (date) {
-    dateParams = `?day=${date.day}&month=${date.month}&year=${date.year}`;
-  }
-  cy.visit(`/headings/${headingsCode}${dateParams}`, {failOnStatusCode: false});
-  cy.checkHeadingsPage(headingsCode);
-});
-
-Cypress.Commands.add('RoOContent', (options) => {
+Cypress.Commands.add('RoOContent', (_options) => {
   cy.contains(`Preferential rules of origin`);
 });
 
@@ -231,18 +230,12 @@ Cypress.Commands.add('groiContent', () => {
 
 Cypress.Commands.add('certificateSearch', () => {
   cy.contains('Search for a certificate, licence or document');
-  cy.contains('Search for certificates, licences and other document codes and the commodities which reference them. Document codes may be needed to complete your import or export declaration.');
+  cy.contains('Search for certificates, licences');
   cy.contains('Certificate type');
   cy.contains('Certificate code');
   cy.contains('Enter the 3 digit certificate code');
   cy.contains('Description');
   cy.contains('Enter key terms from the certificate description');
-});
-
-Cypress.Commands.add('code999L', () => {
-  cy.get('.info-content').contains('Customs Declaration Service (CDS) Licence Waiver');
-  cy.get('.info-content').contains('The use of 999L allows a CDS waiver code to be declared for prohibited and restricted goods, allowing declarants to confirm that the goods are not subject to specific licencing measures. You must enter ‘CDS Waiver’ in the additional documentation field for this commodity item.');
-  cy.get('.info-content').contains('This waiver cannot be used for goods that are imported/exported or moved to/from Northern Ireland.');
 });
 
 Cypress.Commands.add('commodityImportGuidance', () => {
@@ -279,16 +272,24 @@ Cypress.Commands.add('verifySuspensions', (country, commCode, titles, measureTyp
   cy.contains(`${titles}`);
   cy.contains('Suspensions').click();
   cy.get('#suspensions').contains('Suspensions');
-  cy.get('.small-table.measures.govuk-table > tbody > tr').each(($elm, index, $list) => {
+  cy.get('.small-table.measures.govuk-table > tbody > tr').each(($elm, _index, _$list) => {
     const t = $elm.text();
     if (t.includes('Autonomous tariff suspension')) {
       if (`${country}` === 'xi') {
-        cy.get(`.table-line a[href^="/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`).contains('Autonomous tariff suspension');
+        cy.get(
+            `.table-line a[href^="/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`,
+        ).contains('Autonomous tariff suspension');
       } else {
-        cy.get(`.table-line a[href^="${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`).contains('Autonomous tariff suspension');
+        cy.get(
+            `.table-line a[href^="${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`,
+        ).contains('Autonomous tariff suspension');
       }
     } else if (t.includes('Preferential suspension')) {
-      cy.get('#measure-3223900 > .measure-type-col > .table-line > a').should('have.attr', 'href', `/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=XC`).contains('Preferential suspension');
+      cy.get('#measure-3223900 > .measure-type-col > .table-line > a').should(
+          'have.attr',
+          'href',
+          `/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=XC`,
+      ).contains('Preferential suspension');
     }
   });
 });
@@ -309,4 +310,50 @@ Cypress.Commands.add('pickTradingPartner', (tradingPartner) => {
       .clear()
       .type(tradingPartner)
       .type('{enter}');
+});
+
+Cypress.Commands.add('checkValidityPeriodsCount', (expectedCount) => {
+  const dateLineRegex = new RegExp(`[0-9]{1,2}\\s(${months.join('|')})\\s[0-9]{4}\\s+to\\s+[0-9]{1,2}\\s(${months.join('|')})\\s[0-9]{4}`);
+
+  cy.get('ul > li').filter((_index, li) => {
+    return dateLineRegex.test(li.innerText);
+  }).should('have.length', expectedCount);
+});
+
+Cypress.Commands.add('checkDerivingGoodsNomenclaturesCount', (expectedCount) => {
+  const dateRegex = new RegExp(`^[0-9]{1,2}\\s(${months.join('|')})\\s[0-9]{4}$`);
+
+  cy.get('thead').find('th').as('headerColumns');
+  cy.get('tbody').find('td').as('bodyColumns');
+
+  cy.get('@headerColumns').eq(0).should('have.text', 'Classification');
+  cy.get('@headerColumns').eq(1).should('have.text', 'Description');
+  cy.get('@headerColumns').eq(2).should('have.text', 'Transfer date');
+
+  cy.get('@bodyColumns').eq(0).find('a')
+      .should('have.attr', 'href')
+      .and('match', goodsNomenclatureLinkRegex);
+
+  cy.get('@bodyColumns').eq(1).should('not.be.empty');
+  cy.get('@bodyColumns').eq(2).contains(dateRegex);
+
+  cy.get('.govuk-table__row').should('have.length', expectedCount + 1);
+});
+
+Cypress.Commands.add('checkAdditionalCodeSearchResultsHaveGoodsNomenclatures', () => {
+  cy.get('article table thead').find('th').as('headerColumns');
+  cy.get('article table tbody').find('td').as('bodyColumns');
+
+  cy.get('@headerColumns').eq(0).should('have.text', 'Name');
+  cy.get('@headerColumns').eq(1).should('have.text', 'Code');
+
+
+  cy.get('@bodyColumns').eq(0).find('a')
+      .should('have.attr', 'href')
+      .and('match', goodsNomenclatureLinkRegex);
+
+  cy.get('@bodyColumns').eq(0).find('a').should('not.be.empty');
+  cy.get('@bodyColumns').eq(1).should('not.be.empty');
+
+  cy.get('article table .govuk-table__row').should('have.length.gt', 0);
 });

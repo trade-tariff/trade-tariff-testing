@@ -38,4 +38,22 @@ describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate i
     cy.get('#popup > div > div > article > div > details > div > table').contains('Complete the statement:');
     cy.get('#popup > div > div > article > div > details > div > table').contains('No document status code is required.');
   });
+  it('UK - Update the display of additional codes for measures', function() {
+    cy.visit('/commodities/3921139000');
+    cy.contains('Import controls').click();
+    cy.get('h3#uk_import_controls').contains('Import controls');
+    cy.get('#measure-20101500').contains('Import prohibition');
+    cy.get('#measure-20101500').contains('additional code: 4115');
+    cy.get('#measure-20101446').contains('Restriction on entry into free circulation');
+    cy.get('#measure-20101446').contains('additional code: 4999');
+  });
+  it('XI - Update the display of additional codes for measures', function() {
+    cy.visit('/xi/commodities/9620001000');
+    cy.contains('EU import controls').click();
+    cy.get('h3#xi_import_controls').contains('EU import controls');
+    cy.get('#measure-3531194').contains('Restriction on entry into free circulation');
+    cy.get('#measure-3531194').contains('additional code: 4053');
+    cy.get('#measure-3531195').contains('Restriction on entry into free circulation');
+    cy.get('#measure-3531195').contains('additional code: 4098');
+  });
 });

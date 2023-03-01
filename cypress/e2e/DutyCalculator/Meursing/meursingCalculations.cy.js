@@ -1,4 +1,3 @@
-/* eslint-disable no-tabs */
 /* eslint-disable max-len */
 /*
 EA,EA(R)     - AC
@@ -23,7 +22,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   it('| EA , EAR | 1901100000 - Costa Rica |', function() {
     cy.visit('/xi/commodities/1901100000');
     cy.checkCommPage('1901100000');
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('CR');
+    cy.get('input#trading_partner_country').click().clear().type('CR');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Costa Rica (CR)').click();
     cy.get('a#tab_import').click();
@@ -33,7 +32,6 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.get('form#new_meursing_lookup_result > .govuk-button').click();
     cy.get('#measure-2772105 > td.duty-rate-col.govuk-table__cell.govuk-table__header--numeric > span.meursing-duty-expression').contains('7.60 % + 99.88 EUR / 100 kg');
     // 7.60 % + 99.88 EUR/100kg
-    // cy.get('#measure-3803683').contains('0.00 % + 9.90 EUR / 100 kg');
     // 0 % + 9.90 EUR/100kg
     // https://ec.europa.eu/taxation_customs/dds2/taric/measures.jsp?Lang=en&SimDate=20211006&Taric=1901100000&LangDescr=en
   });
@@ -42,9 +40,6 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
     cy.visit('/xi/commodities/1806909019');
     cy.checkCommPage('1806909019');
     cy.searchForCountry('(IS)');
-    // cy.get('input#trading_partner_country').click().clear().wait(500).type('(IS)');
-    // cy.get('[id=\'trading_partner_country__listbox\']')
-    //     .contains('Iceland (IS)').click();
     cy.get('a#tab_import').click();
     cy.get('#measure-2051553').contains('8.30% + EA MAX 18.70% +ADSZ');
     cy.get('#measure-2972478').contains('0.00% + EAR MAX 18.70% +ADSZR');
@@ -60,7 +55,7 @@ describe('| meursingCalculations | Third Country Duty and Tariff Preference calc
   it('| ADFM , ADFMR | 1905320500 - Norway |', function() {
     cy.visit('/xi/commodities/1905320500');
     cy.checkCommPage('1905320500');
-    cy.get('input#trading_partner_country').click().clear().wait(500).type('(NO)');
+    cy.get('input#trading_partner_country').click().clear().type('(NO)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Norway (NO)').click();
     cy.get('a#tab_import').click();

@@ -8,7 +8,6 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
 
   it(' Date persisted on import ', function() {
     cy.visit(`/sections`);
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
     cy.checkCommPage('0702000007');
@@ -24,12 +23,11 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('.govuk-main-wrapper')
         .contains('Importing into the UK');
     // select country from drop down list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Chile').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('Chile')
         .type('{enter}');
     // verify if the date is persisted
     cy.get('a#tab_import').click();
-    // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.url().should('include', 'day=22&month=12&year=2022');
 
     // Change to different date in past and validate date is persisted
@@ -46,24 +44,22 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('.govuk-main-wrapper')
         .contains('Importing into the UK');
     // select country from drop down list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Chile').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('Chile')
         .type('{enter}');
     cy.get('a#tab_import').click();
     // verify if the date is persisted
-    // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.contains('1 January 2022');
     cy.url().should('include', 'day=1&month=1&year=2022');
 
 
     // switch to XI and check date is persisted on URL and UI
-    cy.contains('Northern Ireland Online Tariff').click().wait(300);
+    cy.contains('Northern Ireland Online Tariff').click();
     cy.contains('1 January 2022');
     cy.url().should('include', 'day=1&month=1&year=2022');
   });
   it(' Date persisted on export ', function() {
     cy.visit(`/sections`);
-    // cy.contains('Look up commodity codes, duty and VAT rates');;
     cy.searchForCommodity('0702000007');
     cy.title().should('contains', '0702000007');
     cy.checkCommPage('0702000007');
@@ -76,12 +72,11 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.url().should('include', 'day=22&month=12&year=2022');
 
     // select country from drop down list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Chile').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('Chile')
         .type('{enter}');
     // verify if the date is persisted
     cy.get('a#tab_export').click();
-    // cy.contains('Now you have identified your commodity code, you can check how to import commodity 0702000007 from Chile.');
     cy.url().should('include', 'day=22&month=12&year=2022');
 
     // Change to different date in past and validate date is persisted
@@ -98,8 +93,8 @@ describe('UK 🇬🇧 XI 🇪🇺 💡 | 📅 datePersistedURL.spec | 🐞 HOTT-
     cy.get('.govuk-main-wrapper')
         .contains('Check how to export commodity goods (link opens in new tab)');
     // select country from drop down list
-    cy.get('input#trading_partner_country').click().clear().wait(500)
-        .type('Chile').wait(500)
+    cy.get('input#trading_partner_country').click().clear()
+        .type('Chile')
         .type('{enter}');
     // verify if the date is persisted
     cy.get('a#tab_export').click();

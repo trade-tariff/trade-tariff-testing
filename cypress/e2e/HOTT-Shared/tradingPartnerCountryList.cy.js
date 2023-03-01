@@ -23,13 +23,13 @@ describe('Validating trading partner countries', function() {
     cy.visit(`/commodities/0702000007`);
 
     for (let i = 0; i < expectedMissingCountries.length; i++) {
-      cy.get('input#trading_partner_country').clear().wait(500).type(`${expectedMissingCountries[i]}`).wait(300);
+      cy.get('input#trading_partner_country').clear().type(`${expectedMissingCountries[i]}`);
       cy.get('[id=\'trading_partner_country__listbox\']')
           .contains('No results found');
     }
 
     for (let j = 0; j < expectedContinentalShelfCountries.length; j++) {
-      cy.get('input#trading_partner_country').clear().wait(500).type(`${expectedContinentalShelfCountries[j]}`).wait(300);
+      cy.get('input#trading_partner_country').clear().type(`${expectedContinentalShelfCountries[j]}`);
       cy.get('[id=\'trading_partner_country__listbox\']')
           .contains(`${expectedContinentalShelfCountries[j]}`);
     }

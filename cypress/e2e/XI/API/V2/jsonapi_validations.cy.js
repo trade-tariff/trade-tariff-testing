@@ -179,4 +179,12 @@ describe('Api validations', function() {
       });
     });
   });
+  describe('Api response for /xi/api/v2/certificates?as_of=1971-01-01', function() {
+    const path = '/xi/api/v2/certificates?as_of=1971-01-01';
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
 });

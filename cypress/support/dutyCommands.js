@@ -295,7 +295,6 @@ Cypress.Commands.add('dcRooLink2', (_options)=>{
 Cypress.Commands.add('dcStoppingPage', (_options)=>{
   cy.title().should('eq', 'Declared subheading not allowed - Online Tariff Duty calculator');
   cy.contains('Declared subheading not allowed');
-  // cy.contains(`You have chosen commodity code (${options.commCode}) for which you do not have the necessary documentation to proceed.`);
   cy.contains('You have chosen a commodity code ');
   cy.contains('for which you do not have the necessary documentation to proceed.');
   cy.contains('What\'s next');

@@ -1,19 +1,19 @@
-import dayjs from 'dayjs' ;
+import dayjs from 'dayjs';
 
 const helpers = {
   dateToUrl: (date) => {
-    let parsedDate = null ;
+    let parsedDate = null;
 
     if (date instanceof dayjs) {
-      parsedDate = date.toDate()
+      parsedDate = date.toDate();
     } else if (date instanceof Date) {
-      parsedDate = date
+      parsedDate = date;
     } else {
-      parsedDate = new Date(Date.parse(date))
+      parsedDate = new Date(Date.parse(date));
     }
 
-    return `day=${parsedDate.getDate()}&month=${parsedDate.getMonth() + 1}&year=${parsedDate.getFullYear()}`
-  }
-}
+    return `day=${parsedDate.getDate()}&month=${parsedDate.getMonth() + 1}&year=${parsedDate.getFullYear()}`;
+  },
+};
 
-export default helpers
+export default helpers;

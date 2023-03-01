@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // e2e journey validating alcohol percentage calculations Singapore to UK
 describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |', function() {
   it(' RoW 🇸🇬 Singapore - 🇬🇧 GB - Alcohol percentage calculations ', function() {

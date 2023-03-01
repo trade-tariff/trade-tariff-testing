@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 // 🚫 Trade Remedies - ✅ 0% MFN EU tariff - ✅ Not at Risk - Import Duty 0%
 // Comm Code : 1212210000
 

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
   it('Commodity with Kilos', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');

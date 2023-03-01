@@ -21,9 +21,17 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
 
   it('CRUD a news item', function() {
     cy.createNewsItem('uk');
-    cy.verifyNewsItemOnTariffServices('UK Integrated Online Tariff');
+    cy.verifyNewsItemOnTariffServices();
     cy.verifyAndUpdateNewsItem('uk');
     cy.removeNewsItem('uk');
+  });
+
+  it('Edit news story collections', function() {
+    cy.editNewsStoryCollections('uk');
+  });
+
+  it('Verify add news story collections', function() {
+    cy.verifyAddNewsStoryCollections('uk');
   });
 
   it('verify tariff updates', function() {

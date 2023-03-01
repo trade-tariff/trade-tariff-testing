@@ -154,7 +154,13 @@ jobs:
           SLACK_CHANNEL: "tariffs-regression"
           SLACK_USERNAME: "Production Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ job.status }}
-          SLACK_TITLE: Cypress finished with - ${{ needs.cypress-run.outputs.output1 }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/production/${{ steps.date.outputs.date }}
+          SLACK_ICON_EMOJI: ":alphabet-yellow-p:"
+          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/production/${{ steps.date.outputs.date }}/
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
+          directory: reports_repo

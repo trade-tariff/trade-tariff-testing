@@ -1,4 +1,3 @@
-/* eslint-disable guard-for-in */
 const parseCsv = require('../lib/csvParser');
 
 Cypress.Commands.add('checkCsvSuccessResponse', (csvResponse) => {

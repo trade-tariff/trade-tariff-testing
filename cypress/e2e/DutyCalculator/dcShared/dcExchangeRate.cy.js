@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and future dates |', function() {
   before(function() {
     cy.storeMonetaryExchangeRates();

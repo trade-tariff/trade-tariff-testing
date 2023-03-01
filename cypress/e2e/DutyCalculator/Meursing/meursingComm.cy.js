@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('| meursingComm.spec.js | Store Commodity value in session for Meursing , Meursing on Comm Page', function() {
   it('| meursing - Store Commodity code + Meursing code in Session |', function() {
     const commcode = ['1905311100', '1704906500', '1704909991'];

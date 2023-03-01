@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |', function() {
   it('Page Validation - RoW-GB ', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
@@ -40,7 +39,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.get('input#steps-planned-processing-planned-processing-without-any-processing-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.get('input#steps-planned-processing-planned-processing-without-any-processing-field')
         .parent()
         .find('input')
@@ -50,7 +49,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.get('input#steps-planned-processing-planned-processing-commercial-processing-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.get('input#steps-planned-processing-planned-processing-commercial-processing-field')
         .parent()
         .find('input')
@@ -60,7 +59,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field')
         .parent()
         .find('input')
@@ -116,7 +115,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.get('input#steps-planned-processing-planned-processing-without-any-processing-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.get('input#steps-planned-processing-planned-processing-without-any-processing-field')
         .parent()
         .find('input')
@@ -126,7 +125,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.get('input#steps-planned-processing-planned-processing-commercial-processing-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.get('.govuk-back-link').click().wait(300);
+    cy.get('.govuk-back-link').click();
     cy.get('input#steps-planned-processing-planned-processing-commercial-processing-field')
         .parent()
         .find('input')
@@ -137,7 +136,6 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.contains('Continue').click();
     // selection is persisted
     cy.go(-1);
-    // cy.get('.govuk-back-link').click().wait(300);
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field')
         .parent()
         .find('input')
