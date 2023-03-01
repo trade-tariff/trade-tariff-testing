@@ -20,7 +20,7 @@ jobs:
       CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
       CYPRESS_grepTags: "-devOnly+-smokeTest+-notStaging"
     name: "RegressionTests - Staging"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
