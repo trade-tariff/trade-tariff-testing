@@ -56,7 +56,7 @@ jobs:
     name: Generate test report
     needs: cypress-run
     if: always()
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-18.04
     steps:
       - name: Install dependencies
         run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
@@ -154,13 +154,7 @@ jobs:
           SLACK_CHANNEL: "tariffs-regression"
           SLACK_USERNAME: "Production Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON_EMOJI: ":alphabet-yellow-p:"
-          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
+          SLACK_COLOR: ${{ needs.cypress-run.outputs.output1 }}
+          SLACK_TITLE: Cypress finished with - ${{ needs.cypress-run.outputs.output1 }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/production/${{ steps.date.outputs.date }}/
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          directory: reports_repo
