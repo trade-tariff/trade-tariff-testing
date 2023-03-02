@@ -174,9 +174,8 @@ Cypress.Commands.add('waitForCommoditySearchResults', () => {
 Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.get('.js-commodity-picker-select:last').click().type(searchString);
   cy.waitForCommoditySearchResults();
-  //  cy.get('input[name=\'new_search\']').click();
-  cy.get('input[name=\'commit\']').click();
-  //  cy.get('input[name=\'new_search\']').click();
+  // We submit by clicking the first result
+  cy.get('#q__option--0').click();
 });
 
 Cypress.Commands.add('searchForCommodity2', (searchString) => {
