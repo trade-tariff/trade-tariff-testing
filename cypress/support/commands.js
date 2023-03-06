@@ -357,3 +357,8 @@ Cypress.Commands.add('checkAdditionalCodeSearchResultsHaveGoodsNomenclatures', (
 
   cy.get('article table .govuk-table__row').should('have.length.gt', 0);
 });
+
+Cypress.Commands.add('accessibilityTest', () => {
+  cy.injectAxe();
+  cy.checkA11y();
+});
