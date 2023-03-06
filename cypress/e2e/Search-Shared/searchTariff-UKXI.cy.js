@@ -1,6 +1,3 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 describe('searchTariff-UKXI | Search the Tariff - UK and XI |', {tags: ['config', 'xbrowser-tag']}, function() {
   const countries = ['uk', 'xi'];
 
@@ -18,7 +15,7 @@ describe('searchTariff-UKXI | Search the Tariff - UK and XI |', {tags: ['config'
         cy.visit(`${countries[j]}/sections`);
 
         cy.searchForCommodity(`${items[i]}`);
-        cy.contains('Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.');
+        cy.contains('Choose the commodity code that best matches your goods');
       }
     });
 
@@ -46,7 +43,15 @@ describe('searchTariff-UKXI | Search the Tariff - UK and XI |', {tags: ['config'
     });
 
     it(`${countries[j]} - Search Tariff on other pages`, function() {
-      const pages = ['browse', 'sections/6', 'chapters/28', 'headings/2802', 'commodities/2805120010', 'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd', 'a-z-index/a'];
+      const pages = [
+        'browse',
+        'sections/6',
+        'chapters/28',
+        'headings/2802',
+        'commodities/2805120010',
+        'search?q=fdsfsdfdsffdsfsd&input-autocomplete=fdsfsdfdsffdsfsd',
+        'a-z-index/a',
+      ];
       for (let i=0; i<pages.length; i++) {
         cy.visit(`${countries[j]}/${pages[i]}`);
         cy.searchForCommodity2('3808941000');
