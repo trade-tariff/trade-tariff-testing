@@ -20,7 +20,7 @@ jobs:
       CYPRESS_SPACE: "DEVELOPMENT"
       CYPRESS_grepTags: "devOnly adminOnly"
     name: "RegressionTests - Development"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - run: date
       - uses: actions/checkout@v2

@@ -11,7 +11,7 @@ jobs:
       CYPRESS_SPACE: "PRODUCTION"
       CYPRESS_grepTags: "-devOnly+-smokeTest+-notProduction+-adminOnly"
     name: "🚦 Regression Tests - UK and XI"
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     steps:
       - run: date
       - uses: actions/checkout@v2
