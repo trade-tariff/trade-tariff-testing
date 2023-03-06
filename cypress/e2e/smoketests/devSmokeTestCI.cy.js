@@ -6,6 +6,7 @@ describe('Smoke tests for dev', function() {
       cy.contains('browse the goods classification').click();
       cy.contains('Browse the tariff');
     });
+
     it('Check date picker function is working', function() {
       cy.visit('/find_commodity');
 
