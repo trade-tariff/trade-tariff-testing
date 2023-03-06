@@ -9,7 +9,7 @@
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.2.1",
     "axe-core": "^4.6.3",
-    "csv-parse": "^5.3.5",
+    "csv-parse": "^5.3.6",
     "cypress": "12.7.0",
     "cypress-axe": "^1.4.0",
     "cypress-dark": "^1.7.14",
