@@ -84,3 +84,7 @@ jobs:
           SLACK_COLOR: ${{ steps.cypress.outcome }}
           SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
+
+      - name: Set build status based on Cypress outcome
+        if: steps.cypress.outcome != 'success'
+        run: exit 1

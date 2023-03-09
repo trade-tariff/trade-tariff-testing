@@ -84,3 +84,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
+
+      - name: Set build status based on Cypress outcome
+        if: steps.cypress.outcome != 'success'
+        run: exit 1
