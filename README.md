@@ -1,8 +1,8 @@
 # trade-tariff-testing
 
-[![Github Actions Regression Production](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
-[![Github Actions Regression Staging](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml)
-[![Github Actions Regression Development](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionDevelopment.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionDevelopment.yml)
+[![Github Actions Regression Production](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg\?branch\=main\&event\=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
+[![Github Actions Regression Staging](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml/badge.svg\?branch\=main\&event\=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml)
+[![Github Actions Regression Development](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionDevelopment.yml/badge.svg\?branch\=main\&event\=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionDevelopment.yml)
 [![CircleCI Smoke Tests](https://circleci.com/gh/trade-tariff/trade-tariff-testing.svg?style=svg)](https://circleci.com/gh/trade-tariff/trade-tariff-testing.svg?style=svg)
 
 This repository is responsible for validating integrations between different applications in the Online Trade Tariff service
@@ -15,7 +15,7 @@ There are currently three enviornments we might run end-to-end tests against:
 
 Regression suites for each of these environments are configured using github actions
 
-### Prerequisites
+## Prerequisites
 
 - node
 - yarn
@@ -27,7 +27,7 @@ Install dependencies with yarn
 yarn install
 ```
 
-### Running tests
+## Running tests
 
 Run a single test:
 
