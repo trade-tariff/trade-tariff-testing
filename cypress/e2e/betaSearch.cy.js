@@ -91,7 +91,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('clothing sets womens');
-    cy.contains('Show all sections').click();
+    cy.contains('Show all filters').click();
     cy.contains('Women\'s and girls\'').click();
     cy.url().should('include', 'clothing_gender');
     cy.contains('Women\'s or girls\' blouses, shirts and shirt-blouses');
