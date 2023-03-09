@@ -90,7 +90,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   it('Search filters results with facet clothing_gender', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
-    cy.searchForCommodity('clothing sets');
+    cy.searchForCommodity('clothing sets womens');
     cy.contains('Show all sections').click();
     cy.contains('Women\'s and girls\'').click();
     cy.url().should('include', 'clothing_gender');
@@ -104,7 +104,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   it('Search filters results with heading 6211', function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
-    cy.searchForCommodity('clothing sets');
+    cy.searchForCommodity('clothing sets womens');
     cy.get('a').contains('Tracksuits, ski suits and swimwear; other garments').click();
     cy.url().should('include', '6211');
     cy.get('#search-filter-navigation').contains('Results are filtered by:');
