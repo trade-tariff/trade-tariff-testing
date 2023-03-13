@@ -168,7 +168,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     // when we switch back
     cy.get('#enable-beta-search > a').click();
     // we see legacy search results
-    cy.get('.search-results').contains('Results matching ‘ham’');
+    cy.get('.search-results').contains('Other results containing the term ‘ham’');
     // on the /search url
     cy.url().should('include', '/search');
   });
