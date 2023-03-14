@@ -192,4 +192,17 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.searchForCommodity('\'For the manufacture of starch\'');
     cy.url().should('include', '/commodities/0701901000');
   });
+
+  it('Supports fast fallback search on garbage inputs', function() {
+    const inputQuery = 'qwdwefwfwWWWWWWWWRGRGEWGEWGEWGEWGerwgewrgerwgrgerwgrgrehtrhtrhjtyrjyjerhwrgsrbdrhwrhwrhwrbsdfbrbhwr';
+    const minimumTimeFrame = 1000; // 1 second
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+
+    const start = new Date();
+    cy.searchForCommodity(inputQuery);
+    const end = new Date();
+
+    expect(end - start).to.be.lessThan(minimumTimeFrame);
+  });
 });
