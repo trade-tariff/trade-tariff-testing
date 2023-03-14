@@ -23,11 +23,7 @@ describe('Smoke tests for infrastructure', function() {
       cy.request('/uk/api/v2/healthcheck').then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property('git_sha1');
-        expect(response.body.sidekiq).to.eq(true);
-        expect(response.body.postgres).to.eq(true);
-        expect(response.body.redis).to.eq(true);
-        expect(response.body.opensearch).to.eq(true);
-        expect(response.body.search_query_parser).to.eq(true);
+        expect(response.body.healthy).to.eq(true);
       });
 
       // verify opensearch, caching and tokenisation
@@ -44,7 +40,7 @@ describe('Smoke tests for infrastructure', function() {
       cy.request('/xi/api/v2/healthcheck').then((response) => {
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property('git_sha1');
-        expect(response.body.sidekiq).to.eq(true);
+        expect(response.body.healthy).to.eq(true);
       });
 
       // verify opensearch, caching and tokenisation
