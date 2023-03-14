@@ -183,4 +183,13 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.url().should('include', '/search');
     cy.get('[id^="beta-search-results-"]');
   });
+
+  it('Supports single and double quoted search terms', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('"cherry tomatoes"');
+    cy.url().should('include', '/commodities/0702000007');
+    cy.searchForCommodity('\'For the manufacture of starch\'');
+    cy.url().should('include', '/commodities/0701901000');
+  });
 });
