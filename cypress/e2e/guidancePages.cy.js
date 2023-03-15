@@ -1,6 +1,6 @@
 describe('Verify guidance pages', function() {
   it('Classifying your goods - guidance page', function() {
-    cy.visit('/');
+    cy.visit('/find_commodity');
     cy.get('#recent-news').contains('Classifying your goods').should('have.attr', 'href', '/howto/commodity-codes');
     cy.get('#recent-news').contains('Classifying your goods').click();
     cy.url().should('include', '/howto/commodity-codes');
@@ -9,7 +9,7 @@ describe('Verify guidance pages', function() {
     cy.contains('Classifying your goods');
   });
   it('How to use quotas - guidance page', function() {
-    cy.visit('/');
+    cy.visit('/find_commodity');
     cy.get('#recent-news').contains('How to use quotas').should('have.attr', 'href', '/howto/quotas');
     cy.get('#recent-news').contains('How to use quotas').click();
     cy.contains('Import guidance');
@@ -17,7 +17,7 @@ describe('Verify guidance pages', function() {
     cy.url().should('include', '/howto/quotas');
   });
   it('How to value your goods for import or export - guidance page', function() {
-    cy.visit('/');
+    cy.visit('/find_commodity');
     cy.get('#recent-news')
         .contains('How to value your goods for import or export')
         .should('have.attr', 'href', '/howto/valuation');
@@ -27,7 +27,7 @@ describe('Verify guidance pages', function() {
     cy.url().should('include', '/howto/valuation');
   });
   it('What are trade remedies, safeguards and retaliatory duties? - guidance page', function() {
-    cy.visit('/');
+    cy.visit('/find_commodity');
     cy.get('#recent-news')
         .contains('What are trade remedies, safeguards and retaliatory duties?')
         .should('have.attr', 'href', '/howto/trade-remedies');
@@ -38,7 +38,7 @@ describe('Verify guidance pages', function() {
     cy.url().should('include', '/howto/trade-remedies');
   });
   it('What is origin and why is it important for international trade? - guidance page', function() {
-    cy.visit('/');
+    cy.visit('/find_commodity');
     cy.get('#recent-news')
         .contains('What is origin and why is it important for international trade?')
         .should('have.attr', 'href', '/howto/origin');
