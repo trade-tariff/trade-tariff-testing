@@ -11,7 +11,7 @@ describe('Measure condition pop ups', function() {
     cy.get('#measure-20188551').contains('Conditions').click();
     cy.get('.info-content').contains('Import control of organic products for All countries');
     cy.get('.info-content').contains('Meet one of the following conditions');
-    cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
+    cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
     cy.get('.info-content').contains('Complete the statement ‘Excluded from regulation 834/2007’.');
     cy.get('.info-content').contains('Enter the reference number of the Certificate.');
   });
@@ -22,7 +22,7 @@ describe('Measure condition pop ups', function() {
     cy.get('.info-content').contains('Meet the following condition and supply');
     cy.get('.info-content').contains('Meet one of the following conditions');
     cy.get('.info-content').contains('Goods not concerned by import prohibition on fluorinated greenhouse gases');
-    cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
+    cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
     cy.get('.info-content').contains('Complete the statement ‘Excluded from prohibition’.');
   });
   it('Waste controls - pair of doc codes paired together', function() {
@@ -32,7 +32,7 @@ describe('Measure condition pop ups', function() {
     cy.get('.info-content').contains('Meet one of the following conditions');
     cy.get('.info-content').contains('C669 + C670');
     cy.contains('Provide both documents');
-    cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
+    cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
     cy.get('.info-content').contains('Enter the reference number of the Information document.');
     cy.contains('Complete the statement ‘Excluded product’.');
     cy.contains('Enter the reference number of the Notification document.');
@@ -48,7 +48,7 @@ describe('Measure condition pop ups', function() {
     cy.contains('C666 + C693');
     cy.contains('Provide both documents');
     cy.contains('Laboratory analysis');
-    cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
+    cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
   });
 
   it('Small Brewery Relief - Excise duty on beer', function() {
@@ -74,7 +74,7 @@ describe('Measure condition pop ups', function() {
     cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
     cy.get('.info-content').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
     cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
-    cy.get('.info-content').contains('Guidance for completing Box 44 or Data Element 2/3').click();
+    cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
     cy.contains('Complete either statement ‘Education and taxidermy only’ or ‘No cat or dog fur’.');
     cy.get('.close [href]').click();
   });
