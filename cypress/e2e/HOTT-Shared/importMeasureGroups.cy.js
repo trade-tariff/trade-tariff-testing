@@ -1,5 +1,4 @@
 describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate if measures are grouped and clickable |', function() {
-  // Main Page
   it('XI - VAT and Excise , Custom Duties ,Trade remedies ,EU import controls ,UK import controls', function() {
     cy.visit('/xi/commodities/0304829010#import');
     cy.get('li:nth-of-type(1) > .govuk-link').contains('Import duties').click();
@@ -31,7 +30,7 @@ describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate i
     cy.get('#measure-20186730').contains('Additional duties');
     cy.get('#measure-20186730 > td.conditions-col.govuk-table__cell > a').click();
     cy.get('#popup').contains('Additional duties for Russia');
-    cy.get('#popup > div > div > article > div > details > summary').contains('Guidance for completing Box 44 or Data Element 2/3').click();
+    cy.get('#popup > div > div > article > div > details > summary').contains('Guidance for completing CDS Data Element 2/3').click();
     cy.get('#popup > div > div > article > div > details > div > table').contains('Document code');
     cy.get('#popup > div > div > article > div > details > div > table').contains('CDS guidance');
     cy.get('#popup > div > div > article > div > details > div > table').contains('9018');
