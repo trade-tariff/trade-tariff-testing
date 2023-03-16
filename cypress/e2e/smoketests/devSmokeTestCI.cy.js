@@ -17,7 +17,7 @@ describe('Smoke tests for dev', function() {
       cy.contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
 
-      cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+      cy.get('a.govuk-link[href*="/import_export_dates?"]').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
       cy.contains('22 December 2022');
     });
@@ -29,7 +29,6 @@ describe('Smoke tests for dev', function() {
           .contains('Northern Ireland Online Tariff')
           .click();
       cy.get('.govuk-header').contains('Northern Ireland Online Tariff');
-
       cy.get('.govuk-main-wrapper');
       cy.contains('UK Integrated Online Tariff').click();
       cy.get('.govuk-header').contains('UK Integrated Online Tariff');
@@ -55,7 +54,7 @@ describe('Smoke tests for dev', function() {
       cy.searchForCommodity('3808941000');
       cy.contains(/Commodity .*3808941000/i);
 
-      cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+      cy.get('a.govuk-link[href*="/import_export_dates?"]').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
 
       cy.contains('22 December 2022');
