@@ -114,10 +114,10 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   it('excise duties on Cigars', function() {
     cy.visit('/xi/commodities/2402100000#import');
 
-    cy.get('#measure--1011386180 > td.measure-type-col')
+    cy.get('#measure--1012049813 > td.measure-type-col')
         .contains('Excises');
 
-    cy.get('#measure--1011386180 > td.measure-type-col')
+    cy.get('#measure--1012049813 > td.measure-type-col')
         .contains('Additional code: X615');
   });
 
