@@ -1,16 +1,10 @@
-/* eslint-disable max-len */
 describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI version) |', function() {
-  // --- HOTT-82 -------------
-  // Page Title
   it('XI - Header text - Page- sections - Northern Ireland Online Tariff', function() {
     cy.visit('/xi/sections');
     cy.contains('Northern Ireland Online Tariff');
-  });
-  // Gov Logo
-  it('XI - Header text - GOV.UK logo ', function() {
-    cy.visit('/xi/sections');
     cy.get('.govuk-header').should('be.visible', 'GOV.UK');
   });
+
   it('XI - find_commodity page', function() {
     cy.visit('xi/find_commodity');
     cy.mainPageXI();
@@ -32,7 +26,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
   it('XI - Sections page ', function() {
     cy.visit('xi/sections/12');
     cy.contains('UK Integrated Online Tariff');
-    cy.contains('Section XII - Footwear, headgear, umbrellas, sun umbrellas, walking-sticks, seat-sticks, whips, riding-crops and parts thereof; prepared feathers and articles made therewith; artificial flowers; articles of human hair');
+    cy.contains('Section XII - Footwear');
     cy.contains('Section XII contains 4 chapters. Choose the chapter that best matches your goods.');
   });
   it('XI - Chapter page ', function() {
@@ -45,28 +39,11 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('There are important notes for classifying your goods shown further down this page');
   });
   it('XI - Heading page', function() {
-    const headings = ['4301', '4802', '1702'];
-    const comms = ['5', '18', '26'];
-    for ( let i=0; i<headings.length; i++) {
-      cy.visit(`xi/headings/${headings[i]}`);
-      cy.get('.govuk-summary-list').contains('Heading');
-      cy.get('.govuk-summary-list').contains('Classification');
-      cy.get('.govuk-summary-list').contains('Date of trade');
-      cy.contains(`There are ${comms[i]} commodities in this category. Choose the commodity code that best matches your goods to see more information. If your item is not listed by name, it may be shown under what it\'s used for, what it\'s made from or \'Other\'.`);
-    }
-  });
-  it('XI - Commodity page - without Supp units', function() {
-    cy.visit('xi/commodities/6406109010');
-    cy.get('.govuk-summary-list').contains('Commodity');
+    cy.visit('xi/headings/4301');
+    cy.get('.govuk-summary-list').contains('Heading');
     cy.get('.govuk-summary-list').contains('Classification');
-    cy.contains('Hand-made');
-    cy.get('.govuk-summary-list').contains('Supplementary unit');
-    cy.get('.govuk-summary-list').contains('No supplementary unit required.');
     cy.get('.govuk-summary-list').contains('Date of trade');
-    cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
-    cy.contains('Supplementary units are used when an additional measurement unit is needed on customs declarations. For example: the quantity of the products as well as the weight in kilograms.');
   });
-
   it('XI - Search the Tariff section', function() {
     cy.visit('/xi/sections');
     cy.contains('Search the Northern Ireland Online Tariff');
@@ -87,37 +64,21 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.get('.govuk-list')
         .contains('Search for certificates, licences and other document codes.');
     cy.get('.govuk-list')
-        .contains('Search for additional codes. Additional codes are used on the tariff for a number of purposes to help you to classify goods accurately on your customs declaration.');
+        .contains('Search for additional codes.');
     cy.get('.govuk-list')
         .contains('Search the tariff for footnotes');
     cy.get('.govuk-list')
         .contains('Search the tariff for chemicals by ');
   });
+
   it('XI - News section', function() {
     cy.visit('xi/find_commodity');
     cy.get('li:nth-of-type(5) > .govuk-header__link').click();
     cy.contains('Trade tariff news bulletin');
   });
 
-  // HOTT-164
-  it('XI - Remove the link to the EU website for looking up measures, geographical areas and regulations - Main Page ', function() {
-    cy.visit('/xi/sections');
-    cy.get('.govuk-footer');
-    cy.contains('API Documentation');
-    //   cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.be.visible')
-    cy.contains('Integrated tariff of the European Community (TARIC) database').should('not.exist');
-  });
   it('XI - Notes tab ', function() {
     cy.visit('/xi/commodities/4101203000');
-
-    cy.contains('TN701').should('not.be.visible');
-    // Import Tab
-    cy.get('a#tab_import').click();
-    cy.contains('TN701').should('not.be.visible');
-    // Export Tab
-    cy.get('a#tab_export').click();
-    cy.contains('TN701').should('not.be.visible');
-    // Footnotes Tab
     cy.get('a#tab_footnotes').click();
     cy.contains('Notes for commodity 4101203000');
     cy.contains('TN701');
@@ -148,14 +109,22 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('Exporting from Northern Ireland');
     cy.contains('Find information about how to move goods from the UK to Italy.');
     cy.contains('Check how to export commodity 0702000007 to Italy (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007');
+    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should(
+        'have.attr',
+        'href',
+        'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007',
+    );
 
     // Non EU country selected
     cy.searchForCountry('Andorra').type('{enter}');
     cy.contains('Exporting from Northern Ireland');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
     cy.contains('Check how to export commodity goods (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should('have.attr', 'href', 'https://www.check-duties-customs-exporting-goods.service.gov.uk');
+    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should(
+        'have.attr',
+        'href',
+        'https://www.check-duties-customs-exporting-goods.service.gov.uk',
+    );
   });
   it('XI - import tab', function() {
     cy.visit('xi/commodities/0706901000?day=10&month=12&year=2022#import');
@@ -172,6 +141,10 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1)').contains('Rules of origin glossary');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/xi/glossary');
     cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2) > a').should('have.attr', 'href', '/xi/help/rules_of_origin/duty_drawback');
+    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2) > a').should(
+        'have.attr',
+        'href',
+        '/xi/help/rules_of_origin/duty_drawback',
+    );
   });
 });

@@ -101,12 +101,12 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
   });
 
   it('excise duties on Cigars', function() {
-    cy.visit('/commodities/2402100000');
+    cy.visit('/commodities/2402100000#import');
 
-    cy.get('#measure--1011386180 > td.measure-type-col')
+    cy.get('#measure--1012049813 > td.measure-type-col')
         .contains('Excises');
 
-    cy.get('#measure--1011386180 > td.measure-type-col')
+    cy.get('#measure--1012049813 > td.measure-type-col')
         .contains('Additional code: X615');
   });
 
