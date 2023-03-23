@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 describe('| conditionCodes-XI.spec.js | Validating condition codes YA,YB,YC,YD |', function() {
   it('validate condition code details', function() {
     cy.visit('/xi/commodities/2903430010#xi_import_controls');

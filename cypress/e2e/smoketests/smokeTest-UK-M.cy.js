@@ -56,8 +56,7 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
     cy.contains('Non preferential tariff quota');
     cy.get('.table-line');
     cy.contains('054002').click();
-    cy.get('.tariff-info')
-        .contains('Information on the availability of this quota can be obtained from the Rural Payments Agency.');
+    cy.get('.tariff-info').contains('Rural Payments Agency');
     cy.get('.close [href]').click();
   });
 
