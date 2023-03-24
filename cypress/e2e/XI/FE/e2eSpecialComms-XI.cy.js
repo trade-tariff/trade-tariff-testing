@@ -86,7 +86,7 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('Supplementary unit');
     cy.contains('l');
     cy.get('#measure--406106')
-        .contains('EXCISE - FULL, 441, IMPORTED BEER');
+        .contains('Excise - full, 441, imported beer');
     cy.get('#measure--406106')
         .contains('Conditions')
         .click();
