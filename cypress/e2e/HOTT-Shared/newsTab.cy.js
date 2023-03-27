@@ -32,7 +32,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.get('#news-filters').contains('Filter by year');
       cy.get('#news-year-filter').contains('All years');
       cy.get('#news-year-filter').contains('2022').click();
-      cy.url().should('include', '/news?year=2022');
+      cy.url().should('include', '/years/2022');
       cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-three-quarters.news-items > article:nth-child(2)').contains('2022');
     });
     it(`${countries[i]} - Filter by collection`, function() {
@@ -101,6 +101,19 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.contains('Print this page');
       cy.contains('Back to top');
       cy.url().should('include', '/news/stories/');
+    });
+    it(`${countries[i]} - Verify querystring parameter does not clash with time machine`, function() {
+      cy.visit(`${countries[i]}/commodities/2204109100?day=27&month=3&year=2022`);
+      cy.url().should('include', '/commodities/2204109100?day=27&month=3&year=2022');
+      cy.contains(`${pagetitles[i]}`);
+      cy.get('li:nth-of-type(5) > .govuk-header__link').contains('News').click();
+      cy.contains('Trade tariff news bulletin');
+      cy.url().should('include', '/news?day=27&month=3&year=2022');
+      cy.get('.news-item').contains('2023');
+      cy.get('#news-year-filter').contains('2021').click();
+      cy.url().should('include', '/news/years/2021?day=27&month=3&year=2022');
+      cy.get('#news-collection-filter').contains('Tariff stop press').click();
+      cy.url().should('include', 'news/collections/tariff_stop_press/2021?day=27&month=3&year=2022');
     });
   }
 });
