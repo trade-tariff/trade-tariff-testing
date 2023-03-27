@@ -128,30 +128,6 @@ Cypress.Commands.add('commPage', () => {
   cy.title().should('matches', /UK Integrated Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
 });
 
-Cypress.Commands.add('newsBannerUK', () => {
-  cy.contains('Are you importing goods into Northern Ireland?');
-  // check correct text is displayed on banner as per UK - If they are at risk
-  // link to not at risk
-  cy.get('div[role=\'region\'] p > a:nth-of-type(1)').click();
-  cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
-  cy.go(-1);
-  cy.contains('If you’re bringing goods into Northern Ireland from outside the UK and the EU, you will pay the UK duty rate ');
-  cy.contains('if your goods are not ‘at risk’ of onward movement to the EU');
-  cy.contains('If they are at risk of onward movement to the EU, use the');
-});
-
-Cypress.Commands.add('newsBannerXI', () => {
-  cy.contains('Are your goods at risk of onward movement to the EU?');
-  // check correct text is displayed on banner as per UK - If they are at risk
-  // link to not at risk
-  cy.get('div[role=\'region\'] p > a:nth-of-type(1)').click();
-  cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
-  cy.go(-1);
-  cy.contains('If you’re bringing goods into Northern Ireland');
-  cy.contains('if your goods are ‘at risk’ of onward movement to the EU');
-  cy.contains('. If they are not at risk of onward movement to the EU, use the ');
-});
-
 Cypress.Commands.add('specialBanner', () => {
   cy.contains('New guidance has been published in regard to additional duties on goods originating in Russia and Belarus.');
   cy.get('header[role=\'banner\'] a[target=\'_blank\']')
@@ -355,4 +331,17 @@ Cypress.Commands.add('checkAdditionalCodeSearchResultsHaveGoodsNomenclatures', (
   cy.get('@bodyColumns').eq(1).should('not.be.empty');
 
   cy.get('article table .govuk-table__row').should('have.length.gt', 0);
+});
+
+Cypress.Commands.add('fetchCookie', (name) => {
+  cy.getCookie(name).then((cookie) => {
+    let cookieValue = null;
+    if (cookie) {
+      cookieValue = cookie.value;
+      cookieValue = decodeURIComponent(cookieValue);
+      cookieValue = JSON.parse(cookieValue);
+    }
+
+    return cookieValue;
+  });
 });

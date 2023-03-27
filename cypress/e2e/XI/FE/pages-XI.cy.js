@@ -83,10 +83,17 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('Notes for commodity 4101203000');
     cy.contains('TN701');
   });
+
   it('XI - News Banner', function() {
-    cy.visit('xi/sections');
-    cy.newsBannerXI();
+    cy.visit('/xi/find_commodity');
+    cy.get('div.latest-news-banner h2').contains('Are your goods at risk of onward movement to the EU?');
+    cy.get('div.latest-news-banner a').contains('of onward movement').click();
+    cy.url().should(
+        'eq',
+        'https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu',
+    );
   });
+
   it('XI - export tab', function() {
     cy.visit('xi/commodities/0702000007?country=#export');
     // without selecting any country
