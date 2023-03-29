@@ -59,13 +59,13 @@ Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
   return originalFn(options);
 });
 
-// ******* Custom Commands *******
-
 Cypress.Commands.add('datePickerPage', (date) => {
-  cy.contains('When are you planning to trade the goods?');
-  cy.get('input[name=\'import_export_date[import_date(3i)]\']').click().clear().type(date.day);
-  cy.get('input[name=\'import_export_date[import_date(2i)]\']').click().clear().type(date.month);
-  cy.get('input[name=\'import_export_date[import_date(1i)]\']').click().clear().type(date.year);
+  const importDateInput = (index) => `input[name='import_export_date[import_date(${index}i)]']`;
+
+  cy.get(importDateInput(3)).click().clear().type(date.day);
+  cy.get(importDateInput(2)).click().clear().type(date.month);
+  cy.get(importDateInput(1)).click().clear().type(date.year);
+
   cy.contains('Update date').click();
 });
 
