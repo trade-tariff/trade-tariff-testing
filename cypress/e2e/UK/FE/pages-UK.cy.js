@@ -163,9 +163,9 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - import tab', function() {
     cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
     cy.contains('Importing into the UK');
-    cy.get('#content > dl > div:nth-child(5) > dd.govuk-summary-list__actions > a').click();
+    cy.get('a[href^=\'/trading_partners\']').click();
     cy.countryPickerpage({value: 'Argentina'});
-    cy.get('#content > dl > div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
+    cy.get('.govuk-summary-list__value').contains('Argentina').should('be.visible');
 
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     cy.get('a#tab_import').click();
