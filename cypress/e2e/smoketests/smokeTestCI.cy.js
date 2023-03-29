@@ -5,7 +5,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.mainPageUK();
     });
 
-    it('Check date picker function is working', function() {
+    it('verify date pickers are working', function() {
       cy.visit('/find_commodity');
 
       cy.get('.govuk-details__summary').click();
@@ -15,7 +15,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
-      cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+      cy.get('a[href=\'/import_export_dates?day=21&month=12&year=2022\']').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
 
       cy.contains('22 December 2022');
@@ -264,7 +264,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.mainPageXI();
     });
 
-    it('Check Calendar is functioning', function() {
+    it('verify date pickers are working', function() {
       cy.visit('/xi/find_commodity');
 
       cy.get('.govuk-details__summary').click();
@@ -274,7 +274,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
-      cy.get('div:nth-of-type(4) > .govuk-summary-list__actions > .govuk-link').click();
+      cy.get('a[href=\'/xi/import_export_dates?day=21&month=12&year=2022\']').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
 
       cy.contains('22 December 2022');
