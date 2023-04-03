@@ -23,7 +23,6 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.contains('Please note that the work to calculate the');
     cy.contains('Small Breweries\' Relief (SBR)');
     cy.contains('is in development and will be available shortly.');
-    cy.contains('Small Breweries\' Relief (SBR)');
 
     cy.contains('For more information on excise duty classes, please see');
     cy.contains('UK Trade: excise, duties, reliefs, drawbacks and allowances (opens in new browser window)');
@@ -100,11 +99,16 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('gb');
     cy.originList({value: 'Indonesia'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+    cy.quantity({mwh: '100'});
     // Select Document Code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
+    // Excise code
+    cy.exciseCode('99c');
     cy.confirmPage();
     cy.dutyPage();
+    cy.contains('990 - Climate Change Levy (Tax code 990): gas supplied by a gas utility or any gas supplied in a gaseous state');
+    cy.contains('6.72 GBP / 1000 kWh');
   });
   it('🛢️  RoW 🇱🇮 (Liechtenstein) - XI  | 6.fuels or various types - White oils, liquid paraffin |', function() {
     cy.visit('/duty-calculator/uk/3811210027/import-date');

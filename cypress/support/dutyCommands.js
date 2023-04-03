@@ -27,8 +27,8 @@ Cypress.Commands.add('validDate', ()=>{
   cy.contains('When will the goods be imported?');
   cy.title().should('eq', 'When will the good be imported - Online Tariff Duty calculator');
   cy.get('#steps_import_date_import_date_3i').click().clear().type('31');
-  cy.get('#steps_import_date_import_date_2i').click().clear().type('10');
-  cy.get('#steps_import_date_import_date_1i').click().clear().type('2022');
+  cy.get('#steps_import_date_import_date_2i').click().clear().type('12');
+  cy.get('#steps_import_date_import_date_1i').click().clear().type('2023');
   cy.contains('Continue').click();
 });
 // Enter Date
