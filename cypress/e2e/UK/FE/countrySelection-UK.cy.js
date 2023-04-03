@@ -43,7 +43,6 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection |', {tags: ['c
 
   it('UK Country selection page', function() {
     cy.visit('/commodities/0804100030');
-    // cy.get('div:nth-of-type(6) > .govuk-summary-list__actions > .govuk-link').click();
     cy.get('a[href*="/trading"]').contains('Change').click();
     cy.contains('Filter measures against the selected country');
     cy.contains('UK Integrated Online Tariff');
