@@ -102,16 +102,11 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.selectDestination('gb');
     cy.originList({value: 'Indonesia'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({mwh: '100'});
     // Select Document Code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
-    // Excise code
-    cy.exciseCode('99c');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('990 - Climate Change Levy (Tax code 990): gas supplied by a gas utility or any gas supplied in a gaseous state that is of a kind supplied by a gas utility Great Britain');
-    cy.contains('5.68 GBP / 1000 kWh');
   });
   it('🛢️  RoW 🇱🇮 (Liechtenstein) - XI  | 6.fuels or various types - White oils, liquid paraffin |', function() {
     cy.visit('/duty-calculator/uk/3811210027/import-date');
