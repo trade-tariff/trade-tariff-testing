@@ -6,7 +6,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.originList({value: 'Israel'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.contains('Describe your goods in more detail');
-    cy.contains('To trade this commodity in the United Kingdom, you need to specify an additional 4 digits, known as an additional code. This affects the third country duty.');
+    cy.contains('you need to specify an additional 4 digits, known as an additional code. This affects the third country duty.');
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Specify a valid additional code');
@@ -20,7 +20,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('You are importing commodity');
-    cy.contains('from Israel on 31 October 2022.');
+    cy.contains('from Israel on 31 December 2023.');
     cy.contains('6307 90 92 00 (2600)');
     cy.contains('Option 1: Third-country duty');
   });

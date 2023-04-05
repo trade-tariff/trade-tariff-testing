@@ -1,7 +1,7 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
 // Comm code :7202118000 - Commodity with no measure units
 
-describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |', function() {
+describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Trader Scheme-Certified as UK origin', function() {
   //
 
   it('e2e GB to NI ', function() {
@@ -175,7 +175,10 @@ describe('| GB-NI408a-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (EU)');
-    cy.contains('A tariff preference is the rate available if a free trade agreement or another arrangement is in place between the UK and an overseas country. Goods will need to comply with the rules of origin to benefit from this rate and you will need to provide evidence of compliance with your shipment.');
+    cy.contains('A tariff preference is the rate available if a free trade agreement or');
+    cy.contains('another arrangement is in place between the UK and an overseas country.');
+    cy.contains('Goods will need to comply with the rules of origin to benefit from this rate');
+    cy.contains('and you will need to provide evidence of compliance with your shipment.');
   });
 });
 

@@ -21,8 +21,9 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.contains(' VAT');
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
-    cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
-    cy.contains('Option 3: Airworthiness tariff suspension');
+    cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and');
+    cy.contains('other vessels and for drilling or production platforms');
+    cy.contains('Option 5: Airworthiness tariff suspension');
   });
   it(`e2e RoW to GB | 🇦🇫 Afghanistan to 🇬🇧 GB | Excise code | Wine |`, function() {
     // select future date

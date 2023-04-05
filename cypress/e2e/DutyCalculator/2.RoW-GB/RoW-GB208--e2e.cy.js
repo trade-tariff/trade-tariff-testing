@@ -49,7 +49,8 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Page validation
     cy.contains('What is the percentage of sucrose (Brix) in your goods?');
-    cy.contains('If you do not know the percentage sucrose content (Brix value), check the footnotes for the commodity code to identify how to calculate it.');
+    cy.contains('If you do not know the percentage sucrose content (Brix value),');
+    cy.contains('check the footnotes for the commodity code to identify how to calculate it.');
     // valid inputs entered
     cy.quantity({kgm: 16320, brx: 80});
     // VAT Page

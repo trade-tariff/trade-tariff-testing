@@ -1,7 +1,7 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
 // Comm code :1701141000
 
-describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin |', function() {
+describe('GB-NI408b-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Trader Scheme-Certified as UK origin', function() {
   //
   const country = ['xi'];
   const pagetitles = ['Northern Ireland Online Tariff'];
