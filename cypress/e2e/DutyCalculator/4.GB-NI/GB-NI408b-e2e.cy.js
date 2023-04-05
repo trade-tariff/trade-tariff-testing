@@ -47,7 +47,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       cy.contains('Import quantity');
       //   cy.get('.govuk-summary-list__value')
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00');
-      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 October 2022');
+      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 December 2023');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Northern Ireland');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No');
@@ -61,7 +61,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       cy.contains('Import duty calculation');
       cy.contains('You are importing commodity');
       cy.contains('from United Kingdom (excluding Northern Ireland) on');
-      cy.contains('31 October 2022');
+      cy.contains('31 December 2023');
       cy.contains('1701 14 10 00').click();
       cy.checkCommPage('1701141000');
       cy.go(-1);
@@ -75,7 +75,7 @@ describe('| GB-NI408b-e2e.spec | GB to NI route 🚐 08 - 🚫 Trade Remedies - 
       // values
       cy.contains('1701 14 10 00');
       cy.contains('For refining');
-      cy.contains('31 October 2022');
+      cy.contains('31 December 2023');
       cy.contains('£10,002.24');
 
       // information
