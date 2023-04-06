@@ -13,7 +13,7 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - Norway');
     cy.contains('615 - Cigars');
-    cy.contains('£893.50');
+    cy.contains('£792.33');
   });
 
   it('🛢️ Fuel | RoW 🇱🇮 Liechtenstein - 🇬🇧 GB   | 6.fuels of various types - White oils, liquid paraffin |', function() {
