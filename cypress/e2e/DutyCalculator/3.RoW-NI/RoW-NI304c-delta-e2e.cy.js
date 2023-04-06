@@ -3,8 +3,8 @@
 // 1509102090 22nd December 2021
 // Multiple Additional Codes
 describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | Multiple Additional Codes | ', function() {
-  it(`RoW 🇸🇬 (Singapore) to NI | 🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | UK = 2 , XI = 0`, function() {
-    cy.visit(`/duty-calculator/xi/6307909200/import-date`);
+  it('RoW 🇸🇬 (Singapore) to NI | 🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | UK = 2 , XI = 0', function() {
+    cy.visit('/duty-calculator/xi/6307909200/import-date');
     // date
     cy.validDate();
     // destination
@@ -36,8 +36,8 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     cy.contains('6307 90 92 00 (2600)');
 
     cy.contains('Option 1: Third-country duty');
-    // cy.contains('Third-country duty (EU)');
-    // cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
+    cy.contains('Third-country duty (EU)');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
     cy.contains('Airworthiness tariff suspension (UK)');
   });
   it(`RoW 🇸🇲 (San Marino) to NI | turnover > £500,000 | 🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | UK = 0 , XI = 2|`, function() {
