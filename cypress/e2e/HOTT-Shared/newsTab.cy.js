@@ -32,7 +32,7 @@ describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', fun
       cy.get('#news-filters').contains('Filter by year');
       cy.get('#news-year-filter').contains('All years');
       cy.get('#news-year-filter').contains('2022').click();
-      cy.url().should('include', '/years/2022');
+      cy.url().should('include', 'news/years/2022');
       cy.get('#content > div.govuk-grid-row > div.govuk-grid-column-three-quarters.news-items > article:nth-child(2)').contains('2022');
     });
     it(`${countries[i]} - Filter by collection`, function() {
