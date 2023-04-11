@@ -1,6 +1,4 @@
-/* eslint-disable max-len */
 describe('| 📰 newsTab.spec.js | news updates page on UK and XI services', function() {
-  // Updates from 8th December 2021
   const countries = ['', 'xi'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
 

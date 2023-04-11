@@ -29,7 +29,7 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       cy.contains('Coming from');
       cy.contains('Customs value');
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0703 10 19 00');
-      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 October 2022');
+      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2023');
       cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Vietnam');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£1,000.00');
@@ -40,7 +40,7 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       // Final Page - duty page
       cy.contains('Import duty calculation');
       cy.contains('You are importing commodity');
-      cy.contains('from Vietnam on 31 October 2022.');
+      cy.contains('from Vietnam on 31 December 2023.');
 
       cy.contains('Details of your trade').click();
       cy.get('.govuk-details__text');
@@ -51,7 +51,7 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       // values
       cy.contains('0703 10 19 00');
       cy.contains('other');
-      cy.contains('31 October 2022');
+      cy.contains('31 December 2023');
       cy.contains('£1,000.00');
 
       // information
@@ -71,7 +71,7 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£0.00');
       // Final Page
       cy.contains('Import duty calculation');
-      cy.contains('You are importing commodity 0703 10 19 00 from Vietnam on 31 October 2022.');
+      cy.contains('You are importing commodity 0703 10 19 00 from Vietnam on 31 December 2023.');
       cy.contains('Option 1: Third-country duty');
       cy.contains('Option 2: Tariff preference - GSP – General Framework');
       cy.dcRooLink({country: 'Vietnam'});

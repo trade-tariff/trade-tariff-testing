@@ -40,8 +40,8 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
       cy.contains('When will the goods be imported?');
       // date entered persists after error message only if valid format date and in past *
       cy.get('#steps_import_date_import_date_3i').should('have.value', '31');
-      cy.get('#steps_import_date_import_date_2i').should('have.value', '10');
-      cy.get('#steps_import_date_import_date_1i').should('have.value', '2022');
+      cy.get('#steps_import_date_import_date_2i').should('have.value', '12');
+      cy.get('#steps_import_date_import_date_1i').should('have.value', '2023');
     });
   }
   it('Import destination - Northern Ireland', function() {
@@ -76,8 +76,8 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     cy.contains('When will the goods be imported?');
 
     cy.get('#steps_import_date_import_date_3i').should('have.value', '31');
-    cy.get('#steps_import_date_import_date_2i').should('have.value', '10');
-    cy.get('#steps_import_date_import_date_1i').should('have.value', '2022');
+    cy.get('#steps_import_date_import_date_2i').should('have.value', '12');
+    cy.get('#steps_import_date_import_date_1i').should('have.value', '2023');
   });
   it('Error - No country selected', function() {
     cy.visit(`duty-calculator/uk/0702000007/import-date`);

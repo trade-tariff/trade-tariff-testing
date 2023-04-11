@@ -32,7 +32,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains('Import duty calculation');
     cy.contains('You are importing commodity');
     cy.contains('from United Kingdom (excluding Northern Ireland) on');
-    cy.contains('31 October 2022');
+    cy.contains('31 December 2023');
     cy.contains('7202 11 80 00').click();
     cy.checkCommPage('7202118000');
     cy.go(-1);
@@ -47,7 +47,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     // values
     cy.contains('7202 11 80 00');
     cy.contains('Other');
-    cy.contains('31 October 2022');
+    cy.contains('31 December 2023');
     cy.contains('£10,002.24');
 
     // information
@@ -67,7 +67,8 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£2,000.45');
     // Last row
     cy.contains('Duty Total');
-    cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.');
+    cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available.');
+    cy.contains('It can also be referred to as the Most Favoured Nation (MFN) rate.');
 
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');

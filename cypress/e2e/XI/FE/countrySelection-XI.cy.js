@@ -47,26 +47,26 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
   // no XU
   it('XI Country selection page', function() {
     cy.visit('xi/commodities/0804100030');
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('a[href*="/xi/trading"]').contains('Change').click();
     cy.contains('Filter measures against the selected country');
     cy.contains('Northern Ireland Online Tariff');
     cy.title().should('eq', 'Northern Ireland Online Tariff - Set country filter - GOV.UK');
     cy.countryPickerpage({value: 'Argentina'});
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Argentina');
+    cy.get('.govuk-summary-list').contains('Argentina');
 
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     // Typing the country code
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('a[href*="/xi/trading"]').contains('Change').click();
     cy.countryPickerpage({value: '(DE)'});
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Germany');
+    cy.get('.govuk-summary-list').contains('Germany');
 
     // reset to all countries
     cy.get('.reset-country-picker').click();
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');
+    cy.get('.govuk-summary-list').contains('All countries');
   });
   it('XI Country selection page - No country selected ', function() {
     cy.visit('xi/commodities/0804100030');
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.get('a[href*="/xi/trading"]').contains('Change').click();
     cy.contains('Select country').click();
     cy.get('.govuk-error-summary');
     cy.contains('There is a problem');
@@ -75,8 +75,6 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
         .contains('Select a country');
     // Reset all countries
     cy.get('.govuk-link').contains('Reset to all countries').click();
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('All countries');
+    cy.get('.govuk-summary-list').contains('All countries');
   });
 });
-
-
