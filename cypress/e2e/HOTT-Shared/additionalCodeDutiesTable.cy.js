@@ -1,6 +1,6 @@
 describe('additional code duties table', function() {
   context('when on the UK service', function() {
-    it('shows the correct heading additional code duties table', function() {
+    it('UK - Shows the correct heading additional code duties table', function() {
       cy.visit('/headings/3906');
       cy.get('.govuk-table.additional-code-table').contains('Depends on additional code');
       cy.get('.govuk-table.additional-code-table').contains('Code');
@@ -12,13 +12,15 @@ describe('additional code duties table', function() {
       cy.get('.govuk-table.additional-code-table').contains('No code');
     });
 
-    it('UK - Start subheading displays one tier further down', function() {
+    it('UK - Start heading displays one tier further down', function() {
       cy.visit('/headings/1512');
       cy.get('article.tariff').contains('Open all headings');
       cy.get('article.tariff').contains('Close all headings');
       cy.get('article.tariff').contains('1512111000');
       cy.get('article.tariff').contains('Depends on additional code');
       cy.get('article.tariff').contains('Close all headings').click();
+      cy.get('ul[aria-hidden="true"]').should('be.hidden');
+      cy.get('.govuk-list a[href]').contains('1512111000').should('not.be.visible');
       cy.get('article.tariff').contains('Open all headings').click();
       cy.get('article.tariff').contains('1512111000');
       cy.get('article.tariff').contains('Depends on additional code');
@@ -54,6 +56,8 @@ describe('additional code duties table', function() {
       cy.get('article.tariff').contains('1512111000');
       cy.get('article.tariff').should('not.have.text', 'Depends on additional code');
       cy.get('article.tariff').contains('Close all headings').click();
+      cy.get('ul[aria-hidden="true"]').should('be.hidden');
+      cy.get('.govuk-list a[href]').contains('1512111000').should('not.be.visible');
       cy.get('article.tariff').contains('Open all headings').click();
       cy.get('article.tariff').contains('1512111000');
       cy.get('article.tariff').should('not.have.text', 'Depends on additional code');

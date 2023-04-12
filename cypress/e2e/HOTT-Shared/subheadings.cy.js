@@ -1,5 +1,5 @@
 describe('verify subheadings', function() {
-  it('UK subheading front end', function() {
+  it('UK - Subheading front end', function() {
     cy.visit('/subheadings/2933998000-80');
     cy.contains('Subheading 29339980 - Other ');
     cy.contains(/There are \d+ commodities in this category./);
@@ -16,12 +16,14 @@ describe('verify subheadings', function() {
     cy.get('article.tariff').contains('1512111000');
     cy.get('article.tariff').contains('Depends on additional code');
     cy.get('article.tariff').contains('Close all headings').click();
+    cy.get('ul[aria-hidden="true"]').should('be.hidden');
+    cy.get('article.tariff').contains('1512111000').should('be.visible');
     cy.get('article.tariff').contains('Open all headings').click();
     cy.get('article.tariff').contains('1512111000');
     cy.get('article.tariff').contains('Depends on additional code');
   });
 
-  it('XI subheading front end', function() {
+  it('XI - Subheading front end', function() {
     cy.visit('/xi/subheadings/2933998000-80');
     cy.contains('Subheading 29339980 - Other ');
     cy.contains(/There are \d+ commodities in this category./);
@@ -37,6 +39,8 @@ describe('verify subheadings', function() {
     cy.get('article.tariff').contains('1512111000');
     cy.get('article.tariff').should('not.have.text', 'Depends on additional code');
     cy.get('article.tariff').contains('Close all headings').click();
+    cy.get('ul[aria-hidden="true"]').should('be.hidden');
+    cy.get('article.tariff').contains('1512111000').should('be.visible');
     cy.get('article.tariff').contains('Open all headings').click();
     cy.get('article.tariff').contains('1512111000');
     cy.get('article.tariff').should('not.have.text', 'Depends on additional code');
