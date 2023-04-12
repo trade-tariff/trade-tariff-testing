@@ -124,6 +124,7 @@ Cypress.Commands.add('createNewsItem', (service) => {
 Cypress.Commands.add('editNewsStoryCollections', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
+  cy.verifyTableData();
   cy.contains('manage news story collections').click();
   cy.url().should('include', '/news_collections');
   cy.contains('Manage news story collections');
@@ -143,6 +144,7 @@ Cypress.Commands.add('editNewsStoryCollections', (service) => {
 Cypress.Commands.add('verifyAddNewsStoryCollections', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
+  cy.verifyTableData();
   cy.contains('manage news story collections').click();
   cy.url().should('include', '/news_collections');
   cy.contains('Manage news story collections');
@@ -202,6 +204,7 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
 Cypress.Commands.add('removeNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
+  cy.verifyTableData();
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
   cy.contains('Remove News item');
@@ -231,6 +234,11 @@ Cypress.Commands.add('quotaDefinitionsBalances', (quotaOrderNumber, eventType, d
   cy.contains(`Definition periods for quota ${quotaOrderNumber}`);
   cy.contains('Show all definitions').click();
   cy.contains('Core definition data');
+  if (`${quotaOrderNumber}` == '090007') {
+    cy.contains('Tonne (1000 kg)');
+  } else {
+    cy.contains('Kilogram (kg)');
+  }
   cy.get('#accordion-default-content-1 > dl > div:nth-child(6)').contains('Critical state');
   cy.get('#accordion-default-content-1 > dl > div:nth-child(6)').contains('Y');
   cy.contains(`Balance events for quota ${quotaOrderNumber}`);
@@ -242,6 +250,11 @@ Cypress.Commands.add('quotaDefinitionsBalances', (quotaOrderNumber, eventType, d
   cy.contains(`Quota ${quotaOrderNumber}`);
   cy.contains('Changes to quota balance for quota definition');
   cy.contains('Initial volume is');
+  if (`${quotaOrderNumber}` == '090007') {
+    cy.contains('Tonne (1000 kg)');
+  } else {
+    cy.contains('Kilogram (kg)');
+  }
   cy.url().should('include', quotaOrderNumber);
 });
 
@@ -295,5 +308,16 @@ Cypress.Commands.add('removeNewsItemIfExists', (matchingText) => {
       cy.get('a:contains("Remove")').click();
       cy.on('window:confirm', () => true);
     }
+  });
+});
+
+Cypress.Commands.add('verifyTableData', () => {
+  cy.get('table tbody tr').each(($row) => {
+    cy.wrap($row).within(() => {
+      cy.get('td').each(($col) => {
+        cy.get('td').eq(0).should('have.length', 1);
+        cy.get('td').eq(0).should('not.have.text', '...');
+      });
+    });
   });
 });
