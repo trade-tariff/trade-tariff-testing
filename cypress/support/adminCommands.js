@@ -315,8 +315,8 @@ Cypress.Commands.add('verifyTableData', () => {
   cy.get('table tbody tr').each(($row) => {
     cy.wrap($row).within(() => {
       cy.get('td').each(($col) => {
-        cy.get('td').eq(0).should('have.length', 1);
-        cy.get('td').eq(0).should('not.have.text', '...');
+        cy.get('td').eq(1).should('have.length', 1);
+        cy.get('td').eq(1).should('not.have.text', '...');
       });
     });
   });
