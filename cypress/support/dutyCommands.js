@@ -1,7 +1,7 @@
 // Duty Cal link on commodity
 Cypress.Commands.add('dutyCalLink', (commCode)=>{
   cy.checkCommPage(commCode);
-  cy.get('.measure-inset > p:nth-of-type(2) > a').click();
+  cy.get('.measure-inset').contains('work out the duties and taxes applicable to the import of commodity').click();
   cy.contains('When will the goods be imported?');
 });
 
