@@ -21,7 +21,8 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
     cy.dutyPage();
 
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+    cy.contains('Option 2: Suspension - goods for certain categories of ships, ');
+    cy.contains('boats and other vessels and for drilling or production platforms');
     cy.contains(`1516 20 98 21 (C999)`);
     cy.contains(`Import duty (C999)`);
     cy.contains('0.00% * £850.00');
@@ -62,7 +63,8 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
 
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - Canada');
-    cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+    cy.contains('Option 3: Suspension - goods for certain categories of ships, ');
+    cy.contains('boats and other vessels and for drilling or production platforms');
     cy.contains(`1516 20 98 21 (B999, B999)`);
     cy.contains(`Import duty (B999)`);
     cy.contains('Definitive anti-dumping duty (UK)');
