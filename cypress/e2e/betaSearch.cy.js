@@ -205,4 +205,25 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     expect(end - start).to.be.lessThan(minimumTimeFrame);
   });
+
+  it('Supports chemical search on cus numbers', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('0154438-3');
+    cy.url().should('include', '/commodities/0409000000');
+  });
+
+  it('Supports chemical search on cas numbers', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('7440-15-5');
+    cy.url().should('include', '/commodities/8112419000');
+  });
+
+  it('Supports chemical search on chemical names', function() {
+    cy.visit('/find_commodity');
+    cy.visit('/search/toggle_beta_search');
+    cy.searchForCommodity('cerium alloy');
+    cy.url().should('include', '/commodities/8105200000');
+  });
 });
