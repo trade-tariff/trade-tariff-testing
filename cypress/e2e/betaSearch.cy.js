@@ -211,6 +211,8 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('0154438-3');
     cy.url().should('include', '/commodities/0409000000');
+    cy.get('#tab_chemicals').click();
+    cy.get('.chemical-substance-cell').eq(0).contains('mel powder');
   });
 
   it('Supports chemical search on cas numbers', function() {
@@ -218,6 +220,8 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('7440-15-5');
     cy.url().should('include', '/commodities/8112419000');
+    cy.get('#tab_chemicals').click();
+    cy.get('.chemical-substance-cell').eq(0).contains('rhenium, unwrought; powders');
   });
 
   it('Supports chemical search on chemical names', function() {
@@ -225,5 +229,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('cerium alloy');
     cy.url().should('include', '/commodities/8105200000');
+    cy.get('#tab_chemicals').click();
+    cy.get('.chemical-substance-cell').eq(0).contains('cerium alloy');
   });
 });
