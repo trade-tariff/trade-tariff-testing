@@ -2112,10 +2112,10 @@ cypress-fill-command@^1.0.1:
   resolved "https://registry.yarnpkg.com/cypress-fill-command/-/cypress-fill-command-1.0.2.tgz#52dbd9a8714e0c5893e2721e413bdc0bed142521"
   integrity sha512-lUkeP1vPfvRP0SnbfZBIv3oje4L0qenM/uwYrViXVtuqDADa6MI3ptvNrDWyDnPYcX3p2SyNGRhnRifoOhxlRg==
 
-cypress-mochawesome-reporter@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/cypress-mochawesome-reporter/-/cypress-mochawesome-reporter-3.3.0.tgz#cfcd07bd15b4773917f2b2a240178c7cdb310a51"
-  integrity sha512-X4HU1JpuB62MXLh46660KmIs/L6noWV2KpxaXPDorz1zwgj26NN+BPCLP80D9cCFUwX3hNH0pKFZDwVR7vM8wg==
+cypress-mochawesome-reporter@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/cypress-mochawesome-reporter/-/cypress-mochawesome-reporter-3.4.0.tgz#ed5bfd2b6793ef7a5cc781ef08dd40e563731aee"
+  integrity sha512-W+pBZt0QnAp0SZ5+laUJL+glQF+ry55wRUTENtOCchCDuwbGMxK5EkJQ1uktORVtDNhhjb92dX8dZireyInfQQ==
   dependencies:
     fs-extra "^10.0.1"
     mochawesome "^7.1.3"
