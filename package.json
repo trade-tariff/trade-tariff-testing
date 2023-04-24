@@ -29,7 +29,7 @@
     "mochawesome-merge": "^4.3.0",
     "mochawesome-report-generator": "^6.0.1",
     "nanoid": "^4.0.2",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.23",
     "set-value": "^4.1.0",
     "validator": "^13.9.0"
   },
