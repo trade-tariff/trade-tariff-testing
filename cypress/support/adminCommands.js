@@ -205,6 +205,7 @@ Cypress.Commands.add('removeNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
   cy.verifyTableData();
+  cy.contains('No pages');
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
   cy.contains('Remove News item');
