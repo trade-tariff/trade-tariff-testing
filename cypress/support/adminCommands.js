@@ -129,6 +129,7 @@ Cypress.Commands.add('editNewsStoryCollections', (service) => {
   cy.url().should('include', '/news_collections');
   cy.contains('Manage news story collections');
   cy.get('.govuk-button').contains('Add a news story collection');
+  cy.contains('Trade news');
   cy.contains('Edit').click();
   cy.url().should('include', '/news_collections/1/edit');
   cy.contains('Edit a news story collection');
@@ -145,6 +146,7 @@ Cypress.Commands.add('verifyAddNewsStoryCollections', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
   cy.verifyTableData();
+  cy.contains('Updates');
   cy.contains('manage news story collections').click();
   cy.url().should('include', '/news_collections');
   cy.contains('Manage news story collections');
