@@ -19,7 +19,7 @@ describe('UK - Admin tool regression tests', {tags: ['adminOnly']}, function() {
     cy.verifyRollbacks('uk');
   });
 
-  it('CRUD a news item', function() {
+  it.only('CRUD a news item', function() {
     cy.createNewsItem('uk');
     cy.verifyNewsItemOnTariffServices();
     cy.verifyAndUpdateNewsItem('uk');

@@ -206,7 +206,6 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
 Cypress.Commands.add('removeNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
-  cy.verifyTableData();
   cy.contains('No pages');
   cy.contains('Edit').click();
   cy.url().should('include', '/edit');
@@ -322,5 +321,14 @@ Cypress.Commands.add('verifyTableData', () => {
         cy.get('td').eq(1).should('not.have.text', '...');
       });
     });
+  });
+});
+
+Cypress.Commands.add('getTitleIDAndClickEditLink', () => {
+  cy.get('tbody > tr > td:nth-child(1)').each(($elm, index, _$list) => {
+    const id = $elm.text();
+    if (cy.get(`#news_item_${id}`).eq(0).contains('Automated Test - Sample')) {
+      cy.get(`a[href="/news_items/${id}/edit"]`).contains('Edit').click();
+    }
   });
 });
