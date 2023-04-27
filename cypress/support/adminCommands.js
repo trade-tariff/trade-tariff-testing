@@ -323,12 +323,3 @@ Cypress.Commands.add('verifyTableData', () => {
     });
   });
 });
-
-Cypress.Commands.add('getTitleIDAndClickEditLink', () => {
-  cy.get('tbody > tr > td:nth-child(1)').each(($elm, index, _$list) => {
-    const id = $elm.text();
-    if (cy.get(`#news_item_${id}`).eq(0).contains('Automated Test - Sample')) {
-      cy.get(`a[href="/news_items/${id}/edit"]`).contains('Edit').click();
-    }
-  });
-});
