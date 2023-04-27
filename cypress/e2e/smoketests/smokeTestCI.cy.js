@@ -9,9 +9,15 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.visit('/find_commodity');
 
       cy.get('.govuk-details__summary').click();
-      cy.get('#tariff_date_day').click().clear().type(21);
-      cy.get('#tariff_date_month').click().clear().type(12);
-      cy.get('#tariff_date_year').click().clear().type(2022);
+      cy.get('#tariff_date_day').click();
+      cy.get('#tariff_date_day').clear();
+      cy.get('#tariff_date_day').type(21);
+      cy.get('#tariff_date_month').click();
+      cy.get('#tariff_date_month').clear();
+      cy.get('#tariff_date_month').type(12);
+      cy.get('#tariff_date_year').click();
+      cy.get('#tariff_date_year').clear();
+      cy.get('#tariff_date_year').type(2022);
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
@@ -102,9 +108,15 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     it('Change date and verify if the data shown is same for both XI and UK', function() {
       cy.visit('/find_commodity');
       cy.get('.govuk-details__summary').click();
-      cy.get('#tariff_date_day').click().clear().type(21);
-      cy.get('#tariff_date_month').click().clear().type(12);
-      cy.get('#tariff_date_year').click().clear().type(2021);
+      cy.get('#tariff_date_day').click();
+      cy.get('#tariff_date_day').clear();
+      cy.get('#tariff_date_day').type(21);
+      cy.get('#tariff_date_month').click();
+      cy.get('#tariff_date_month').clear();
+      cy.get('#tariff_date_month').type(12);
+      cy.get('#tariff_date_year').click();
+      cy.get('#tariff_date_year').clear();
+      cy.get('#tariff_date_year').type(2021);
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2021');
@@ -118,8 +130,9 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     it('Quotas Search - Order Number', function() {
       cy.visit('/quota_search');
       cy.contains('Search for quotas');
-      cy.get('input#order_number')
-          .click().clear().type('057140');
+      cy.get('input#order_number').click();
+      cy.get('input#order_number').clear();
+      cy.get('input#order_number').type('057140');
       cy.get('form#new_search > input[name=\'new_search\']').click();
       cy.contains('Quota search results');
       cy.get('.govuk-table__row').contains('057140');
@@ -127,10 +140,9 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     it('Quotas Search - Commodity Code', function() {
       cy.visit('/quota_search');
       cy.contains('Search for quotas');
-      cy.get('input#goods_nomenclature_item_id')
-          .click()
-          .clear()
-          .type('3920000000');
+      cy.get('input#goods_nomenclature_item_id').click();
+      cy.get('input#goods_nomenclature_item_id').clear();
+      cy.get('input#goods_nomenclature_item_id').type('3920000000');
       cy.get('form#new_search > input[name=\'new_search\']').click();
       cy.contains('Quota search results');
       cy.get('.govuk-table__head')
@@ -268,9 +280,15 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.visit('/xi/find_commodity');
 
       cy.get('.govuk-details__summary').click();
-      cy.get('#tariff_date_day').click().clear().type(21);
-      cy.get('#tariff_date_month').click().clear().type(12);
-      cy.get('#tariff_date_year').click().clear().type(2022);
+      cy.get('#tariff_date_day').click();
+      cy.get('#tariff_date_day').clear();
+      cy.get('#tariff_date_day').type(21);
+      cy.get('#tariff_date_month').click();
+      cy.get('#tariff_date_month').clear();
+      cy.get('#tariff_date_month').type(12);
+      cy.get('#tariff_date_year').click();
+      cy.get('#tariff_date_year').clear();
+      cy.get('#tariff_date_year').type(2022);
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
