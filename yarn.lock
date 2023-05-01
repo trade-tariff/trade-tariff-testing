@@ -2081,10 +2081,10 @@ crypto-browserify@^3.0.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
-csv-parse@^5.3.6:
-  version "5.3.6"
-  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.3.6.tgz#181d7c12300a60684bb51261ea9a5c3135ba8688"
-  integrity sha512-WI330GjCuEioK/ii8HM2YE/eV+ynpeLvU+RXw4R8bRU8R0laK5zO3fDsc4gH8s472e3Ga38rbIjCAiQh+tEHkw==
+csv-parse@^5.3.9:
+  version "5.3.9"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.3.9.tgz#7af0daa161b0213080bb2cdffacd9b699cf48963"
+  integrity sha512-Nuh09OE1+wG6x5Lu2T+woxlupPAnWJ6Wj9XVYK74gP646e5gDrUsrCws1zz5NbckpQ+jygnxb8xDLj3gfBxi3w==
 
 cypress-dark@^1.7.14:
   version "1.8.3"
