@@ -311,7 +311,7 @@ Cypress.Commands.add('removeNewsItemIfExists', (matchingText) => {
   });
 });
 
-Cypress.Commands.add('verfiyTableTitleData', (service) => {
+Cypress.Commands.add('verifyTableTitleData', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
   cy.verifyTableData();
