@@ -187,4 +187,52 @@ describe('Api validations', function() {
       });
     });
   });
+  describe('Api response for /xi/api/v2/chemical_substances?filter%5Bcas_rn%5D=84650-00-0', function() {
+    const path = '/xi/api/v2/chemical_substances?filter%5Bcas_rn%5D=84650-00-0';
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
+  describe('Api response for /xi/api/v2/chemical_substances?filter%5Bcus%5D=0153778-6', function() {
+    const path = '/xi/api/v2/chemical_substances?filter%5Bcus%5D=0153778-6';
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
+  describe('Api response for /xi/api/v2/chemical_substances?filter%5Bgoods_nomenclature_item_id%5D=0712909090', function() {
+    const path = '/xi/api/v2/chemical_substances?filter%5Bgoods_nomenclature_item_id%5D=0712909090';
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
+  describe('Api response for /xi/api/v2/chemical_substances?filter%5Bgoods_nomenclature_sid%5D=101368', function() {
+    const path = '/xi/api/v2/chemical_substances?filter%5Bgoods_nomenclature_sid%5D=101368';
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
+  describe('Api response for /xi/api/v2/search?q=84650-00-0', function() {
+    const path = '/xi/api/v2/search?q=84650-00-0';
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
+  describe('Api response for /xi/api/v2/search?q=0153778-6', function() {
+    const path = '/xi/api/v2/search?q=0153778-6';
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
 });
