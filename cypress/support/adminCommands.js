@@ -124,7 +124,6 @@ Cypress.Commands.add('createNewsItem', (service) => {
 Cypress.Commands.add('editNewsStoryCollections', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
-  cy.verifyTableData();
   cy.contains('manage news story collections').click();
   cy.url().should('include', '/news_collections');
   cy.contains('Manage news story collections');
@@ -145,7 +144,6 @@ Cypress.Commands.add('editNewsStoryCollections', (service) => {
 Cypress.Commands.add('verifyAddNewsStoryCollections', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');
-  cy.verifyTableData();
   cy.contains('Updates');
   cy.contains('manage news story collections').click();
   cy.url().should('include', '/news_collections');
@@ -311,6 +309,12 @@ Cypress.Commands.add('removeNewsItemIfExists', (matchingText) => {
       cy.on('window:confirm', () => true);
     }
   });
+});
+
+Cypress.Commands.add('verifyTableTitleData', (service) => {
+  cy.visit(`${adminUrl}/${service}/news_items`);
+  cy.contains('Manage news stories');
+  cy.verifyTableData();
 });
 
 Cypress.Commands.add('verifyTableData', () => {
