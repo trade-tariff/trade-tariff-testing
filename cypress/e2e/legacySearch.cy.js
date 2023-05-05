@@ -4,146 +4,89 @@ describe('Legacy search', function() {
   });
 
   it('Search suggestions are displayed and work for search references', function() {
-    cy.get('#q').type('raw');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(2)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          expect(nthRowText).to.eq('kelp, raw');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/subheadings/1212210000-10');
+    cy.validateAutocompleteNthItem(
+        'raw',
+        2,
+        'kelp, raw',
+        '/subheadings/1212210000-10',
+    );
   });
 
   it('Search suggestions are displayed and work for chemical names', function() {
-    cy.get('#q').type('insulin, human');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(1)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          cy.get('@nthRow').find('span[data-resource-id="0036941-5"][data-suggestion-type="Chemical"]');
-          expect(nthRowText).to.contain('insulin, human');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/commodities/2937120000');
+    cy.validateAutocompleteNthItem(
+        'insulin, human',
+        1,
+        'insulin, human',
+        '/commodities/2937120000',
+        '0036941-5',
+        'Chemical',
+    );
   });
 
   it('Search suggestions are displayed and work for chapters', function() {
-    cy.get('#q').type('01');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(1)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          cy.get('@nthRow').find('span[data-resource-id="27623"][data-suggestion-type="Chapter"]');
-          expect(nthRowText).to.contain('01');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/chapters/01');
+    cy.validateAutocompleteNthItem(
+        '01',
+        1,
+        '01',
+        '/chapters/01',
+        '27623',
+        'Chapter',
+    );
   });
 
   it('Search suggestions are displayed and work for headings', function() {
-    cy.get('#q').type('0101');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(1)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          cy.get('@nthRow').find('span[data-resource-id="27624"][data-suggestion-type="Heading"]');
-          expect(nthRowText).to.contain('0101');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/headings/0101');
+    cy.validateAutocompleteNthItem(
+        '0101',
+        1,
+        '0101',
+        '/headings/0101',
+        '27624',
+        'Heading',
+    );
   });
 
   it('Search suggestions are displayed and work for subheadings', function() {
-    cy.get('#q').type('010121');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(1)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          cy.get('@nthRow').find('span[data-resource-id="93797"][data-suggestion-type="Subheading"]');
-          expect(nthRowText).to.contain('010121');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/subheadings/0101210000-10');
+    cy.validateAutocompleteNthItem(
+        '010121',
+        1,
+        '010121',
+        '/subheadings/0101210000-10',
+        '93797',
+        'Subheading',
+    );
   });
 
   it('Search suggestions are displayed and work for commodities', function() {
-    cy.get('#q').type('0101210000');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(1)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          cy.get('@nthRow').find('span[data-resource-id="93796"][data-suggestion-type="Commodity"]');
-          expect(nthRowText).to.contain('0101210000');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/commodities/0101210000');
+    cy.validateAutocompleteNthItem(
+        '0101210000',
+        1,
+        '0101210000',
+        '/commodities/0101210000',
+        '93796',
+        'Commodity',
+    );
   });
 
   it('Search suggestions are displayed and work for cus numbers', function() {
-    cy.get('#q').type('01500');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(1)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          cy.get('@nthRow').find('span[data-resource-id="0150000-1"][data-suggestion-type="Chemical"]');
-          expect(nthRowText).to.contain('0150000-1');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/commodities/3903909090');
+    cy.validateAutocompleteNthItem(
+        '01500',
+        1,
+        '0150000-1',
+        '/commodities/3903909090',
+        '0150000-1',
+        'Chemical',
+    );
   });
 
   it('Search suggestions are displayed and work for cas rn numbers', function() {
-    cy.get('#q').type('107000');
-
-    cy.get('.autocomplete__menu')
-        .should('be.visible')
-        .find('.autocomplete__option')
-        .eq(1)
-        .as('nthRow')
-        .invoke('text')
-        .then((nthRowText) => {
-          cy.get('@nthRow').find('span[data-resource-id="0040087-3"][data-suggestion-type="Chemical"]');
-          expect(nthRowText).to.contain('107000');
-          cy.get('@nthRow').click();
-        });
-
-    cy.url().should('include', '/commodities/2937290000');
+    cy.validateAutocompleteNthItem(
+        '107000',
+        1,
+        '107000',
+        '/commodities/2937290000',
+        '0040087-3',
+        'Chemical',
+    );
   });
 
   context('when using the search input on expired goods nomenclature', function() {
