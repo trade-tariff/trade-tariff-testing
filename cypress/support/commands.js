@@ -345,3 +345,30 @@ Cypress.Commands.add('fetchCookie', (name) => {
     return cookieValue;
   });
 });
+
+Cypress.Commands.add('validateAutocompleteNthItem', (
+    inputText,
+    nthItem,
+    expectedText,
+    expectedUrl,
+    resourceId = null,
+    suggestionType = null,
+) => {
+  cy.get('#q').type(inputText);
+
+  cy.get('.autocomplete__menu')
+      .should('be.visible')
+      .find('.autocomplete__option')
+      .eq(nthItem)
+      .as('nthRow')
+      .invoke('text')
+      .then((nthRowText) => {
+        if (resourceId && suggestionType) {
+          cy.get('@nthRow').find(`span[data-resource-id="${resourceId}"][data-suggestion-type="${suggestionType}"]`);
+        }
+        expect(nthRowText).to.contain(expectedText);
+        cy.get('@nthRow').click();
+      });
+
+  cy.url().should('include', expectedUrl);
+});

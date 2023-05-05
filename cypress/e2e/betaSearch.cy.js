@@ -1,8 +1,11 @@
 describe('Using beta search', {tags: ['devOnly']}, function() {
-  // TODO: Reinstate this test when guides are adjusted/come back from HMRC
-  it.skip('Search result returns guides for `fresh potatoes`', function() {
+  beforeEach(function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
+  });
+
+  // TODO: Reinstate this test when guides are adjusted/come back from HMRC
+  it.skip('Search result returns guides for `fresh potatoes`', function() {
     cy.searchForCommodity('fresh potatoes');
     cy.contains('Potatoes, fresh or chilled').click();
     cy.get('.image-guide').should('exist');
@@ -15,15 +18,12 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Search result returns no guides for `indian`', function() {
-    cy.visit('/find_commodity');
     cy.searchForCommodity('indian');
 
     cy.get('.image-guide').should('not.exist');
   });
 
   it('Search result corrects spelling for `halbiut` and supports using the original search query', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('halbiut');
 
     cy.get('h1').contains('Search results for ‘halibut’');
@@ -39,57 +39,41 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Search result returns results for synonyms', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('tripe');
     cy.get('.search-results').contains('Meat and edible meat offal');
   });
 
   it('Search result returns results for synonyms with a goods nomenclature item id', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('hedgehog');
     cy.get('.search-results').contains('Other live animals');
   });
 
   it('Search redirects for search heading `0101`', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('0101');
     cy.url().should('include', '/headings/0101');
   });
 
   it('Search redirects for search subheading `010129`', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('010129');
     cy.url().should('include', '/subheadings/0101290000-80');
   });
 
   it('Search redirects for search commodity `0101210000`', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('0101210000');
     cy.url().should('include', '/commodities/0101210000');
   });
 
   it('Search redirects for search references when they match exactly', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('raw');
     cy.url().should('include', '/headings/5201');
   });
 
   it('Search redirects for a direct hit', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('paracetamol');
     cy.url().should('include', '/commodities/2924297087');
   });
 
   it('Search filters results with facet clothing_gender', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('clothing sets womens');
     cy.contains('Show all filters').click();
     cy.contains('Women\'s and girls\'').click();
@@ -102,8 +86,6 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Search filters results with heading 6211', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('clothing sets womens');
     cy.get('a').contains('Tracksuits, ski suits and swimwear; other garments').click();
     cy.url().should('include', '6211');
@@ -114,29 +96,19 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Searching for `access equipment` returns an intercept message', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('access equipment');
     cy.get('#intercept-message > p > a').eq(0).click();
     cy.url().should('include', '/chapters/85');
   });
 
   it('Searching intercept message term `fitbit` returns results', function() {
-    // given we're on the find commodity page
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
-    // when we search for a known intercept term which is not included in goods nomenclature descriptions
     cy.searchForCommodity('fitbit');
-    // then we see an intercept message
     cy.get('#intercept-message');
-    // and are shown results
     cy.url().should('include', '/search');
     cy.get('#search-result-with-hits');
   });
 
   it('Search result returns the no results page for `flibble`', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('flibble');
 
     cy.get('div.govuk-warning-text > strong').contains('There are no results');
@@ -151,9 +123,8 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Enables switching between beta and legacy search implementations', function() {
-    // given we're on the browse page
+    cy.visit('/search/toggle_beta_search');
     cy.visit('/browse');
-    // when we click the use the beta search link
     cy.get('#enable-beta-search.govuk-inset-text > a').contains('Use the Beta Search').click();
     // we're still on the browse page
     cy.url().should('include', '/browse');
@@ -174,19 +145,12 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Shows commodity results with matching search reference tokens', function() {
-    // given we're on the beta search page
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
-    // when we search for a `partial` known search reference title
     cy.searchForCommodity('cardboard');
-    // then we see results for the search reference token
     cy.url().should('include', '/search');
     cy.get('[id^="beta-search-results-"]');
   });
 
   it('Supports single and double quoted search terms', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('"cherry tomatoes"');
     cy.url().should('include', '/commodities/0702000007');
     cy.searchForCommodity('\'For the manufacture of starch\'');
@@ -196,9 +160,6 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   it('Supports fast fallback search on garbage inputs', function() {
     const inputQuery = 'qwdwefwfwWWWWWWWWRGRGEWGEWGEWGEWGerwgewrgerwgrgerwgrgrehtrhtrhjtyrjyjerhwrgsrbdrhwrhwrhwrbsdfbrbhwr';
     const minimumTimeFrame = 1000; // 1 second
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
-
     const start = new Date();
     cy.searchForCommodity(inputQuery);
     const end = new Date();
@@ -207,8 +168,6 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Supports chemical search on cus numbers', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('0154438-3');
     cy.url().should('include', '/commodities/0409000000');
     cy.get('#tab_chemicals').click();
@@ -216,8 +175,6 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Supports chemical search on cas numbers', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('7440-15-5');
     cy.url().should('include', '/commodities/8112419000');
     cy.get('#tab_chemicals').click();
@@ -225,11 +182,112 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Supports chemical search on chemical names', function() {
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
     cy.searchForCommodity('cerium alloy');
     cy.url().should('include', '/commodities/8105200000');
     cy.get('#tab_chemicals').click();
     cy.get('#chemicals').eq(0).contains('cerium alloy');
+  });
+
+  it('Search suggestions are displayed and work for search references', function() {
+    cy.validateAutocompleteNthItem(
+        'raw',
+        2,
+        'kelp, raw',
+        '/subheadings/1212210000-10',
+    );
+  });
+
+  it('Search suggestions are displayed and work for chemical names', function() {
+    cy.validateAutocompleteNthItem(
+        'insulin, human',
+        1,
+        'insulin, human',
+        '/commodities/2937120000',
+        '0036941-5',
+        'Chemical',
+    );
+  });
+
+  it('Search suggestions are displayed and work for chapters', function() {
+    cy.validateAutocompleteNthItem(
+        '01',
+        1,
+        '01',
+        '/chapters/01',
+        '27623',
+        'Chapter',
+    );
+  });
+
+  it('Search suggestions are displayed and work for headings', function() {
+    cy.validateAutocompleteNthItem(
+        '0101',
+        1,
+        '0101',
+        '/headings/0101',
+        '27624',
+        'Heading',
+    );
+  });
+
+  it('Search suggestions are displayed and work for subheadings', function() {
+    cy.validateAutocompleteNthItem(
+        '010121',
+        1,
+        '010121',
+        '/subheadings/0101210000-10',
+        '93797',
+        'Subheading',
+    );
+  });
+
+  it('Search suggestions are displayed and work for commodities', function() {
+    cy.validateAutocompleteNthItem(
+        '0101210000',
+        1,
+        '0101210000',
+        '/commodities/0101210000',
+        '93796',
+        'Commodity',
+    );
+  });
+
+  it('Search suggestions are displayed and work for cus numbers', function() {
+    cy.validateAutocompleteNthItem(
+        '01500',
+        1,
+        '0150000-1',
+        '/commodities/3903909090',
+        '0150000-1',
+        'Chemical',
+    );
+  });
+
+  it('Search suggestions are displayed and work for cas rn numbers', function() {
+    cy.validateAutocompleteNthItem(
+        '107000',
+        1,
+        '107000',
+        '/commodities/2937290000',
+        '0040087-3',
+        'Chemical',
+    );
+  });
+
+  context('when using the search input on expired goods nomenclature', function() {
+    it('search navigates to expired headings ', function() {
+      cy.get('#q').type('6908{enter}');
+      cy.url().should('include', '/headings/6908');
+    });
+
+    it('search navigates to expired subheadings in their short form', function() {
+      cy.get('#q').type('01029005{enter}');
+      cy.url().should('include', '/subheadings/0102900500-80');
+    });
+
+    it('search navigates to expired commodities', function() {
+      cy.get('#q').type('6908109000{enter}');
+      cy.url().should('include', '/commodities/6908109000');
+    });
   });
 });
