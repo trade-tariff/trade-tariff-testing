@@ -5,7 +5,7 @@
   "description": "E2E testing of the Online Trade Tariff",
   "dependencies": {
     "@cypress/grep": "^3.1.5",
-    "allure-commandline": "^2.21.0",
+    "allure-commandline": "^2.22.0",
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.2.1",
     "csv-parse": "^5.3.9",
