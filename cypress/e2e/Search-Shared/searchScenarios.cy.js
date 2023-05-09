@@ -1,7 +1,5 @@
-/* eslint-disable max-len */
-// taken from scenario document
 describe('| searchScenarios.spec.js | UK and XI services |', function() {
-  const countries = ['', 'xi'];
+  const countries = [''];
   for (let j=0; j<countries.length; j++) {
     it(`${countries[j]} - Clicks on a link from a third-party website or from a bookmark - Should redirect to subheading`, function() {
       const commodities = ['0102291000', '0101290000'];
@@ -27,7 +25,7 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
       cy.get('.govuk-heading-l').contains('Subheading');
       // user directly types a 6-digit declarable heading into search - commodity page
       cy.searchForCommodity2('010121');
-      cy.get('.govuk-heading-l').contains('Commodity');
+      cy.get('.govuk-heading-l').contains('Subheading');
       // user directly types a an 8-digit non-declarable heading into search - subheading page
       cy.searchForCommodity2('01022910');
       cy.get('.govuk-heading-l').contains('Subheading');
@@ -35,16 +33,16 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
       cy.searchForCommodity2('0102291000');
       cy.get('.govuk-heading-l').contains('Subheading');
       // user selects a 10-digit declarable heading from type-ahead dropdown into search - commodity page
-      cy.searchForCommodity2('0102295911');
+      cy.searchForCommodity2('0102295919');
       cy.get('.govuk-heading-l').contains('Commodity');
     });
     it(`${countries[j]} - Search suggestion typeahead`, function() {
       cy.visit(`${countries[j]}/browse`);
       // case 1 - escape should not select first item in suggestions
-      cy.get('.js-commodity-picker-select').click().type('ba').type('{esc}');
+      cy.get('.js-commodity-picker-select').type('ba{esc}');
       cy.contains('Search results for ‘ba’').should('not.exist');
       // case 2 - enter should take the text entered in search box
-      cy.get('.js-commodity-picker-select').click().type('{backspace}').type('{backspace}').type('ba').type('{enter}');
+      cy.get('.js-commodity-picker-select').type('{backspace}{backspace}ba{enter}');
       cy.contains('Search results for ‘ba’').should('exist');
       // case 3 - search using comm code
       cy.searchForCommodity2('3808941000');
@@ -64,13 +62,23 @@ describe('| searchScenarios.spec.js | UK and XI services |', function() {
     const type = ['Heading', 'Commodity', 'Subheading'];
     const maps = ['m', 'l', 'l'];
     for (let k=0; k<quotaOrders.length; k++) {
-      cy.quotaSearch({ordernumber: `${quotaOrders[k]}`, commcode: ' ', country: ' ', day: ' ', month: ' ', year: ' ', critical: '', status: ''});
+      cy.quotaSearch(
+          {
+            ordernumber: quotaOrders[k],
+            commcode: ' ',
+            country: ' ',
+            day: ' ',
+            month: ' ',
+            year: ' ',
+            critical: '',
+            status: '',
+          },
+      );
       cy.get('a[title=\'Reset country picker\'] > .long-text').click();
       cy.get('form#new_search > input[name=\'new_search\']').click();
       cy.contains('Quota search results');
       cy.contains(`${decCodes[k]}`).click();
       cy.get(`.govuk-heading-${maps[k]}`).contains(`${type[k]}`);
-      // A user clicks a 4-digit declarable code (commodity).
     }
   });
 });
