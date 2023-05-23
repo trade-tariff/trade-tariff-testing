@@ -235,4 +235,13 @@ describe('Api validations', function() {
       });
     });
   });
+  describe('Api response for /xi/api/v2/simplified_procedural_code_measures', function() {
+    const path = '/xi/api/v2/simplified_procedural_code_measures';
+
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
 });
