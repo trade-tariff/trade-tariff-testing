@@ -12,7 +12,7 @@ describe('commodity supplementary unit classifications', function() {
 
     it('shows the correct duty units classification', function() {
       cy.visit('/uk/commodities/0402109900');
-      cy.contains('(hectokilogram, kilogram of lactic matter)');
+      cy.contains('(kilogram of lactic matter)');
     });
 
     it('shows the correct no units classification', function() {
@@ -29,7 +29,7 @@ describe('commodity supplementary unit classifications', function() {
 
     it('shows the correct duty units classification', function() {
       cy.visit('/xi/commodities/0402109900');
-      cy.contains('(hectokilogram, kilogram of lactic matter)');
+      cy.contains('(kilogram of lactic matter)');
     });
 
     it('shows the correct excise units classification', function() {
