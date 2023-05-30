@@ -244,4 +244,22 @@ describe('Api validations', function() {
       });
     });
   });
+  describe('Api response for /api/v2/rules_of_origin_schemes/040610/AU', function() {
+    const path = '/api/v2/rules_of_origin_schemes/040610/AU';
+
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
+  describe('Api response for /api/v2/rules_of_origin_schemes/040610/NZ', function() {
+    const path = '/api/v2/rules_of_origin_schemes/040610/NZ';
+
+    it('returns a valid jsonapi response', function() {
+      cy.request(path).then((response) => {
+        cy.validJsonAPIresponse(response);
+      });
+    });
+  });
 });

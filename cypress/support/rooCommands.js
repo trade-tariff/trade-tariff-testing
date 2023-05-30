@@ -156,7 +156,7 @@ Cypress.Commands.add('notWhollyObtained', (country)=>{
   cy.get('.govuk-button').contains('Continue').click();
 });
 // including parts
-Cypress.Commands.add('cumulation', (country, code, country_short_name, scheme)=>{
+Cypress.Commands.add('cumulation', (country, code, countryShortName, scheme)=>{
   cy.contains('Are your goods originating?');
   cy.contains('Including parts or components from other countries');
   cy.contains('In order to qualify for preferential treatment, you may be able to include parts that come from other countries. This depends on the cumulation rules of the trade agreement, which are described below.');
@@ -164,11 +164,11 @@ Cypress.Commands.add('cumulation', (country, code, country_short_name, scheme)=>
   cy.contains(`Map showing countries where cumulation may apply to the ${scheme}`);
   cy.get('form#edit_rules_of_origin_steps_cumulation_cumulation  a[target=\'_blank\']').should('have.attr', 'href', `/cumulation_maps/${country}.png`);
   cy.contains('Bilateral cumulation - an example').click();
-  cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${country_short_name}/sufficient_processing`);
-  if (`${country_short_name}` === 'JP') {
+  cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${countryShortName}/sufficient_processing`);
+  if (`${countryShortName}` === 'JP') {
     cy.contains('Extended cumulation - an example').click();
-    cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${country_short_name}/sufficient_processing`);
-  } else if (`${country_short_name}` === 'KR') {
+    cy.contains('insufficient processing clause').should('have.attr', 'href', `/rules_of_origin/${code}/${countryShortName}/sufficient_processing`);
+  } else if (`${countryShortName}` === 'KR') {
     cy.contains('Diagonal cumulation - an example').click();
     cy.should('not.contain.text', 'insufficient processing clause');
   }
@@ -186,17 +186,17 @@ Cypress.Commands.add('minimalOps', (scheme, selection)=>{
 });
 
 // product-specific rules
-Cypress.Commands.add('prodSpecificRules', (rule, country_short_name)=>{
+Cypress.Commands.add('prodSpecificRules', (rule, countryShortName)=>{
   cy.contains('Do your goods meet the product-specific rules?');
   cy.contains('Your goods must meet one of these rules in order to qualify for originating status. Select an option to indicate if you meet the rule.');
   cy.contains('CC except from chapter 2.');
   cy.get('div.govuk-radios > div:nth-child(1) > label > p > a').should('have.attr', 'href', '/chapters/02');
   cy.contains('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MaxNOM).');
-  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a').should('have.attr', 'href', `/glossary/exw?country=${country_short_name}`);
-  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a:nth-child(3)').should('have.attr', 'href', `/glossary/max_nom?country=${country_short_name}`);
+  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a').should('have.attr', 'href', `/glossary/exw?country=${countryShortName}`);
+  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a:nth-child(3)').should('have.attr', 'href', `/glossary/max_nom?country=${countryShortName}`);
   cy.contains('Your goods contain a Regional Value Content (RVC) of at least 45% of the Free on Board (FOB) cost of the goods.');
-  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a').should('have.attr', 'href', `/glossary/rvc?country=${country_short_name}`);
-  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a:nth-child(3)').should('have.attr', 'href', `/glossary/fob?country=${country_short_name}`);
+  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a').should('have.attr', 'href', `/glossary/rvc?country=${countryShortName}`);
+  cy.get('div.govuk-radios > div:nth-child(3) > label > p > a:nth-child(3)').should('have.attr', 'href', `/glossary/fob?country=${countryShortName}`);
   cy.contains('Your goods do not meet any of these rules.');
   cy.contains('Introductory notes to the product-specific rules');
   cy.contains('About this commodity code');
@@ -332,11 +332,11 @@ Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
   cy.contains(`Importing goods into the United Kingdom from countries which belong to the GSP scheme`);
 });
 // Origin not met non GSP-multipleAgreements
-Cypress.Commands.add('rooNotMetMulti', (trade_selection, country, code, scheme)=>{
-  if (`${trade_selection}` === 'Exporting') {
-    cy.contains(`${trade_selection} commodity ${code} from the UK to ${country}`);
+Cypress.Commands.add('rooNotMetMulti', (tradeSelection, country, code, scheme)=>{
+  if (`${tradeSelection}` === 'Exporting') {
+    cy.contains(`${tradeSelection} commodity ${code} from the UK to ${country}`);
   } else {
-    cy.contains(`${trade_selection} commodity ${code} from ${country}`);
+    cy.contains(`${tradeSelection} commodity ${code} from ${country}`);
   }
   cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
@@ -356,7 +356,19 @@ Cypress.Commands.add('rooNotMetMulti', (trade_selection, country, code, scheme)=
 Cypress.Commands.add('prodSpecRules', (rule)=>{
   cy.contains('Do your goods meet the product-specific rules?');
   cy.contains('Your goods must meet one of these rules in order to qualify for originating status. Select an option to indicate if you meet the rule.');
-  cy.contains(`${rule}`).click();
+  if (`${rule}` === 'Process Rule') {
+    cy.contains('Process Rule');
+    cy.get('.govuk-label > .govuk-details > .govuk-details__summary').click();
+    cy.get('.govuk-label > .govuk-details > .govuk-details__text').contains('Notwithstanding the applicable product-specific rules of origin');
+    cy.get('#rules-of-origin-steps-product-specific-rules-rule-1f910f3b8b33b746d25146f240eee58c-field').click();
+  } else if (`${rule}`=== 'Chemical reaction rule') {
+    cy.contains('Chemical reaction rule');
+    cy.get('.govuk-label > .govuk-details > .govuk-details__summary').click();
+    cy.contains('MINERAL FUELS, MINERAL OILS AND PRODUCTS OF THEIR DISTILLATION; BITUMINOUS SUBSTANCES; MINERAL WAXES');
+    cy.get('#rules-of-origin-steps-product-specific-rules-rule-55c1ce395d4f547b0888b348b40d1e3c-field').click();
+  } else {
+    cy.contains(`${rule}`).click();
+  }
   cy.get('.govuk-button').contains('Continue').click();
 });
 Cypress.Commands.add('subDivision', (code, subDiv)=>{
@@ -374,8 +386,8 @@ Cypress.Commands.add('feebackSection', ()=>{
   cy.get('.govuk-inset-text a[href^="/feedback"]').contains('feedback');
 });
 // Verify proofs of origin page
-Cypress.Commands.add('proofsOfOriginPage', (commCode, country, country_short_name) => {
-  cy.url().should('include', `/rules_of_origin/${commCode}/${country_short_name}/proofs_of_origin`);
+Cypress.Commands.add('proofsOfOriginPage', (commCode, country, countryShortName) => {
+  cy.url().should('include', `/rules_of_origin/${commCode}/${countryShortName}/proofs_of_origin`);
   cy.contains(`Importing commodity ${commCode} from ${country} to the UK`);
   cy.contains('Valid proofs of origin');
   cy.contains('Proof of origin - overview');
