@@ -41,5 +41,10 @@ describe('commodity supplementary unit classifications', function() {
       cy.visit('/xi/commodities/6406109010');
       cy.contains('There are no supplementary unit measures');
     });
+
+    it('shows the correct classification when the uk declarable is missing', function() {
+      cy.visit('/xi/commodities/9919000060');
+      cy.contains('There are no supplementary unit measures');
+    });
   });
 });
