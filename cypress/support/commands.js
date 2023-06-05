@@ -1,3 +1,4 @@
+
 beforeEach(() => {
   cy.clearCookies();
 });
@@ -62,16 +63,24 @@ Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
 Cypress.Commands.add('datePickerPage', (date) => {
   const importDateInput = (index) => `input[name='import_export_date[import_date(${index}i)]']`;
 
-  cy.get(importDateInput(3)).click().clear().type(date.day);
-  cy.get(importDateInput(2)).click().clear().type(date.month);
-  cy.get(importDateInput(1)).click().clear().type(date.year);
+  cy.get(importDateInput(3)).click();
+  cy.get(importDateInput(3)).clear();
+  cy.get(importDateInput(3)).type(date.day);
+  cy.get(importDateInput(2)).click();
+  cy.get(importDateInput(2)).clear();
+  cy.get(importDateInput(2)).type(date.month);
+  cy.get(importDateInput(1)).click();
+  cy.get(importDateInput(1)).clear();
+  cy.get(importDateInput(1)).type(date.year);
 
   cy.contains('Update date').click();
 });
 
 Cypress.Commands.add('countryPickerpage', (country) => {
   cy.contains('Select a country');
-  cy.get('input#trading-partner-country-field').click().clear().type(country.value);
+  cy.get('input#trading-partner-country-field').click();
+  cy.get('input#trading-partner-country-field').clear();
+  cy.get('input#trading-partner-country-field').type(country.value);
   cy.contains('Select country').click();
 });
 
@@ -148,27 +157,31 @@ Cypress.Commands.add('waitForCommoditySearchResults', () => {
 });
 
 Cypress.Commands.add('searchForCommodity', (searchString) => {
-  cy.get('.js-commodity-picker-select:last').click().type(searchString);
+  cy.get('.js-commodity-picker-select:last').click();
+  cy.get('.js-commodity-picker-select:last').type(searchString);
   cy.waitForCommoditySearchResults();
   // We submit by clicking the first result
   cy.get('#q__option--0').click();
 });
 
 Cypress.Commands.add('searchForCommodity2', (searchString) => {
-  cy.get('.js-commodity-picker-select:last').click().type(searchString);
+  cy.get('.js-commodity-picker-select:last').click();
+  cy.get('.js-commodity-picker-select:last').type(searchString);
   cy.waitForCommoditySearchResults();
   return cy.get('input[name=\'new_search\']').click();
 });
 
 Cypress.Commands.add('searchWithSearchField', (searchString) => {
-  cy.get('input#q').click().type(searchString);
+  cy.get('input#q').click();
+  cy.get('input#q').type(searchString);
   cy.waitForCommoditySearchResults();
   cy.get('input[name=\'new_search\']').click();
 });
 
 Cypress.Commands.add('globalSearchForCommodity', (searchString) => {
   cy.get('.tariff-search-banner__toggle').click();
-  cy.get('input#tariff-search-banner__q').click().type(searchString);
+  cy.get('input#tariff-search-banner__q').click();
+  cy.get('input#tariff-search-banner__q').type(searchString);
   cy.get('input[name=\'submit_search\']').click();
 });
 
@@ -178,7 +191,9 @@ Cypress.Commands.add('waitForCountrySearchResults', () => {
 });
 
 Cypress.Commands.add('searchForCountry', (searchString) => {
-  cy.get('input#trading_partner_country').click().clear().type(searchString);
+  cy.get('input#trading_partner_country').click();
+  cy.get('input#trading_partner_country').clear();
+  cy.get('input#trading_partner_country').type(searchString);
   cy.waitForCountrySearchResults();
   return cy.get('ul#trading_partner_country__listbox li');
 });
@@ -232,12 +247,24 @@ Cypress.Commands.add('apiDocPage', () => {
 Cypress.Commands.add('quotaSearch', (options) => {
   cy.visit('/quota_search');
   cy.contains('Search for quotas');
-  cy.get('input#order_number').click().clear().type(options.ordernumber);
-  cy.get('input#goods_nomenclature_item_id').click().clear().type(options.commcode);
-  cy.get('input#geographical_area_id').click().clear().type(options.country);
-  cy.get('input#day').click().clear().type(options.day);
-  cy.get('input#month').click().clear().type(options.month);
-  cy.get('input#year').click().clear().type(options.year);
+  cy.get('input#order_number').click();
+  cy.get('input#order_number').clear();
+  cy.get('input#order_number').type(options.ordernumber);
+  cy.get('input#goods_nomenclature_item_id').click();
+  cy.get('input#goods_nomenclature_item_id').clear();
+  cy.get('input#goods_nomenclature_item_id').type(options.commcode);
+  cy.get('input#geographical_area_id').click();
+  cy.get('input#geographical_area_id').clear();
+  cy.get('input#geographical_area_id').type(options.country);
+  cy.get('input#day').click();
+  cy.get('input#day').clear();
+  cy.get('input#day').type(options.day);
+  cy.get('input#month').click();
+  cy.get('input#month').clear();
+  cy.get('input#month').type(options.month);
+  cy.get('input#year').click();
+  cy.get('input#year').clear();
+  cy.get('input#year').type(options.year);
   cy.get('select#critical').select(options.critical);
   cy.get('select#status').select(options.status);
 });
@@ -280,11 +307,10 @@ Cypress.Commands.add('closePopup', () => {
 });
 
 Cypress.Commands.add('pickTradingPartner', (tradingPartner) => {
-  cy.get('input#trading_partner_country')
-      .click()
-      .clear()
-      .type(tradingPartner)
-      .type('{enter}');
+  cy.get('input#trading_partner_country').click();
+  cy.get('input#trading_partner_country').clear();
+  cy.get('input#trading_partner_country').type(tradingPartner);
+  cy.get('input#trading_partner_country').type('{enter}');
 });
 
 Cypress.Commands.add('checkValidityPeriodsCount', (expectedCount) => {
@@ -371,4 +397,50 @@ Cypress.Commands.add('validateAutocompleteNthItem', (
       });
 
   cy.url().should('include', expectedUrl);
+});
+
+Cypress.Commands.add('clickAndVerifySVPCodeCommCodeLink', (code) => {
+  cy.get('table').find('tr').each(($row) => {
+    // Find the text in the row
+    if ($row.text().includes(code)) {
+      // Find the Edit link within the row and click it
+      cy.wrap($row).within(() => {
+        cy.get('td').each(($col) => {
+          if ($col.text().includes(code)) {
+            cy.wrap($col).contains(`${code}`).click();
+            if (`${code}`.includes('.')) {
+              // verify user sees the SVP code page
+              cy.url().should('include', `/simplified_procedure_value?simplified_procedural_code=${code}`);
+            } else {
+              cy.url().should('include', `/commodities/${code}`);
+            }
+          }
+        });
+      });
+    }
+  });
+});
+
+Cypress.Commands.add('verifySPVCodePage', (code) => {
+  cy.get('.govuk-breadcrumbs__list').contains('Simplified procedure value rates');
+  cy.get('.govuk-back-link').contains('Back');
+  cy.get('.govuk-heading-l').contains(`Simplified procedure value rates for code ${code}`);
+  cy.get('.govuk-table').contains('Value per 100 kg');
+});
+
+Cypress.Commands.add('svpPageLinks', () => {
+  cy.get('a[href^=\'https://www.gov.uk/government/collections/working-out-the-customs-value-of-your-imported-goods\']')
+      .contains('Working out the customs value of your imported goods');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-1-transaction-value\']')
+      .contains('Valuing imported goods using Method 1 (transaction value)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-2-transaction-value-of-identical-goods\']')
+      .contains('Valuing imported goods using Method 2 (transaction value of identical goods)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-3-transaction-value-of-similar-goods\']')
+      .contains('Valuing imported goods using Method 3 (transaction value of similar goods)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-4-deductive-method\']')
+      .contains('Valuing imported goods using Method 4 (deductive method)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-5-computed-value\']')
+      .contains('Valuing imported goods using Method 5 (computed value)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-6-fall-back-method\']')
+      .contains('Valuing imported goods using Method 6 (fall-back method)');
 });
