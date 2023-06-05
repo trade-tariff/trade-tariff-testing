@@ -78,7 +78,9 @@ Cypress.Commands.add('datePickerPage', (date) => {
 
 Cypress.Commands.add('countryPickerpage', (country) => {
   cy.contains('Select a country');
-  cy.get('input#trading-partner-country-field').click().clear().type(country.value);
+  cy.get('input#trading-partner-country-field').click();
+  cy.get('input#trading-partner-country-field').clear();
+  cy.get('input#trading-partner-country-field').type(country.value);
   cy.contains('Select country').click();
 });
 
@@ -305,11 +307,10 @@ Cypress.Commands.add('closePopup', () => {
 });
 
 Cypress.Commands.add('pickTradingPartner', (tradingPartner) => {
-  cy.get('input#trading_partner_country')
-      .click()
-      .clear()
-      .type(tradingPartner)
-      .type('{enter}');
+  cy.get('input#trading_partner_country').click();
+  cy.get('input#trading_partner_country').clear();
+  cy.get('input#trading_partner_country').type(tradingPartner);
+  cy.get('input#trading_partner_country').type('{enter}');
 });
 
 Cypress.Commands.add('checkValidityPeriodsCount', (expectedCount) => {
