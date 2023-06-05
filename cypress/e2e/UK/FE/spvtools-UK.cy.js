@@ -26,7 +26,7 @@ describe('🇬🇧 💡 | spvtools-UK.spec |', function() {
     cy.contains('View rates for selected date').click();
     cy.clickAndVerifySVPCodeCommCodeLink('2.120.1');
   });
-  it('UK - Click and verify unit perice start date and comm code link in SPV table', function() {
+  it('UK - Click and verify unit price start date and comm code link in SPV table', function() {
     cy.visit('tools');
     cy.get('a[href^=\'/simplified_procedure_value\']').click();
     cy.url().should('include', '/simplified_procedure_value');
