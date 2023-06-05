@@ -39,11 +39,13 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
-    cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+    cy.contains('UK import duties apply, as the difference between the UK third country duty ');
+    cy.contains('and the EU third country duty is lower than 3% of the customs value of your trade.');
     cy.contains('Tariff preference (UK)');
 
     cy.contains('Option 2: Tariff preference - Canada');
-    cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.');
+    cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty ');
+    cy.contains('and the EU preferential duty is lower than 3% of the customs value of your trade.');
   });
 
   it('RoW 🇦🇺 (Australia) - XI | EU Tariffs apply without Quotas |', function() {
@@ -77,11 +79,15 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
+    // doc code
+    cy.docCode({uk: 'l001'});
+    cy.contains('Continue').click();
 
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
-    cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+    cy.contains('UK import duties apply, as the difference between the UK third country duty ');
+    cy.contains('and the EU third country duty is lower than 3% of the customs value of your trade.');
 
     // EU Tariffs - Change Quantity to override Quotas
     cy.get('.govuk-back-link').click();
@@ -94,10 +100,14 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
+    // doc code
+    cy.docCode({uk: 'l001'});
+    cy.contains('Continue').click();
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (EU)');
-    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty ');
+    cy.contains('and the EU third country duty exceeds 3% of the customs value of your trade.');
   });
 });

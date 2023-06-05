@@ -118,6 +118,9 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
+    // doc code
+    cy.docCode({uk: 'l001'});
+    cy.contains('Continue').click();
 
     cy.confirmPage();
     cy.dutyPage();
@@ -134,6 +137,10 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
+    // doc code
+    cy.docCode({uk: 'l001'});
+    cy.contains('Continue').click();
+
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
