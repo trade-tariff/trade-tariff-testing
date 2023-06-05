@@ -1,3 +1,4 @@
+
 beforeEach(() => {
   cy.clearCookies();
 });
@@ -371,4 +372,50 @@ Cypress.Commands.add('validateAutocompleteNthItem', (
       });
 
   cy.url().should('include', expectedUrl);
+});
+
+Cypress.Commands.add('clickAndVerifySVPCodeCommCodeLink', (code) => {
+  cy.get('table').find('tr').each(($row) => {
+    // Find the text in the row
+    if ($row.text().includes(code)) {
+      // Find the Edit link within the row and click it
+      cy.wrap($row).within(() => {
+        cy.get('td').each(($col) => {
+          if ($col.text().includes(code)) {
+            cy.wrap($col).contains(`${code}`).click();
+            if (`${code}`.includes('.')) {
+              // verify user sees the SVP code page
+              cy.url().should('include', `/simplified_procedure_value?simplified_procedural_code=${code}`);
+            } else {
+              cy.url().should('include', `/commodities/${code}`);
+            }
+          }
+        });
+      });
+    }
+  });
+});
+
+Cypress.Commands.add('verifySPVCodePage', (code) => {
+  cy.get('.govuk-breadcrumbs__list').contains('Simplified procedure value rates');
+  cy.get('.govuk-back-link').contains('Back');
+  cy.get('.govuk-heading-l').contains(`Simplified procedure value rates for code ${code}`);
+  cy.get('.govuk-table').contains('Value per 100 kg');
+});
+
+Cypress.Commands.add('svpPageLinks', () => {
+  cy.get('a[href^=\'https://www.gov.uk/government/collections/working-out-the-customs-value-of-your-imported-goods\']')
+      .contains('Working out the customs value of your imported goods');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-1-transaction-value\']')
+      .contains('Valuing imported goods using Method 1 (transaction value)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-2-transaction-value-of-identical-goods\']')
+      .contains('Valuing imported goods using Method 2 (transaction value of identical goods)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-3-transaction-value-of-similar-goods\']')
+      .contains('Valuing imported goods using Method 3 (transaction value of similar goods)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-4-deductive-method\']')
+      .contains('Valuing imported goods using Method 4 (deductive method)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-5-computed-value\']')
+      .contains('Valuing imported goods using Method 5 (computed value)');
+  cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-6-fall-back-method\']')
+      .contains('Valuing imported goods using Method 6 (fall-back method)');
 });
