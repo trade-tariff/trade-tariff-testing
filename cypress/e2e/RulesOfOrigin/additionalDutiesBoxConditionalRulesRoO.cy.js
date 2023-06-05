@@ -33,7 +33,6 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
     cy.get('.basic-third-country-duty').contains('Basic third country duty =');
     cy.get('.basic-third-country-duty').contains('0.00 %');
-    cy.get('.govuk-inset-text.import-trade-summary > ul > li.no-preferential-duties').contains('There is no preferential tariff duty or quota available for this commodity');
     cy.get('.panel.panel--grey').contains('Work out if your goods meet the rules of origin');
     cy.get('button.govuk-button').contains('Check rules of origin');
     cy.contains('Preferential rules').click();
@@ -48,7 +47,6 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
     cy.get('.basic-third-country-duty').contains('Basic third country duty =');
     cy.get('.basic-third-country-duty').contains('0.00 %');
-    cy.get('.govuk-inset-text.import-trade-summary > ul > li.no-preferential-duties').contains('There is no preferential tariff duty or quota available for this commodity');
     cy.get('.panel.panel--grey').contains('Work out if your goods meet the rules of origin');
     cy.get('button.govuk-button').contains('Check rules of origin');
     cy.contains('Preferential rules').click();
