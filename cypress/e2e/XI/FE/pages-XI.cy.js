@@ -99,7 +99,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     // without selecting any country
     cy.contains('Exporting from Northern Ireland');
     cy.contains('The commodity code for exporting and Intrastat reporting is 07020000');
-    cy.contains('Check duties and customs procedures for exporting goods');
+    cy.get('#export > div > h3').contains('Check duties and customs procedures for exporting goods');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
 
     cy.contains('Use this service to check:');
@@ -107,31 +107,20 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('tax and duty rates');
     cy.contains('what exporting documents you need');
     // links on page
-    cy.get('div#export > p:nth-of-type(1) > a[target=\'_blank\']')
-        .contains('Intrastat reporting')
-        .should('have.attr', 'href', 'https://www.gov.uk/intrastat');
-
+    cy.get('a[href^=\'https://www.gov.uk/intrastat\']').contains('Intrastat reporting');
     // EU country selected
     cy.searchForCountry('Italy').type('{enter}');
     cy.contains('Exporting from Northern Ireland');
     cy.contains('Find information about how to move goods from the UK to Italy.');
-    cy.contains('Check how to export commodity 0702000007 to Italy (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should(
-        'have.attr',
-        'href',
-        'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007',
-    );
-
+    cy.get('a[href^=\'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007\']')
+        .contains('Check how to export commodity 0702000007 to Italy (link opens in new tab)');
     // Non EU country selected
     cy.searchForCountry('Andorra').type('{enter}');
     cy.contains('Exporting from Northern Ireland');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
     cy.contains('Check how to export commodity goods (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should(
-        'have.attr',
-        'href',
-        'https://www.check-duties-customs-exporting-goods.service.gov.uk',
-    );
+    cy.get('a[href^=\'https://www.check-duties-customs-exporting-goods.service.gov.uk\']')
+        .contains('Check how to export commodity goods (link opens in new tab)');
   });
   it('XI - import tab', function() {
     cy.visit('xi/commodities/0706901000?day=10&month=12&year=2022#import');

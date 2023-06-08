@@ -90,7 +90,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('h3#proofs-of-origin').contains('Proofs of origin');
     cy.get('#rules-of-origin-proofs').contains('EUR.1 movement certificate').click();
     cy.get('#rules-of-origin-proofs').contains('Origin declaration').click();
-    cy.get('#rules-of-origin-proofs').contains('Generalised Scheme of Preferences form A').click();
+    cy.get('#rules-of-origin-proofs').contains('Generalised Scheme of Preferences Form A').click();
     cy.get('#rules-of-origin-proofs').contains('Origin declaration').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
   });
