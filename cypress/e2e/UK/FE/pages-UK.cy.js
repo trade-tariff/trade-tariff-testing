@@ -133,32 +133,22 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('tax and duty rates');
     cy.contains('what exporting documents you need');
     // links on page
-    cy.get('div#export > p:nth-of-type(1) > a[target=\'_blank\']')
-        .contains('Intrastat reporting')
-        .should('have.attr', 'href', 'https://www.gov.uk/intrastat');
+    cy.get('a[href^=\'https://www.gov.uk/intrastat\']').contains('Intrastat reporting');
 
     // EU country selected
     cy.searchForCountry('Italy').type('{enter}');
     //  cy.contains('Measures for Italy');
     cy.contains('Find information about how to move goods from the UK to Italy.');
-    cy.contains('Check how to export commodity 0702000007 to Italy (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']')
-        .should(
-            'have.attr',
-            'href',
-            'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007',
-        );
+    cy.get('a[href^=\'https://www.check-duties-customs-exporting-goods.service.gov.uk/summary?d=IT&ds=gtp&tab=tree&pc=0702000007\']')
+        .contains('Check how to export commodity 0702000007 to Italy (link opens in new tab)');
 
     // Non EU country selected
     cy.searchForCountry('Andorra').type('{enter}');
     cy.contains('Exporting from the UK');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
     cy.contains('Check how to export commodity goods (link opens in new tab)');
-    cy.get('p:nth-of-type(3) > a[target=\'_blank\']').should(
-        'have.attr',
-        'href',
-        'https://www.check-duties-customs-exporting-goods.service.gov.uk',
-    );
+    cy.get('a[href^=\'https://www.check-duties-customs-exporting-goods.service.gov.uk\']')
+        .contains('Check how to export commodity goods (link opens in new tab)');
   });
   it('UK - import tab', function() {
     cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
