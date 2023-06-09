@@ -31,7 +31,7 @@ Cypress.Commands.add('validDate', ()=>{
   cy.get('#steps_import_date_import_date_3i').type('31');
   cy.get('#steps_import_date_import_date_2i').click();
   cy.get('#steps_import_date_import_date_2i').clear();
-  cy.get('#steps_import_date_import_date_2i').type('12');
+  cy.get('#steps_import_date_import_date_2i').type('05');
   cy.get('#steps_import_date_import_date_1i').click();
   cy.get('#steps_import_date_import_date_1i').clear();
   cy.get('#steps_import_date_import_date_1i').type('2023');
