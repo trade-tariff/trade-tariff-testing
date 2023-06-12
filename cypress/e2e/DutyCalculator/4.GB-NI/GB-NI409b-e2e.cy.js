@@ -36,9 +36,12 @@ describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies + 
 
       // 💰 Whats the monetary value?
       cy.contains('What is the customs value of this import?');
-      cy.get('input#steps-customs-value-monetary-value-field').clear().type('4567.001');
-      cy.get('input#steps-customs-value-shipping-cost-field').clear().type('1213.43');
-      cy.get('input#steps-customs-value-insurance-cost-field').clear().type('5.434');
+      cy.get('input#steps-customs-value-monetary-value-field').clear();
+      cy.get('input#steps-customs-value-monetary-value-field').type('4567.001');
+      cy.get('input#steps-customs-value-shipping-cost-field').clear();
+      cy.get('input#steps-customs-value-shipping-cost-field').type('1213.43');
+      cy.get('input#steps-customs-value-insurance-cost-field').clear();
+      cy.get('input#steps-customs-value-insurance-cost-field').type('5.434');
       cy.contains('Continue').click();
 
       // Confirm Page - Page 17

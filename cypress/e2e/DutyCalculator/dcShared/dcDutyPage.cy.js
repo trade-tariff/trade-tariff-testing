@@ -24,9 +24,12 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     // EU Duties apply
     cy.dutiesApply1();
     // monetary value
-    cy.get('input#steps-customs-value-monetary-value-field').clear().type('5000.50');
-    cy.get('input#steps-customs-value-shipping-cost-field').clear().type('455.7533');
-    cy.get('input#steps-customs-value-insurance-cost-field').clear().type('4545.987654');
+    cy.get('input#steps-customs-value-monetary-value-field').clear();
+    cy.get('input#steps-customs-value-monetary-value-field').type('5000.50');
+    cy.get('input#steps-customs-value-shipping-cost-field').clear();
+    cy.get('input#steps-customs-value-shipping-cost-field').type('455.7533');
+    cy.get('input#steps-customs-value-insurance-cost-field').clear();
+    cy.get('input#steps-customs-value-insurance-cost-field').type('4545.987654');
     cy.contains('Continue').click();
 
     // confirm
