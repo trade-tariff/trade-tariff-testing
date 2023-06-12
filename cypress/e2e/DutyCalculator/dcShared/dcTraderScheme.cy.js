@@ -3,7 +3,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
     //    cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
     cy.contains('UK Integrated Online Tariff');
-    cy.DCMainPage();
+    cy.dcMainPage();
     cy.validDate();
     cy.contains('Continue').click();
     cy.contains('Which part of the UK are you importing into?');
@@ -16,7 +16,10 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
 
     // trader page
     cy.contains('Are you authorised under the UK Trader Scheme?');
-    cy.contains('If you are moving goods into Northern Ireland which are for sale to, or final use by, end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare your goods as being \'not at risk\' where the requirements are met. A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.');
+    cy.contains('If you are moving goods into Northern Ireland which are for sale to, or final use by, ');
+    cy.contains('end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare');
+    cy.contains('your goods as being \'not at risk\' where the requirements are met. ');
+    cy.contains('A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.');
 
     cy.contains('Yes, I am authorised under the UK Trader Scheme');
     cy.contains('No, I am not authorised under the UK Trader Scheme');
@@ -24,7 +27,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     // static page links
     cy.contains('If you are not yet authorised, then you can find out more about applying for authorisation for the UK Trader Scheme. ');
     cy.get('p > .govuk-link').click();
-    cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland');
+    cy.contains('Declare goods using the UK Trader Scheme if you bring goods into Northern Ireland');
     cy.go('back');
 
     // Select Yes, I am registered with the UK Trader Scheme
@@ -60,7 +63,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     // static links on page
     cy.contains('Explore the topic');
     cy.contains('Apply for authorisation for the UK trader scheme').click();
-    cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland');
+    cy.contains('Declare goods using the UK Trader Scheme if you bring goods into Northern Ireland');
   });
   it('RoW - NI Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
@@ -76,7 +79,10 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
 
     // Trader Scheme
     cy.contains('Are you authorised under the UK Trader Scheme?');
-    cy.contains('If you are moving goods into Northern Ireland which are for sale to, or final use by, end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare your goods as being \'not at risk\' where the requirements are met. A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.');
+    cy.contains('If you are moving goods into Northern Ireland which are for sale to, or final use by, ');
+    cy.contains('end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare');
+    cy.contains('your goods as being \'not at risk\' where the requirements are met. ');
+    cy.contains('A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.');
     cy.contains('Yes, I am authorised under the UK Trader Scheme');
     cy.contains('No, I am not authorised under the UK Trader Scheme');
     // empty values
@@ -108,6 +114,6 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     // static links on page
     cy.contains('Explore the topic');
     cy.contains('Apply for authorisation for the UK trader scheme').click();
-    cy.contains('Apply for authorisation for the UK Trader Scheme if you bring goods into Northern Ireland');
+    cy.contains('Declare goods using the UK Trader Scheme if you bring goods into Northern Ireland');
   });
 });

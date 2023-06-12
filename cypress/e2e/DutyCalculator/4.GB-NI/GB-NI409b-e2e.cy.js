@@ -1,6 +1,10 @@
 // ✅  Trade Remedies - ℹ️
 // Comm code : 0304829010 + with measure units
 
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies + Copy text |', function() {
   //
   const country = ['xi'];
@@ -47,7 +51,7 @@ describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies + 
       //   cy.contains('Import quantity')
       //   Check values
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10');
-      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2023');
+      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains(`${currentDate}`);
       cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5,785.87');

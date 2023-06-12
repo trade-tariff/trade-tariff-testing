@@ -8,7 +8,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
 
       cy.contains(`${pagetitles[i]}`);
-      cy.DCMainPage();
+      cy.dcMainPage();
       cy.contains('As duties and quotas change over time, it may be important to enter the date you think your goods your goods will be imported.');
       cy.contains('Enter a date from 1 January 2021, or later.');
       cy.contains('Use the format day, month, year. For example, 27 3 2021.');

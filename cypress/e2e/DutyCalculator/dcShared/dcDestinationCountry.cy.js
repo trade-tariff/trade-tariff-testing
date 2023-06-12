@@ -1,3 +1,10 @@
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD');
+const currentMonth = dayjs().format('M');
+const currentYear = dayjs().format('YYYY');
+
+
 describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selection page |', function() {
   const country = ['uk', 'xi'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
@@ -39,9 +46,9 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
       cy.contains('Back').click();
       cy.contains('When will the goods be imported?');
       // date entered persists after error message only if valid format date and in past *
-      cy.get('#steps_import_date_import_date_3i').should('have.value', '31');
-      cy.get('#steps_import_date_import_date_2i').should('have.value', '12');
-      cy.get('#steps_import_date_import_date_1i').should('have.value', '2023');
+      cy.get('#steps_import_date_import_date_3i').should('have.value', `${currentDate}`);
+      cy.get('#steps_import_date_import_date_2i').should('have.value', `${currentMonth}`);
+      cy.get('#steps_import_date_import_date_1i').should('have.value', `${currentYear}`);
     });
   }
   it('Import destination - Northern Ireland', function() {
@@ -75,9 +82,9 @@ describe('🧮 | dcDestinationCountry | Duty Calculator Desination Country selec
     // date entered persists after error message only if valid format date and in past *
     cy.contains('When will the goods be imported?');
 
-    cy.get('#steps_import_date_import_date_3i').should('have.value', '31');
-    cy.get('#steps_import_date_import_date_2i').should('have.value', '12');
-    cy.get('#steps_import_date_import_date_1i').should('have.value', '2023');
+    cy.get('#steps_import_date_import_date_3i').should('have.value', `${currentDate}`);
+    cy.get('#steps_import_date_import_date_2i').should('have.value', `${currentMonth}`);
+    cy.get('#steps_import_date_import_date_1i').should('have.value', `${currentYear}`);
   });
   it('Error - No country selected', function() {
     cy.visit(`duty-calculator/uk/0702000007/import-date`);

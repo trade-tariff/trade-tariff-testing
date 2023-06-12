@@ -2,6 +2,10 @@
 // ✅  Trader Scheme - ✅  Final use in NI - ⬆️ turnover (TO) > £500,000 - 🚫  Non processing (NP)- 🚫  Certified as UK Origin
 // Comm code :1701141000 - item with measure units
 
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-Trader Scheme-Use in NI-TO>£500k-NP-UK Origin', function() {
   //
   const country = ['uk'];
@@ -55,7 +59,7 @@ describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-
       cy.contains('Import quantity');
       //   cy.get('.govuk-summary-list__value')
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00');
-      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 December 2023');
+      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains(`${currentDate}`);
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Northern Ireland');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('Yes');

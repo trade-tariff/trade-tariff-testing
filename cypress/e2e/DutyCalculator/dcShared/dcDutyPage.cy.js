@@ -1,3 +1,7 @@
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
   it('Final Duty Calculation page', function() {
     // import date
@@ -32,7 +36,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains('Import duty calculation');
     cy.contains('You are importing commodity');
     cy.contains('from United Kingdom (excluding Northern Ireland) on');
-    cy.contains('31 December 2023');
+    cy.contains(`${currentDate}`);
     cy.contains('7202 11 80 00').click();
     cy.checkCommPage('7202118000');
     cy.go(-1);
@@ -47,7 +51,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     // values
     cy.contains('7202 11 80 00');
     cy.contains('Other');
-    cy.contains('31 December 2023');
+    cy.contains(`${currentDate}`);
     cy.contains('£10,002.24');
 
     // information
