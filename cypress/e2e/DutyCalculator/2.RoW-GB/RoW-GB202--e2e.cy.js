@@ -1,6 +1,10 @@
 // 🇨🇳 China to  🇬🇧 GB
 // Comm code :0304829010 - no Measure Units
 
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec | ', function() {
   //
 
@@ -22,15 +26,18 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
       cy.contains('Which country are the goods coming from?');
 
       // select country from list
-      cy.get('#steps-country-of-origin-country-of-origin-field')
-          .click().clear()
-          .type('Turkey');
+      cy.get('#steps-country-of-origin-country-of-origin-field').click();
+      cy.get('#steps-country-of-origin-country-of-origin-field').clear();
+      cy.get('#steps-country-of-origin-country-of-origin-field').type('Turkey');
       cy.contains('Continue').click();
       // Monetary value page
       cy.contains('What is the customs value of this import?');
-      cy.get('input#steps-customs-value-monetary-value-field').clear().type('5000.50');
-      cy.get('input#steps-customs-value-shipping-cost-field').clear().type('455.7533');
-      cy.get('input#steps-customs-value-insurance-cost-field').clear().type('4545.987654');
+      cy.get('input#steps-customs-value-monetary-value-field').clear();
+      cy.get('input#steps-customs-value-monetary-value-field').type('5000.50');
+      cy.get('input#steps-customs-value-shipping-cost-field').clear();
+      cy.get('input#steps-customs-value-shipping-cost-field').type('455.7533');
+      cy.get('input#steps-customs-value-insurance-cost-field').clear();
+      cy.get('input#steps-customs-value-insurance-cost-field').type('4545.987654');
       cy.contains('Continue').click();
 
       cy.additionalCode({uk: 'B964'});
@@ -49,7 +56,7 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
       //   cy.get('.govuk-summary-list__value')
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10');
       cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('B964');
-      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 December 2023');
+      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains(`${currentDate}`);
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Turkey');
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('£10,002.24');
@@ -60,7 +67,7 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
       // Final Page - duty page
       cy.contains('Import duty calculation');
       cy.contains('You are importing commodity');
-      cy.contains('from Turkey on 31 December 2023.');
+      cy.contains(`from Turkey on ${currentDate}.`);
 
       //     cy.contains('0304 82 90 10').click()
       //     cy.checkCommPage('0304829010')
@@ -76,7 +83,7 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
       // values
       cy.contains('0304 82 90 10');
       cy.contains('0304 82 90 10 (B964) Of the species Oncorhynchus mykiss');
-      cy.contains('31 December 2023');
+      cy.contains(`${currentDate}`);
       cy.contains('£10,002.24');
 
       // information

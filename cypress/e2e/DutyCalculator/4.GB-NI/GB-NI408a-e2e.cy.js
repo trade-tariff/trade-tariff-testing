@@ -1,6 +1,10 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - 🚫 Trader Scheme - 🚫  Certified as UK origin
 // Comm code :7202118000 - Commodity with no measure units
 
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Trader Scheme-Certified as UK origin', function() {
   //
 
@@ -42,7 +46,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
 
     //   cy.get('.govuk-summary-list__value')
     cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('7202 11 80 00');
-    cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2023');
+    cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains(`${currentDate}`);
     cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('No');
@@ -56,7 +60,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains('Import duty calculation');
     cy.contains('You are importing commodity');
     cy.contains('from United Kingdom (excluding Northern Ireland) on');
-    cy.contains('31 December 2023');
+    cy.contains(`${currentDate}`);
     cy.contains('7202 11 80 00').click();
     cy.checkCommPage('7202118000');
     cy.go(-1);
@@ -70,7 +74,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     // values
     cy.contains('7202 11 80 00');
     cy.contains('Other');
-    cy.contains('31 December 2023');
+    cy.contains(`${currentDate}`);
     cy.contains('£10,002.24');
 
     // information
@@ -140,7 +144,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
 
     //   cy.get('.govuk-summary-list__value')
     cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1905 31 11 00');
-    cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2023');
+    cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains(`${currentDate}`);
     cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('No');
@@ -153,7 +157,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains('Import duty calculation');
     cy.contains('You are importing commodity');
     cy.contains('from United Kingdom (excluding Northern Ireland) on');
-    cy.contains('31 December 2023');
+    cy.contains(`${currentDate}`);
     cy.contains('Third-country duty (EU)');
     cy.contains('9.00 % + EA MAX 24.20 % +ADSZ');
     cy.contains('9.00 % + 0.00 EUR / 100 kg MAX 24.20 % + 0.00 EUR / 100 kg');

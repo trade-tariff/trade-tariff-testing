@@ -1,6 +1,10 @@
 // 🚫 Trade Remedies - 🚫  0% MFN EU tariff - ✅  Trader Scheme - 🚫 Final use in NI - 🚫  Certified as UK origin
 // Comm code :1701141000
 
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('GB-NI404-e2e.spec|GB to NI route 04-Trade Remedies-0% MFN EU-Trader Scheme-Final use in NI-Certified as UK origin', function() {
   const country = ['uk'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
@@ -57,7 +61,7 @@ describe('GB-NI404-e2e.spec|GB to NI route 04-Trade Remedies-0% MFN EU-Trader Sc
       // check values entered
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00');
       cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('N990');
-      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 December 2023');
+      cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains(`${currentDate}`);
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Northern Ireland');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('Yes');

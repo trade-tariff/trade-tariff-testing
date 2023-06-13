@@ -1,18 +1,24 @@
 // Duty Cal link on commodity
-Cypress.Commands.add('dutyCalLink', (commCode)=>{
+
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD');
+const currentMonth = dayjs().format('MM');
+const currentYear = dayjs().format('YYYY');
+
+Cypress.Commands.add('dutyCalLink', (commCode) => {
   cy.checkCommPage(commCode);
   cy.get('.measure-inset').contains('work out the duties and taxes applicable to the import of commodity').click();
   cy.contains('When will the goods be imported?');
 });
 
 // Duty Calculator main page
-Cypress.Commands.add('DCMainPage', ()=>{
+Cypress.Commands.add('dcMainPage', () => {
   cy.get('.govuk-header__navigation ');
   cy.contains('Browse');
   cy.contains('A-Z');
   cy.contains('Tools');
-  cy.get('.govuk-caption-xl')
-      .contains('Calculate import duties');
+  cy.get('.govuk-caption-xl').contains('Calculate import duties');
   cy.get('.govuk-form-group');
   cy.contains('When will the goods be imported?');
   cy.contains('As duties and quotas change over time');
@@ -23,22 +29,22 @@ Cypress.Commands.add('DCMainPage', ()=>{
   cy.contains('About this commodity code');
 });
 // DC Valid date
-Cypress.Commands.add('validDate', ()=>{
+Cypress.Commands.add('validDate', () => {
   cy.contains('When will the goods be imported?');
   cy.title().should('eq', 'When will the good be imported - Online Tariff Duty calculator');
   cy.get('#steps_import_date_import_date_3i').click();
   cy.get('#steps_import_date_import_date_3i').clear();
-  cy.get('#steps_import_date_import_date_3i').type('31');
+  cy.get('#steps_import_date_import_date_3i').type(`${currentDate}`);
   cy.get('#steps_import_date_import_date_2i').click();
   cy.get('#steps_import_date_import_date_2i').clear();
-  cy.get('#steps_import_date_import_date_2i').type('12');
+  cy.get('#steps_import_date_import_date_2i').type(`${currentMonth}`);
   cy.get('#steps_import_date_import_date_1i').click();
   cy.get('#steps_import_date_import_date_1i').clear();
-  cy.get('#steps_import_date_import_date_1i').type('2023');
+  cy.get('#steps_import_date_import_date_1i').type(`${currentYear}`);
   cy.contains('Continue').click();
 });
 // Enter Date
-Cypress.Commands.add('enterDate', (date)=>{
+Cypress.Commands.add('enterDate', (date) => {
   cy.contains('When will the goods be imported?');
   cy.get('#steps_import_date_import_date_3i').click();
   cy.get('#steps_import_date_import_date_3i').clear();
@@ -52,7 +58,7 @@ Cypress.Commands.add('enterDate', (date)=>{
   cy.contains('Continue').click();
 });
 
-Cypress.Commands.add('selectDestination', (destination)=>{
+Cypress.Commands.add('selectDestination', (destination) => {
   cy.contains('Which part of the UK are you importing into?');
   cy.title().should('eq', 'Which part of the UK are you importing into - Online Tariff Duty calculator');
   if (destination === 'xi') {
@@ -62,7 +68,7 @@ Cypress.Commands.add('selectDestination', (destination)=>{
   }
   cy.contains('Continue').click();
 });
-Cypress.Commands.add('selectOrigin', (origin)=>{
+Cypress.Commands.add('selectOrigin', (origin) => {
   cy.contains('Which country are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
   if (origin === 'gb') {
@@ -75,7 +81,7 @@ Cypress.Commands.add('selectOrigin', (origin)=>{
   cy.contains('Continue').click();
 });
 
-Cypress.Commands.add('originList', (origin)=>{
+Cypress.Commands.add('originList', (origin) => {
   cy.contains('Where are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
   cy.get('#steps-country-of-origin-country-of-origin-field').click();
@@ -92,7 +98,7 @@ Cypress.Commands.add('otherOriginList', (otherorigin) => {
   cy.get('#steps-country-of-origin-other-country-of-origin-field').type(otherorigin.value);
   cy.contains('Continue').click();
 });
-Cypress.Commands.add('dutiesApply', ()=>{
+Cypress.Commands.add('dutiesApply', () => {
   cy.contains('Duties apply to this import');
   cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
@@ -102,12 +108,12 @@ Cypress.Commands.add('euDutiesApply', () => {
   cy.title().should('eq', 'EU duties apply to this import - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
 });
-Cypress.Commands.add('dutiesApply1', ()=>{
+Cypress.Commands.add('dutiesApply1', () => {
   cy.contains('EU duties apply to this import');
   cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
 });
-Cypress.Commands.add('meursingCode', (mcode)=>{
+Cypress.Commands.add('meursingCode', (mcode) => {
   cy.contains('Enter a \'Meursing code\' to work out applicable duties');
   cy.title().should('eq', 'Enter a \'Meursing Code\' for this commodity - Online Tariff Duty calculator');
   cy.get('#steps-meursing-additional-code-meursing-additional-code-field').click();
@@ -116,7 +122,7 @@ Cypress.Commands.add('meursingCode', (mcode)=>{
   cy.get('.govuk-button').click();
 });
 // Duties apply to this import - Online Tariff Duty calculator
-Cypress.Commands.add('traderScheme', (selection)=>{
+Cypress.Commands.add('traderScheme', (selection) => {
   cy.contains('Are you authorised under the UK Trader Scheme?');
   cy.title().should('eq', 'Are you authorised under the UK Trader Scheme - Online Tariff Duty calculator');
   if (selection === 'yes') {
@@ -127,7 +133,7 @@ Cypress.Commands.add('traderScheme', (selection)=>{
   cy.contains('Continue').click();
 });
 
-Cypress.Commands.add('certificate', (selection)=>{
+Cypress.Commands.add('certificate', (selection) => {
   cy.contains('Do you have a valid proof of preferential origin?');
   cy.title().should('eq', 'Do you have a valid proof of origin - Online Tariff Duty calculator');
   if (selection === 'yes') {
@@ -138,7 +144,7 @@ Cypress.Commands.add('certificate', (selection)=>{
   cy.contains('Continue').click();
 });
 // enter monetary value
-Cypress.Commands.add('customsValue', (monvalue)=>{
+Cypress.Commands.add('customsValue', (monvalue) => {
   cy.contains('What is the customs value of this import?');
   cy.title().should('eq', 'What is the customs value of this import - Online Tariff Duty calculator');
   cy.get('input#steps-customs-value-monetary-value-field').clear();
@@ -150,7 +156,7 @@ Cypress.Commands.add('customsValue', (monvalue)=>{
   cy.contains('Continue').click();
 });
 // enter quantity
-Cypress.Commands.add('quantity', (measureUnits)=>{
+Cypress.Commands.add('quantity', (measureUnits) => {
   cy.contains('Enter import quantity');
   cy.title().should('eq', 'Enter import quantity - Online Tariff Duty calculator');
   for (const [key, value] of Object.entries(measureUnits)) {
@@ -161,7 +167,7 @@ Cypress.Commands.add('quantity', (measureUnits)=>{
 });
 
 // final use UK
-Cypress.Commands.add('finalUse', (value)=>{
+Cypress.Commands.add('finalUse', (value) => {
   cy.title().should('eq', 'Are your goods for final use in the UK - Online Tariff Duty calculator');
   cy.contains('Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?');
   if (value === 'yes') {
@@ -183,25 +189,25 @@ Cypress.Commands.add('finalUseNI', (value) => {
   cy.contains('Continue').click();
 });
 
-Cypress.Commands.add('confirmPage', ()=>{
+Cypress.Commands.add('confirmPage', () => {
   cy.contains('Check your answers');
   cy.title().should('eq', 'Check your answers - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
 });
 
-Cypress.Commands.add('dutyPage', ()=>{
+Cypress.Commands.add('dutyPage', () => {
   cy.contains('Import duty calculation');
   cy.title().should('eq', 'Import duty calculation - Online Tariff Duty calculator');
 });
-Cypress.Commands.add('noDuty', (_options)=>{
+Cypress.Commands.add('noDuty', (_options) => {
   cy.contains('There is no import duty to pay');
   cy.title().should('eq', 'There is no import duty to pay - Online Tariff Duty calculator');
 });
-Cypress.Commands.add('exchangeRate', ()=>{
+Cypress.Commands.add('exchangeRate', () => {
   cy.contains('Please note - the current page uses an exchange rate of ');
 });
 
-Cypress.Commands.add('additionalCode', (addcode)=>{
+Cypress.Commands.add('additionalCode', (addcode) => {
   cy.contains('Describe your goods in more detail');
   cy.title().should('eq', 'Describe your goods in more detail - Online Tariff Duty Calculator');
 
@@ -211,7 +217,7 @@ Cypress.Commands.add('additionalCode', (addcode)=>{
   cy.contains('Continue').click();
 });
 
-Cypress.Commands.add('turnOver', (options)=>{
+Cypress.Commands.add('turnOver', (options) => {
   cy.contains('What was your annual turnover in the most recent complete financial year?');
   if (options === 'less') {
     cy.get('input#steps-annual-turnover-annual-turnover-yes-field').check();
@@ -221,7 +227,7 @@ Cypress.Commands.add('turnOver', (options)=>{
   cy.contains('Continue').click();
 });
 
-Cypress.Commands.add('plannedXI', (options)=>{
+Cypress.Commands.add('plannedXI', (options) => {
   cy.contains('How will these goods be processed after they are moved into Northern Ireland?');
   cy.title().should('eq', 'How will your goods be processed - Online Tariff Duty calculator');
   if (options === 'notprocessing') {
@@ -234,7 +240,7 @@ Cypress.Commands.add('plannedXI', (options)=>{
   cy.contains('Continue').click();
 });
 
-Cypress.Commands.add('vat', (options)=>{
+Cypress.Commands.add('vat', (options) => {
   cy.contains('Which VAT rate is applicable to your trade?');
   cy.title().should('eq', 'Which VAT rate is applicable to your trade - Online Tariff Duty Calculator');
   if (options === '5') {
@@ -258,7 +264,7 @@ Cypress.Commands.add('exciseCode', (excode) => {
   cy.contains('Continue').click();
 });
 // Document Codes
-Cypress.Commands.add('docCode', (dcode)=>{
+Cypress.Commands.add('docCode', (dcode) => {
   cy.contains('Do you have any of the following documents?');
   cy.title().should('eq', 'Do you have any of the following documents - Online Tariff Duty Calculator');
   for (const [key, value] of Object.entries(dcode)) {
@@ -301,19 +307,19 @@ Cypress.Commands.add('getExchangeRateForImportDate', (importDateString) => {
 
   return cy.wrap(applicableExchangeRate);
 });
-Cypress.Commands.add('dcRooLink', (options)=>{
+Cypress.Commands.add('dcRooLink', (options) => {
   cy.contains(`Product-specific rules for commodity`);
   cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
   cy.contains(`originating in the UK or ${options.country}.`);
   cy.contains('If there are alternative rules, your product needs to comply with only one of them.');
 });
-Cypress.Commands.add('dcRooLink2', (_options)=>{
+Cypress.Commands.add('dcRooLink2', (_options) => {
   cy.contains(`Product-specific rules for commodity`);
   cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
   cy.contains(`There are no product-specific rules for commodity`);
 });
 // amend this custom command to return comm code and link ?
-Cypress.Commands.add('dcStoppingPage', (_options)=>{
+Cypress.Commands.add('dcStoppingPage', (_options) => {
   cy.title().should('eq', 'Declared subheading not allowed - Online Tariff Duty calculator');
   cy.contains('Declared subheading not allowed');
   cy.contains('You have chosen a commodity code ');
@@ -323,5 +329,3 @@ Cypress.Commands.add('dcStoppingPage', (_options)=>{
   cy.contains('select the correct document code');
   cy.contains('Try another commodity code');
 });
-
-

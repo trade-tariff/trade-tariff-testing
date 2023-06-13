@@ -1,6 +1,10 @@
 // ✅  Trade Remedies - ℹ️
 // Comm code : 033149011 + no measure units
 
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |', function() {
   //
   const country = ['uk'];
@@ -32,9 +36,12 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
 
       // 💰 Whats the monetary value?
       cy.contains('What is the customs value of this import?');
-      cy.get('input#steps-customs-value-monetary-value-field').clear().type('4567.001');
-      cy.get('input#steps-customs-value-shipping-cost-field').clear().type('1213.43');
-      cy.get('input#steps-customs-value-insurance-cost-field').clear().type('5.434');
+      cy.get('input#steps-customs-value-monetary-value-field').clear();
+      cy.get('input#steps-customs-value-monetary-value-field').type('4567.001');
+      cy.get('input#steps-customs-value-shipping-cost-field').clear();
+      cy.get('input#steps-customs-value-shipping-cost-field').type('1213.43');
+      cy.get('input#steps-customs-value-insurance-cost-field').clear();
+      cy.get('input#steps-customs-value-insurance-cost-field').type('5.434');
       cy.contains('Continue').click();
 
       // Confirm Page - Page 17
@@ -47,7 +54,7 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
 
       //   Check values
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0303 14 90 11');
-      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2023');
+      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains(`${currentDate}`);
       cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('Northern Ireland');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5,785.87');

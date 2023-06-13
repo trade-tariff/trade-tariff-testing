@@ -1,3 +1,7 @@
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('🔖 | dcConfirmPage | UK Results Page |', function() {
   // 1701141000
 
@@ -28,7 +32,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.contains('Import quantity');
     //   cy.get('.govuk-summary-list__value')
     cy.contains('1701 14 10 00');
-    cy.contains('31 December 2023');
+    cy.contains(`${currentDate}`);
     cy.contains('Northern Ireland');
     cy.contains('United Kingdom (excluding Northern Ireland');
     cy.contains('No');

@@ -1,6 +1,10 @@
 // 🇻🇳 Vietnam to  🇬🇧 GB
 // Comm code :0702000007 - no Measure Units
 
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB | ', function() {
   //
 
@@ -35,7 +39,7 @@ describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB | ', function() {
       cy.contains('Customs value');
 
       cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0703 10 19 00');
-      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('31 December 2023');
+      cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains(`${currentDate}`);
       cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
       cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Vietnam');
       cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£10,002.24');
@@ -46,7 +50,7 @@ describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB | ', function() {
       // Final Page - duty page
       cy.contains('Import duty calculation');
       cy.contains('You are importing commodity');
-      cy.contains('from Vietnam on 31 December 2023.');
+      cy.contains(`from Vietnam on ${currentDate}.`);
 
 
       cy.contains('Details of your trade').click();
@@ -58,7 +62,7 @@ describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB | ', function() {
       // values
       cy.contains('0703 10 19 00');
       cy.contains('other');
-      cy.contains('31 December 2023');
+      cy.contains(`${currentDate}`);
       cy.contains('£10,002.24');
 
       // information

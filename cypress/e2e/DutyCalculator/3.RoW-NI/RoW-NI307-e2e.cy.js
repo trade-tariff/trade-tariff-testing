@@ -1,5 +1,10 @@
 /* eslint-disable max-len */
 // 🚫 Trade Remedies - 🚫 0% MFN EU tariff - Trader Scheme - 🚫 UK Trader Scheme
+
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Document Codes |', function() {
   //
   it('RoW 🇦🇷 Argentina to NI | add codes + doc codes |', function() {
@@ -41,7 +46,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.confirmPage();
     cy.dutyPage();
 
-    cy.contains('You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on 31 December 2023.');
+    cy.contains(`You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on ${currentDate}.`);
     cy.contains('Option 1: Third-country duty');
     cy.contains('10.90% * £1,000.00');
     cy.contains('172.20 EUR / 1000 kg/biodiesel');
@@ -72,7 +77,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.confirmPage();
     cy.dutyPage();
 
-    cy.contains('You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on 31 December 2023.');
+    cy.contains(`You are importing commodity 1516 20 98 21 (C999, C496) from Argentina on ${currentDate}.`);
     cy.contains('Option 1: Third-country duty');
     cy.contains('10.90% * £1,000.00');
     cy.contains('Import duty (C999)');

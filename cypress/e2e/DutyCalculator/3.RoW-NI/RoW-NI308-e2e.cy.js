@@ -1,4 +1,8 @@
 // Retail Price
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Price , Excise Code  |', function() {
   it('RoW 🇳🇴 Norway  to NI | Document Code , Retail Price , Excise Code |', function() {
     cy.visit('/duty-calculator/xi/2402209000/import-date');
@@ -33,7 +37,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('611');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 December 2023.');
+    cy.contains(`You are importing commodity 2402 20 90 00 from Norway on ${currentDate}.`);
     // doc code y021 =  Apply the mentioned duty 27.95%
     cy.contains('Option 1: Third-country duty');
     cy.contains('611 - Cigarettes');
@@ -60,7 +64,7 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('611');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('You are importing commodity 2402 20 90 00 from Norway on 31 December 2023.');
+    cy.contains(`You are importing commodity 2402 20 90 00 from Norway on ${currentDate}.`);
     // doc code No code  =  Measure not applicable
     cy.contains('Option 1: Third-country duty');
     cy.contains('611 - Cigarettes');

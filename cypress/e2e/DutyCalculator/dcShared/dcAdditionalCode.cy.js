@@ -1,3 +1,7 @@
+import dayjs from 'dayjs';
+
+const currentDate = dayjs().format('DD MMMM YYYY');
+
 describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config', 'dc-tag']}, function() {
   it(`additional code 🇮🇱 | UK |`, function() {
     cy.visit('/duty-calculator/uk/6307909200/import-date');
@@ -20,7 +24,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('You are importing commodity');
-    cy.contains('from Israel on 31 December 2023.');
+    cy.contains(`from Israel on ${currentDate}.`);
     cy.contains('6307 90 92 00 (2600)');
     cy.contains('Option 1: Third-country duty');
   });

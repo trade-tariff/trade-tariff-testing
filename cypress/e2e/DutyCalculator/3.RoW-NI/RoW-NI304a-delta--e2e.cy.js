@@ -4,7 +4,7 @@ Nepal - XI = £240.00
 Nepal - NI = £247.00
 Δ MFN = £7.00
 */
-describe('| Row-NI304a--delta.spec.js | Turnover > £500,000 | 🔼 Delta Route - not be subject to processing - route 1️⃣ | Ad Valorem | Δ MFN < 3% of Import duties = UK import duties apply | ', function() {
+describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not processing | MFN < 3% of UK import duties apply', function() {
   // Ad Valorem - delta mfn < 3%
 
   it(`RoW 🇳🇵(Nepal) to NI | Ad Valorem - delta mfn < 3% = UK|`, function() {
@@ -32,7 +32,8 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500,000 | 🔼 Delta Route 
 
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (UK)');
-    cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+    cy.contains('UK import duties apply, as the difference between the UK third country duty and ');
+    cy.contains('the EU third country duty is lower than 3% of the customs value of your trade.');
   });
 
   // Ad Valorem - delta mfn 3%
@@ -66,7 +67,8 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500,000 | 🔼 Delta Route 
 
       cy.contains('Option 1: Third-country duty');
       cy.contains('Third-country duty (UK)');
-      cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
+      cy.contains('UK import duties apply, as the difference between the UK third country duty and ');
+      cy.contains('the EU third country duty is lower than 3% of the customs value of your trade.');
       cy.dcRooLink2();
     }
   });
@@ -105,10 +107,12 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500,000 | 🔼 Delta Route 
 
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - GSP – Enhanced Framework');
-    cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+    cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and ');
+    cy.contains('for drilling or production platforms');
     cy.contains('Option 4: Airworthiness tariff suspension');
     cy.contains('Third-country duty (EU)');
-    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty and ');
+    cy.contains('the EU third country duty exceeds 3% of the customs value of your trade.');
   });
   it('RoW 🇹🇭 (Thailand) - XI | Ad Valorem - delta mfn > 3% = EU |', function() {
     cy.visit(`/duty-calculator/uk/1302120000/import-date`);
@@ -138,6 +142,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500,000 | 🔼 Delta Route 
 
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (EU)');
-    cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
+    cy.contains('EU import duties apply, as the difference between the UK third country duty and ');
+    cy.contains('the EU third country duty exceeds 3% of the customs value of your trade.');
   });
 });
