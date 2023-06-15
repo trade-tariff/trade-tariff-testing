@@ -17,10 +17,14 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.visit('/terms?day=1&month=1&year=2022');
     cy.contains('Wrong codes and penalties');
     cy.contains('It\'s your responsibility to get your commodity code and licences right, even if you use an agent.');
-    cy.contains('HM Revenue and Customs (HMRC) can fine you, seize your goods and delay their release from customs if you import or export goods with the wrong codes.');
-    cy.contains('Users of the UK Integrated Online Tariff should be aware that in any case where information on this website is at variance with that contained in the appropriate legislation, the latter will represent the correct legal position.');
-    cy.contains('Whilst every effort is made to ensure the accuracy of the Tariff on GOV.UK, the onus remains with the user to consult published legislation as necessary and to ensure that the correct duties are paid at importation.');
-    cy.contains('In instances where the Customs Authorities are at error, the importer or exporter may still be liable for any additional duty that may be demanded as a result of that error being discovered.');
+    cy.contains('HM Revenue and Customs (HMRC) can fine you, seize your goods and delay their release from customs ');
+    cy.contains('if you import or export goods with the wrong codes.');
+    cy.contains('Users of the UK Integrated Online Tariff should be aware that in any case where information on this website is ');
+    cy.contains('at variance with that contained in the appropriate legislation, the latter will represent the correct legal position.');
+    cy.contains('Whilst every effort is made to ensure the accuracy of the Tariff on GOV.UK, the onus remains with the user to consult ');
+    cy.contains('published legislation as necessary and to ensure that the correct duties are paid at importation.');
+    cy.contains('In instances where the Customs Authorities are at error, the importer or exporter may still be liable for any ');
+    cy.contains('additional duty that may be demanded as a result of that error being discovered.');
   });
 
   it('UK - Support links - Cookies-navigates to right UK page ', function() {
@@ -45,26 +49,31 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.visit('/find_commodity');
     cy.contains('The UK has left the EU');
     cy.contains('Check the new rules for January 2021');
-    cy.get('.govuk-footer__navigation .govuk-footer__row:nth-of-type(1) [target]').should('have.attr', 'href', 'https://www.gov.uk/transition'); // no page load!
+    cy.get('.govuk-footer__navigation .govuk-footer__row:nth-of-type(1) [target]')
+        .should('have.attr', 'href', 'https://www.gov.uk/transition'); // no page load!
   });
 
   it('UK - Contact - Ask HMRC for advice on classifying your goods', function() {
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('Ask HMRC for advice on classifying your goods');
-    cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods'); // no page load!
+    cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link')
+        .should('have.attr', 'href', 'https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods'); // no page load!
   });
   it('UK - Contact - Imports and exports: general enquiries', function() {
+    const link = 'https://www.gov.uk/government/organisations/hm-revenue-customs/contact/customs-international-trade-and-excise-enquiries';
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('Imports and exports: general enquiries');
-    cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/government/organisations/hm-revenue-customs/contact/customs-international-trade-and-excise-enquiries'); // no page load!
+    cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link')
+        .should('have.attr', 'href', `${link}`); // no page load!
   });
   it('UK - Contact - Feedback', function() {
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('Feedback');
-    cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', '/feedback');
+    cy.get('.govuk-\\!-margin-top-5.govuk-footer__row > div:nth-of-type(1) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link')
+        .should('have.attr', 'href', '/feedback');
   });
 
   // Help Section
@@ -73,7 +82,8 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('Finding commodity codes for imports or exports');
-    cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports');
+    cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link')
+        .should('have.attr', 'href', 'https://www.gov.uk/guidance/finding-commodity-codes-for-imports-or-exports');
   });
   it('UK - Help - Using the Trade Tariff tool to find a commodity code', function() {
     cy.visit('/find_commodity');
@@ -84,7 +94,8 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('Import and export');
-    cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/topic/business-tax/import-export');
+    cy.get('div:nth-of-type(2) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link')
+        .should('have.attr', 'href', 'https://www.gov.uk/topic/business-tax/import-export');
   });
 
   // Related information
@@ -92,21 +103,24 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('UK Trade Tariff: Volume 1 – background information for importers and exporters');
-    cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-trade-tariff-volume-1');
+    cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(1) > .govuk-footer__link')
+        .should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-trade-tariff-volume-1');
   });
 
   it('UK - Related information - UK Trade Tariff: Volume 3 – procedures, codes and declaration entry details', function() {
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('UK Trade Tariff: Volume 1 – background information for importers and exporters');
-    cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link').should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-trade-tariff-volume-3');
+    cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(2) > .govuk-footer__link')
+        .should('have.attr', 'href', 'https://www.gov.uk/government/collections/uk-trade-tariff-volume-3');
   });
 
   it('UK - Related information - API Documentation', function() {
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__list');
     cy.contains('API Documentation');
-    cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link').should('have.attr', 'href', 'https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api');
+    cy.get('div:nth-of-type(3) > .govuk-footer__list > li:nth-of-type(3) > .govuk-footer__link')
+        .should('have.attr', 'href', 'https://api.trade-tariff.service.gov.uk/#gov-uk-trade-tariff-api');
     cy.apiDocPage();
   });
 

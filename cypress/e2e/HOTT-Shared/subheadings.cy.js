@@ -45,4 +45,8 @@ describe('verify subheadings', function() {
     cy.get('article.tariff').contains('1512111000');
     cy.get('article.tariff').should('not.have.text', 'Depends on additional code');
   });
+  it('XI - Subheading page title should not show any special characters', function() {
+    cy.visit('/xi/subheadings/0102291000-80');
+    cy.title().should('eq', 'Of a weight not exceeding 80 kg - Northern Ireland Online Tariff - GOV.UK');
+  });
 });

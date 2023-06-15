@@ -82,6 +82,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.get('a#tab_footnotes').click();
     cy.contains('Notes for commodity 4101203000');
     cy.contains('TN701');
+    cy.should('not.contain', 'CD422');
   });
 
   it('XI - News Banner', function() {
