@@ -76,4 +76,18 @@ describe('🇪🇺 🇬🇧 💡 | toolsSection-UKXI | Tools Section - breadcrum
     cy.contains('Meursing code finder').click();
     cy.contains('Look up a Meursing code');
   });
+  it('UK - Footnotes search', function() {
+    cy.visit('/footnote_search?type=CA&code=&description=');
+    cy.contains('UK Integrated Online Tariff');
+    cy.contains('Search by Footnote');
+    cy.contains('Footnote search results');
+    cy.contains('CA006');
+  });
+  it('XI - Footnotes search', function() {
+    cy.visit('/xi/footnote_search?type=CA&code=&description=');
+    cy.contains('UK Integrated Online Tariff');
+    cy.contains('Search by Footnote');
+    cy.contains('Footnote search results');
+    cy.contains('CA005');
+  });
 });

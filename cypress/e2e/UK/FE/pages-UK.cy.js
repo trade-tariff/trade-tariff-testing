@@ -108,6 +108,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('a#tab_footnotes').click();
     cy.contains('Notes for commodity 4101203000');
     cy.contains('TN701');
+    cy.should('not.contain', 'CD422');
   });
 
   it('UK - News Banner', function() {
