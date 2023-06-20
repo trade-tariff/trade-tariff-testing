@@ -7,7 +7,7 @@ describe('| RoO-e2e-WO-Multiple-DCTS.spec | WO + Multiple Schemes + DCTS - Vietn
     // Select one agreement
     cy.multipleAgreements('Vietnam', 'dcts-general-enhanced');
     // Import
-    cy.importDCTS('0201100021', 'Vietnam');
+    cy.importGSP('0201100021', 'Vietnam');
     // How Originating is defined
     cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS)');
     // How wholly obtained is defined

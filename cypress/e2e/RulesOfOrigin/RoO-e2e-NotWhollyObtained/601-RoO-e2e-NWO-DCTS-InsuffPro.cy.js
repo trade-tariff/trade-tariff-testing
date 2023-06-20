@@ -5,7 +5,7 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     cy.visit('/commodities/5808100000?country=BD#rules-of-origin');
     cy.checkRoO();
     // Import
-    cy.importDCTS('5808100000', 'Bangladesh');
+    cy.importGSP('5808100000', 'Bangladesh');
     // How Originating is defined
     cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS)');
     // How wholly obtained is defined
@@ -21,7 +21,7 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     // Min Processing NO
     cy.minimalOps('Developing Countries Trading Scheme (DCTS)', 'no');
     // Origin requirements met
-    cy.rooNotMetDCTS('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS)');
+    cy.rooNotMetGSP('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS)');
     // Min Processing Yes
     cy.go(-2);
     cy.minimalOps('Developing Countries Trading Scheme (DCTS)', 'yes');
@@ -30,6 +30,6 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     // product specific rules?
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements met
-    cy.rooNotMetDCTS('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS)');
+    cy.rooNotMetGSP('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS)');
   });
 });
