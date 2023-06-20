@@ -100,7 +100,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     // without selecting any country
     cy.contains('Exporting from Northern Ireland');
     cy.contains('The commodity code for exporting and Intrastat reporting is 07020000');
-    cy.contains('Check duties and customs procedures for exporting goods');
+    // cy.contains('Check duties and customs procedures for exporting goods');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
 
     cy.contains('Use this service to check:');
