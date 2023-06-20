@@ -77,7 +77,7 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
       cy.contains('Import duty calculation');
       cy.contains(`You are importing commodity 0703 10 19 00 from Vietnam on ${currentDate}`);
       cy.contains('Option 1: Third-country duty');
-      cy.contains('Option 2: Tariff preference - GSP – General Framework');
+      cy.contains('Option 2: Tariff preference - Vietnam');
       cy.dcRooLink({country: 'Vietnam'});
     });
   }

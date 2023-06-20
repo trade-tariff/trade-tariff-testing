@@ -126,7 +126,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     // without selecting any country
     cy.contains('Exporting from the UK');
     cy.contains('The commodity code for exporting and Intrastat reporting is 07020000');
-    cy.get('#export > .govuk-inset-text').contains('Check duties and customs procedures for exporting goods');
+    cy.contains('Check duties and customs procedures for exporting goods');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
 
     cy.contains('Use this service to check:');
@@ -170,40 +170,10 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Duty drawback - an example');
     cy.contains('Agreements which include a duty drawback provision');
     cy.contains('UK-Albania Partnership, Trade and Cooperation Agreement');
-
-    cy.get('tr > td > ul > li > a')
-        .should(
-            'have.attr',
-            'href',
-            'https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement',
-        );
-
-    cy.contains('View origin reference document');
-
-    cy.get('tr > td > ul > li:nth-child(2) > a').should(
-        'have.attr',
-        'href',
-        '/roo_origin_reference_documents/211228_ORD_Albania_V1.1.odt',
-    );
-
-    cy.contains('Generalised Scheme of Preferences (GSP)');
-    cy.contains('View agreement details');
-
-    cy.get('tr:nth-child(22) > td:nth-child(2) > ul > li > a').should(
-        'have.attr',
-        'href',
-        'https://www.gov.uk/government/publications/trading-with-developing-nations',
-    );
-
-    cy.contains('Rules of origin glossary');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/glossary');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');
-    cy
-        .get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2) > a')
-        .should(
-            'have.attr',
-            'href',
-            '/help/rules_of_origin/duty_drawback',
-        );
+    cy.get('a[href^="https://www.gov.uk/government/collections/uk-albania-partnership-trade-and-cooperation-agreement"]')
+        .contains('View agreement details');
+    cy.get('a[href^="/roo_origin_reference_documents/211228_ORD_Albania_V1.1.odt"]').contains('View origin reference document');
+    cy.get('a[href^="/glossary"]').contains('Rules of origin glossary');
+    cy.get('a[href^="/help/rules_of_origin/duty_drawback"]').contains('Duty drawback');
   });
 });

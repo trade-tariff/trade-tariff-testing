@@ -100,7 +100,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     // without selecting any country
     cy.contains('Exporting from Northern Ireland');
     cy.contains('The commodity code for exporting and Intrastat reporting is 07020000');
-    cy.get('#export > .govuk-inset-text').contains('Check duties and customs procedures for exporting goods');
+    cy.contains('Check duties and customs procedures for exporting goods');
     cy.contains('Find information about how to move goods from the UK to the rest of the world.');
 
     cy.contains('Use this service to check:');
@@ -135,13 +135,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.contains('What is duty drawback');
     cy.contains('Duty drawback - an example');
     cy.contains('Agreements which include a duty drawback provision');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1)').contains('Rules of origin glossary');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(1) > a').should('have.attr', 'href', '/xi/glossary');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2)').contains('Duty drawback');
-    cy.get('.govuk-grid-column-one-third > div > nav > ul > li:nth-child(2) > a').should(
-        'have.attr',
-        'href',
-        '/xi/help/rules_of_origin/duty_drawback',
-    );
+    cy.get('a[href^="/xi/glossary"]').contains('Rules of origin glossary');
+    cy.get('a[href^="/xi/help/rules_of_origin/duty_drawback"]').contains('Duty drawback');
   });
 });

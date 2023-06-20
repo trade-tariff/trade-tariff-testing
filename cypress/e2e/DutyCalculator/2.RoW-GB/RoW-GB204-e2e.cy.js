@@ -19,7 +19,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.dutyPage();
     cy.contains(' VAT');
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
+    cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     cy.contains('Option 3: Airworthiness tariff suspension');
     cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and');
     cy.contains('other vessels and for drilling or production platforms');
@@ -37,7 +37,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
+    cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     cy.contains('419 - Wine with an alcoholic strength exceeding 22% ABV');
   });
   it('e2e RoW to GB | 🇫🇷 France to 🇬🇧 GB | Excise code | Champagne |', function() {

@@ -71,7 +71,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('#rules-of-origin__intro--multiple-schemes')
         .contains('Your trade may qualify for preferential rates with Vietnam through 2 agreements');
     cy.get('#rules-of-origin__intro--multiple-schemes').contains('UK-Vietnam Free Trade Agreement');
-    cy.get('#rules-of-origin__intro--multiple-schemes').contains('Generalised Scheme of Preferences (GSP)');
+    cy.get('#rules-of-origin__intro--multiple-schemes').contains('Developing Countries Trading Scheme (DCTS)');
     cy.get('.panel.panel--grey').contains('Work out if your goods meet the rules of origin');
     cy.get('.panel.panel--grey a[href^="https://www.gov.uk/guidance/apply-for-an-advance-origin-ruling"]')
         .contains('apply for an advanced origin ruling (opens in new window)');
@@ -82,7 +82,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width')
         .contains('Manufacture in which all the materials of chapter 7 used are wholly obtained.');
     cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width a[href^="/chapters/07"]').contains('chapter 7');
-    cy.contains('Rules under the Generalised Scheme of Preferences (GSP)');
+    cy.contains('Rules under the Developing Countries Trading Scheme (DCTS)');
     cy.get('.govuk-table.govuk-table--responsive.commodity-rules-of-origin').contains('Heading');
     cy.get('.govuk-table.govuk-table--responsive.commodity-rules-of-origin').contains('Rule');
     cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width')
@@ -129,8 +129,9 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('h2#proofs-for-eu').contains('UK / EU Trade and Co-operation Agreement');
     cy.contains('UK-Chile Association Agreement').click();
     cy.get('h2#proofs-for-chile').contains('UK-Chile Association Agreement');
-    cy.contains('Generalised Scheme of Preferences (GSP)').click();
-    cy.get('h2#proofs-for-gsp').contains('Generalised Scheme of Preferences (GSP)');
+    cy.contains('Developing Countries Trading Scheme (DCTS)').click();
+    cy.get('h2#proofs-for-dcts-ldcs').contains('Developing Countries Trading Scheme (DCTS)');
+    cy.get('h2#proofs-for-dcts-general-enhanced').contains('Developing Countries Trading Scheme (DCTS)');
   });
   it('UK | Show all PSRs on the single page', function() {
     cy.visit('/commodities/6210400000?country=CL#rules-of-origin');
@@ -144,7 +145,8 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('#content > p > a').contains('Back to top').click();
     cy.contains('UK-Chile Association Agreement').click();
     cy.get('h2#rules-for-chile').contains('UK-Chile Association Agreement');
-    cy.contains('Generalised Scheme of Preferences (GSP)').click();
-    cy.get('h2#rules-for-gsp').contains('Generalised Scheme of Preferences (GSP)');
+    cy.contains('Developing Countries Trading Scheme (DCTS)').click();
+    cy.get('h2#rules-for-dcts-ldcs').contains('Developing Countries Trading Scheme (DCTS)');
+    cy.get('h2#rules-for-dcts-general-enhanced').contains('Developing Countries Trading Scheme (DCTS)');
   });
 });
