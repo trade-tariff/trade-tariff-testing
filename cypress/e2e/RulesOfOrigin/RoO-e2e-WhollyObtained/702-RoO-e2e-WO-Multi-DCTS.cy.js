@@ -9,16 +9,16 @@ describe('| RoO-e2e-WO-Multiple-DCTS.spec | WO + Multiple Schemes + DCTS - Vietn
     // Import
     cy.importGSP('0201100021', 'Vietnam');
     // How Originating is defined
-    cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS)');
+    cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
     // How wholly obtained is defined
-    cy.howWhollyObtained('Developing Countries Trading Scheme (DCTS)');
+    cy.howWhollyObtained('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
     // what components ?
-    cy.whatComponents('Developing Countries Trading Scheme (DCTS)');
+    cy.whatComponents('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Vietnam', 'yes');
     // Verify feeback section on product rules met screen
     cy.feebackSection();
     // Origin requirements met
-    cy.originMet('Vietnam', '0201100021', 'Developing Countries Trading Scheme (DCTS)');
+    cy.originMet('Vietnam', '0201100021', 'Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
   });
 });

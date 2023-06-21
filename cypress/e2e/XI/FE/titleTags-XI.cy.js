@@ -34,15 +34,13 @@ describe('🇪🇺 💡 | titleTags-XI | Validating page titles tags - meta data
     console.log(cy.title());
     cy.title().should('eq', 'Live animals; animal products - Northern Ireland Online Tariff - GOV.UK');
   });
-  it('🧷 Chapter Page - Live animals - Northern Ireland Online Tariff - GOV.UK', function() {
+  it('🧷 Chapter Page - LIVE ANIMALS - Northern Ireland Online Tariff - GOV.UK', function() {
     cy.visit('/xi/chapters/01');
-    cy.log(cy.title());
-    cy.title().should('eq', 'Live animals - Northern Ireland Online Tariff - GOV.UK');
+    cy.title().should('eq', 'LIVE ANIMALS - Northern Ireland Online Tariff - GOV.UK');
   });
-  it('🧷 Headings Page - Live horses, asses, mules and hinnies - Northern Ireland Online Tariff - GOV.UK', function() {
-    cy.visit('/xi/headings/0101');
-    cy.log(cy.title());
-    cy.title().should('eq', 'Live horses, asses, mules and hinnies - Northern Ireland Online Tariff - GOV.UK');
+  it('🧷 Subheadings Page - Rosin and resin acids - Northern Ireland Online Tariff - GOV.UK', function() {
+    cy.visit('/xi/subheadings/3806100000-80');
+    cy.title().should('eq', 'Rosin and resin acids - Northern Ireland Online Tariff - GOV.UK');
   });
   it('🧷 Commodity Page - Commodity code 0101210000: Pure-bred breeding animals - Northern Ireland Online Tariff - GOV.UK ', function() {
     cy.visit('/xi/commodities/0101210000');

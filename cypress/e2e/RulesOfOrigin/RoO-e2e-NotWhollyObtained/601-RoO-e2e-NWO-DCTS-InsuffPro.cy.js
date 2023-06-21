@@ -7,11 +7,11 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     // Import
     cy.importGSP('5808100000', 'Bangladesh');
     // How Originating is defined
-    cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS)');
+    cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     // How wholly obtained is defined
-    cy.howWhollyObtained('Developing Countries Trading Scheme (DCTS)');
+    cy.howWhollyObtained('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     // what components ?
-    cy.whatComponents('Developing Countries Trading Scheme (DCTS)');
+    cy.whatComponents('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Bangladesh', 'no');
     // Your goods are not wholly obtained
@@ -21,7 +21,7 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     // Min Processing NO
     cy.minimalOps('Developing Countries Trading Scheme (DCTS)', 'no');
     // Origin requirements met
-    cy.rooNotMetGSP('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS)');
+    cy.rooNotMetGSP('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     // Min Processing Yes
     cy.go(-2);
     cy.minimalOps('Developing Countries Trading Scheme (DCTS)', 'yes');
@@ -30,6 +30,6 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     // product specific rules?
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements met
-    cy.rooNotMetGSP('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS)');
+    cy.rooNotMetGSP('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
   });
 });

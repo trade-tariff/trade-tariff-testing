@@ -19,7 +19,7 @@ describe('| 708-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
     // product specific rules
-    cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MaxNOM).', 'JP');
+    cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MAXNOM).', 'JP');
     // Origin requirements met
     cy.originMet('Japan', '1602321110', 'UK-Japan Comprehensive Economic Partnership Agreement');
   });
@@ -43,9 +43,9 @@ describe('| 708-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     cy.cumulation('iceland-norway', '6101201000', 'IS', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
     // moreInfoAboutProduct
-    cy.moreInfoAboutProduct('6101201000', 'Articles of apparel and clothing accessories, knitted or crocheted: ➔ Other');
+    cy.moreInfoAboutProduct('6101201000', 'Articles of apparel and clothing accessories, knitted or crocheted ▸ Other');
     // prodSpecRules
-    cy.prodSpecRules('Manufacture from :');
+    cy.prodSpecRules('Manufacture from:');
     // Origin requirements met
     cy.originMet('Iceland', '6101201000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     cy.contains('Product-specific rules met');
