@@ -242,7 +242,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.dutyPage();
 
       cy.contains('Option 1: Third-country duty');
-      cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
+      cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     });
 
     it('RoW - Duty Calculator e2e - United Arab Emirates - XI', function() {

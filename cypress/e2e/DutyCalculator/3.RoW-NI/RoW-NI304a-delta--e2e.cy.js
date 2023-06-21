@@ -69,7 +69,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not pr
       cy.contains('Third-country duty (UK)');
       cy.contains('UK import duties apply, as the difference between the UK third country duty and ');
       cy.contains('the EU third country duty is lower than 3% of the customs value of your trade.');
-      cy.dcRooLink2();
+      cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     }
   });
   // Ad Valorem - delta mfn 3%
@@ -106,7 +106,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not pr
     cy.dutyPage();
 
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - GSP – Enhanced Framework');
+    cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Enhanced Preferences');
     cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and ');
     cy.contains('for drilling or production platforms');
     cy.contains('Option 4: Airworthiness tariff suspension');
@@ -140,6 +140,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not pr
     cy.confirmPage();
     cy.dutyPage();
 
+    cy.contains('Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.');
     cy.contains('Option 1: Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and ');
