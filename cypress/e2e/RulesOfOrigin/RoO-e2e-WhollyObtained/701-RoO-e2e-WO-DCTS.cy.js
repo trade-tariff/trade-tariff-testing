@@ -7,14 +7,14 @@ describe('| RoO-e2e-WhollyObtained-GSP.spec | WO + GSP Scheme - Bangladesh |', {
     // Import
     cy.importGSP('0201100021', 'Bangladesh');
     // How Originating is defined
-    cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS)');
+    cy.howOrginating('United Kingdom', 'Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     // How wholly obtained is defined
-    cy.howWhollyObtained('Developing Countries Trading Scheme (DCTS)');
+    cy.howWhollyObtained('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     // what components ?
-    cy.whatComponents('Developing Countries Trading Scheme (DCTS)');
+    cy.whatComponents('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Bangladesh', 'yes');
     // Origin requirements met
-    cy.originMet('Bangladesh', '0201100021', 'Developing Countries Trading Scheme (DCTS)');
+    cy.originMet('Bangladesh', '0201100021', 'Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
   });
 });
