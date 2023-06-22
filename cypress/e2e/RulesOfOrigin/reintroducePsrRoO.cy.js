@@ -63,37 +63,6 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
     cy.get('#rules-of-origin-proofs').contains('Importer\'s knowledge').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
   });
-  it('UK | Reintroduce proofs of origin | Country has dual schemes', function() {
-    cy.visit('/commodities/0702000007?country=VN#product-specific-rules');
-    cy.contains('Rules of origin').click();
-    cy.contains('Preferential rules of origin for trading with Vietnam');
-    cy.contains('UK-Vietnam Free Trade Agreement');
-    cy.get('#rules-of-origin__intro--multiple-schemes')
-        .contains('Your trade may qualify for preferential rates with Vietnam through 2 agreements');
-    cy.get('#rules-of-origin__intro--multiple-schemes').contains('UK-Vietnam Free Trade Agreement');
-    cy.get('#rules-of-origin__intro--multiple-schemes').contains('Developing Countries Trading Scheme (DCTS)');
-    cy.get('.panel.panel--grey').contains('Work out if your goods meet the rules of origin');
-    cy.get('.panel.panel--grey a[href^="https://www.gov.uk/guidance/apply-for-an-advance-origin-ruling"]')
-        .contains('apply for an advanced origin ruling (opens in new window)');
-    cy.get('h3#product-specific-rules').contains('Product-specific rules - trade with Vietnam');
-    cy.contains('Rules under the UK-Vietnam Free Trade Agreement');
-    cy.get('.govuk-table.govuk-table--responsive.commodity-rules-of-origin').contains('Heading');
-    cy.get('.govuk-table.govuk-table--responsive.commodity-rules-of-origin').contains('Rule');
-    cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width')
-        .contains('Manufacture in which all the materials of chapter 7 used are wholly obtained.');
-    cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width a[href^="/chapters/07"]').contains('chapter 7');
-    cy.contains('Rules under the Developing Countries Trading Scheme (DCTS)');
-    cy.get('.govuk-table.govuk-table--responsive.commodity-rules-of-origin').contains('Heading');
-    cy.get('.govuk-table.govuk-table--responsive.commodity-rules-of-origin').contains('Rule');
-    cy.get('.govuk-table__cell.tariff-markdown.responsive-full-width')
-        .contains('Manufacture in which all the materials of chapter 7 used are wholly obtained.');
-    cy.get('h3#proofs-of-origin').contains('Proofs of origin');
-    cy.get('#rules-of-origin-proofs').contains('EUR.1 movement certificate').click();
-    cy.get('#rules-of-origin-proofs').contains('Origin declaration').click();
-    cy.get('#rules-of-origin-proofs').contains('Generalised Scheme of Preferences Form A').click();
-    cy.get('#rules-of-origin-proofs').contains('Origin declaration').click();
-    cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
-  });
   it('UK | Verify Proofs of origin page - RoO', function() {
     cy.visit('/commodities/6004100091?country=JP#rules-of-origin');
     // click Check Rules of Origin button

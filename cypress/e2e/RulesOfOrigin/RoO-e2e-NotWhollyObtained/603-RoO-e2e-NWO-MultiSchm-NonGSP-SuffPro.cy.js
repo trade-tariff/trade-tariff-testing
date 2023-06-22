@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
 // NWO + Multi-NonGSP + Sufficient processing + SubDivision + PSR
 //
+
+// This is no longer a multi scheme scenarios as Vietnam has been removed from the DCTS groups.
 describe('| RoO-e2e-NWO-MultiSchm-NonGSP-SuffPro.spec | NWO + Multi-NonGSP + Sufficient processing + SubDivision + PSR  |', {tags: ['notProduction']}, function() {
   it('Importing - NWO + Multi-NonGSP + Sufficient processing  + Vietnam + Prod specific rules - Yes/No', function() {
     cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
-    // Select one agreement
-    cy.multipleAgreements('Vietnam', 'vietnam');
     // Import
     cy.impOrExp('Vietnam', 'import');
     // How Originating is defined

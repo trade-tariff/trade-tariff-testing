@@ -352,7 +352,6 @@ Cypress.Commands.add('rooNotMetMulti', (tradeSelection, country, code, scheme)=>
   cy.contains('Valid proofs of origin');
   cy.go(-1);
   cy.get('.govuk-warning-text__text').contains('start again').click();
-  cy.contains(`Select agreement for trading with ${country}`);
 });
 Cypress.Commands.add('prodSpecRules', (rule)=>{
   cy.contains('Do your goods meet the product-specific rules?');
