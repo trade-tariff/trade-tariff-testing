@@ -4,8 +4,6 @@ describe('| RoO-e2e-WO-Multiple-nonGSP.spec | WO + Multiple Schemes + nonGSP - V
     cy.visit('/commodities/0201100021?country=VN#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
-    // Select one agreement
-    cy.multipleAgreements('Vietnam', 'vietnam');
     // Import
     cy.impOrExp('Vietnam', 'import');
     // How Originating is defined
@@ -23,8 +21,6 @@ describe('| RoO-e2e-WO-Multiple-nonGSP.spec | WO + Multiple Schemes + nonGSP - V
     cy.visit('/commodities/0201100021?country=VN#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
-    // Select one agreement
-    cy.multipleAgreements('Vietnam', 'vietnam');
     // Import
     cy.impOrExp('Vietnam', 'export');
     // How Originating is defined

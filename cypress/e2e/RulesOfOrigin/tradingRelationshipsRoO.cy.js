@@ -23,7 +23,7 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
     cy.contains('EU - Chile Association Agreement');
   });
   // add trading with GSP countries comoros
-  it('| Trading relations with Kenya - UK-Vietnam agreement + GSP |', function() {
+  it('| Trading relations with Vietnam - UK-Vietnam agreement + GSP |', function() {
     cy.visit('/commodities/0702000007');
     cy.get('input#trading_partner_country').click();
     cy.get('input#trading_partner_country').clear();
@@ -31,8 +31,6 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
     cy.get('input#trading_partner_country').type('{enter}');
     cy.contains('Rules of origin').click();
     cy.contains('Preferential rules of origin for trading with Vietnam');
-    cy.contains('Your trade may qualify for preferential rates with Vietnam through 2 agreements. Check the rules of origin applicable to each of these agreements.');
     cy.contains('UK-Vietnam Free Trade Agreement');
-    cy.contains('Developing Countries Trading Scheme (DCTS)');
   });
 });

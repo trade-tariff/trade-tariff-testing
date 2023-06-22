@@ -2,7 +2,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 // NWO + Multi-NonGSP + Insufficient processing = RoO Not met
-//
+
+// This is no longer a multi scheme scenarios as Vietnam has been removed from the DCTS groups.
 describe('| 602-RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-NonGSP + Insufficient processing |', {tags: ['notProduction']}, function() {
   const trade_type = ['import', 'export'];
   const trade_country = ['Vietnam', 'United Kingdom'];
@@ -13,8 +14,6 @@ describe('| 602-RoO-e2e-NWO-MultiSchm-NonGSP-InsuffPro.spec | NWO + Multi-NonGSP
       cy.visit('/commodities/6004100091?country=VN#rules-of-origin');
       // click Check Rules of Origin button
       cy.checkRoO();
-      // Select one agreement
-      cy.multipleAgreements('Vietnam', 'vietnam');
       // Import
       cy.impOrExp('Vietnam', `${trade_type[i]}`);
       // How Originating is defined
