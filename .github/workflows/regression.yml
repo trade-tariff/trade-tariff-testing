@@ -21,7 +21,7 @@ jobs:
     steps:
       - run: date
 
-      - name: Check out repository code
+      - name: Checkout repository code
         uses: actions/checkout@v3
 
       - name: Generate lists of specs

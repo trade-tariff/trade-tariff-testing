@@ -26,11 +26,14 @@ jobs:
       matrix:
         containers: [0, 1, 2, 3]
     outputs:
-      output1: ${{ steps.cypress-outcome.outputs.test-status }}
+      output0: ${{ steps.cypress-outcome.outputs.test-status-0 }}
+      output1: ${{ steps.cypress-outcome.outputs.test-status-1 }}
+      output2: ${{ steps.cypress-outcome.outputs.test-status-2 }}
+      output3: ${{ steps.cypress-outcome.outputs.test-status-3 }}
     steps:
       - run: date
 
-      - name: Check out repository code
+      - name: Checkout repository code
         uses: actions/checkout@v3
 
       - name: Generate lists of specs
@@ -52,7 +55,7 @@ jobs:
       - name: Cypress test outcome
         id: cypress-outcome
         run: |
-          echo "test-status=${{ steps.cypress.outcome }}" >> $GITHUB_OUTPUT
+          echo "test-status-${{ matrix.containers }}=${{ steps.cypress.outcome }}" >> $GITHUB_OUTPUT
 
       - name: Upload E2E test reports
         uses: actions/upload-artifact@v3
@@ -156,6 +159,11 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
 
+      - name: Set build status as output to pass it to slack
+        id: final-test
+        if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
+        run: echo "result=failure" >> $GITHUB_OUTPUT
+
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -163,10 +171,10 @@ jobs:
           SLACK_USERNAME: "Staging Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
-          SLACK_COLOR: ${{ needs.cypress-run.outputs.output1 }}
-          SLACK_TITLE: Cypress finished with - ${{ needs.cypress-run.outputs.output1 }}
+          SLACK_COLOR: ${{ steps.final-test.outputs.result }}
+          SLACK_TITLE: Cypress finished with - ${{ steps.final-test.outputs.result }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
 
       - name: Set build status based on Cypress outcome
-        if: needs.cypress-run.outputs.output1 != 'success'
+        if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
         run: exit 1
