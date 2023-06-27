@@ -63,11 +63,13 @@ jobs:
           name: test-reports-${{ matrix.containers }}
           path: ./cypress/reports/
 
-  gen_report:
+  gen-report:
     name: Generate test report
     needs: cypress-run
     if: always()
     runs-on: ubuntu-22.04
+    outputs:
+      date-output: ${{ steps.current-date.outputs.date}}
     steps:
       - name: Install dependencies
         run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
@@ -156,15 +158,22 @@ jobs:
           directory: reports_repo
 
       - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
+        id: current-date
+        run: echo "date=$(date +'%d-%m-%Y')"
 
-      - name: Set build status as output to pass it to slack
+  build-status-pass:
+    name: Set build status
+    needs: [cypress-run, gen-report]
+    if: always()
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set build status as output to pass it to slack when build pass
         id: final-test
-        if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
-        run: echo "result=failure" >> $GITHUB_OUTPUT
-
+        if: needs.cypress-run.outputs.output0 == 'success' || needs.cypress-run.outputs.output1 == 'success' || needs.cypress-run.outputs.output2 == 'success' || needs.cypress-run.outputs.output3 == 'success'
+        run: echo "result=success" >> $GITHUB_OUTPUT
+      
       - name: Slack Notification
+        if: needs.cypress-run.outputs.output0 == 'success' || needs.cypress-run.outputs.output1 == 'success' || needs.cypress-run.outputs.output2 == 'success' || needs.cypress-run.outputs.output3 == 'success'
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: "tariffs-regression"
@@ -173,7 +182,31 @@ jobs:
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ steps.final-test.outputs.result }}
           SLACK_TITLE: Cypress finished with - ${{ steps.final-test.outputs.result }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ steps.date.outputs.date }}/
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ needs.gen-report.outputs.date-output }}/
+        
+
+  build-status-fail:
+    name: Set build status
+    needs: [cypress-run, gen-report]
+    if: always()
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set build status as output to pass it to slack when build fail
+        id: final-test
+        if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
+        run: echo "result=failure" >> $GITHUB_OUTPUT
+     
+      - name: Slack Notification
+        if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: "tariffs-regression"
+          SLACK_USERNAME: "Staging Regression"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
+          SLACK_COLOR: ${{ steps.final-test.outputs.result }}
+          SLACK_TITLE: Cypress finished with - ${{ steps.final-test.outputs.result }}
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ needs.gen-report.outputs.date-output }}/
 
       - name: Set build status based on Cypress outcome
         if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
