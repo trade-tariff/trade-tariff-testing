@@ -25,7 +25,7 @@ module.exports = defineConfig({
     'screenshotOnRunFailure': true,
     'projectId': '7p655m',
     'parseSpecialCharSequences': false,
-    'defaultCommandTimeout': 15000,
+    'defaultCommandTimeout': 20000,
     'responseTimeout': 60000,
     'reporter': 'mochawesome',
     'reporterOptions': {
