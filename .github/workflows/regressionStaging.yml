@@ -69,7 +69,7 @@ jobs:
     if: always()
     runs-on: ubuntu-22.04
     outputs:
-      date-output: ${{ steps.current-date.outputs.date}}
+      date-output: ${{ steps.date.outputs.date}}
     steps:
       - name: Install dependencies
         run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
@@ -158,8 +158,8 @@ jobs:
           directory: reports_repo
 
       - name: Get current date
-        id: current-date
-        run: echo "date=$(date +'%d-%m-%Y')"
+        id: date
+        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
 
   build-status-pass:
     name: Set build status and send slack notification when build is passed
@@ -183,7 +183,6 @@ jobs:
           SLACK_COLOR: ${{ steps.final-test.outputs.result }}
           SLACK_TITLE: Cypress finished with - ${{ steps.final-test.outputs.result }}
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ needs.gen-report.outputs.date-output }}/
-        
 
   build-status-fail:
     name: Set build status and send slack notification when build is failed
