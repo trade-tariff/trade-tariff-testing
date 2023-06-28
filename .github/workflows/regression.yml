@@ -160,11 +160,11 @@ jobs:
     steps:
       - name: Set build status as output to pass it to slack when build is passed
         id: final-test
-        if: needs.cypress-run.outputs.output0 == 'success' || needs.cypress-run.outputs.output1 == 'success' || needs.cypress-run.outputs.output2 == 'success' || needs.cypress-run.outputs.output3 == 'success'
+        if: needs.cypress-run.outputs.output0 == 'success' && needs.cypress-run.outputs.output1 == 'success' && needs.cypress-run.outputs.output2 == 'success' && needs.cypress-run.outputs.output3 == 'success'
         run: echo "result=success" >> $GITHUB_OUTPUT
       
       - name: Slack Notification
-        if: needs.cypress-run.outputs.output0 == 'success' || needs.cypress-run.outputs.output1 == 'success' || needs.cypress-run.outputs.output2 == 'success' || needs.cypress-run.outputs.output3 == 'success'
+        if: needs.cypress-run.outputs.output0 == 'success' && needs.cypress-run.outputs.output1 == 'success' && needs.cypress-run.outputs.output2 == 'success' && needs.cypress-run.outputs.output3 == 'success'
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: "tariffs-regression"
