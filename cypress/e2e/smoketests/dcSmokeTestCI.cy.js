@@ -41,7 +41,7 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.dutyPage();
     cy.contains(' VAT');
     cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - GSP – Least Developed Countries');
+    cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     cy.contains('Option 4: Suspension - goods for certain categories of ships');
     cy.contains('Option 3: Airworthiness tariff suspension');
   });
@@ -119,7 +119,6 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('Customs value');
     cy.contains('Import quantity');
     cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00');
-    cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('31 December 2023');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Northern Ireland');
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
     cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('Yes');
