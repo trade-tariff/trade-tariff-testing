@@ -20,9 +20,6 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.quantity({asv: '40', ltr: '45'});
     cy.contains('Which class of excise is applicable to your trade?');
     cy.contains('Excise duty applies to trade in this commodity code. Select which class of excise duty applies to your trade');
-    cy.contains('Please note that the work to calculate the');
-    cy.contains('Small Breweries\' Relief (SBR)');
-    cy.contains('is in development and will be available shortly.');
 
     cy.contains('For more information on excise duty classes, please see');
     cy.contains('UK Trade: excise, duties, reliefs, drawbacks and allowances (opens in new browser window)');
