@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-const currentDate = dayjs().format('DD');
+const currentDate = dayjs().format('D');
 const currentMonth = dayjs().format('M');
 const currentYear = dayjs().format('YYYY');
 
