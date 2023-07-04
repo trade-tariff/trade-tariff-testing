@@ -166,6 +166,26 @@ Cypress.Commands.add('quantity', (measureUnits) => {
   cy.contains('Continue').click();
 });
 
+// enter import quantity
+Cypress.Commands.add('alcoholImportQuantity', (measureUnits) => {
+  cy.contains('Enter import quantity');
+  cy.title().should('eq', 'Enter import quantity - Online Tariff Duty calculator');
+  cy.contains('What is the alcohol percentage (%) of the goods you are importing?');
+  cy.contains('What is the volume of the goods that you will be importing?');
+  for (const [key, value] of Object.entries(measureUnits)) {
+    cy.get(`#steps-measure-amount-${key}-field`).clear();
+    cy.get(`#steps-measure-amount-${key}-field`).type(value);
+  }
+  cy.contains('Continue').click();
+});
+
+Cypress.Commands.add('verifyAdditionalCodesExclusion', () => {
+  cy.contains('Which class of excise is applicable to your trade?');
+  cy.title().should('eq', 'Which class of excise is applicable to your trade - Online Tariff Duty Calculator');
+  cy.get(`#steps-excise-additional-code-440-field`).should('not.be.enabled');
+  cy.get(`#steps-excise-additional-code-441-field`).should('not.be.enabled');
+});
+
 // final use UK
 Cypress.Commands.add('finalUse', (value) => {
   cy.title().should('eq', 'Are your goods for final use in the UK - Online Tariff Duty calculator');
