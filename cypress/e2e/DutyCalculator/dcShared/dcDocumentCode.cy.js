@@ -45,8 +45,10 @@ describe('📄 | dcDocumentCode.spec.js | Validate Document codes on duty calcul
     // Validate calculations based on document code selected
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - Canada');
-    cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
-    cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (EU)');
+    cy.contains('Option 3: Suspension - goods for certain categories of ships, ');
+    cy.contains('boats and other vessels and for drilling or production platforms');
+    cy.contains('Suspension - goods for certain categories of ships, boats ');
+    cy.contains('and other vessels and for drilling or production platforms (EU)');
 
     // go back to previous page to change doc code
     cy.get('.govuk-back-link').click();
