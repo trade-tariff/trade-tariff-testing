@@ -76,4 +76,9 @@ describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'ro
     cy.contains('RVC');
     cy.contains('Build-Up Method');
   });
+  it('UK - Remove Somoa(WS) from DCTS General & Enhanced Framework', function() {
+    cy.visit('/rules_of_origin/0702000007?country=IN#rules-for-dcts-general-enhanced');
+    cy.contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
+    cy.should('not.contain', 'Somoa');
+  });
 });
