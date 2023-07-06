@@ -444,3 +444,16 @@ Cypress.Commands.add('svpPageLinks', () => {
   cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-6-fall-back-method\']')
       .contains('Valuing imported goods using Method 6 (fall-back method)');
 });
+
+Cypress.Commands.add('verifyDCTSTariffPereferences', (areaID) => {
+  const dctsUrl = '/news/stories/what-is-dcts-and-why-is-it-important-for-international-trade';
+  cy.url().should('contain', `/measure_types/142/preference_codes/200?geographical_area_id=${areaID}`);
+  cy.get('.govuk-back-link').contains('Back to commodity 6004100091');
+  cy.get('#main-content').contains('142');
+  cy.get('#main-content').contains('Unilateral preferences, as part of the Developing Countries Trading Scheme (DCTS) ');
+  cy.get('#main-content').contains('are also included as tariff preferences.');
+  cy.get(`a[href^="${dctsUrl}"]`).contains('Developing Countries Trading Scheme (DCTS)');
+  cy.get('#main-content').contains('Import only');
+  cy.get('#main-content').contains('200');
+  cy.go('back');
+});

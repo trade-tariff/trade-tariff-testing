@@ -26,4 +26,31 @@ describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', {tags: 
     cy.get('.govuk-back-link').click();
     cy.contains('Trading commodity 6004100091 with Afghanistan');
   });
+  it('UK - Show Additional DCTS info on DCTS rows on Commodity code page', function() {
+    cy.visit('/commodities/2203000900');
+    cy.get('a[href="#import_duties"]').contains('Import duties').click();
+
+    // DCTS - Comprehensive Preferences
+    cy.get('#measure-20205188').contains('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences (1062)');
+    cy.get('#measure-20205188').contains('Conditions').click();
+    cy.get('#popup > div > div').contains('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
+    cy.get('#popup > div > div').contains('Declaring your proof of origin');
+    cy.get('#popup > div > p').contains('Close').click();
+    cy.reload();
+
+    // DCTS - Enhanced Preferences
+    cy.get('#measure-20213585').contains('Developing Countries Trading Scheme (DCTS) - Enhanced Preferences (1061)');
+    cy.get('#measure-20213585').contains('Conditions').click();
+    cy.get('#popup > div > div').contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
+    cy.get('#popup > div > div').contains('Declaring your proof of origin');
+    cy.get('#popup > div > p').contains('Close').click();
+    cy.reload();
+
+    // DCTS - Standard Preferences
+    cy.get('#measure-20211687').contains('Developing Countries Trading Scheme (DCTS) - Standard Preferences (1060)');
+    cy.get('#measure-20211687').contains('Conditions').click();
+    cy.get('#popup > div > div').contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
+    cy.get('#popup > div > div').contains('Declaring your proof of origin');
+    cy.get('#popup > div > p').contains('Close').click();
+  });
 });
