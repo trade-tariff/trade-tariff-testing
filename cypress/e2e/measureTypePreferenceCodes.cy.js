@@ -61,7 +61,7 @@ describe('measure type preference codes', function() {
     cy.get('#main-content > div').contains('103');
     cy.get('#main-content > div').contains('100');
   });
-  it.only('UK - Verify tariff preferences for DCTS schemes', function() {
+  it('UK - Verify tariff preferences for DCTS schemes', function() {
     cy.visit('/commodities/6004100091');
     cy.get('a[href="#import_duties"]').contains('Import duties').click();
 
