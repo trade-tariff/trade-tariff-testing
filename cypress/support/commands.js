@@ -152,14 +152,9 @@ Cypress.Commands.add('contextSelector', () => {
   cy.get('.govuk-table__body').contains('Date of trade');
 });
 
-Cypress.Commands.add('waitForCommoditySearchResults', () => {
-  cy.get('ul#q__listbox li:not(.autocomplete__option--no-results)').should('be.visible');
-});
-
 Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.get('.js-commodity-picker-select:last').click();
   cy.get('.js-commodity-picker-select:last').type(searchString);
-  cy.waitForCommoditySearchResults();
   // We submit by clicking the first result
   cy.get('#q__option--0').click();
 });
@@ -167,14 +162,12 @@ Cypress.Commands.add('searchForCommodity', (searchString) => {
 Cypress.Commands.add('searchForCommodity2', (searchString) => {
   cy.get('.js-commodity-picker-select:last').click();
   cy.get('.js-commodity-picker-select:last').type(searchString);
-  cy.waitForCommoditySearchResults();
   return cy.get('input[name=\'new_search\']').click();
 });
 
 Cypress.Commands.add('searchWithSearchField', (searchString) => {
   cy.get('input#q').click();
   cy.get('input#q').type(searchString);
-  cy.waitForCommoditySearchResults();
   cy.get('input[name=\'new_search\']').click();
 });
 
