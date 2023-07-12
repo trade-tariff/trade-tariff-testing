@@ -6,10 +6,9 @@ describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', {tags: 
     cy.contains('Check rules of origin').click();
     cy.contains('Trading commodity 6004100091 with Afghanistan');
     // importing
-    cy.contains('Importing goods into the United Kingdom from countries which belong to the GSP scheme');
-    cy.contains('Afghanistan is a member of the unilateral Generalised System of Preferences (GSP) scheme. The rules of origin apply only to the import of goods from the overseas country.');
+    cy.contains('Importing goods into the United Kingdom from countries which belong to unilateral preference schemes');
+    cy.contains('Afghanistan is a member of the unilateral Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences scheme. The rules of origin apply only to the import of goods from the overseas country.');
     cy.contains('Importing goods from Afghanistan');
-    cy.get('form#edit_rules_of_origin_steps_import_only_import_only  a').should('have.attr', 'href', 'https://www.gov.uk/government/publications/trading-with-developing-nations');
 
     // exporting
     cy.contains('Exporting goods to Afghanistan');

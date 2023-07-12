@@ -141,10 +141,7 @@ Cypress.Commands.add('nonAlteration', (country)=>{
 // Importing page - GSP
 Cypress.Commands.add('importGSP', (code, country)=>{
   cy.contains(`Trading commodity ${code} with ${country}`);
-  cy.contains('Importing goods into the United Kingdom from countries which belong to the GSP scheme');
-  cy.get('.govuk-body-l').contains('Generalised System of Preferences (GSP)').click();
-  cy.contains('Trading with developing nations');
-  cy.go(-1);
+  cy.contains('Importing goods into the United Kingdom from countries which belong to unilateral preference schemes');
   cy.contains(`Importing goods from ${country}`);
   cy.get('.govuk-button').contains('Continue').click();
 });
@@ -330,7 +327,7 @@ Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
   cy.contains('Valid proofs of origin');
   cy.go(-1);
   cy.get('.govuk-warning-text__text').contains('start again').click();
-  cy.contains(`Importing goods into the United Kingdom from countries which belong to the GSP scheme`);
+  cy.contains('Importing goods into the United Kingdom from countries which belong to unilateral preference schemes');
 });
 // Origin not met non GSP-multipleAgreements
 Cypress.Commands.add('rooNotMetMulti', (tradeSelection, country, code, scheme)=>{
