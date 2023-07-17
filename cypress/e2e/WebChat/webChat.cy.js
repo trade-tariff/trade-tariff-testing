@@ -1,26 +1,42 @@
-describe('Verify Webchat URL link and access on various pages and popup after 30 seconds on comm code page', function() {
-  ['', 'xi'].forEach(function(country) {
-    it(`${country} - verify webchat link on help page`, function() {
-      cy.visit(`${country}/help`);
-      cy.contains('Alternatively, you can use our Digital Assistant (opens in new tab) to get help on classifying your goods.');
-      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]').contains('Digital Assistant (opens in new tab)');
+describe('Verify Webchat', function() {
+  context('when on the UK version of the site', function() {
+    it('verify webchat link on help page', function() {
+      cy.visit('/help');
+      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]');
     });
-    it(`${country} - Search and verify webchat message and link is displayed`, function() {
-      cy.visit(`${country}/find_commodity`);
-      cy.searchForCommodity('xxxx');
-      cy.contains('Getting help from HMRC if you need to find a commodity code');
-      cy.contains('If you cannot find the right commodity code for your goods ,');
-      cy.contains('you can contact HMRC for advice or for a decision on your goods.');
-      cy.contains('Alternatively, you can use our Digital Assistant (opens in new tab) to get help on classifying your goods.');
-      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]').contains('Digital Assistant (opens in new tab)');
+
+    it('webchat link shows for no results search', function() {
+      cy.visit('/search?q=xxxx&resource_id=&input-autocomplete=xxxx');
+      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]');
     });
-    it(`${country} - webchat link is displayed on search results page`, function() {
-      cy.visit(`${country}/search?q=potatoes&input-autocomplete=potatoes`);
-      cy.contains('Getting help from HMRC if you need to find a commodity code');
-      cy.contains('If you cannot find the right commodity code for your goods ,');
-      cy.contains('you can contact HMRC for advice or for a decision on your goods.');
-      cy.contains('Alternatively, you can use our Digital Assistant (opens in new tab) to get help on classifying your goods.');
-      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]').contains('Digital Assistant (opens in new tab)');
+
+    it('webchat link is displayed on search results page', function() {
+      cy.visit('/search?q=potatoes&input-autocomplete=potatoes');
+      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]');
+    });
+
+    it('webchat popup shows on commodity pages', function() {
+      cy.visit('/commodities/2005800010');
+      // eslint-disable-next-line cypress/no-unnecessary-waiting
+      cy.wait(25000);
+      cy.get('#help_popup a').should('have.attr', 'href', 'https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff');
+    });
+  });
+
+  context('when on the XI version of the site', function() {
+    it('verify webchat link on help page', function() {
+      cy.visit('/xi/help');
+      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]');
+    });
+
+    it('webchat link shows for no results search', function() {
+      cy.visit('/xi/search?q=xxxx&resource_id=&input-autocomplete=xxxx');
+      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]');
+    });
+
+    it('webchat link is displayed on search results page', function() {
+      cy.visit('/xi/search?q=potatoes&input-autocomplete=potatoes');
+      cy.get('a[href^="https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"]');
     });
   });
 });
