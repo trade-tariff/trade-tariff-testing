@@ -58,9 +58,9 @@ describe('Measure condition pop ups', function() {
     cy.contains('Threshold condition');
     cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
     cy.contains('5000.00 Gross Production');
-    cy.contains('Apply the amount of the action (see components) 9.54 GBP / % vol');
+    cy.contains('Apply the duty 9.54 GBP / % vol');
     cy.contains('600000.00 Gross Production');
-    cy.contains('Apply the amount of the action (see components) 19.08 GBP / % vol');
+    cy.contains('Apply the duty 19.08 GBP / % vol');
     cy.contains('Excise duty on beer from small breweries');
     cy.contains('Excise code 440 - Beer made in the UK');
     cy.get('div#popup article  a')
