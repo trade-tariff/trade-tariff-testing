@@ -450,3 +450,259 @@ Cypress.Commands.add('verifyDCTSTariffPereferences', (areaID) => {
   cy.get('#main-content').contains('200');
   cy.go('back');
 });
+
+Cypress.Commands.add('verifyExciseMeasureType', (exciseAdditionalCode) => {
+  switch (exciseAdditionalCode) {
+    case 'X301':
+      cy.contains('Low Alcohol - not exc 1.2%');
+      break;
+    case 'X311':
+      cy.contains('Beer less than 3.5%');
+      break;
+    case 'X313':
+      cy.contains('Wine less than 3.5%');
+      break;
+    case 'X314':
+      cy.contains('Other fermented products less than 3.5%');
+      break;
+    case 'X315':
+      cy.contains('Spirits less than 3.5%');
+      break;
+    case 'X321':
+      cy.contains('Beer at least 3.5 but less than 8.5%');
+      break;
+    case 'X323':
+      cy.contains('Wine at least 3.5 but less than 8.5%');
+      break;
+    case 'X324':
+      cy.contains('Other fermented products at least 3.5 but less than 8.5% & sparkling cider exceeding 5.5 but less than 8.5%');
+      break;
+    case 'X325':
+      cy.contains('Spirits at least 3.5 but less than 8.5%');
+      break;
+    case 'X331':
+      cy.contains('Beer at least 8.5 but not exceeding 22%');
+      break;
+    case 'X333':
+      cy.contains('Wine at least 8.5 but not exceeding 22%');
+      break;
+    case 'X335':
+      cy.contains('Spirits at least 8.5 but not exceeding 22%');
+      break;
+    case 'X341':
+      cy.contains('Beer exceeding 22%');
+      break;
+    case 'X345':
+      cy.contains('Spirits exceeding 22%');
+      break;
+    case 'X351':
+      cy.contains('Beer less than 3.5% & eligible for DR');
+      break;
+    case 'X353':
+      cy.contains('Wine less than 3.5% & eligible for DR');
+      break;
+    case 'X354':
+      cy.contains('Other fermented products less than 3.5% & eligible for DR');
+      break;
+    case 'X355':
+      cy.contains('Spirits less than 3.5% & eligible for DR');
+      break;
+    case 'X356':
+      cy.contains('Beer at least 3.5 but less than 8.5% & eligible for DR');
+      break;
+    case 'X358':
+      cy.contains('Wine at least 3.5 but less than 8.5% & eligible for DR');
+      break;
+    case 'X359':
+      cy.contains('Other fermented products at least 3.5 but less than 8.5% & Sparkling cider exceeding 5.5 ');
+      cy.contains('but less than 8.5% & eligible for DR');
+      break;
+    case 'X360':
+      cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for DR');
+      break;
+    case 'X361':
+      cy.contains('Beer less than 3.5% & eligible for SPR (small producer relief)');
+      break;
+    case 'X365':
+      cy.contains('Spirits less than 3.5% & eligible for SPR');
+      break;
+    case 'X366':
+      cy.contains('Beer at least 3.5 but less than 8.5% & eligible for SPR');
+      break;
+    case 'X369':
+      cy.contains('Other fermented products at least 3.5 but less than 8.5% & ');
+      cy.contains('Sparkling cider exceeding 5.5 but less than 8.5% & eligible for SPR');
+      break;
+    case 'X370':
+      cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR');
+      break;
+    case 'X371':
+      cy.contains('Beer less than 3.5% & eligible for SPR and DR');
+      break;
+    case 'X375':
+      cy.contains('Spirits less than 3.5% & eligible for SPR and DR');
+      break;
+    case 'X376':
+      cy.contains('Beer at least 3.5 but less than 8.5% & eligible for SPR and DR');
+      break;
+    case 'X378':
+      cy.contains('Wine at least 3.5 but less than 8.5% & eligible for SPR and DR');
+      break;
+    case 'X379':
+      cy.contains('Other fermented products at least 3.5 but less than 8.5% & Sparkling cider ');
+      cy.contains('exceeding 5.5 but less than 8.5% & eligible for SPR and DR');
+      break;
+    case 'X380':
+      cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR and DR');
+      break;
+  }
+});
+
+Cypress.Commands.add('verfiyCDSDeclarationForExciseAdditionalCodes', (exciseAdditionalCode) =>{
+  switch (exciseAdditionalCode) {
+    case 'X301':
+      cy.get('#popup').contains('Applies to low alcohol products, with an ABV not exceeding 1.2%.');
+      break;
+    case 'X313':
+      cy.get('#popup').contains('Applies to wine with an ABV less than 3.5%.');
+      break;
+    case 'X315':
+      cy.get('#popup').contains('Applies to spirits with an ABV less than 3.5%.');
+      break;
+    case 'X324':
+      cy.get('#popup').contains('Applies to other fermented products with an ABV at least 3.5% but ');
+      cy.get('#popup').contains('less than 8.5% and sparkling cider exceeding 5.5% but less than 8.5%');
+      break;
+    case 'X325':
+      cy.get('#popup').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5%.');
+      break;
+    case 'X333':
+      cy.get('#popup').contains('Applies to wine with an ABV at least 8.5% but not exceeding 22%.');
+      break;
+    case 'X335':
+      cy.get('#popup').contains('Applies to spirits with an ABV at least 8.5% but not exceeding 22%.');
+      break;
+    case 'X345':
+      cy.get('#popup').contains('Applies to spirits with an ABV exceeding 22%.');
+      break;
+    case 'X353':
+      cy.get('#popup').contains('Applies to wine with an ABV less than 3.5% and eligible for DR (Draught Relief).');
+      break;
+    case 'X355':
+      cy.get('#popup').contains('Applies to spirits with an ABV less than 3.5% and eligible for DR (Draught Relief).');
+      break;
+    case 'X360':
+      cy.get('#popup').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5% and eligible for DR (Draught Relief).');
+      break;
+    case 'X365':
+      cy.get('#popup').contains('Applies to spirits with an ABV less than 3.5% and eligible for SPR (Small Producer Relief).');
+      break;
+    case 'X369':
+      cy.get('#popup').contains('Applies to other fermented products with an ABV at least 3.5% but less than 8.5% and sparkling ');
+      cy.get('#popup').contains('cider with an ABV exceeding 5.5% but less than 8.5% and eligible for SPR (Small Producer Relief).');
+      break;
+    case 'X370':
+      cy.get('#popup').contains('Applies to spirits at least 3.5% but less than 8.5% and eligible for SPR (Small Producer Relief).');
+      break;
+    case 'X375':
+      cy.get('#popup')
+          .contains('Applies to spirits with an ABV less than 3.5% and eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
+      break;
+    case 'X378':
+      cy.get('#popup').contains('Applies to wine with an ABV at least 3.5% but less than 8.5% and ');
+      cy.get('#popup').contains('eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
+      break;
+    case 'X379':
+      cy.get('#popup').contains('Applies to other fermented products with an ABV at least 3.5% but less than 8.5% ');
+      cy.get('#popup').contains('and sparkling cider with an ABV exceeding 5.5% but less than 8.5% and eligible for ');
+      cy.get('#popup').contains('SPR (Small Producer Relief) and DR (Draught Relief).');
+      break;
+    case 'X380':
+      cy.get('#popup').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5% and ');
+      cy.get('#popup').contains('eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
+      break;
+  }
+});
+
+Cypress.Commands.add('verifyExciseAdditionalCodes', (commCode, exciseCode, alPercentage, dutyAmount) => {
+  cy.url().should('contain', `/commodities/${commCode}?day=28&month=08&year=2023#vat_excise`);
+  cy.get('table').find('tr').each(($row) => {
+    if ($row.text().includes('Additional code: X' + exciseCode)) {
+      cy.contains('Additional code: X' + exciseCode);
+      cy.verifyExciseMeasureType('X' + exciseCode);
+      cy.wrap($row).contains('Conditions').click();
+      cy.get('#popup').contains('Excises for All countries');
+      cy.get('#popup').contains(`The percentage ABV does not exceed ${alPercentage} % vol`);
+      cy.get('#popup').contains('Apply the duty');
+      cy.get('#popup').contains(`${dutyAmount}`);
+      if (`${exciseCode}` === '333') {
+        cy.get('#popup').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
+      } else {
+        cy.get('#popup').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
+      }
+      cy.get('#popup').contains(`Completing a declaration in CDS for goods subject to excise code ${exciseCode}`);
+      cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
+      cy.get('#popup').contains('Taric additional code / national additional code');
+      cy.get('#popup').contains('X' + exciseCode);
+      if (`${exciseCode}` === '333') {
+        cy.get('#popup').contains('LTR');
+      } else {
+        cy.get('#popup').contains('LTR or LPA');
+      }
+    }
+  });
+});
+
+Cypress.Commands.add('verifyDRExciseAdditionalCodes', (commCode, exciseCode, alPercentage, dutyAmount) => {
+  cy.url().should('contain', `/commodities/${commCode}?day=28&month=08&year=2023#vat_excise`);
+  cy.get('table').find('tr').each(($row) => {
+    if ($row.text().includes('Additional code: X' + exciseCode)) {
+      cy.contains('Additional code: X' + exciseCode);
+      cy.verifyExciseMeasureType('X' + exciseCode);
+      cy.wrap($row).contains('Conditions').click();
+      cy.get('#popup').contains('Excises for All countries');
+      cy.get('#popup').contains(`The percentage ABV does not exceed ${alPercentage} % vol`);
+      cy.get('#popup').contains('Apply the duty');
+      cy.get('#popup').contains(`${dutyAmount}`);
+      cy.get('#popup').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
+      cy.get('#popup').contains('Draught Relief');
+      cy.get(`#popup`).contains('If you trade in draught products, find out if you could pay a reduced rate of Alcohol Duty.');
+      cy.get('#popup a[href^="https://www.gov.uk/government/collections/alcohol-duty"]')
+          .contains('Check if you can pay less Alcohol Duty on draught products');
+      cy.get('#popup').contains(`Completing a declaration in CDS for goods subject to excise code ${exciseCode}`);
+      cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
+      cy.get('#popup').contains('Taric additional code / national additional code');
+      cy.get('#popup').contains('X' + exciseCode);
+    }
+  });
+});
+
+Cypress.Commands.add('verifySPRExciseAdditionalCodes', (commCode, exciseCode, alcoholPercentage, dutyAmount) => {
+  const eligibleSPRLink = 'https://www.gov.uk/guidance/how-to-work-out-your-alcohol-duty-rates-if-youre-eligible-for-small-producer-relief';
+  cy.url().should('contain', `/commodities/${commCode}?day=28&month=08&year=2023#vat_excise`);
+  cy.get('table').find('tr').each(($row) => {
+    if ($row.text().includes('Additional code: X' + exciseCode)) {
+      cy.contains('Additional code: X' + exciseCode);
+      cy.verifyExciseMeasureType('X' + exciseCode);
+      cy.wrap($row).contains('Conditions').click();
+      cy.get('#popup').contains('Excises for All countries');
+      cy.get('#popup').contains(`The percentage ABV does not exceed ${alcoholPercentage} % vol`);
+      cy.get('#popup').contains('Apply the duty');
+      cy.get('#popup').contains(`${dutyAmount}`);
+      cy.get('#popup').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
+      cy.get('#popup').contains('Small Producer Relief');
+      cy.get('#popup').contains('If you\'re a small producer you may be able to pay a lower rate of alcohol duty on any product with ');
+      cy.get('#popup').contains('an alcohol by volume (ABV) of less than 8.5%');
+      cy.get('#popup a[href^="https://www.gov.uk/guidance/check-if-youre-eligible-for-small-producer-relief-on-alcohol-duty"]')
+          .contains('Check if you\'re eligible for Small Producer Relief on Alcohol Duty (opens in new tab)');
+      cy.get(`#popup a[href^="${eligibleSPRLink}"]`)
+          .contains('How to work out your Alcohol Duty rates if you\'re eligible for Small Producer Relief (opens in new tab)');
+      cy.get('#popup a[href^="https://www.gov.uk/guidance/how-your-business-set-up-can-affect-your-eligibility-for-small-producer-relief"]')
+          .contains('How your business set up can affect your eligibility for Small Producer Relief (opens in new tab)');
+      cy.get('#popup').contains(`Completing a declaration in CDS for goods subject to excise code ${exciseCode}`);
+      cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
+      cy.get('#popup').contains('Taric additional code / national additional code');
+      cy.get('#popup').contains('X' + exciseCode);
+    }
+  });
+});

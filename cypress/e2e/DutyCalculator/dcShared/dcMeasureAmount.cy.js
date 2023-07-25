@@ -7,7 +7,8 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     // Page validation
     cy.contains('Enter import quantity');
-    cy.contains('The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.');
+    cy.contains('The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing.');
+    cy.contains('Enter the units of the goods that you are importing in the boxes below.');
     cy.contains('What is the weight net of the standard quality of the goods you will be importing?');
     cy.contains('Enter the value in kilograms');
     cy.contains('Enter the value in tonnes (1,000 kg)');
@@ -43,7 +44,8 @@ describe('🧮 | dcMeasureAmount.spec | Measure Amount - page |', function() {
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Enter an import quantity value greater than zero. Enter the value in kilograms');
     cy.contains('Enter an import quantity value greater than zero. Enter the value in tonnes (1,000 kg)');
-    cy.contains('Enter an import quantity value greater than zero. Enter the value in decatonnes (10,000 kg), corrected according to polarisation');
+    cy.contains('Enter an import quantity value greater than zero. Enter the value in decatonnes (10,000 kg), ');
+    cy.contains('corrected according to polarisation');
     cy.get('.govuk-back-link').click();
     cy.contains('Continue').click();
     // Valid inputs given
