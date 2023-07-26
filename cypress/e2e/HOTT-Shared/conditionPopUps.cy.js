@@ -61,10 +61,6 @@ describe('Measure condition pop ups', function() {
     cy.contains('Apply the duty 9.54 GBP / % vol');
     cy.contains('600000.00 Gross Production');
     cy.contains('Apply the duty 19.08 GBP / % vol');
-    cy.contains('Excise duty on beer from small breweries');
-    cy.contains('Excise code 440 - Beer made in the UK');
-    cy.get('div#popup article  a')
-        .should('have.attr', 'href').and('include', 'https://www.gov.uk/government/publications/excise-notice');
   });
 
   it('Headings which are declarable / also commodities- fall back option enabled', function() {

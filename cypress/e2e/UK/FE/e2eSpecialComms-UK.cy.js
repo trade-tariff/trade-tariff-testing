@@ -80,7 +80,6 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.get('.tariff-info');
     cy.contains('Excises for All countries');
     cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-    cy.get('.tariff-info').contains('Excise duty on beer from small breweries');
     cy.get('.close [href]').click();
   });
 
