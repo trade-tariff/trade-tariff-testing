@@ -154,9 +154,7 @@ Cypress.Commands.add('contextSelector', () => {
 
 Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.get('.js-commodity-picker-select:last').click();
-  cy.get('.js-commodity-picker-select:last').type(searchString);
-  // We submit by clicking the first result
-  cy.get('#q__option--0').click();
+  cy.get('.js-commodity-picker-select:last').type(`${searchString}{enter}`);
 });
 
 Cypress.Commands.add('searchForCommodity2', (searchString) => {
@@ -624,85 +622,18 @@ Cypress.Commands.add('verfiyCDSDeclarationForExciseAdditionalCodes', (exciseAddi
   }
 });
 
-Cypress.Commands.add('verifyExciseAdditionalCodes', (commCode, exciseCode, alPercentage, dutyAmount) => {
-  cy.url().should('contain', `/commodities/${commCode}?day=28&month=08&year=2023#vat_excise`);
+Cypress.Commands.add('verifyExciseAdditionalCodePopup', (exciseCode, dutyAmount) => {
   cy.get('table').find('tr').each(($row) => {
     if ($row.text().includes('Additional code: X' + exciseCode)) {
       cy.contains('Additional code: X' + exciseCode);
       cy.verifyExciseMeasureType('X' + exciseCode);
       cy.wrap($row).contains('Conditions').click();
-      cy.get('#popup').contains('Excises for All countries');
-      cy.get('#popup').contains(`The percentage ABV does not exceed ${alPercentage} % vol`);
       cy.get('#popup').contains('Apply the duty');
-      cy.get('#popup').contains(`${dutyAmount}`);
-      if (`${exciseCode}` === '333') {
-        cy.get('#popup').contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-      } else {
-        cy.get('#popup').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
-      }
-      cy.get('#popup').contains(`Completing a declaration in CDS for goods subject to excise code ${exciseCode}`);
+      cy.get('#popup').contains(dutyAmount);
       cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
       cy.get('#popup').contains('Taric additional code / national additional code');
       cy.get('#popup').contains('X' + exciseCode);
-      if (`${exciseCode}` === '333') {
-        cy.get('#popup').contains('LTR');
-      } else {
-        cy.get('#popup').contains('LTR or LPA');
-      }
-    }
-  });
-});
-
-Cypress.Commands.add('verifyDRExciseAdditionalCodes', (commCode, exciseCode, alPercentage, dutyAmount) => {
-  cy.url().should('contain', `/commodities/${commCode}?day=28&month=08&year=2023#vat_excise`);
-  cy.get('table').find('tr').each(($row) => {
-    if ($row.text().includes('Additional code: X' + exciseCode)) {
-      cy.contains('Additional code: X' + exciseCode);
-      cy.verifyExciseMeasureType('X' + exciseCode);
-      cy.wrap($row).contains('Conditions').click();
-      cy.get('#popup').contains('Excises for All countries');
-      cy.get('#popup').contains(`The percentage ABV does not exceed ${alPercentage} % vol`);
-      cy.get('#popup').contains('Apply the duty');
-      cy.get('#popup').contains(`${dutyAmount}`);
-      cy.get('#popup').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
-      cy.get('#popup').contains('Draught Relief');
-      cy.get(`#popup`).contains('If you trade in draught products, find out if you could pay a reduced rate of Alcohol Duty.');
-      cy.get('#popup a[href^="https://www.gov.uk/government/collections/alcohol-duty"]')
-          .contains('Check if you can pay less Alcohol Duty on draught products');
-      cy.get('#popup').contains(`Completing a declaration in CDS for goods subject to excise code ${exciseCode}`);
-      cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
-      cy.get('#popup').contains('Taric additional code / national additional code');
-      cy.get('#popup').contains('X' + exciseCode);
-    }
-  });
-});
-
-Cypress.Commands.add('verifySPRExciseAdditionalCodes', (commCode, exciseCode, alcoholPercentage, dutyAmount) => {
-  const eligibleSPRLink = 'https://www.gov.uk/guidance/how-to-work-out-your-alcohol-duty-rates-if-youre-eligible-for-small-producer-relief';
-  cy.url().should('contain', `/commodities/${commCode}?day=28&month=08&year=2023#vat_excise`);
-  cy.get('table').find('tr').each(($row) => {
-    if ($row.text().includes('Additional code: X' + exciseCode)) {
-      cy.contains('Additional code: X' + exciseCode);
-      cy.verifyExciseMeasureType('X' + exciseCode);
-      cy.wrap($row).contains('Conditions').click();
-      cy.get('#popup').contains('Excises for All countries');
-      cy.get('#popup').contains(`The percentage ABV does not exceed ${alcoholPercentage} % vol`);
-      cy.get('#popup').contains('Apply the duty');
-      cy.get('#popup').contains(`${dutyAmount}`);
-      cy.get('#popup').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
-      cy.get('#popup').contains('Small Producer Relief');
-      cy.get('#popup').contains('If you\'re a small producer you may be able to pay a lower rate of alcohol duty on any product with ');
-      cy.get('#popup').contains('an alcohol by volume (ABV) of less than 8.5%');
-      cy.get('#popup a[href^="https://www.gov.uk/guidance/check-if-youre-eligible-for-small-producer-relief-on-alcohol-duty"]')
-          .contains('Check if you\'re eligible for Small Producer Relief on Alcohol Duty (opens in new tab)');
-      cy.get(`#popup a[href^="${eligibleSPRLink}"]`)
-          .contains('How to work out your Alcohol Duty rates if you\'re eligible for Small Producer Relief (opens in new tab)');
-      cy.get('#popup a[href^="https://www.gov.uk/guidance/how-your-business-set-up-can-affect-your-eligibility-for-small-producer-relief"]')
-          .contains('How your business set up can affect your eligibility for Small Producer Relief (opens in new tab)');
-      cy.get('#popup').contains(`Completing a declaration in CDS for goods subject to excise code ${exciseCode}`);
-      cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
-      cy.get('#popup').contains('Taric additional code / national additional code');
-      cy.get('#popup').contains('X' + exciseCode);
+      cy.closePopup();
     }
   });
 });

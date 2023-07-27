@@ -109,4 +109,32 @@ describe('Measure condition pop ups', function() {
       cy.get('#measure-3832343').contains('Conditions').closePopup();
     });
   });
+
+  context('when there are LPA-based components on alcohol duties', function() {
+    it('shows the correct popup information', function() {
+      cy.visit('/commodities/2208701000?day=28&month=08&year=2023#vat_excise');
+      cy.verifyExciseAdditionalCodePopup(
+          '315',
+          '9.27 GBP / l alc. 100%',
+      );
+      cy.verifyExciseAdditionalCodePopup(
+          '365',
+          '9.27 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount',
+      );
+    });
+  });
+
+  context('when there are ASVX components on alcohol duties', function() {
+    it('shows the correct popup information', function() {
+      cy.visit('/commodities/2204299320?day=28&month=08&year=2023#vat_excise');
+      cy.verifyExciseAdditionalCodePopup(
+          '301',
+          '9.27 GBP / % vol/hl',
+      );
+      cy.verifyExciseAdditionalCodePopup(
+          '369',
+          '24.77 GBP / % vol/hl - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount',
+      );
+    });
+  });
 });
