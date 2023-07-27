@@ -65,27 +65,18 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.get('.govuk-back-link').click();
     cy.contains('What is the customs value of this import?');
   });
-  it(`XI service - No Option available - one rate GB-NI `, function() {
+  it('XI service - No Option available - one rate GB-NI', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
     cy.validDate();
     cy.selectDestination('xi');
-    // origin
     cy.selectOrigin('other');
-    // select country from list
     cy.otherOriginList({value: 'Greenland'});
     cy.traderScheme('no');
-    cy.contains('EU duties apply to this import');
-    cy.get('.govuk-button').click();
-    //  cy.certificate('no')
+    cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({kgm: '230.98'});
     cy.get('.govuk-button').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
-
-    cy.get('.govuk-back-link').click();
-    cy.get('.govuk-back-link').click();
-    cy.contains('Enter import quantity');
   });
   it(`XI service - Multiple VAT rates 🇮🇱 RoW-XI`, function() {
     cy.visit('/duty-calculator/uk/8716109800/import-date');
