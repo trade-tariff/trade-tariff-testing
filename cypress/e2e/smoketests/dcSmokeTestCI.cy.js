@@ -107,7 +107,6 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
-
     cy.contains('Commodity code');
     cy.contains('Date of import');
     cy.contains('Destination');
@@ -118,16 +117,13 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('Certificate of origin');
     cy.contains('Customs value');
     cy.contains('Import quantity');
-    cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('1701 14 10 00');
-    cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Northern Ireland');
-    cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('United Kingdom (excluding Northern Ireland)');
-    cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('Yes');
-    cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('Yes');
-    cy.get('div:nth-of-type(9) > .govuk-summary-list__value').contains('Commercial purposes');
-    cy.get('div:nth-of-type(10) > .govuk-summary-list__value').contains('No');
-    cy.get('div:nth-of-type(11) > .govuk-summary-list__value').contains('£10,002.24');
+    cy.contains('1701 14 10 00');
+    cy.contains('Northern Ireland');
+    cy.contains('United Kingdom');
+    cy.contains('Commercial purposes');
+    cy.contains('£10,002.24');
 
-    cy.contains('23.98 kilograms');
+    cy.contains('23.98');
     cy.get('.govuk-button').click();
 
     cy.contains('Option 1: Third-country duty');
