@@ -8,6 +8,7 @@ describe('RoW-NI303c', function() {
     cy.finalUseNI('yes');
     cy.turnOver('less');
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
+    cy.quantity({kgm: '230.98'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
