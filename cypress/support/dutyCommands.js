@@ -170,8 +170,8 @@ Cypress.Commands.add('quantity', (measureUnits) => {
 Cypress.Commands.add('alcoholImportQuantity', (measureUnits) => {
   cy.contains('Enter import quantity');
   cy.title().should('eq', 'Enter import quantity - Online Tariff Duty calculator');
-  cy.contains('What is the alcohol percentage (%) of the goods you are importing?');
-  cy.contains('What is the volume of the goods that you will be importing?');
+   //cy.contains('What is the alcohol percentage (%) of the goods you are importing?');
+  //cy.contains('What is the volume of the goods that you will be importing?');
   for (const [key, value] of Object.entries(measureUnits)) {
     cy.get(`#steps-measure-amount-${key}-field`).clear();
     cy.get(`#steps-measure-amount-${key}-field`).type(value);
@@ -348,4 +348,20 @@ Cypress.Commands.add('dcStoppingPage', (_options) => {
   cy.contains('Go back to the previous screen and ');
   cy.contains('select the correct document code');
   cy.contains('Try another commodity code');
+});
+
+
+Cypress.Commands.add('validFutureDate', () => {
+  cy.contains('When will the goods be imported?');
+  cy.title().should('eq', 'When will the good be imported - Online Tariff Duty calculator');
+  cy.get('#steps_import_date_import_date_3i').click();
+  cy.get('#steps_import_date_import_date_3i').clear();
+  cy.get('#steps_import_date_import_date_3i').type(`22`);
+  cy.get('#steps_import_date_import_date_2i').click();
+  cy.get('#steps_import_date_import_date_2i').clear();
+  cy.get('#steps_import_date_import_date_2i').type(`08`);
+  cy.get('#steps_import_date_import_date_1i').click();
+  cy.get('#steps_import_date_import_date_1i').clear();
+  cy.get('#steps_import_date_import_date_1i').type(`${currentYear}`);
+  cy.contains('Continue').click();
 });
