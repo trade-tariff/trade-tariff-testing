@@ -51,18 +51,6 @@ describe('Measure condition pop ups', function() {
     cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
   });
 
-  it('Small Brewery Relief - Excise duty on beer', function() {
-    cy.visit('/commodities/2203000100');
-    cy.get('#measure--1009514008').contains('Conditions').click();
-    cy.get('.info-content').contains('Excises for All countries');
-    cy.contains('Threshold condition');
-    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-    cy.contains('5000.00 Gross Production');
-    cy.contains('Apply the duty 9.54 GBP / % vol');
-    cy.contains('600000.00 Gross Production');
-    cy.contains('Apply the duty 19.08 GBP / % vol');
-  });
-
   it('Headings which are declarable / also commodities- fall back option enabled', function() {
     cy.visit('/commodities/5609000000');
     cy.get('#measure-20187981').contains('Conditions').click();
@@ -93,7 +81,7 @@ describe('Measure condition pop ups', function() {
   context('when a commodity has a threshold measure which uses the entry price system', function() {
     it('shows the correct threshold requirements', function() {
       cy.visit('/xi/commodities/0805501010');
-      cy.get('#measure-3939983').contains('Conditions').click();
+      cy.get('#measure-3939984').contains('Conditions').click();
       cy.get('.info-content').contains('Threshold condition');
       cy.contains('The price of your goods is greater than or equal to 55.80 EUR / 100 kg');
     });

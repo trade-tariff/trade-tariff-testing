@@ -125,7 +125,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.visit('/commodities/0702000007?country=#export');
     // without selecting any country
     cy.contains('Exporting from the UK');
-    cy.contains('The commodity code for exporting and Intrastat reporting is 07020000');
+    cy.contains('The commodity code for exporting and Intrastat reporting is 0702 0000');
 
     // links on page
     cy.get('a[href^=\'https://www.gov.uk/intrastat\']').contains('Intrastat reporting');

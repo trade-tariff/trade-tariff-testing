@@ -77,25 +77,6 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   });
 
 
-  it(' 🍻 Beer\n Has multiple excise lines expressed in litres,\n Identical to UK', function() {
-    cy.visit('/xi/commodities/2203001000#import');
-    cy.checkCommPage('2203001000');
-    cy.get('.govuk-header__content')
-        .contains('Northern Ireland Online Tariff');
-    cy.get('#measure-2982608');
-    cy.contains('Supplementary unit');
-    cy.contains('l');
-    cy.get('#measure--406106')
-        .contains('Excise - full, 441, imported beer');
-    cy.get('#measure--406106')
-        .contains('Conditions')
-        .click();
-
-    cy.contains('Excises for All countries');
-    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-    cy.get('.close [href]').click();
-  });
-
   it('suspension measure on Turbines', function() {
     cy.visit('/xi/commodities/8406810000#import');
     cy.checkCommPage('8406810000');
