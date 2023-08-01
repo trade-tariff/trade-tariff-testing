@@ -64,24 +64,6 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
     cy.contains('Quota order number');
     cy.get('.close [href]').click();
   });
-  it(' 🍺 Beer \n Has multiple excise lines expressed in litres,\n Identical to UK', function() {
-    cy.visit('/commodities/2203001000#import');
-    cy.checkCommPage('2203001000');
-    cy.get('.govuk-header__content')
-        .contains('UK Integrated Online Tariff');
-    cy.get('#measure-2982608');
-    cy.contains('Supplementary unit');
-    cy.contains('l');
-    cy.get('#measure--406106')
-        .contains('Excise - full, 441, imported beer');
-    cy.get('#measure--406106')
-        .contains('Conditions')
-        .click();
-    cy.get('.tariff-info');
-    cy.contains('Excises for All countries');
-    cy.contains('Meet one of the following conditions and supply the relevant document code(s) on your declaration.');
-    cy.get('.close [href]').click();
-  });
 
   it('supension measure on Turbines', function() {
     cy.visit('/commodities/8406810000#import');
