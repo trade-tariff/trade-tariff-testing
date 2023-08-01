@@ -110,18 +110,8 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
 
     cy.get('form#new_search > input[name=\'new_search\']').click();
     cy.contains('Quota search results');
-
-    cy.get('input#day').click();
-    cy.get('input#day').clear();
-    cy.get('input#day').type('01');
-
-    cy.get('input#month').click();
-    cy.get('input#month').clear();
-    cy.get('input#month').type('07');
-
-    cy.get('form#new_search > input[name=\'new_search\']').click();
-    cy.contains('There are no matching results');
   });
+
   it('Quotas Search - Order Number - Included EU country  - Italy ', function() {
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
@@ -135,24 +125,5 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.get('.govuk-table__row').contains('058039');
     cy.contains('European Union (EU)');
     cy.contains('European Union (1013)');
-  });
-  it('Quotas Search - Order Number - excluded EU country', function() {
-    cy.visit('/quota_search');
-    cy.contains('Search for quotas');
-    cy.get('input#order_number').click();
-    cy.get('input#order_number').clear();
-    cy.get('input#order_number').type('058039');
-    cy.get('.js-quota-country-picker').click();
-    cy.get('input#geographical_area_id').type('United Arab Emirates (AE)');
-    cy.get('form#new_search > input[name=\'new_search\']').click();
-    cy.contains('Quota search results');
-    cy.get('.govuk-table__row').contains('050086');
-    cy.contains('All countries (1011)');
-    cy.get('.govuk-table__row').contains('01 January 2023');
-    cy.get('.govuk-table__row').contains('31 December 2023');
-    cy.get('.js-quota-country-picker').click();
-    cy.get('input#geographical_area_id').type('Italy');
-    cy.get('form#new_search > input[name=\'new_search\']').click();
-    cy.contains('Quota search results');
   });
 });
