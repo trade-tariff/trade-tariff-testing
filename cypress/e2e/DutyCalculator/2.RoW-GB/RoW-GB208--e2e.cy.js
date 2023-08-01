@@ -1,4 +1,3 @@
-// e2e journey validating alcohol percentage calculations Singapore to UK
 describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |', function() {
   it(' RoW 🇸🇬 Singapore - 🇬🇧 GB - Alcohol percentage calculations ', function() {
     cy.visit('/commodities/2208401100');
@@ -6,23 +5,26 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Singapore'});
-    cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    // Page validation
-    cy.contains('What is the alcohol percentage (%) of the goods you are importing?');
-    // valid inputs entered
-    cy.quantity({asv: 40, ltr: 100, lpa: 40});
-    // Excise code
-    cy.exciseCode('451');
+    cy.customsValue({monetary: '1000.00', shipping: '0.00', cost: '0.00'});
+    cy.quantity({asv: 8.4, ltr: 1000, lpa: 84, spr: 5});
+    cy.exciseCode('380');
     cy.confirmPage();
+    cy.dutyPage();
+
+    // validate excise calculations
+    cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR and DR');
+    cy.contains('19.08 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
+    cy.contains('£1,182.72');
     // validate calculations - third country duty
     cy.contains('Option 1: Third-country duty');
     cy.contains('0.50 GBP / % vol/hl + 2.60 GBP / hl');
-    cy.contains('£1,576.64');
+    cy.contains('£1,700.86');
     // tariff preference rate for Singapore
     cy.contains('Option 2: Tariff preference - Singapore');
     cy.contains('0.10 GBP / % vol/hl + 0.80 GBP / hl');
-    cy.contains('£1,555.28');
+    cy.contains('£1,638.94');
   });
+
   // alcohol percentage calclations
   it('RoW 🇺🇸 (USA) - UK - Excise code alcohol percentage calculations ', function() {
     cy.visit('/commodities/2208403900');
@@ -30,15 +32,18 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'United States'});
-    cy.customsValue({monetary: '1000.00', shipping: '50.00', cost: '50.00'});
-    cy.quantity({asv: '40', ltr: '4500', lpa: '1800'});
-    cy.exciseCode('451');
+    cy.customsValue({monetary: '1000.00', shipping: '0.00', cost: '0.00'});
+    cy.quantity({asv: '8.4', ltr: '1000', lpa: '84', spr: '5'});
+    cy.exciseCode('380');
     cy.confirmPage();
     cy.dutyPage();
+
     cy.contains('Option 1: Third-country duty');
     cy.contains('0.50 GBP / % vol/hl + 2.60 GBP / hl');
-    cy.contains('£1,017.00');
+    cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR and DR');
+    cy.contains('£1,700.86');
   });
+
   // sugar percentage calclations
   it('RoW 🇻🇳 Vietnam - 🇬🇧 - Sugar percentage calculations ', function() {
     cy.visit('/commodities/2106905910');
@@ -55,7 +60,10 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.quantity({kgm: 16320, brx: 80});
     // VAT Page
     cy.vat('20');
-    cy.contains('80 % sucrose');
+    cy.contains('kilograms');
+    cy.contains('16320');
+    cy.contains('% sucrose');
+    cy.contains('80');
     cy.confirmPage();
     // validate calculations - third country duty
     cy.contains('Option 1: Third-country duty');
