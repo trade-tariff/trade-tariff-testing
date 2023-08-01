@@ -235,8 +235,8 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.selectDestination('gb');
       cy.originList({value: 'Afghanistan'});
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-      cy.quantity({ltr: '1', lpa: '1'});
-      cy.exciseCode('419');
+      cy.quantity({ltr: '1', asv: '1', spr: '5'});
+      cy.exciseCode('301');
 
       cy.confirmPage();
       cy.dutyPage();
