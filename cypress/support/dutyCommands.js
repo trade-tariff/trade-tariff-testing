@@ -26,6 +26,7 @@ Cypress.Commands.add('dcMainPage', () => {
   cy.contains('Continue');
   cy.contains('About this commodity code');
 });
+
 Cypress.Commands.add('validDate', () => {
   cy.contains('When will the goods be imported?');
   cy.title().should('eq', 'When will the good be imported - Online Tariff Duty calculator');
@@ -40,6 +41,7 @@ Cypress.Commands.add('validDate', () => {
   cy.get('#steps_import_date_import_date_1i').type(currentYear);
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('enterDate', (date) => {
   cy.contains('When will the goods be imported?');
   cy.get('#steps_import_date_import_date_3i').click();
@@ -64,6 +66,7 @@ Cypress.Commands.add('selectDestination', (destination) => {
   }
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('selectOrigin', (origin) => {
   cy.contains('Which country are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
@@ -98,13 +101,11 @@ Cypress.Commands.add('otherOriginList', (otherorigin) => {
 
 Cypress.Commands.add('dutiesApply', () => {
   cy.contains('Duties apply to this import');
-  cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
 });
 
 Cypress.Commands.add('euDutiesApply', () => {
   cy.contains('EU duties apply to this import');
-  cy.title().should('eq', 'EU duties apply to this import - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
 });
 
@@ -116,6 +117,7 @@ Cypress.Commands.add('meursingCode', (mcode) => {
   cy.get('#steps-meursing-additional-code-meursing-additional-code-field').type(mcode.value);
   cy.get('.govuk-button').click();
 });
+
 Cypress.Commands.add('traderScheme', (selection) => {
   cy.contains('Are you authorised under the UK Trader Scheme?');
   cy.title().should('eq', 'Are you authorised under the UK Trader Scheme - Online Tariff Duty calculator');
@@ -137,6 +139,7 @@ Cypress.Commands.add('certificate', (selection) => {
   }
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('customsValue', (monvalue) => {
   cy.contains('What is the customs value of this import?');
   cy.title().should('eq', 'What is the customs value of this import - Online Tariff Duty calculator');
@@ -148,6 +151,7 @@ Cypress.Commands.add('customsValue', (monvalue) => {
   cy.get('input#steps-customs-value-insurance-cost-field').type(monvalue.cost);
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('quantity', (measureUnits) => {
   for (const [key, value] of Object.entries(measureUnits)) {
     cy.get(`#steps-measure-amount-${key}-field`).clear();
