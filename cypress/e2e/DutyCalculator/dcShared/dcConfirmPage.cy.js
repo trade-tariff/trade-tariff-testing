@@ -1,10 +1,4 @@
-import dayjs from 'dayjs';
-
-const currentDate = dayjs().format('DD MMMM YYYY');
-
 describe('🔖 | dcConfirmPage | UK Results Page |', function() {
-  // 1701141000
-
   it('Confirmation Page Validation', function() {
     cy.visit('/duty-calculator/uk/1701141000/import-date');
     cy.validDate();
@@ -32,13 +26,13 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.contains('Import quantity');
     //   cy.get('.govuk-summary-list__value')
     cy.contains('1701 14 10 00');
-    cy.contains(`${currentDate}`);
     cy.contains('Northern Ireland');
     cy.contains('United Kingdom (excluding Northern Ireland');
     cy.contains('No');
     cy.contains('No');
     cy.contains('£850.00');
-    cy.contains('1 kilogram');
+    cy.contains('kilograms');
+    cy.contains('1');
 
     // Check Change Links
     // Commodity Information

@@ -99,7 +99,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.visit('xi/commodities/0702000007?country=#export');
     // without selecting any country
     cy.contains('Exporting from Northern Ireland');
-    cy.contains('The commodity code for exporting and Intrastat reporting is 07020000');
+    cy.contains('The commodity code for exporting and Intrastat reporting is 0702 0000');
 
     // links on page
     cy.get('a[href^=\'https://www.gov.uk/intrastat\']').contains('Intrastat reporting');

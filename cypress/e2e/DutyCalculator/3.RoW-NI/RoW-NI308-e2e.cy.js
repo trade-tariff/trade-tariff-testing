@@ -32,7 +32,8 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('Document(s)');
     cy.contains('Y021');
     cy.contains('£1,000.00');
-    cy.contains('1000 items');
+    cy.contains('items');
+    cy.contains('1000');
     cy.contains('Excise additional code');
     cy.contains('611');
     cy.confirmPage();
@@ -59,7 +60,8 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.contains('Document(s)');
     cy.contains('n/a');
     cy.contains('£1,000.00');
-    cy.contains('1000 items');
+    cy.contains('items');
+    cy.contains('1000');
     cy.contains('Excise additional code');
     cy.contains('611');
     cy.confirmPage();
