@@ -53,23 +53,23 @@ describe('Verify guidance pages', function() {
     cy.contains('How to classify your goods: what are commodity codes?').should('have.attr', 'href', '/howto/commodity-codes');
     cy.contains('How to classify your goods: what are commodity codes?').click();
     cy.url().should('include', '/howto/commodity-codes');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('A background to quotas').should('have.attr', 'href', '/howto/quotas');
     cy.contains('A background to quotas').click();
     cy.url().should('include', '/howto/quotas');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('How to value your goods for import or export')
         .should('have.attr', 'href', '/howto/valuation');
     cy.contains('How to value your goods for import or export').click();
     cy.url().should('include', '/howto/valuation');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('What are trade remedies, safeguards and retaliatory duties?')
         .should('have.attr', 'href', '/howto/trade-remedies');
     cy.contains('What are trade remedies, safeguards and retaliatory duties?').click();
     cy.contains('Import guidance');
     cy.contains('What are trade remedies, safeguards and retaliatory duties?');
     cy.url().should('include', '/howto/trade-remedies');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('What is origin and why is it important for international trade?')
         .should('have.attr', 'href', '/howto/origin');
     cy.contains('What is origin and why is it important for international trade?').click();

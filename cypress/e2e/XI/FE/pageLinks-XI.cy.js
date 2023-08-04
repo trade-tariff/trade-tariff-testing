@@ -119,11 +119,11 @@ describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Priv
     cy.contains('Search for a commodity').click();
     cy.contains('Look up commodity codes, import duties, taxes and controls');
     cy.contains('Northern Ireland Online Tariff');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Browse through the goods classification').click();
     cy.contains('Northern Ireland Online Tariff');
     cy.contains('Browse the tariff');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Use the A-Z of classified goods').click();
     cy.contains('Northern Ireland Online Tariff');
     cy.contains('A–Z of Classified Goods');

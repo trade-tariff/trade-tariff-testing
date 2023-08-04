@@ -68,7 +68,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     // explore the topic
     cy.contains('Explore the topic');
     cy.contains('Additional requirements for when you bring goods into Northern Ireland for processing').click();
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Apply to pay less duty on goods you import for specific uses').click();
     cy.contains('Apply to pay less duty on goods you import for specific uses');
   });
@@ -135,7 +135,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.go(-1);
+    cy.go('back');
     cy.get('input#steps-planned-processing-planned-processing-commercial-purposes-field')
         .parent()
         .find('input')
@@ -144,7 +144,7 @@ describe('🧮 | dcPlannedProcessing.spec | Duty Calculator Planned Processing |
     // explore the topic
     cy.contains('Explore the topic');
     cy.contains('Additional requirements for when you bring goods into Northern Ireland for processing').click();
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Apply to pay less duty on goods you import for specific uses').click();
     cy.contains('Apply to pay less duty on goods you import for specific uses');
   });

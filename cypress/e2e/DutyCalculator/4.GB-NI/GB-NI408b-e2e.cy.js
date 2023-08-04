@@ -39,7 +39,7 @@ describe('GB-NI408b-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains('from United Kingdom (excluding Northern Ireland) on');
     cy.contains('1701 14 10 00').click();
     cy.checkCommPage('1701141000');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Details of your trade').click();
     cy.get('.govuk-details__text');
     cy.contains('Origin:');

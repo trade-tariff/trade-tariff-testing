@@ -158,7 +158,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
 
     cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Enter import quantity');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Check your answers');
   });
 });

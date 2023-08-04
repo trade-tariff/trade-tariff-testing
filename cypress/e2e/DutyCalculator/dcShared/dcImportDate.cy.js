@@ -132,7 +132,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       // ☀️ Validate commodity page
       cy.checkCommPage('0702000007');
       cy.get('.govuk-header').contains(`${pagetitles[i]}`);
-      cy.go(-1);
+      cy.go('back');
       cy.contains('When will the goods be imported?');
       cy.contains(`${pagetitles[i]}`);
     });

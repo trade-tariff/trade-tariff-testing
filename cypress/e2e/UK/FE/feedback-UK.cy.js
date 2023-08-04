@@ -63,7 +63,7 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     cy.visit('/feedback/thanks');
     cy.get('li:nth-of-type(2) > .govuk-breadcrumbs__link').contains('Help').click();
     cy.contains('Help on using the tariff');
-    cy.go(-1);
+    cy.go('back');
     cy.get('li:nth-of-type(1) > .govuk-breadcrumbs__link').contains('Home').click();
     cy.contains('Look up commodity codes, import duties, taxes and controls');
   });

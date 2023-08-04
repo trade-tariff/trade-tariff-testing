@@ -27,7 +27,7 @@ describe('🇬🇧 🇪🇺 💡 | PrivacyNotice.spec | Privacy Notice for UK an
       cy.contains('collect web analytics to help us to monitor usage of our service for the purposes of improving it');
       cy.get('p:nth-of-type(20) > a').click();
       cy.contains('Make a subject access request to HMRC');
-      cy.go(-1);
+      cy.go('back');
       // headings
       cy.contains('Complaints');
       cy.contains('International transfers');
@@ -40,11 +40,11 @@ describe('🇬🇧 🇪🇺 💡 | PrivacyNotice.spec | Privacy Notice for UK an
       // complaining
       cy.get('p:nth-of-type(21) > a').click();
       cy.contains('Make a complaint about HMRC');
-      cy.go(-1);
+      cy.go('back');
       // page links
       cy.get('p:nth-of-type(19) > a').contains('Office of the Data Protection Officer Privacy Notice').click();
       cy.contains('HMRC Office of the Data Protection Officer Privacy Notice');
-      cy.go(-1);
+      cy.go('back');
       // email links
       cy.contains('advice.dpa@hmrc.gov.uk.');
       cy.contains('casework@ico.org.uk');

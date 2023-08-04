@@ -134,11 +134,11 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.contains('Search for a commodity').click();
     cy.contains('Look up commodity codes, import duties, taxes and controls');
     cy.contains('UK Integrated Online Tariff');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Browse through the goods classification').click();
     cy.contains('UK Integrated Online Tariff');
     cy.contains('Browse the tariff');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Use the A-Z of classified goods').click();
     cy.contains('UK Integrated Online Tariff');
     cy.contains('A–Z of Classified Goods');

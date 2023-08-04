@@ -27,7 +27,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Origin requirements met
     cy.rooReqMet('Importing', 'Japan', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // Validate if product specific rules are not met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMet('Importing', 'Japan', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement');
@@ -57,7 +57,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Origin requirements met
     cy.rooReqMetEx('Exporting', 'the UK', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement', 'Japan');
     // Validate if product specific rules are not met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMetEx('Exporting', 'the UK', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement', 'Japan');
@@ -89,7 +89,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Origin requirements met
     cy.rooReqMet('Importing', 'Egypt', '1301200000', 'UK-Egypt Association Agreement');
     // Validate if product specific rules are met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMet('Importing', 'Egypt', '1301200000', 'UK-Egypt Association Agreement');
@@ -121,7 +121,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Origin requirements met
     cy.rooReqMet('Importing', 'Egypt', '0502100000', 'UK-Egypt Association Agreement');
     // Validate if product specific rules are met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMet('Importing', 'Egypt', '0502100000', 'UK-Egypt Association Agreement');
@@ -157,7 +157,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Verify feeback section on product rules met screen
     cy.feebackSection();
     // Validate if product specific rules are met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMet('Importing', 'South Korea', '1702201010', 'UK-South Korea Trade Agreement');

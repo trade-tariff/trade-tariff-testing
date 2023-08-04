@@ -42,7 +42,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains(`${currentDate}`);
     cy.contains('7202 11 80 00').click();
     cy.checkCommPage('7202118000');
-    cy.go(-1);
+    cy.go('back');
     // keys
     cy.get('.govuk-details > .govuk-details__summary');
     cy.contains('Details of your trade').click();

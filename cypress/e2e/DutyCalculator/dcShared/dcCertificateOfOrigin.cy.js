@@ -20,7 +20,7 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', funct
     cy.contains('Continue').click();
 
     // selection is persisted
-    cy.go(-1);
+    cy.go('back');
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-yes-field')
         .parent()
         .find('input')
@@ -30,13 +30,13 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', funct
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.go(-1);
+    cy.go('back');
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field')
         .parent()
         .find('input')
         .should('be.checked');
     // No Values Selected
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Continue').click();
     cy.contains('Do you have a valid proof of preferential origin?');
     cy.contains('Continue').click();

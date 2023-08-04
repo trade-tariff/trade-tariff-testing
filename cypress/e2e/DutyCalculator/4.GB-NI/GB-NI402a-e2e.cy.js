@@ -1,6 +1,6 @@
 describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02', function() {
   it('e2e GB to NI 🧁', function() {
-    cy.visit(`/duty-calculator/${country[i]}/0702000007/import-date`);
+    cy.visit('/duty-calculator/uk/0702000007/import-date');
     cy.validDate();
 
     cy.contains('Which part of the UK are you importing into?');
@@ -27,7 +27,7 @@ describe('| GB-NI402a-e2e.spec | GB to NI route 🚐 02', function() {
     cy.contains('You may be called upon to provide proof of your membership of the UK Trader Scheme');
 
 
-    cy.go(-1);
+    cy.go('back');
     cy.get('input#steps-annual-turnover-annual-turnover-yes-field')
         .parent()
         .find('input')
