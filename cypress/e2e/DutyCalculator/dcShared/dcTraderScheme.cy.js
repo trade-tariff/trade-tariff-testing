@@ -35,7 +35,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.contains('Continue').click();
 
     // selection is persisted
-    cy.go(-1);
+    cy.go('back');
     cy.get('div:nth-of-type(1) > input[name=\'steps_trader_scheme[trader_scheme]\']')
         .parent()
         .find('input')
@@ -45,12 +45,12 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.get('div:nth-of-type(2) > input[name=\'steps_trader_scheme[trader_scheme]\']').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.go(-1);
+    cy.go('back');
     cy.get('div:nth-of-type(2) > input[name=\'steps_trader_scheme[trader_scheme]\']')
         .parent()
         .find('input')
         .should('be.checked');
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Continue').click();
     // empty values
     cy.contains('Continue').click();

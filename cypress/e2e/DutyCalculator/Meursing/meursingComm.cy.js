@@ -41,7 +41,7 @@ describe('| meursingComm.spec.js | Store Commodity value in session for Meursing
     // click on the meursing link
     cy.get('div#meursing-lookup-result-meursing-additional-code-id-hint > .govuk-link').click();
     cy.contains('Look up a Meursing code');
-    cy.go(-1);
+    cy.go('back');
     cy.checkCommPage('1905311100');
     cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').type('000');
     cy.contains('Save code and update duties').click();

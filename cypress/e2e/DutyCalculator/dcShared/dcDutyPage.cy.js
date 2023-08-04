@@ -22,7 +22,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field').check();
     cy.contains('Continue').click();
     // EU Duties apply
-    cy.dutiesApply1();
+    cy.euDutiesApply();
     // monetary value
     cy.get('input#steps-customs-value-monetary-value-field').clear();
     cy.get('input#steps-customs-value-monetary-value-field').type('5000.50');
@@ -42,7 +42,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains(`${currentDate}`);
     cy.contains('7202 11 80 00').click();
     cy.checkCommPage('7202118000');
-    cy.go(-1);
+    cy.go('back');
     // keys
     cy.get('.govuk-details > .govuk-details__summary');
     cy.contains('Details of your trade').click();

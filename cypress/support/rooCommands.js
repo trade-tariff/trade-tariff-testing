@@ -242,7 +242,7 @@ Cypress.Commands.add('rooNotMet', (tradetype, country, code, scheme)=>{
 
   cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
   cy.contains('Valid proofs of origin');
-  cy.go(-1);
+  cy.go('back');
   cy.get('.govuk-warning-text__text').contains('start again').click();
   cy.contains(`Are you importing goods into the UK or into ${country}?`);
 });
@@ -256,7 +256,7 @@ Cypress.Commands.add('tolerance', (tradetype, code, country, scheme) => {
   cy.contains('Tolerances');
   cy.contains('‘Tolerances’ represent a provision for the relaxation of the rules of origin under certain conditions.');
   cy.contains(`Tolerances in the ${scheme}`);
-  cy.go(-1);
+  cy.go('back');
   cy.contains(`${tradetype} commodity ${code} from ${country}`);
   cy.contains('Product-specific rules not met');
   cy.contains(`Your product does not appear to meet the rules of origin requirements for the ${scheme}.`);
@@ -305,7 +305,7 @@ Cypress.Commands.add('rooNotMetEx', (tradetype, country1, code, scheme, country2
 
   cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
   cy.contains('Valid proofs of origin');
-  cy.go(-1);
+  cy.go('back');
   cy.get('.govuk-warning-text__text').contains('start again').click();
   cy.contains(`Are you importing goods into the UK or into ${country2}?`);
 });
@@ -325,7 +325,7 @@ Cypress.Commands.add('rooNotMetGSP', (country, code, scheme)=>{
   cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
   cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
   cy.contains('Valid proofs of origin');
-  cy.go(-1);
+  cy.go('back');
   cy.get('.govuk-warning-text__text').contains('start again').click();
   cy.contains('Importing goods into the United Kingdom from countries which belong to unilateral preference schemes');
 });
@@ -347,7 +347,7 @@ Cypress.Commands.add('rooNotMetMulti', (tradeSelection, country, code, scheme)=>
   cy.contains('Alternatively, if your trade still does not meet the rules of origin, start again.');
   cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
   cy.contains('Valid proofs of origin');
-  cy.go(-1);
+  cy.go('back');
   cy.get('.govuk-warning-text__text').contains('start again').click();
 });
 Cypress.Commands.add('prodSpecRules', (rule)=>{

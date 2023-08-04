@@ -32,7 +32,7 @@ describe('| RoO-e2e-NWO-MultiSchm-NonGSP-SuffPro.spec | NWO + Multi-NonGSP + Suf
     // Origin requirements met
     cy.rooReqMet('Importing', 'Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');
     // Validate if product specific rules are not met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMetMulti('Importing', 'Vietnam', '6004100091', 'UK-Vietnam Free Trade Agreement');

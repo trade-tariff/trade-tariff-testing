@@ -26,7 +26,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // interstitial page
-    cy.dutiesApply1();
+    cy.euDutiesApply();
 
 
     // Monetary value page
@@ -63,7 +63,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains(`${currentDate}`);
     cy.contains('7202 11 80 00').click();
     cy.checkCommPage('7202118000');
-    cy.go(-1);
+    cy.go('back');
 
     cy.contains('Details of your trade').click();
     cy.get('.govuk-details__text');
@@ -122,7 +122,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // interstitial page
-    cy.dutiesApply1();
+    cy.euDutiesApply();
 
     cy.meursingCode({value: '000'});
     // Monetary value page
@@ -163,7 +163,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains('9.00 % + 0.00 EUR / 100 kg MAX 24.20 % + 0.00 EUR / 100 kg');
     cy.contains('1905 31 11 00').click();
     cy.checkCommPage('1905311100');
-    cy.go(-1);
+    cy.go('back');
     // change meursing code to 7049
 
     cy.get('.govuk-back-link').click();

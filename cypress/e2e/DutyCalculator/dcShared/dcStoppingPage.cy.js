@@ -17,7 +17,7 @@ describe('|dcStoppingPage.spec| Stopping page for certificate code N990', functi
     // Page validations
     cy.get('p > .govuk-link').click();
     cy.contains('3921905590');
-    cy.go(-1);
+    cy.go('back');
     // select correct document navigates to N990 page
     cy.get('.govuk-list.govuk-list--bullet  a').click();
     cy.docCode({uk: 'none'});

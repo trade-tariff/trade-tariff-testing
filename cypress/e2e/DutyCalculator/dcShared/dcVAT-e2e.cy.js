@@ -139,7 +139,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // 🚫 Certified as UK Origin
     cy.certificate('no');
     // eu duties apply
-    cy.dutiesApply1();
+    cy.euDutiesApply();
     // Monetary value page
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     // VAT Page

@@ -106,7 +106,7 @@ Cypress.Commands.add('mainPageUK', () => {
   cy.contains('Commodity codes are internationally');
   cy.contains('browse the goods classification').click();
   cy.contains('Browse the tariff');
-  cy.go(-1);
+  cy.go('back');
   cy.contains('look for your product in the A-Z.').click();
   cy.contains('look for your product in the A-Z.');
 });
@@ -122,7 +122,7 @@ Cypress.Commands.add('mainPageXI', () => {
   cy.contains('Commodity codes are internationally recognised reference numbers.');
   cy.contains('browse the goods classification').click();
   cy.contains('Browse the tariff');
-  cy.go(-1);
+  cy.go('back');
   cy.contains('look for your product in the A-Z.').click();
   cy.contains('look for your product in the A-Z.');
 });

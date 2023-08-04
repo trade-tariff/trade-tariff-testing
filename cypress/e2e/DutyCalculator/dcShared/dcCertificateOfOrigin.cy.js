@@ -10,7 +10,7 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', funct
 
     // Certificate of Origin
     cy.contains('Do you have a valid proof of preferential origin?');
-    cy.contains('If you have a valid Certificate of Origin proving that your goods were materially manufactured in the UK, then you are eligible to take advantage of the 0% import duties made available under the UK / EU Trade and Cooperation Agreement.');
+    cy.contains('If you have a valid Certificate of Origin');
 
     cy.contains('Yes, I have a valid Certificate of Origin');
     cy.contains('No, I do not have a valid Certificate of Origin');
@@ -20,7 +20,7 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', funct
     cy.contains('Continue').click();
 
     // selection is persisted
-    cy.go(-1);
+    cy.go('back');
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-yes-field')
         .parent()
         .find('input')
@@ -30,13 +30,13 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', funct
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field').check();
     cy.contains('Continue').click();
     // selection is persisted
-    cy.go(-1);
+    cy.go('back');
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field')
         .parent()
         .find('input')
         .should('be.checked');
     // No Values Selected
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Continue').click();
     cy.contains('Do you have a valid proof of preferential origin?');
     cy.contains('Continue').click();

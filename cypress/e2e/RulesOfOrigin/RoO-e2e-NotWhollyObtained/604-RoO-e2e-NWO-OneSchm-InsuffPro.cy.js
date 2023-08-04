@@ -66,7 +66,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
     // Origin requirements not met
     cy.rooNotMetImp('Importing', 'Japan', '5808100000', 'UK-Japan Comprehensive Economic Partnership Agreement');
-    cy.go(-1);
+    cy.go('back');
     // Verify tolerances page
     cy.tolerance('Importing', '5808100000', 'Japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // Verify cumulation page
@@ -89,7 +89,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     cy.whollyObtained('Japan', 'no');
     // Origin requirements not met
     cy.rooNotMetImp('Importing', 'Japan', '0101291000', 'UK-Japan Comprehensive Economic Partnership Agreement');
-    cy.go(-1);
+    cy.go('back');
     // Verify tolerances page
     cy.tolerance('Importing', '0101291000', 'Japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // Without cumulation block
@@ -116,7 +116,7 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
     // Origin requirements not met
     cy.rooNotMetImp('Importing', 'Japan', '1602321110', 'UK-Japan Comprehensive Economic Partnership Agreement');
-    cy.go(-1);
+    cy.go('back');
     // with cumulation block
     cy.clkCumulationLnk();
     cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');

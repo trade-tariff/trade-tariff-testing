@@ -35,15 +35,15 @@ describe('💷 💶 | dcExchangeRate | Validating exchange rates , past and futu
       cy.contains('Continue').click();
       console.log(cy.title());
       // interstitial page
-      cy.dutiesApply1();
+      cy.euDutiesApply();
       // monetary value
-      cy.get('input#steps-customs-value-monetary-value-field').clear().type('1000');
+      cy.get('input#steps-customs-value-monetary-value-field').clear();
+      cy.get('input#steps-customs-value-monetary-value-field').type('1000');
       cy.contains('Continue').click();
       // confirm
       cy.get('.govuk-button').click();
       cy.getExchangeRateForImportDate(importDateString).then(
           (exchangeRate) => {
-          // const rate = parseFloat(exchangeRate.attributes.exchange_rate).toPrecision(4);
             const rate1 = parseFloat(exchangeRate.attributes.exchange_rate);
 
             const rate = Math.round(rate1*10000)/10000;

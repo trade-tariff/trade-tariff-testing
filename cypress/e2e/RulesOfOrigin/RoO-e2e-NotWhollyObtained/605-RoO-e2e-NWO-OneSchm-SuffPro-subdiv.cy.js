@@ -29,7 +29,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Suffici
     // Origin requirements met
     cy.rooReqMet('Importing', 'Botswana', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)');
     // Validate if product specific rules are not met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMet('Importing', 'Botswana', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)');
@@ -61,7 +61,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro-subdiv.spec | NWO + One Scheme + Suffici
     // Origin requirements met
     cy.rooReqMetEx('Exporting', 'the UK', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)');
     // Validate if product specific rules are not met
-    cy.go(-1);
+    cy.go('back');
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements NOT met
     cy.rooNotMetEx('Exporting', 'the UK', '5808100000', 'SACUM-UK Economic Partnership Agreement (EPA)', 'Botswana');

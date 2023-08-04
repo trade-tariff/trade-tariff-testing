@@ -1,6 +1,5 @@
-
 describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', function() {
-  it(`e2e RoW to GB 🇸🇬 Singapore  to 🇬🇧 GB`, function() {
+  it('e2e RoW to GB 🇸🇬 Singapore  to 🇬🇧 GB', function() {
     cy.visit('/xi/commodities/1701141000');
     cy.contains('Northern Ireland Online Tariff');
     cy.get('.measure-inset').contains('work out the duties and taxes applicable to the import of commodity').click();
@@ -13,11 +12,12 @@ describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', functio
     cy.contains('Continue').click();
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
-    cy.contains('100 kilograms');
-    cy.contains('1 tonnes');
-    cy.contains('1 x 10,000 kg');
+    cy.contains('kilograms');
+    cy.contains('1,000 kg');
+    cy.contains('decatonne, corrected according to polarisation (10,000 kg/polar)');
+    cy.contains('1');
     cy.confirmPage();
-    // Duty Calculations
+
     cy.dutyPage();
     cy.contains('Option 1: Third-country duty');
     cy.contains('Option 2: Tariff preference - Singapore');

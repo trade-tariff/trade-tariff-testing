@@ -18,7 +18,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details  .govuk-link').click();
     cy.checkCommPage(`2402201000`);
-    cy.go(-1);
+    cy.go('back');
     cy.contains('Continue').click();
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Select an excise class');
