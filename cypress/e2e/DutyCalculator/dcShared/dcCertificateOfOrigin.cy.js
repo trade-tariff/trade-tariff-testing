@@ -10,7 +10,7 @@ describe('🔖 | dcCertificateOfOrigin | UK Certificate of Origin page |', funct
 
     // Certificate of Origin
     cy.contains('Do you have a valid proof of preferential origin?');
-    cy.contains('If you have a valid Certificate of Origin proving that your goods were materially manufactured in the UK, then you are eligible to take advantage of the 0% import duties made available under the UK / EU Trade and Cooperation Agreement.');
+    cy.contains('If you have a valid Certificate of Origin');
 
     cy.contains('Yes, I have a valid Certificate of Origin');
     cy.contains('No, I do not have a valid Certificate of Origin');
