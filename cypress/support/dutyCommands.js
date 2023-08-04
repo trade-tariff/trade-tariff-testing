@@ -278,6 +278,7 @@ Cypress.Commands.add('docCode', (dcode) => {
 Cypress.Commands.add('storeMonetaryExchangeRates', () => {
   cy.request({
     method: 'GET',
+    url: `https://www.trade-tariff.service.gov.uk/xi/api/v2/monetary_exchange_rates/`,
   }).then((response) => {
     const exchangeRates = response.body.data;
     exchangeRates.sort((exchangeRateA, exchangeRateB) => {
