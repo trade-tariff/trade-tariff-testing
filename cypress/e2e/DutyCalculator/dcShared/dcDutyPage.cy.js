@@ -22,7 +22,7 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.get('input#steps-certificate-of-origin-certificate-of-origin-no-field').check();
     cy.contains('Continue').click();
     // EU Duties apply
-    cy.dutiesApply1();
+    cy.euDutiesApply();
     // monetary value
     cy.get('input#steps-customs-value-monetary-value-field').clear();
     cy.get('input#steps-customs-value-monetary-value-field').type('5000.50');

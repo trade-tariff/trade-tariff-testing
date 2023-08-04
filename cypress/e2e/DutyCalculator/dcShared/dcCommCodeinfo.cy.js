@@ -60,7 +60,7 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
 
     cy.certificate('no');
     // duties apply page
-    cy.dutiesApply1();
+    cy.euDutiesApply();
 
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     cy.get('.govuk-details > .govuk-details__summary');

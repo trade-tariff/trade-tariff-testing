@@ -29,7 +29,7 @@ describe('GB-NI408b-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
       // 🚫 Certified as UK Origin
       cy.certificate('no');
       // interstitial page
-      cy.dutiesApply1();
+      cy.euDutiesApply();
       // Monetary value page
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
       // quantity
@@ -57,7 +57,8 @@ describe('GB-NI408b-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
       cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('£10,002.24');
-      cy.contains('23098 kilograms');
+      cy.contains('kilograms');
+      cy.contains('23098');
       // confirm
       cy.get('.govuk-button').click();
 

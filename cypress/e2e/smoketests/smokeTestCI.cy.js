@@ -445,7 +445,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.turnOver('more');
       cy.plannedXI('unacceptablecommercial');
       cy.certificate('no');
-      cy.dutiesApply1();
+      cy.euDutiesApply();
       cy.meursingCode({value: '000'});
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
       cy.quantity({kgm: '23.98'});

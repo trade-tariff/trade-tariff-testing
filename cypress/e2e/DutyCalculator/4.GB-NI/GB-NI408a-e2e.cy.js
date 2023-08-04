@@ -26,7 +26,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // interstitial page
-    cy.dutiesApply1();
+    cy.euDutiesApply();
 
 
     // Monetary value page
@@ -122,7 +122,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     //  🚫 Certified as UK Origin
     cy.certificate('no');
     // interstitial page
-    cy.dutiesApply1();
+    cy.euDutiesApply();
 
     cy.meursingCode({value: '000'});
     // Monetary value page

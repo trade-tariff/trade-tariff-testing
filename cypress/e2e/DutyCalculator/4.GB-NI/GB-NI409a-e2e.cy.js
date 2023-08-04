@@ -32,7 +32,7 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
 
       // ℹ️ Interstitial Message - EU duties apply
       // interstitial page
-      cy.dutiesApply1();
+      cy.euDutiesApply();
 
       // 💰 Whats the monetary value?
       cy.contains('What is the customs value of this import?');

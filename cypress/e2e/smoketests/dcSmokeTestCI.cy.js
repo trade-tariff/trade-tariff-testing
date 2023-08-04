@@ -101,7 +101,7 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
     cy.contains('Continue').click();
     cy.certificate('no');
-    cy.dutiesApply1();
+    cy.euDutiesApply();
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     cy.quantity({kgm: '23.98'});
     cy.docCode({xi: 'n990'});

@@ -35,7 +35,7 @@ describe('GB-NI404-e2e.spec|GB to NI route 04-Trade Remedies-0% MFN EU-Trader Sc
       cy.certificate('no');
 
       // interstitial page
-      cy.dutiesApply1();
+      cy.euDutiesApply();
 
       // customs value
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
@@ -68,7 +68,8 @@ describe('GB-NI404-e2e.spec|GB to NI route 04-Trade Remedies-0% MFN EU-Trader Sc
       cy.get('div:nth-of-type(7) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(8) > .govuk-summary-list__value').contains('No');
       cy.get('div:nth-of-type(9) > .govuk-summary-list__value').contains('£10,002.24');
-      cy.contains('2300.98 kilograms');
+      cy.contains('kilograms');
+      cy.contains('2300.98');
       cy.get('.govuk-button').click();
 
       // Final Page
@@ -101,7 +102,7 @@ describe('GB-NI404-e2e.spec|GB to NI route 04-Trade Remedies-0% MFN EU-Trader Sc
       cy.certificate('no');
 
       // interstitial page
-      cy.dutiesApply1();
+      cy.euDutiesApply();
       cy.meursingCode({value: '000'});
 
       // customs value

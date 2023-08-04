@@ -36,7 +36,7 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       cy.certificate('no');
       cy.mobileMenu();
       // interstitial page
-      cy.dutiesApply1();
+      cy.euDutiesApply();
       cy.mobileMenu();
 
       // Monetary value page

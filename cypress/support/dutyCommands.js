@@ -89,6 +89,7 @@ Cypress.Commands.add('originList', (origin) => {
   cy.get('#steps-country-of-origin-country-of-origin-field').type(origin.value);
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('otherOriginList', (otherorigin) => {
   cy.contains('Where are the goods coming from?');
   cy.title().should('eq', 'Which country are the goods dispatched from - Online Tariff Duty calculator');
@@ -98,21 +99,19 @@ Cypress.Commands.add('otherOriginList', (otherorigin) => {
   cy.get('#steps-country-of-origin-other-country-of-origin-field').type(otherorigin.value);
   cy.contains('Continue').click();
 });
+
 Cypress.Commands.add('dutiesApply', () => {
   cy.contains('Duties apply to this import');
   cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
 });
+
 Cypress.Commands.add('euDutiesApply', () => {
   cy.contains('EU duties apply to this import');
   cy.title().should('eq', 'EU duties apply to this import - Online Tariff Duty calculator');
   cy.get('.govuk-button').click();
 });
-Cypress.Commands.add('dutiesApply1', () => {
-  cy.contains('EU duties apply to this import');
-  cy.title().should('eq', 'Duties apply to this import - Online Tariff Duty calculator');
-  cy.get('.govuk-button').click();
-});
+
 Cypress.Commands.add('meursingCode', (mcode) => {
   cy.contains('Enter a \'Meursing code\' to work out applicable duties');
   cy.title().should('eq', 'Enter a \'Meursing Code\' for this commodity - Online Tariff Duty calculator');
