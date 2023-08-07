@@ -30,7 +30,7 @@
     "nanoid": "^4.0.2",
     "postcss": "^8.4.27",
     "set-value": "^4.1.0",
-    "validator": "^13.9.0"
+    "validator": "^13.11.0"
   },
   "scripts": {
     "open:dev": "CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk CYPRESS_SPACE=DEVELOPMENT npx cypress open",
