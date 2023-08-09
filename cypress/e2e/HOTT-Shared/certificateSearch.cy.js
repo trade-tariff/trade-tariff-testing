@@ -6,7 +6,8 @@ describe('certificate search', function() {
 
     it('searches for a certificate', function() {
       cy.get('select#type').select('9 - National Document');
-      cy.get('input#code').clear().type('111');
+      cy.get('input#code').clear();
+      cy.get('input#code').type('111');
 
       cy.get('form#new_search > input[name=\'new_search\']').click();
       cy.get('article.search-results');
@@ -27,7 +28,8 @@ describe('certificate search', function() {
 
     it('searches for a certificate', function() {
       cy.get('select#type').select('9 - National Document');
-      cy.get('input#code').clear().type('111');
+      cy.get('input#code').clear();
+      cy.get('input#code').type('111');
 
       cy.get('form#new_search > input[name=\'new_search\']').click();
       cy.get('article.search-results');
