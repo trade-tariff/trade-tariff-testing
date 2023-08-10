@@ -1,27 +1,42 @@
-/* eslint-disable max-len */
-describe('🇪🇺 🇬🇧 💡| footnoteSearch.spec.js | footnote Search UK and XI services |', function() {
-  it('Footnote Search | dropdown | with results', function() {
-    cy.visit('/footnote_search');
-    const codes = ['01', 'CD', 'CA', 'TR', 'DU', 'EU', 'EX', 'DS', 'MH', 'MG'];
-    for ( let i = 0; i < codes.length; i++) {
-      //    cy.get('select#type').select('01 - UK tax type, to distinguish which applies by tax type when several Excise measures on commodity')
-      cy.get('select#type').select(`${codes[i]}`);
-      cy.get('form#new_search > input[name=\'new_search\']').click();
+describe('footnote search', function() {
+  context('when searching by type and code for footnotes associated with a measure', function() {
+    const code = '03020';
+
+    it('returns search results', function() {
+      cy.visit('/footnote_search');
+
+      cy.get('input#footnote-search-form-code-field').type(code);
+      cy.get('#footnote-submit').click();
 
       cy.contains('Footnote search results');
-    }
+      cy.contains('03020 UK VAT standard rate');
+    });
   });
 
-  it('Footnote Search | dropdown | No results', function() {
-    cy.visit('/footnote_search');
-    const codes = ['02', 'WR'];
-    for (let i = 0; i < codes.length; i++) {
-      //    cy.get('select#type').select('01 - UK tax type, to distinguish which applies by tax type when several Excise measures on commodity')
-      cy.get('select#type').select(`${codes[i]}`);
-      cy.get('form#new_search > input[name=\'new_search\']').click();
+  context('when searching by code for footnotes associated with a goods nomenclature', function() {
+    const code = 'TN207';
 
-      cy.contains('There are no matching results');
-    }
+    it('returns search results', function() {
+      cy.visit('/footnote_search');
+
+      cy.get('input#footnote-search-form-code-field').type(code);
+      cy.get('#footnote-submit').click();
+
+      cy.contains('Footnote search results');
+      cy.contains('TN207 The export of arms and WMD-related items');
+    });
+  });
+
+  context('when searching by description', function() {
+    const description = 'alcohol';
+
+    it('returns search results', function() {
+      cy.visit('/footnote_search');
+      cy.get('input#footnote-search-form-description-field').type(description);
+      cy.get('#footnote-submit').click();
+
+      cy.contains('Footnote search results');
+      cy.contains('PI001 This suspension only applies to alcohol solution');
+    });
   });
 });
-
