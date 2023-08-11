@@ -4,20 +4,26 @@ describe('certificate search', function() {
       cy.visit('/uk/certificate_search');
     });
 
-    it('searches for a certificate', function() {
-      cy.get('select#type').select('9 - National Document');
-      cy.get('input#code').clear();
-      cy.get('input#code').type('111');
+    it('searches for a certificate by code', function() {
+      cy.get('input#certificate-search-form-code-field').type('D005');
 
-      cy.get('form#new_search > input[name=\'new_search\']').click();
+      cy.get('#certificate-submit').click();
       cy.get('article.search-results');
 
       cy.contains('Using this certificate on CDS or CHIEF').click();
-      cy.contains('Enter GBHOO followed by the licence number.');
-      cy.contains('Use one of the status codes');
-
       cy.contains('Commodity codes that require this certificate').click();
-      cy.contains('Coca leaf');
+      cy.contains('Plated or coated by hot dip galvanisation');
+    });
+
+    it('searches for a certificate by description', function() {
+      cy.get('input#certificate-search-form-description-field').type('invoice');
+
+      cy.get('#certificate-submit').click();
+      cy.get('article.search-results');
+
+      cy.contains('Using this certificate on CDS or CHIEF').click();
+      cy.contains('Commodity codes that require this certificate').click();
+      cy.contains('Plated or coated by hot dip galvanisation');
     });
   });
 
@@ -26,20 +32,26 @@ describe('certificate search', function() {
       cy.visit('/xi/certificate_search');
     });
 
-    it('searches for a certificate', function() {
-      cy.get('select#type').select('9 - National Document');
-      cy.get('input#code').clear();
-      cy.get('input#code').type('111');
+    it('searches for a certificate by code', function() {
+      cy.get('input#certificate-search-form-code-field').type('D005');
 
-      cy.get('form#new_search > input[name=\'new_search\']').click();
+      cy.get('#certificate-submit').click();
       cy.get('article.search-results');
 
       cy.contains('Using this certificate on CDS or CHIEF').click();
-      cy.contains('Enter GBHOO followed by the licence number.');
-      cy.contains('Use one of the status codes');
-
       cy.contains('Commodity codes that require this certificate').click();
-      cy.contains('Coca leaf');
+      cy.contains('Citric acid');
+    });
+
+    it('searches for a certificate by description', function() {
+      cy.get('input#certificate-search-form-description-field').type('invoice');
+
+      cy.get('#certificate-submit').click();
+      cy.get('article.search-results');
+
+      cy.contains('Using this certificate on CDS or CHIEF').click();
+      cy.contains('Commodity codes that require this certificate').click();
+      cy.contains('Citric acid');
     });
   });
 });
