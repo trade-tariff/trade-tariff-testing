@@ -91,4 +91,55 @@ describe('UK 🇬🇧 XI 🇪🇺 | breadcrumbLinks.spec.js | Validate breadcrum
       cy.get('.govuk-heading-l.commodity-header').contains(`Commodity ${headings[j]}`+ '000000');
     }
   });
+
+  it(`Certificates ,licences and documents - breadcrumbs ${countries[i]}`, function() {
+    cy.visit(`${countries[i]}/certificate_search`);
+    cy.certificateSearch();
+    cy.get('.govuk-breadcrumbs')
+      .contains('Certificate');
+    cy.get('.govuk-breadcrumbs__list')
+      .contains('Tools').click();
+    cy.contains('Tariff tools');
+  });
+  it(`Additional codes - breadcrumbs ${countries[i]}`, function() {
+    cy.visit(`${countries[i]}/additional_code_search`);
+    cy.contains('Search for additional codes');
+    cy.get('.govuk-breadcrumbs')
+      .contains('Additional codes');
+    cy.get('.govuk-breadcrumbs__list')
+      .contains('Tools').click();
+    cy.contains('Tariff tools');
+  });
+
+  it(`Footnote Search - breadcrumbs ${countries[i]}`, function() {
+    cy.visit(`${countries[i]}/footnote_search`);
+    cy.get('.govuk-breadcrumbs')
+      .contains('Footnote Search');
+    cy.get('.govuk-breadcrumbs__list')
+      .contains('Tools').click();
+    cy.contains('Tariff tools');
+  });
+  it(` Chemicals - breadcrumbs ${countries[i]}`, function() {
+    cy.visit(`${countries[i]}/chemical_search`);
+    cy.contains('Search by Chemical');
+    cy.get('.govuk-breadcrumbs')
+      .contains('Chemicals');
+    cy.get('.govuk-breadcrumbs__list')
+      .contains('Tools').click();
+    cy.contains('Tariff tools');
+  });
+}
+it(' Quotas - breadcrumbs - UK ', function() {
+  cy.visit('/tools');
+  cy.get('.govuk-list')
+    .contains('Quotas').click();
+  cy.contains('Search for quotas');
+  cy.get('.govuk-breadcrumbs')
+    .contains('Quotas');
+  cy.get('.govuk-breadcrumbs__list')
+    .contains('Tools').click();
+  cy.contains('Tariff tools');
+  cy.get('.govuk-breadcrumbs__list')
+    .contains('Home').click();
+});
 });
