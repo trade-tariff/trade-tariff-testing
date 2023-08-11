@@ -40,7 +40,7 @@ describe('| RoW-GB-LPA-SPQ-e2e | AlcoholDuties |', function() {
     cy.quantity({lpa: '1000', asv: '1.2', spr: '5'});
 
     // and I pick an excise code that picks a measure and applies the targeted conditions
-    cy.exciseCode('380');
+    cy.exciseCode('370');
     cy.confirmPage();
     cy.dutyPage();
 
@@ -52,13 +52,14 @@ describe('| RoW-GB-LPA-SPQ-e2e | AlcoholDuties |', function() {
     cy.go('back');
     cy.go('back');
     cy.quantity({lpa: '84', asv: '8.4', spr: '5'});
-    cy.exciseCode('380');
+    cy.exciseCode('370');
     cy.confirmPage();
     cy.dutyPage();
 
     // then I should see Excise calculations
     cy.contains('Excise');
-    cy.contains('19.08 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
-    cy.contains('£1,182.72'); // 19.08 * 84 - (1 * 84 * 5)
+    cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR');
+    cy.contains('24.77 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
+    cy.contains('£1,660.68'); // 24.77 * 84 - (1 * 84 * 5)
   });
 });

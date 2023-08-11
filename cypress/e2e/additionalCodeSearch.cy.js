@@ -17,7 +17,7 @@ describe('additional code search', function() {
       // given I am on the additional code search page
       cy.visit(path);
       // when I search for a specific description
-      cy.get('#additional-code-search-form-description-field').type('Other');
+      cy.get('#additional-code-search-form-description-field').type('AlcohoL');
       // and I click the search button
       cy.get('#additional-code-submit').click();
       // then I should see the results
