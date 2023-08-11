@@ -40,7 +40,7 @@ describe('| RoW-GB-ASVX-SPQ-e2e | AlcoholDuties |', function() {
     cy.quantity({ltr: '1000', asv: '1.2', spr: '5'});
 
     // and I pick an excise code that picks a measure and applies the targeted conditions
-    cy.exciseCode('376');
+    cy.exciseCode('366');
     cy.confirmPage();
     cy.dutyPage();
 
@@ -52,13 +52,14 @@ describe('| RoW-GB-ASVX-SPQ-e2e | AlcoholDuties |', function() {
     cy.go('back');
     cy.go('back');
     cy.quantity({ltr: '1000', asv: '8.4', spr: '5'});
-    cy.exciseCode('376');
+    cy.exciseCode('366');
     cy.confirmPage();
     cy.dutyPage();
 
     // then I should see Excise calculations
     cy.contains('Excise');
-    cy.contains('19.08 GBP / % vol/hl - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
-    cy.contains('£1,182.72'); // 19.08 * 8.4 * 10 * 7
+    cy.contains('Beer at least 3.5 but less than 8.5% & eligible for SPR');
+    cy.contains('21.01 GBP / % vol/hl - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
+    cy.contains('£1,344.84'); // 21.01 * 8.4 * 10 * 7
   });
 });
