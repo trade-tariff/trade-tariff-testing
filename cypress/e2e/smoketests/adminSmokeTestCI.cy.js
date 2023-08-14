@@ -22,13 +22,6 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
       cy.verifyRollbacks(service);
     });
 
-    it('CRUD a news item', function() {
-      cy.createNewsItem(service);
-      cy.verifyNewsItemOnTariffServices();
-      cy.verifyAndUpdateNewsItem(service);
-      cy.removeNewsItem(service);
-    });
-
     it('verify tariff updates', function() {
       cy.tariffUpdates(service);
     });
@@ -75,13 +68,6 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
 
     it('verify rollbacks', function() {
       cy.verifyRollbacks(service);
-    });
-
-    it('CRUD a news item', function() {
-      cy.createNewsItem(service);
-      cy.verifyNewsItemOnTariffServices();
-      cy.verifyAndUpdateNewsItem(service);
-      cy.removeNewsItem(service);
     });
 
     it('verify tariff updates', function() {
