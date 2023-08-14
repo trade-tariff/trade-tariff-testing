@@ -20,7 +20,7 @@
     "dotenv": "^16.3.1",
     "eslint": "^8.47.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-cypress": "^2.13.3",
+    "eslint-plugin-cypress": "^2.14.0",
     "flow-bin": "^0.214.0",
     "glob-parent": "^6.0.2",
     "mocha-allure-reporter": "^1.4.0",
