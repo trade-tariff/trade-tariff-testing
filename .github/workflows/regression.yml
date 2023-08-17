@@ -42,7 +42,7 @@ jobs:
           spec: ${{ steps.speclist.outputs.specfiles }}
           quiet: true
           browser: chrome
-      
+
       - name: Cypress test outcome
         id: cypress-outcome
         run: |
@@ -53,7 +53,7 @@ jobs:
         with:
           name: test-reports-${{ matrix.containers }}
           path: ./cypress/reports/
-  
+
   gen-report:
     name: Generate test report
     needs: cypress-run
@@ -140,18 +140,18 @@ jobs:
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Production report for $(date +%d-%m-%Y)" -a
-        
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
-      
+
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
-  
+
   build-status-pass:
     name: Set build status and send slack notification when build is passed
     needs: [cypress-run, gen-report]
@@ -162,7 +162,7 @@ jobs:
         id: final-test
         if: needs.cypress-run.outputs.output0 == 'success' && needs.cypress-run.outputs.output1 == 'success' && needs.cypress-run.outputs.output2 == 'success' && needs.cypress-run.outputs.output3 == 'success'
         run: echo "result=success" >> $GITHUB_OUTPUT
-      
+
       - name: Slack Notification
         if: needs.cypress-run.outputs.output0 == 'success' && needs.cypress-run.outputs.output1 == 'success' && needs.cypress-run.outputs.output2 == 'success' && needs.cypress-run.outputs.output3 == 'success'
         uses: rtCamp/action-slack-notify@v2
@@ -185,7 +185,7 @@ jobs:
         id: final-test
         if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
         run: echo "result=failure" >> $GITHUB_OUTPUT
-      
+
       - name: Slack Notification
         if: needs.cypress-run.outputs.output0 != 'success' || needs.cypress-run.outputs.output1 != 'success' || needs.cypress-run.outputs.output2 != 'success' || needs.cypress-run.outputs.output3 != 'success'
         uses: rtCamp/action-slack-notify@v2
