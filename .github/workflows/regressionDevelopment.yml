@@ -9,7 +9,6 @@ jobs:
   cypress-run:
     environment: trade-tariff
     env:
-      CURRENT_DATE: $(date +'%d-%m-%Y')
       CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
@@ -20,14 +19,17 @@ jobs:
       CYPRESS_DEVELOPMENT_BASIC_USERNAME: ${{ secrets.CYPRESS_DEVELOPMENT_BASIC_USERNAME }}
       CYPRESS_SPACE: "DEVELOPMENT"
       CYPRESS_grepTags: "devOnly adminOnly"
+    name: "RegressionTests - Development"
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
     steps:
+      - run: date
+
       - name: Checkout repository code
         uses: actions/checkout@v3
 
-      - name: Run cypress tests
+      - name: Run cypress tests with chrome
         uses: cypress-io/github-action@v5
         id: cypress
         continue-on-error: true
@@ -36,18 +38,17 @@ jobs:
           quiet: true
           browser: chrome
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: ./cypress/reports/
+
       - name: Merge and generate reports
         run: |
           mkdir report
           npx mochawesome-merge ./cypress/reports/*.json > report/index.json
           npx marge --inline report/index.json -o report/
 
-  update-reports:
-    needs: cypress-run
-    runs-on: ubuntu-22.04
-    env:
-      CURRENT_DATE: $(date +'%d-%m-%Y')
-    steps:
       - name: Checkout reports repo
         uses: actions/checkout@v3
         with:
@@ -57,9 +58,10 @@ jobs:
       - name: Copy report into reports repo
         run: |
           cd reports_repo
-          [ -e docs/development/$CURRENT_DATE ] && rm -rf docs/development/$CURRENT_DATE
-          cp -a ../report/  docs/development/$CURRENT_DATE
-          pushd docs/development/$CURRENT_DATE
+          DATE=$(date +%d-%m-%Y)
+          [ -e docs/development/$DATE ] && rm -rf docs/development/$DATE
+          cp -a ../report/  docs/development/$DATE
+          pushd docs/development/$DATE
           rm -rf assets
           rm -rf screenshots
           ln -s ../../assets/
@@ -71,21 +73,19 @@ jobs:
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "Development report for $CURRENT_DATE" -a
-
-      - name: Push changes to reports branch
-        uses: ad-m/github-push-action@v2.5.0
+          git commit -m "Development report for $(date +%d-%m-%Y)" -a
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
 
-  notify:
-    needs: cypress-run
-    runs-on: ubuntu-22.04
-    env:
-      CURRENT_DATE: $(date +'%d-%m-%Y')
-    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%d-%m-%Y')"
+
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -93,10 +93,17 @@ jobs:
           SLACK_USERNAME: "Development Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
-          SLACK_COLOR: ${{ needs.cypress-run.outputs.cypress-outcome }}
-          SLACK_TITLE: Cypress finished with - ${{ needs.cypress-run.outputs.cypress-outcome }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/$CURRENT_DATE/
+          SLACK_COLOR: ${{ steps.cypress.outcome }}
+          SLACK_TITLE: Cypress finished with - ${{ steps.cypress.outcome }}
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/development/${{ steps.date.outputs.date }}/
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
+          directory: reports_repo
 
       - name: Set build status based on Cypress outcome
-        if: needs.cypress-run.outputs.cypress-outcome != 'success'
+        if: steps.cypress.outcome != 'success'
         run: exit 1
