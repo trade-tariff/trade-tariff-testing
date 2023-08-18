@@ -1,7 +1,7 @@
 name: "| Production | Regression Pack |"
 on:
   schedule:
-    - cron: "00 06 * * *"
+    - cron: "00 00 * * *"
   workflow_dispatch:
 jobs:
   cypress-run:
