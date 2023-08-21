@@ -25,10 +25,10 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.quantity({kgm: '10000'});
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
-    cy.contains('Option 2: Tariff preference - Canada');
+    cy.contains('Tariff preference - Canada');
     cy.contains('Tariff preference (UK)');
     cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.');
     cy.dcRooLink({country: 'Canada'});
@@ -57,7 +57,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.quantity({kgm: '100'});
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
 
@@ -69,7 +69,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.confirmPage();
     cy.dutyPage();
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
   });

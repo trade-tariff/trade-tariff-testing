@@ -100,9 +100,9 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
 
     // Final Page
     cy.exchangeRate();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 
   it('e2e GB to NI - Meursing code ', function() {
@@ -177,7 +177,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('A tariff preference is the rate available if a free trade agreement or');
     cy.contains('another arrangement is in place between the UK and an overseas country.');

@@ -15,10 +15,10 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.confirmPage();
     cy.dutyPage();
     cy.contains(' VAT');
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
-    cy.contains('Option 3: Airworthiness tariff suspension');
-    cy.contains('Option 4: Suspension - goods for certain categories of ships, boats and');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
+    cy.contains('Airworthiness tariff suspension');
+    cy.contains('Suspension - goods for certain categories of ships, boats and');
     cy.contains('other vessels and for drilling or production platforms');
   });
 
@@ -32,8 +32,8 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.exciseCode('333');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     cy.contains('Wine at least 8.5 but not exceeding 22%');
   });
 
@@ -47,8 +47,8 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.exciseCode('333');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - European Union');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - European Union');
     cy.contains('Wine at least 8.5 but not exceeding 22%');
     cy.contains('Import quantity');
   });

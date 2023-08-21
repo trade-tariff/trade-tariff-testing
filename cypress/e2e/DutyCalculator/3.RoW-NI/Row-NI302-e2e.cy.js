@@ -19,7 +19,7 @@ describe('| RoW-NI302-e2e.spec | RoW to Northern Ireland ', function() {
 
       cy.confirmPage();
       cy.dutyPage();
-      cy.contains('Option 1: Third-country duty');
+      cy.contains('Third-country duty');
       cy.contains('4.70% * £1,000.00');
       cy.contains('£256.40');
     });

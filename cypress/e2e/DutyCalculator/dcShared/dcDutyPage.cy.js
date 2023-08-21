@@ -77,8 +77,8 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available.');
     cy.contains('It can also be referred to as the Most Favoured Nation (MFN) rate.');
 
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 });

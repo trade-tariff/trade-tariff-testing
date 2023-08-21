@@ -11,7 +11,7 @@ describe('RoW-NI303c', function() {
     cy.quantity({kgm: '230.98'});
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('£0.00');
   });
 
@@ -32,7 +32,7 @@ describe('RoW-NI303c', function() {
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Tariff preference (EU)');
   });
 });

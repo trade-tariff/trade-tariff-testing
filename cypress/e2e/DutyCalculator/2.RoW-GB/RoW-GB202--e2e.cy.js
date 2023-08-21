@@ -69,8 +69,8 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
     cy.contains('Duty Total');
 
     cy.contains('Import duty calculation');
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Turkey');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - Turkey');
     cy.contains('Definitive countervailing duty (UK)');
     cy.dcRooLink({country: 'Turkey'});
   });

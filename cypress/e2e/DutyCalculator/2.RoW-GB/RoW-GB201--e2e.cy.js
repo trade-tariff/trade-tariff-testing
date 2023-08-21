@@ -45,8 +45,8 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
     cy.contains('8.00% * £1,000.00');
     cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£0.00');
     cy.contains('Import duty calculation');
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Vietnam');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - Vietnam');
     cy.dcRooLink({country: 'Vietnam'});
   });
 });

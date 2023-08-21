@@ -40,10 +40,10 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.confirmPage();
     cy.dutyPage();
     cy.contains(' VAT');
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
-    cy.contains('Option 4: Suspension - goods for certain categories of ships');
-    cy.contains('Option 3: Airworthiness tariff suspension');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
+    cy.contains('Suspension - goods for certain categories of ships');
+    cy.contains('Airworthiness tariff suspension');
   });
 
   it('🚀 XI 🇪🇺 - Duty Calculator e2e - RoW 🇦🇩 (Andorra) - XI 304i | Meursing code 7000', function() {
@@ -62,13 +62,13 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('8.00% * £1,000.00');
     cy.contains('A ‘Third country’ duty is the tariff charged');
 
     cy.contains('UK import duties apply, as the difference between the UK third country duty');
-    cy.contains('Option 2: Tariff preference - Andorra');
+    cy.contains('Tariff preference - Andorra');
     cy.contains('Tariff preference (EU)');
 
     cy.get('.govuk-back-link').click();
@@ -80,10 +80,10 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty');
-    cy.contains('Option 2: Tariff preference - Andorra');
+    cy.contains('Tariff preference - Andorra');
     cy.contains('Tariff preference (EU)');
     cy.contains('9.00 % + EA MAX 24.20 % +ADSZ');
   });
@@ -126,9 +126,9 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('23.98');
     cy.get('.govuk-button').click();
 
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 
   it('🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )', function() {

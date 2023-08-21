@@ -10,8 +10,8 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     cy.exciseCode('615');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Norway');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - Norway');
     cy.contains('615 - Cigars');
     cy.contains('£792.33');
   });
@@ -41,11 +41,11 @@ describe('| RoW-GB207-e2e.spec | excise codes |', function() {
     cy.contains('C119');
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('520 - Light oil: unrebated (unmarked) – other unrebated light oil');
-    cy.contains('Option 2: Tariff preference - Liechtenstein');
-    cy.contains('Option 3: Autonomous suspension under end-use');
-    cy.contains('Option 4: Airworthiness tariff suspension');
+    cy.contains('Tariff preference - Liechtenstein');
+    cy.contains('Autonomous suspension under end-use');
+    cy.contains('Airworthiness tariff suspension');
     cy.contains('£248.75');
     cy.contains('£200.75');
     // Case 2 - Change excise code with 0 % excise

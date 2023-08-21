@@ -35,7 +35,7 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     cy.confirmPage();
     cy.contains('6307 90 92 00 (2600)');
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
     cy.contains('Airworthiness tariff suspension (UK)');
@@ -70,15 +70,15 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     cy.confirmPage();
     cy.contains('2906 11 00 00 (2501)');
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.');
 
-    cy.contains('Option 2: Tariff preference - San Marino');
+    cy.contains('Tariff preference - San Marino');
     cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.');
     cy.contains('Tariff preference (UK)');
 
-    cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+    cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)');
     cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.');
 
@@ -93,15 +93,15 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     cy.confirmPage();
     cy.contains('2906 11 00 00 (2500)');
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
 
-    cy.contains('Option 2: Tariff preference - San Marino');
+    cy.contains('Tariff preference - San Marino');
     cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.');
     cy.contains('Tariff preference (UK)');
 
-    cy.contains('Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
+    cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms');
     cy.contains('Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms (UK)');
     cy.contains('UK suspensions may be applied, as the difference between the UK suspension duty and the EU suspension duty is lower than 3% of the customs value of your trade.');
   });

@@ -64,9 +64,9 @@ describe('GB-NI408b-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains('33.90 EUR / 100 kg std qual');
 
     cy.contains('Duty Total');
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Claiming a waiver – Exchange rate');
     cy.exchangeRate();
   });
 });

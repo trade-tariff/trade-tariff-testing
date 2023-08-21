@@ -78,11 +78,11 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.confirmPage();
 
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('520 - Light oil: unrebated (unmarked) – other unrebated light oil');
-    cy.contains('Option 2: Tariff preference - European Economic Area');
-    cy.contains('Option 3: Autonomous suspension under end-use');
-    cy.contains('Option 4: Airworthiness tariff suspension');
+    cy.contains('Tariff preference - European Economic Area');
+    cy.contains('Autonomous suspension under end-use');
+    cy.contains('Airworthiness tariff suspension');
 
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(12) > .govuk-summary-list__actions > .govuk-link').click();

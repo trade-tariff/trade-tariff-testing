@@ -12,13 +12,13 @@ describe('Non preferential quota options from Taiwan to UK', function() {
     cy.dutyPage();
 
     // Validates Third country duty option includes safeguard in calculation
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.get('table.govuk-table:nth-of-type(1)').should('contain', 'Additional duties (safeguard) (UK)'); // check label
     cy.get('table.govuk-table:nth-of-type(1) > tbody > tr:nth-of-type(4) > td:nth-of-type(3)').contains('500.00'); // check vat
     cy.get('table.govuk-table:nth-of-type(1) > tbody > tr:nth-of-type(5) > td:nth-of-type(3)').contains('1,000.00'); // check total
 
     // Validates non-preferential-quota total does not include safeguard in calculation
-    cy.contains('Option 3: Non-preferential quota');
+    cy.contains('Non-preferential quota');
     cy.get('table.govuk-table:nth-of-type(3)').should('not.contain', 'safeguard'); // check label
     cy.get('table.govuk-table:nth-of-type(3) > tbody > tr:nth-of-type(3) > td:nth-of-type(3)').contains('400.00'); // check vat
     cy.get('table.govuk-table:nth-of-type(3) > tbody > tr:nth-of-type(4) > td:nth-of-type(3)').contains('400.00'); // check total

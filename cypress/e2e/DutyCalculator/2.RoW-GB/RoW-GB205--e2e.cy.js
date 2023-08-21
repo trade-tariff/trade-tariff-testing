@@ -19,10 +19,10 @@ describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', functio
     cy.confirmPage();
 
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - Singapore');
-    cy.contains('Option 3: Non-preferential quota 057713');
-    cy.contains('Option 4: Non-preferential tariff quota under end-use 054320');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - Singapore');
+    cy.contains('Non-preferential quota 057713');
+    cy.contains('Non-preferential tariff quota under end-use 054320');
     cy.contains('£28.00');
   });
 });

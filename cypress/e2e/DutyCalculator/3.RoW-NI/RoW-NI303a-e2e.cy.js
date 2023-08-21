@@ -13,7 +13,7 @@ describe('RoW-NI303a', function() {
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('£0.00');
   });
@@ -38,7 +38,7 @@ describe('RoW-NI303a', function() {
     cy.dutyPage();
     cy.contains('Third-country duty (EU)');
     cy.contains('7.60 % + 0.00 EUR / 100 kg');
-    cy.contains('Option 2: Tariff preference - Central America');
+    cy.contains('Tariff preference - Central America');
     cy.contains('£247.52');
   });
 });

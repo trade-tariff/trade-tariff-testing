@@ -50,7 +50,7 @@ describe('| RoW-GB203-e2e.spec |🍅 China to 🇬🇧 GB | ', function() {
     cy.contains('Duty Total');
     cy.get('tr:nth-of-type(4) > td:nth-of-type(3)').contains('£0.00');
     cy.contains('Import duty calculation');
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference');
   });
 });

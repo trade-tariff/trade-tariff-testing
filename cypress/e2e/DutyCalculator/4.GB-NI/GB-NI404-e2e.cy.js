@@ -45,11 +45,11 @@ describe('GB-NI404-e2e.spec|GB to NI route 04-Trade Remedies-0% MFN EU-Trader Sc
     cy.contains('2300.98');
     cy.get('.govuk-button').click();
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('Zero rate');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 
   it(`e2e GB to NI - Meursing Code `, function() {
@@ -89,11 +89,11 @@ describe('GB-NI404-e2e.spec|GB to NI route 04-Trade Remedies-0% MFN EU-Trader Sc
 
     cy.confirmPage();
 
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
 
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 });
