@@ -23,12 +23,9 @@ describe('validate document codes step and outcomes', function() {
     cy.get('.govuk-error-summary');
     cy.contains('There is a problem');
     cy.contains('Specify a valid option');
-    cy.get('.govuk-error-message')
-        .contains('Specify a valid option');
-    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-error-message').contains('Specify a valid option');
 
     // when we pick a positive case for a document code which will filter in a suspension measure
-    cy.contains('Do you have any of the following documents?');
     cy.docCode({xi: 'c990'});
     cy.contains('Continue').click();
     cy.docCode({xi: 'd008'});
@@ -41,6 +38,7 @@ describe('validate document codes step and outcomes', function() {
     cy.contains('Document(s)');
     cy.contains('C990');
     cy.get('.govuk-button').click();
+
     // then we see the suspension measure as an option for our document codes
     cy.contains('Suspension - goods for certain categories of ships, ');
 

@@ -271,7 +271,10 @@ Cypress.Commands.add('docCode', (dcode) => {
   cy.contains('Do you have any of the following documents?');
   cy.title().should('eq', 'Do you have any of the following documents - Online Tariff Duty Calculator');
   for (const [key, value] of Object.entries(dcode)) {
-    cy.get(`#steps-document-code-document-code-${key}-${value}-field.govuk-radios__input`).check();
+    cy.get(
+        `input[id="steps-document-code-document-code-${key}-${value}-field"], \
+         input[id="steps-document-code-document-code-${key}-field-error"]`,
+    ).check();
   }
 });
 
