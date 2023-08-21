@@ -16,11 +16,11 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.contains('24.77 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
     cy.contains('£1,660.68');
     // validate calculations - third country duty
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('0.50 GBP / % vol/hl + 2.60 GBP / hl');
     cy.contains('£2,274.42');
     // tariff preference rate for Singapore
-    cy.contains('Option 2: Tariff preference - Singapore');
+    cy.contains('Tariff preference - Singapore');
     cy.contains('0.10 GBP / % vol/hl + 0.80 GBP / hl');
     cy.contains('£2,212.50');
   });
@@ -38,7 +38,7 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.confirmPage();
     cy.dutyPage();
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('0.50 GBP / % vol/hl + 2.60 GBP / hl');
     cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR');
     cy.contains('£1,660.68');
@@ -67,11 +67,11 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.contains('80');
     cy.confirmPage();
     // validate calculations - third country duty
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('0.30 GBP / 100 kg/net/%sacchar.');
     cy.contains('£3,916.80');
     // tariff preference rate for Singapore
-    cy.contains('Option 2: Tariff preference - Vietnam');
+    cy.contains('Tariff preference - Vietnam');
     cy.contains('0.10 GBP / 100 kg/net/%sacchar.');
     cy.contains('£1,305.60');
   });

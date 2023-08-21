@@ -16,9 +16,9 @@ describe('| RoW-NI309--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.confirmPage();
     cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR');
     cy.contains('£1,660.68');
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('0.50 GBP / % vol/hl + 2.60 GBP / hl');
-    cy.contains('Option 2: Tariff preference - Vietnam');
+    cy.contains('Tariff preference - Vietnam');
     cy.contains('0.20 GBP / % vol/hl + 1.30 GBP / hl');
   });
 
@@ -40,9 +40,9 @@ describe('| RoW-NI309--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.contains('% sucrose');
     cy.contains('80 ');
     cy.confirmPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('0.40 EUR / 100 kg/net/%sacchar.');
-    cy.contains('Option 2: Tariff preference - Viet Nam');
+    cy.contains('Tariff preference - Viet Nam');
     cy.contains('0.20 EUR / 100 kg/net/%sacchar.');
   });
 });

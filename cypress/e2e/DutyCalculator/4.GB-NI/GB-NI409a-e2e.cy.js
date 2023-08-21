@@ -35,9 +35,9 @@ describe('| GB-NI409a-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies |'
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£5,785.87');
     cy.get('.govuk-button').click();
 
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Claiming a waiver – Exchange rate');
     cy.exchangeRate();
   });
 });

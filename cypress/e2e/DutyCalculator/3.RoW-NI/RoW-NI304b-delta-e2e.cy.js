@@ -52,7 +52,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // VAT Page
     cy.vat('20');
     cy.confirmPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.');
   });

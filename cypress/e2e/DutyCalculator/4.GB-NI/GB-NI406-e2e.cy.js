@@ -34,11 +34,11 @@ describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-
 
     cy.get('.govuk-button').click();
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
     cy.contains('Tariff preference (EU)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 
   it('e2e GB to NI - Meursing Code GB-NI406', function() {
@@ -75,11 +75,11 @@ describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-
 
     cy.confirmPage();
 
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
 
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 });

@@ -20,8 +20,8 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.quantity({kgm: '230.98'});
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - OCTs (Overseas Countries and Territories)');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - OCTs (Overseas Countries and Territories)');
     cy.contains('Third-country duty (EU)');
     cy.contains('Tariff preference (EU)');
   });
@@ -47,7 +47,7 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.contains('Continue').click();
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
 
     // change options
@@ -70,7 +70,7 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.contains('Continue').click();
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
 
     // change options
@@ -95,7 +95,7 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     cy.contains('Continue').click();
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
   });
 });

@@ -26,6 +26,6 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.contains('You are importing commodity');
     cy.contains(`from Israel on ${currentDate}.`);
     cy.contains('6307 90 92 00 (2600)');
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
   });
 });

@@ -37,14 +37,14 @@ describe('| GB-NI409b-e2e.spec | GB to NI route 🚌 09 - ✅  Trade Remedies + 
 
 
     cy.contains('Import duty calculation');
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or');
     cy.contains('a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.');
-    cy.contains('Option 2: Tariff preference');
+    cy.contains('Tariff preference');
     cy.contains('A tariff preference is the rate available if a free trade agreement or another arrangement');
     cy.contains('is in place between the UK and an overseas country. Goods will need to comply with the rules of origin');
     cy.contains('to benefit from this rate and you will need to provide evidence of compliance with your shipment.');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Claiming a waiver – Exchange rate');
     cy.contains('A claim for a customs duty waiver for duty on goods');
     cy.contains('that would otherwise incur “at risk” tariffs is provided as “de minimis aid”.');
     cy.contains('The maximum allowance for most sectors is €200,000 across a rolling three tax year period.');

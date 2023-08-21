@@ -40,10 +40,10 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.dutyPage();
     cy.contains(`You are importing commodity 2402 20 90 00 from Norway on ${currentDate}.`);
     // doc code y021 =  Apply the mentioned duty 27.95%
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('611 - Cigarettes');
 
-    cy.contains('Option 2: Tariff preference - European Economic Area');
+    cy.contains('Tariff preference - European Economic Area');
     cy.contains('27.95% * £1,000.00');
     cy.contains('Tariff preference (EU)');
 
@@ -68,8 +68,8 @@ describe('| RoW-NI308-e2e.spec | RoW (Norway) to NI | Document Code , Retail Pri
     cy.dutyPage();
     cy.contains(`You are importing commodity 2402 20 90 00 from Norway on ${currentDate}.`);
     // doc code No code  =  Measure not applicable
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('611 - Cigarettes');
-    cy.contains('Option 2: Tariff preference - European Economic Area').should('not.exist');
+    cy.contains('Tariff preference - European Economic Area').should('not.exist');
   });
 });

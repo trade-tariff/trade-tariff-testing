@@ -241,8 +241,8 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.confirmPage();
       cy.dutyPage();
 
-      cy.contains('Option 1: Third-country duty');
-      cy.contains('Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
+      cy.contains('Third-country duty');
+      cy.contains('Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
     });
 
     it('RoW - Duty Calculator e2e - United Arab Emirates - XI', function() {
@@ -264,7 +264,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.confirmPage();
       cy.dutyPage();
 
-      cy.contains('Option 1: Third-country duty');
+      cy.contains('Third-country duty');
       cy.contains('Third-country duty (EU)');
       cy.contains('EU import duties apply, as the difference between the UK');
     });
@@ -426,10 +426,10 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.quantity({kgm: '10000'});
       cy.confirmPage();
       cy.dutyPage();
-      cy.contains('Option 1: Third-country duty');
+      cy.contains('Third-country duty');
       cy.contains('Third-country duty (EU)');
       cy.contains('EU import duties apply');
-      cy.contains('Option 2: Tariff preference - Canada');
+      cy.contains('Tariff preference - Canada');
       cy.contains('Tariff preference (UK)');
       cy.contains('UK preferential duties may be applied');
     });
@@ -461,12 +461,12 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.contains('Customs value');
       cy.contains('Import quantity');
       cy.confirmPage();
-      cy.contains('Option 1: Third-country duty');
-      cy.contains('Option 1: Third-country duty');
+      cy.contains('Third-country duty');
+      cy.contains('Third-country duty');
       cy.contains('Third-country duty (EU)');
-      cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
+      cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
 
-      cy.contains('Option 3: Claiming a waiver – Exchange rate');
+      cy.contains('Claiming a waiver – Exchange rate');
     });
 
     it('Duty Calculator e2e - ( EU to NI ) EU-NI501', function() {

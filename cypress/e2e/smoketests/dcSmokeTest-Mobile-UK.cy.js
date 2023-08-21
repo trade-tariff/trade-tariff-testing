@@ -57,7 +57,7 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       cy.get('.govuk-button').click();
       cy.mobileMenu();
       // Final Page
-      cy.contains('Option 1: Third-country duty');
+      cy.contains('Third-country duty');
     });
   }
   // XI e2e test on iphone and samsung
@@ -106,7 +106,7 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       cy.mobileMenu();
       cy.dutyPage();
       cy.mobileMenu();
-      cy.contains('Option 1: Third-country duty');
+      cy.contains('Third-country duty');
       cy.mobileMenu();
     });
   }

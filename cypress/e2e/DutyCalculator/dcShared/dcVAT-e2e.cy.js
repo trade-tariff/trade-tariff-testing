@@ -170,8 +170,8 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('Reduced rate');
 
     // Final Page
-    cy.contains('Option 1: Third-country duty');
-    cy.contains('Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)');
-    cy.contains('Option 3: Claiming a waiver – Exchange rate');
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
+    cy.contains('Claiming a waiver – Exchange rate');
   });
 });

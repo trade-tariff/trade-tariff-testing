@@ -28,7 +28,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.confirmPage();
     cy.dutyPage();
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply');
   });
@@ -64,7 +64,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.contains('VAT');
     cy.contains('Standard rate');
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between');
 
@@ -84,7 +84,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.contains('VAT');
     cy.contains('Standard rate');
 
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the');
     cy.contains('Suspension - goods for certain categories of ships');
@@ -124,7 +124,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
 
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('UK import duties apply, as the difference');
 
     cy.get('.govuk-back-link').click();
@@ -143,7 +143,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
 
     cy.confirmPage();
     cy.dutyPage();
-    cy.contains('Option 1: Third-country duty');
+    cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply');
   });
