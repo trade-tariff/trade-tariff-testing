@@ -59,7 +59,7 @@ describe('| RoW-GB-ASVX-SPQ-e2e | AlcoholDuties |', function() {
     // then I should see Excise calculations
     cy.contains('Excise');
     cy.contains('Beer at least 3.5 but less than 8.5% & eligible for SPR');
-    cy.contains('21.01 GBP / % vol/hl - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
+    cy.contains('(£21.01 - SPR discount) / vol% / hl');
     cy.contains('£1,344.84'); // 21.01 * 8.4 * 10 * 7
   });
 });
