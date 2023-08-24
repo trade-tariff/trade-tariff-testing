@@ -141,8 +141,8 @@ describe('Legacy search', function() {
     });
 
     it('search navigates to 10 digit subheadings', function() {
-      cy.get('#q').type('2007993929{enter}');
-      cy.url().should('match', /\/subheadings\/2007993929-(10|20)/);
+      cy.get('#q').type('1518009510{enter}');
+      cy.url().should('include', '/subheadings/1518009510-80');
     });
 
     it('search navigates to short-form commodity codes', function() {
