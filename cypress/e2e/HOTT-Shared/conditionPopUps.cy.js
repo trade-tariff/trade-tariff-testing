@@ -107,7 +107,7 @@ describe('Measure condition pop ups', function() {
       );
       cy.verifyExciseAdditionalCodePopup(
           '365',
-          '9.27 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount',
+          '(£9.27 - SPR discount) / vol% / hl',
       );
     });
   });
@@ -121,7 +121,7 @@ describe('Measure condition pop ups', function() {
       );
       cy.verifyExciseAdditionalCodePopup(
           '369',
-          '24.77 GBP / % vol/hl - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount',
+          '(£24.77 - SPR discount) / vol% / hl',
       );
     });
   });

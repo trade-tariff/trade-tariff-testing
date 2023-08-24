@@ -59,7 +59,8 @@ describe('| RoW-GB-LPA-SPQ-e2e | AlcoholDuties |', function() {
     // then I should see Excise calculations
     cy.contains('Excise');
     cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR');
-    cy.contains('24.77 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
+
+    cy.contains('(£24.77 - SPR discount) / vol% / hl');
     cy.contains('£1,660.68'); // 24.77 * 84 - (1 * 84 * 5)
   });
 });

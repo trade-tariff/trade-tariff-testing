@@ -13,7 +13,7 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
 
     // validate excise calculations
     cy.contains('Spirits at least 3.5 but less than 8.5% & eligible for SPR');
-    cy.contains('24.77 GBP / l alc. 100% - £1.00 / for each litre of pure alcohol, multiplied by the SPR discount');
+    cy.contains('(£24.77 - SPR discount) / vol% / hl');
     cy.contains('£1,660.68');
     // validate calculations - third country duty
     cy.contains('Third-country duty');
