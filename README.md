@@ -1,8 +1,7 @@
 # trade-tariff-testing
 
-[![Github Actions Regression Production](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regression.yml)
+[![Github Actions Regression Production](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionProduction.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionProduction.yml)
 [![Github Actions Regression Staging](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionStaging.yml)
-[![Github Actions Regression Development](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionDevelopment.yml/badge.svg?branch=main&event=schedule)](https://github.com/trade-tariff/trade-tariff-testing/actions/workflows/regressionDevelopment.yml)
 [![CircleCI Smoke Tests](https://circleci.com/gh/trade-tariff/trade-tariff-testing.svg?style=svg)](https://circleci.com/gh/trade-tariff/trade-tariff-testing.svg?style=svg)
 
 This repository is responsible for validating integrations between different applications in the Online Trade Tariff service
