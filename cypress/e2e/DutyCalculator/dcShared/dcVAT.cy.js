@@ -82,7 +82,7 @@ describe('| 🛄 dcVAT.spec.js | Multiple VAT rate validations |', function() {
     cy.selectDestination('gb');
     cy.originList({value: 'Israel'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.additionalCode({uk: '2501'});
+    cy.additionalCode('2501');
     // Select Document Code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();

@@ -9,7 +9,7 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
     cy.originList({value: 'Argentina'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({tnei: '1'});
-    cy.additionalCode({uk: 'C999'});
+    cy.additionalCode('C999');
 
     // Select Document Code
     // suspensions doc code
@@ -51,8 +51,8 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({tnei: '1'});
     // additional codes
-    cy.additionalCode({uk: 'B999'});
-    cy.additionalCode({uk: 'B999'});
+    cy.additionalCode('B999');
+    cy.additionalCode('B999');
     // Select Document Code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
