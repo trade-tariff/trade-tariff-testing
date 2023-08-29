@@ -21,7 +21,7 @@
     "eslint": "^8.48.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-cypress": "^2.14.0",
-    "flow-bin": "^0.214.0",
+    "flow-bin": "^0.215.1",
     "glob-parent": "^6.0.2",
     "mocha-allure-reporter": "^1.4.0",
     "mochawesome": "^7.1.3",
