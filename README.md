@@ -59,3 +59,23 @@ yarn run open:dev
 yarn run open:staging
 yarn run open:prod
 ```
+
+
+### Handy tips when running tests
+
+[Cypress API Docs](https://docs.cypress.io/api/table-of-contents)
+
+Running only one test
+
+_Place this in the individual test descripiton_
+`it.only(`
+
+Using headed browser for debugging the page
+
+`npx cypress run --headed --spec {fileName}`
+
+Setting the timeout in headed mode to give yourself time to analyse the page
+
+_Place this at the top of your test_
+`cy.config('defaultCommandTimeout', 100000);`
+
