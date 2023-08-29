@@ -5,7 +5,7 @@ describe('|dcStoppingPage.spec| Stopping page for certificate code N990', functi
     cy.selectDestination('gb');
     cy.originList({value: 'India'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.additionalCode({uk: '2700'});
+    cy.additionalCode('2700');
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Do you have any of the following documents?');

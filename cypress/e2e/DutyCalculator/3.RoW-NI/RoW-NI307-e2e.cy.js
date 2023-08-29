@@ -8,8 +8,8 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({tnei: '1000'});
 
-    cy.additionalCode({xi: 'C999'});
-    cy.additionalCode({xi: 'C999'});
+    cy.additionalCode('C999');
+    cy.additionalCode('C999');
     cy.docCode({xi: 'c990'});
     cy.contains('Continue').click();
 

@@ -25,7 +25,7 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // additional codes
-    cy.additionalCode({uk: '2600'});
+    cy.additionalCode('2600');
     // doc code
     cy.docCode({uk: 'c119'});
     cy.contains('Continue').click();
@@ -62,7 +62,7 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // additional codes
-    cy.additionalCode({xi: '2501'});
+    cy.additionalCode('2501');
     // doc code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
@@ -86,7 +86,7 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
     // additional codes
-    cy.additionalCode({xi: '2500'});
+    cy.additionalCode('2500');
     // doc code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();

@@ -31,7 +31,7 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.additionalCode({uk: '2601'});
+    cy.additionalCode('2601');
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
     cy.docCode({uk: 'c119'});

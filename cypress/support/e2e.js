@@ -18,7 +18,6 @@ import './commands';
 import './adminCommands';
 import './dutyCommands';
 import './apiCommands';
-import './csvCommands';
 import './rooCommands';
 import 'cypress-fill-command';
 require('@cypress/grep')();
