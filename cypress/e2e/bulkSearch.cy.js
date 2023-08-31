@@ -1,4 +1,4 @@
-describe('POST /api/v2/bulk_searches', () => {
+describe('POST /api/v2/bulk_searches', {tags: ['notProduction']}, () => {
   it('should post a job and poll until it completes', () => {
     const bulkSearches = JSON.stringify({
       'data': [
