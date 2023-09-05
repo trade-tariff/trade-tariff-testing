@@ -1002,10 +1002,10 @@
     through2 "^2.0.0"
     watchify "^4.0.0"
 
-"@cypress/grep@^3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@cypress/grep/-/grep-3.1.5.tgz#d21a7194e2dd172daf864ac7a5ffc9313cc122f7"
-  integrity sha512-dbLKP9wGLId+TwTRFDcWVcr9AvJ06W3K7dVeJzLONiPbI5/XJh2mDZvnoyJlAz+VZxdwe0+nejk/CPmuphuzkQ==
+"@cypress/grep@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@cypress/grep/-/grep-4.0.0.tgz#d219259c62704d86651deceb0bd2d2e80ec5b559"
+  integrity sha512-5+X1P+GJmLp2IgX/OjoktJxFrezy4pYGI2wmi+574OTZ99yhNTesjKhMm0UJeEMAv9MjfihagroKbjdKNp/+og==
   dependencies:
     debug "^4.3.4"
     find-test-names "^1.19.0"
