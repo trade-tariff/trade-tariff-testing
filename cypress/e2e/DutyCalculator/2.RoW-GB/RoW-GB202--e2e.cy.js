@@ -22,7 +22,7 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
     cy.get('input#steps-customs-value-insurance-cost-field').type('4545.987654');
     cy.contains('Continue').click();
 
-    cy.additionalCode({uk: 'B964'});
+    cy.additionalCode('B964');
 
     cy.contains('Check your answers');
     cy.contains('Commodity code');

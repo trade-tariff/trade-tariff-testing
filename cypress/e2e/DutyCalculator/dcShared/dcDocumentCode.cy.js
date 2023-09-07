@@ -11,8 +11,8 @@ describe('validate document codes step and outcomes', function() {
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({tnei: '1'});
 
-    cy.additionalCode({xi: 'B107'});
-    cy.additionalCode({xi: 'B107'});
+    cy.additionalCode('B107');
+    cy.additionalCode('B107');
 
     // when we try to continue without selecting any document codes
     cy.contains('Do you have any of the following documents?');

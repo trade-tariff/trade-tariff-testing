@@ -6,7 +6,7 @@ describe('| RoW-GB204-e2e.spec | 🇦🇫🇸Afghanistan to 🇬🇧 GB  |', fun
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.additionalCode({uk: 'none'});
+    cy.additionalCode('none');
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
     cy.docCode({uk: 'c119'});

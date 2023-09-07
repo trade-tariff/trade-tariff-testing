@@ -209,13 +209,15 @@ Cypress.Commands.add('exchangeRate', () => {
   cy.contains('Please note - the current page uses an exchange rate of ');
 });
 
-Cypress.Commands.add('additionalCode', (addcode) => {
+Cypress.Commands.add('additionalCode', (additionalCode) => {
   cy.contains('Describe your goods in more detail');
   cy.title().should('eq', 'Describe your goods in more detail - Online Tariff Duty Calculator');
 
-  for (const [key, value] of Object.entries(addcode)) {
-    cy.get(`select#steps-additional-code-additional-code-${key}-field`).select(value);
-  }
+
+  cy.get(`select option[value="${additionalCode}"]`).first().then((option) => {
+    option.prop('selected', true);
+  });
+
   cy.contains('Continue').click();
 });
 

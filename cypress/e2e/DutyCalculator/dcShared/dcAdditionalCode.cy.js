@@ -17,7 +17,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.get('.govuk-error-message').contains('Specify a valid additional code');
     cy.get('.govuk-back-link').click();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.additionalCode({uk: '2600'});
+    cy.additionalCode('2600');
     cy.docCode({uk: 'c119'});
     cy.contains('Continue').click();
     cy.vat('20');
