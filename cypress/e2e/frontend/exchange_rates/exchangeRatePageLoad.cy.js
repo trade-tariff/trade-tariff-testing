@@ -39,7 +39,7 @@ describe('validate /exchange_rates', function() {
     cy.get('h1[class=\'govuk-heading-l\']').contains('2023 HMRC currency exchange rates');
 
     // when I click through to the 2022 year
-    cy.get('li[class=\'gem-c-related-navigation__link\'] > a').contains('HMRC exchange rates for 2022').click();
+    cy.get('li[class=\'gem-c-related-navigation__link\'] > a').contains('2022').click();
 
     // and I see links for last year exchange rates
     cy.get('h1[class=\'govuk-heading-l\']').contains('2022 HMRC currency exchange rates');
