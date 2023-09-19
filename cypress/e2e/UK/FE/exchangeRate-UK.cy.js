@@ -82,14 +82,15 @@ describe('validate /exchange_rates', function() {
 
     // download file in the mentioned directory
     const baseURL = Cypress.env('baseUrl');
-    const basePath = `${baseURL}/api/v2/exchange_rates/files/monthly_csv`;
-    const downloadFilePath = `${basePath}_${currentYear}-${currentMonth}.csv`;
-    cy.downloadFile(`${downloadFilePath}`, 'cypress/downloads', 'monthly_csv.csv');
+    cy.get('.gem-c-metadata__definition >a').invoke('attr', 'href').then((csvHref) => {
+      const downloadFilePath = `${baseURL}${csvHref}`;
+      cy.downloadFile(`${downloadFilePath}`, 'cypress/downloads', 'monthly_csv.csv');
 
-    // new folder absolute path
-    // eslint-disable-next-line no-undef
-    const dirPath = dirpath.join(__dirname, '/monthly_csv.csv');
-    const filePath = dirPath.replace('e2e/UK/FE', 'downloads');
-    cy.getDataAndSortToCompare(filePath);
+      // new folder absolute path
+      // eslint-disable-next-line no-undef
+      const dirPath = dirpath.join(__dirname, '/monthly_csv.csv');
+      const filePath = dirPath.replace('e2e/UK/FE', 'downloads');
+      cy.getDataAndSortToCompare(filePath);
+    });
   });
 });
