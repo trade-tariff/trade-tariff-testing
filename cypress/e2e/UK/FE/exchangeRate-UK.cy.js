@@ -83,8 +83,7 @@ describe('validate /exchange_rates', function() {
     // download file in the mentioned directory
     const baseURL = Cypress.env('baseUrl');
     cy.get('.gem-c-metadata__definition >a').invoke('attr', 'href').then((csvHref) => {
-      const downloadFilePath = `${baseURL}${csvHref}`;
-      cy.downloadFile(`${downloadFilePath}`, 'cypress/downloads', 'monthly_csv.csv');
+      cy.downloadFile(`${baseURL}${csvHref}`, 'cypress/downloads', 'monthly_csv.csv');
 
       // new folder absolute path
       // eslint-disable-next-line no-undef
