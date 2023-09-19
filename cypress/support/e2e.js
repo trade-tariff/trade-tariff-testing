@@ -22,9 +22,7 @@ import './rooCommands';
 import 'cypress-fill-command';
 require('@cypress/grep')();
 require('cypress-downloadfile/lib/downloadFileCommand');
-require('cy-verify-downloads').addCustomCommand();
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false;
 });
-
