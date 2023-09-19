@@ -13,11 +13,15 @@ describe('| dcFeedbackLink | Feedback link on Duty Calculator page |', function(
       cy.get('.govuk-phase-banner__text > .govuk-link').click();
       cy.contains('Send your feedback');
 
-      cy.contains('Don\'t include any personal information. This form is for submitting feedback on the website. If you have a question related to classifying a good then please contact HMRC. If you have a complaint about the phone service then please see this page.');
+      cy.contains('Don\'t include any personal information. This form is for submitting feedback on the website. ');
+      cy.contains('If you have a question related to classifying a good then please contact HMRC. ');
+      cy.contains('If you have a complaint about the phone service then please see this page.');
       // first link
-      cy.get('.form-hint.govuk-hint > a:nth-of-type(1)').should('have.attr', 'href', 'https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods');
+      cy.get('.form-hint.govuk-hint > a:nth-of-type(1)')
+          .should('have.attr', 'href', 'https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods');
       // second link
-      cy.get('.form-hint.govuk-hint > a:nth-of-type(2)').should('have.attr', 'href', 'https://www.gov.uk/guidance/complain-to-hm-revenue-and-customs');
+      cy.get('.form-hint.govuk-hint > a:nth-of-type(2)')
+          .should('have.attr', 'href', 'https://www.gov.uk/guidance/complain-to-hm-revenue-and-customs');
 
       // enter some feedback
       cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 DC feedback ');
