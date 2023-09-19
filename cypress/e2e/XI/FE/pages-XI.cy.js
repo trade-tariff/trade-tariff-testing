@@ -126,4 +126,10 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.get('a[href^="/xi/glossary"]').contains('Rules of origin glossary');
     cy.get('a[href^="/xi/help/rules_of_origin/duty_drawback"]').contains('Duty drawback');
   });
+  it('XI - Verify user can access exchange rate page on XI site', function() {
+    cy.visit('xi/exchange_rates', {failOnStatusCode: false});
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('Page not found');
+    cy.url().should('include', '/xi/exchange_rates');
+  });
 });

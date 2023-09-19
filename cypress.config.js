@@ -1,6 +1,8 @@
 const {defineConfig} = require('cypress');
 const cypressGrep = require('@cypress/grep/src/plugin');
 const dotenvPlugin = require('cypress-dotenv');
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin');
+const {verifyDownloadTasks} = require('cy-verify-downloads');
 
 module.exports = (on) => {
   on('task', {
@@ -13,6 +15,8 @@ module.exports = defineConfig({
     'baseUrl': 'https://staging.trade-tariff.service.gov.uk',
     setupNodeEvents(on, config) {
       on('task', {generateOTP: require('cypress-otp')});
+      on('task', {downloadFile});
+      on('task', verifyDownloadTasks);
       config = dotenvPlugin(config, {}, true);
       config = cypressGrep(config);
       return config;
@@ -35,6 +39,7 @@ module.exports = defineConfig({
       'json': true,
     },
     'env': {
+      'baseUrl': 'https://staging.trade-tariff.service.gov.uk',
       'grepFilterSpecs': true,
     },
   },
