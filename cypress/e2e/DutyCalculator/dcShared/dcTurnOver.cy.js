@@ -39,7 +39,7 @@ describe('🧮 | dcTurnOver.spec | Duty Calculator TurnOver page  |', function()
     // planned processing screen
     cy.contains('How will these goods be processed after they are moved into Northern Ireland?');
     cy.get('.govuk-back-link').click();
-    cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click();
+    cy.contains('Check if you can declare goods you bring into Northern Ireland \'not at risk\' of moving to the EU').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
   });
 });
