@@ -11,7 +11,7 @@ describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05', function() {
 
     cy.turnOver('more');
 
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
     cy.certificate('yes');
 
     cy.contains('There is no import duty to pay');

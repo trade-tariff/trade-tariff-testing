@@ -7,7 +7,7 @@ describe('RoW-NI303a', function() {
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
 
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
@@ -27,7 +27,7 @@ describe('RoW-NI303a', function() {
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
 
     cy.euDutiesApply();
     cy.meursingCode({value: '000'});

@@ -41,7 +41,7 @@ describe('| Row-NI304b-delta.spec.js | >£500,000 | 🔼 Delta Route - undergo c
     // turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable2
-    cy.plannedXI('commercialprocessing');
+    cy.planned('commercialprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs

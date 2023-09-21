@@ -9,7 +9,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({ret: '1000', mil: '1.5'});
@@ -60,7 +60,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({ltr: '100'});
