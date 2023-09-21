@@ -19,7 +19,7 @@ describe('| GB-NI402b-e2e.spec | GB to NI route |', function() {
 
     cy.turnOver('more');
 
-    cy.plannedXI('commercialprocessing');
+    cy.planned('commercialprocessing');
 
     cy.contains('There is no import duty to pay');
     cy.contains('There is no import duty to pay because:');

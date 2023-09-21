@@ -22,7 +22,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     // turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // doc code
@@ -63,7 +63,7 @@ describe('| Row-NI304f-delta.spec.js | 🔼 Delta Route - Acceptable route 2️�
     // turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // doc code

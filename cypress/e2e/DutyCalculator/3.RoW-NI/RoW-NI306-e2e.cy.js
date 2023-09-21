@@ -58,7 +58,7 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // ✅  Final use in NI - Yes
     cy.finalUseNI('no');
     // Planned processing - commercial
-    //  cy.plannedXI('commercial');
+    //  cy.planned('commercial');
     // Duties Apply
     cy.euDutiesApply();
     // customs value
@@ -83,7 +83,7 @@ describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - �
     // turnover <500,000 - no
     cy.turnOver('more');
     // Planned processing - commercial
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
     // Duties Apply
     cy.euDutiesApply();
     // customs value
