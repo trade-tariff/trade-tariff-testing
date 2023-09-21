@@ -30,7 +30,7 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       cy.mobileMenu();
 
       // 🚫 Non processing - No - The goods will be processed for commercial purposes other than // 🚫 Non processing - No
-      cy.plannedXI('unacceptablecommercial');
+      cy.planned('unacceptablecommercial');
       cy.mobileMenu();
       //  🚫 Certified as UK Origin
       cy.certificate('no');
@@ -93,7 +93,7 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       cy.turnOver('more');
       cy.mobileMenu();
       // Planned processing - acceptable1
-      cy.plannedXI('notprocessing');
+      cy.planned('notprocessing');
       cy.mobileMenu();
       // customs value
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});

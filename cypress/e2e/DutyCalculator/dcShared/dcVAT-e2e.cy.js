@@ -134,7 +134,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
 
     cy.turnOver('more');
 
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
 
     // 🚫 Certified as UK Origin
     cy.certificate('no');

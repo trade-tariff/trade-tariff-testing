@@ -22,7 +22,7 @@ describe('| RoW-NI304i-delta-meursing--e2e.spec.js | 🔼 Delta Route with Meurs
     // turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     cy.meursingCode({value: '000'});
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
