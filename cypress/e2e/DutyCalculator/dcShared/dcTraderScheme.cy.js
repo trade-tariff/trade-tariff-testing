@@ -19,7 +19,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.contains('If you are moving goods into Northern Ireland which are for sale to, or final use by, ');
     cy.contains('end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare');
     cy.contains('your goods as being \'not at risk\' where the requirements are met. ');
-    cy.contains('A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.');
+    cy.contains('A \'not at risk\' good entering Northern Ireland from Great Britain will not be subject to duty.');
 
     cy.contains('Yes, I am authorised under the UK Trader Scheme');
     cy.contains('No, I am not authorised under the UK Trader Scheme');
@@ -82,7 +82,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.contains('If you are moving goods into Northern Ireland which are for sale to, or final use by, ');
     cy.contains('end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare');
     cy.contains('your goods as being \'not at risk\' where the requirements are met. ');
-    cy.contains('A not ‘at risk’ good entering Northern Ireland from Great Britain will not be subject to duty.');
+    cy.contains('A \'not at risk\' good entering Northern Ireland from Great Britain will not be subject to duty.');
     cy.contains('Yes, I am authorised under the UK Trader Scheme');
     cy.contains('No, I am not authorised under the UK Trader Scheme');
     // empty values
