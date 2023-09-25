@@ -20,7 +20,7 @@
     "dotenv": "^16.3.1",
     "eslint": "^8.49.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-cypress": "^2.14.0",
+    "eslint-plugin-cypress": "^2.15.1",
     "glob-parent": "^6.0.2",
     "mocha-allure-reporter": "^1.4.0",
     "mochawesome": "^7.1.3",
