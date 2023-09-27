@@ -62,7 +62,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
 
     // static links on page
     cy.contains('Explore the topic');
-    cy.contains('Apply for authorisation for the UK trader scheme').click();
+    cy.contains('Apply for authorisation for the UK Trader Scheme').click();
     cy.contains('Declare goods using the UK Trader Scheme if you bring goods into Northern Ireland');
   });
   it('RoW - NI Page Validation', function() {
@@ -113,7 +113,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
         .should('be.checked');
     // static links on page
     cy.contains('Explore the topic');
-    cy.contains('Apply for authorisation for the UK trader scheme').click();
+    cy.contains('Apply for authorisation for the UK Trader Scheme').click();
     cy.contains('Declare goods using the UK Trader Scheme if you bring goods into Northern Ireland');
   });
 });
