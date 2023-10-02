@@ -14,11 +14,11 @@ describe('🧮 | dcTurnOver.spec | Duty Calculator TurnOver page  |', function()
     // Turnover page
     console.log(cy.title());
     cy.contains('What was your annual turnover in the most recent complete financial year?');
-    cy.contains('If the turnover of your company was less than £500,000 in the latest complete financial year, ');
+    cy.contains('If the turnover of your company was less than £2,000,000 in the latest complete financial year, ');
     cy.contains('then your goods will not be considered to be subject to commercial processing, and therefore ');
     cy.contains('\'not at risk\' of subsequently being moved into Ireland.');
-    cy.contains('My company\'s turnover was less than £500,000');
-    cy.contains('My company\'s turnover was £500,000 or more');
+    cy.contains('My company\'s turnover was less than £2,000,000');
+    cy.contains('My company\'s turnover was £2,000,000 or more');
     // check for error messages
     cy.contains('Continue').click();
 
