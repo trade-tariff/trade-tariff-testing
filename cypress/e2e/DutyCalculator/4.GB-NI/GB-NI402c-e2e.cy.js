@@ -13,7 +13,7 @@ describe('| GB-NI402c-e2e.spec | GB to NI route 🚐 02', function() {
     cy.contains('There is no import duty to pay');
     cy.contains('There is no import duty to pay because:');
     cy.contains('You are transporting goods from England, Scotland or Wales to Northern Ireland');
-    cy.contains('You are a member of the UK Trader Scheme');
+    cy.contains('You are a member of the UK Internal Market Scheme');
     cy.contains('Your import is for sale to, or final use by, end-consumers located in Northern Ireland');
     cy.contains('You do not intend to further process the goods on arrival in Northern Ireland');
 

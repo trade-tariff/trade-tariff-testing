@@ -1,8 +1,8 @@
 describe('Measure condition pop ups', function() {
   it('Condition Code 999L - Separated with new text at the bottom', function() {
     cy.visit('/commodities/0702000007');
-    cy.get('#measure-20164273').contains('Conditions').click();
-    cy.get('.info-content').contains('Phytosanitary Certificate (import) for All countries');
+    cy.get('#measure-20188561').contains('Conditions').click();
+    cy.get('.info-content').contains('Import control of organic products for All countries');
     cy.get('.info-content').contains('The use of 999L allows a CDS waiver code');
   });
 
