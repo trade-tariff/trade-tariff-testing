@@ -1,4 +1,4 @@
-describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
+describe('💷  | dcTraderScheme | UK Internal Market Scheme page |', function() {
   it('RoW - GB Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
     //    cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
@@ -25,12 +25,14 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.contains('No, I am not authorised under the UK Internal Market Scheme');
 
     // static page links
-    cy.contains('If you are not yet authorised, then you can find out more about applying for authorisation for the UK Internal Market Scheme. ');
+    cy.contains('If you are not yet authorised, then you can find out more about applying for ');
+    cy.contains('authorisation for the UK Internal Market Scheme.');
     cy.get('p > .govuk-link').click();
-    cy.contains('Apply for authorisation for the UK Internal Market Scheme if you bring goods into Northern Ireland');
+    cy.contains('Get authorised to declare goods you bring into Northern Ireland \'not at risk’ of of moving to the EU,');
+    cy.contains('so that EU duty will not be payable on those goods.');
     cy.go('back');
 
-    // Select Yes, I am registered with the UK Trader Scheme
+    // Select Yes, I am registered with the UK Internal Market Scheme
     cy.get('div:nth-of-type(1) > input[name=\'steps_trader_scheme[trader_scheme]\']').check();
     cy.contains('Continue').click();
 
@@ -41,7 +43,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
         .find('input')
         .should('be.checked');
 
-    // Select No,I am not registered with the UK Trader Scheme
+    // Select No,I am not registered with the UK Internal Market Scheme
     cy.get('div:nth-of-type(2) > input[name=\'steps_trader_scheme[trader_scheme]\']').check();
     cy.contains('Continue').click();
     // selection is persisted
@@ -61,9 +63,9 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
         .contains('Select one of the two options');
 
     // static links on page
-    cy.contains('Explore the topic');
+    cy.contains('Find out more about the Windsor Framework');
     cy.contains('Apply for authorisation for the UK Internal Market Scheme').click();
-    cy.contains('Declare goods using the UK Internal Market Scheme if you bring goods into Northern Ireland');
+    cy.contains('Windsor Framework unveiled to fix problems of the Northern Ireland Protocol');
   });
   it('RoW - NI Page Validation', function() {
     cy.visit('/duty-calculator/uk/0702000007/import-date');
@@ -80,7 +82,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     // Trader Scheme
     cy.contains('Are you authorised under the UK Internal Market Scheme?');
     cy.contains('If you are moving goods into Northern Ireland which are for sale to, or final use by, ');
-    cy.contains('end consumers located in the UK and you are authorised under the UK Trader Scheme, then you may declare');
+    cy.contains('end consumers located in the UK and you are authorised under the UK Internal Market Scheme, then you may declare');
     cy.contains('your goods as being \'not at risk\' where the requirements are met. ');
     cy.contains('A \'not at risk\' good entering Northern Ireland from Great Britain will not be subject to duty.');
     cy.contains('Yes, I am authorised under the UK Internal Market Scheme');
@@ -93,7 +95,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
     cy.get('#steps-trader-scheme-trader-scheme-error')
         .contains('Select one of the two options');
 
-    // Select Yes, I am registered with the UK Trader Scheme
+    // Select Yes, I am registered with the UK Internal Market Scheme
     cy.traderScheme('yes');
     // selection is persisted
     cy.get('.govuk-back-link').click();
@@ -102,7 +104,7 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
         .find('input')
         .should('be.checked');
 
-    // Select No,I am not registered with the UK Trader Scheme
+    // Select No,I am not registered with the UK Internal Market Scheme
     cy.traderScheme('no');
     // selection is persisted
 
@@ -112,8 +114,8 @@ describe('💷  | dcTraderScheme | UK Trader Scheme page |', function() {
         .find('input')
         .should('be.checked');
     // static links on page
-    cy.contains('Explore the topic');
+    cy.contains('Find out more about the Windsor Framework');
     cy.contains('Apply for authorisation for the UK Internal Market Scheme').click();
-    cy.contains('Declare goods using the UK Internal Market Scheme if you bring goods into Northern Ireland');
+    cy.contains('Windsor Framework unveiled to fix problems of the Northern Ireland Protocol');
   });
 });
