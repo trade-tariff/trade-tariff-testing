@@ -19,7 +19,7 @@ describe('validate /exchange_rates', function() {
     // Check correct heading for the right year
     cy.get('h1').contains('HMRC monthly currency exchange rates.');
     // Click through to view online
-    cy.get(`a[href="/exchange_rates/view/${currentYear}-${currentMonth}?type=scheduled"]`).contains('View online').click();
+    cy.get(`a[href="/exchange_rates/view/${currentYear}-${currentMonth}?type=monthly"]`).contains('View online').click();
     // Check new title for monthly rates
     cy.get('h1').contains(`${currentMonthName} ${currentYear} monthly exchange rates`);
     // Check secondary heading
@@ -56,8 +56,8 @@ describe('validate /exchange_rates', function() {
   });
 
   it('Verify right hand navigation on the monthly exchange rate', function() {
-    cy.visit(path + '/scheduled?year=2022');
-    cy.url().should('include', '/exchange_rates/scheduled?year=2022');
+    cy.visit(path + '/monthly?year=2022');
+    cy.url().should('include', '/exchange_rates/monthly?year=2022');
     cy.get('.gem-c-related-navigation__main-heading').contains('Related information');
     cy.get('.gem-c-related-navigation__link-list').contains('Average rates');
     cy.get('.gem-c-related-navigation__link-list').contains('Spot rates');
@@ -107,7 +107,7 @@ describe('validate /exchange_rates', function() {
     // Check correct heading for the right year
     cy.get('h1').contains('HMRC monthly currency exchange rates.');
     // Click through to view online
-    cy.get(`a[href="/exchange_rates/view/${currentYear}-${currentMonth}?type=scheduled"]`).contains('View online').click();
+    cy.get(`a[href="/exchange_rates/view/${currentYear}-${currentMonth}?type=monthly"]`).contains('View online').click();
     // Check new title for monthly rates
     cy.get('h1').contains(`${currentMonthName} ${currentYear} monthly exchange rates`);
 
