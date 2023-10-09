@@ -146,8 +146,8 @@ describe('Legacy search', function() {
     });
 
     it('search navigates to short-form commodity codes', function() {
-      cy.get('#q').type('27101245{enter}');
-      cy.url().should('include', '/commodities/2710124500');
+      cy.get('#q').type('29021100{enter}');
+      cy.url().should('include', '/commodities/2902110000');
     });
 
     it('search navigates to 10 digit commodities', function() {
