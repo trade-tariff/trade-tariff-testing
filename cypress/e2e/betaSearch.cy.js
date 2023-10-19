@@ -279,8 +279,8 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     });
 
     it('search navigates to 10 digit subheadings', function() {
-      cy.get('#q').type('2007993929{enter}');
-      cy.url().should('match', /\/subheadings\/2007993929-(10|20)/);
+      cy.get('#q').type('2007993916{enter}');
+      cy.url().should('match', /\/subheadings\/2007993916-(10|20)/);
     });
 
     it('search navigates to short-form commodity codes', function() {
