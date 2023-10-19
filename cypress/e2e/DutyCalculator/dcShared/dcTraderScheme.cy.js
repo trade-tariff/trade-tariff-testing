@@ -118,4 +118,48 @@ describe('💷  | dcTraderScheme | UK Internal Market Scheme page |', function()
     cy.contains('Apply for authorisation for the UK Internal Market Scheme').click();
     cy.contains('Windsor Framework unveiled to fix problems of the Northern Ireland Protocol');
   });
+  it('NI - Page Validation for UKIMS or UKTS before 30 Sept 2023', function() {
+    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.enterDate({day: '19', month: '09', year: '2023'});
+    cy.contains('Continue').click();
+
+    cy.contains('Which part of the UK are you importing into?');
+    cy.get('#steps-import-destination-import-destination-xi-field').check();
+    cy.contains('Continue').click();
+    cy.contains('Which country are the goods coming from?');
+
+    cy.get('input#steps-country-of-origin-country-of-origin-gb-field').click();
+    cy.contains('Continue').click();
+
+    // trader page
+    cy.contains('Were you authorised under the UK Trader Scheme (UKTS) or the UK Internal Market Scheme (UKIMS)?');
+    cy.contains('If you were moving goods into Northern Ireland which are for sale to, or final use by, ');
+    cy.contains('end consumers located in the UK and you were authorised under the UK Trader Scheme or the UK Internal Market Scheme, ');
+    cy.contains('then you may declare your goods as being \'not at risk\' where the requirements are met. ');
+    cy.contains('A \'not at risk\' good entering Northern Ireland from Great Britain will not be subject to duty.');
+
+    cy.contains('Yes, I was authorised under the UK Trader Scheme or UK Internal Market Scheme at the time of the trade');
+    cy.contains('No, I was not authorised under the UK Trader Scheme or UK Internal Market Scheme at the time of the trade');
+    cy.contains('Please note that UK Internal Market scheme trades cannot benefit from expanded processing rules before 30 September 2023');
+    cy.contains('Trades before this date will use the UK Trader Scheme rules on processing');
+
+    // Select Yes, I am registered with the UK Trader Scheme (UKTS) or the UK Internal Market Scheme (UKIMS)
+    cy.traderScheme('yes');
+    // selection is persisted
+    cy.get('.govuk-back-link').click();
+    cy.get('div:nth-of-type(1) > input[name=\'steps_trader_scheme[trader_scheme]\']')
+        .parent()
+        .find('input')
+        .should('be.checked');
+
+    // Select No,I am not registered with the UK Trader Scheme (UKTS) or the UK Internal Market Scheme (UKIMS)
+    cy.traderScheme('no');
+    // selection is persisted
+
+    cy.get('.govuk-back-link').click();
+    cy.get('div:nth-of-type(2) > input[name=\'steps_trader_scheme[trader_scheme]\']')
+        .parent()
+        .find('input')
+        .should('be.checked');
+  });
 });
