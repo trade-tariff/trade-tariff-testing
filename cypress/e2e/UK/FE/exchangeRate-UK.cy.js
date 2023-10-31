@@ -17,7 +17,7 @@ describe('validate /exchange_rates', function() {
     cy.visit(path);
     cy.contains('UK Integrated Online Tariff');
     // Check correct heading for the right year
-    cy.get('h1').contains('HMRC monthly currency exchange rates.');
+    cy.get('h1').contains('HMRC monthly currency exchange rates');
     // Click through to view online
     cy.get(`a[href="/exchange_rates/view/${currentYear}-${currentMonth}?type=monthly"]`).contains('View online').click();
     // Check new title for monthly rates
@@ -40,7 +40,7 @@ describe('validate /exchange_rates', function() {
     // given I am on the exchange rates page
     cy.visit(path);
     // then I expect to see the current year in the title
-    cy.get('h1').contains('HMRC monthly currency exchange rates.');
+    cy.get('h1').contains('HMRC monthly currency exchange rates');
     // when I click through to the 2022 year
     cy.contains('Monthly exchange rates by year');
     cy.get('li[class=\'gem-c-related-navigation__link\'] > a').contains(`${previousYear}`).click();
@@ -76,7 +76,7 @@ describe('validate /exchange_rates', function() {
     cy.visit(path + '/average');
     cy.url().should('include', '/exchange_rates/average');
     cy.get('.gem-c-related-navigation__link-list').contains('Monthly rates');
-    cy.get('h1').contains('HMRC average currency exchange rates.');
+    cy.get('h1').contains('HMRC average currency exchange rates');
     cy.contains('Check the official HMRC foreign currency exchange average rates.');
   });
 
@@ -84,7 +84,7 @@ describe('validate /exchange_rates', function() {
     cy.visit(path + '/average');
     cy.url().should('include', '/exchange_rates/average');
     cy.get('.gem-c-related-navigation__link-list').contains('Monthly rates');
-    cy.get('h1').contains('HMRC average currency exchange rates.');
+    cy.get('h1').contains('HMRC average currency exchange rates');
     cy.contains('Check the official HMRC foreign currency exchange average rates.');
     cy.get('.attachment-details').contains(`${avgRatesMonthName} ${currentYear} average exchange rates`);
     cy.contains('CSV');
@@ -97,7 +97,7 @@ describe('validate /exchange_rates', function() {
     cy.visit(path + '/spot');
     cy.url().should('include', '/exchange_rates/spot');
     cy.get('.gem-c-related-navigation__link-list').contains('Monthly rates');
-    cy.get('h1').contains('HMRC spot currency exchange rates.');
+    cy.get('h1').contains('HMRC spot currency exchange rates');
     cy.contains('Check the official HMRC foreign currency exchange spot rates.');
   });
 
@@ -105,7 +105,7 @@ describe('validate /exchange_rates', function() {
     // Visit page
     cy.visit(path);
     // Check correct heading for the right year
-    cy.get('h1').contains('HMRC monthly currency exchange rates.');
+    cy.get('h1').contains('HMRC monthly currency exchange rates');
     // Click through to view online
     cy.get(`a[href="/exchange_rates/view/${currentYear}-${currentMonth}?type=monthly"]`).contains('View online').click();
     // Check new title for monthly rates
