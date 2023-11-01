@@ -102,7 +102,7 @@ describe('🔖 | dcConfirmPage | UK Results Page |', function() {
     cy.contains('Continue').click();
     cy.contains('Check your answers');
     cy.get('div:nth-of-type(6) > .govuk-summary-list__actions > .govuk-link').click();
-    cy.contains('Are you authorised under the UK Trader Scheme?');
+    cy.contains('Are you authorised under the UK Internal Market Scheme?');
 
     // Certificate of Origin
     cy.visit('/duty-calculator/uk/1701141000/import-date');

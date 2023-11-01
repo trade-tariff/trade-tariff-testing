@@ -1,8 +1,8 @@
 describe('Measure condition pop ups', function() {
   it('Condition Code 999L - Separated with new text at the bottom', function() {
     cy.visit('/commodities/0702000007');
-    cy.get('#measure-20164273').contains('Conditions').click();
-    cy.get('.info-content').contains('Phytosanitary Certificate (import) for All countries');
+    cy.get('#measure-20188561').contains('Conditions').click();
+    cy.get('.info-content').contains('Import control of organic products for All countries');
     cy.get('.info-content').contains('The use of 999L allows a CDS waiver code');
   });
 
@@ -81,9 +81,9 @@ describe('Measure condition pop ups', function() {
   context('when a commodity has a threshold measure which uses the entry price system', function() {
     it('shows the correct threshold requirements', function() {
       cy.visit('/xi/commodities/0805501010');
-      cy.get('#measure-3939985').contains('Conditions').click();
+      cy.get('#measure-3939986').contains('Conditions').click();
       cy.get('.info-content').contains('Threshold condition');
-      cy.contains('The price of your goods is greater than or equal to 55.80 EUR / 100 kg');
+      cy.contains('The price of your goods is greater than or equal to 46.20 EUR / 100 kg');
     });
   });
 

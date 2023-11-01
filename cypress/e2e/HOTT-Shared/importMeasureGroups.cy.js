@@ -57,12 +57,12 @@ describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate i
   });
   it('UK - Show CDS completion instructions for AU', function() {
     cy.visit('/commodities/0702000007?country=AU#import_duties');
-    cy.get('#measure-20206788').contains('Australia');
-    cy.get('#measure-20206788').contains('Tariff preference').click();
+    cy.get('#measure-20206789').contains('Australia');
+    cy.get('#measure-20206789').contains('Tariff preference').click();
     cy.url().should('include', '/measure_types/142/preference_codes/300?country=AU&geographical_area_id=AU');
     cy.contains('142');
     cy.get('a[href^=\'/commodities/0702000007?country=AU\']').click();
-    cy.get('#measure-20206788').contains('Conditions').click();
+    cy.get('#measure-20206789').contains('Conditions').click();
     cy.contains('Free Trade Agreement between the United Kingdom of Great Britain and Northern Ireland and Australia');
     cy.contains('Declaring your proof of origin');
   });

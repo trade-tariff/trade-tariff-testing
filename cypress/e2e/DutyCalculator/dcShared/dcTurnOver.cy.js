@@ -14,11 +14,11 @@ describe('🧮 | dcTurnOver.spec | Duty Calculator TurnOver page  |', function()
     // Turnover page
     console.log(cy.title());
     cy.contains('What was your annual turnover in the most recent complete financial year?');
-    cy.contains('If the turnover of your company was less than £500,000 in the latest complete financial year, ');
+    cy.contains('If the turnover of your company was less than £2,000,000 in the latest complete financial year, ');
     cy.contains('then your goods will not be considered to be subject to commercial processing, and therefore ');
-    cy.contains('not \'at risk\' of subsequently being moved into Ireland.');
-    cy.contains('My company\'s turnover was less than £500,000');
-    cy.contains('My company\'s turnover was £500,000 or more');
+    cy.contains('\'not at risk\' of subsequently being moved into Ireland.');
+    cy.contains('My company\'s turnover was less than £2,000,000');
+    cy.contains('My company\'s turnover was £2,000,000 or more');
     // check for error messages
     cy.contains('Continue').click();
 
@@ -39,7 +39,7 @@ describe('🧮 | dcTurnOver.spec | Duty Calculator TurnOver page  |', function()
     // planned processing screen
     cy.contains('How will these goods be processed after they are moved into Northern Ireland?');
     cy.get('.govuk-back-link').click();
-    cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click();
+    cy.contains('Check if you can declare goods you bring into Northern Ireland \'not at risk\' of moving to the EU').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
   });
 });

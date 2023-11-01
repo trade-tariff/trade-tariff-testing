@@ -9,7 +9,7 @@ describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-
     cy.finalUse('yes');
     cy.turnOver('more');
 
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
     cy.certificate('no');
     cy.euDutiesApply();
 
@@ -50,7 +50,7 @@ describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-
     cy.finalUse('yes');
     cy.turnOver('more');
 
-    cy.plannedXI('unacceptablecommercial');
+    cy.planned('unacceptablecommercial');
     cy.certificate('no');
 
     cy.euDutiesApply();

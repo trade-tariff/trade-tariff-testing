@@ -24,7 +24,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not pr
     // turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.confirmPage();
@@ -59,7 +59,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not pr
       // turnover <£500,000
       cy.turnOver('more');
       // Planned processing - acceptable1
-      cy.plannedXI('notprocessing');
+      cy.planned('notprocessing');
       // customs value
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
       cy.confirmPage();
@@ -92,7 +92,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not pr
     //  turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // doc code
@@ -133,7 +133,7 @@ describe('| Row-NI304a--delta.spec.js | Turnover > £500k | Delta Route - not pr
     //  turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.vat('0');

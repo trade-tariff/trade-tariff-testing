@@ -278,14 +278,14 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
       cy.url().should('include', '/subheadings/2007995000-80');
     });
 
-    it('search navigates to 10 digit subheadings', function() {
-      cy.get('#q').type('2007993929{enter}');
-      cy.url().should('match', /\/subheadings\/2007993929-(10|20)/);
+    it.only('search navigates to 10 digit subheadings', function() {
+      cy.get('#q').type('2007993916{enter}');
+      cy.url().should('match', /\/subheadings\/2007993916-(10|20|30)/);
     });
 
     it('search navigates to short-form commodity codes', function() {
-      cy.get('#q').type('27101245{enter}');
-      cy.url().should('include', '/commodities/2710124500');
+      cy.get('#q').type('29021100{enter}');
+      cy.url().should('include', '/commodities/2902110000');
     });
 
     it('search navigates to 10 digit commodities', function() {

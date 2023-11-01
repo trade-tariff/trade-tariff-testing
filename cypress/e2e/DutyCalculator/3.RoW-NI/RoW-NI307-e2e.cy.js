@@ -6,9 +6,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.otherOriginList({value: 'Argentina'});
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({tnei: '1000'});
 
-    cy.additionalCode('C999');
     cy.additionalCode('C999');
     cy.docCode({xi: 'c990'});
     cy.contains('Continue').click();
@@ -16,7 +14,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.vat('0');
     cy.contains('VAT zero rate');
     cy.contains('Additional code(s)');
-    cy.contains('C999, C999');
+    cy.contains('C999');
     cy.contains('Document(s)');
     cy.contains('C990');
     cy.confirmPage();
@@ -24,10 +22,10 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
 
     cy.contains('Third-country duty');
     cy.contains('10.90% * £1,000.00');
-    cy.contains('172.20 EUR / 1000 kg/biodiesel');
+    cy.contains('33.40% * £1,000.00');
     cy.contains('Suspension');
     cy.contains('0.00% * £1,000.00');
-    cy.contains('172.20 EUR / 1000 kg/biodiesel');
+    cy.contains('33.40% * £1,000.00');
     cy.get('.govuk-back-link').click();
     cy.get('a[href^="/duty-calculator/document-codes"]').contains('Change').click();
     cy.contains('Do you have any of the following documents?');
@@ -37,7 +35,7 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.vat('0');
     cy.contains('VAT zero rate');
     cy.contains('Additional code(s)');
-    cy.contains('C999, C999');
+    cy.contains('C999');
     cy.contains('Document(s)');
     cy.contains('n/a');
     cy.confirmPage();
@@ -46,11 +44,11 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.contains('Third-country duty');
     cy.contains('10.90% * £1,000.00');
     cy.contains('Import duty (C999)');
-    cy.contains('Definitive anti-dumping duty (EU)');
-    cy.contains('172.20 EUR / 1000 kg/biodiesel');
+    cy.contains('Definitive countervailing duty (EU)');
+    cy.contains('33.40% * £1,000.00');
     cy.contains('Import duty (C999)');
     cy.contains('Definitive countervailing duty (EU)');
-    cy.contains('237.00 EUR / 1000 kg/biodiesel');
+    cy.contains('33.40% * £1,000.00');
     cy.contains('Suspension').should('not.exist');
   });
 });
