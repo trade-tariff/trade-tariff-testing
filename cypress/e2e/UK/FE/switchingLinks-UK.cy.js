@@ -17,7 +17,7 @@ describe('switching links uk', function() {
     cy.get('.govuk-main-wrapper')
         .contains('Northern Ireland Online Tariff');
     cy.get('.govuk-main-wrapper')
-        .contains('if your goods are not ‘at risk’ of onward movement to the EU').click();
+        .contains('if your goods are ‘not at risk’ of onward movement to the EU').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
 
     cy.title().should('eq', 'Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU - GOV.UK');

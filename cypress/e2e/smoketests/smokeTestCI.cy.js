@@ -253,7 +253,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.traderScheme('yes');
       cy.finalUseNI('yes');
       cy.turnOver('more');
-      cy.plannedXI('notprocessing');
+      cy.planned('notprocessing');
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
       cy.quantity({kgm: '10000', tne: '1', dap: '1'});
@@ -420,7 +420,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.traderScheme('yes');
       cy.finalUseNI('yes');
       cy.turnOver('more');
-      cy.plannedXI('notprocessing');
+      cy.planned('notprocessing');
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
       cy.quantity({kgm: '10000'});
@@ -443,7 +443,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.traderScheme('yes');
       cy.finalUse('yes');
       cy.turnOver('more');
-      cy.plannedXI('unacceptablecommercial');
+      cy.planned('unacceptablecommercial');
       cy.certificate('no');
       cy.euDutiesApply();
       cy.meursingCode({value: '000'});

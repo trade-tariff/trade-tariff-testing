@@ -90,38 +90,54 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
 
   it('🚀 UK - Country Selection - imports ', function() {
     cy.visit('/commodities/0208909800#import');
-    cy.get('input#trading_partner_country').click().clear().type('(XI)');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('(XI)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().type('AD');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('AD');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
 
-    cy.get('input#trading_partner_country').click().clear().type('(GB)');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('(GB)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().type('XU');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('XU');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
   });
 
   it('🚀 UK - Country Selection - exports ', function() {
     cy.visit('/commodities/0208909800#export');
-    cy.get('input#trading_partner_country').click().clear().type('(XI)');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('(XI)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().type('AD');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('AD');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('Andorra (AD)');
 
-    cy.get('input#trading_partner_country').click().clear().type('(GB)');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('(GB)');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
 
-    cy.get('input#trading_partner_country').click().clear().type('XU');
+    cy.get('input#trading_partner_country').click();
+    cy.get('input#trading_partner_country').clear();
+    cy.get('input#trading_partner_country').type('XU');
     cy.get('[id=\'trading_partner_country__listbox\']')
         .contains('No results found');
   });
@@ -129,9 +145,15 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   it('🚀 UK - Change date and check if the data shown is same for both XI and UK', function() {
     cy.visit('/find_commodity');
     cy.get('.govuk-details__summary-text').click();
-    cy.get('#tariff_date_day').click().clear().type(31);
-    cy.get('#tariff_date_month').click().clear().type(10);
-    cy.get('#tariff_date_year').click().clear().type(2022);
+    cy.get('#tariff_date_day').click();
+    cy.get('#tariff_date_day').clear();
+    cy.get('#tariff_date_day').type(31);
+    cy.get('#tariff_date_month').click();
+    cy.get('#tariff_date_month').clear();
+    cy.get('#tariff_date_month').type(10);
+    cy.get('#tariff_date_year').click();
+    cy.get('#tariff_date_year').clear();
+    cy.get('#tariff_date_year').type(2022);
     cy.get('input[name=\'commit\']').click();
 
     cy.visit('/browse');
@@ -165,8 +187,9 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   it('🚀 UK - Quotas Search - Order Number', function() {
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
-    cy.get('input#order_number')
-        .click().clear().type('057140');
+    cy.get('input#order_number').click();
+    cy.get('input#order_number').clear();
+    cy.get('input#order_number').type('057140');
     cy.get('form#new_search > input[name=\'new_search\']').click();
     cy.contains('Quota search results');
     cy.get('.govuk-table__row').contains('057140');
@@ -175,10 +198,9 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
   it('🚀 UK - Quotas Search - Commodity Code', function() {
     cy.visit('/quota_search');
     cy.contains('Search for quotas');
-    cy.get('input#goods_nomenclature_item_id')
-        .click()
-        .clear()
-        .type('3920000000');
+    cy.get('input#goods_nomenclature_item_id').click();
+    cy.get('input#goods_nomenclature_item_id').clear();
+    cy.get('input#goods_nomenclature_item_id').type('3920000000');
     cy.get('form#new_search > input[name=\'new_search\']').click();
     cy.contains('Quota search results');
     cy.get('.govuk-table__head')
@@ -189,7 +211,7 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
     cy.get('.tariff-info').contains('Quota order number');
     cy.get('.tariff-info').contains('057140');
     cy.get('.tariff-info').contains('Start and end dates');
-    cy.get('.tariff-info').contains('1 August 2022 to 31 July 2023');
+    cy.get('.tariff-info').contains('1 August 2023 to 31 July 2024');
     cy.get('.close [href]').click();
   });
 });

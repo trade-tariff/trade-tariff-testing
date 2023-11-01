@@ -19,12 +19,12 @@ describe('| GB-NI402b-e2e.spec | GB to NI route |', function() {
 
     cy.turnOver('more');
 
-    cy.plannedXI('commercialprocessing');
+    cy.planned('commercialprocessing');
 
     cy.contains('There is no import duty to pay');
     cy.contains('There is no import duty to pay because:');
     cy.contains('You are transporting goods from England, Scotland or Wales to Northern Ireland');
-    cy.contains('You are a member of the UK Trader Scheme, and');
+    cy.contains('You are a member of the UK Internal Market Scheme, and');
     cy.contains('Your import is for sale to, or final use by, end-consumers located in Northern Ireland, and');
     cy.contains('You will be undertaking permitted commercial processing on the goods on arrival in Northern Ireland');
 

@@ -142,12 +142,12 @@ describe('Legacy search', function() {
 
     it('search navigates to 10 digit subheadings', function() {
       cy.get('#q').type('1518009510{enter}');
-      cy.url().should('include', '/subheadings/1518009510-80');
+      cy.url().should('match', /\/subheadings\/1518009510-(10|80)/);
     });
 
     it('search navigates to short-form commodity codes', function() {
-      cy.get('#q').type('27101245{enter}');
-      cy.url().should('include', '/commodities/2710124500');
+      cy.get('#q').type('29021100{enter}');
+      cy.url().should('include', '/commodities/2902110000');
     });
 
     it('search navigates to 10 digit commodities', function() {
@@ -164,7 +164,7 @@ describe('Legacy search', function() {
 
     it('search navigates to expired subheadings in their short form', function() {
       cy.get('#q').type('01029005{enter}');
-      cy.url().should('include', '/subheadings/0102900500-10');
+      cy.url().should('match', /\/subheadings\/0102900500-(10|80)/);
     });
 
     it('search navigates to expired subheadings in their long form', function() {

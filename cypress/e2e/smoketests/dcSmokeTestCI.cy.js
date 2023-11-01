@@ -54,7 +54,7 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     cy.meursingCode({value: '000'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 

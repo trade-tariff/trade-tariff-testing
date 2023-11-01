@@ -20,7 +20,7 @@ describe('🧮 | dcFinalUse | Final Use - page |', function() {
     cy.contains('Continue').click();
 
     cy.contains('Explore the topic');
-    cy.contains('Check if you can declare goods you bring into Northern Ireland not ‘at risk’ of moving to the EU').click();
+    cy.contains('Check if you can declare goods you bring into Northern Ireland \'not at risk\' of moving to the EU').click();
     cy.contains('Declaring goods you bring into Northern Ireland \'not at risk’ of moving to the EU');
     cy.go('back');
     cy.turnOver('more');

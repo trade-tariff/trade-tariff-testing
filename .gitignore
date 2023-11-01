@@ -10,3 +10,4 @@ cypress/reports/*
 cypress/mochawesome-report/assets
 *.log
 .env
+downloads

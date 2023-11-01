@@ -637,3 +637,27 @@ Cypress.Commands.add('verifyExciseAdditionalCodePopup', (exciseCode, dutyAmount)
     }
   });
 });
+
+Cypress.Commands.add('getDataAndSortToCompare', (filePath) => {
+  cy.get('table').find('tr').then((txt1) => txt1.text().split('\n').map((row1) => row1.trim())).then((rowActualData) => {
+    const actualData = rowActualData
+        .map((row) => row.split('|') // split each row
+            .filter(Boolean) // ignore start and end "|"
+            .map((col) => col.trim()), // remove whitespace
+        )
+        .filter((row) => row.length); // remove empty rows
+    const actualArrays = []; const size = 6;
+    for (let i = 0; i < actualData.length; i += size) {
+      actualArrays.push(actualData.slice(i, i + size));
+    }
+    cy.readFile(`${filePath}`).then((txt2) => txt2.split('\n').map((row2) => row2.trim())).then((rowExpectedData) => {
+      const expectedData = rowExpectedData
+          .map((row) => row.split('|') // split each row
+              .filter(Boolean) // ignore start and end "|"
+              .map((col) => col.trim()), // remove whitespace
+          )
+          .filter((row) => row.length); // remove empty rows
+      expect(actualArrays.length).to.equal(expectedData.length);
+    });
+  });
+});

@@ -9,7 +9,7 @@ describe('| RoW-NI309--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({asv: 8.4, ltr: 1000, lpa: 84, spr: 5});
     cy.exciseCode('370');
@@ -33,7 +33,7 @@ describe('| RoW-NI309--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({kgm: 16320, brx: 80});
     cy.vat('20');

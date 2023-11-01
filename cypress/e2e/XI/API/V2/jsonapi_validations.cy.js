@@ -299,7 +299,7 @@ describe('Api validations', function() {
     it('returns a valid jsonapi response', function() {
       cy.request(path).then((response) => {
         cy.validJsonAPIresponse(response);
-      });     
+      });
     });
   });
 });

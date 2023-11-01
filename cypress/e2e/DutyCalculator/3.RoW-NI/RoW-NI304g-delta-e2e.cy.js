@@ -21,7 +21,7 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
@@ -67,7 +67,7 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // turnover <£500,000 - NO
     cy.turnOver('more');
     // Planned processing - acceptable1
-    cy.plannedXI('notprocessing');
+    cy.planned('notprocessing');
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
