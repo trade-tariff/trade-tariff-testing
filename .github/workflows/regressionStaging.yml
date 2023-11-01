@@ -9,7 +9,7 @@ jobs:
   cypress-run:
     environment: trade-tariff
     env:
-      CYPRESS_BASE_URL: "https://origin.ott-staging.co.uk"
+      CYPRESS_BASE_URL: "https://d6iv3wyphj34s.cloudfront.net"
       CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
