@@ -47,7 +47,7 @@ Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
   if (urlOrOptions instanceof Object) {
     options = urlOrOptions;
   } else {
-    options = { url: urlOrOptions };
+    options = {url: urlOrOptions};
   }
 
   if (basicAuthEnabled) {
@@ -100,7 +100,7 @@ Cypress.Commands.add('mainPageUK', () => {
   cy.contains('Look up commodity codes, import duties, taxes and controls');
   cy.title().should('matches', /UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header')
-    .contains('UK Integrated Online Tariff');
+      .contains('UK Integrated Online Tariff');
   // Search the tariff section
   cy.get('.govuk-heading-m').contains('Search for a commodity');
   cy.contains('Commodity codes are internationally');
@@ -117,7 +117,7 @@ Cypress.Commands.add('mainPageXI', () => {
   cy.contains('Look up commodity codes, import duties, taxes and controls');
   cy.title().should('matches', /Northern Ireland Online Tariff: Look up commodity codes, duty and VAT rates - GOV.UK/i);
   cy.get('.govuk-header')
-    .contains('Northern Ireland Online Tariff');
+      .contains('Northern Ireland Online Tariff');
   cy.contains('Search for a commodity');
   cy.contains('Commodity codes are internationally recognised reference numbers.');
   cy.contains('browse the goods classification').click();
@@ -140,11 +140,11 @@ Cypress.Commands.add('commPage', () => {
 Cypress.Commands.add('specialBanner', () => {
   cy.contains('New guidance has been published in regard to additional duties on goods originating in Russia and Belarus.');
   cy.get('header[role=\'banner\'] a[target=\'_blank\']')
-    .should(
-      'have.attr',
-      'href',
-      'https://www.gov.uk/guidance/additional-duties-on-goods-originating-in-russia-and-belarus',
-    );
+      .should(
+          'have.attr',
+          'href',
+          'https://www.gov.uk/guidance/additional-duties-on-goods-originating-in-russia-and-belarus',
+      );
 });
 
 Cypress.Commands.add('contextSelector', () => {
@@ -270,24 +270,24 @@ Cypress.Commands.add('verifySuspensions', (country, commCode, titles, measureTyp
     if (t.includes('Autonomous tariff suspension')) {
       if (`${country}` === 'xi') {
         cy.get(
-          `.table-line a[href^="/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`,
+            `.table-line a[href^="/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`,
         ).contains('Autonomous tariff suspension');
       } else {
         cy.get(
-          `.table-line a[href^="${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`,
+            `.table-line a[href^="${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=1011"]`,
         ).contains('Autonomous tariff suspension');
       }
     } else if (t.includes('Preferential suspension')) {
       cy.get('#measure-3223900 > .measure-type-col > .table-line > a').should(
-        'have.attr',
-        'href',
-        `/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=XC`,
+          'have.attr',
+          'href',
+          `/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=XC`,
       ).contains('Preferential suspension');
     }
   });
 });
 
-Cypress.Commands.add('openPopup', { prevSubject: true }, (subject) => {
+Cypress.Commands.add('openPopup', {prevSubject: true}, (subject) => {
   cy.wrap(subject).click();
   return cy.get('.info-content').should('be.visible');
 });
@@ -323,8 +323,8 @@ Cypress.Commands.add('checkDerivingGoodsNomenclaturesCount', (expectedCount) => 
   cy.get('@headerColumns').eq(2).should('have.text', 'Transfer date');
 
   cy.get('@bodyColumns').eq(0).find('a')
-    .should('have.attr', 'href')
-    .and('match', goodsNomenclatureLinkRegex);
+      .should('have.attr', 'href')
+      .and('match', goodsNomenclatureLinkRegex);
 
   cy.get('@bodyColumns').eq(1).should('not.be.empty');
   cy.get('@bodyColumns').eq(2).contains(dateRegex);
@@ -341,8 +341,8 @@ Cypress.Commands.add('checkAdditionalCodeSearchResultsHaveGoodsNomenclatures', (
 
 
   cy.get('@bodyColumns').eq(0).find('a')
-    .should('have.attr', 'href')
-    .and('match', goodsNomenclatureLinkRegex);
+      .should('have.attr', 'href')
+      .and('match', goodsNomenclatureLinkRegex);
 
   cy.get('@bodyColumns').eq(0).find('a').should('not.be.empty');
   cy.get('@bodyColumns').eq(1).should('not.be.empty');
@@ -364,28 +364,28 @@ Cypress.Commands.add('fetchCookie', (name) => {
 });
 
 Cypress.Commands.add('validateAutocompleteNthItem', (
-  inputText,
-  nthItem,
-  expectedText,
-  expectedUrl,
-  resourceId = null,
-  suggestionType = null,
+    inputText,
+    nthItem,
+    expectedText,
+    expectedUrl,
+    resourceId = null,
+    suggestionType = null,
 ) => {
   cy.get('#q').type(inputText);
 
   cy.get('.autocomplete__menu')
-    .should('be.visible')
-    .find('.autocomplete__option')
-    .eq(nthItem)
-    .as('nthRow')
-    .invoke('text')
-    .then((nthRowText) => {
-      if (resourceId && suggestionType) {
-        cy.get('@nthRow').find(`span[data-resource-id="${resourceId}"][data-suggestion-type="${suggestionType}"]`);
-      }
-      expect(nthRowText).to.contain(expectedText);
-      cy.get('@nthRow').click();
-    });
+      .should('be.visible')
+      .find('.autocomplete__option')
+      .eq(nthItem)
+      .as('nthRow')
+      .invoke('text')
+      .then((nthRowText) => {
+        if (resourceId && suggestionType) {
+          cy.get('@nthRow').find(`span[data-resource-id="${resourceId}"][data-suggestion-type="${suggestionType}"]`);
+        }
+        expect(nthRowText).to.contain(expectedText);
+        cy.get('@nthRow').click();
+      });
 
   cy.url().should('include', expectedUrl);
 });
@@ -421,19 +421,19 @@ Cypress.Commands.add('verifySPVCodePage', (code) => {
 
 Cypress.Commands.add('svpPageLinks', () => {
   cy.get('a[href^=\'https://www.gov.uk/government/collections/working-out-the-customs-value-of-your-imported-goods\']')
-    .contains('Working out the customs value of your imported goods');
+      .contains('Working out the customs value of your imported goods');
   cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-1-transaction-value\']')
-    .contains('Valuing imported goods using Method 1 (transaction value)');
+      .contains('Valuing imported goods using Method 1 (transaction value)');
   cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-2-transaction-value-of-identical-goods\']')
-    .contains('Valuing imported goods using Method 2 (transaction value of identical goods)');
+      .contains('Valuing imported goods using Method 2 (transaction value of identical goods)');
   cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-3-transaction-value-of-similar-goods\']')
-    .contains('Valuing imported goods using Method 3 (transaction value of similar goods)');
+      .contains('Valuing imported goods using Method 3 (transaction value of similar goods)');
   cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-4-deductive-method\']')
-    .contains('Valuing imported goods using Method 4 (deductive method)');
+      .contains('Valuing imported goods using Method 4 (deductive method)');
   cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-5-computed-value\']')
-    .contains('Valuing imported goods using Method 5 (computed value)');
+      .contains('Valuing imported goods using Method 5 (computed value)');
   cy.get('a[href^=\'https://www.gov.uk/guidance/valuing-imported-goods-using-method-6-fall-back-method\']')
-    .contains('Valuing imported goods using Method 6 (fall-back method)');
+      .contains('Valuing imported goods using Method 6 (fall-back method)');
 });
 
 Cypress.Commands.add('verifyDCTSTariffPereferences', (areaID) => {
@@ -604,7 +604,7 @@ Cypress.Commands.add('verfiyCDSDeclarationForExciseAdditionalCodes', (exciseAddi
       break;
     case 'X375':
       cy.get('#popup')
-        .contains('Applies to spirits with an ABV less than 3.5% and eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
+          .contains('Applies to spirits with an ABV less than 3.5% and eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
       break;
     case 'X378':
       cy.get('#popup').contains('Applies to wine with an ABV at least 3.5% but less than 8.5% and ');
@@ -641,22 +641,22 @@ Cypress.Commands.add('verifyExciseAdditionalCodePopup', (exciseCode, dutyAmount)
 Cypress.Commands.add('getDataAndSortToCompare', (filePath) => {
   cy.get('table').find('tr').then((txt1) => txt1.text().split('\n').map((row1) => row1.trim())).then((rowActualData) => {
     const actualData = rowActualData
-      .map((row) => row.split('|') // split each row
-        .filter(Boolean) // ignore start and end "|"
-        .map((col) => col.trim()), // remove whitespace
-      )
-      .filter((row) => row.length); // remove empty rows
+        .map((row) => row.split('|') // split each row
+            .filter(Boolean) // ignore start and end "|"
+            .map((col) => col.trim()), // remove whitespace
+        )
+        .filter((row) => row.length); // remove empty rows
     const actualArrays = []; const size = 6;
     for (let i = 0; i < actualData.length; i += size) {
       actualArrays.push(actualData.slice(i, i + size));
     }
     cy.readFile(`${filePath}`).then((txt2) => txt2.split('\n').map((row2) => row2.trim())).then((rowExpectedData) => {
       const expectedData = rowExpectedData
-        .map((row) => row.split('|') // split each row
-          .filter(Boolean) // ignore start and end "|"
-          .map((col) => col.trim()), // remove whitespace
-        )
-        .filter((row) => row.length); // remove empty rows
+          .map((row) => row.split('|') // split each row
+              .filter(Boolean) // ignore start and end "|"
+              .map((col) => col.trim()), // remove whitespace
+          )
+          .filter((row) => row.length); // remove empty rows
       expect(actualArrays.length).to.equal(expectedData.length);
     });
   });

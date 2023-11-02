@@ -20,7 +20,6 @@ import './dutyCommands';
 import './apiCommands';
 import './rooCommands';
 import 'cypress-fill-command';
-import 'cypress-promise/register'
 require('@cypress/grep')();
 require('cypress-downloadfile/lib/downloadFileCommand');
 
