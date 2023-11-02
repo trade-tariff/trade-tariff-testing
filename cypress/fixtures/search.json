@@ -175,7 +175,7 @@
   },
   {
     "searchstr": "2007993916",
-    "match": "subheadings/2007993916-(10|20|30)"
+    "match": "/subheadings/2007993916-(10|20|30)"
   },
   {
     "searchstr": "29021100",

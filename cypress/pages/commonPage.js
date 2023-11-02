@@ -48,8 +48,8 @@ class commonPage {
     }
 
     verifyUrlShudMatch(urlStrToCheck) {
-        let str = '\/'+urlStrToCheck+'/'
-        cy.url().should('match', '\/'+urlStrToCheck)
+        var regexp = new RegExp(urlStrToCheck);
+        cy.url().should('match', regexp)
     }
 
     verifyWebChatShudHaveLink(webChatLink) {
