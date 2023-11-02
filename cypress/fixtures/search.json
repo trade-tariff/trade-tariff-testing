@@ -1,0 +1,204 @@
+[
+  {
+      "searchstr": "fresh potatoes",
+      "containstxt": "Potatoes, fresh or chilled",
+      "link": "https://www.gov.uk/guidance/classifying-edible-fruit-vegetables-and-nuts-for-import-and-export"
+  },
+  {
+    "searchstr": "indian"
+  },
+  {
+    "searchstr": "halbiut",
+    "containstxt": "halibut",
+    "containstxt2": "There are no results",
+    "include": "/search?q=halbiut&spell=0"
+  },
+  {
+    "searchstr": "tripe",
+    "containstxt": "Meat and edible meat offal"
+  },
+  {
+    "searchstr": "hedgehog",
+    "containstxt": "Other live animals"
+  },
+  {
+    "searchstr": "clothing sets womens",
+    "containstxt": "Show all filters",
+    "containstxt2": "Women's and girls",
+    "containstxt3": "Women's or girls' blouses, shirts and shirt-blouses",
+    "containstxt4": "Results are filtered by:",
+    "containstxt5": "[x] Women's and girls",
+    "include": "clothing_gender"
+  },
+  {
+    "searchstr": "clothing sets womens",
+    "containstxt": "Tracksuits, ski suits and swimwear; other garments",
+    "containstxt2": "Results are filtered by:",
+    "containstxt3": "[x] Heading 6211",
+    "include": 6211
+  },
+  {
+    "searchstr": "access equipment",
+    "containstxt": "chapter 85",
+    "include": "/chapters/85"
+  },
+  {
+    "searchstr": "fitbit",
+    "containstxt": "There are no results",
+    "include": "/search"
+  },
+  {
+    "searchstr": "flibble",
+    "containstxt": "There are no results",
+    "link": "https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"
+  },
+  {
+    "searchstr": "ham",
+    "containstxt": "Use the Beta Search",
+    "containstxt2": "switch back to legacy search",
+    "containstxt3": "Other results containing the term ‘ham’",
+    "include": "/browse",
+    "include2": "/search",
+    "linktoselect": "/search/toggle_beta_search",
+    "commcode": "",
+    "link": ""
+  },
+  {
+    "searchstr": "cardboard",
+    "include": "/search"
+  },
+  {
+    "searchstr": "\"cherry tomatoes\"",
+    "searchstr2": "'For the manufacture of starch'",
+    "include": "/commodities/0702000007",
+    "include2": "/commodities/0701901000"
+  },
+  {
+    "inputQuery": "qwdwefwfwWWWWWWWWRGRGEWGEWGEWGEWGerwgewrgerwgrgerwgrgrehtrhtrhjtyrjyjerhwrgsrbdrhwrhwrhwrbsdfbrbhwr"
+  },
+  {
+    "searchstr": "0154438-3",
+    "containstxt": "mel powder",
+    "include": "/commodities/0409000000"
+  },
+  {
+    "searchstr": "7440-15-5",
+    "containstxt": "rhenium, unwrought; powders",
+    "include": "/commodities/8112419000"
+  },
+  {
+    "searchstr": "cerium alloy",
+    "containstxt": "cerium alloy",
+    "include": "/commodities/8105200000"
+  },
+  {
+    "inputText": "raw",
+    "nthItem": 2,
+    "expectedText": "kelp, raw",
+    "expectedUrl": "/subheadings/1212210000-10"
+  },
+  {
+    "inputText": "insulin, human",
+    "nthItem": 1,
+    "expectedText": "insulin, human",
+    "expectedUrl": "/commodities/2937120000",
+    "resourceId": "0036941-5",
+    "suggestionType": "Chemical"
+  },
+  {
+    "inputText": "01",
+    "nthItem": 1,
+    "expectedText": "01",
+    "expectedUrl": "/chapters/01",
+    "resourceId": "27623",
+    "suggestionType": "Chapter"
+  },
+  {
+    "inputText": "0101",
+    "nthItem": 1,
+    "expectedText": "0101",
+    "expectedUrl": "/headings/0101",
+    "resourceId": "27624",
+    "suggestionType": "Heading"
+  },
+  {
+    "inputText": "010121",
+    "nthItem": 1,
+    "expectedText": "010121",
+    "expectedUrl": "/subheadings/0101210000-10",
+    "resourceId": "93797",
+    "suggestionType": "Subheading"
+  },
+  {
+    "inputText": "0101210000",
+    "nthItem": 1,
+    "expectedText": "0101210000",
+    "expectedUrl": "/commodities/0101210000",
+    "resourceId": "93796",
+    "suggestionType": "Commodity"
+  },
+  {
+    "inputText": "01500",
+    "nthItem": 1,
+    "expectedText": "0150000-1",
+    "expectedUrl": "/commodities/3903909090",
+    "resourceId": "0150000-1",
+    "suggestionType": "Chemical"
+  },
+  {
+    "inputText": "107000",
+    "nthItem": 1,
+    "expectedText": "107000",
+    "expectedUrl": "/commodities/2937290000",
+    "resourceId": "0040087-3",
+    "suggestionType": "Chemical"
+  },
+  {
+    "searchstr": "01",
+    "include": "/chapters/01"
+  },
+  {
+    "searchstr": "0101",
+    "include": "/headings/0101"
+  },
+  {
+    "searchstr": "0501",
+    "include": "/commodities/0501000000"
+  },
+  {
+    "searchstr": "010121",
+    "include": "/subheadings/0101210000-10"
+  },
+  {
+    "searchstr": "20079950",
+    "include": "/subheadings/2007995000-80"
+  },
+  {
+    "searchstr": "2007993916",
+    "match": "subheadings/2007993916-(10|20|30)"
+  },
+  {
+    "searchstr": "29021100",
+    "include": "/commodities/2902110000"
+  },
+  {
+    "searchstr": "0101210000",
+    "include": "/commodities/0101210000"
+  },
+  {
+    "searchstr": "6908",
+    "include": "/headings/6908"
+  },
+  {
+    "searchstr": "01029005",
+    "include": "/subheadings/0102900500-80"
+  },
+  {
+    "searchstr": "6908109000",
+    "include": "/commodities/6908109000"
+  },
+  {
+    "searchstr": "sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf",
+    "containstxt": "There are no results matching your query."
+  }
+]

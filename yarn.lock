@@ -2193,6 +2193,11 @@ cypress-otp@^1.0.3:
   dependencies:
     otplib "12.0.1"
 
+cypress-promise@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/cypress-promise/-/cypress-promise-1.1.0.tgz#f2d66965945fe198431aaf692d5157cea9d47b25"
+  integrity sha512-DhIf5PJ/a0iY+Yii6n7Rbwq+9TJxU4pupXYzf9mZd8nPG0AzQrj9i+pqINv4xbI2EV1p+PKW3maCkR7oPG4GrA==
+
 cypress-tags@^1.0.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/cypress-tags/-/cypress-tags-1.1.2.tgz#f0aeb29685b0906bba2eca69e7349943cbbd1eba"

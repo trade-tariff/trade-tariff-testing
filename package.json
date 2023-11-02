@@ -15,6 +15,7 @@
     "cypress-file-upload": "^5.0.8",
     "cypress-fill-command": "^1.0.1",
     "cypress-otp": "^1.0.3",
+    "cypress-promise": "^1.1.0",
     "cypress-tags": "^1.0.2",
     "cypress-utils": "^3.0.0",
     "dotenv": "^16.3.1",

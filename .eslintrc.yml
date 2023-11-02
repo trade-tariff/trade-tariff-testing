@@ -7,6 +7,7 @@ extends:
   - eslint:recommended
   - plugin:cypress/recommended
   - google
+parser: google
 parserOptions:
   ecmaVersion: 12
   sourceType: module
