@@ -4,7 +4,7 @@ const todaysDate = dayjs().format('YYYY/MM/DD');
 const datePrefixFormat = dayjs().format('DD/MM/YYYY');
 const space = Cypress.env('SPACE');
 const adminSuffix = Cypress.env(`${space}_ADMIN_SUFFIX`);
-const adminUrl = `https://tariff-admin-${adminSuffix}.london.cloudapps.digital`;
+const adminUrl = `https://admin.${adminSuffix}.trade-tariff.service.gov.uk`;
 
 Cypress.Commands.add('loginOrRestoreAdminSession', () => {
   cy.session('adminLogin', () => {
