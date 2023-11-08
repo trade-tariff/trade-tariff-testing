@@ -12,12 +12,9 @@ describe('|*RoW-GB205--e2e.spec | 🇸🇬 Singapore to 🇬🇧 GB  |', functio
     cy.contains('Continue').click();
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
-    //cy.contains('kilograms');
-    //cy.contains('1,000 kg');
     cy.contains('decatonne, corrected according to polarisation (10,000 kg/polar)');
     cy.contains('1');
     cy.confirmPage();
-
     cy.dutyPage();
     cy.contains('Third-country duty');
     cy.contains('Tariff preference - Singapore');
