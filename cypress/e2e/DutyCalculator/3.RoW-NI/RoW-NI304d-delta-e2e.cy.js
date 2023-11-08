@@ -23,7 +23,7 @@ describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 | 🔼 Delta Route
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({kgm: '10000', tne: '1', dap: '1'});
+    cy.quantity({kgm: '10000', dap: '1'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();

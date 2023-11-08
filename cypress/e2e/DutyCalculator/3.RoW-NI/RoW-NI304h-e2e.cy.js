@@ -111,7 +111,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
 
     // Import Quantity
-    cy.quantity({kgm: '100', tne: '1', dap: '1'});
+    cy.quantity({kgm: '100', dap: '1'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
@@ -130,7 +130,7 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({kgm: '100000', tne: '100', dap: '100'});
+    cy.quantity({kgm: '100000', dap: '100'});
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();

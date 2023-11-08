@@ -32,7 +32,7 @@ describe('|dcStoppingPage.spec| Stopping page for certificate code N990', functi
     cy.selectDestination('gb');
     cy.originList({value: 'Brazil'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({tne: '1000', kgm: '100', dap: '100'});
+    cy.quantity({kgm: '100', dap: '100'});
     // Yes , Yes
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
