@@ -6,7 +6,7 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
     cy.selectDestination('gb');
     cy.originList({value: 'Argentina'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.quantity({tnei: '1'});
+    cy.quantity({kgm: '1'});
     cy.additionalCode('C999');
 
     // Select Document Code
@@ -45,7 +45,7 @@ describe('| RoW-GB206-e2e.spec | additional codes |', function() {
     cy.selectDestination('gb');
     cy.originList({value: 'Canada'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({tnei: '1'});
+    cy.quantity({kgm: '1000'});
     // additional codes
     cy.additionalCode('B999');
     cy.additionalCode('B999');

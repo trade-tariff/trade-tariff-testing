@@ -9,7 +9,7 @@ describe('validate document codes step and outcomes', function() {
     cy.otherOriginList({value: 'Canada'});
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-    cy.quantity({tnei: '1'});
+    cy.quantity({kgm: '1'});
 
     cy.additionalCode('B107');
     cy.additionalCode('B107');
