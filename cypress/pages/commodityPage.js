@@ -1,17 +1,16 @@
-class commodityPage {
+class CommodityPage {
+  elements = {
+    tabChemicals: () => cy.get('#tab_chemicals'),
+    chemicals: () => cy.get('#chemicals').eq(0),
+  };
 
-    elements = {
-        tabChemicals: () => cy.get('#tab_chemicals'),
-        chemicals: () => cy.get('#chemicals').eq(0)
-    }
+  clkChemicalsTab() {
+    this.elements.tabChemicals().click();
+  }
 
-    clkChemicalsTab() {
-        this.elements.tabChemicals().click()
-    }
-
-    verifyChemicalsContains(txtToVerify) {
-        this.elements.chemicals().contains(txtToVerify)
-    }
+  verifyChemicalsContains(txtToVerify) {
+    this.elements.chemicals().contains(txtToVerify);
+  }
 }
 
-module.exports = new commodityPage()
+module.exports = new CommodityPage();

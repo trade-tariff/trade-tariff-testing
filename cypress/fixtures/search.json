@@ -175,7 +175,8 @@
   },
   {
     "searchstr": "2007993916",
-    "match": "/subheadings/2007993916-(10|20|30)"
+    "suggestiontxttomatch": "Subheading",
+    "match": "/subheadings/2007993916-(10|20|30|40)"
   },
   {
     "searchstr": "29021100",

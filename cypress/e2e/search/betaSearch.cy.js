@@ -174,12 +174,12 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   context('when using the search input with search suggestions', function() {
     it('Search suggestions are displayed and work for search references', function() {
       const data = Cypress.env('testData')[17];
-      cy.validateAutocompleteNthItem(data.inputText, data.nthItem, data.expectedText, data.expectedUrl);
+      searchPage.validateAutocompleteNthItem(data.inputText, data.nthItem, data.expectedText, data.expectedUrl);
     });
 
     it('Search suggestions are displayed and work for chemical names', function() {
       const data = Cypress.env('testData')[18];
-      cy.validateAutocompleteNthItem(
+      searchPage.validateAutocompleteNthItem(
           data.inputText,
           data.nthItem,
           data.expectedText,
@@ -191,7 +191,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     it('Search suggestions are displayed and work for chapters', function() {
       const data = Cypress.env('testData')[19];
-      cy.validateAutocompleteNthItem(
+      searchPage.validateAutocompleteNthItem(
           data.inputText,
           data.nthItem,
           data.expectedText,
@@ -203,7 +203,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     it('Search suggestions are displayed and work for headings', function() {
       const data = Cypress.env('testData')[20];
-      cy.validateAutocompleteNthItem(
+      searchPage.validateAutocompleteNthItem(
           data.inputText,
           data.nthItem,
           data.expectedText,
@@ -215,7 +215,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     it('Search suggestions are displayed and work for subheadings', function() {
       const data = Cypress.env('testData')[21];
-      cy.validateAutocompleteNthItem(
+      searchPage.validateAutocompleteNthItem(
           data.inputText,
           data.nthItem,
           data.expectedText,
@@ -227,7 +227,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     it('Search suggestions are displayed and work for commodities', function() {
       const data = Cypress.env('testData')[22];
-      cy.validateAutocompleteNthItem(
+      searchPage.validateAutocompleteNthItem(
           data.inputText,
           data.nthItem,
           data.expectedText,
@@ -239,7 +239,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     it('Search suggestions are displayed and work for cus numbers', function() {
       const data = Cypress.env('testData')[23];
-      cy.validateAutocompleteNthItem(
+      searchPage.validateAutocompleteNthItem(
           data.inputText,
           data.nthItem,
           data.expectedText,
@@ -251,7 +251,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     it('Search suggestions are displayed and work for cas rn numbers', function() {
       const data = Cypress.env('testData')[24];
-      cy.validateAutocompleteNthItem(
+      searchPage.validateAutocompleteNthItem(
           data.inputText,
           data.nthItem,
           data.expectedText,
@@ -295,7 +295,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
     it('search navigates to 10 digit subheadings', function() {
       const data = Cypress.env('testData')[30];
-      searchPage.enterTxtInTheSearchFieldAndClkEnter(data.searchstr);
+      searchPage.verifySearchSuggstnListAndClkSpecificSuggstnTxt(data.searchstr, data.suggestiontxttomatch);
       commonPage.verifyUrlShudMatch(data.match);
     });
 

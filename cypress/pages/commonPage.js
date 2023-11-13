@@ -1,65 +1,70 @@
-class commonPage {
+class CommonPage {
+  elements = {
+    ukBannerTariffTxt: () => cy.get('.govuk-header__content').contains('UK Integrated Online Tariff'),
+    xiBannerTariffTxt: () => cy.get('.govuk-header__content').contains('Northern Ireland Online Tariff'),
+    ukTariffTxt: () => cy.get('#content').contains('UK Integrated Online Tariff'),
+    xiTariffTxt: () => cy.get('#content').contains('Northern Ireland Online Tariff'),
+    imageCheck: () => cy.get('.image-guide'),
+    webChatLink: () => cy.get('#webchat-link > p > a'),
+  };
 
-    elements = {
-        ukTariffTxt: () => cy.get('#content').contains('UK Integrated Online Tariff'),
-        xiTariffTxt: () => cy.get('#content').contains('Northern Ireland Online Tariff'),
-        imageCheck: () => cy.get('.image-guide'),
-        webChatLink: () => cy.get('#webchat-link > p > a')
-    }
+  loadData(fileName) {
+    cy.fixture(fileName).then((searchData) => {
+      Cypress.env('testData', searchData);
+    });
+  }
 
-    loadData(fileName) {
-        cy.fixture(fileName).then((searchData) => {
-            Cypress.env('testData', searchData)
-        })
-    }
+  navigateToBaseUrl(url) {
+    cy.visit(url);
+    this.elements.ukTariffTxt();
+    this.elements.xiTariffTxt();
+  }
 
-    navigateToBaseUrl(url) {
-        cy.visit(url)
-        this.elements.ukTariffTxt()
-        this.elements.xiTariffTxt()
-    }
+  goToUrl(urlPathToVisit) {
+    cy.visit(urlPathToVisit);
+  }
 
-    goToUrl(urlPathToVisit) {
-        cy.visit(urlPathToVisit);
-    }
+  goToSpecificUrlToCheckPageAccess(urlPathToVisit) {
+    cy.visit(urlPathToVisit, {failOnStatusCode: false});
+  }
 
-    verifyContains(txtToVerify) {
-        cy.contains(txtToVerify)
-    }
+  verifyContains(txtToVerify) {
+    cy.contains(txtToVerify);
+  }
 
-    verifyTxtAndClk(txtToClk) {
-        cy.contains(txtToClk).click()
-    }
+  verifyTxtAndClk(txtToClk) {
+    cy.contains(txtToClk).click();
+  }
 
-    imgShudExist() {
-        this.elements.imageCheck().should('exist')
-    }
+  imgShudExist() {
+    this.elements.imageCheck().should('exist');
+  }
 
-    imgShudNotExist() {
-        this.elements.imageCheck().should('not.exist')
-    }
+  imgShudNotExist() {
+    this.elements.imageCheck().should('not.exist');
+  }
 
-    verifyUrlShudInclude(urlStrToCheck) {
-        cy.url().should('include', `${urlStrToCheck}`)
-    }
+  verifyUrlShudInclude(urlStrToCheck) {
+    cy.url().should('include', `${urlStrToCheck}`);
+  }
 
-    verifyUrlShudNotInclude(urlStrToCheck) {
-        cy.url().should('not.include', `${urlStrToCheck}`)
-    }
+  verifyUrlShudNotInclude(urlStrToCheck) {
+    cy.url().should('not.include', `${urlStrToCheck}`);
+  }
 
-    verifyUrlShudMatch(urlStrToCheck) {
-        var regexp = new RegExp(urlStrToCheck);
-        cy.url().should('match', regexp)
-    }
+  verifyUrlShudMatch(urlStrToCheck) {
+    const regexp = new RegExp(urlStrToCheck);
+    cy.url().should('match', regexp);
+  }
 
-    verifyWebChatShudHaveLink(webChatLink) {
-        this.elements.webChatLink().eq(1)
+  verifyWebChatShudHaveLink(webChatLink) {
+    this.elements.webChatLink().eq(1)
         .should(
             'have.attr',
             'href',
             `${webChatLink}`,
         );
-    }
+  }
 }
 
-module.exports = new commonPage()
+module.exports = new CommonPage();

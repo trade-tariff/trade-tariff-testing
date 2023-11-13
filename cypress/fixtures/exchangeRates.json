@@ -1,0 +1,68 @@
+[
+    {
+        "goToUri": "/tools",
+        "clkExchangeRateTxt": "Exchange rates",
+        "contains": "Check the official HMRC foreign exchange rates for Customs & VAT in online (HTML), CSV and XML formats.",
+        "include": "/exchange_rates"
+    },
+    {
+        "contains": "CSV",
+        "linkPath": "/exchange_rates/view/",
+        "type": "monthly",
+        "verifyTxtAndClk": "View online",
+        "containsFirst": "Country/territory",
+        "containsLast": "End date",
+        "csvLink": "/api/v2/exchange_rates/files/monthly_csv_"
+    },
+    {
+        "contains": "Monthly exchange rates by year",
+        "headingTxt": "HMRC monthly currency exchange rates",
+        "csvLink": "/api/v2/exchange_rates/files/monthly_csv_"
+    },
+    {
+        "goToUri": "/exchange_rates/monthly?year=2022",
+        "include": "/exchange_rates/monthly?year=2022",
+        "contains": "Related information",
+        "contains2": "Average rates",
+        "contains3": "Spot rates"
+    },
+    {
+        "goToUri": "exchange_rates/2019",
+        "contains": "There are no exchange rates for the type and year specified.",
+        "include": "/exchange_rates/2019"
+    },
+    {
+        "goToUri": "/exchange_rates/average",
+        "include": "/exchange_rates/average",
+        "contains": "Monthly rates",
+        "contains2": "Check the official HMRC foreign currency exchange average rates."
+    },
+    {
+        "goToUri": "/exchange_rates/average",
+        "include": "/exchange_rates/average",
+        "contains": "Monthly rates",
+        "contains2": "Check the official HMRC foreign currency exchange average rates.",
+        "contains3": "average",
+        "contains4": "CSV",
+        "csvLink": "/api/v2/exchange_rates/files/average_csv_"
+    },
+    {
+        "goToUri": "/exchange_rates/spot",
+        "include": "/exchange_rates/spot",
+        "contains": "Monthly rates",
+        "contains2": "HMRC spot currency exchange rates",
+        "contains3": "Check the official HMRC foreign currency exchange spot rates.",
+        "contains4": "spot"
+    },
+    {
+        "goToUri": "/exchange_rates",
+        "linkPath": "/exchange_rates/view/",
+        "type": "monthly",
+        "verifyTxtAndClk":"View online",
+        "include": "/exchange_rates/spot",
+        "contains": "Monthly rates",
+        "contains2": "HMRC spot currency exchange rates",
+        "contains3": "Check the official HMRC foreign currency exchange spot rates.",
+        "contains4": "spot"
+    }
+]
