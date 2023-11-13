@@ -1,3 +1,4 @@
+const commonPage = require('./commonPage');
 class QuotasSearchPage {
   elements = {
     txtContains: () => cy.contains('Search for quotas'),
@@ -16,54 +17,49 @@ class QuotasSearchPage {
     yearVal: () => cy.get('input#year'),
   };
 
-  verifyCommodityCode(commodityCode) {
+  verifyQuotaSearchCommodityCode(commodityCode) {
     this.elements.commodityCodeField().click().clear().type(`${commodityCode}{enter}`);
   }
 
-  verifyOrderNumber(corderNumber) {
-    this.elements.orderNumberField().click();
-    this.elements.orderNumberField().clear();
-    this.elements.orderNumberField().type(`${corderNumber}{enter}`);
+  verifyQuotaSearchOrderNumber(orderNumber) {
+    this.elements.orderNumberField().click().clear().type(`${orderNumber}{enter}`);
+    
   }
 
-  enterDateVal(day, month, year) {
-    this.elements.dayVal().click();
-    this.elements.dayVal().clear();
-    this.elements.dayVal().type(day);
-    this.elements.monVal().click();
-    this.elements.monVal().clear();
-    this.elements.monVal().type(month);
-    this.elements.yearVal().click();
-    this.elements.yearVal().clear();
-    this.elements.yearVal().type(year);
+  enterDateValForQuotasSearchResults(day, month, year) {
+    this.elements.dayVal().click().clear().type(day);
+    this.elements.monVal().click().clear().type(month);
+    this.elements.yearVal().click().clear().type(year)
+
   }
-  verifySearchQuotasBtn() {
+  verifySearchForQuotasBtn() {
     this.elements.searchQuotasBtn().click();
   }
 
-  verifySearchCriteriaErrorTxtNotExist() {
-    this.this.elements.noDataErrorTxt().should('not.exist');
-  }
-  selectCountry(countryName) {
+  selectCountryForQuotas(countryName) {
     this.elements.countryPicker().click;
     this.elements.countryField().type(`${countryName}{enter}`);
   }
-  verifyTableRow(tableRowdData) {
+  verifyQuotasSearchResTableRow(tableRowdData) {
     this.elements.tableRow().contains(tableRowdData);
   }
-  verifyColHeadingSearchResult(orderName) {
+  verifyQuotasSearchResColHeading(orderName) {
     this.elements.orderNumberColHead().contains(orderName);
   }
   verifyRecetCountryBtn() {
     this.elements.resetCountryBtn().click();
   }
-  selectCriticalText(text) {
-    // this.elements.criticaState().select();
+  selectSearchForQuotasCriticalText(text) {
     this.elements.criticaState().select(text);
   }
-  selectStatusText(text) {
-    // this.elements.criticaState().select();
+  selectSearchForQuotasStatusText(text) {
     this.elements.statusText().select(text);
+  }
+  verifyQuotasHeading() {
+    commonPage.verifyContains('Search for quotas');
+  }
+  verifyQuotasSearchResult() {
+    commonPage.verifyContains('Quota search results');
   }
 }
 
