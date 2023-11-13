@@ -90,11 +90,15 @@ class SearchPage {
     this.elements.inputSearchField().type(`${txtToSearch}`);
     const items = [];
     this.elements.searchSuggestionsListSpn().each(($li) => items.push($li.text())).then(() => {
-      const suggestionStr = items.join(', ').replace(',', '').replace(' ', '');
-      if (`${txtToSearch}${suggestionTxtToMatch}` == `${suggestionStr}`) {
-        cy.log(suggestionStr);
-        this.elements.searchSuggestionsList().should('be.visible');
-        this.elements.searchSuggestionsList().contains(suggestionStr).click({force: true});
+      const suggestionStrList = items.join(', ').replace(',', '').replace(' ', '').split(',');
+      cy.log(suggestionStrList);
+      cy.log(`${txtToSearch}${suggestionTxtToMatch}`);
+      for (const suggestionStr of suggestionStrList) {
+        if (`${txtToSearch}${suggestionTxtToMatch}` == `${suggestionStr}`) {
+          cy.log(suggestionStr);
+          this.elements.searchSuggestionsList().should('be.visible');
+          this.elements.searchSuggestionsList().contains(suggestionStr).click({force: true});
+        }
       }
     });
   }

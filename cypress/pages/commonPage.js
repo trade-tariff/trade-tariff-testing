@@ -65,6 +65,10 @@ class CommonPage {
             `${webChatLink}`,
         );
   }
+
+  textShudNotExist(txtToVerify) {
+    cy.contains(txtToVerify).should('not.exist');
+  }
 }
 
 module.exports = new CommonPage();
