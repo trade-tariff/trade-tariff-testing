@@ -23,14 +23,12 @@ class QuotasSearchPage {
 
   verifyQuotaSearchOrderNumber(orderNumber) {
     this.elements.orderNumberField().click().clear().type(`${orderNumber}{enter}`);
-    
   }
 
   enterDateValForQuotasSearchResults(day, month, year) {
     this.elements.dayVal().click().clear().type(day);
     this.elements.monVal().click().clear().type(month);
-    this.elements.yearVal().click().clear().type(year)
-
+    this.elements.yearVal().click().clear().type(year);
   }
   verifySearchForQuotasBtn() {
     this.elements.searchQuotasBtn().click();
