@@ -7,7 +7,7 @@ describe('UK - Validate exchange rates functionality', function() {
   });
   it('verify exchange rates link in tools page', function() {
     const data = Cypress.env('testData')[0];
-    cy.visit(data.goToUri);
+    commonPage.goToUrl(data.goToUri);
     commonPage.verifyContains(data.contains);
     commonPage.verifyTxtAndClk(data.clkExchangeRateTxt);
     commonPage.verifyUrlShudInclude(data.include);

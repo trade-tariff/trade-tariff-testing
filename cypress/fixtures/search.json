@@ -191,8 +191,9 @@
     "include": "/headings/6908"
   },
   {
-    "searchstr": "01029005",
-    "include": "/subheadings/0102900500-80"
+    "searchstrshortform": "01029005",
+    "searchstrlongform": "0102900500-10",
+    "include": "/subheadings/0102900500-(10|80)"
   },
   {
     "searchstr": "6908109000",
