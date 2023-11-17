@@ -25,8 +25,7 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     commonPage.verifyTxtAndClk(data.containstxt);
     quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupDateVal();
-    commonPage.verifyShdNotContains(data.containstxt3)
-  
+    commonPage.verifyShdNotContains(data.containstxt3);
   });
 
   it('Quota Popup - Verify Comma separator in quota balance', function() {
@@ -36,7 +35,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     commonPage.verifyTxtAndClk(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupTableNumVal1();
     quotasPopupPage.verifyQuotasPopupTableNumVal2();
-    
   });
 
   it('Quota Popup - Verify Footer content', function() {
@@ -65,7 +63,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt8);
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
-  
   });
 
   it(`Quota Popup - Verify balance as of ${quotasPopupPage.futureDate} and click and view balance for ${quotasPopupPage.todaysDate} popup`, function() {
@@ -75,8 +72,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupFutrDateVal();
     quotasPopupPage.verifyQuotasPopupViewBalDt();
-  
-    // Click View balance for xxxxx - link and verify balance as of xxxxx
     quotasPopupPage.clickQuotasPopupViewBalDt();
     quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupDateVal();
@@ -88,7 +83,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt8);
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
-    
   });
 
   it('Quota Popup - Verify quota status and no suspension or blocking period', function() {
@@ -104,7 +98,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     quotasPopupPage.verifyQuotasPopupExhstTxt(data.containstxt8);
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt10);
-    
   });
 
   it('Quota Popup - Verify quota status and blocking period', function() {
@@ -140,8 +133,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     quotasPopupPage.verifyQuotasPopupRowTxt8(data.containstxt14);
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt15);
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt16);
-   
-    
   });
 
   it('Quota Popup - Verify quota status and suspension and blocking periods', function() {
@@ -164,18 +155,14 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt16);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt17);
     quotasPopupPage.verifyQuotasInnerTextStatDate(data.containstxt18);
-   
-    
   });
 
   it('UK quota numbers post 1 Jan 2021 -054xxx Licensed', function() {
     const data = Cypress.env('testData')[10];
-    // quotasPopupPage.verifyQuotasImportUrl(data.commodity);
     commonPage.goToUrl(`/commodities/${data.commodity}#import`);
     quotasPopupPage.verifyQuotasPanelTableColTxt(data.containstxt);
     quotasPopupPage.verifyQuotasOrderDetailsAndClk(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupTextDtls(data.containstxt3);
-   
   });
 
   context('when the commodity safeguard quota measure has transfer events', function() {
@@ -185,7 +172,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
      commonPage.verifyTxtAndClk(data.containstxt2);
      quotasPopupPage.verifyQuotasPopupContainsTxt1(data.containstxt3);
      quotasPopupPage.verifyQuotasPopupContainsTxt2(data.containstxt4);
-      
     });
 
     it('shows a pending balance before the closing date', function() {
@@ -194,7 +180,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     commonPage.verifyTxtAndClk(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt3);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt4);
-      
     });
 
     it('shows a transfer balance after the closing date', function() {
@@ -203,7 +188,6 @@ it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function(
     commonPage.verifyTxtAndClk(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt3);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt4);
-      
     });
   });
 });

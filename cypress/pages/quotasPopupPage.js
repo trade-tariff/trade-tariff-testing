@@ -57,12 +57,15 @@ class QuotasPopupPage {
     verifyQuotasPanelTableColTxt(text){
         this.elements.quotasPanelTxt().contains(text);
     }
+
     verifyQuotasOrderDetailsAndClk(text){
         this.elements.quotasOrderDetails().contains(text).click();
     }
+
     verifyQuotasPopupTextDtls(text){
         this.elements.quotasPopupTextDtls().contains(text);
     }
+
     verifyQuotasPopupText(textContains){
         this.elements.quotasPopupText().should('not.have.text', textContains);
     }
@@ -86,6 +89,7 @@ class QuotasPopupPage {
      verifyQuotasPopupTableNumVal2(){
         this.elements.quotasPopupTableNumVal2().contains(',');
      }
+
      verifyQuotasPopupTableColVal(colTxt){
         this.elements.quotasPopupTableColTxt().contains(colTxt);
      }
@@ -93,9 +97,11 @@ class QuotasPopupPage {
      verifyQuotasPopupContainsTxt(txtVerify){
          this.elements.quotasPopupDsiplayTxt().contains(txtVerify);
      }
+
      verifyQuotasPopupContainsTxt1(txtVerify){
         this.elements.quotasPopupDsiplayTxt().should('not.contain', txtVerify);
     }
+
     verifyQuotasPopupContainsTxt2(txtVerify){
         this.elements.quotasPopupDsiplayTxt().contains(txtVerify).should('not.be.visible');
     }
@@ -111,9 +117,11 @@ class QuotasPopupPage {
     verifyQuotasStatic4DtLink(staticDtVal, commodity){
         cy.visit(`/commodities/${commodity}?${helpers.dateToUrl(staticDtVal)}#quotas`);
      }
+
      verifyQuotasUrlPreDtLink(commodity){
         cy.visit(`/commodities/${commodity}?${helpersPreDtVal}#quotas`);
      }
+
      verifyQuotasFutrDtUrlLink(commodity){
         cy.visit(`/commodities/${commodity}?${helpersFtrDtVal}#quotas`);
      }
@@ -125,6 +133,7 @@ class QuotasPopupPage {
      verifyQuotasPopupInrTxtHeading(text1){
         this.elements.popupInnerTxtHead().contains(text1);
     }
+
     verifyQuotasPopupViewBalDt(){
         this.elements.quotasPopupViewBalDt().contains(`View balance for ${todaysDate}`);
      }
@@ -136,6 +145,7 @@ class QuotasPopupPage {
     verifyQuotasPopupPreDateVal(){
         this.elements.quotasPopupTxt().contains(`Balance (as of ${previousDate})`)
      }
+
      verifyQuotasPopupStatDateVal(staticDate){
         this.elements.quotasPopupTxt().contains(staticDate)
      }
@@ -143,9 +153,11 @@ class QuotasPopupPage {
      verifyQuotasPopupFutrDateVal(){
         this.elements.quotasPopupTxt().contains(`Balance (as of ${futureDate})`)
      }
+
      verifyQuotasPopupRowTxt1(popupTxt1){
         this.elements.quotasPopupRowTxt1().contains(popupTxt1);
     }
+
     verifyQuotasPopupRowTxt2(popupTxt2){
         this.elements.quotasPopupRowTxt2().contains(popupTxt2);
     }
@@ -153,6 +165,7 @@ class QuotasPopupPage {
     verifyQuotasPopupStaTxt(popupTxt1){
         this.elements.quotasPopupStaTxt().contains(popupTxt1);
     }
+    
     verifyQuotasPopupExhstTxt(popupTxt2){
         this.elements.quotasPopupExhstTxt().contains(popupTxt2);
     }
@@ -160,29 +173,35 @@ class QuotasPopupPage {
     verifyQuotasPopupRowTxt3(popupTxt3){
         this.elements.quotasPopupRowTxt3().contains(popupTxt3);
     }
+
     verifyQuotasPopupRowTxt7(popupTxt7){
         this.elements.quotasPopupRowTxt7().contains(popupTxt7);
     }
+
     verifyQuotasPopupRowTxt8(popupTxt8){
         this.elements.quotasPopupRowTxt8().contains(popupTxt8);
     }
+
     verifyQuotasPopupRowTxt4(popupTxt4){
         this.elements.quotasPopupRowTxt4().contains(popupTxt4);
     }
+
     verifyQuotasPopupRowTxt5(popupTxt5){
         this.elements.quotasPopupRowTxt5().contains(popupTxt5);
     }
+
     verifyQuotasPopupRowTxt6(popupTxt6){
         this.elements.quotasPopupRowTxt6().contains(popupTxt6);
     }
+
     verifyQuotasPopupStaticTxt(popupStaticTxt){
         this.elements.quotasPopupStaticTxt().contains(popupStaticTxt);
     }
+
     verifyQuotasInnerTextStatDate(innerTxt){
         this.elements.quotasInnerTextStatDate(innerTxt);
     }
         
 }
-   
 
 export default new QuotasPopupPage();
