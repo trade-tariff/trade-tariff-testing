@@ -8,7 +8,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
   before(function () {
     commonPage.loadData('quotasPopup');
   });
-
   it('Quota Popup - Verify change the title to quota order number', function () {
     const data = Cypress.env('testData')[0];
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
@@ -18,7 +17,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupColHeadTxt(data.containstxt4);
     commonPage.verifyPopupCloseBtn();
   });
-
   it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function () {
     const data = Cypress.env('testData')[1];
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
@@ -27,7 +25,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupDateVal();
     commonPage.verifyShdNotContains(data.containstxt3);
   });
-
   it('Quota Popup - Verify Comma separator in quota balance', function () {
     const data = Cypress.env('testData')[2];
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
@@ -36,14 +33,12 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupTableNumVal1();
     quotasPopupPage.verifyQuotasPopupTableNumVal2();
   });
-
   it('Quota Popup - Verify Footer content', function () {
     const data = Cypress.env('testData')[3];
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
     commonPage.verifyTxtAndClk(data.containstxt);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt2);
   });
-
   it(`Quota Popup - Verify balance as of ${quotasPopupPage.previousDate} and click and view balance for ${quotasPopupPage.todaysDate} popup`, function () {
     const data = Cypress.env('testData')[4];
     quotasPopupPage.verifyQuotasUrlPreDtLink(data.commodity);
@@ -63,7 +58,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
   });
-
   it(`Quota Popup - Verify balance as of ${quotasPopupPage.futureDate} and click and view balance for ${quotasPopupPage.todaysDate} popup`, function () {
     const data = Cypress.env('testData')[5];
     quotasPopupPage.verifyQuotasFutrDtUrlLink(data.commodity);
@@ -83,7 +77,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
   });
-
   it('Quota Popup - Verify quota status and no suspension or blocking period', function () {
     const data = Cypress.env('testData')[6];
     quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
@@ -98,7 +91,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt10);
   });
-
   it('Quota Popup - Verify quota status and blocking period', function () {
     const data = Cypress.env('testData')[7];
     quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
@@ -113,7 +105,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt9);
     quotasPopupPage.verifyQuotasInnerTextStatDate(data.containstxt10);
   });
-
   it('Quota Popup - Verify quota status and suspension period', function () {
     const data = Cypress.env('testData')[8];
     quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
@@ -133,7 +124,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt15);
     quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt16);
   });
-
   it('Quota Popup - Verify quota status and suspension and blocking periods', function () {
     const data = Cypress.env('testData')[9];
     quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
@@ -155,7 +145,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt17);
     quotasPopupPage.verifyQuotasInnerTextStatDate(data.containstxt18);
   });
-
   it('UK quota numbers post 1 Jan 2021 -054xxx Licensed', function () {
     const data = Cypress.env('testData')[10];
     commonPage.goToUrl(`/commodities/${data.commodity}#import`);
@@ -163,7 +152,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasOrderDetailsAndClk(data.containstxt2);
     quotasPopupPage.verifyQuotasPopupTextDtls(data.containstxt3);
   });
-
   context('when the commodity safeguard quota measure has transfer events', function () {
     it('does not show any balance transfers before HMRC started managing them', function () {
       const data = Cypress.env('testData')[11];
@@ -172,7 +160,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
       quotasPopupPage.verifyQuotasPopupContainsTxt1(data.containstxt3);
       quotasPopupPage.verifyQuotasPopupContainsTxt2(data.containstxt4);
     });
-
     it('shows a pending balance before the closing date', function () {
       const data = Cypress.env('testData')[12];
       quotasPopupPage.verifyQuotasStatic4DtLink(data.containstxt, data.commodity);
@@ -180,7 +167,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
       quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt3);
       quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt4);
     });
-
     it('shows a transfer balance after the closing date', function () {
       const data = Cypress.env('testData')[13];
       quotasPopupPage.verifyQuotasStatic4DtLink(data.containstxt, data.commodity);
