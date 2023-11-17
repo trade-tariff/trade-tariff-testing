@@ -19,7 +19,6 @@ const helpers = {
       return `day=${parsedDate.getDate()}&month=${parsedDate.getMonth() + 1}&year=${parsedDate.getFullYear()}`;
     },
   };
-  
 const helpersPreDtVal = helpers.dateToUrl(previousDate);
 const helpersFtrDtVal = helpers.dateToUrl(futureDate);
 
@@ -51,7 +50,6 @@ class QuotasPopupPage {
         quotasPopupRowTxt8: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) '),
         quotasOrderDetails: () => cy.get('.table-line'),
         quotasPopupTextDtls: () => cy.get('.tariff-info')
-        
     }
 
     verifyQuotasPanelTableColTxt(text){
@@ -200,8 +198,7 @@ class QuotasPopupPage {
 
     verifyQuotasInnerTextStatDate(innerTxt){
         this.elements.quotasInnerTextStatDate(innerTxt);
-    }
-        
+    }  
 }
 
 export default new QuotasPopupPage();
