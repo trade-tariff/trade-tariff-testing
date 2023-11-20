@@ -7,7 +7,7 @@ class CommonPage {
     xiTariffTxt: () => cy.get('#content').contains('Northern Ireland Online Tariff'),
     imageCheck: () => cy.get('.image-guide'),
     webChatLink: () => cy.get('#webchat-link > p > a'),
-    closePopupBtn: () => cy.get('.close [href]')
+    closePopupBtn: () => cy.get('.close [href]'),
   };
 
   loadData(fileName) {
@@ -27,7 +27,7 @@ class CommonPage {
   }
 
   goToSpecificUrlToCheckPageAccess(urlPathToVisit) {
-    cy.visit(urlPathToVisit, { failOnStatusCode: false });
+    cy.visit(urlPathToVisit, {failOnStatusCode: false});
   }
 
   verifyContains(txtToVerify) {
@@ -61,11 +61,11 @@ class CommonPage {
 
   verifyWebChatShudHaveLink(webChatLink) {
     this.elements.webChatLink().eq(1)
-      .should(
-        'have.attr',
-        'href',
-        `${webChatLink}`,
-      );
+        .should(
+            'have.attr',
+            'href',
+            `${webChatLink}`,
+        );
   }
 
   textShudNotExist(txtToVerify) {
@@ -79,7 +79,6 @@ class CommonPage {
   verifyShdNotContains(txtToVerify2) {
     cy.should('not.contain', txtToVerify2);
   }
-
 }
 
 module.exports = new CommonPage();
