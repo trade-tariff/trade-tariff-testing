@@ -27,7 +27,7 @@ class CommonPage {
   }
 
   goToSpecificUrlToCheckPageAccess(urlPathToVisit) {
-    cy.visit(urlPathToVisit, {failOnStatusCode: false});
+    cy.visit(urlPathToVisit, { failOnStatusCode: false });
   }
 
   verifyContains(txtToVerify) {
@@ -61,11 +61,11 @@ class CommonPage {
 
   verifyWebChatShudHaveLink(webChatLink) {
     this.elements.webChatLink().eq(1)
-        .should(
-            'have.attr',
-            'href',
-            `${webChatLink}`,
-        );
+      .should(
+        'have.attr',
+        'href',
+        `${webChatLink}`,
+      );
   }
 
   textShudNotExist(txtToVerify) {
@@ -79,7 +79,7 @@ class CommonPage {
   verifyShdNotContains(txtToVerify2) {
     cy.should('not.contain', txtToVerify2);
   }
-   
+
 }
 
 module.exports = new CommonPage();

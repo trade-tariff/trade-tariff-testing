@@ -199,6 +199,19 @@ class QuotasPopupPage {
     verifyQuotasInnerTextStatDate(innerTxt) {
         this.elements.quotasInnerTextStatDate(innerTxt);
     }
+
+    todDt() {
+        // return (this.elements.todaysDate);
+        return todaysDate;
+    }
+
+    prvDt() {
+        return previousDate
+    }
+
+    ftrDt() {
+        return futureDate
+    }
 }
 
 export default new QuotasPopupPage();

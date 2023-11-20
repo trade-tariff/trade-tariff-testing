@@ -17,7 +17,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupColHeadTxt(data.containstxt4);
     commonPage.verifyPopupCloseBtn();
   });
-  it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todaysDate}`, function () {
+  it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todDt()}`, function () {
     const data = Cypress.env('testData')[1];
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
     commonPage.verifyTxtAndClk(data.containstxt);
@@ -39,7 +39,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     commonPage.verifyTxtAndClk(data.containstxt);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt2);
   });
-  it(`Quota Popup - Verify balance as of ${quotasPopupPage.previousDate} and click and view balance for ${quotasPopupPage.todaysDate} popup`, function () {
+  it(`Quota Popup - Verify balance as of ${quotasPopupPage.prvDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`, function () {
     const data = Cypress.env('testData')[4];
     quotasPopupPage.verifyQuotasUrlPreDtLink(data.commodity);
     commonPage.verifyTxtAndClk(data.containstxt);
@@ -58,7 +58,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
   });
-  it(`Quota Popup - Verify balance as of ${quotasPopupPage.futureDate} and click and view balance for ${quotasPopupPage.todaysDate} popup`, function () {
+  it(`Quota Popup - Verify balance as of ${quotasPopupPage.ftrDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`, function () {
     const data = Cypress.env('testData')[5];
     quotasPopupPage.verifyQuotasFutrDtUrlLink(data.commodity);
     commonPage.verifyTxtAndClk(data.containstxt);
