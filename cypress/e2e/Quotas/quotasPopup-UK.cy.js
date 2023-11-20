@@ -3,7 +3,6 @@ import quotasPopupPage from '../../pages/quotasPopupPage';
 
 
 describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () {
-
   // Load test data from a fixture file to 'testData' environment variable
   before(function () {
     commonPage.loadData('quotasPopup');
@@ -39,7 +38,8 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     commonPage.verifyTxtAndClk(data.containstxt);
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt2);
   });
-  it(`Quota Popup - Verify balance as of ${quotasPopupPage.prvDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`, function () {
+  it(`Quota Popup - Verify balance as of ${quotasPopupPage.prvDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`,
+   function () {
     const data = Cypress.env('testData')[4];
     quotasPopupPage.verifyQuotasUrlPreDtLink(data.commodity);
     commonPage.verifyTxtAndClk(data.containstxt);
@@ -58,7 +58,8 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
     quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
   });
-  it(`Quota Popup - Verify balance as of ${quotasPopupPage.ftrDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`, function () {
+  it(`Quota Popup - Verify balance as of ${quotasPopupPage.ftrDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`,
+   function () {
     const data = Cypress.env('testData')[5];
     quotasPopupPage.verifyQuotasFutrDtUrlLink(data.commodity);
     commonPage.verifyTxtAndClk(data.containstxt);
