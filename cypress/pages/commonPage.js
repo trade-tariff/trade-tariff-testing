@@ -1,3 +1,4 @@
+
 class CommonPage {
   elements = {
     ukBannerTariffTxt: () => cy.get('.govuk-header__content').contains('UK Integrated Online Tariff'),
@@ -6,6 +7,7 @@ class CommonPage {
     xiTariffTxt: () => cy.get('#content').contains('Northern Ireland Online Tariff'),
     imageCheck: () => cy.get('.image-guide'),
     webChatLink: () => cy.get('#webchat-link > p > a'),
+    closePopupBtn: () => cy.get('.close [href]'),
   };
 
   loadData(fileName) {
@@ -69,6 +71,15 @@ class CommonPage {
   textShudNotExist(txtToVerify) {
     cy.contains(txtToVerify).should('not.exist');
   }
+
+  verifyPopupCloseBtn() {
+    this.elements.closePopupBtn().click();
+  }
+
+  verifyShdNotContains(txtToVerify2) {
+    cy.should('not.contain', txtToVerify2);
+  }
 }
 
 module.exports = new CommonPage();
+
