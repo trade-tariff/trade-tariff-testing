@@ -1,13 +1,11 @@
 import dayjs from 'dayjs';
 
-const commonPage = require('./commonPage');
 const todaysDate = dayjs().format('D MMM YYYY');
 const previousDate = dayjs().subtract(1, 'M').format('D MMM YYYY');
 const futureDate = dayjs().add(7, 'day').format('D MMM YYYY');
 const helpers = {
     dateToUrl: (date) => {
         let parsedDate = null;
-
         if (date instanceof dayjs) {
             parsedDate = date.toDate();
         } else if (date instanceof Date) {
@@ -15,7 +13,6 @@ const helpers = {
         } else {
             parsedDate = new Date(Date.parse(date));
         }
-
         return `day=${parsedDate.getDate()}&month=${parsedDate.getMonth() + 1}&year=${parsedDate.getFullYear()}`;
     },
 };
@@ -23,9 +20,7 @@ const helpersPreDtVal = helpers.dateToUrl(previousDate);
 const helpersFtrDtVal = helpers.dateToUrl(futureDate);
 
 class QuotasPopupPage {
-
     elements = {
-
         quotasPanelTxt: () => cy.get('.govuk-tabs__panel'),
         quotasPopupHeadTxt: () => cy.get('#popup > div > div > article > h2'),
         quotasPopupTxt: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th'),
@@ -206,11 +201,11 @@ class QuotasPopupPage {
     }
 
     prvDt() {
-        return previousDate
+        return previousDate;
     }
 
     ftrDt() {
-        return futureDate
+        return futureDate;
     }
 }
 

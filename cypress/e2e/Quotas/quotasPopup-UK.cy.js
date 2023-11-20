@@ -39,7 +39,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function () 
     quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt2);
   });
   it(`Quota Popup - Verify balance as of ${quotasPopupPage.prvDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`,
-   function () {
+    function () {
     const data = Cypress.env('testData')[4];
     quotasPopupPage.verifyQuotasUrlPreDtLink(data.commodity);
     commonPage.verifyTxtAndClk(data.containstxt);
