@@ -21,8 +21,8 @@ describe('| RoW-GB208--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.contains('£2,274.42');
     // tariff preference rate for Singapore
     cy.contains('Tariff preference - Singapore');
-    cy.contains('0.10 GBP / % vol/hl + 0.80 GBP / hl');
-    cy.contains('£2,212.50');
+    cy.contains('0.00 GBP / % vol/hl + 0.40 GBP / hl');
+    cy.contains('£2,197.62');
   });
 
   // alcohol percentage calculations
