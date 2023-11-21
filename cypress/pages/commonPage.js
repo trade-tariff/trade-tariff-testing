@@ -14,6 +14,14 @@ class CommonPage {
     });
   }
 
+  getTestData() {
+    const data = Cypress.env('testData');
+    const testCaseName = Cypress.currentTest.title;
+    if (`${data}` != null && `${data}` != 'undefined') {
+      return data[testCaseName];
+    }
+  }
+
   navigateToBaseUrl(url) {
     cy.visit(url);
     this.elements.ukTariffTxt();

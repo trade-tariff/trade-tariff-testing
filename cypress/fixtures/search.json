@@ -1,27 +1,27 @@
-[
-  {
-      "searchstr": "fresh potatoes",
-      "containstxt": "Potatoes, fresh or chilled",
-      "link": "https://www.gov.uk/guidance/classifying-edible-fruit-vegetables-and-nuts-for-import-and-export"
+{
+  "Search result returns guides for `fresh potatoes`": {
+    "searchstr": "fresh potatoes",
+    "containstxt": "Potatoes, fresh or chilled",
+    "link": "https://www.gov.uk/guidance/classifying-edible-fruit-vegetables-and-nuts-for-import-and-export"
   },
-  {
+  "Search result returns no guides for `indian`": {
     "searchstr": "indian"
   },
-  {
+  "Search result corrects spelling for `halbiut` and supports using the original search query": {
     "searchstr": "halbiut",
     "containstxt": "halibut",
     "containstxt2": "There are no results",
     "include": "/search?q=halbiut&spell=0"
   },
-  {
+  "Search result returns results for synonyms": {
     "searchstr": "tripe",
     "containstxt": "Meat and edible meat offal"
   },
-  {
+  "Search result returns results for synonyms with a goods nomenclature item id": {
     "searchstr": "hedgehog",
     "containstxt": "Other live animals"
   },
-  {
+  "Search filters results with facet clothing_gender": {
     "searchstr": "clothing sets womens",
     "containstxt": "Show all filters",
     "containstxt2": "Women's and girls",
@@ -30,29 +30,29 @@
     "containstxt5": "[x] Women's and girls",
     "include": "clothing_gender"
   },
-  {
+  "Search filters results with heading 6211": {
     "searchstr": "clothing sets womens",
     "containstxt": "Tracksuits, ski suits and swimwear; other garments",
     "containstxt2": "Results are filtered by:",
     "containstxt3": "[x] Heading 6211",
     "include": 6211
   },
-  {
+  "Searching for `access equipment` returns an intercept message": {
     "searchstr": "access equipment",
     "containstxt": "chapter 85",
     "include": "/chapters/85"
   },
-  {
+  "Searching intercept message term `fitbit` returns results": {
     "searchstr": "fitbit",
     "containstxt": "There are no results",
     "include": "/search"
   },
-  {
+  "Search result returns the no results page for `flibble`": {
     "searchstr": "flibble",
     "containstxt": "There are no results",
     "link": "https://www.tax.service.gov.uk/ask-hmrc/chat/trade-tariff"
   },
-  {
+  "Enables switching between beta and legacy search implementations": {
     "searchstr": "ham",
     "containstxt": "Use the Beta Search",
     "containstxt2": "switch back to legacy search",
@@ -63,41 +63,41 @@
     "commcode": "",
     "link": ""
   },
-  {
+  "Shows commodity results with matching search reference tokens": {
     "searchstr": "cardboard",
     "include": "/search"
   },
-  {
+  "Supports single and double quoted search terms": {
     "searchstr": "\"cherry tomatoes\"",
     "searchstr2": "'For the manufacture of starch'",
     "include": "/commodities/0702000007",
     "include2": "/commodities/0701901000"
   },
-  {
+  "Supports fast fallback search on garbage inputs": {
     "inputQuery": "qwdwefwfwWWWWWWWWRGRGEWGEWGEWGEWGerwgewrgerwgrgerwgrgrehtrhtrhjtyrjyjerhwrgsrbdrhwrhwrhwrbsdfbrbhwr"
   },
-  {
+  "Supports chemical search on cus numbers": {
     "searchstr": "0154438-3",
     "containstxt": "mel powder",
     "include": "/commodities/0409000000"
   },
-  {
+  "Supports chemical search on cas numbers": {
     "searchstr": "7440-15-5",
     "containstxt": "rhenium, unwrought; powders",
     "include": "/commodities/8112419000"
   },
-  {
+  "Supports chemical search on chemical names": {
     "searchstr": "cerium alloy",
     "containstxt": "cerium alloy",
     "include": "/commodities/8105200000"
   },
-  {
+  "Search suggestions are displayed and work for search references": {
     "inputText": "raw",
     "nthItem": 2,
     "expectedText": "kelp, raw",
     "expectedUrl": "/subheadings/1212210000-10"
   },
-  {
+  "Search suggestions are displayed and work for chemical names": {
     "inputText": "insulin, human",
     "nthItem": 1,
     "expectedText": "insulin, human",
@@ -105,7 +105,7 @@
     "resourceId": "0036941-5",
     "suggestionType": "Chemical"
   },
-  {
+  "Search suggestions are displayed and work for chapters": {
     "inputText": "01",
     "nthItem": 1,
     "expectedText": "01",
@@ -113,7 +113,7 @@
     "resourceId": "27623",
     "suggestionType": "Chapter"
   },
-  {
+  "Search suggestions are displayed and work for headings": {
     "inputText": "0101",
     "nthItem": 1,
     "expectedText": "0101",
@@ -121,7 +121,7 @@
     "resourceId": "27624",
     "suggestionType": "Heading"
   },
-  {
+  "Search suggestions are displayed and work for subheadings": {
     "inputText": "010121",
     "nthItem": 1,
     "expectedText": "010121",
@@ -129,7 +129,7 @@
     "resourceId": "93797",
     "suggestionType": "Subheading"
   },
-  {
+  "Search suggestions are displayed and work for commodities": {
     "inputText": "0101210000",
     "nthItem": 1,
     "expectedText": "0101210000",
@@ -137,7 +137,7 @@
     "resourceId": "93796",
     "suggestionType": "Commodity"
   },
-  {
+  "Search suggestions are displayed and work for cus numbers": {
     "inputText": "01500",
     "nthItem": 1,
     "expectedText": "0150000-1",
@@ -145,7 +145,7 @@
     "resourceId": "0150000-1",
     "suggestionType": "Chemical"
   },
-  {
+  "Search suggestions are displayed and work for cas rn numbers": {
     "inputText": "107000",
     "nthItem": 1,
     "expectedText": "107000",
@@ -153,54 +153,57 @@
     "resourceId": "0040087-3",
     "suggestionType": "Chemical"
   },
-  {
+  "search navigates to chapters": {
     "searchstr": "01",
     "include": "/chapters/01"
   },
-  {
+  "search navigates to non-declarable headings": {
     "searchstr": "0101",
     "include": "/headings/0101"
   },
-  {
+  "search navigates to declarable headings": {
     "searchstr": "0501",
     "include": "/commodities/0501000000"
   },
-  {
+  "search navigates to 6 digit subheadings": {
     "searchstr": "010121",
     "include": "/subheadings/0101210000-10"
   },
-  {
+  "search navigates to 8 digit subheadings": {
     "searchstr": "20079950",
     "include": "/subheadings/2007995000-80"
   },
-  {
+  "search navigates to 10 digit subheadings": {
     "searchstr": "2007993916",
     "suggestiontxttomatch": "Subheading",
     "match": "/subheadings/2007993916-(10|20|30|40)"
   },
-  {
+  "search navigates to short-form commodity codes": {
     "searchstr": "29021100",
     "include": "/commodities/2902110000"
   },
-  {
+  "search navigates to 10 digit commodities": {
     "searchstr": "0101210000",
     "include": "/commodities/0101210000"
   },
-  {
+  "search navigates to expired headings": {
     "searchstr": "6908",
     "include": "/headings/6908"
   },
-  {
+  "search navigates to expired subheadings in their short form": {
     "searchstrshortform": "01029005",
+    "include": "/subheadings/0102900500-(10|80)"
+  },
+  "search navigates to expired subheadings in their long form": {
     "searchstrlongform": "0102900500-10",
     "include": "/subheadings/0102900500-(10|80)"
   },
-  {
+  "search navigates to expired commodities": {
     "searchstr": "6908109000",
     "include": "/commodities/6908109000"
   },
-  {
+  "search shows no results": {
     "searchstr": "sdfdasdfafsfdfsfsfffsdfsfsfsfsafasfsfsafsafsdfsdfdsaf",
     "containstxt": "There are no results matching your query."
   }
-]
+}

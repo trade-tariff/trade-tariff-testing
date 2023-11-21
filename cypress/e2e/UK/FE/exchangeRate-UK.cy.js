@@ -2,18 +2,20 @@ import commonPage from '../../../pages/commonPage';
 import exchangeRatesPage from '../../../pages/exchangeRatesPage';
 
 describe('UK - Validate exchange rates functionality', function() {
+  let data;
   before(function() {
     commonPage.loadData('exchangeRates');
   });
+  beforeEach(function() {
+    data = commonPage.getTestData();
+  });
   it('verify exchange rates link in tools page', function() {
-    const data = Cypress.env('testData')[0];
     commonPage.goToUrl(data.goToUri);
     commonPage.verifyContains(data.contains);
     commonPage.verifyTxtAndClk(data.clkExchangeRateTxt);
     commonPage.verifyUrlShudInclude(data.include);
   });
   it('returns the latest monthly exchange rates', function() {
-    const data = Cypress.env('testData')[1];
     // Visit page
     exchangeRatesPage.goToExchangeRates();
     exchangeRatesPage.verifyUKTariffTxt();
@@ -35,7 +37,6 @@ describe('UK - Validate exchange rates functionality', function() {
   });
 
   it('displays exchange rates for previous years', function() {
-    const data = Cypress.env('testData')[2];
     // given I am on the exchange rates page
     // Visit page
     exchangeRatesPage.goToExchangeRates();
@@ -54,7 +55,6 @@ describe('UK - Validate exchange rates functionality', function() {
   });
 
   it('Verify right hand navigation on the monthly exchange rate', function() {
-    const data = Cypress.env('testData')[3];
     commonPage.goToUrl(data.goToUri);
     commonPage.verifyUrlShudInclude(data.include);
     commonPage.verifyContains(data.contains);
@@ -65,7 +65,6 @@ describe('UK - Validate exchange rates functionality', function() {
   });
 
   it('No exchange rates for year specified other than 2021, 2022 and 2023', function() {
-    const data = Cypress.env('testData')[4];
     commonPage.goToSpecificUrlToCheckPageAccess(data.goToUri);
     exchangeRatesPage.verifyUKTariffTxt();
     commonPage.verifyContains(data.contains);
@@ -73,7 +72,6 @@ describe('UK - Validate exchange rates functionality', function() {
   });
 
   it('Verify average rates link on the right hand navigation', function() {
-    const data = Cypress.env('testData')[5];
     commonPage.goToUrl(data.goToUri);
     commonPage.verifyUrlShudInclude(data.include);
     exchangeRatesPage.verifyTheSideLnksTxt(data.contains);
@@ -82,7 +80,6 @@ describe('UK - Validate exchange rates functionality', function() {
   });
 
   it('Verify download CSV file on average rates page', function() {
-    const data = Cypress.env('testData')[6];
     commonPage.goToUrl(data.goToUri);
     commonPage.verifyUrlShudInclude(data.include);
     exchangeRatesPage.verifyTheSideLnksTxt(data.contains);
@@ -94,7 +91,6 @@ describe('UK - Validate exchange rates functionality', function() {
   });
 
   it('Verify spot rates link on the right hand navigation', function() {
-    const data = Cypress.env('testData')[7];
     commonPage.goToUrl(data.goToUri);
     commonPage.verifyUrlShudInclude(data.include);
     exchangeRatesPage.verifyTheSideLnksTxt(data.contains);
@@ -104,8 +100,6 @@ describe('UK - Validate exchange rates functionality', function() {
   });
 
   it('Download CSV file in mentioned directory and verify number of records', function() {
-    // Visit page
-    const data = Cypress.env('testData')[8];
     commonPage.goToUrl(data.goToUri);
     // Check correct heading for the right year
     exchangeRatesPage.verifyMonthlyHeading();
