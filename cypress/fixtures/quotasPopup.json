@@ -1,0 +1,144 @@
+[
+  {
+    "containstxt": "058039",
+    "containstxt2": "Non preferential tariff quota",
+    "containstxt3": "Quota order number 058039",
+    "containstxt4": "Quota order number",
+    "commodity": "7306110000"
+  },
+  {
+    "containstxt": "058039",
+    "containstxt2": "Quota order number 058039",
+    "containstxt3": "Current balance",
+    "commodity": "7306110000"
+  },
+  {
+    "containstxt": "Non preferential tariff quota",
+    "containstxt2": "058039",
+    "commodity": "7306110000"
+  },
+  {
+    "containstxt": "058039",
+    "containstxt2": "The status given is correct at the time",
+    "commodity": "7306110000"
+  },
+  {
+    "containstxt": "058041",
+    "containstxt2": "Quota order number 058041",
+    "containstxt3": "Opening balance",
+    "containstxt4": "Status",
+    "containstxt5": "Open",
+    "containstxt6": "Start and end dates",
+    "containstxt7": "Last allocation date",
+    "containstxt8": "Suspension / blocking periods",
+    "containstxt9": "n/a",
+    "containstxt10": "The status given is correct at the time",
+    "commodity": "7306110000"
+  },
+  {
+    "containstxt": "058949",
+    "containstxt2": "Quota order number 058949",
+    "containstxt3": "Opening balance",
+    "containstxt4": "Status",
+    "containstxt5": "Open",
+    "containstxt6": "Start and end dates",
+    "containstxt7": "Last allocation date",
+    "containstxt8": "Suspension / blocking periods",
+    "containstxt9": "n/a",
+    "containstxt10": "The status given is correct",
+    "commodity": "7306110000"
+  },
+  {
+    "containstxt": "6 Jan 2023",
+    "containstxt2": "050233",
+    "containstxt3": "Quota order number 050233",
+    "containstxt4": "Balance (as of 6 Jan 2023)",
+    "containstxt5": "0.000 Kilogram (kg)",
+    "containstxt6": "Opening balance",
+    "containstxt7": "Status",
+    "containstxt8": "Exhausted",
+    "containstxt9": "Suspension / blocking periods",
+    "containstxt10": "n/a",
+    "commodity": "1904103000"
+  },
+  {
+    "containstxt": " 31 Dec 2020",
+    "containstxt2": "090716",
+    "containstxt3": "Quota order number 090716",
+    "containstxt4": "Balance (as of 31 Dec 2020)",
+    "containstxt5": "Kilogram (kg)",
+    "containstxt6": "Opening balance",
+    "containstxt7": "Status",
+    "containstxt8": "Open",
+    "containstxt9": "Blocking period",
+    "containstxt10": "11 December 2020 to 31 December 2020",
+    "commodity": "0302990040"
+  },
+  {
+    "containstxt": "1 May 2022",
+    "containstxt2": "051180",
+    "containstxt3": "Quota order number 051180",
+    "containstxt4": "Balance (as of 1 May 2022)",
+    "containstxt5": "Kilogram (kg)",
+    "containstxt6": "View balance for ${todaysDate}",
+    "containstxt7": "Opening balance",
+    "containstxt8": "Pending balance",
+    "containstxt9": "Status",
+    "containstxt10": "Open",
+    "containstxt11": "Start and end dates",
+    "containstxt12": "1 October 2021 to 11 July 2022",
+    "containstxt13": "Last allocation date",
+    "containstxt14": "n/a",
+    "containstxt15": "Suspension period",
+    "containstxt16": "1 May 2022 to 31 May 2022",
+    "commodity": "0806101090"
+  },
+  {
+    "containstxt": "23 Jan 2020",
+    "containstxt2": "096806",
+    "containstxt3": "Quota order number 096806",
+    "containstxt4": "Balance (as of 23 Jan 2020)",
+    "containstxt5": "Kilogram (kg)",
+    "containstxt6": "View balance for ${todaysDate}",
+    "containstxt7": "Opening balance",
+    "containstxt8": "Pending balance",
+    "containstxt9": "Status",
+    "containstxt10": "Critical",
+    "containstxt11": "Start and end dates",
+    "containstxt12": "23 January 2020 to 31 December 2020",
+    "containstxt13": "Last allocation date",
+    "containstxt14": "n/a",
+    "containstxt15": "Suspension period",
+    "containstxt16": "23 January 2020 to 30 April 2020",
+    "containstxt17": "Blocking period",
+    "containstxt18": "January 2020 to 7 May 2020",
+    "commodity": "0809290000"
+  },
+  {
+    "containstxt": "Non preferential tariff quota",
+    "containstxt2": "054002",
+    "containstxt3": "Rural Payments Agency",
+    "commodity": "0201100021"
+  },
+  {
+    "containstxt": "1 Feb 2022",
+    "containstxt2": "058041",
+    "containstxt3": "Transferred balance",
+    "containstxt4": "Pending balance",
+    "commodity": "7306290000"
+  },
+  {
+    "containstxt": "28 Oct 2022",
+    "containstxt2": "058041",
+    "containstxt3": "Pending balance",
+    "containstxt4": "Kilogram (kg) remains available",
+    "commodity": "7306290000"
+  },
+  {
+    "containstxt": "29 Oct 2022",
+    "containstxt2": "058041",
+    "containstxt3": "Transferred balance",
+    "containstxt4": "Kilogram (kg), transferred",
+    "commodity": "7306290000"
+  }
+]

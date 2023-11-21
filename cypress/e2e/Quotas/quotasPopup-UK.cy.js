@@ -1,191 +1,181 @@
-import dayjs from 'dayjs';
-import helpers from '../../lib/helpers';
+import commonPage from '../../pages/commonPage';
+import quotasPopupPage from '../../pages/quotasPopupPage';
+
 
 describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
-  const todaysDate = dayjs().format('D MMM YYYY');
-  const previousDate = dayjs().subtract(1, 'M').format('D MMM YYYY');
-  const futureDate = dayjs().add(7, 'day').format('D MMM YYYY');
-
+  // Load test data from a fixture file to 'testData' environment variable
+  before(function() {
+    commonPage.loadData('quotasPopup');
+  });
   it('Quota Popup - Verify change the title to quota order number', function() {
-    cy.visit('/commodities/7306110000#quotas');
-    cy.contains('058039').click();
-    cy.get('.govuk-tabs__panel').contains('Non preferential tariff quota');
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 058039');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').should('not.contain', 'Quota order number');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[0];
+    commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
+    commonPage.verifyTxtAndClk(data.containstxt);
+    quotasPopupPage.verifyQuotasPanelTableColTxt(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt3);
+    quotasPopupPage.verifyQuotasPopupColHeadTxt(data.containstxt4);
+    commonPage.verifyPopupCloseBtn();
   });
-
-  it(`Quota Popup - Verify Balance as of ${todaysDate}`, function() {
-    cy.visit('/commodities/7306110000#quotas');
-    cy.contains('058039').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 058039');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
-    cy.should('not.contain', 'Current balance');
-    cy.get('.close [href]').click();
+  it(`Quota Popup - Verify Balance as of ${quotasPopupPage.todDt()}`, function() {
+    const data = Cypress.env('testData')[1];
+    commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
+    commonPage.verifyTxtAndClk(data.containstxt);
+    quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupDateVal();
+    commonPage.verifyShdNotContains(data.containstxt3);
   });
-
   it('Quota Popup - Verify Comma separator in quota balance', function() {
-    cy.visit('/commodities/7306110000#quotas');
-    cy.get('.govuk-tabs__panel').contains('Non preferential tariff quota');
-    cy.contains('058039').click();
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains(',');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2) > td').contains(',');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[2];
+    commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
+    quotasPopupPage.verifyQuotasPanelTableColTxt(data.containstxt);
+    commonPage.verifyTxtAndClk(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupTableNumVal1();
+    quotasPopupPage.verifyQuotasPopupTableNumVal2();
   });
-
   it('Quota Popup - Verify Footer content', function() {
-    cy.visit('/commodities/7306110000#quotas');
-    cy.contains('058039').click();
-    cy.get('#popup').contains('The status given is correct at the time');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[3];
+    commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
+    commonPage.verifyTxtAndClk(data.containstxt);
+    quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt2);
   });
-
-  it(`Quota Popup - Verify balance as of ${previousDate} and click and view balance for ${todaysDate} popup`, function() {
-    cy.visit(`/commodities/7306110000?${helpers.dateToUrl(previousDate)}#quotas`);
-    cy.contains('058041').click();
-    cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${previousDate})`);
-    // Click View balance for xxxxx - link and verify balance as of xxxxx
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();
-    cy.get('.info-inner > article > .govuk-heading-m').contains('Quota order number 058041');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
-    cy.get('#popup > div > div > article > p').contains('The status given is correct at the time');
-    cy.get('.close [href]').click();
-  });
-
-  it(`Quota Popup - Verify balance as of ${futureDate} and click and view balance for ${todaysDate} popup`, function() {
-    cy.visit(`/commodities/7306110000?${helpers.dateToUrl(futureDate)}#quotas`);
-    cy.contains('058949').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${futureDate})`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    // Click View balance for xxxxx - link and verify balance as of xxxxx
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
-    cy.get('#popup > div > div > article > p').contains('The status given is correct');
-    cy.get('.close [href]').click();
-  });
-
+  it(`Quota Popup - Verify balance as of ${quotasPopupPage.prvDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`,
+      function() {
+        const data = Cypress.env('testData')[4];
+        quotasPopupPage.verifyQuotasUrlPreDtLink(data.commodity);
+        commonPage.verifyTxtAndClk(data.containstxt);
+        quotasPopupPage.verifyQuotasPopupInrTxtHeading(data.containstxt2);
+        quotasPopupPage.verifyQuotasPopupViewBalDt();
+        quotasPopupPage.verifyQuotasPopupPreDateVal();
+        quotasPopupPage.clickQuotasPopupViewBalDt();
+        quotasPopupPage.verifyQuotasPopupInrTxtHeading(data.containstxt2);
+        quotasPopupPage.verifyQuotasPopupDateVal();
+        quotasPopupPage.verifyQuotasPopupTableColVal(data.containstxt3);
+        quotasPopupPage.verifyQuotasPopupRowTxt1(data.containstxt4);
+        quotasPopupPage.verifyQuotasPopupRowTxt2(data.containstxt5);
+        quotasPopupPage.verifyQuotasPopupRowTxt3(data.containstxt6);
+        quotasPopupPage.verifyQuotasPopupRowTxt4(data.containstxt7);
+        quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt8);
+        quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
+        quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
+      });
+  it(`Quota Popup - Verify balance as of ${quotasPopupPage.ftrDt()} and click and view balance for ${quotasPopupPage.todDt()} popup`,
+      function() {
+        const data = Cypress.env('testData')[5];
+        quotasPopupPage.verifyQuotasFutrDtUrlLink(data.commodity);
+        commonPage.verifyTxtAndClk(data.containstxt);
+        quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt2);
+        quotasPopupPage.verifyQuotasPopupFutrDateVal();
+        quotasPopupPage.verifyQuotasPopupViewBalDt();
+        quotasPopupPage.clickQuotasPopupViewBalDt();
+        quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt2);
+        quotasPopupPage.verifyQuotasPopupDateVal();
+        quotasPopupPage.verifyQuotasPopupTableColVal(data.containstxt3);
+        quotasPopupPage.verifyQuotasPopupRowTxt1(data.containstxt4);
+        quotasPopupPage.verifyQuotasPopupRowTxt2(data.containstxt5);
+        quotasPopupPage.verifyQuotasPopupRowTxt3(data.containstxt6);
+        quotasPopupPage.verifyQuotasPopupRowTxt4(data.containstxt7);
+        quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt8);
+        quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt9);
+        quotasPopupPage.verifyQuotasPopupStaticTxt(data.containstxt10);
+      });
   it('Quota Popup - Verify quota status and no suspension or blocking period', function() {
-    cy.visit('/commodities/1904103000?day=6&month=1&year=2023#quotas');
-    cy.contains('050233').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 050233');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of 6 Jan 2023)`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('0.000 Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Exhausted');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[6];
+    quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
+    commonPage.verifyTxtAndClk(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt3);
+    quotasPopupPage.verifyQuotasPopupStatDateVal(data.containstxt4);
+    quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt5);
+    quotasPopupPage.verifyQuotasPopupViewBalDt();
+    quotasPopupPage.verifyQuotasPopupTableColVal(data.containstxt6);
+    quotasPopupPage.verifyQuotasPopupStaTxt(data.containstxt7);
+    quotasPopupPage.verifyQuotasPopupExhstTxt(data.containstxt8);
+    quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt9);
+    quotasPopupPage.verifyQuotasPopupRowTxt6(data.containstxt10);
   });
-
   it('Quota Popup - Verify quota status and blocking period', function() {
-    cy.visit('/commodities/0302990040?country=NO&day=31&month=12&year=2020#quotas');
-    cy.contains('090716').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 090716');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 31 Dec 2020)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Blocking period');
-    cy.get('.info-inner').contains('11 December 2020 to 31 December 2020');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[7];
+    quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
+    commonPage.verifyTxtAndClk(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt3);
+    quotasPopupPage.verifyQuotasPopupStatDateVal(data.containstxt4);
+    quotasPopupPage.verifyQuotasPopupTableNumVal1(data.containstxt5);
+    quotasPopupPage.verifyQuotasPopupViewBalDt();
+    quotasPopupPage.verifyQuotasPopupTableColVal(data.containstxt6);
+    quotasPopupPage.verifyQuotasPopupStaTxt(data.containstxt7);
+    quotasPopupPage.verifyQuotasPopupExhstTxt(data.containstxt8);
+    quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt9);
+    quotasPopupPage.verifyQuotasInnerTextStatDate(data.containstxt10);
   });
-
   it('Quota Popup - Verify quota status and suspension period', function() {
-    cy.visit('/commodities/0806101090?country=LB&day=1&month=5&year=2022#quotas');
-    cy.contains('051180').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 051180');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 1 May 2022)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('1 October 2021 to 11 July 2022');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('n/a');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension period');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('1 May 2022 to 31 May 2022');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[8];
+    quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
+    commonPage.verifyTxtAndClk(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt3);
+    quotasPopupPage.verifyQuotasPopupStatDateVal(data.containstxt4);
+    quotasPopupPage.verifyQuotasPopupTableNumVal1(data.containstxt5);
+    quotasPopupPage.verifyQuotasPopupViewBalDt(data.containstxt6);
+    quotasPopupPage.verifyQuotasPopupTableColVal(data.containstxt7);
+    quotasPopupPage.verifyQuotasPopupText(data.containstxt8);
+    quotasPopupPage.verifyQuotasPopupStaTxt(data.containstxt9);
+    quotasPopupPage.verifyQuotasPopupExhstTxt(data.containstxt10);
+    quotasPopupPage.verifyQuotasPopupRowTxt7(data.containstxt11);
+    quotasPopupPage.verifyQuotasPopupRowTxt7(data.containstxt12);
+    quotasPopupPage.verifyQuotasPopupRowTxt8(data.containstxt13);
+    quotasPopupPage.verifyQuotasPopupRowTxt8(data.containstxt14);
+    quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt15);
+    quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt16);
   });
-
   it('Quota Popup - Verify quota status and suspension and blocking periods', function() {
-    cy.visit('/commodities/0809290000?country=MD&day=23&month=1&year=2020#quotas');
-    cy.contains('096806').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 096806');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains('Balance (as of 23 Jan 2020)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td').contains('Kilogram (kg)');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article').should('not.have.text', 'Pending balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th').contains('Status');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td').contains('Critical');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5)').contains('23 January 2020 to 31 December 2020');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6)').contains('n/a');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension period');
-    cy.get('.info-inner').contains('23 January 2020 to 30 April 2020');
-    cy.get('#popup').contains('Blocking period');
-    cy.get('.info-inner').contains('23 January 2020 to 7 May 2020');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[9];
+    quotasPopupPage.verifyQuotasStaticDtLink(data.containstxt, data.commodity);
+    commonPage.verifyTxtAndClk(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupHeadTxt(data.containstxt3);
+    quotasPopupPage.verifyQuotasPopupStatDateVal(data.containstxt4);
+    quotasPopupPage.verifyQuotasPopupTableNumVal1(data.containstxt5);
+    quotasPopupPage.verifyQuotasPopupViewBalDt(data.containstxt6);
+    quotasPopupPage.verifyQuotasPopupTableColVal(data.containstxt7);
+    quotasPopupPage.verifyQuotasPopupText(data.containstxt8);
+    quotasPopupPage.verifyQuotasPopupStaTxt(data.containstxt9);
+    quotasPopupPage.verifyQuotasPopupExhstTxt(data.containstxt10);
+    quotasPopupPage.verifyQuotasPopupRowTxt7(data.containstxt11);
+    quotasPopupPage.verifyQuotasPopupRowTxt7(data.containstxt12);
+    quotasPopupPage.verifyQuotasPopupRowTxt8(data.containstxt13);
+    quotasPopupPage.verifyQuotasPopupRowTxt8(data.containstxt14);
+    quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt15);
+    quotasPopupPage.verifyQuotasPopupRowTxt5(data.containstxt16);
+    quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt17);
+    quotasPopupPage.verifyQuotasInnerTextStatDate(data.containstxt18);
   });
-
   it('UK quota numbers post 1 Jan 2021 -054xxx Licensed', function() {
-    cy.visit('/commodities/0201100021#import');
-    cy.get('.govuk-tabs__panel');
-    cy.contains('Non preferential tariff quota');
-    cy.get('.table-line').contains('054002').click();
-    cy.get('.tariff-info').contains('Rural Payments Agency');
-    cy.get('.close [href]').click();
+    const data = Cypress.env('testData')[10];
+    commonPage.goToUrl(`/commodities/${data.commodity}#import`);
+    quotasPopupPage.verifyQuotasPanelTableColTxt(data.containstxt);
+    quotasPopupPage.verifyQuotasOrderDetailsAndClk(data.containstxt2);
+    quotasPopupPage.verifyQuotasPopupTextDtls(data.containstxt3);
   });
-
   context('when the commodity safeguard quota measure has transfer events', function() {
     it('does not show any balance transfers before HMRC started managing them', function() {
-      cy.visit('/commodities/7306290000?day=1&month=2&year=2022');
-      cy.contains('058041').click();
-      cy.get('#popup').should('not.contain', 'Transferred balance');
-      cy.get('#popup').contains('Pending balance').should('not.be.visible');
-      cy.get('.close [href]').click();
+      const data = Cypress.env('testData')[11];
+      quotasPopupPage.verifyQuotasStatic4DtLink(data.containstxt, data.commodity);
+      commonPage.verifyTxtAndClk(data.containstxt2);
+      quotasPopupPage.verifyQuotasPopupContainsTxt1(data.containstxt3);
+      quotasPopupPage.verifyQuotasPopupContainsTxt2(data.containstxt4);
     });
-
     it('shows a pending balance before the closing date', function() {
-      cy.visit('/commodities/7306290000?day=28&month=10&year=2022');
-      cy.contains('058041').click();
-      cy.get('#popup').contains('Pending balance');
-      cy.get('#popup').contains('Kilogram (kg) remains available');
-      cy.get('.close [href]').click();
+      const data = Cypress.env('testData')[12];
+      quotasPopupPage.verifyQuotasStatic4DtLink(data.containstxt, data.commodity);
+      commonPage.verifyTxtAndClk(data.containstxt2);
+      quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt3);
+      quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt4);
     });
-
     it('shows a transfer balance after the closing date', function() {
-      cy.visit('/commodities/7306290000?day=29&month=10&year=2022');
-      cy.contains('058041').click();
-      cy.get('#popup').contains('Transferred balance');
-      cy.get('#popup').contains('Kilogram (kg), transferred');
-      cy.get('.close [href]').click();
+      const data = Cypress.env('testData')[13];
+      quotasPopupPage.verifyQuotasStatic4DtLink(data.containstxt, data.commodity);
+      commonPage.verifyTxtAndClk(data.containstxt2);
+      quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt3);
+      quotasPopupPage.verifyQuotasPopupContainsTxt(data.containstxt4);
     });
   });
 });
+
+
