@@ -1,11 +1,11 @@
-[
-    {
+{
+    "verify exchange rates link in tools page": {
         "goToUri": "/tools",
         "clkExchangeRateTxt": "Exchange rates",
         "contains": "Check the official HMRC foreign exchange rates for Customs & VAT in online (HTML), CSV and XML formats.",
         "include": "/exchange_rates"
     },
-    {
+    "returns the latest monthly exchange rates": {
         "contains": "CSV",
         "linkPath": "/exchange_rates/view/",
         "type": "monthly",
@@ -14,30 +14,30 @@
         "containsLast": "End date",
         "csvLink": "/api/v2/exchange_rates/files/monthly_csv_"
     },
-    {
+    "displays exchange rates for previous years": {
         "contains": "Monthly exchange rates by year",
         "headingTxt": "HMRC monthly currency exchange rates",
         "csvLink": "/api/v2/exchange_rates/files/monthly_csv_"
     },
-    {
+    "Verify right hand navigation on the monthly exchange rate": {
         "goToUri": "/exchange_rates/monthly?year=2022",
         "include": "/exchange_rates/monthly?year=2022",
         "contains": "Related information",
         "contains2": "Average rates",
         "contains3": "Spot rates"
     },
-    {
+    "No exchange rates for year specified other than 2021, 2022 and 2023": {
         "goToUri": "exchange_rates/2019",
         "contains": "There are no exchange rates for the type and year specified.",
         "include": "/exchange_rates/2019"
     },
-    {
+    "Verify average rates link on the right hand navigation": {
         "goToUri": "/exchange_rates/average",
         "include": "/exchange_rates/average",
         "contains": "Monthly rates",
         "contains2": "Check the official HMRC foreign currency exchange average rates."
     },
-    {
+    "Verify download CSV file on average rates page": {
         "goToUri": "/exchange_rates/average",
         "include": "/exchange_rates/average",
         "contains": "Monthly rates",
@@ -46,7 +46,7 @@
         "contains4": "CSV",
         "csvLink": "/api/v2/exchange_rates/files/average_csv_"
     },
-    {
+    "Verify spot rates link on the right hand navigation": {
         "goToUri": "/exchange_rates/spot",
         "include": "/exchange_rates/spot",
         "contains": "Monthly rates",
@@ -54,7 +54,7 @@
         "contains3": "Check the official HMRC foreign currency exchange spot rates.",
         "contains4": "spot"
     },
-    {
+    "Download CSV file in mentioned directory and verify number of records": {
         "goToUri": "/exchange_rates",
         "linkPath": "/exchange_rates/view/",
         "type": "monthly",
@@ -65,4 +65,4 @@
         "contains3": "Check the official HMRC foreign currency exchange spot rates.",
         "contains4": "spot"
     }
-]
+}
