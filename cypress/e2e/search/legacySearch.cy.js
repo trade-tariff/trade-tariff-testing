@@ -121,16 +121,15 @@ describe('Legacy search', function() {
     });
 
     it('search navigates to 6 digit subheadings', function() {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
     });
 
     it('search navigates to 8 digit subheadings', function() {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
     });
 
     it('search navigates to 10 digit subheadings', function() {
-      searchPage.verifySearchSuggstnListAndClkSpecificSuggstnTxt(data.searchstr, data.suggestiontxttomatch);
-      commonPage.verifyUrlShudMatch(data.match);
+      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
     });
 
     it('search navigates to short-form commodity codes', function() {
@@ -148,13 +147,11 @@ describe('Legacy search', function() {
     });
 
     it('search navigates to expired subheadings in their short form', function() {
-      searchPage.enterTxtInTheSearchFieldAndClkEnter(data.searchstrshortform);
-      commonPage.verifyUrlShudMatch(data.include);
+      commonHelpers.searchNavigatesExpiredSubheadings(data.searchstrshortform, data.include);
     });
 
     it('search navigates to expired subheadings in their long form', function() {
-      searchPage.enterTxtInTheSearchFieldAndClkEnter(data.searchstrlongform);
-      commonPage.verifyUrlShudMatch(data.include);
+      commonHelpers.searchNavigatesExpiredSubheadings(data.searchstrlongform, data.include);
     });
 
     it('search navigates to expired commodities', function() {
@@ -164,8 +161,7 @@ describe('Legacy search', function() {
 
   context('when passing nonsense input', function() {
     it('search shows no results', function() {
-      searchPage.enterTxtInTheSearchFieldAndClkEnter(data.searchstr);
-      commonPage.verifyContains(data.containstxt);
+      commonHelpers.searchShowsNoResults(data.searchstr, data.containstxt);
     });
   });
 });

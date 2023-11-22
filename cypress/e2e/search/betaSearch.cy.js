@@ -10,8 +10,8 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
   beforeEach(function() {
     data = commonPage.getTestData();
-    cy.visit('/find_commodity');
-    cy.visit('/search/toggle_beta_search');
+    commonPage.goToUrl('/find_commodity');
+    commonPage.goToUrl('/search/toggle_beta_search');
   });
 
   // TODO: Reinstate this test when guides are adjusted/come back from HMRC
@@ -37,13 +37,11 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
   });
 
   it('Search result returns results for synonyms', function() {
-    searchPage.searchForCommodity(data.searchstr);
-    searchPage.verifySearchResults(data.containstxt);
+    commonHelpers.searchReturnsResultsForSynonmys(data.searchstr, data.containstxt);
   });
 
   it('Search result returns results for synonyms with a goods nomenclature item id', function() {
-    searchPage.searchForCommodity(data.searchstr);
-    searchPage.verifySearchResults(data.containstxt);
+    commonHelpers.searchReturnsResultsForSynonmys(data.searchstr, data.containstxt);
   });
 
   it('Search filters results with facet clothing_gender', function() {
@@ -129,7 +127,6 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     const start = new Date();
     searchPage.searchForCommodity(data.inputQuery);
     const end = new Date();
-
     expect(end - start).to.be.lessThan(minimumTimeFrame);
   });
 
@@ -241,16 +238,15 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     });
 
     it('search navigates to 6 digit subheadings', function() {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
     });
 
     it('search navigates to 8 digit subheadings', function() {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
     });
 
     it('search navigates to 10 digit subheadings', function() {
-      searchPage.verifySearchSuggstnListAndClkSpecificSuggstnTxt(data.searchstr, data.suggestiontxttomatch);
-      commonPage.verifyUrlShudMatch(data.match);
+      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
     });
 
     it('search navigates to short-form commodity codes', function() {
@@ -268,8 +264,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
     });
 
     it('search navigates to expired subheadings in their short form', function() {
-      searchPage.enterTxtInTheSearchFieldAndClkEnter(data.searchstrshortform);
-      commonPage.verifyUrlShudMatch(data.include);
+      commonHelpers.searchNavigatesExpiredSubheadings(data.searchstrshortform, data.include);
     });
 
     it('search navigates to expired commodities', function() {
@@ -279,8 +274,7 @@ describe('Using beta search', {tags: ['devOnly']}, function() {
 
   context('when passing nonsense input', function() {
     it('search shows no results', function() {
-      searchPage.enterTxtInTheSearchFieldAndClkEnter(data.searchstr);
-      commonPage.verifyContains(data.containstxt);
+      commonHelpers.searchShowsNoResults(data.searchstr, data.containstxt);
     });
   });
 });
