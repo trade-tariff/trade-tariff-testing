@@ -167,16 +167,18 @@
   },
   "search navigates to 6 digit subheadings": {
     "searchstr": "010121",
-    "include": "/subheadings/0101210000-10"
+    "suggestiontxttomatch": "Subheading",
+    "matchstr": "/subheadings/0101210000-10"
   },
   "search navigates to 8 digit subheadings": {
     "searchstr": "20079950",
-    "include": "/subheadings/2007995000-80"
+    "suggestiontxttomatch": "Subheading",
+    "matchstr": "/subheadings/2007995000-80"
   },
   "search navigates to 10 digit subheadings": {
     "searchstr": "2007993916",
     "suggestiontxttomatch": "Subheading",
-    "match": "/subheadings/2007993916-(10|20|30|40)"
+    "matchstr": "/subheadings/2007993916-(10|20|30|40)"
   },
   "search navigates to short-form commodity codes": {
     "searchstr": "29021100",
