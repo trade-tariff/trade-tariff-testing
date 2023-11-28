@@ -1,112 +1,76 @@
 import commonPage from '../../pages/commonPage';
 import quotasSearchPage from '../../pages/quotasSearchPage';
+import commonHelpers from '../../helpers/commonHelpers';
 
 
 describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and quota orders |', function() {
+  let data;
   // Load test data from a fixture file to 'testData' environment variable
   before(function() {
     commonPage.loadData('quotasSearch');
   });
   beforeEach(function() {
+    data = commonPage.getTestData();
     commonPage.goToUrl('/quota_search');
+    quotasSearchPage.verifySearchForQuotasTxt();
   });
+
   it('Quotas Search - Commodity Code', function() {
-    const data = Cypress.env('testData')[0];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.verifyQuotaSearchCommodityCode(data.commodityCode);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
-    quotasSearchPage.verifyQuotasSearchResColHeading(data.containstxt);
+    quotasSearchPage.verifyCommodityCode(data.commodityCode);
+    commonHelpers.verifyQuotasSearchBtnClkandRslts();
+    quotasSearchPage.verifyQuotasSearchResults(data.orderNumberTxt);
   });
   it('Quotas Search - Copy / No Input', function() {
-    const data = Cypress.env('testData')[1];
-    quotasSearchPage.verifyQuotasHeading();
-    commonPage.verifyContains(data.containstxt);
-    commonPage.verifyContains(data.containstxt2);
-    commonPage.verifyContains(data.containstxt3);
-    commonPage.verifyContains(data.containstxt4);
-    commonPage.verifyContains(data.containstxt5);
-    commonPage.textShudNotExist(data.containstxt6);
+    commonHelpers.verifyData(data, 0, data.length - 1);
+    commonPage.textShudNotExist(data.noInputErrTxt);
     quotasSearchPage.verifySearchForQuotasBtn();
-    commonPage.verifyContains(data.containstxt6);
+    commonPage.verifyContains(data.noInputErrTxt);
   });
   it('Quotas Search - Country list -  Results', function() {
-    const data = Cypress.env('testData')[2];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.verifyQuotaSearchCommodityCode(data.commodityCode);
-    quotasSearchPage.selectCountryForQuotas(data.containstxt);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
-    quotasSearchPage.verifyQuotasSearchResTableRow(data.containstxt);
+    quotasSearchPage.verifyCommodityCode(data.commodityCode);
+    quotasSearchPage.selectCountry(data.country);
+    commonHelpers.verifyQuotasSearchBtnClkandRslts();
+    quotasSearchPage.verifyQuotasSearchResults(data.country);
   });
   it('Quotas Search - 🇨🇭  Reset to all countries', function() {
-    const data = Cypress.env('testData')[3];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.selectCountryForQuotas(data.containstxt),
-    quotasSearchPage.verifyRecetCountryBtn(),
+    quotasSearchPage.selectCountry(data.country);
+    quotasSearchPage.verifyResetCountryBtn();
     quotasSearchPage.verifySearchForQuotasBtn();
-    commonPage.verifyContains(data.containstxt2);
+    commonPage.verifyContains(data.noInputErrTxt);
   });
 
   it('Quotas Search - Order Number', function() {
-    const data = Cypress.env('testData')[4];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.verifyQuotaSearchOrderNumber(data.containstxt);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
-    quotasSearchPage.verifyQuotasSearchResTableRow(data.containstxt);
-    commonPage.verifyContains(data.containstxt2);
-    commonPage.verifyContains(data.containstxt3);
-    commonPage.verifyContains(data.containstxt4);
-    commonPage.verifyContains(data.containstxt5);
+    quotasSearchPage.verifyOrderNumber(data.orderNumber);
+    quotasSearchPage.selectCountry(data.country);
+    commonHelpers.verifyQuotasSearchBtnClkandRslts();
+    commonHelpers.verifyData(data, 1, data.length);
   });
 
   it('Quotas Search - Critical state', function() {
-    const data = Cypress.env('testData')[5];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.selectSearchForQuotasCriticalText(data.containstxt);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
-    quotasSearchPage.selectSearchForQuotasCriticalText(data.containstxt2);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
+    quotasSearchPage.selectCriticalState(data.criticalStateYes);
+    commonHelpers.verifyQuotasSearchBtnClkandRslts();
+    quotasSearchPage.selectCriticalState(data.criticalStateNo);
+    commonHelpers.verifyQuotasSearchBtnClkandRslts();
   });
 
   it('Quotas Search - Status', function() {
-    const data = Cypress.env('testData')[6];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.selectSearchForQuotasStatusText(data.containstxt);
+    quotasSearchPage.selectSearchForQuotasStatusTxt(data.statusBlocked);
     quotasSearchPage.verifySearchForQuotasBtn();
-    commonPage.verifyContains(data.containstxt2);
-    quotasSearchPage.selectSearchForQuotasStatusText(data.containstxt3);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
-    quotasSearchPage.selectSearchForQuotasStatusText(data.containstxt4);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
-    quotasSearchPage.selectSearchForQuotasStatusText(data.containstxt5);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
+    commonPage.verifyContains(data.searchForQuotasResult);
+    commonHelpers.verifyData(data, 2, data.length);
   });
 
   it('Quotas Search - by Date', function() {
-    const data = Cypress.env('testData')[7];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.verifyQuotaSearchOrderNumber(data.containstxt);
-    quotasSearchPage.enterDateValForQuotasSearchResults(data.containstxt2, data.containstxt3, data.containstxt4);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
+    quotasSearchPage.verifyOrderNumber(data.orderNumber);
+    quotasSearchPage.verifyDate(data.day, data.month, data.year);
+    commonHelpers.verifyQuotasSearchBtnClkandRslts();
   });
 
-  it('Quotas Search - Order Number - Included EU country  - Italy ', function() {
-    const data = Cypress.env('testData')[8];
-    quotasSearchPage.verifyQuotasHeading();
-    quotasSearchPage.verifyQuotaSearchOrderNumber(data.containstxt);
-    quotasSearchPage.selectCountryForQuotas(data.containstxt2);
-    quotasSearchPage.verifySearchForQuotasBtn();
-    quotasSearchPage.verifyQuotasSearchResult();
-    quotasSearchPage.verifyQuotasSearchResTableRow(data.containstxt);
-    commonPage.verifyContains(data.containstxt3);
-    commonPage.verifyContains(data.containstxt4);
+  it('Quotas Search - Order Number - Included EU country  - Italy', function() {
+    quotasSearchPage.verifyOrderNumber(data.orderNumber);
+    quotasSearchPage.selectCountry(data.country);
+    commonHelpers.verifyQuotasSearchBtnClkandRslts();
+    quotasSearchPage.verifyQuotasSearchResults(data.countryResults1);
+    quotasSearchPage.verifyQuotasSearchResults(data.countryResults2);
   });
 });

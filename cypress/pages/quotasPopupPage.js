@@ -16,197 +16,89 @@ const helpers = {
     return `day=${parsedDate.getDate()}&month=${parsedDate.getMonth() + 1}&year=${parsedDate.getFullYear()}`;
   },
 };
+
 const helpersPreDtVal = helpers.dateToUrl(previousDate);
 const helpersFtrDtVal = helpers.dateToUrl(futureDate);
 
 class QuotasPopupPage {
   elements = {
-    quotasPanelTxt: () => cy.get('.govuk-tabs__panel'),
-    quotasPopupHeadTxt: () => cy.get('#popup > div > div > article > h2'),
-    quotasPopupTxt: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th'),
-    quotasPopupTableNumVal1: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td'),
-    quotasPopupTableNumVal2: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2) > td'),
-    quotasPopupTableColTxt: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)'),
-    quotasPopupDsiplayTxt: () => cy.get('#popup'),
-    popupInnerTxtHead: () => cy.get('.info-inner > article > .govuk-heading-m'),
-    quotasPopupViewBalDt: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a'),
-    quotasPopupRowTxt1: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)'),
-    quotasPopupRowTxt2: () => cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical'),
-    quotasPopupRowTxt3: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th'),
-    quotasPopupRowTxt4: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th'),
-    quotasPopupRowTxt5: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)'),
-    quotasPopupRowTxt6: () => cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical'),
-    quotasPopupStaticTxt: () => cy.get('#popup > div > div > article > p').contains('The status given is correct at the time'),
-    quotasPopupStaTxt: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > th'),
-    quotasPopupExhstTxt: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4) > td'),
-    quotasInnerTextStatDate: () => cy.get('.info-inner'),
-    quotasPopupText: () => cy.get('#popup > div > div > article'),
-    quotasPopupRowTxt7: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) '),
-    quotasPopupRowTxt8: () => cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) '),
+    panelTxt: () => cy.get('.govuk-tabs__panel'),
+    quotasPopup: () => cy.get('#popup'),
+    quotasPopupTableData: () => cy.get('#popup > div > div > article > table > tbody'),
+    footNotesTxt: () => cy.get('#popup > div > div > article > p'),
     quotasOrderDetails: () => cy.get('.table-line'),
     quotasPopupTextDtls: () => cy.get('.tariff-info'),
+    quotasInnerTextStatDate: () => cy.get('.info-inner'),
   };
 
-  verifyQuotasPanelTableColTxt(text) {
-    this.elements.quotasPanelTxt().contains(text);
+  verifyPanelTxt(panelTxt) {
+    this.elements.panelTxt().contains(panelTxt);
   }
 
-  verifyQuotasOrderDetailsAndClk(text) {
-    this.elements.quotasOrderDetails().contains(text).click();
+  verifyTxt(headTxt) {
+    this.elements.quotasPopup().contains(headTxt);
   }
 
-  verifyQuotasPopupTextDtls(text) {
-    this.elements.quotasPopupTextDtls().contains(text);
+  verifyTableDataNotContains(txt) {
+    this.elements.quotasPopupTableData().should('not.contain', txt);
   }
 
-  verifyQuotasPopupText(textContains) {
-    this.elements.quotasPopupText().should('not.have.text', textContains);
+  verifyTableDataNotVisible(txt) {
+    this.elements.quotasPopupTableData().contains(txt).should('not.be.visible');
   }
 
-  verifyQuotasPopupHeadTxt(text) {
-    this.elements.quotasPopupHeadTxt().contains(text);
+  verifyTableDataNotHave(txt) {
+    this.elements.quotasPopupTableData().should('not.have.text', txt);
   }
 
-  verifyQuotasPopupColHeadTxt(colText) {
-    this.elements.quotasPopupTxt().should('not.contain', colText);
+  verifyTableBalanceDt() {
+    this.elements.quotasPopupTableData().contains(`Balance (as of ${todaysDate})`);
   }
 
-  verifyQuotasPopupDateVal() {
-    this.elements.quotasPopupTxt().contains(`Balance (as of ${todaysDate})`);
+  verifyTableDataNumVal() {
+    this.elements.quotasPopupTableData().contains(',');
   }
 
-  verifyQuotasPopupTableNumVal1() {
-    this.elements.quotasPopupTableNumVal1().contains(',');
+  verifyPreDtUrl(commodity, date) {
+    cy.visit(`/commodities/${commodity}?${date}#quotas`);
   }
 
-  verifyQuotasPopupTableNumVal2() {
-    this.elements.quotasPopupTableNumVal2().contains(',');
+  verifyViewBalDt() {
+    this.elements.quotasPopupTableData().contains(`View balance for ${todaysDate}`);
   }
 
-  verifyQuotasPopupTableColVal(colTxt) {
-    this.elements.quotasPopupTableColTxt().contains(colTxt);
+  verifyPreDt() {
+    this.elements.quotasPopupTableData().contains(`Balance (as of ${previousDate})`);
   }
 
-  verifyQuotasPopupContainsTxt(txtVerify) {
-    this.elements.quotasPopupDsiplayTxt().contains(txtVerify);
+  clickViewBalDt() {
+    this.elements.quotasPopupTableData().contains(`View balance for ${todaysDate}`).click();
   }
 
-  verifyQuotasPopupContainsTxt1(txtVerify) {
-    this.elements.quotasPopupDsiplayTxt().should('not.contain', txtVerify);
-  }
-
-  verifyQuotasPopupContainsTxt2(txtVerify) {
-    this.elements.quotasPopupDsiplayTxt().contains(txtVerify).should('not.be.visible');
-  }
-
-  verifyQuotasStaticDtLink(staticDtVal, commodity) {
-    cy.visit(`/commodities/${commodity}?${helpers.dateToUrl(staticDtVal)}#quotas`);
-  }
-
-  verifyQuotasImportUrl(commodity) {
-    cy.visit(`/commodities/${commodity}#import`);
-  }
-
-  verifyQuotasStatic4DtLink(staticDtVal, commodity) {
-    cy.visit(`/commodities/${commodity}?${helpers.dateToUrl(staticDtVal)}#quotas`);
-  }
-
-  verifyQuotasUrlPreDtLink(commodity) {
-    cy.visit(`/commodities/${commodity}?${helpersPreDtVal}#quotas`);
-  }
-
-  verifyQuotasFutrDtUrlLink(commodity) {
+  verifyFutrDtUrl(commodity) {
     cy.visit(`/commodities/${commodity}?${helpersFtrDtVal}#quotas`);
   }
 
-  verifyQuotasStatic5DtLink(staticDtVal) {
-    cy.visit(`/commodities/7306290000?${helpers.dateToUrl(staticDtVal)}`);
+  verifyFutrDt() {
+    this.elements.quotasPopupTableData().contains(`Balance (as of ${futureDate})`);
   }
 
-  verifyQuotasPopupInrTxtHeading(text1) {
-    this.elements.popupInnerTxtHead().contains(text1);
+  verifyTableData(tableTxt) {
+    this.elements.quotasPopupTableData().contains(tableTxt);
   }
 
-  verifyQuotasPopupViewBalDt() {
-    this.elements.quotasPopupViewBalDt().contains(`View balance for ${todaysDate}`);
+  verifyStaticDtUrl(commodity, staticDtVal) {
+    cy.visit(`/commodities/${commodity}?${helpers.dateToUrl(staticDtVal)}#quotas`);
   }
 
-  clickQuotasPopupViewBalDt() {
-    this.elements.quotasPopupViewBalDt().click();
+  verifyStaticDt(staticDate) {
+    this.elements.quotasPopupTableData().contains(staticDate);
   }
 
-  verifyQuotasPopupPreDateVal() {
-    this.elements.quotasPopupTxt().contains(`Balance (as of ${previousDate})`);
-  }
-
-  verifyQuotasPopupStatDateVal(staticDate) {
-    this.elements.quotasPopupTxt().contains(staticDate);
-  }
-
-  verifyQuotasPopupFutrDateVal() {
-    this.elements.quotasPopupTxt().contains(`Balance (as of ${futureDate})`);
-  }
-
-  verifyQuotasPopupRowTxt1(popupTxt1) {
-    this.elements.quotasPopupRowTxt1().contains(popupTxt1);
-  }
-
-  verifyQuotasPopupRowTxt2(popupTxt2) {
-    this.elements.quotasPopupRowTxt2().contains(popupTxt2);
-  }
-
-  verifyQuotasPopupStaTxt(popupTxt1) {
-    this.elements.quotasPopupStaTxt().contains(popupTxt1);
-  }
-
-  verifyQuotasPopupExhstTxt(popupTxt2) {
-    this.elements.quotasPopupExhstTxt().contains(popupTxt2);
-  }
-
-  verifyQuotasPopupRowTxt3(popupTxt3) {
-    this.elements.quotasPopupRowTxt3().contains(popupTxt3);
-  }
-
-  verifyQuotasPopupRowTxt7(popupTxt7) {
-    this.elements.quotasPopupRowTxt7().contains(popupTxt7);
-  }
-
-  verifyQuotasPopupRowTxt8(popupTxt8) {
-    this.elements.quotasPopupRowTxt8().contains(popupTxt8);
-  }
-
-  verifyQuotasPopupRowTxt4(popupTxt4) {
-    this.elements.quotasPopupRowTxt4().contains(popupTxt4);
-  }
-
-  verifyQuotasPopupRowTxt5(popupTxt5) {
-    this.elements.quotasPopupRowTxt5().contains(popupTxt5);
-  }
-
-  verifyQuotasPopupRowTxt6(popupTxt6) {
-    this.elements.quotasPopupRowTxt6().contains(popupTxt6);
-  }
-
-  verifyQuotasPopupStaticTxt(popupStaticTxt) {
-    this.elements.quotasPopupStaticTxt().contains(popupStaticTxt);
-  }
-
-  verifyQuotasInnerTextStatDate(innerTxt) {
-    this.elements.quotasInnerTextStatDate(innerTxt);
-  }
-
-  todDt() {
-    // return (this.elements.todaysDate);
-    return todaysDate;
-  }
-
-  prvDt() {
-    return previousDate;
-  }
-
-  ftrDt() {
-    return futureDate;
+  prevDt() {
+    return helpersPreDtVal;
   }
 }
+
 
 export default new QuotasPopupPage();

@@ -16,11 +16,15 @@ class CommonPage {
     });
   }
 
+  getTestName() {
+    const testCaseName = Cypress.currentTest.title;
+    return testCaseName;
+  }
+
   getTestData() {
     const data = Cypress.env('testData');
-    const testCaseName = Cypress.currentTest.title;
     if (`${data}` != null && `${data}` != 'undefined') {
-      return data[testCaseName];
+      return data[Cypress.currentTest.title];
     }
   }
 
@@ -38,8 +42,8 @@ class CommonPage {
     cy.visit(urlPathToVisit, {failOnStatusCode: false});
   }
 
-  verifyContains(txtToVerify) {
-    cy.contains(txtToVerify);
+  verifyContains(strToVerify) {
+    cy.contains(strToVerify);
   }
 
   verifyTxtAndClk(txtToClk) {

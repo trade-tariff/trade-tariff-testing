@@ -1,52 +1,52 @@
-[
-  {
+{
+  "Quotas Search - Commodity Code": {
     "commodityCode": "0702000007",
-    "containstxt": "Order number"
+    "orderNumberTxt": "Order number"
   },
-  {
-    "containstxt": "Search for tariff quotas, including daily updated balances. Enter data into at least one of the criteria below.",
-    "containstxt2": "Enter the 6-digit quota order number",
-    "containstxt3": "Enter a 10-digit commodity code to search for quotas available on that code",
-    "containstxt4": "Select a country to which the quota applies",
-    "containstxt5": "Enter the date for which you would like to return results If you leave this field blank, then today's date will be used",
-    "containstxt6": "Sorry, there is a problem with the search query. Please specify one or more search criteria."
+  "Quotas Search - Copy / No Input": {
+    "staticTxt": "Search for tariff quotas, including daily updated balances. Enter data into at least one of the criteria below.",
+    "orderNumberLabelTxt": "Enter the 6-digit quota order number",
+    "commodityCodeLabelTxt": "Enter a 10-digit commodity code to search for quotas available on that code",
+    "countryLabelTxt": "Select a country to which the quota applies",
+    "dateLabelTxt": "Enter the date for which you would like to return results If you leave this field blank, then today's date will be used",
+    "noInputErrTxt": "Sorry, there is a problem with the search query. Please specify one or more search criteria."
   },
-  {
+  "Quotas Search - Country list -  Results": {
     "commodityCode": "0702000007",
-    "containstxt": "Israel"
+    "country": "Israel"
   },
-  {
-    "containstxt": "Switzerland (CH)",
-    "containstxt2": "Sorry, there is a problem with the search query. Please specify one or more search criteria."
+  "Quotas Search - 🇨🇭  Reset to all countries": {
+    "country": "Switzerland (CH)",
+    "noInputErrTxt": "Sorry, there is a problem with the search query. Please specify one or more search criteria."
   },
-  {
-    "containstxt": "057140",
-    "containstxt2": "Colombia (CO)",
-    "containstxt3": "01 August 2023",
-    "containstxt4": "31 July 2024",
-    "containstxt5": "2,043.000 Tonne (1000 kg)"
+  "Quotas Search - Order Number": {
+    "orderNumber": "057140",
+    "country": "Colombia (CO)",
+    "startDate": "01 August 2023",
+    "endDate": "31 July 2024",
+    "Balance": "2,043.000 Tonne (1000 kg)"
   },
-  {
-    "containstxt": "Yes",
-    "containstxt2": "No"
+  "Quotas Search - Critical state": {
+    "criticalStateYes": "Yes",
+    "criticalStateNo": "No"
   },
-  {
-    "containstxt": "Blocked",
-    "containstxt2": "There are no matching results",
-    "containstxt3": "Exhausted",
-    "containstxt4": "Not blocked",
-    "containstxt5": "Not exhausted"
+  "Quotas Search - Status": {
+    "statusBlocked": "Blocked",
+    "searchForQuotasResult": "There are no matching results",
+    "statusExhausted": "Exhausted",
+    "statusNotBlocked": "Not blocked",
+    "statusNotExhausted": "Not exhausted"
   },
-  {
-    "containstxt": "058801",
-    "containstxt2": "30",
-    "containstxt3": "06",
-    "containstxt4": "2021"
+  "Quotas Search - by Date": {
+    "orderNumber": "058801",
+    "day": "30",
+    "month": "06",
+    "year": "2021"
   },
-  {
-    "containstxt": "058039",
-    "containstxt2": "Italy",
-    "containstxt3": "European Union (EU)",
-    "containstxt4": "European Union (1013)"
+  "Quotas Search - Order Number - Included EU country  - Italy": {
+    "orderNumber": "058039",
+    "country": "Italy",
+    "countryResults1": "European Union (EU)",
+    "countryResults2": "European Union (1013)"
   }
-]
+}

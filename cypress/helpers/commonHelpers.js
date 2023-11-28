@@ -1,6 +1,8 @@
 import commodityPage from '../pages/commodityPage';
 import commonPage from '../pages/commonPage';
 import searchPage from '../pages/searchPage';
+import quotasSearchPage from '../pages/quotasSearchPage';
+import quotasPopupPage from '../pages/quotasPopupPage';
 
 class CommonHelpers {
   // search shows expected chemicals
@@ -34,6 +36,31 @@ class CommonHelpers {
   searchShowsNoResults(searchstr, containstxt) {
     searchPage.enterTxtInTheSearchFieldAndClkEnter(searchstr);
     commonPage.verifyContains(containstxt);
+  }
+  verifyQuotasSearchBtnClkandRslts() {
+    quotasSearchPage.verifySearchForQuotasBtn();
+    quotasSearchPage.verifyQuotasSearchResult();
+  }
+  // common method for data parameterization
+  verifyData(data, value, size) {
+    const keys = Object.keys(data);
+    const testCaseName = commonPage.getTestName();
+    for (let i = value; i < size; i++) {
+      const key = keys[i];
+      if (data[key] == testCaseName) {
+        commonPage.verifyContains(data[key]);
+      }
+      if (data[key] == testCaseName) {
+        quotasSearchPage.verifyQuotasSearchResults(data[key]);
+      }
+      if (data[key] == testCaseName) {
+        quotasSearchPage.selectSearchForQuotasStatusTxt(data[key]);
+        this.elements.verifyQuotasSearchBtnClkandRslts();
+      }
+      if (data[key] == testCaseName) {
+        quotasPopupPage.verifyTableData(data[key]);
+      }
+    }
   }
 }
 
