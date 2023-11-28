@@ -24,7 +24,7 @@ class QuotasPopupPage {
   elements = {
     panelTxt: () => cy.get('.govuk-tabs__panel'),
     quotasPopup: () => cy.get('#popup'),
-    quotasPopupTableData: () => cy.get('#popup > div > div > article > table > tbody'),
+    quotasPopupData: () => cy.get('#popup > div > div > article > table > tbody'),
     footNotesTxt: () => cy.get('#popup > div > div > article > p'),
     quotasOrderDetails: () => cy.get('.table-line'),
     quotasPopupTextDtls: () => cy.get('.tariff-info'),
@@ -39,24 +39,24 @@ class QuotasPopupPage {
     this.elements.quotasPopup().contains(headTxt);
   }
 
-  verifyTableDataNotContains(txt) {
-    this.elements.quotasPopupTableData().should('not.contain', txt);
+  verifyPopupNotContains(txt) {
+    this.elements.quotasPopupData().should('not.contain', txt);
   }
 
-  verifyTableDataNotVisible(txt) {
-    this.elements.quotasPopupTableData().contains(txt).should('not.be.visible');
+  verifyPopupNotVisible(txt) {
+    this.elements.quotasPopupData().contains(txt).should('not.be.visible');
   }
 
-  verifyTableDataNotHave(txt) {
-    this.elements.quotasPopupTableData().should('not.have.text', txt);
+  verifyPopupNotHave(txt) {
+    this.elements.quotasPopupData().should('not.have.text', txt);
   }
 
-  verifyTableBalanceDt() {
-    this.elements.quotasPopupTableData().contains(`Balance (as of ${todaysDate})`);
+  verifyBalDt() {
+    this.elements.quotasPopupData().contains(`Balance (as of ${todaysDate})`);
   }
 
-  verifyTableDataNumVal() {
-    this.elements.quotasPopupTableData().contains(',');
+  verifyNumVal() {
+    this.elements.quotasPopupData().contains(',');
   }
 
   verifyPreDtUrl(commodity, date) {
@@ -64,15 +64,15 @@ class QuotasPopupPage {
   }
 
   verifyViewBalDt() {
-    this.elements.quotasPopupTableData().contains(`View balance for ${todaysDate}`);
+    this.elements.quotasPopupData().contains(`View balance for ${todaysDate}`);
   }
 
   verifyPreDt() {
-    this.elements.quotasPopupTableData().contains(`Balance (as of ${previousDate})`);
+    this.elements.quotasPopupData().contains(`Balance (as of ${previousDate})`);
   }
 
   clickViewBalDt() {
-    this.elements.quotasPopupTableData().contains(`View balance for ${todaysDate}`).click();
+    this.elements.quotasPopupData().contains(`View balance for ${todaysDate}`).click();
   }
 
   verifyFutrDtUrl(commodity) {
@@ -80,11 +80,11 @@ class QuotasPopupPage {
   }
 
   verifyFutrDt() {
-    this.elements.quotasPopupTableData().contains(`Balance (as of ${futureDate})`);
+    this.elements.quotasPopupData().contains(`Balance (as of ${futureDate})`);
   }
 
-  verifyTableData(tableTxt) {
-    this.elements.quotasPopupTableData().contains(tableTxt);
+  verifyPopupContains(tableTxt) {
+    this.elements.quotasPopupData().contains(tableTxt);
   }
 
   verifyStaticDtUrl(commodity, staticDtVal) {
@@ -92,7 +92,7 @@ class QuotasPopupPage {
   }
 
   verifyStaticDt(staticDate) {
-    this.elements.quotasPopupTableData().contains(staticDate);
+    this.elements.quotasPopupData().contains(staticDate);
   }
 
   prevDt() {

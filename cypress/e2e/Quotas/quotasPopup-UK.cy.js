@@ -16,21 +16,21 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     quotasPopupPage.verifyPanelTxt(data.measureType);
     commonPage.verifyTxtAndClk(data.orderNumber);
     quotasPopupPage.verifyTxt(data.headTxt);
-    quotasPopupPage.verifyTableDataNotContains(data.quotaOrderNumTxt);
+    quotasPopupPage.verifyPopupNotContains(data.quotaOrderNumTxt);
     commonPage.verifyPopupCloseBtn();
   });
   it(`Quota Popup - Verify Balance as of todayDate`, function() {
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
     commonPage.verifyTxtAndClk(data.orderNumber);
     quotasPopupPage.verifyTxt(data.headTxt);
-    quotasPopupPage.verifyTableBalanceDt();
+    quotasPopupPage.verifyBalDt();
     commonPage.verifyShdNotContains(data.currrentBalance);
   });
   it('Quota Popup - Verify Comma separator in quota balance', function() {
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
     quotasPopupPage.verifyPanelTxt(data.measureType);
     commonPage.verifyTxtAndClk(data.orderNumber);
-    quotasPopupPage.verifyTableDataNumVal();
+    quotasPopupPage.verifyNumVal();
   });
   it('Quota Popup - Verify Footer content', function() {
     commonPage.goToUrl(`/commodities/${data.commodity}#quotas`);
@@ -45,7 +45,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     quotasPopupPage.verifyPreDt();
     quotasPopupPage.clickViewBalDt();
     quotasPopupPage.verifyTxt(data.headTxt);
-    quotasPopupPage.verifyTableBalanceDt();
+    quotasPopupPage.verifyBalDt();
     commonHelpers.verifyData(data, 3, data.length - 1);
     quotasPopupPage.verifyTxt(data.footNotesTxt);
   });
@@ -57,7 +57,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     quotasPopupPage.verifyViewBalDt();
     quotasPopupPage.clickViewBalDt();
     quotasPopupPage.verifyTxt(data.headTxt);
-    quotasPopupPage.verifyTableBalanceDt();
+    quotasPopupPage.verifyBalDt();
     commonHelpers.verifyData(data, 3, data.length - 1);
     quotasPopupPage.verifyTxt(data.footNotesTxt);
   });
@@ -74,7 +74,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     commonPage.verifyTxtAndClk(data.orderNumber);
     quotasPopupPage.verifyTxt(data.headTxt);
     quotasPopupPage.verifyStaticDt(data.balance);
-    quotasPopupPage.verifyTableDataNumVal(data.balanceValue);
+    quotasPopupPage.verifyNumVal(data.balanceValue);
     quotasPopupPage.verifyViewBalDt();
     commonHelpers.verifyData(data, 6, data.length);
   });
@@ -83,9 +83,9 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     commonPage.verifyTxtAndClk(data.orderNumber);
     quotasPopupPage.verifyTxt(data.headTxt);
     quotasPopupPage.verifyStaticDt(data.balance);
-    quotasPopupPage.verifyTableDataNumVal(data.balanceValue);
+    quotasPopupPage.verifyNumVal(data.balanceValue);
     quotasPopupPage.verifyViewBalDt();
-    quotasPopupPage.verifyTableDataNotHave(data.pendingBalance);
+    quotasPopupPage.verifyPopupNotHave(data.pendingBalance);
     commonHelpers.verifyData(data, 7, data.length);
   });
 
@@ -94,9 +94,9 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     commonPage.verifyTxtAndClk(data.orderNumber);
     quotasPopupPage.verifyTxt(data.headTxt);
     quotasPopupPage.verifyStaticDt(data.balance);
-    quotasPopupPage.verifyTableDataNumVal(data.balanceValue);
+    quotasPopupPage.verifyNumVal(data.balanceValue);
     quotasPopupPage.verifyViewBalDt();
-    quotasPopupPage.verifyTableDataNotHave(data.pendingBalance);
+    quotasPopupPage.verifyPopupNotHave(data.pendingBalance);
     commonHelpers.verifyData(data, 7, data.length);
   });
   it('UK quota numbers post 1 Jan 2021 -054xxx Licensed', function() {
@@ -109,20 +109,20 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     it('does not show any balance transfers before HMRC started managing them', function() {
       quotasPopupPage.verifyStaticDtUrl(data.commodity, data.balanceDt);
       commonPage.verifyTxtAndClk(data.orderNumber);
-      quotasPopupPage.verifyTableDataNotContains(data.transferredBalance);
-      quotasPopupPage.verifyTableDataNotVisible(data.pendingBalance);
+      quotasPopupPage.verifyPopupNotContains(data.transferredBalance);
+      quotasPopupPage.verifyPopupNotVisible(data.pendingBalance);
     });
     it('shows a pending balance before the closing date', function() {
       quotasPopupPage.verifyStaticDtUrl(data.commodity, data.balanceDt);
       commonPage.verifyTxtAndClk(data.orderNumber);
-      quotasPopupPage.verifyTableData(data.pendingBalance);
-      quotasPopupPage.verifyTableData(data.pendingBalanceData);
+      quotasPopupPage.verifyPopupContains(data.pendingBalance);
+      quotasPopupPage.verifyPopupContains(data.pendingBalanceData);
     });
     it('shows a transfer balance after the closing date', function() {
       quotasPopupPage.verifyStaticDtUrl(data.commodity, data.balanceDt);
       commonPage.verifyTxtAndClk(data.orderNumber);
-      quotasPopupPage.verifyTableData(data.transferredBalance);
-      quotasPopupPage.verifyTableData(data.transferredBalanceData);
+      quotasPopupPage.verifyPopupContains(data.transferredBalance);
+      quotasPopupPage.verifyPopupContains(data.transferredBalanceData);
     });
   });
 });
