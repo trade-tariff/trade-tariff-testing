@@ -44,21 +44,17 @@ class CommonHelpers {
   // common method for data parameterization
   verifyData(data, value, size) {
     const keys = Object.keys(data);
-    const testCaseName = commonPage.getTestName();
     for (let i = value; i < size; i++) {
       const key = keys[i];
-      if (data[key] == testCaseName) {
-        commonPage.verifyContains(data[key]);
-      }
-      if (data[key] == testCaseName) {
-        quotasSearchPage.verifyQuotasSearchResults(data[key]);
-      }
-      if (data[key] == testCaseName) {
-        quotasSearchPage.selectSearchForQuotasStatusTxt(data[key]);
-        this.elements.verifyQuotasSearchBtnClkandRslts();
-      }
-      if (data[key] == testCaseName) {
-        quotasPopupPage.verifyTableData(data[key]);
+      switch (commonPage.getTestName()) {
+        case 'Quotas Search - Copy / No Input': commonPage.verifyContains(data[key]);
+          break;
+        case 'Quotas Search - Order Number': quotasSearchPage.verifyQuotasSearchResults(data[key]);
+          break;
+        case 'Quotas Search - Status': quotasSearchPage.selectSearchForQuotasStatusTxt(data[key]);
+          this.elements.verifyQuotasSearchBtnClkandRslts();
+          break;
+        default: quotasPopupPage.verifyPopupContains(data[key]);
       }
     }
   }
