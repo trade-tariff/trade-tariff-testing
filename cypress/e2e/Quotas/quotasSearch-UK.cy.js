@@ -21,7 +21,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     quotasSearchPage.verifyQuotasSearchResults(data.orderNumberTxt);
   });
   it('Quotas Search - Copy / No Input', function() {
-    commonHelpers.verifyData(data, 0, data.length - 1);
+    commonHelpers.verifyData(data.searchData);
     commonPage.textShudNotExist(data.noInputErrTxt);
     quotasSearchPage.verifySearchForQuotasBtn();
     commonPage.verifyContains(data.noInputErrTxt);
@@ -43,7 +43,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     quotasSearchPage.verifyOrderNumber(data.orderNumber);
     quotasSearchPage.selectCountry(data.country);
     commonHelpers.verifyQuotasSearchBtnClkandRslts();
-    commonHelpers.verifyData(data, 1, data.length);
+    commonHelpers.verifyData(data.searchResults);
   });
 
   it('Quotas Search - Critical state', function() {
@@ -57,7 +57,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     quotasSearchPage.selectSearchForQuotasStatusTxt(data.statusBlocked);
     quotasSearchPage.verifySearchForQuotasBtn();
     commonPage.verifyContains(data.searchForQuotasResult);
-    commonHelpers.verifyData(data, 2, data.length);
+    commonHelpers.verifyData(data.searchData);
   });
 
   it('Quotas Search - by Date', function() {

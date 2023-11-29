@@ -37,14 +37,17 @@ class CommonHelpers {
     searchPage.enterTxtInTheSearchFieldAndClkEnter(searchstr);
     commonPage.verifyContains(containstxt);
   }
+  // searchBtn click and verifyResults text
   verifyQuotasSearchBtnClkandRslts() {
     quotasSearchPage.verifySearchForQuotasBtn();
     quotasSearchPage.verifyQuotasSearchResult();
   }
+  // navigate to specific url and verify and click on ordernumber
   verifyQuotasOrderNumAndClk(commodityCode, balanceDt, orderNum) {
     quotasPopupPage.verifyStaticDtUrl(commodityCode, balanceDt);
     commonPage.verifyTxtAndClk(orderNum);
   }
+  // click ordenrNum and verify HeadText on QuotasPopup
   clkQuotasOrderNumAndVfyTxt(orderNum, headTxt) {
     commonPage.verifyTxtAndClk(orderNum);
     quotasPopupPage.verifyTxt(headTxt);
@@ -63,7 +66,7 @@ class CommonHelpers {
           break;
         case 'Quotas Search - Status':
           quotasSearchPage.selectSearchForQuotasStatusTxt(testData[key]);
-          this.elements.verifyQuotasSearchBtnClkandRslts();
+          this.verifyQuotasSearchBtnClkandRslts();
           break;
         default: quotasPopupPage.verifyPopupContains(testData[key]);
       }
