@@ -26,26 +26,30 @@
     "commodity": "7306110000",
     "orderNumber": "058041",
     "headTxt": "Quota order number 058041",
-    "openingBalance": "Opening balance",
-    "status": "Status",
-    "open": "Open",
-    "startAndEnd": "Start and end dates",
-    "lastAlcDt": "Last allocation date",
-    "suspAndBlckPrds": "Suspension / blocking periods",
-    "notApplicable": "n/a",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "startAndEnd": "Start and end dates",
+      "lastAlcDt": "Last allocation date",
+      "suspAndBlckPrds": "Suspension / blocking periods",
+      "notApplicable": "n/a"
+    },
     "footNotesTxt": "The status given is correct at the time"
   },
   "Quota Popup - Verify balance as of futureDate and click and view balance for todayDate popup": {
     "commodity": "7306110000",
     "orderNumber": "058949",
     "headTxt": "Quota order number 058949",
-    "openingBalance": "Opening balance",
-    "status": "Status",
-    "open": "Open",
-    "startAndEnd": "Start and end dates",
-    "lastAlcDt": "Last allocation date",
-    "suspAndBlckPrds": "Suspension / blocking periods",
-    "notApplicable": "n/a",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "startAndEnd": "Start and end dates",
+      "lastAlcDt": "Last allocation date",
+      "suspAndBlckPrds": "Suspension / blocking periods",
+      "notApplicable": "n/a"
+    },
     "footNotesTxt": "The status given is correct"
   },
   "Quota Popup - Verify quota status and no suspension or blocking period": {
@@ -55,11 +59,13 @@
     "headTxt": "Quota order number 050233",
     "balance": "Balance (as of 6 Jan 2023)",
     "balanceValue": "0.000 Kilogram (kg)",
-    "openingBalance": "Opening balance",
-    "status": "Status",
-    "exhausted": "Exhausted",
-    "suspAndBlckPrds": "Suspension / blocking periods",
-    "notApplicable": "n/a"
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "exhausted": "Exhausted",
+      "suspAndBlckPrds": "Suspension / blocking periods",
+      "notApplicable": "n/a"
+    }
   },
   "Quota Popup - Verify quota status and blocking period": {
     "commodity": "0302990040",
@@ -68,11 +74,13 @@
     "headTxt": "Quota order number 090716",
     "balance": "Balance (as of 31 Dec 2020)",
     "balanceValue": "Kilogram (kg)",
-    "openingBalance": "Opening balance",
-    "status": "Status",
-    "open": "Open",
-    "blckingPrd": "Blocking period",
-    "blckingPrdDt": "11 December 2020 to 31 December 2020"
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "blckingPrd": "Blocking period",
+      "blckingPrdDt": "11 December 2020 to 31 December 2020"
+    }
   },
   "Quota Popup - Verify quota status and suspension period": {
     "commodity": "0806101090",
@@ -82,15 +90,17 @@
     "balance": "Balance (as of 1 May 2022)",
     "balanceValue": "Kilogram (kg)",
     "pendingBalance": "Pending balance",
-    "openingBalance": "Opening balance",
-    "status": "Status",
-    "open": "Open",
-    "startAndEnd": "Start and end dates",
-    "startAndEndDt": "1 October 2021 to 11 July 2022",
-    "lastAlcDt": "Last allocation date",
-    "notApplicable": "n/a",
-    "suspensionPrd": "Suspension period",
-    "suspensionPrdDt": "1 May 2022 to 31 May 2022"
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "startAndEnd": "Start and end dates",
+      "startAndEndDt": "1 October 2021 to 11 July 2022",
+      "lastAlcDt": "Last allocation date",
+      "notApplicable": "n/a",
+      "suspensionPrd": "Suspension period",
+      "suspensionPrdDt": "1 May 2022 to 31 May 2022"
+    }
   },
   "Quota Popup - Verify quota status and suspension and blocking periods": {
     "commodity": "0809290000",
@@ -100,17 +110,19 @@
     "balance": "Balance (as of 23 Jan 2020)",
     "balanceValue": "Kilogram (kg)",
     "pendingBalance": "Pending balance",
-    "openingBalance": "Opening balance",
-    "status": "Status",
-    "critical": "Critical",
-    "startAndEnd": "Start and end dates",
-    "startAndEndDt": "23 January 2020 to 31 December 2020",
-    "lastAlcDt": "Last allocation date",
-    "notApplicable": "n/a",
-    "suspensionPrd": "Suspension period",
-    "suspensionPrdDt": "23 January 2020 to 30 April 2020",
-    "blockingPrd": "Blocking period",
-    "blockingPrdDt": "23 January 2020 to 7 May 2020"
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "critical": "Critical",
+      "startAndEnd": "Start and end dates",
+      "startAndEndDt": "23 January 2020 to 31 December 2020",
+      "lastAlcDt": "Last allocation date",
+      "notApplicable": "n/a",
+      "suspensionPrd": "Suspension period",
+      "suspensionPrdDt": "23 January 2020 to 30 April 2020",
+      "blockingPrd": "Blocking period",
+      "blockingPrdDt": "23 January 2020 to 7 May 2020"
+    }
   },
   "UK quota numbers post 1 Jan 2021 -054xxx Licensed": {
     "commodity": "0201100021",

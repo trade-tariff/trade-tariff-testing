@@ -41,20 +41,31 @@ class CommonHelpers {
     quotasSearchPage.verifySearchForQuotasBtn();
     quotasSearchPage.verifyQuotasSearchResult();
   }
+  verifyQuotasOrderNumAndClk(commodityCode, balanceDt, orderNum) {
+    quotasPopupPage.verifyStaticDtUrl(commodityCode, balanceDt);
+    commonPage.verifyTxtAndClk(orderNum);
+  }
+  clkQuotasOrderNumAndVfyTxt(orderNum, headTxt) {
+    commonPage.verifyTxtAndClk(orderNum);
+    quotasPopupPage.verifyTxt(headTxt);
+  }
   // common method for data parameterization
-  verifyData(data, value, size) {
-    const keys = Object.keys(data);
-    for (let i = value; i < size; i++) {
+  verifyData(testData) {
+    const keys = Object.keys(testData);
+    for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       switch (commonPage.getTestName()) {
-        case 'Quotas Search - Copy / No Input': commonPage.verifyContains(data[key]);
+        case 'Quotas Search - Copy / No Input':
+          commonPage.verifyContains(testData[key]);
           break;
-        case 'Quotas Search - Order Number': quotasSearchPage.verifyQuotasSearchResults(data[key]);
+        case 'Quotas Search - Order Number':
+          quotasSearchPage.verifyQuotasSearchResults(testData[key]);
           break;
-        case 'Quotas Search - Status': quotasSearchPage.selectSearchForQuotasStatusTxt(data[key]);
+        case 'Quotas Search - Status':
+          quotasSearchPage.selectSearchForQuotasStatusTxt(testData[key]);
           this.elements.verifyQuotasSearchBtnClkandRslts();
           break;
-        default: quotasPopupPage.verifyPopupContains(data[key]);
+        default: quotasPopupPage.verifyPopupContains(testData[key]);
       }
     }
   }
