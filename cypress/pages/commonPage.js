@@ -1,13 +1,16 @@
-
 class CommonPage {
   elements = {
-    ukBannerTariffTxt: () => cy.get('.govuk-header__content').contains('UK Integrated Online Tariff'),
-    xiBannerTariffTxt: () => cy.get('.govuk-header__content').contains('Northern Ireland Online Tariff'),
-    ukTariffTxt: () => cy.get('#content').contains('UK Integrated Online Tariff'),
-    xiTariffTxt: () => cy.get('#content').contains('Northern Ireland Online Tariff'),
+    ukBannerTariff: () => cy.get('.govuk-header__content').contains('UK Integrated Online Tariff'),
+    xiBannerTariff: () => cy.get('.govuk-header__content').contains('Northern Ireland Online Tariff'),
+    ukTariff: () => cy.get('#content').contains('UK Integrated Online Tariff'),
+    xiTariff: () => cy.get('#content').contains('Northern Ireland Online Tariff'),
     imageCheck: () => cy.get('.image-guide'),
     webChatLink: () => cy.get('#webchat-link > p > a'),
     closePopupBtn: () => cy.get('.close [href]'),
+    backLnk: () => cy.get('.govuk-back-link'),
+    hrefLnk: () => cy.get('#main-content .govuk-link'),
+    govUKBtn: () => cy.get('.govuk-button'),
+    continueTxt: () => 'Continue',
   };
 
   loadData(fileName) {
@@ -27,10 +30,10 @@ class CommonPage {
     return Cypress.currentTest.title;
   }
 
-  navigateToBaseUrl(url) {
+  goToBaseUrl(url) {
     cy.visit(url);
-    this.elements.ukTariffTxt();
-    this.elements.xiTariffTxt();
+    this.elements.ukTariff();
+    this.elements.xiTariff();
   }
 
   goToUrl(urlPathToVisit) {
@@ -39,6 +42,14 @@ class CommonPage {
 
   goToSpecificUrlToCheckPageAccess(urlPathToVisit) {
     cy.visit(urlPathToVisit, {failOnStatusCode: false});
+  }
+
+  verifyCountryBanner(country) {
+    if (country == 'xi') {
+      this.elements.xiBannerTariff();
+    } else {
+      this.elements.ukBannerTariff();
+    }
   }
 
   verifyContains(strToVerify) {
@@ -70,7 +81,15 @@ class CommonPage {
     cy.url().should('match', regexp);
   }
 
-  verifyWebChatShudHaveLink(webChatLink) {
+  verifyPageShudHaveLnk(link) {
+    this.elements.hrefLnk().should(
+        'have.attr',
+        'href',
+        `${link}`,
+    );
+  }
+
+  verifyWebChatShudHaveLnk(webChatLink) {
     this.elements.webChatLink().eq(1)
         .should(
             'have.attr',
@@ -87,10 +106,17 @@ class CommonPage {
     this.elements.closePopupBtn().click();
   }
 
-  verifyShdNotContains(txtToVerify2) {
+  verifyShudNotContains(txtToVerify2) {
     cy.should('not.contain', txtToVerify2);
+  }
+
+  clkBackLnk() {
+    this.elements.backLnk().click();
+  }
+
+  clkContinueBtn() {
+    this.verifyTxtAndClk(this.elements.continueTxt());
   }
 }
 
-module.exports = new CommonPage();
-
+export default new CommonPage();

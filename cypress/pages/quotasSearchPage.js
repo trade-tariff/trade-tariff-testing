@@ -1,7 +1,8 @@
-const commonPage = require('./commonPage');
+import commonPage from './commonPage';
 class QuotasSearchPage {
   elements = {
-    searchForQuotasTxt: () => cy.contains('Search for quotas'),
+    searchForQuotasTxt: () => 'Search for quotas',
+    quotaSearchResultsTxt: () => 'Quota search results',
     commodityCode: () => cy.get('input#goods_nomenclature_item_id'),
     searchForQuotasBtn: () => cy.get('form#new_search > input[name=\'new_search\']'),
     quotasSearchResultsTableData: () => cy.get('.govuk-table'),
@@ -55,13 +56,12 @@ class QuotasSearchPage {
   }
 
   verifySearchForQuotasTxt() {
-    commonPage.verifyContains('Search for quotas');
+    commonPage.verifyContains(this.elements.searchForQuotasTxt());
   }
 
   verifyQuotasSearchResult() {
-    commonPage.verifyContains('Quota search results');
+    commonPage.verifyContains(this.elements.quotaSearchResultsTxt());
   }
 }
-
 
 export default new QuotasSearchPage();

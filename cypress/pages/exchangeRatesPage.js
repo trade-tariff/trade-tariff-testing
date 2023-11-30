@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 import dirpath from 'path';
-
-const commonPage = require('./commonPage');
+import commonPage from './commonPage';
 
 const currentMonth = dayjs().format('M');
 const currentMonthName = dayjs().format('MMMM');
@@ -20,15 +19,11 @@ class ExchangeRatesPage {
 
   goToExchangeRates() {
     cy.visit('/exchange_rates');
-    commonPage.elements.ukTariffTxt();
+    commonPage.elements.ukTariff();
   }
 
-  verifyUKTariffTxt() {
-    commonPage.elements.ukBannerTariffTxt();
-  }
-
-  verifyMonthlyHeading() {
-    commonPage.verifyContains('HMRC monthly currency exchange rates');
+  verifyUKTariffBanner() {
+    commonPage.elements.ukBannerTariff();
   }
 
   verifyPreviousYearHeading() {
@@ -43,12 +38,12 @@ class ExchangeRatesPage {
     commonPage.verifyContains(`Official ${currentMonthName} ${currentYear} HMRC foreign currency exchange monthly rates`);
   }
 
-  verifyAverageHeading() {
-    commonPage.verifyContains('HMRC average currency exchange rates');
+  verifyHeading(ratesTxtToVerify) {
+    commonPage.verifyContains(`HMRC ${ratesTxtToVerify} currency exchange rates`);
   }
 
-  verifyAvgRatesSubHeading() {
-    commonPage.verifyContains('Check the official HMRC foreign currency exchange average rates.');
+  verifySubHeading(ratesTxtToVerify) {
+    commonPage.verifyContains(`Check the official HMRC foreign currency exchange ${ratesTxtToVerify} rates.`);
   }
 
   verifyViewOnlineLnkAndClk(linkPath, type, verifyTxtAndClk) {
@@ -134,4 +129,4 @@ class ExchangeRatesPage {
   }
 }
 
-module.exports = new ExchangeRatesPage();
+export default new ExchangeRatesPage();

@@ -1,50 +1,48 @@
+import commonHelpers from '../../../helpers/commonHelpers';
 import commonPage from '../../../pages/commonPage';
 import exchangeRatesPage from '../../../pages/exchangeRatesPage';
 
-describe('UK - Validate exchange rates functionality', function() {
+describe('UK - Validate exchange rates functionality', () => {
   let data;
-  before(function() {
+  before(() => {
     commonPage.loadData('exchangeRates');
   });
-  beforeEach(function() {
+  beforeEach(() => {
     data = commonPage.getTestData();
   });
-  it('verify exchange rates link in tools page', function() {
-    commonPage.goToUrl(data.goToUri);
-    commonPage.verifyContains(data.contains);
+  it('verify exchange rates link in tools page', () => {
+    commonPage.goToUrl(data.goToURL);
+    commonPage.verifyContains(data.containTxt);
     commonPage.verifyTxtAndClk(data.clkExchangeRateTxt);
-    commonPage.verifyUrlShudInclude(data.include);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
   });
-  it('returns the latest monthly exchange rates', function() {
+  it('returns the latest monthly exchange rates', () => {
     // Visit page
     exchangeRatesPage.goToExchangeRates();
-    exchangeRatesPage.verifyUKTariffTxt();
+    exchangeRatesPage.verifyUKTariffBanner();
     // Check correct heading for the right year
-    exchangeRatesPage.verifyMonthlyHeading();
+    exchangeRatesPage.verifyHeading(data.type);
     // Click through to view online
     exchangeRatesPage.verifyViewOnlineLnkAndClk(data.linkPath, data.type, data.verifyTxtAndClk);
     // Check new title for monthly rates
     exchangeRatesPage.verifyNewTitleForMonthlyRates();
     // Check secondary heading
     exchangeRatesPage.verifySecondaryHeadingInMonthlyRates();
-    // Check first column heading
-    commonPage.verifyContains(data.containsFirst);
-    // Check last column heading
-    commonPage.verifyContains(data.containsLast);
-    commonPage.verifyContains(data.contains);
+    // verify first, last coulmn names in the table
+    commonHelpers.verifyStaticContent(data.staticTxt);
     // and can download CSV
     exchangeRatesPage.assertCSVDownload(data.csvLink, true, false, false);
   });
 
-  it('displays exchange rates for previous years', function() {
+  it('displays exchange rates for previous years', () => {
     // given I am on the exchange rates page
     // Visit page
     exchangeRatesPage.goToExchangeRates();
-    exchangeRatesPage.verifyUKTariffTxt();
+    exchangeRatesPage.verifyUKTariffBanner();
     // then I expect to see the current year in the title
-    exchangeRatesPage.verifyMonthlyHeading();
+    exchangeRatesPage.verifyHeading(data.monthlyTxt);
     // when I click through to the 2022 year
-    commonPage.verifyContains(data.contains);
+    commonPage.verifyContains(data.sideLnkHeading);
     exchangeRatesPage.clkPreviousYearLnk();
     // and I see links for last year exchange rates
     exchangeRatesPage.verifyPreviousYearHeading();
@@ -54,55 +52,53 @@ describe('UK - Validate exchange rates functionality', function() {
     exchangeRatesPage.assertCSVDownload(data.csvLink, false, true, false);
   });
 
-  it('Verify right hand navigation on the monthly exchange rate', function() {
-    commonPage.goToUrl(data.goToUri);
-    commonPage.verifyUrlShudInclude(data.include);
-    commonPage.verifyContains(data.contains);
-    commonPage.verifyContains(data.contains2);
-    commonPage.verifyContains(data.contains3);
+  it('Verify right hand navigation on the monthly exchange rate', () => {
+    commonPage.goToUrl(data.goToURL);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
+    commonHelpers.verifyStaticContent(data.staticTxt);
     exchangeRatesPage.verifyPreviousYearHeading();
     exchangeRatesPage.verifyTheSideLnksTxt();
   });
 
-  it('No exchange rates for year specified other than 2021, 2022 and 2023', function() {
-    commonPage.goToSpecificUrlToCheckPageAccess(data.goToUri);
-    exchangeRatesPage.verifyUKTariffTxt();
-    commonPage.verifyContains(data.contains);
-    commonPage.verifyUrlShudInclude(data.include);
+  it('No exchange rates for year specified other than 2021, 2022 and 2023', () => {
+    commonPage.goToSpecificUrlToCheckPageAccess(data.goToURL);
+    exchangeRatesPage.verifyUKTariffBanner();
+    commonPage.verifyContains(data.containTxt);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
   });
 
-  it('Verify average rates link on the right hand navigation', function() {
-    commonPage.goToUrl(data.goToUri);
-    commonPage.verifyUrlShudInclude(data.include);
-    exchangeRatesPage.verifyTheSideLnksTxt(data.contains);
-    exchangeRatesPage.verifyAverageHeading();
-    exchangeRatesPage.verifyAvgRatesSubHeading();
+  it('Verify average rates link on the right hand navigation', () => {
+    commonPage.goToUrl(data.goToURL);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
+    exchangeRatesPage.verifyTheSideLnksTxt(data.sideLnkTxt);
+    exchangeRatesPage.verifyHeading(data.avgTxt);
+    exchangeRatesPage.verifySubHeading(data.avgTxt);
   });
 
-  it('Verify download CSV file on average rates page', function() {
-    commonPage.goToUrl(data.goToUri);
-    commonPage.verifyUrlShudInclude(data.include);
-    exchangeRatesPage.verifyTheSideLnksTxt(data.contains);
-    exchangeRatesPage.verifyAverageHeading(data.contains2);
-    exchangeRatesPage.verifyAvgRatesSubHeading();
-    exchangeRatesPage.verifySecondaryTitle(data.contains3);
-    commonPage.verifyContains(data.contains4);
+  it('Verify download CSV file on average rates page', () => {
+    commonPage.goToUrl(data.goToURL);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
+    exchangeRatesPage.verifyTheSideLnksTxt(data.sideLnkTxt);
+    exchangeRatesPage.verifyHeading(data.secondaryTitle);
+    exchangeRatesPage.verifySubHeading(data.secondaryTitle);
+    exchangeRatesPage.verifySecondaryTitle(data.secondaryTitle);
+    commonPage.verifyContains(data.containsTxt);
     exchangeRatesPage.assertCSVDownload(data.csvLink, false, false, true);
   });
 
-  it('Verify spot rates link on the right hand navigation', function() {
-    commonPage.goToUrl(data.goToUri);
-    commonPage.verifyUrlShudInclude(data.include);
-    exchangeRatesPage.verifyTheSideLnksTxt(data.contains);
-    commonPage.verifyContains(data.contains2);
-    commonPage.verifyContains(data.contains3);
-    exchangeRatesPage.verifySecondaryTitle(data.contains4);
+  it('Verify spot rates link on the right hand navigation', () => {
+    commonPage.goToUrl(data.goToURL);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
+    exchangeRatesPage.verifyTheSideLnksTxt(data.sideLnkTxt);
+    exchangeRatesPage.verifyHeading(data.spotTxt);
+    exchangeRatesPage.verifySubHeading(data.spotTxt);
+    exchangeRatesPage.verifySecondaryTitle(data.spotTxt);
   });
 
-  it('Download CSV file in mentioned directory and verify number of records', function() {
-    commonPage.goToUrl(data.goToUri);
+  it('Download CSV file in mentioned directory and verify number of records', () => {
+    commonPage.goToUrl(data.goToURL);
     // Check correct heading for the right year
-    exchangeRatesPage.verifyMonthlyHeading();
+    exchangeRatesPage.verifyHeading(data.type);
     // Click through to view online
     exchangeRatesPage.verifyViewOnlineLnkAndClk(data.linkPath, data.type, data.verifyTxtAndClk);
     // Check new title for monthly rates
