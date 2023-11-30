@@ -1,6 +1,8 @@
 import commodityPage from '../pages/commodityPage';
 import commonPage from '../pages/commonPage';
 import searchPage from '../pages/searchPage';
+import quotasSearchPage from '../pages/quotasSearchPage';
+import quotasPopupPage from '../pages/quotasPopupPage';
 
 class CommonHelpers {
   // search shows expected chemicals
@@ -34,6 +36,44 @@ class CommonHelpers {
   searchShowsNoResults(searchstr, containstxt) {
     searchPage.enterTxtInTheSearchFieldAndClkEnter(searchstr);
     commonPage.verifyContains(containstxt);
+  }
+  // searchBtn click and verifyResults text
+  verifyQuotasSearchBtnClkandRslts() {
+    quotasSearchPage.verifySearchForQuotasBtn();
+    quotasSearchPage.verifyQuotasSearchResult();
+  }
+  // navigate to specific url and verify and click on ordernumber
+  verifyQuotasOrderNumAndClk(commodityCode, balanceDt, orderNum) {
+    quotasPopupPage.verifyStaticDtUrl(commodityCode, balanceDt);
+    commonPage.verifyTxtAndClk(orderNum);
+  }
+  // click ordenrNum and verify HeadText on QuotasPopup
+  clkQuotasOrderNumAndVfyTxt(orderNum, headTxt) {
+    commonPage.verifyTxtAndClk(orderNum);
+    quotasPopupPage.verifyTxt(headTxt);
+  }
+  // common method for data parameterization
+  verifyData(testData) {
+    const keys = Object.keys(testData);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      switch (commonPage.getTestName()) {
+        case 'Quotas Search - Copy / No Input':
+          commonPage.verifyContains(testData[key]);
+          break;
+        case 'Quotas Search - Order Number':
+          quotasSearchPage.verifyQuotasSearchResults(testData[key]);
+          break;
+        case 'Quotas Search - Status':
+          quotasSearchPage.selectSearchForQuotasStatusTxt(testData[key]);
+          this.verifyQuotasSearchBtnClkandRslts();
+          break;
+        case 'Quotas Search - Order Number - Included EU country  - Italy':
+          quotasSearchPage.verifyQuotasSearchResults(testData[key]);
+          break;
+        default: quotasPopupPage.verifyPopupContains(testData[key]);
+      }
+    }
   }
 }
 

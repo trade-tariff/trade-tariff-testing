@@ -1,144 +1,154 @@
-[
-  {
-    "containstxt": "058039",
-    "containstxt2": "Non preferential tariff quota",
-    "containstxt3": "Quota order number 058039",
-    "containstxt4": "Quota order number",
-    "commodity": "7306110000"
+{
+  "Quota Popup - Verify change the title to quota order number": {
+    "commodity": "7306110000",
+    "measureType": "Non preferential tariff quota",
+    "orderNumber": "058039",
+    "headTxt": "Quota order number 058039",
+    "quotaOrderNumTxt": "Quota order number"
   },
-  {
-    "containstxt": "058039",
-    "containstxt2": "Quota order number 058039",
-    "containstxt3": "Current balance",
-    "commodity": "7306110000"
+  "Quota Popup - Verify Balance as of todayDate": {
+    "commodity": "7306110000",
+    "orderNumber": "058039",
+    "headTxt": "Quota order number 058039",
+    "currrentBalance": "Current balance"
   },
-  {
-    "containstxt": "Non preferential tariff quota",
-    "containstxt2": "058039",
-    "commodity": "7306110000"
+  "Quota Popup - Verify Comma separator in quota balance": {
+    "commodity": "7306110000",
+    "measureType": "Non preferential tariff quota",
+    "orderNumber": "058039"
   },
-  {
-    "containstxt": "058039",
-    "containstxt2": "The status given is correct at the time",
-    "commodity": "7306110000"
+  "Quota Popup - Verify Footer content": {
+    "commodity": "7306110000",
+    "orderNumber": "058039",
+    "footNotesTxt": "The status given is correct at the time"
   },
-  {
-    "containstxt": "058041",
-    "containstxt2": "Quota order number 058041",
-    "containstxt3": "Opening balance",
-    "containstxt4": "Status",
-    "containstxt5": "Open",
-    "containstxt6": "Start and end dates",
-    "containstxt7": "Last allocation date",
-    "containstxt8": "Suspension / blocking periods",
-    "containstxt9": "n/a",
-    "containstxt10": "The status given is correct at the time",
-    "commodity": "7306110000"
+  "Quota Popup - Verify balance as of previousDate and click and view balance for todayDate popup": {
+    "commodity": "7306110000",
+    "orderNumber": "058041",
+    "headTxt": "Quota order number 058041",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "startAndEnd": "Start and end dates",
+      "lastAlcDt": "Last allocation date",
+      "suspAndBlckPrds": "Suspension / blocking periods",
+      "notApplicable": "n/a"
+    },
+    "footNotesTxt": "The status given is correct at the time"
   },
-  {
-    "containstxt": "058949",
-    "containstxt2": "Quota order number 058949",
-    "containstxt3": "Opening balance",
-    "containstxt4": "Status",
-    "containstxt5": "Open",
-    "containstxt6": "Start and end dates",
-    "containstxt7": "Last allocation date",
-    "containstxt8": "Suspension / blocking periods",
-    "containstxt9": "n/a",
-    "containstxt10": "The status given is correct",
-    "commodity": "7306110000"
+  "Quota Popup - Verify balance as of futureDate and click and view balance for todayDate popup": {
+    "commodity": "7306110000",
+    "orderNumber": "058949",
+    "headTxt": "Quota order number 058949",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "startAndEnd": "Start and end dates",
+      "lastAlcDt": "Last allocation date",
+      "suspAndBlckPrds": "Suspension / blocking periods",
+      "notApplicable": "n/a"
+    },
+    "footNotesTxt": "The status given is correct"
   },
-  {
-    "containstxt": "6 Jan 2023",
-    "containstxt2": "050233",
-    "containstxt3": "Quota order number 050233",
-    "containstxt4": "Balance (as of 6 Jan 2023)",
-    "containstxt5": "0.000 Kilogram (kg)",
-    "containstxt6": "Opening balance",
-    "containstxt7": "Status",
-    "containstxt8": "Exhausted",
-    "containstxt9": "Suspension / blocking periods",
-    "containstxt10": "n/a",
-    "commodity": "1904103000"
+  "Quota Popup - Verify quota status and no suspension or blocking period": {
+    "commodity": "1904103000",
+    "balanceDt": "6 Jan 2023",
+    "orderNumber": "050233",
+    "headTxt": "Quota order number 050233",
+    "balance": "Balance (as of 6 Jan 2023)",
+    "balanceValue": "0.000 Kilogram (kg)",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "exhausted": "Exhausted",
+      "suspAndBlckPrds": "Suspension / blocking periods",
+      "notApplicable": "n/a"
+    }
   },
-  {
-    "containstxt": " 31 Dec 2020",
-    "containstxt2": "090716",
-    "containstxt3": "Quota order number 090716",
-    "containstxt4": "Balance (as of 31 Dec 2020)",
-    "containstxt5": "Kilogram (kg)",
-    "containstxt6": "Opening balance",
-    "containstxt7": "Status",
-    "containstxt8": "Open",
-    "containstxt9": "Blocking period",
-    "containstxt10": "11 December 2020 to 31 December 2020",
-    "commodity": "0302990040"
+  "Quota Popup - Verify quota status and blocking period": {
+    "commodity": "0302990040",
+    "balanceDt": " 31 Dec 2020",
+    "orderNumber": "090716",
+    "headTxt": "Quota order number 090716",
+    "balance": "Balance (as of 31 Dec 2020)",
+    "balanceValue": "Kilogram (kg)",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "blckingPrd": "Blocking period",
+      "blckingPrdDt": "11 December 2020 to 31 December 2020"
+    }
   },
-  {
-    "containstxt": "1 May 2022",
-    "containstxt2": "051180",
-    "containstxt3": "Quota order number 051180",
-    "containstxt4": "Balance (as of 1 May 2022)",
-    "containstxt5": "Kilogram (kg)",
-    "containstxt6": "View balance for ${todaysDate}",
-    "containstxt7": "Opening balance",
-    "containstxt8": "Pending balance",
-    "containstxt9": "Status",
-    "containstxt10": "Open",
-    "containstxt11": "Start and end dates",
-    "containstxt12": "1 October 2021 to 11 July 2022",
-    "containstxt13": "Last allocation date",
-    "containstxt14": "n/a",
-    "containstxt15": "Suspension period",
-    "containstxt16": "1 May 2022 to 31 May 2022",
-    "commodity": "0806101090"
+  "Quota Popup - Verify quota status and suspension period": {
+    "commodity": "0806101090",
+    "balanceDt": "1 May 2022",
+    "orderNumber": "051180",
+    "headTxt": "Quota order number 051180",
+    "balance": "Balance (as of 1 May 2022)",
+    "balanceValue": "Kilogram (kg)",
+    "pendingBalance": "Pending balance",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "open": "Open",
+      "startAndEnd": "Start and end dates",
+      "startAndEndDt": "1 October 2021 to 11 July 2022",
+      "lastAlcDt": "Last allocation date",
+      "notApplicable": "n/a",
+      "suspensionPrd": "Suspension period",
+      "suspensionPrdDt": "1 May 2022 to 31 May 2022"
+    }
   },
-  {
-    "containstxt": "23 Jan 2020",
-    "containstxt2": "096806",
-    "containstxt3": "Quota order number 096806",
-    "containstxt4": "Balance (as of 23 Jan 2020)",
-    "containstxt5": "Kilogram (kg)",
-    "containstxt6": "View balance for ${todaysDate}",
-    "containstxt7": "Opening balance",
-    "containstxt8": "Pending balance",
-    "containstxt9": "Status",
-    "containstxt10": "Critical",
-    "containstxt11": "Start and end dates",
-    "containstxt12": "23 January 2020 to 31 December 2020",
-    "containstxt13": "Last allocation date",
-    "containstxt14": "n/a",
-    "containstxt15": "Suspension period",
-    "containstxt16": "23 January 2020 to 30 April 2020",
-    "containstxt17": "Blocking period",
-    "containstxt18": "January 2020 to 7 May 2020",
-    "commodity": "0809290000"
+  "Quota Popup - Verify quota status and suspension and blocking periods": {
+    "commodity": "0809290000",
+    "balanceDt": "23 Jan 2020",
+    "orderNumber": "096806",
+    "headTxt": "Quota order number 096806",
+    "balance": "Balance (as of 23 Jan 2020)",
+    "balanceValue": "Kilogram (kg)",
+    "pendingBalance": "Pending balance",
+    "popupData": {
+      "openingBalance": "Opening balance",
+      "status": "Status",
+      "critical": "Critical",
+      "startAndEnd": "Start and end dates",
+      "startAndEndDt": "23 January 2020 to 31 December 2020",
+      "lastAlcDt": "Last allocation date",
+      "notApplicable": "n/a",
+      "suspensionPrd": "Suspension period",
+      "suspensionPrdDt": "23 January 2020 to 30 April 2020",
+      "blockingPrd": "Blocking period",
+      "blockingPrdDt": "23 January 2020 to 7 May 2020"
+    }
   },
-  {
-    "containstxt": "Non preferential tariff quota",
-    "containstxt2": "054002",
-    "containstxt3": "Rural Payments Agency",
-    "commodity": "0201100021"
+  "UK quota numbers post 1 Jan 2021 -054xxx Licensed": {
+    "commodity": "0201100021",
+    "measureType": "Non preferential tariff quota",
+    "orderNumber": "054002",
+    "RuralPmtsAgncy": "Rural Payments Agency"
   },
-  {
-    "containstxt": "1 Feb 2022",
-    "containstxt2": "058041",
-    "containstxt3": "Transferred balance",
-    "containstxt4": "Pending balance",
-    "commodity": "7306290000"
+  "does not show any balance transfers before HMRC started managing them": {
+    "commodity": "7306290000",
+    "balanceDt": "1 Feb 2022",
+    "orderNumber": "058041",
+    "transferredBalance": "Transferred balance",
+    "pendingBalance": "Pending balance"
   },
-  {
-    "containstxt": "28 Oct 2022",
-    "containstxt2": "058041",
-    "containstxt3": "Pending balance",
-    "containstxt4": "Kilogram (kg) remains available",
-    "commodity": "7306290000"
+  "shows a pending balance before the closing date": {
+    "commodity": "7306290000",
+    "balanceDt": "28 Oct 2022",
+    "orderNumber": "058041",
+    "pendingBalance": "Pending balance",
+    "pendingBalanceData": "Kilogram (kg) remains available"
   },
-  {
-    "containstxt": "29 Oct 2022",
-    "containstxt2": "058041",
-    "containstxt3": "Transferred balance",
-    "containstxt4": "Kilogram (kg), transferred",
-    "commodity": "7306290000"
+  "shows a transfer balance after the closing date": {
+    "commodity": "7306290000",
+    "balanceDt": "29 Oct 2022",
+    "orderNumber": "058041",
+    "transferredBalance": "Transferred balance",
+    "transferredBalanceData": "Kilogram (kg), transferred"
   }
-]
+}
