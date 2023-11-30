@@ -70,7 +70,6 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     quotasSearchPage.verifyOrderNumber(data.orderNumber);
     quotasSearchPage.selectCountry(data.country);
     commonHelpers.verifyQuotasSearchBtnClkandRslts();
-    quotasSearchPage.verifyQuotasSearchResults(data.countryResults1);
-    quotasSearchPage.verifyQuotasSearchResults(data.countryResults2);
+    commonHelpers.verifyData(data.searchResults);
   });
 });

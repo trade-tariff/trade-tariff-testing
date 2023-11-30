@@ -16,16 +16,15 @@ class CommonPage {
     });
   }
 
-  getTestName() {
-    const testCaseName = Cypress.currentTest.title;
-    return testCaseName;
-  }
-
   getTestData() {
     const data = Cypress.env('testData');
     if (`${data}` != null && `${data}` != 'undefined') {
       return data[Cypress.currentTest.title];
     }
+  }
+
+  getTestName() {
+    return Cypress.currentTest.title;
   }
 
   navigateToBaseUrl(url) {

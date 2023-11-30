@@ -52,7 +52,9 @@
   "Quotas Search - Order Number - Included EU country  - Italy": {
     "orderNumber": "058039",
     "country": "Italy",
-    "countryResults1": "European Union (EU)",
-    "countryResults2": "European Union (1013)"
+    "searchResults": {
+      "countryResults1": "European Union (EU)",
+      "countryResults2": "European Union (1013)"
+    }
   }
 }
