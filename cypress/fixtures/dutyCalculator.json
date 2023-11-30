@@ -18,7 +18,21 @@
     },
     "NI-GB-102-e2e-xi": {
         "commodityCode": "1516209821",
-        "country": "xi"
+        "country": "xi",
+        "destination": "uk",
+        "origin": "Northern Ireland",
+        "originStaticTxt": {
+            "1": "The duty you are charged may be dependent on the country from which the goods are coming.",
+            "2": "Where are the goods coming from?",
+            "3": "When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures."
+        },
+        "noDutyStaticTxt": {
+            "1": "There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.",
+            "2": "Find out more about trading and moving goods in and out of Northern Ireland (opens in a new window).",
+            "link": "https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland"
+        },
+        "txtToClk": "Start again",
+        "pageTitle": "When will the goods be imported?"
     },
     "GB-NI401-e2e": {
         "country": "uk",
