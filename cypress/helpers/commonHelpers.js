@@ -68,6 +68,9 @@ class CommonHelpers {
           quotasSearchPage.selectSearchForQuotasStatusTxt(testData[key]);
           this.verifyQuotasSearchBtnClkandRslts();
           break;
+        case 'Quotas Search - Order Number - Included EU country  - Italy':
+          quotasSearchPage.verifyQuotasSearchResults(testData[key]);
+          break;
         default: quotasPopupPage.verifyPopupContains(testData[key]);
       }
     }
