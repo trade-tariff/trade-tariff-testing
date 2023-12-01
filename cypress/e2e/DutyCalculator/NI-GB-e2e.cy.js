@@ -1,6 +1,6 @@
-import commonPage from '../../../pages/commonPage';
-import commodityPage from '../../../pages/commodityPage';
-import commonHelpers from '../../../helpers/commonHelpers';
+import commonPage from '../../pages/commonPage';
+import commodityPage from '../../pages/commodityPage';
+import commonHelpers from '../../helpers/commonHelpers';
 
 describe('| NI-GB101--e2e | Northern Ireland to GB United Kingdom |', () => {
   let data;
