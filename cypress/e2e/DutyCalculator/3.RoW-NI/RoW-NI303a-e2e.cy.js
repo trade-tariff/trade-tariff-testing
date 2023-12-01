@@ -11,6 +11,8 @@ describe('RoW-NI303a', function() {
 
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
+    // Import Quantity
+    cy.quantity({kgm: '100.0'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');

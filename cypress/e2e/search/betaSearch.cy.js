@@ -16,110 +16,110 @@ describe('Using beta search', {tags: ['devOnly']}, () => {
 
   // TODO: Reinstate this test when guides are adjusted/come back from HMRC
   it.skip('Search result returns guides for `fresh potatoes`', () => {
-    searchPage.searchForCommodity(data.searchstr);
-    commonPage.verifyTxtAndClk(data.containstxt);
+    searchPage.searchForCommodity(data.searchStr);
+    commonPage.verifyTxtAndClk(data.pageContains);
     commonPage.imgShudExist();
     searchPage.searchFilterNavigatnLnk(data.link);
   });
 
   it('Search result returns no guides for `indian`', () => {
     // read test data from environment variable and get test case specific data to run
-    searchPage.searchForCommodity(data.searchstr);
+    searchPage.searchForCommodity(data.searchStr);
     commonPage.imgShudNotExist();
   });
 
   it('Search result corrects spelling for `halbiut` and supports using the original search query', () => {
-    searchPage.searchForCommodity(data.searchstr);
-    searchPage.verifyH1HeadingTxt(data.containstxt);
+    searchPage.searchForCommodity(data.searchStr);
+    searchPage.verifySearchResultsHeading(data.pageContains);
     searchPage.clkNonCorrectedSearchResultsLink();
-    commonPage.verifyUrlShudInclude(data.include);
-    searchPage.verifyInterceptMessageTxt(data.containstxt2);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
+    searchPage.verifyInterceptMessageTxt(data.pageContains2);
   });
 
   it('Search result returns results for synonyms', () => {
-    commonHelpers.searchReturnsResultsForSynonmys(data.searchstr, data.containstxt);
+    commonHelpers.searchReturnsResultsForSynonmys(data.searchStr, data.pageContains);
   });
 
   it('Search result returns results for synonyms with a goods nomenclature item id', () => {
-    commonHelpers.searchReturnsResultsForSynonmys(data.searchstr, data.containstxt);
+    commonHelpers.searchReturnsResultsForSynonmys(data.searchStr, data.pageContains);
   });
 
   it('Search filters results with facet clothing_gender', () => {
-    searchPage.searchForCommodity(data.searchstr);
-    commonPage.verifyTxtAndClk(data.containstxt);
-    commonPage.verifyTxtAndClk(data.containstxt2);
-    commonPage.verifyUrlShudInclude(data.include);
-    commonPage.verifyContains(data.containstxt3);
-    commonPage.verifyContains(data.containstxt4);
-    searchPage.classificatnsTagContainsAndClk(data.containstxt5);
+    searchPage.searchForCommodity(data.searchStr);
+    commonPage.verifyTxtAndClk(data.pageContains);
+    commonPage.verifyTxtAndClk(data.pageContains2);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
+    commonPage.verifyContains(data.pageContains3);
+    commonPage.verifyContains(data.pageContains4);
+    searchPage.classificatnsTagContainsAndClk(data.pageContains5);
     searchPage.elementShudNotExist();
-    commonPage.verifyUrlShudNotInclude(data.include);
+    commonPage.verifyUrlShudNotInclude(data.shudInclude);
   });
 
   it('Search filters results with heading 6211', () => {
-    searchPage.searchForCommodity(data.searchstr);
-    commonPage.verifyTxtAndClk(data.containstxt);
-    commonPage.verifyUrlShudInclude(data.include);
-    commonPage.verifyContains(data.containstxt2);
-    searchPage.classificatnsTagContainsAndClk(data.containstxt3);
+    searchPage.searchForCommodity(data.searchStr);
+    commonPage.verifyTxtAndClk(data.pageContains);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
+    commonPage.verifyContains(data.pageContains2);
+    searchPage.classificatnsTagContainsAndClk(data.pageContains3);
     searchPage.elementShudNotExist();
-    commonPage.verifyUrlShudNotInclude(data.include);
+    commonPage.verifyUrlShudNotInclude(data.shudInclude);
   });
 
   it('Searching for `access equipment` returns an intercept message', () => {
-    searchPage.searchForCommodity(data.searchstr);
-    commonPage.verifyTxtAndClk(data.containstxt);
-    commonPage.verifyUrlShudInclude(data.include);
+    searchPage.searchForCommodity(data.searchStr);
+    commonPage.verifyTxtAndClk(data.pageContains);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
   });
 
   it('Searching intercept message term `fitbit` returns results', () => {
-    searchPage.searchForCommodity(data.searchstr);
+    searchPage.searchForCommodity(data.searchStr);
     searchPage.interceptMsgCheck();
-    commonPage.verifyUrlShudInclude(data.include);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
     searchPage.searchResultsWithHitsCheck();
   });
 
   it('Search result returns the no results page for `flibble`', () => {
-    searchPage.searchForCommodity(data.searchstr);
-    searchPage.verifyInterceptMessageTxt(data.containstxt);
+    searchPage.searchForCommodity(data.searchStr);
+    searchPage.verifyInterceptMessageTxt(data.pageContains);
     commonPage.verifyWebChatShudHaveLnk(data.link);
   });
 
   it('Enables switching between beta and legacy search implementations', () => {
     commonPage.goToUrl(data.linktoselect);
-    commonPage.goToUrl(data.include);
-    commonPage.verifyTxtAndClk(data.containstxt);
+    commonPage.goToUrl(data.shudInclude);
+    commonPage.verifyTxtAndClk(data.pageContains);
     // we're still on the browse page
-    commonPage.verifyUrlShudInclude(data.include);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
     // and the beta search inset is now enabled
-    commonPage.verifyContains(data.containstxt2);
+    commonPage.verifyContains(data.pageContains2);
     // when we do a search
     searchPage.searchWithSearchField('ham');
     // we see beta search results
     searchPage.verifyBetaSearchResults();
     // on the /search url
-    commonPage.verifyUrlShudInclude(data.include2);
+    commonPage.verifyUrlShudInclude(data.shudInclude2);
     // when we switch back
     searchPage.enableBetaSearch();
     // we see legacy search results
-    searchPage.verifySearchResults(data.containstxt3);
+    searchPage.verifySearchResults(data.pageContains3);
     // on the /search url
-    commonPage.verifyUrlShudInclude(data.include2);
+    commonPage.verifyUrlShudInclude(data.shudInclude2);
   });
 
   it('Shows commodity results with matching search reference tokens', () => {
-    searchPage.searchForCommodity(data.searchstr);
-    commonPage.verifyUrlShudInclude(data.include);
+    searchPage.searchForCommodity(data.searchStr);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
     searchPage.verifyBetaSearchResults();
   });
 
   it('Supports single and double quoted search terms', () => {
     // double quote search
-    cy.searchForCommodity(data.searchstr);
-    commonPage.verifyUrlShudInclude(data.include);
+    cy.searchForCommodity(data.searchStr);
+    commonPage.verifyUrlShudInclude(data.shudInclude);
     // single quote search
-    cy.searchForCommodity(data.searchstr2);
-    commonPage.verifyUrlShudInclude(data.include2);
+    cy.searchForCommodity(data.searchStr2);
+    commonPage.verifyUrlShudInclude(data.shudInclude2);
   });
 
   it('Supports fast fallback search on garbage inputs', () => {
@@ -132,15 +132,15 @@ describe('Using beta search', {tags: ['devOnly']}, () => {
 
   context('when searching for chemicals', () => {
     it('Supports chemical search on cus numbers', () => {
-      commonHelpers.searchChemicals(data.searchstr, data.include, data.containstxt);
+      commonHelpers.searchChemicals(data.searchStr, data.shudInclude, data.pageContains);
     });
 
     it('Supports chemical search on cas numbers', () => {
-      commonHelpers.searchChemicals(data.searchstr, data.include, data.containstxt);
+      commonHelpers.searchChemicals(data.searchStr, data.shudInclude, data.pageContains);
     });
 
     it('Supports chemical search on chemical names', () => {
-      commonHelpers.searchChemicals(data.searchstr, data.include, data.containstxt);
+      commonHelpers.searchChemicals(data.searchStr, data.shudInclude, data.pageContains);
     });
   });
 
@@ -226,55 +226,55 @@ describe('Using beta search', {tags: ['devOnly']}, () => {
 
   context('when using the search input on current goods nomenclature', () => {
     it('search navigates to chapters', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to non-declarable headings', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to declarable headings', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to 6 digit subheadings', () => {
-      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
+      commonHelpers.searchNavigatesToSubheadings(data.searchStr, data.suggestionTxtToMatch, data.matchStr);
     });
 
     it('search navigates to 8 digit subheadings', () => {
-      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
+      commonHelpers.searchNavigatesToSubheadings(data.searchStr, data.suggestionTxtToMatch, data.matchStr);
     });
 
     it('search navigates to 10 digit subheadings', () => {
-      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
+      commonHelpers.searchNavigatesToSubheadings(data.searchStr, data.suggestionTxtToMatch, data.matchStr);
     });
 
     it('search navigates to short-form commodity codes', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to 10 digit commodities', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
   });
 
   context('when using the search input on expired goods nomenclature', () => {
     it('search navigates to expired headings', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to expired subheadings in their short form', () => {
-      commonHelpers.searchNavigatesExpiredSubheadings(data.searchstrshortform, data.include);
+      commonHelpers.searchNavigatesExpiredSubheadings(data.searchStrShortForm, data.shudInclude);
     });
 
     it('search navigates to expired commodities', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
   });
 
   context('when passing nonsense input', () => {
     it('search shows no results', () => {
-      commonHelpers.searchShowsNoResults(data.searchstr, data.containstxt);
+      commonHelpers.searchShowsNoResults(data.searchStr, data.pageContains);
     });
   });
 });

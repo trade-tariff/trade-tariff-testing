@@ -3,7 +3,7 @@ class SearchPage {
     txtContains: () => cy.contains('Search for a commodity'),
     enterSearchStr: () => cy.get('.js-commodity-picker-select:last'),
     searchFilterNavLink: () => cy.get('#search-filter-navigation div div p a'),
-    h1HeadingTxt: () => cy.get('h1'),
+    h1Heading: () => cy.get('h1'),
     nonCorrelatedSearchResults: () => cy.get('span.non-corrected-search-results > a'),
     inpterceptMsg: () => cy.get('#intercept-message'),
     searchResults: () => cy.get('.search-results'),
@@ -41,8 +41,8 @@ class SearchPage {
         `${link}`);
   }
 
-  verifyH1HeadingTxt(text) {
-    this.elements.h1HeadingTxt().contains('Search results for ‘' + `${text}` + '’');
+  verifySearchResultsHeading(text) {
+    this.elements.h1Heading().contains('Search results for ‘' + `${text}` + '’');
   }
 
   clkNonCorrectedSearchResultsLink() {

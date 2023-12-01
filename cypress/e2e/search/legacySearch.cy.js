@@ -15,15 +15,15 @@ describe('Legacy search', () => {
 
   context('when searching for chemicals', () => {
     it('Supports chemical search on cus numbers', () => {
-      commonHelpers.searchChemicals(data.searchstr, data.include, data.containstxt);
+      commonHelpers.searchChemicals(data.searchStr, data.shudInclude, data.pageContains);
     });
 
     it('Supports chemical search on cas numbers', () => {
-      commonHelpers.searchChemicals(data.searchstr, data.include, data.containstxt);
+      commonHelpers.searchChemicals(data.searchStr, data.shudInclude, data.pageContains);
     });
 
     it('Supports chemical search on chemical names', () => {
-      commonHelpers.searchChemicals(data.searchstr, data.include, data.containstxt);
+      commonHelpers.searchChemicals(data.searchStr, data.shudInclude, data.pageContains);
     });
   });
 
@@ -109,59 +109,59 @@ describe('Legacy search', () => {
 
   context('when using the search input on current goods nomenclature', () => {
     it('search navigates to chapters', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to non-declarable headings', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to declarable headings', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to 6 digit subheadings', () => {
-      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
+      commonHelpers.searchNavigatesToSubheadings(data.searchStr, data.suggestionTxtToMatch, data.matchStr);
     });
 
     it('search navigates to 8 digit subheadings', () => {
-      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
+      commonHelpers.searchNavigatesToSubheadings(data.searchStr, data.suggestionTxtToMatch, data.matchStr);
     });
 
     it('search navigates to 10 digit subheadings', () => {
-      commonHelpers.searchNavigatesToSubheadings(data.searchstr, data.suggestiontxttomatch, data.matchstr);
+      commonHelpers.searchNavigatesToSubheadings(data.searchStr, data.suggestionTxtToMatch, data.matchStr);
     });
 
     it('search navigates to short-form commodity codes', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to 10 digit commodities', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
   });
 
   context('when using the search input on expired goods nomenclature', () => {
     it('search navigates to expired headings', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
 
     it('search navigates to expired subheadings in their short form', () => {
-      commonHelpers.searchNavigatesExpiredSubheadings(data.searchstrshortform, data.include);
+      commonHelpers.searchNavigatesExpiredSubheadings(data.searchStrShortForm, data.shudInclude);
     });
 
     it('search navigates to expired subheadings in their long form', () => {
-      commonHelpers.searchNavigatesExpiredSubheadings(data.searchstrlongform, data.include);
+      commonHelpers.searchNavigatesExpiredSubheadings(data.searchStrLongForm, data.shudInclude);
     });
 
     it('search navigates to expired commodities', () => {
-      commonHelpers.searchNavigates(data.searchstr, data.include);
+      commonHelpers.searchNavigates(data.searchStr, data.shudInclude);
     });
   });
 
   context('when passing nonsense input', () => {
     it('search shows no results', () => {
-      commonHelpers.searchShowsNoResults(data.searchstr, data.containstxt);
+      commonHelpers.searchShowsNoResults(data.searchStr, data.pageContains);
     });
   });
 });
