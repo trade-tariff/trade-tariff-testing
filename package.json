@@ -26,7 +26,7 @@
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
     "mochawesome-report-generator": "^6.0.1",
-    "nanoid": "^4.0.2",
+    "nanoid": "^5.0.4",
     "parse-markdown-table": "^0.0.6",
     "postcss": "^8.4.31",
     "set-value": "^4.1.0",
