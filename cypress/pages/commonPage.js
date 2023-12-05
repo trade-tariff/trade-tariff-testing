@@ -14,19 +14,29 @@ class CommonPage {
   };
 
   loadData(fileName) {
-    cy.fixture(fileName).then((searchData) => {
-      Cypress.env('testData', searchData);
+    cy.fixture(fileName).then((testData) => {
+      Cypress.env('testData', testData);
     });
   }
 
   getTestData() {
+    const testCaseData = [];
     const data = Cypress.env('testData');
     if (`${data}` != null && `${data}` != 'undefined') {
-      return data[Cypress.currentTest.title];
+      const dataKey = Object.keys(data);
+      const dataValues = Object.values(data);
+      for (const key in dataKey) {
+        if (dataKey[key] == this.getTestCaseName()) {
+          testCaseData.push(dataValues[key]);
+        } else if (dataKey[key] == 'commonData') {
+          testCaseData.push(dataValues[key]);
+        }
+      }
+      return Object.assign(testCaseData[0], testCaseData[1]);
     }
   }
 
-  getTestName() {
+  getTestCaseName() {
     return Cypress.currentTest.title;
   }
 

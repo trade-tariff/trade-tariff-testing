@@ -58,7 +58,7 @@ class CommonHelpers {
     const keys = Object.keys(testData);
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
-      switch (commonPage.getTestName()) {
+      switch (commonPage.getTestCaseName()) {
         case 'Quotas Search - Copy / No Input':
           commonPage.verifyContains(testData[key]);
           break;
