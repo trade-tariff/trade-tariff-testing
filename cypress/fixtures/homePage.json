@@ -1,0 +1,40 @@
+{
+    "Accept Cookies": {
+        "acptButton": "Accept additional cookies",
+        "hideButton": "Hide this message",
+        "policy1": "cookies_policy",
+        "policy2": "cookies_preferences_set",
+        "usage": "usage",
+        "remember_settings": "remember_settings",
+        "expectedPolicy1": [
+            {
+                "usage": true,
+                "remember_settings": true
+            }
+        ],
+        "expectedPolicy2": [
+            {
+                "value": true
+            }
+        ]
+    },
+    "Reject Cookies": {
+        "rejctButton": "Reject additional cookies",
+        "hideButton": "Hide this message",
+        "policy1": "cookies_policy",
+        "policy2": "cookies_preferences_set",
+        "usage": "usage",
+        "remember_settings": "remember_settings",
+        "expectedPolicy1": [
+            {
+                "usage": false,
+                "remember_settings": false
+            }
+        ],
+        "expectedPolicy2": [
+            {
+                "value": true
+            }
+        ]
+    }
+}
