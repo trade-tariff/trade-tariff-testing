@@ -18,7 +18,7 @@ describe('navigating the AZ for different goods nomenclature', function() {
 
     it('displays the chapter page', function() {
       cy.visit(path);
-      cy.contains('Instruments And Apparatus Rules Instruments, Musical Other')
+      cy.contains('Instruments and apparatus - rules - instruments, musical - other')
           .click();
       cy.url().should('include', '/chapters/92');
     });
@@ -30,7 +30,7 @@ describe('navigating the AZ for different goods nomenclature', function() {
 
     it('displays the heading page', function() {
       cy.visit(path);
-      cy.contains('Ice Cream').click();
+      cy.contains('Ice-cream').click();
       cy.url().should('include', '/headings/2105');
     });
   });
@@ -40,7 +40,7 @@ describe('navigating the AZ for different goods nomenclature', function() {
 
     it('displays the subheading page', function() {
       cy.visit(path);
-      cy.contains('Ice Breakers').click();
+      cy.contains('Ice breakers').click();
       cy.url().should('include', '/subheadings/8906900000-80');
     });
   });
