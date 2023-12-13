@@ -36,5 +36,84 @@
                 "value": true
             }
         ]
+    },
+    "allows the user to choose their own cookie policy": {
+        "saveButton": "Save Changes",
+        "policy1": "cookies_policy",
+        "expectedPolicy1": [
+            {
+                "usage": false,
+                "remember_settings": true
+            }
+        ],
+        "successTxt": "Success"
+    },
+    "has the right links": {
+        "toolsHeadTxt": "Tariff tools",
+        "toolsHdrLink": "Tools",
+        "ukLink": "uk",
+        "xiLink": "xi"
+    },
+    "Privacy - Page content and links": {
+        "accsRqustHeadTxt": "Make a subject access request to HMRC",
+        "complntHeadTxt": "Make a complaint about HMRC",
+        "dataProLink": "Office of the Data Protection Officer Privacy Notice",
+        "dataProHeadTxt": "HMRC Office of the Data Protection Officer Privacy Notice",
+        "staticDataToVerify": [
+            "Privacy notice",
+            "This notice sets out",
+            "How we use your data",
+            "The purposes for which we are processing your personal data are to:",
+            "collect web analytics to help us to monitor usage of our service for the purposes of improving it",
+            "Complaints",
+            "International transfers",
+            "Your rights",
+            "Data retention",
+            "Data security",
+            "Who we share your data with",
+            "The legal basis of using your data",
+            "The data we will process",
+            "advice.dpa@hmrc.gov.uk.",
+            "casework@ico.org.uk"
+        ]
+    },
+    "Landing Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK": {
+        "title": "UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
+    },
+    "Browse Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK": {
+        "BrowsePgtitle": "UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
+    },
+    "Tools Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK": {
+        "ToolsPgtitle": "UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
+    },
+    "A-Z Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK": {
+        "AZPgtitle": "UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
+    },
+    "Updates Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK": {
+        "UpdtsPgtitle": "UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
+    },
+    "Help Page - The Online Trade Tariff: Look up commodity codes, import duty, VAT and controls - GOV.UK": {
+        "HelpPgtitle": "UK Integrated Online Tariff: look up commodity codes, duty and VAT rates - GOV.UK"
+    },
+    "Section Page - Live animals; animal products - UK Integrated Online Tariff - GOV.UK": {
+        "secPgTitle": "Live animals; animal products - UK Integrated Online Tariff - GOV.UK"
+    },
+    "Chapter Page - Live animals - UK Integrated Online Tariff - GOV.UK": {
+        "chptPgTitle": "Live animals - UK Integrated Online Tariff - GOV.UK"
+    },
+    "Heading Page - Live horses, asses, mules and hinnies - Northern Ireland Online Tariff - GOV.UK": {
+        "hdngPgTitle": "Live horses, asses, mules and hinnies - UK Integrated Online Tariff - GOV.UK"
+    },
+    "Subheadings Page - Rosin and resin acids - UK Integrated Online Tariff - GOV.UK": {
+        "subhdngPgTitle": "Rosin and resin acids - UK Integrated Online Tariff - GOV.UK"
+    },
+    "Commodity Page - Commodity code 0101210000: Pure-bred breeding animals - UK Integrated Online Tariff - GOV.UK": {
+        "cmdtyPgTitle": "Commodity code 0101210000: Pure-bred breeding animals - UK Integrated Online Tariff - GOV.UK"
+    },
+    "Availabilty all pages": {
+        "commodityCode": "0702000007",
+        "url": "/commodities/0702000007",
+        "searchRef": "gherkins",
+        "urlWithSearchRef": "/commodities/0707009000"
     }
 }

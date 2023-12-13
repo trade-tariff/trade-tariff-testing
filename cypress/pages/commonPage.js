@@ -90,6 +90,17 @@ class CommonPage {
   verifyShdNotContains(txtToVerify2) {
     cy.should('not.contain', txtToVerify2);
   }
+  // added newly methods
+  clkBckButn() {
+    cy.go('back');
+  }
+  verifyTitleShudMatch(titleStrToCheck) {
+    const regexp = new RegExp(titleStrToCheck, 'i');
+    cy.title().should('match', regexp);
+  }
+  verifyTitleShudEq(titleStrToCheck) {
+    cy.title().should('eq', titleStrToCheck);
+  }
 }
 
 module.exports = new CommonPage();
