@@ -31,7 +31,8 @@ describe('commodity supplementary units', function() {
       cy.visit('/uk/commodities/1704909912');
       cy.get('.govuk-summary-list__value').contains('All countries');
       // then I should see the no supplementary unit message
-      cy.contains('There are no supplementary unit measures assigned to this commodity');
+      cy.contains('There are no supplementary units globally assigned to this commodity. Select a country of import / export to check');
+      cy.contains('on supplementary units for a specific country, or scroll down to the import duties section.');
     });
   });
 
@@ -72,7 +73,8 @@ describe('commodity supplementary units', function() {
       cy.visit('/xi/commodities/1704909912');
       cy.get('.govuk-summary-list__value').contains('All countries');
       // then I should see the no supplementary unit message
-      cy.contains('There are no supplementary unit measures assigned to this commodity');
+      cy.contains('There are no supplementary units globally assigned to this commodity. Select a country of import / export to check');
+      cy.contains('on supplementary units for a specific country, or scroll down to the import duties section.');
     });
   });
 });
