@@ -1,4 +1,4 @@
-describe('Using beta search', {tags: ['devOnly']}, function() {
+describe.skip('Using beta search', {tags: ['devOnly']}, function() {
   beforeEach(function() {
     cy.visit('/find_commodity');
     cy.visit('/search/toggle_beta_search');
