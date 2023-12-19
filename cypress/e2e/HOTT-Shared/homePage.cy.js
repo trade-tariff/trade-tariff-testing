@@ -112,18 +112,218 @@ describe('GOV.UK_HomePage', function() {
     });
   });
 
-  context('global search function on UK and XI service ** Unreleased **', () => {
-    // {tags: ['config', 'unreleased-tag']}, {tags: ['config', 'xbrowser-tag']}, function() {
-    it.only('Availabilty all pages', function() {
-      // search for commodity by number
-      commonPage.goToUrl('/find_commodity');
-      homePage.verifyGlbllSrchForCmdty(data.commodityCode);
-      commonPage.verifyUrlShudInclude(data.url);
+  context('additional code duties table - UK service', () => {
+    it('UK - Shows the correct heading additional code duties table', function() {
+      commonPage.goToUrl('/headings/3906');
+      homePage.verifyEleStaticData(data.adlCodeDutiesTablData);
+    });
 
-      // search for commodity by search reference
-      commonPage.goToUrl('/find_commodity');
-      homePage.verifyGlbllSrchForCmdty(data.searchRef);
-      commonPage.verifyUrlShudInclude(data.urlWithSearchRef);
+    it('UK - Start heading displays one tier further down', function() {
+      commonPage.goToUrl('/headings/1512');
+      homePage.verifyEleStaticData(data.dataTreeCtrls);
+      homePage.verifyEleStaticData(data.dataTree);
+      homePage.clkDataTreeOpnLnk(data.dataTreeCtrls[1]);
+      homePage.verifyHidden();
+      homePage.verifyCmdtyArea(data.dataTree[0]);
+      homePage.clkDataTreeOpnLnk(data.dataTreeCtrls[0]);
+      homePage.verifyEleStaticData(data.dataTree);
+    });
+
+    it('UK - Shows the correct subheading additional code duties table', function() {
+      commonPage.goToUrl('/subheadings/3204130000-80');
+      homePage.verifyEleStaticData(data.adlCodeDutiesTablData);
     });
   });
+
+  context('additional code duties table - XI service', function() {
+    it('XI - shows the correct heading additional code duties table', function() {
+      commonPage.goToUrl('/xi/headings/3906');
+      homePage.verifyEleStaticData(data.adlCodeDutiesTablData);
+    });
+
+    it('XI - Start heading displays one tier further down', function() {
+      commonPage.goToUrl('/xi/headings/1512');
+      homePage.verifyEleStaticData(data.dataTreeCtrls);
+      homePage.verifyCmdtyArea(data.commodity, 1);
+      homePage.verifyNotHaveText(data.commodityTreeData);
+      homePage.clkDataTreeOpnLnk(data.dataTreeCtrls[1]);
+      homePage.verifyHidden();
+      homePage.verifyCmdtyArea(data.commodity, 0);
+      homePage.clkDataTreeOpnLnk(data.dataTreeCtrls[0]);
+      homePage.verifyCmdtyArea(data.commodity, 1);
+      homePage.verifyNotHaveText(data.commodityTreeData);
+    });
+
+    it('XI - Shows the correct subheading additional code duties table', function() {
+      commonPage.goToUrl('/xi/subheadings/3204130000-80');
+      homePage.verifyEleStaticData(data.adlCodeDutiesTablData);
+    });
+  });
+  context('chapter 99 specific warnings', function() {
+    it('shows specific warning messaging for a commodity', function() {
+      commonPage.goToUrl('/commodities/9919000010');
+      commonPage.verifyContains(data.cmndMsg);
+    });
+
+    it('shows specific warning messaging for a heading', function() {
+      commonPage.goToUrl('/commodities/9905000000');
+      commonPage.verifyContains(data.cmndMsg);
+    });
+  });
+  context('measure footnotes', function() {
+    it('VAT and Excise on XI service', function() {
+      commonPage.goToUrl('/xi/commodities/9305200010');
+      commonPage.verifyTxtAndClk(data.vat_excise);
+      commonPage.verifyTxtAndClk(data.footNotes);
+      commonPage.verifyContains(data.headTxt);
+    });
+  });
+
+  context('UK - Verify commodity code page', function() {
+    it('Commodity does not have an end date', function() {
+      commonPage.goToUrl('/commodities/2206003100');
+      commonPage.verifyContains(data.headTxt);
+      homePage.verifyHeadrList(data.staticData[0]);
+      homePage.verifyEleStaticData(data.staticData);
+    });
+    it('Commodity does have an end date', function() {
+      commonPage.goToUrl('/commodities/3911901910?day=31&month=12&year=2022');
+      commonPage.verifyContains(data.headTxt);
+      homePage.verifyHeadrList(data.staticData[0]);
+      homePage.verifyStaticTxt(data.staticData);
+    });
+    it('End dated commodities - 0602905000 child comm code', function() {
+      commonPage.goToUrlVistOption('/commodities/0602905010');
+      commonPage.verifyContains(data.commodityTxt);
+      homePage.verifyStaticTxt(data.staticData);
+    });
+  });
+  context('when on the XI service', function() {
+    it('XI - Commodity does not have an end date', function() {
+      commonPage.goToUrl('/xi/commodities/2206003100');
+      commonPage.verifyContains(data.headTxt);
+      homePage.verifyHeadrList(data.staticData[0]);
+      homePage.verifyEleStaticData(data.staticData);
+    });
+    it('XI - Commodity does have an end date', function() {
+      commonPage.goToUrl('/xi/commodities/3911901910?day=31&month=12&year=2022');
+      commonPage.verifyContains(data.headTxt);
+      homePage.verifyHeadrList(data.staticData[0]);
+      homePage.verifyEleStaticData(data.staticData);
+    });
+    it('XI - End dated commodities - 0602905000 child comm code', function() {
+      commonPage.goToUrlVistOption('/xi/commodities/0602905010');
+      commonPage.verifyContains(data.commodityTxt);
+      homePage.verifyStaticTxt(data.staticData);
+    });
+  });
+  it('Condition Code 999L - Separated with new text at the bottom', function() {
+    commonPage.goToUrl('/commodities/0702000007');
+    commonPage.verifyConditionsAndClk(data.measure, data.conditions);
+    homePage.verifyEleStaticData(data.staticContent);
+  });
+
+  it('Organic control on frog legs', function() {
+    commonPage.goToUrl('/commodities/0208907000');
+    commonPage.verifyConditionsAndClk(data.measure, data.conditions);
+    homePage.verifyEleStaticData(data.staticContent);
+  });
+  it('Fluorinated gases - multiple condition code groups', function() {
+    commonPage.goToUrl('/commodities/8479899738');
+    commonPage.verifyConditionsAndClk(data.measure, data.conditions);
+    homePage.verifyEleStaticData(data.staticContent);
+  });
+  // it('Waste controls - pair of doc codes paired together', function() {
+  //   commonPage.goToUrl('/commodities/2804501000');
+  //   cy.get('#measure-20191650 > td.conditions-col.govuk-table__cell > a').contains('Conditions').click();
+  //   homePage.verifyEleStaticData(data.staticContent);
+  //   homePage.verifyStaticTxt(data.staticTxt);
+  // });
+  // it('Pet food from USA - multiple pairs of doc codes paired together', function() {
+  //   commonPage.goToUrl('/commodities/2309902000');
+  //   cy.get('#measure-20101211').contains('Conditions').click();
+  //   cy.get('.info-content').contains('Restriction on entry into free circulation for United States');
+  //   cy.get('.info-content').contains('Meet one of the following conditions');
+  //   cy.get('.info-content').contains('C666 + C668');
+  //   cy.contains('C667');
+  //   cy.contains('C666 + C693');
+  //   cy.contains('Provide both documents');
+  //   cy.contains('Laboratory analysis');
+  //   cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
+  // });
+
+  // it('Headings which are declarable / also commodities- fall back option enabled', function() {
+  //   commonPage.goToUrl('/commodities/5609000000');
+  //   cy.get('#measure-20187981').contains('Conditions').click();
+  //   cy.get('.info-content').contains('Import control on cat and dog fur for All countries');
+  //   cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
+  //   cy.get('.info-content').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
+  //   cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
+  //   cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
+  //   cy.contains('Complete either statement ‘Education and taxidermy only’ or ‘No cat or dog fur’.');
+  //   cy.get('.close [href]').click();
+  // });
+
+  // context('when a commodity has a price threshold measure for Belarus and Russia', function() {
+  //   it('shows the correct threshold requirements on the export tab', function() {
+  //     commonPage.goToUrl('/commodities/0101210000#export');
+
+  //     // Belarus conditions
+  //     cy.get('#measure-20185288').contains('Conditions').openPopup();
+  //     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP');
+  //     cy.closePopup();
+
+  //     // Russia conditions
+  //     cy.get('#measure-20179932').contains('Conditions').openPopup();
+  //     cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
+  //   });
+  // });
+
+  // context('when a commodity has a threshold measure which uses the entry price system', function() {
+  //   it('shows the correct threshold requirements', function() {
+  //     commonPage.goToUrl('/xi/commodities/0805501010');
+  //     cy.get('#measure-3939986').contains('Conditions').click();
+  //     cy.get('.info-content').contains('Threshold condition');
+  //     cy.contains('The price of your goods is greater than or equal to 46.20 EUR / 100 kg');
+  //   });
+  // });
+
+  // context('when a commodity has credibility checks', function() {
+  //   it('shows credibility checks correctly', function() {
+  //     commonPage.goToUrl('/xi/commodities/2204219313');
+  //     cy.get('.484').contains('Declaration of subheading submitted to physical restrictions (net weight/supplementary unit)');
+
+  //     cy.get('#measure-3832343').contains('Conditions').openPopup();
+  //     cy.get('.info-content').contains('The weight of your goods is equal to or exceeds 1.50 kg');
+  //     cy.get('#measure-3832343').contains('Conditions').closePopup();
+  //   });
+  // });
+
+  // context('when there are LPA-based components on alcohol duties', function() {
+  //   it('shows the correct popup information', function() {
+  //     cy.visit('/commodities/2208701000?day=28&month=08&year=2023#vat_excise');
+  //     cy.verifyExciseAdditionalCodePopup(
+  //         '315',
+  //         '9.27 GBP / l alc. 100%',
+  //     );
+  //     cy.verifyExciseAdditionalCodePopup(
+  //         '365',
+  //         '(£9.27 - SPR discount) / vol% / hl',
+  //     );
+  //   });
+  // });
+
+  // context('when there are ASVX components on alcohol duties', function() {
+  //   it('shows the correct popup information', function() {
+  //     cy.visit('/commodities/2204299320?day=28&month=08&year=2023#vat_excise');
+  //     cy.verifyExciseAdditionalCodePopup(
+  //         '301',
+  //         '9.27 GBP / % vol/hl',
+  //     );
+  //     cy.verifyExciseAdditionalCodePopup(
+  //         '369',
+  //         '(£24.77 - SPR discount) / vol% / hl',
+  //     );
+  //   });
+  // });
 });
