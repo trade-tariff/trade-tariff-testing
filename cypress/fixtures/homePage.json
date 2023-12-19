@@ -110,10 +110,222 @@
     "Commodity Page - Commodity code 0101210000: Pure-bred breeding animals - UK Integrated Online Tariff - GOV.UK": {
         "cmdtyPgTitle": "Commodity code 0101210000: Pure-bred breeding animals - UK Integrated Online Tariff - GOV.UK"
     },
-    "Availabilty all pages": {
-        "commodityCode": "0702000007",
-        "url": "/commodities/0702000007",
-        "searchRef": "gherkins",
-        "urlWithSearchRef": "/commodities/0707009000"
+    "UK - Shows the correct heading additional code duties table": {
+        "adlCodeDutiesTablData": [
+            "Depends on additional code",
+            "Code",
+            "Duty",
+            "2500",
+            "0.00 %",
+            "2501",
+            "6.00 %",
+            "No code"
+        ]
+    },
+    "UK - Start heading displays one tier further down": {
+        "dataTreeCtrls": [
+            "Open all headings",
+            "Close all headings"
+        ],
+        "dataTree": [
+            "1512111000",
+            "Depends on additional code"
+        ]
+    },
+    "UK - Shows the correct subheading additional code duties table": {
+        "adlCodeDutiesTablData": [
+            "Depends on additional code",
+            "Code",
+            "Duty",
+            "2500",
+            "0.00 %",
+            "2501",
+            "6.00 %",
+            "No code"
+        ]
+    },
+    "XI - shows the correct heading additional code duties table": {
+        "adlCodeDutiesTablData": [
+            "Depends on additional code",
+            "Code",
+            "Duty",
+            "0.00 %",
+            "6.50 "
+        ]
+    },
+    "XI - Start heading displays one tier further down": {
+        "dataTreeCtrls": [
+            "Open all headings",
+            "Close all headings"
+        ],
+        "commodity": "1512111000",
+        "commodityTreeData": "Depends on additional code"
+    },
+    "XI - Shows the correct subheading additional code duties table": {
+        "adlCodeDutiesTablData": [
+            "Depends on additional code",
+            "Code",
+            "Duty",
+            "2500",
+            "0.00 %",
+            "2501",
+            "6.50 %"
+        ]
+    },
+    "shows specific warning messaging for a commodity": {
+        "cmndMsg": "This code cannot be without prior authorisation from HMRC"
+    },
+    "shows specific warning messaging for a heading": {
+        "cmndMsg": "This code cannot be without prior authorisation from HMRC"
+    },
+    "VAT and Excise on XI service": {
+        "vat_excise": "Import VAT and excise",
+        "footNotes": "03020",
+        "headTxt": "Value added tax for All countries"
+    },
+    "Commodity does not have an end date": {
+        "headTxt": "UK Integrated Online Tariff",
+        "staticData": [
+            "2206003100",
+            "Commodity valid from",
+            "1 January 1994",
+            "Date of trade",
+            "1 January 1994"
+        ]
+    },
+    "Commodity does have an end date": {
+        "headTxt": "UK Integrated Online Tariff",
+        "staticData": [
+            "3911901910",
+            "Commodity valid between",
+            "1 January 1997 and 31 December 2022",
+            "Date of trade",
+            "31 December 2022"
+        ]
+    },
+    "End dated commodities - 0602905000 child comm code": {
+        "commodityTxt": "Commodity 0602905010",
+        "staticData": [
+            "0602905010",
+            "The commodity code you entered could not be found for the date selected.",
+            "The code is present for the dates shown below.",
+            "Click on a date to see the measures present on that date.",
+            "From 15 September 2016 to 30 June 2023",
+            "Alternatively, you can visit heading 0602 or chapter 06."
+        ]
+    },
+    "XI - Commodity does not have an end date": {
+        "headTxt": "Northern Ireland Online Tariff",
+        "staticData": [
+            "2206003100",
+            "Commodity valid from",
+            "1 January 1994",
+            "Date of trade",
+            "1 January 1994"
+        ]
+    },
+    "XI - Commodity does have an end date": {
+        "headTxt": "UK Integrated Online Tariff",
+        "staticData": [
+            "3911901910",
+            "Commodity valid between",
+            "1 January 1997 and 31 December 2022",
+            "Date of trade",
+            "31 December 2022"
+        ]
+    },
+    "XI - End dated commodities - 0602905000 child comm code": {
+        "commodityTxt": "Commodity 0602905010",
+        "staticData": [
+            "The commodity code you entered could not be found for the date selected.",
+            "The code is present for the dates shown below.",
+            "Click on a date to see the measures present on that date.",
+            "From 15 September 2016 to 30 June 2023",
+            "Alternatively, you can visit heading 0602 or chapter 06."
+        ]
+    },
+    "Condition Code 999L - Separated with new text at the bottom": {
+        "conditions": "Conditions",
+        "measure": "20188561",
+        "staticContent": [
+            "Import control of organic products for All countries",
+            "The use of 999L allows a CDS waiver code"
+        ]
+    },
+    "Organic control on frog legs": {
+        "conditions": "Conditions",
+        "measure": "20188551",
+        "staticContent": [
+            "Import control of organic products for All countries",
+            "Meet one of the following conditions",
+            "Guidance for completing CDS Data Element 2/3",
+            "Complete the statement ‘Excluded from regulation 834/2007’.",
+            "Enter the reference number of the Certificate."
+        ]
+    },
+    "Fluorinated gases - multiple condition code groups": {
+        "conditions": "Conditions",
+        "measure": "20161393",
+        "staticContent": [
+            "Import control of fluorinated greenhouse gases for All countries",
+            "Meet the following condition and supply",
+            "Meet one of the following conditions",
+            "Goods not concerned by import prohibition on fluorinated greenhouse gases",
+            "Guidance for completing CDS Data Element 2/3",
+            "Complete the statement ‘Excluded from prohibition’."
+        ]
+    },
+    "Waste controls - pair of doc codes paired together": {
+        "conditions": "Conditions",
+        "measure": "20161393",
+        "staticContent": [
+            "Import control - waste for All countries",
+            "Meet one of the following conditions",
+            "C669 + C670",
+            "Guidance for completing CDS Data Element 2/3",
+            "Guidance for completing CDS Data Element 2/3",
+            "Enter the reference number of the Information document."
+        ],
+        "staticTxt": [
+            "Provide both documents",
+            "Complete the statement ‘Excluded product’.",
+            "Enter the reference number of the Notification document.",
+            "Enter the country code for the country of issue"
+        ]
+    },
+    "Pet food from USA - multiple pairs of doc codes paired together": {
+        "conditions": "Conditions",
+        "measure": "20101211",
+        "staticContent": [
+            "Restriction on entry into free circulation for United States",
+            "Meet one of the following conditions",
+            "C666 + C668",
+            "Guidance for completing CDS Data Element 2/3"
+        ],
+        "staticTxt": [
+            "C667",
+            "C666 + C693’.",
+            "Provide both documents",
+            "Laboratory analysis",
+            "Guidance for completing CDS Data Element 2/3"
+        ]
+    },
+    "Headings which are declarable / also commodities- fall back option enabled": {
+        "conditions": "Conditions",
+        "measure": "20187981",
+        "staticContent": [
+            "Import control on cat and dog fur for All countries",
+            "Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)",
+            "Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)",
+            "Guidance for completing CDS Data Element 2/3",
+            "Education and taxidermy only’ or ‘No cat or dog fur’."
+        ],
+        "staticTxt": [
+            "C667",
+            "C666 + C693’.",
+            "Provide both documents",
+            "Laboratory analysis",
+            "Guidance for completing CDS Data Element 2/3"
+        ]
     }
 }

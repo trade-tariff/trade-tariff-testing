@@ -16,9 +16,15 @@ class HomePage {
     privacyFootrLnk: () => cy.get('.govuk-footer__inline-list > li:nth-of-type(1) > .govuk-footer__link'),
     subAcsRqstLink: () => cy.get('a[href="https://www.gov.uk/guidance/hmrc-subject-access-request"]'),
     complaintsLink: () => cy.get('p:nth-of-type(21) > a'),
-    srchBanrtogl: () => cy.get('.tariff-search-banner__toggle'),
-    srchBanr: () => cy.get('input#tariff-search-banner__q'),
-    srchButn: () => cy.get('input[name=\'submit_search\']'),
+    addlCodeTbl: () => cy.get('.govuk-table.additional-code-table'),
+    commodityTree: () => cy.get('article.tariff'),
+    areHidn: () => cy.get('ul[aria-hidden="true"]'),
+    comdtyArea: () => cy.get('.govuk-list a[href]'),
+    commodityOnHeadList: () => cy.get('.govuk-breadcrumbs__list'),
+    sumListData: () => cy.get('.govuk-summary-list'),
+    popupInfo: () => cy.get('.info-content'),
+    // conditions: () => cy.get('#measure-'),
+
   };
   chkPlcyUsgRadioBtn() {
     this.elements.plcyUsgRadioBtn().check();
@@ -29,6 +35,16 @@ class HomePage {
   verifyBannerHeadr(txt) {
     this.elements.bnrHeader().contains(txt);
   }
+
+  verifyHeadrList(txt) {
+    this.elements.commodityOnHeadList().contains(txt);
+  }
+  verifyAdlCodeDutiesTablData(txt) {
+    commonPage.verifyContains(txt);
+  }
+  // clickConditions(measureCode, txt) {
+  //   cy.get(`#measure-${measureCode}`).contains(txt).click();
+  // }
   verifyToolLinks(data) {
     this.elements.exchangeRateLnk();
     this.elements.chkSimplfdProcLnk();
@@ -49,7 +65,7 @@ class HomePage {
   }
   verifyFetchCookie(dataCookie, dataPolicy) {
     this.getCookie(dataPolicy).then((cookie) => {
-    // cy.getCookie(dataPolicy).then((cookie) => {
+      // cy.getCookie(dataPolicy).then((cookie) => {
       let cookieValue = null;
       if (cookie) {
         cookieValue = cookie.value;
@@ -69,9 +85,12 @@ class HomePage {
     });
   }
   verifyStaticTxt(dataToVerify) {
-    for (let i=0; i<dataToVerify.length; i++) {
+    for (let i = 0; i < dataToVerify.length; i++) {
       commonPage.verifyContains(dataToVerify[i]);
     }
+  }
+  verifyEleStaticTxt(ele, dataToVerify) {
+    commonPage.verifyEleTxtContains(ele, dataToVerify);
   }
   clkFooterLnk() {
     this.elements.privacyFootrLnk().click();
@@ -82,11 +101,61 @@ class HomePage {
   clkComplntLink() {
     this.elements.complaintsLink().click();
   }
-  verifyGlbllSrchForCmdty(searchString) {
-    this.elements.srchBanrtogl().click();
-    this.elements.srchBanr().click();
-    this.elements.srchBanr().type(searchString);
-    this.elements.srchButn().click();
+  clkDataTreeOpnLnk(txt) {
+    this.elements.commodityTree().contains(txt).click();
+  }
+  clkDataTreeClsLnk(txt) {
+    this.elements.commodityTree().contains(txt).click();
+  }
+  verifyHidden() {
+    this.elements.areHidn().should('be.hidden');
+  }
+  verifyCmdtyArea(txt, cls) {
+    if (cls == 0) {
+      this.elements.commodityTree().contains(txt).should('not.be.visible');
+    } else {
+      this.elements.commodityTree().contains(txt);
+    }
+  }
+  verifyNotHaveText(txt) {
+    this.elements.commodityTree().should('not.have.text', txt);
+  }
+  // common method for data parameterization
+  verifyEleStaticData(testData) {
+    const keys = Object.keys(testData);
+    console.log(keys);
+    let ele;
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      switch (commonPage.getTestName()) {
+        case 'UK - Shows the correct heading additional code duties table':
+        case 'UK - Shows the correct subheading additional code duties table':
+        case 'XI - shows the correct heading additional code duties table':
+        case 'XI - Shows the correct subheading additional code duties table':
+          ele = this.elements.addlCodeTbl();
+          break;
+        case 'UK - Start heading displays one tier further down':
+        case 'XI - Start heading displays one tier further down':
+          ele = this.elements.commodityTree();
+          break;
+        case 'Commodity does not have an end date':
+        case 'XI - Commodity does not have an end date':
+        case 'XI - Commodity does have an end date':
+          ele = this.elements.sumListData();
+          break;
+        case 'Condition Code 999L - Separated with new text at the bottom':
+        case 'Organic control on frog legs':
+        case 'Fluorinated gases - multiple condition code groups':
+        case 'Waste controls - pair of doc codes paired together':
+
+          ele = this.elements.popupInfo();
+          break;
+
+
+        default: this.verifyStaticTxt(testData);
+      }
+      this.verifyEleStaticTxt(ele, testData[key]);
+    }
   }
 }
 module.exports = new HomePage();

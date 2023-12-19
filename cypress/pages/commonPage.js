@@ -1,4 +1,6 @@
 
+
+const visitOpts = {failOnStatusCode: false};
 class CommonPage {
   elements = {
     ukBannerTariffTxt: () => cy.get('.govuk-header__content').contains('UK Integrated Online Tariff'),
@@ -100,6 +102,16 @@ class CommonPage {
   }
   verifyTitleShudEq(titleStrToCheck) {
     cy.title().should('eq', titleStrToCheck);
+  }
+  verifyEleTxtContains(ele, strToVerify) {
+    ele.contains(strToVerify);
+  }
+  goToUrlVistOption(urlPathToVisit) {
+    cy.visit(urlPathToVisit, visitOpts);
+  }
+
+  verifyConditionsAndClk(measureCode, txtToClk) {
+    cy.get(`#measure-${measureCode}`).contains(txtToClk).click();
   }
 }
 
