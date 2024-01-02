@@ -19,7 +19,7 @@ describe('| RoW-NI309--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.contains('Third-country duty');
     cy.contains('0.50 GBP / % vol/hl + 2.60 GBP / hl');
     cy.contains('Tariff preference - Vietnam');
-    cy.contains('0.20 GBP / % vol/hl + 1.30 GBP / hl');
+    cy.contains('0.10 GBP / % vol/hl + 1.00 GBP / hl');
   });
 
   // sugar percentage calculations
@@ -43,6 +43,6 @@ describe('| RoW-NI309--e2e.spec | Special calculations - alcohol % + sugar % |',
     cy.contains('Third-country duty');
     cy.contains('0.40 EUR / 100 kg/net/%sacchar.');
     cy.contains('Tariff preference - Viet Nam');
-    cy.contains('0.20 EUR / 100 kg/net/%sacchar.');
+    cy.contains('0.40 EUR / 100 kg/net/%sacchar.');
   });
 });
