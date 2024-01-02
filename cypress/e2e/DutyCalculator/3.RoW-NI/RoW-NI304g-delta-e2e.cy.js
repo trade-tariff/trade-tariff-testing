@@ -33,9 +33,6 @@ describe('| Row-NI304g-delta.spec.js | 🔼 Delta Route | Quotas UK | ', functio
     // doc code
     cy.docCode({uk: 'n990'});
     cy.contains('Continue').click();
-    // doc code
-    cy.docCode({xi: 'n990'});
-    cy.contains('Continue').click();
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');
