@@ -102,7 +102,7 @@ Cypress.Commands.add('proofVerification', (country)=>{
   cy.contains('Obtaining and verifying proofs of origin');
   cy.contains(`Verification for proving the origin for goods coming from ${country}`);
   cy.contains('Refer to the full text of the Origin Reference Document').click();
-  cy.get('.downloadable-document__text').contains('Articles 32 and 33 ');
+  cy.get('.downloadable-document__text').contains('Article 19');
 });
 
 // Duty drawback stage into the RoO journey
