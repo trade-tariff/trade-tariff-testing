@@ -277,12 +277,11 @@
     },
     "Waste controls - pair of doc codes paired together": {
         "conditions": "Conditions",
-        "measure": "20161393",
+        "measure": "20191650 > td.conditions-col.govuk-table__cell > a",
         "staticContent": [
             "Import control - waste for All countries",
             "Meet one of the following conditions",
             "C669 + C670",
-            "Guidance for completing CDS Data Element 2/3",
             "Guidance for completing CDS Data Element 2/3",
             "Enter the reference number of the Information document."
         ],
@@ -304,10 +303,9 @@
         ],
         "staticTxt": [
             "C667",
-            "C666 + C693’.",
+            "C666 + C693",
             "Provide both documents",
-            "Laboratory analysis",
-            "Guidance for completing CDS Data Element 2/3"
+            "Laboratory analysis"
         ]
     },
     "Headings which are declarable / also commodities- fall back option enabled": {
@@ -316,16 +314,53 @@
         "staticContent": [
             "Import control on cat and dog fur for All countries",
             "Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)",
+            "Meet the following condition and supply the relevant document code(s) on your declaration.",
             "Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)",
-            "Guidance for completing CDS Data Element 2/3",
-            "Education and taxidermy only’ or ‘No cat or dog fur’."
+            "Guidance for completing CDS Data Element 2/3"
         ],
         "staticTxt": [
-            "C667",
-            "C666 + C693’.",
-            "Provide both documents",
-            "Laboratory analysis",
-            "Guidance for completing CDS Data Element 2/3"
+            "Complete either statement ‘Education and taxidermy only’ or ‘No cat or dog fur’."
         ]
+    },
+    "shows the correct threshold requirements on the export tab": {
+        "conditions": "Conditions",
+        "measureBelarus": "20185288",
+        "measureRussia": "20179932",
+        "staticContentMeasureBelarus": [
+            "The price of your goods does not exceed 250.00 GBP"
+        ],
+        "staticContentMeasureRussia": [
+            "The price of your goods does not exceed 250.00 GBP / p/st"
+        ]
+    },
+    "shows the correct threshold requirements": {
+        "conditions": "Conditions",
+        "measure": "4011474",
+        "staticContent": [
+            "Threshold condition"
+        ],
+        "staticTxt": [
+            "The price of your goods is greater than or equal to 46.20 EUR / 100 kg"
+        ]
+    },
+    "shows credibility checks correctly": {
+        "measureType": "Declaration of subheading submitted to physical restrictions (net weight/supplementary unit)",
+        "measure": "3832343",
+        "conditions": "Conditions",
+        "staticContent": [
+            "The weight of your goods is equal to or exceeds 1.50 kg"
+        ]
+    },
+    "shows the correct popup information_LPA": {
+        "exciseCode": "315",
+        "dutyAmount": "9.27 GBP / l alc. 100%",
+        "exciseCode1": "365",
+        "dutyAmount1": "(£9.27 - SPR discount) / vol% / hl"
+    },
+    "shows the correct popup information_ASVX": {
+        "exciseCode": "301",
+        "dutyAmount": "9.27 GBP / % vol/hl",
+        "exciseCode1": "369",
+        "dutyAmount1": "(£24.77 - SPR discount) / vol% / hl"
     }
 }

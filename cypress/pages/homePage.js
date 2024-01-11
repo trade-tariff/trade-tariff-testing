@@ -23,9 +23,15 @@ class HomePage {
     commodityOnHeadList: () => cy.get('.govuk-breadcrumbs__list'),
     sumListData: () => cy.get('.govuk-summary-list'),
     popupInfo: () => cy.get('.info-content'),
+    creditChkCode: () => cy.get('.484'),
+    popup: () => cy.get('#popup'),
     // conditions: () => cy.get('#measure-'),
 
   };
+  verifyOpenPopup() {
+    this.popupInfo().should('be.visible');
+  }
+
   chkPlcyUsgRadioBtn() {
     this.elements.plcyUsgRadioBtn().check();
   }
@@ -34,6 +40,9 @@ class HomePage {
   }
   verifyBannerHeadr(txt) {
     this.elements.bnrHeader().contains(txt);
+  }
+  verifyMeasureType(txt) {
+    this.elements.creditChkCode().contains(txt);
   }
 
   verifyHeadrList(txt) {
@@ -89,9 +98,21 @@ class HomePage {
       commonPage.verifyContains(dataToVerify[i]);
     }
   }
-  verifyEleStaticTxt(ele, dataToVerify) {
-    commonPage.verifyEleTxtContains(ele, dataToVerify);
+  clkEleStaticTxt(dataToClk) {
+    this.elements.popupInfo().contains(dataToClk).click();
   }
+  verifyEleStaticTxt(ele, dataToVerify) {
+    if (dataToVerify==('Guidance for completing CDS Data Element 2/3')) {
+      this.clkEleStaticTxt(dataToVerify);
+    } else {
+      commonPage.verifyEleTxtContains(ele, dataToVerify);
+    }
+  }
+
+  verifyConditionsPopupOpenAndClk(measureCode, txtToClk) {
+    cy.get(`#measure-${measureCode}`).contains(txtToClk).this.verifyOpenPopup();
+  }
+
   clkFooterLnk() {
     this.elements.privacyFootrLnk().click();
   }
@@ -120,6 +141,22 @@ class HomePage {
   verifyNotHaveText(txt) {
     this.elements.commodityTree().should('not.have.text', txt);
   }
+  verifyExciseAdditionalCodePopup(exciseCode, dutyAmount) {
+    cy.get('table').find('tr').each(($row) => {
+      if ($row.text().includes('Additional code: X' + exciseCode)) {
+        cy.contains('Additional code: X' + exciseCode);
+        cy.verifyExciseMeasureType('X' + exciseCode);
+        cy.wrap($row).contains('Conditions').click();
+        this.elements.popup().contains('Apply the duty');
+        this.elements.popup().contains(dutyAmount);
+        cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
+        this.elements.popup().contains('Taric additional code / national additional code');
+        this.elements.popup().contains('X' + exciseCode);
+        cy.closePopup();
+      }
+    });
+  }
+
   // common method for data parameterization
   verifyEleStaticData(testData) {
     const keys = Object.keys(testData);
@@ -147,6 +184,11 @@ class HomePage {
         case 'Organic control on frog legs':
         case 'Fluorinated gases - multiple condition code groups':
         case 'Waste controls - pair of doc codes paired together':
+        case 'Pet food from USA - multiple pairs of doc codes paired together':
+        case 'Headings which are declarable / also commodities- fall back option enabled':
+        case 'shows the correct threshold requirements on the export tab':
+        case 'shows the correct threshold requirements':
+        case 'shows credibility checks correctly':
 
           ele = this.elements.popupInfo();
           break;
