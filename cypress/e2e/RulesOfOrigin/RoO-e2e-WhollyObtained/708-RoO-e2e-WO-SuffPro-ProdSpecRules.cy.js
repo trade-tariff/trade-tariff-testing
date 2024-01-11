@@ -45,7 +45,7 @@ describe('| 708-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     // moreInfoAboutProduct
     cy.moreInfoAboutProduct('6101201000', 'Articles of apparel and clothing accessories, knitted or crocheted ▸ Other');
     // prodSpecRules
-    cy.prodSpecRules('Manufacture from:');
+    cy.prodSpecRules('Knitting and making-up in one operation');
     // Origin requirements met
     cy.originMet('Iceland', '6101201000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     cy.contains('Product-specific rules met');
