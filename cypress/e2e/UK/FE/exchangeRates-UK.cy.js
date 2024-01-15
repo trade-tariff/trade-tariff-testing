@@ -5,7 +5,7 @@ import exchangeRatesPage from '../../../pages/exchangeRatesPage';
 describe('UK - Validate exchange rates functionality', () => {
   let data;
   before(() => {
-    commonPage.loadData('exchangeRates');
+    commonPage.setTestData('exchangeRates');
   });
   beforeEach(() => {
     data = commonPage.getTestData();

@@ -1,3 +1,9 @@
+import _ from 'underscore';
+import {resolveRefs} from '@ovotech/json-refs';
+import dayjs from 'dayjs';
+import commonHelpers from '../helpers/commonHelpers';
+
+const importDate = dayjs().format('DD MMMM YYYY');
 class CommonPage {
   elements = {
     ukBannerTariff: () => cy.get('.govuk-header__content').contains('UK Integrated Online Tariff'),
@@ -10,34 +16,205 @@ class CommonPage {
     backLnk: () => cy.get('.govuk-back-link'),
     hrefLnk: () => cy.get('#main-content .govuk-link'),
     govUKBtn: () => cy.get('.govuk-button'),
-    continueTxt: () => 'Continue',
+    clkContinue: () => 'Continue',
+    clkStartAgain: () => 'Start again',
   };
 
-  loadData(fileName) {
+  setTestData(fileName) {
     cy.fixture(fileName).then((testData) => {
       Cypress.env('testData', testData);
+      this.getRefsData(testData);
     });
   }
 
-  getTestData() {
+  getTestDataBasedOnTestCaseName() {
     const testCaseData = [];
     const data = Cypress.env('testData');
     if (`${data}` != null && `${data}` != 'undefined') {
-      const dataKey = Object.keys(data);
-      const dataValues = Object.values(data);
-      for (const key in dataKey) {
-        if (dataKey[key] == this.getTestCaseName()) {
-          testCaseData.push(dataValues[key]);
-        } else if (dataKey[key] == 'commonData') {
-          testCaseData.push(dataValues[key]);
+      for (const [key, value] of Object.entries(data)) {
+        if (key == this.getTestCaseName()) {
+          testCaseData.push(value);
+        } else if (key == 'commonData') {
+          testCaseData.push(value);
         }
       }
-      return Object.assign(testCaseData[0], testCaseData[1]);
+      return Object.assign({}, testCaseData[0], testCaseData[1]);
     }
+  }
+
+  getRefsData(testData) {
+    resolveRefs(testData).then((res) => {
+      Cypress.env('testDataRefs', res.refs);
+    });
   }
 
   getTestCaseName() {
     return Cypress.currentTest.title;
+  }
+
+  getTestCaseSpecificStaticData(staticData, keysToRemove) {
+    return _.omit(staticData, keysToRemove);
+  }
+
+  findAndReplaceKeyValue(staticData, replaceValueWith, replaceValueTo) {
+    return Object.fromEntries(Object.entries(staticData).map(([key, val]) => [
+      key, val.toString().replace(replaceValueWith, replaceValueTo)]));
+  }
+
+  // Get data from check your answers table or similar and compare with json test data to assert
+  getTableDataAndAssert(element, data, replaceWith, replaceTo) {
+    const items = []; let itemStr; const arrayObj = []; const actualData = {}; let expectedData = {};
+    element.each(($li) => items.push($li.text())).then(() => {
+      itemStr = items.join(':').toString().split(':');
+      for (const str of itemStr) {
+        if (str.includes('Change')) {
+          arrayObj.push(str.replace('Change', '').trim('\n \n').replace('\n    ', ':').replace('\n  ', ':'));
+        } else {
+          arrayObj.push(str.replace('\n        \n         ', '').replace('\n         ', '')
+              .replace('\n        \n      ', '').replace('\n         ', '').replace(' \n         ', ''));
+        }
+      }
+      let strArray;
+      for (let i = 0; i < arrayObj.length; i++) {
+        if (JSON.stringify(arrayObj[i]).includes(':')) {
+          strArray = arrayObj[i].split(':');
+          actualData[strArray[0]] = strArray[1];
+        } else {
+          for (let j = 1; j < arrayObj.length;) {
+            if (i >= 0) {
+              if (JSON.stringify(arrayObj[j]).includes(replaceWith)) {
+                expectedData = this.findAndReplaceKeyValue(data, replaceWith, arrayObj[j]);
+              }
+              actualData[arrayObj[i].toString().replace(' ', '')] = arrayObj[j];
+              i = i + 2;
+              j = j + 2;
+            }
+          }
+        }
+      }
+      if (replaceTo != null) {
+        expectedData = this.findAndReplaceKeyValue(data, replaceWith, replaceTo);
+      }
+      expect(JSON.stringify(actualData)).to.be.equal(JSON.stringify(expectedData));
+    });
+  }
+
+  getDutyPageTableDataAndCompare(element, data) {
+    const items = []; let itemStr; let splitData = []; const arrayObj1 = {}; const arrayObj2 = {};
+    const actualData = {}; const expectedData = {};
+    const dataKeys = Object.keys(data);
+    const dataValues = Object.values(data);
+    const key1 = dataKeys[1]; const key2 = dataKeys[2];
+    const value1 = dataValues[1]; const value2 = dataValues[2];
+    const dataKeySplit = key2.split('-');
+    const strContains = [];
+    element.each(($li) => items.push($li.text())).then(() => {
+      itemStr = items.join(':').toString().split(':');
+      for (let i = 0; i < itemStr.length; i ++) {
+        const dataStr = itemStr[i].trim('\n \n').replace('\n    ', ':').replace('      ', '').replace('\n          ', ':')
+            .replace('\n        \n      \n      \n        \n    ', ':').replace('\n    ', ':').replace('\n\n\n    ', ':')
+            .replace('\n    ', ':').replace('\n\n\n    ', ':').replace('\n    ', ':').replace('\n\n\n    ', ':').replace('\n    ', ':')
+            .replace('\n    ', ':').replace('\n    ', ':').replace('\n    \n    ', ':');
+        splitData = dataStr.split(':');
+        if (splitData[6].includes(key1)) {
+          strContains[0] = splitData[6];
+          arrayObj1[splitData[0]] = [splitData[3], splitData[6], splitData[9].replace(' ', ''), splitData[12]];
+          arrayObj1[splitData[1]] = [splitData[4], splitData[7], splitData[10]];
+          arrayObj1[splitData[2]] = [splitData[5], splitData[8], splitData[11], splitData[13]];
+          actualData[key1] = arrayObj1;
+        } else if (splitData[6].includes(dataKeySplit[0])) {
+          strContains[1] = splitData[6];
+          arrayObj2[splitData[0]] = [splitData[3], splitData[6], splitData[9].replace(' ', ''), splitData[12]];
+          arrayObj2[splitData[1]] = [splitData[4], splitData[7], splitData[10]];
+          arrayObj2[splitData[2]] = [splitData[5], splitData[8], splitData[11], splitData[13]];
+          actualData[key2] = arrayObj2;
+        }
+      }
+      for (let i = 0; i < strContains.length; i ++) {
+        if (strContains[i].includes(key1)) {
+          expectedData[key1] = value1;
+        } else if (strContains[i].includes(dataKeySplit[0])) {
+          expectedData[key2] = value2;
+        }
+      }
+      const dataToVerify = this.getTestCaseSpecificStaticData(data, [key1, key2]);
+      commonHelpers.verifyStaticContent(dataToVerify.tradeOptionsOnImportDutyPage);
+      expect(JSON.stringify(actualData)).to.be.equal(JSON.stringify(expectedData));
+    });
+  }
+
+  // Sort the data based on key and refs based and return proper test data to execute corresponding test case
+  getTestData() {
+    const data = this.getTestDataBasedOnTestCaseName();
+    const dataRefs = this.returnNewDataRefsByAssigningNewValues();
+    for (const [dataRefsKey, dataRefsValue] of Object.entries(dataRefs)) {
+      for (const [dataKey, dataValue] of Object.entries(data)) {
+        if (JSON.stringify(dataValue).includes('$ref')) {
+          for (const [replaceDataKey, replaceDataValue] of Object.entries(dataValue)) {
+            if (JSON.stringify(replaceDataValue).includes('$ref')) {
+              this.replaceRefsValuesBasedOnKeyName(dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, replaceDataValue);
+            }
+          }
+          // Replace dataValues which has ref in the value with actual dataRefsValue
+          this.replaceRefsValuesBasedOnKeyName(dataRefsKey, dataRefsValue, data, dataKey, dataValue);
+        }
+      }
+      // Replace dataValues which has ref in the value and it does not match key and value
+      for (const [dataKey, dataValue] of Object.entries(data)) {
+        if (JSON.stringify(dataValue).includes('$ref')) {
+          for (const [replaceDataKey, replaceDataValue] of Object.entries(dataValue)) {
+            if (JSON.stringify(replaceDataValue).includes('$ref')) {
+              this.returnDataByReplacingRefsDataWithActualValues(
+                  dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, replaceDataValue);
+            }
+          }
+        }
+      }
+    }
+    if (data != null) {
+      return data;
+    }
+    return data;
+  }
+
+  returnDataByReplacingRefsDataWithActualValues(dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, replaceDataValue) {
+    if (dataRefsKey == replaceDataValue.$ref) {
+      dataValue[replaceDataKey] = dataRefsValue;
+      data[dataKey] = dataValue;
+    }
+    if (dataValue[replaceDataKey] == 'Date') {
+      dataValue[replaceDataKey] = importDate;
+      data[dataKey] = dataValue;
+    }
+    return data;
+  }
+
+  returnNewDataRefsByAssigningNewValues() {
+    const dataRefs = Cypress.env('testDataRefs');
+    for (const [dataRefsKey, dataRefsValue] of Object.entries(dataRefs)) {
+      if (JSON.stringify(dataRefsValue).includes('$ref')) {
+        const dataRefsRefsValue = dataRefs[dataRefsValue.$ref];
+        if (dataRefsRefsValue != null && dataRefsRefsValue != 'undefined') {
+          dataRefs[dataRefsKey] = dataRefsRefsValue;
+        }
+      }
+    }
+    return dataRefs;
+  }
+
+  replaceRefsValuesBasedOnKeyName(dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, replaceDataValue ) {
+    if (dataRefsKey.includes(replaceDataKey) && !dataRefsKey.includes(this.getTestCaseName())) {
+      this.returnDataByReplacingRefsDataWithActualValues(
+          dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, replaceDataValue);
+    } else if (dataRefsKey == dataValue.$ref) {
+      data[dataKey] = dataRefsValue;
+    } else if (dataRefsKey.includes(this.getTestCaseName()) && !Object.values(dataValue).includes(dataRefsValue)) {
+      if (JSON.stringify(dataRefsKey).includes(replaceDataKey)) {
+        dataValue[replaceDataKey] = dataRefsValue;
+        data[dataKey] = dataValue;
+      }
+    }
+    return data;
   }
 
   goToBaseUrl(url) {
@@ -86,6 +263,14 @@ class CommonPage {
     cy.url().should('not.include', `${urlStrToCheck}`);
   }
 
+  verifyTxtShudVisible(element, txt) {
+    cy.get(element).contains(txt).should('be.visible');
+  }
+
+  verifyTxtShudNotVisible(element, txt) {
+    cy.get(element).contains(txt).should('not.be.visible');
+  }
+
   verifyUrlShudMatch(urlStrToCheck) {
     const regexp = new RegExp(urlStrToCheck);
     cy.url().should('match', regexp);
@@ -116,16 +301,28 @@ class CommonPage {
     this.elements.closePopupBtn().click();
   }
 
-  verifyShudNotContains(txtToVerify2) {
-    cy.should('not.contain', txtToVerify2);
+  verifyShudNotContains(txtToVerify) {
+    cy.should('not.contain', txtToVerify);
+  }
+
+  verifyBackLnk() {
+    this.elements.backLnk();
   }
 
   clkBackLnk() {
     this.elements.backLnk().click();
   }
 
+  goBack() {
+    cy.go('back');
+  }
+
   clkContinueBtn() {
-    this.verifyTxtAndClk(this.elements.continueTxt());
+    this.verifyTxtAndClk(this.elements.clkContinue());
+  }
+
+  clkStartAgainBtn() {
+    this.verifyTxtAndClk(this.elements.clkStartAgain());
   }
 }
 

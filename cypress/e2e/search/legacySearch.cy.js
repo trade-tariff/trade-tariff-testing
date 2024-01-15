@@ -6,7 +6,7 @@ describe('Legacy search', () => {
   let data;
   // Load test data from a fixture file to 'testData' environment variable
   before(() => {
-    commonPage.loadData('search');
+    commonPage.setTestData('search');
   });
   beforeEach(() => {
     data = commonPage.getTestData();

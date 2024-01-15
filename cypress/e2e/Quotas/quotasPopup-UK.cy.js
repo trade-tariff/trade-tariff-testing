@@ -6,7 +6,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', () => {
   let data;
   // Load test data from a fixture file to 'testData' environment variable
   before(() => {
-    commonPage.loadData('quotasPopup');
+    commonPage.setTestData('quotasPopup');
   });
   beforeEach(() => {
     data = commonPage.getTestData();

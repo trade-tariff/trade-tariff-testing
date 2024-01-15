@@ -1,34 +1,776 @@
 {
-    "NI-GB-101-e2e-uk": {
-        "commodityCode": "0702000007"
-    },
-    "NI-GB-102-e2e-xi": {
-        "commodityCode": "1516209821",
-        "country": "xi"
-    },
     "commonData": {
-        "destination": "uk",
-        "origin": "Northern Ireland",
-        "originStaticTxt": {
+        "Date of import": "Date",
+        "originPage": {
             "1": "The duty you are charged may be dependent on the country from which the goods are coming.",
             "2": "Where are the goods coming from?",
             "3": "When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures."
         },
-        "noDutyStaticTxt": {
+        "euDutiesApplyPage": {
+            "1": "As you have no valid proof of origin, imports of this commodity are subject to EU import duties.",
+            "2": "As this commodity attracts a trade defence measure, imports of this commodity are treated as 'at risk' under all circumstances."
+        },
+        "meursingCodePage": {
+            "1": "This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.",
+            "2": "Enter the 3-digit additional code",
+            "3": "If you know the additional code for your commodity, enter it in the box below. If you do not know the code, then use the Meursing code finder (opens in new tab) to find the additional code.",
+            "4": "About this commodity code"
+        },
+        "customsValuePage": {
+            "1": "The amount of duty you may have to pay will depend on the customs value of your goods. The rules for arriving at the customs value are based on the World Trade Organisation (WTO) Valuation Agreement.",
+            "2": "How to calculate the customs value of your goods.",
+            "3": "What is the value in GBP of the goods being imported?",
+            "4": "Optionally, what is the shipping cost?",
+            "5": "Optionally, what is the cost of insuring the goods?"
+        },
+        "importQuantityPage": {
+            "1": "The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.",
+            "2": "What is the weight net of the standard quality of the goods you will be importing?",
+            "3": "What is the weight of the goods you will be importing?",
+            "4": "Enter the value in kilograms"
+        },
+        "vatRatePage": {
+            "1": "There are 2 VAT rates applicable to the trade in this commodity code. Select which rate applies to your trade. For guidance on applicable VAT rates, please see the document VAT rates on different goods and services (opens in new browser window).",
+            "2": "VAT zero rate",
+            "3": "Value added tax"
+        },
+        "documentCodePage": {
+            "1": "You may be able to reduce the duty applicable if you possess and can present one of the following documents.",
+            "2": "N990 - EUS - Authorisation for the use of end use procedure (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446)",
+            "3": "None of the above"
+        },
+        "importDutyCalculationPage": {
+            "1": "Details of your trade",
+            "2": "Third-country duty",
+            "3": "Third-country duty (EU)",
+            "4": "Zero rate",
+            "5": "Tariff preference - United Kingdom (excluding Northern Ireland)",
+            "6": "Claiming a waiver – Exchange rate"
+        },
+        "tradeOptionsOnImportDutyPage": {
+            "1": "Option 1: Third-country duty",
+            "2": "Option 2: Tariff preference - United Kingdom (excluding Northern Ireland)",
+            "3": "Option 3: Claiming a waiver – Exchange rate",
+            "4": "A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.",
+            "5": "A tariff preference is the rate available if a free trade agreement or another arrangement is in place between the UK and an overseas country. Goods will need to comply with the rules of origin to benefit from this rate and you will need to provide evidence of compliance with your shipment.",
+            "6": "A claim for a customs duty waiver for duty on goods that would otherwise incur “at risk” tariffs is provided as “de minimis aid”. The maximum allowance for most sectors is €200,000 across a rolling three tax year period. This allowance includes all de minimis aid you have claimed over a 3 tax year period.",
+            "7": "This type of aid is measured in euros, so it is important to convert any aid received in pound sterling into euros. You can use this exchange rate tool to calculate the applicable euro equivalent of the value of the aid for the month you were awarded the aid.",
+            "8": "Please note - the current page uses an exchange rate of"
+        },
+        "noDutyPageNIToGB": {
             "1": "There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.",
             "2": "Find out more about trading and moving goods in and out of Northern Ireland (opens in a new window).",
             "link": "https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland"
         },
-        "txtToClk": "Start again",
-        "pageTitle": "When will the goods be imported?"
+        "noDutyPageGBToNI": {
+            "1": "There is no import duty to pay because:",
+            "2": "You are transporting goods from England, Scotland or Wales to Northern Ireland, and",
+            "3": "You are a member of the UK Internal Market Scheme, and",
+            "4": "Your import is for sale to, or final use by, end-consumers located in Northern Ireland, and",
+            "5": "The importer had a total annual turnover of less than £2,000,000 in its most recent complete financial year",
+            "6": "You will be undertaking permitted commercial processing on the goods on arrival in Northern Ireland",
+            "7": "You do not intend to further process the goods on arrival in Northern Ireland",
+            "8": "You are transporting goods from England, Scotland or Wales to Northern Ireland",
+            "9": "You are able to take advantage of the preferential tariffs provided by the UK / EU Trade and Co-operation Agreement (TCA) and have a valid Certificate of Origin",
+            "10": "You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.",
+            "11": "You may be called upon to provide proof of your membership of the UK Internal Market Scheme and that your goods are not going to be subject to further processing."
+        },
+        "footerData": {
+            "1": "About this commodity code",
+            "2": "Explore the topic",
+            "3": "Valuation of imported goods for customs purposes, VAT and trade statistics"
+        }
+    },
+    "NI-GB-101-e2e-uk": {
+        "commodityCode": "0702000007",
+        "destination": "uk",
+        "origin": "Northern Ireland"
+    },
+    "NI-GB-102-e2e-xi": {
+        "commodityCode": "1516209821",
+        "country": "xi",
+        "destination": {
+            "$ref": "#NI-GB-101-e2e-uk/destination"
+        },
+        "origin": {
+            "$ref": "#NI-GB-101-e2e-uk/origin"
+        }
     },
     "GB-NI401-e2e": {
         "country": "uk",
         "commodityCode": "1212210000",
         "destination": "xi",
-        "origin": "gb",
-        "pageHeading": "There is no import duty to pay",
-        "txtToClk": "Start again",
-        "pageTitle": "When will the goods be imported?"
+        "origin": "gb"
+    },
+    "GB-NI402a-e2e": {
+        "country":  {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": {
+            "$ref": "#NI-GB-101-e2e-uk/commodityCode"
+        },
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "yes"
+    },
+    "GB-NI402b-e2e": {
+        "country":  {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": "1701141000",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": {
+            "$ref": "#GB-NI402a-e2e/finalUse"
+        },
+        "turnOver": "no",
+        "plannedOption": "commercial-processing"
+    },
+    "GB-NI402c-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": {
+            "$ref": "#GB-NI402b-e2e/commodityCode"
+        },
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": {
+            "$ref": "#GB-NI402a-e2e/finalUse"
+        },
+        "turnOver": {
+            "$ref": "#GB-NI402b-e2e/turnOver"
+        },
+        "plannedOption": "without-any-processing"
+    },
+    "GB-NI403-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": {
+            "$ref": "#NI-GB-101-e2e-uk/commodityCode"
+        },
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": "no",
+        "certOrigin": "yes"
+    },
+    "GB-NI404a-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": "1701141000",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": {
+            "$ref": "#GB-NI403-e2e/finalUse"
+        },
+        "certOrigin": "no",
+        "customsValue": {
+            "monetary-value": 5000.50,
+            "shipping-cost": 455.7533,
+            "insurance-cost": 4545.987654
+        },
+        "importQuantity": {
+            "kgm": 2300.98
+        },
+        "documentCode": {
+            "xi": "n990"
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1701 14 10 00",
+            "Document(s)": "N990",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "United Kingdom (excluding Northern Ireland)",
+            "Trader scheme": "Yes",
+            "Final use": "No",
+            "Certificate of origin": "No",
+            "Customs value": "£10,002.24",
+            "Import quantity": "kilograms2300.98"
+        }
+    },
+    "GB-NI404b-e2e": {
+        "country": "xi",
+        "commodityCode": "1806909019",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": "no",
+        "certOrigin": "no",
+        "meursingAdditionalCode": {
+            "additionalCode": "000"
+        },
+        "customsValue": {
+            "$ref": "#GB-NI404a-e2e/customsValue"
+        },
+        "importQuantity": {
+            "kgm": {
+                "$ref": "#GB-NI404a-e2e/importQuantity/kgm"
+            }
+        },
+        "vatRate": {
+            "vat": 20
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1806 90 90 19",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Destination"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Trader scheme": "Yes",
+            "Final use": "No",
+            "Certificate of origin": "No",
+            "Meursing Code": {
+                "$ref": "#GB-NI404b-e2e/meursingAdditionalCode/additionalCode"
+            },
+            "Customs value": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Customs value"
+            },
+            "Import quantity": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Import quantity"
+            },
+            "Applicable VAT rate": "Value added tax (20.0%)"
+        }
+    },
+    "GB-NI405-e2e": {
+        "country":  {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": {
+            "$ref": "#NI-GB-101-e2e-uk/commodityCode"
+        },
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": {
+            "$ref": "#GB-NI402a-e2e/finalUse"
+        },
+        "turnOver": "no",
+        "plannedOption": "commercial-purposes",
+        "certOrigin": "yes"
+    },
+    "GB-NI406a-e2e": {
+        "country":  {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": "1701141000",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": "no",
+        "certOrigin": "no",
+        "customsValue": {
+            "$ref": "#GB-NI404a-e2e/customsValue"
+        },
+        "importQuantity": {
+            "kgm": 2398
+        },
+        "documentCode": {
+            "xi": {
+                "$ref": "#GB-NI404a-e2e/documentCode/xi"
+            }
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1701 14 10 00",
+            "Document(s)": "N990",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Destination"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Trader scheme": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Trader scheme"
+            },
+            "Final use": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Final use"
+            },
+            "Certificate of origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Certificate of origin"
+            },
+            "Customs value": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Customs value"
+            },
+            "Import quantity": "kilograms2398"
+        }
+    },
+    "GB-NI406b-e2e": {
+        "country": "xi",
+        "commodityCode": "1806909019",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI402a-e2e/traderScheme"
+        },
+        "finalUse": "no",
+        "certOrigin": "no",
+        "meursingAdditionalCode": {
+            "additionalCode": {
+                "$ref": "#GB-NI404b-e2e/meursingAdditionalCode/additionalCode"
+            }
+        },
+        "customsValue": {
+            "$ref": "#GB-NI404a-e2e/customsValue"
+        },
+        "importQuantity": {
+            "kgm": 23.98
+        },
+        "vatRate": {
+            "vat": {
+                "$ref": "#GB-NI404b-e2e/vatRate/vat"
+            }
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1806 90 90 19",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Destination"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Trader scheme": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Trader scheme"
+            },
+            "Final use": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Final use"
+            },
+            "Certificate of origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Certificate of origin"
+            },
+            "Meursing Code": {
+                "$ref": "#GB-NI404b-e2e/checkYourAnswersTableData/Meursing Code"
+            },
+            "Customs value": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Customs value"
+            },
+            "Import quantity": "kilograms23.98",
+            "Applicable VAT rate": {
+                "$ref": "#GB-NI404b-e2e/checkYourAnswersTableData/Applicable VAT rate"
+            }
+        },
+        "importDutyCalculationPageTableData": {
+            "1": "You are importing commodity",
+            "Commodity code": {
+                "$ref": "#GB-NI406b-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            }
+        }
+    },
+    "GB-NI407-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": {
+            "$ref": "#NI-GB-101-e2e-uk/commodityCode"
+        },
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": "no",
+        "certOrigin": "yes"
+    },
+    "GB-NI408a-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": "7202118000",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": {
+            "$ref": "#GB-NI407-e2e/traderScheme"
+        },
+        "certOrigin": {
+            "$ref": "#GB-NI407-e2e/traderScheme"
+        },
+        "customsValue": {
+            "$ref": "#GB-NI404a-e2e/customsValue"
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "7202 11 80 00",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Destination"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Trader scheme": "No",
+            "Certificate of origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Certificate of origin"
+            },
+            "Customs value": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Customs value"
+            }
+        },
+        "importDutyCalculationPageTableData": {
+            "1": {
+                "$ref": "#GB-NI406b-e2e/importDutyCalculationPageTableData/1"
+            },
+            "Commodity code": {
+                "$ref": "#GB-NI408a-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            }
+        },
+        "detailsOfYourTradeTableData": {
+            "Origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Commodity": {
+                "$ref": "#GB-NI408a-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Import date": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Valuation of import": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Customs value"
+            }
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "$ref": "#commonData/tradeOptionsOnImportDutyPage"
+            },
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "2.70% * £10,002.24", "20.00% * £10,272.30"],
+                "Value": ["£10,002.24", "£270.06", "£2,054.46", "£2,324.52"]
+            },
+            "Tariff preference - United Kingdom (excluding Northern Ireland)": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £10,002.24", "20.00% * £10,002.24"],
+                "Value": ["£10,002.24", "£0.00", "£2,000.45", "£2,000.45"]
+            }
+        }
+    },
+    "GB-NI408b-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": "1905311100",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "traderScheme": "no",
+        "certOrigin": "no",
+        "meursingAdditionalCode": {
+            "additionalCode": {
+                "$ref": "#GB-NI404b-e2e/meursingAdditionalCode/additionalCode"
+            }
+        },
+        "customsValue": {
+            "$ref": "#GB-NI404a-e2e/customsValue"
+        },
+        "importQuantity": {
+            "kgm": 1
+        },
+        "vatRate": {
+            "vat": {
+                "$ref": "#GB-NI404b-e2e/vatRate/vat"
+            }
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1905 31 11 00",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Destination"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Trader scheme": {
+                "$ref": "#GB-NI408a-e2e/checkYourAnswersTableData/Trader scheme"
+            },
+            "Certificate of origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Certificate of origin"
+            },
+            "Meursing Code": {
+                "$ref": "#GB-NI404b-e2e/checkYourAnswersTableData/Meursing Code"
+            },
+            "Customs value": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Customs value"
+            },
+            "Import quantity": "kilograms1",
+            "Applicable VAT rate": {
+                "$ref": "#GB-NI404b-e2e/checkYourAnswersTableData/Applicable VAT rate"
+            }
+        },
+        "importDutyCalculationPageTableData": {
+            "1": {
+                "$ref": "#GB-NI406b-e2e/importDutyCalculationPageTableData/1"
+            },
+            "Commodity code": {
+                "$ref": "#GB-NI408b-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            }
+        },
+        "detailsOfYourTradeTableData": {
+            "Origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Commodity": {
+                "$ref": "#GB-NI408b-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Import date": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Valuation of import": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Customs value"
+            }
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "$ref": "#commonData/tradeOptionsOnImportDutyPage"
+            },
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "9.00 % + EA MAX 24.20 % +ADSZ9.00 % + 0.00 EUR / 100 kg MAX 24.20 % + 0.00 EUR / 100 kg", "20.00% * £10,902.44"],
+                "Value": ["£10,002.24", "£900.20", "£2,180.49", "£3,080.69"]
+            },
+            "Tariff preference - United Kingdom (excluding Northern Ireland)": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £10,002.24", "20.00% * £10,002.24"],
+                "Value": ["£10,002.24", "£0.00", "£2,000.45", "£2,000.45"]
+            }
+        }
+    },
+    "GB-NI409a-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": "0303149011",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "customsValue": {
+            "monetary-value": 4567.001,
+            "shipping-cost": 1213.43,
+            "insurance-cost": 5.434
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "0303 14 90 11",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Destination"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Customs value": "£5,785.87"
+        },
+        "importDutyCalculationPageTableData": {
+            "1": {
+                "$ref": "#GB-NI406b-e2e/importDutyCalculationPageTableData/1"
+            },
+            "Commodity code": {
+                "$ref": "#GB-NI409a-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            }
+        },
+        "detailsOfYourTradeTableData": {
+            "Origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Commodity": {
+                "$ref": "#GB-NI409a-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Import date": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Valuation of import": {
+                "$ref": "#GB-NI409a-e2e/checkYourAnswersTableData/Customs value"
+            }
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "$ref": "#commonData/tradeOptionsOnImportDutyPage"
+            },
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Zero rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "12.00% * £5,785.87", "0.00% * £6,480.17"],
+                "Value": ["£5,785.87", "£694.30", "£0.00", "£694.30"]
+            },
+            "Tariff preference - United Kingdom (excluding Northern Ireland)": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (EU)", "VAT Zero rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £5,785.87", "0.00% * £5,785.87"],
+                "Value": ["£5,785.87", "£0.00", "£0.00", "£0.00"]
+            }
+        }
+    },
+    "GB-NI409b-e2e": {
+        "country": {
+            "$ref": "#GB-NI401-e2e/country"
+        },
+        "commodityCode": "0304829010",
+        "destination": {
+            "$ref": "#GB-NI401-e2e/destination"
+        },
+        "origin": {
+            "$ref": "#GB-NI401-e2e/origin"
+        },
+        "customsValue": {
+            "$ref": "#GB-NI409a-e2e/customsValue"
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "0304 82 90 10",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Destination"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Customs value": {
+                "$ref": "#GB-NI409a-e2e/checkYourAnswersTableData/Customs value"
+            }
+        },
+        "importDutyCalculationPageTableData": {
+            "1": {
+                "$ref": "#GB-NI406b-e2e/importDutyCalculationPageTableData/1"
+            },
+            "Commodity code": {
+                "$ref": "#GB-NI409b-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Coming from": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            }
+        },
+        "detailsOfYourTradeTableData": {
+            "Origin": {
+                "$ref": "#GB-NI404a-e2e/checkYourAnswersTableData/Coming from"
+            },
+            "Commodity": {
+                "$ref": "#GB-NI409b-e2e/checkYourAnswersTableData/Commodity code"
+            },
+            "Import date": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Valuation of import": {
+                "$ref": "#GB-NI409a-e2e/checkYourAnswersTableData/Customs value"
+            }
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "$ref": "#commonData/tradeOptionsOnImportDutyPage"
+            },
+            "Third-country duty": {
+                "$ref": "#GB-NI409a-e2e/tradeOptions/Third-country duty"
+            },
+            "Tariff preference - United Kingdom (excluding Northern Ireland)": {
+                "$ref": "#GB-NI409a-e2e/tradeOptions/Tariff preference - United Kingdom (excluding Northern Ireland)"
+            }
+        }
     }
 }

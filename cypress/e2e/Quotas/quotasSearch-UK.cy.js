@@ -6,7 +6,7 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
   let data;
   // Load test data from a fixture file to 'testData' environment variable
   before(() => {
-    commonPage.loadData('quotasSearch');
+    commonPage.setTestData('quotasSearch');
   });
   beforeEach(() => {
     data = commonPage.getTestData();

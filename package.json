@@ -4,11 +4,12 @@
   "license": "MIT",
   "description": "E2E testing of the Online Trade Tariff",
   "dependencies": {
+    "@babel/eslint-parser": "^7.23.3",
     "@cypress/grep": "^4.0.1",
+    "@ovotech/json-refs": "^0.3.2",
     "allure-commandline": "^2.24.1",
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.2.1",
-    "@babel/eslint-parser": "^7.23.3",
     "cypress": "13.4.0",
     "cypress-dark": "^1.7.14",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
@@ -32,6 +33,7 @@
     "parse-markdown-table": "^0.0.6",
     "postcss": "^8.4.31",
     "set-value": "^4.1.0",
+    "underscore": "^1.13.6",
     "validator": "^13.11.0"
   },
   "scripts": {

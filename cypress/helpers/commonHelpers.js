@@ -78,32 +78,132 @@ class CommonHelpers {
   }
   // this method is used to verify static text on a specific page
   verifyStaticContent(staticData) {
-    const keys = Object.keys(staticData);
-    cy.log(keys);
-    const values = Object.values(staticData);
-    for (let i = 0; i < values.length; i++) {
-      if (keys[i].includes('link')) {
-        commonPage.verifyPageShudHaveLnk(values[i]);
+    for (const [key, value] of Object.entries(staticData)) {
+      if (key.includes('link')) {
+        commonPage.verifyPageShudHaveLnk(value);
       } else {
-        commonPage.verifyContains(values[i]);
+        commonPage.verifyContains(value);
       }
     }
   }
-  // NI to GB duty calculator scenario steps
-  verifyNIToGBNoDutyScenario(commodityCode, destination, originStaticTxt, origin, noDutyStaticTxt) {
+  // NI to GB no duty page scenario steps
+  verifyNoDutyPageNIToGB(commodityCode, destination, originPage, origin, noDutyPageNIToGB) {
     commodityPage.clkDutyCalcLnk(commodityCode);
     dutyCalculatorPage.verifyWhenWillTheGoodsImportPage();
     dutyCalculatorPage.enterDateAndClkContinueBtn(true);
     dutyCalculatorPage.verifySelectDestinationPage();
     dutyCalculatorPage.selectDestinationAndClkContinue(destination);
-    this.verifyStaticContent(originStaticTxt);
+    this.verifyStaticContent(originPage);
     dutyCalculatorPage.selectOriginFromListAndClkContinueBtn(origin);
-    dutyCalculatorPage.verifyNoDutyPage();
-    this.verifyStaticContent(noDutyStaticTxt);
+    dutyCalculatorPage.verifyNoDutyPage(noDutyPageNIToGB);
     commonPage.clkBackLnk();
     dutyCalculatorPage.verifySelectOriginPage();
+    this.verifyStaticContent(originPage);
     commonPage.clkContinueBtn();
     dutyCalculatorPage.clkStartAgainBtn();
+  }
+
+  // GB to NI scenarios steps for before each method
+  verifyGBToNIStepsUptoOriginSelectionPage(country, commodityCode, destination, origin) {
+    dutyCalculatorPage.goToDutyCalcURL(country, commodityCode);
+    dutyCalculatorPage.verifyWhenWillTheGoodsImportPage();
+    dutyCalculatorPage.enterDateAndClkContinueBtn(true);
+    dutyCalculatorPage.verifySelectDestinationPage();
+    dutyCalculatorPage.selectDestinationAndClkContinue(destination);
+    dutyCalculatorPage.verifySelectOriginPage();
+    dutyCalculatorPage.selectOriginAndClkContinueBtn(origin);
+  }
+
+  // GB to NI scenarios steps for no duty page
+  verifyGBToNIStepsForNoDutyPageScenarios(traderScheme, finalUse, turnOver, certOrigin, plannedOption, noDutyPageGBToNI) {
+    dutyCalculatorPage.verifyTraderSchemePage();
+    dutyCalculatorPage.selectTraderSchemeAndClkContinueBtn(traderScheme);
+    if (finalUse != null) {
+      dutyCalculatorPage.verifyGoodsForSaleToOrFinalUsePage();
+      dutyCalculatorPage.selectGoodsForSaleToOrFinalUseAndClkContinueBtn(finalUse);
+    }
+    if (turnOver != null) {
+      dutyCalculatorPage.verifyAnnualTrunOverPage();
+      dutyCalculatorPage.selectAnnualTurnOverAndClkContinueBtn(turnOver);
+    }
+    if (commonPage.getTestCaseName() == 'GB-NI405-e2e') {
+      dutyCalculatorPage.verifyPlannedProcessingPage();
+      dutyCalculatorPage.selectPlannedProcessingAndClkContinueBtn(plannedOption);
+      dutyCalculatorPage.verifyCertificateOfOriginPage();
+      dutyCalculatorPage.selectCertificateOfOriginAndClkContinueBtn(certOrigin);
+    } else if (certOrigin != null) {
+      dutyCalculatorPage.verifyCertificateOfOriginPage();
+      dutyCalculatorPage.selectCertificateOfOriginAndClkContinueBtn(certOrigin);
+    } else if (plannedOption != null) {
+      dutyCalculatorPage.verifyPlannedProcessingPage();
+      dutyCalculatorPage.selectPlannedProcessingAndClkContinueBtn(plannedOption);
+    }
+    dutyCalculatorPage.verifyNoDutyPage(noDutyPageGBToNI);
+    if (commonPage.getTestCaseName() == 'GB-NI402a-e2e') {
+      commonPage.clkBackLnk();
+      dutyCalculatorPage.verifyAnnualTrunOverOptionShudBeChecked(turnOver);
+    } else if (commonPage.getTestCaseName() != 'GB-NI403-e2e' && commonPage.getTestCaseName() != 'GB-NI405-e2e' &&
+                  commonPage.getTestCaseName() != 'GB-NI407-e2e') {
+      commonPage.clkBackLnk();
+      dutyCalculatorPage.verifyPlannedProcessingOptionShudBeChecked(plannedOption);
+    }
+    if (commonPage.getTestCaseName() != 'GB-NI403-e2e' && commonPage.getTestCaseName() != 'GB-NI405-e2e' &&
+          commonPage.getTestCaseName() != 'GB-NI407-e2e') {
+      commonPage.clkContinueBtn();
+      dutyCalculatorPage.verifyNoDutyPage();
+    }
+    commonPage.clkStartAgainBtn();
+    dutyCalculatorPage.verifyWhenWillTheGoodsImportPage();
+  }
+
+  // GB to NI scenarios steps for E2E
+  verifyGBTONIStepsForE2EScenario(traderScheme, finalUse, certOrigin, euDutiesApplyPage, meursingCodePage,
+      meursingAdditionalCode, customsValuePage, customsValue, importQuantityPage, importQuantity, documentCodePage, documentCode,
+      vatRatePage, vatRate, checkYourAnswersTableData, importDutyCalculationPage, importDutyCalculationPageTableData,
+      detailsOfYourTradeTableData, tradeOptions) {
+    if (traderScheme != null) {
+      dutyCalculatorPage.verifyTraderSchemePage();
+      dutyCalculatorPage.selectTraderSchemeAndClkContinueBtn(traderScheme);
+    }
+    if (finalUse != null ) {
+      dutyCalculatorPage.verifyGoodsForSaleToOrFinalUsePage();
+      dutyCalculatorPage.selectGoodsForSaleToOrFinalUseAndClkContinueBtn(finalUse);
+    }
+    if (certOrigin != null) {
+      dutyCalculatorPage.verifyCertificateOfOriginPage();
+      dutyCalculatorPage.selectCertificateOfOriginAndClkContinueBtn(certOrigin);
+    }
+    dutyCalculatorPage.verifyEuDutiesApplyPageAndClkContinueBtn(euDutiesApplyPage);
+    if (meursingCodePage != null) {
+      dutyCalculatorPage.verifyMeusingCodePage(meursingCodePage);
+      dutyCalculatorPage.enterMeusingAdditionalCodeAndClkContinueBtn(meursingAdditionalCode);
+    }
+    dutyCalculatorPage.verifyCustomValueOfThisImportPage(customsValuePage);
+    dutyCalculatorPage.enterCustomsValueOfImportAndClkContinueBtn(customsValue);
+    if (importQuantityPage != null) {
+      dutyCalculatorPage.verifyEnterImportQuantityPage(importQuantityPage);
+      dutyCalculatorPage.enterImportQuantityAndClkContinueBtn(importQuantity);
+    }
+    if (documentCodePage != null) {
+      dutyCalculatorPage.verifyDoYouHaveFollowingDocumentsPage(documentCodePage);
+      dutyCalculatorPage.selectDocumentCodeAndClkContinueBtn(documentCode);
+    }
+    if (vatRatePage != null) {
+      dutyCalculatorPage.verifyVatRateIsApplicablePage(vatRatePage);
+      dutyCalculatorPage.selectVatRateIsApplicableAndClkContinueBtn(vatRate);
+    }
+    dutyCalculatorPage.verifyCheckYourAnswersPageAndClkCalImportDutiesBtn(checkYourAnswersTableData);
+    dutyCalculatorPage.verifyImportDutyCalculationPage(importDutyCalculationPage);
+    if (importDutyCalculationPageTableData != null) {
+      dutyCalculatorPage.verifyImportDutyCalculationPageTablesData(importDutyCalculationPageTableData);
+      dutyCalculatorPage.clkCommCodeLinkOnImportDutyCalculatorPageAndGoBack(importDutyCalculationPageTableData);
+    }
+    if (detailsOfYourTradeTableData != null) {
+      dutyCalculatorPage.clkAndVerifyDetailsOfYourTradeOnImportDutyCalcPage(detailsOfYourTradeTableData);
+    }
+    if (tradeOptions != null) {
+      dutyCalculatorPage.verifyOptionsForPayingImportDuties(tradeOptions);
+    }
   }
 }
 
