@@ -13,7 +13,7 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     cy.contains('Help on using the tariff');
     cy.contains('Leave feedback').click();
     cy.contains('Leave feedback or suggestions for improvements to this service.').click();
-    cy.contains('Send your feedback');
+    cy.contains('Give feedback on Online Trade Tariff');
   });
 
   it('UK - Breadcrumbs on feedback/thanks page', function() {
