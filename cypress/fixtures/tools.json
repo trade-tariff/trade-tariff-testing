@@ -1,0 +1,32 @@
+{
+    "UK service - has the right links": {
+        "toolsHeadr":"Tariff tools",
+        "tools":"Tools",
+        "toolsLinks": [
+            "Exchange rates",
+            "Check simplified procedure value rates for fresh fruit and vegetables",
+            "Quotas",
+            "Certificates, licences and documents",
+            "Additional codes",
+            "Footnotes",
+            "Chemicals"
+        ],
+        "merursinLnk":"Meursing code finder"
+    },
+    "XI service - has the right links": {
+        "toolsHeadr":"Tariff tools",
+        "tools":"Tools",
+        "toolsLinks": [
+            "Check simplified procedure value rates for fresh fruit and vegetables",
+            "Certificates, licences and documents",
+            "Additional codes",
+            "Footnotes",
+            "Chemicals",
+            "Meursing code finder"
+        ],
+        "lnksNotToHav":[
+            "Exchange rates",
+            "Quotas"
+        ]
+    }
+}

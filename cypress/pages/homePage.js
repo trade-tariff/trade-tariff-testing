@@ -1,4 +1,4 @@
-const commonPage = require('./commonPage');
+import commonPage from '../../pages/commonPage';
 
 class HomePage {
   elements = {

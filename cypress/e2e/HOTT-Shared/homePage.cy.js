@@ -38,16 +38,16 @@ describe('GOV.UK_HomePage', function() {
       homePage.verifyBannerHeadr(data.successTxt);
     });
   });
-  context('when on the UK service_tools', () => {
-    it('has the right links', () => {
-      commonPage.goToUrl('/tools');
-    });
-  });
-  context('when on the XI service_tools', () => {
-    it('has the right links', () => {
-      commonPage.goToUrl('/tools');
-    });
-  });
+  // context('when on the UK service_tools', () => {
+  //   it.only('has the right links', () => {
+  //     commonPage.goToUrl('/tools');
+  //   });
+  // });
+  // context('when on the XI service_tools', () => {
+  //   it.only('has the right links', () => {
+  //     commonPage.goToUrl('/tools');
+  //   });
+  // });
   context('Privacy Notice for UK and XI |', () => {
     it('Privacy - Page content and links', () => {
       commonPage.goToUrl('/sections');
@@ -285,7 +285,7 @@ describe('GOV.UK_HomePage', function() {
   });
 
   context('when there are LPA-based components on alcohol duties', function() {
-    it.only('shows the correct popup information_LPA', function() {
+    it('shows the correct popup information_LPA', function() {
       cy.visit('/commodities/2208701000?day=28&month=08&year=2023#vat_excise');
       homePage.verifyExciseAdditionalCodePopup(data.exciseCode, data.dutyAmount);
       homePage.verifyExciseAdditionalCodePopup(data.exciseCode1, data.dutyAmount1);
@@ -293,7 +293,7 @@ describe('GOV.UK_HomePage', function() {
   });
 
   context('when there are ASVX components on alcohol duties', function() {
-    it.only('shows the correct popup information_ASVX', function() {
+    it('shows the correct popup information_ASVX', function() {
       cy.visit('/commodities/2204299320?day=28&month=08&year=2023#vat_excise');
       homePage.verifyExciseAdditionalCodePopup(data.exciseCode, data.dutyAmount);
       homePage.verifyExciseAdditionalCodePopup(data.exciseCode1, data.dutyAmount1);

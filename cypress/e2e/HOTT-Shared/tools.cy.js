@@ -1,41 +1,29 @@
+import commonPage from '../../pages/commonPage';
+import toolsPage from '../../pages/toolsPage';
+
 describe('tools', function() {
-  context('when on the UK service', () => {
-    beforeEach(() => {
-      cy.visit('/tools');
-    });
-
-    it('has the right links', function() {
-      cy.contains('Tariff tools');
-      cy.get('.govuk-header').contains('Tools');
-
-      cy.get('a[href="/simplified_procedure_value"]');
-      cy.get('a[href="/quota_search"]');
-      cy.get('a[href="/certificate_search"]');
-      cy.get('a[href="/additional_code_search"]');
-      cy.get('a[href="/footnote_search"]');
-      cy.get('a[href="/chemical_search"]');
-      cy.get('a[href="/meursing_lookup/steps/start"]').should('not.exist');
-    });
+  let data;
+  // Load test data from a fixture file to 'testData' environment variable
+  before(function() {
+    commonPage.loadData('tools');
   });
-
-  context('when on the XI service', () => {
-    beforeEach(() => {
-      cy.visit('/xi/tools');
-    });
-
-    it('has the right links', function() {
-      cy.contains('Tariff tools');
-      cy.get('.govuk-header').contains('Tools');
-
-      cy.get('a[href="/xi/simplified_procedure_value"]');
-      cy.get('a[href="/xi/certificate_search"]');
-      cy.get('a[href="/xi/additional_code_search"]');
-      cy.get('a[href="/xi/footnote_search"]');
-      cy.get('a[href="/xi/chemical_search"]');
-      cy.get('a[href="/xi/meursing_lookup/steps/start"]');
-
-      cy.get('a[href="/xi/quota_search"]').should('not.exist');
-    });
+  beforeEach(function() {
+    data = commonPage.getTestData();
+  });
+  it.only('UK service - has the right links', function() {
+    commonPage.goToUrl('/tools');
+    commonPage.verifyContains(data.toolsHeadr);
+    toolsPage.verifyHeader(data.tools);
+    toolsPage.verifyLinks(data.toolsLinks);
+    commonPage.textShudNotExist(data.merursinLnk);
+  });
+  it.only('XI service - has the right links', function() {
+    commonPage.goToUrl('xi/tools');
+    commonPage.goToUrl('xi/tools');
+    commonPage.verifyContains(data.toolsHeadr);
+    toolsPage.verifyHeader(data.tools);
+    toolsPage.verifyLinks(data.toolsLinks);
+    toolsPage.verifyTextShudNotExist(data.lnksNotToHav);
   });
 });
 
