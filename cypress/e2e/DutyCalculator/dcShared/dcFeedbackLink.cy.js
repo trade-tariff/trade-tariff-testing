@@ -18,7 +18,7 @@ describe('| dcFeedbackLink | Feedback link on Duty Calculator page |', function(
 
       // first link
       cy.get('.form-hint > a:nth-of-type(1)')
-          .should('have.attr', 'href', 'https://www.gov.uk/guidance/ask-hmrc-for-advice-on-classifying-your-goods');
+          .should('have.attr', 'href', '/help');
 
       // enter some feedback
       cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 DC feedback ');
