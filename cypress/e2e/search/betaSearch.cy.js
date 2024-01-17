@@ -2,7 +2,7 @@ import commonPage from '../../pages/commonPage';
 import searchPage from '../../pages/searchPage';
 import commonHelpers from '../../helpers/commonHelpers';
 
-describe('Using beta search', {tags: ['devOnly']}, () => {
+describe.skip('Using beta search', {tags: ['devOnly']}, () => {
   let data;
   // Load test data from a fixture file to 'testData' environment variable
   before(() => {

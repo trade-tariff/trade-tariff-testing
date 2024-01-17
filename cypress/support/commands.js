@@ -20,46 +20,6 @@ const months = [
 
 const goodsNomenclatureLinkRegex = /\/(headings|subheadings|commodities)\/[0-9]{4}(?:-[0-9]{2})?/;
 
-Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
-  const space = Cypress.env('SPACE');
-  const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
-    Cypress.env(`${space}_BASIC_AUTH`) === 'true';
-
-  options = options || {};
-
-  if (basicAuthEnabled) {
-    options.auth = {
-      username: Cypress.env(`${space}_BASIC_USERNAME`),
-      password: Cypress.env(`${space}_BASIC_PASSWORD`),
-    };
-  }
-
-  return originalFn(url, options);
-});
-
-Cypress.Commands.overwrite('request', (originalFn, urlOrOptions) => {
-  const space = Cypress.env('SPACE');
-  const basicAuthEnabled = Cypress.env(`${space}_BASIC_AUTH`) === true ||
-    Cypress.env(`${space}_BASIC_AUTH`) === 'true';
-
-  let options = {};
-
-  if (urlOrOptions instanceof Object) {
-    options = urlOrOptions;
-  } else {
-    options = {url: urlOrOptions};
-  }
-
-  if (basicAuthEnabled) {
-    options.auth = {
-      username: Cypress.env(`${space}_BASIC_USERNAME`),
-      password: Cypress.env(`${space}_BASIC_PASSWORD`),
-    };
-  }
-
-  return originalFn(options);
-});
-
 Cypress.Commands.add('datePickerPage', (date) => {
   const importDateInput = (index) => `input[name='import_export_date[import_date(${index}i)]']`;
 

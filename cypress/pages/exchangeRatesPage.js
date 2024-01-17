@@ -27,7 +27,7 @@ class ExchangeRatesPage {
   }
 
   verifyPreviousYearHeading() {
-    commonPage.verifyContains(`${previousYear} HMRC monthly currency exchange rates`);
+    commonPage.verifyContains(`${previousYear} HMRC currency exchange monthly rates`);
   }
 
   verifyNewTitleForMonthlyRates() {
