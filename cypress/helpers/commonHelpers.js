@@ -103,8 +103,8 @@ class CommonHelpers {
     dutyCalculatorPage.clkStartAgainBtn();
   }
 
-  // GB to NI scenarios steps for before each method
-  verifyGBToNIStepsUptoOriginSelectionPage(country, commodityCode, destination, origin) {
+  // verfiy steps from when will the goods import page to select origin page - scenarios steps to run for before each method
+  verifyStepsFromGoodsImportPageToOriginSelectionPage(country, commodityCode, destination, origin) {
     dutyCalculatorPage.goToDutyCalcURL(country, commodityCode);
     dutyCalculatorPage.verifyWhenWillTheGoodsImportPage();
     dutyCalculatorPage.enterDateAndClkContinueBtn(true);

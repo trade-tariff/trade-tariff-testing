@@ -10,8 +10,7 @@ describe('| GB-NI-e2e.spec | GB to NI route', () => {
   });
   beforeEach(() => {
     data = commonPage.getTestData();
-    console.log('data: ', data);
-    commonHelpers.verifyGBToNIStepsUptoOriginSelectionPage(
+    commonHelpers.verifyStepsFromGoodsImportPageToOriginSelectionPage(
         data.country, data.commodityCode, data.destination, data.origin);
   });
   context('| GB-NI-e2e.spec | GB to NI route 🚎', () => {

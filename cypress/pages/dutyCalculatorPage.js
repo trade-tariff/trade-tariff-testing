@@ -62,8 +62,8 @@ class DutyCalculatorPage {
   };
 
   // duty calc link to click on commodities page to navigate to duty calc app
-  clkDutyCalcLnkOnCommoditiesPage() {
-    this.elements.clkDutyCalcLnk().click();
+  clkDutyCalcLnkOnCommoditiesPage(commcode) {
+    commodityPage.clkDutyCalcLnk(commcode);
   }
 
   goToDutyCalcURL(country, commodityCode) {

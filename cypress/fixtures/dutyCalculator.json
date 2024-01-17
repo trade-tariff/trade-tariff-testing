@@ -75,6 +75,10 @@
             "10": "You may be called upon to provide a copy of your Certificate of Origin to avoid paying duties.",
             "11": "You may be called upon to provide proof of your membership of the UK Internal Market Scheme and that your goods are not going to be subject to further processing."
         },
+        "noDutyPageEUToNI": {
+            "1": "There is no import duty to pay when importing goods into Northern Ireland from a European Union member state.",
+            "2": "An import declaration is not required."
+        },
         "footerData": {
             "1": "About this commodity code",
             "2": "Explore the topic",
@@ -772,5 +776,17 @@
                 "$ref": "#GB-NI409a-e2e/tradeOptions/Tariff preference - United Kingdom (excluding Northern Ireland)"
             }
         }
+    },
+    "EU-NI501-e2e": {
+        "country":  "xi",
+        "commodityCode": "1212210000",
+        "destination": "xi",
+        "origin": "eu"
+    },
+    "EU-NI502-e2e": {
+        "country":  "xi",
+        "commodityCode": "1516209821",
+        "destination": "xi",
+        "origin": "eu"
     }
 }
