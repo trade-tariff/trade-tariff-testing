@@ -4,7 +4,7 @@ const currentDate = dayjs().format('DD MMMM YYYY');
 
 describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config', 'dc-tag']}, function() {
   it(`additional code 🇮🇱 | UK |`, function() {
-    cy.visit('/duty-calculator/uk/6307909200/import-date');
+    cy.visit('/duty-calculator/uk/3926909790/import-date');
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Israel'});
@@ -17,7 +17,9 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.get('.govuk-error-message').contains('Specify a valid additional code');
     cy.get('.govuk-back-link').click();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-    cy.additionalCode('2600');
+    cy.additionalCode('2700');
+    cy.docCode({uk: 'c990'});
+    cy.contains('Continue').click();
     cy.docCode({uk: 'c119'});
     cy.contains('Continue').click();
     cy.vat('20');
@@ -25,7 +27,7 @@ describe('| dcAdditionalCode | RoW to GB - additional codes |', {tags: ['config'
     cy.dutyPage();
     cy.contains('You are importing commodity');
     cy.contains(`from Israel on ${currentDate}.`);
-    cy.contains('6307 90 92 00 (2600)');
+    cy.contains('3926 90 97 90 (2700)');
     cy.contains('Third-country duty');
   });
 });
