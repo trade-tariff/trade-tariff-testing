@@ -4,7 +4,7 @@
 // Multiple Additional Codes
 describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | Multiple Additional Codes | ', function() {
   it('RoW 🇸🇬 (Singapore) to NI | 🔼 Delta Route - Acceptable route -will not be subject to processing in Northern Ireland | UK = 2 , XI = 0', function() {
-    cy.visit('/duty-calculator/xi/6307909200/import-date');
+    cy.visit('/duty-calculator/xi/3926909790/import-date');
     // date
     cy.validDate();
     // destination
@@ -25,7 +25,10 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // additional codes
-    cy.additionalCode('2600');
+    cy.additionalCode('2700');
+    // doc code
+    cy.docCode({uk: 'c990'});
+    cy.contains('Continue').click();
     // doc code
     cy.docCode({uk: 'c119'});
     cy.contains('Continue').click();
@@ -33,7 +36,7 @@ describe('| Row-NI304c-delta.spec.js |turnover > £500,000 |  🔼 Delta Route -
     // Import Quantity 1.0 gives UK tariffs
     cy.vat('20');
     cy.confirmPage();
-    cy.contains('6307 90 92 00 (2600)');
+    cy.contains('3926 90 97 90 (2700)');
 
     cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
