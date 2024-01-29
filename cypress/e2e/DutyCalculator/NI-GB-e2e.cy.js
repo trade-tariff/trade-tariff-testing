@@ -15,7 +15,7 @@ describe('| NI-GB-e2e | Northern Ireland to GB United Kingdom |', () => {
   // Common method to run after each test case to validate same user actions
   afterEach(() => {
     commonHelpers.verifyNoDutyPageNIToGB(
-        data.commodityCode, data.destination, data.originPage, data.origin, data.noDutyPageNIToGB);
+        data.commodityCode, data.destination, data.origin, data.originPage, data.noDutyPageNIToGB);
   });
   context('| NI-GB-e2e.spec | NI to GB route 🚎 |', () => {
     it('NI-GB-101-e2e-uk', () => {

@@ -19,7 +19,8 @@ class DutyCalculatorPage {
     countryOfOriginHeading: () => 'Which country are the goods coming from',
     traderSchemeTitle: () => 'Are you authorised under the UK Internal Market Scheme',
     goodsSaleToOrFinalUseTitle: () => 'Are your goods for final use in the UK',
-    goodsSaleToOrFinalUseHeading: () => 'Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?',
+    goodsSaleToOrFinalUseHeadingUK: () => 'Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?',
+    goodsSaleToOrFinalUseHeadingXI: () => 'Are your goods for sale to, or final use by, end-consumers located in Northern Ireland?',
     annualTurnOverTitle: () => 'What was your annual turnover',
     annualTurnOverHeading: () => 'What was your annual turnover in the most recent complete financial year?',
     plannedProcessingTitle: () => 'How will your goods be processed',
@@ -28,6 +29,7 @@ class DutyCalculatorPage {
     certificateOfOriginHeading: () => 'Do you have a valid proof of preferential origin?',
     euDutiesApplyTitle: () => 'Duties apply to this import',
     euDutiesApplyHeading: () => 'EU duties apply to this import',
+    addtionalCodesTitle: () => 'Describe your goods in more detail',
     meursingCodeTitle: () => 'Enter a \'Meursing Code\' for this commodity',
     meursingCodeHeading: () => 'Enter a \'Meursing code\' to work out applicable duties',
     noDuty: () => 'There is no import duty to pay',
@@ -40,6 +42,7 @@ class DutyCalculatorPage {
     // Duty calculator various page elements
     importDate: (iValue) => cy.get(`#steps_import_date_import_date_${iValue}i`),
     selectDestination: (destCountry) => cy.get(`#steps-import-destination-import-destination-${destCountry}-field`),
+    selectOtherCountryOrigin: () => cy.get('#steps-country-of-origin-other-country-of-origin-field'),
     selectOrigin: (originCountry) => cy.get(`input#steps-country-of-origin-country-of-origin-${originCountry}-field`),
     originList: () => cy.get('#steps-country-of-origin-country-of-origin-field'),
     traderScheme: (trade) => cy.get(`#steps-trader-scheme-trader-scheme-${trade}-field`),
@@ -49,6 +52,7 @@ class DutyCalculatorPage {
     certificateOfOrigin: (certOrigin) => cy.get(`input#steps-certificate-of-origin-certificate-of-origin-${certOrigin}-field`),
     meursingCode: () => cy.get('#steps-meursing-additional-code-meursing-additional-code-field'),
     customValues: (customsValue) => cy.get(`input#steps-customs-value-${customsValue}-field`),
+    additionalCodes: () => cy.get('#steps-additional-code-additional-code-xi-field'),
     importQuantity: (kgm) => cy.get(`#steps-measure-amount-${kgm}-field`),
     vatRate: (vatRateOption) => cy.get(`input#steps-vat-vat-${vatRateOption}-field`),
     documentCode: (country, docCode) => cy.get(`input[id="steps-document-code-document-code-${country}-${docCode}-field"]`),
@@ -77,6 +81,7 @@ class DutyCalculatorPage {
       case 'What was your annual turnover':
       case 'Do you have any of the following documents':
       case 'Which VAT rate is applicable to your trade':
+      case 'Describe your goods in more detail':
         cy.title().should('eq', `${titleToVerify} - Online Tariff Duty Calculator`);
         break;
       default:
@@ -133,8 +138,16 @@ class DutyCalculatorPage {
   }
 
   // Which country are the goods coming from? - select origin and click continue button
-  selectOriginAndClkContinueBtn(origin) {
-    this.elements.selectOrigin(origin).click();
+  selectOriginAndClkContinueBtn(originCountry, originPage) {
+    if (originCountry == 'gb' || originCountry == 'eu') {
+      const dataToVerify = this.getTestCaseSpecificStaticData(originPage, [5, 6]);
+      commonHelpers.verifyStaticContent(dataToVerify);
+      this.elements.selectOrigin(originCountry).click();
+    } else {
+      this.elements.selectOrigin('other').click({force: true});
+      commonHelpers.verifyStaticContent(originPage);
+      this.elements.selectOtherCountryOrigin().click().clear().type(originCountry);
+    }
     commonPage.clkContinueBtn();
   }
 
@@ -192,6 +205,7 @@ class DutyCalculatorPage {
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.traderSchemeTitle() + '?');
     this.verifyPageTitle(this.elements.traderSchemeTitle());
+    commonHelpers.verifyStaticContent(staticData);
   }
 
   // Select trade scheme and click continue button
@@ -201,11 +215,15 @@ class DutyCalculatorPage {
   }
 
   // Are your goods for sale to, or final use by, end-consumers located in the United Kingdom?
-  verifyGoodsForSaleToOrFinalUsePage() {
+  verifyGoodsForSaleToOrFinalUsePage(destination) {
     commonPage.verifyUrlShudInclude('/final-use');
     commonPage.verifyBackLnk();
     commonPage.verifyContains(this.elements.captionTitle());
-    commonPage.verifyContains(this.elements.goodsSaleToOrFinalUseHeading());
+    if (destination == 'xi') {
+      commonPage.verifyContains(this.elements.goodsSaleToOrFinalUseHeadingXI());
+    } else {
+      commonPage.verifyContains(this.elements.goodsSaleToOrFinalUseHeadingUK());
+    }
     this.verifyPageTitle(this.elements.goodsSaleToOrFinalUseTitle());
   }
 
@@ -216,12 +234,13 @@ class DutyCalculatorPage {
   }
 
   // What was your annual turnover in the most recent complete financial year?
-  verifyAnnualTrunOverPage() {
+  verifyAnnualTrunOverPage(staticData) {
     commonPage.verifyUrlShudInclude('/annual-turnover');
     commonPage.verifyBackLnk();
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.annualTurnOverHeading());
     this.verifyPageTitle(this.elements.annualTurnOverTitle());
+    commonHelpers.verifyStaticContent(staticData);
   }
 
   // Select annual turn over option and click continue button
@@ -282,14 +301,23 @@ class DutyCalculatorPage {
     commonPage.verifyBackLnk();
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.euDutiesApplyHeading());
-    this.verifyPageTitle(this.elements.euDutiesApplyTitle());
+    if (commonPage.getTestCaseName().includes('RoW-NI')) {
+      this.verifyPageTitle(this.elements.euDutiesApplyHeading());
+    } else {
+      this.verifyPageTitle(this.elements.euDutiesApplyTitle());
+    }
     switch (commonPage.getTestCaseName()) {
+      case 'RoW-NI302-e2e':
       case 'GB-NI409a-e2e':
       case 'GB-NI409b-e2e':
-        staticData = commonPage.getTestCaseSpecificStaticData(staticData, 1);
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 3]);
+        break;
+      case 'RoW-NI303a-e2e':
+      case 'RoW-NI303b-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 2]);
         break;
       default:
-        staticData = commonPage.getTestCaseSpecificStaticData(staticData, 2);
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [2, 3]);
     }
     commonHelpers.verifyStaticContent(staticData);
     commonPage.clkContinueBtn();
@@ -331,6 +359,22 @@ class DutyCalculatorPage {
     commonPage.clkContinueBtn();
   }
 
+  // Describe your goods in more detail
+  verifyAdditionalCodesPage(staticData, additonalCode) {
+    commonPage.verifyUrlShudInclude(`/additional-codes/${additonalCode}`);
+    commonPage.verifyBackLnk();
+    commonPage.verifyContains(this.elements.captionTitle());
+    commonPage.verifyContains(this.elements.addtionalCodesTitle());
+    this.verifyPageTitle(this.elements.addtionalCodesTitle());
+    commonHelpers.verifyStaticContent(staticData);
+  }
+
+  // clk please select drop down and select additional code and clk continue button
+  clkDropDownAndSelectAdditionalCodeClkContinueBtn(additionalCode) {
+    this.elements.additionalCodes().select(additionalCode);
+    commonPage.clkContinueBtn();
+  }
+
   // Enter import quantity
   verifyEnterImportQuantityPage(staticData) {
     commonPage.verifyUrlShudInclude('/measure-amount');
@@ -343,6 +387,9 @@ class DutyCalculatorPage {
       case 'GB-NI406a-e2e':
         staticData = commonPage.getTestCaseSpecificStaticData(staticData, 3);
         break;
+      case 'RoW-NI303a-e2e':
+      case 'RoW-NI303b-e2e':
+      case 'RoW-NI303c1-e2e':
       case 'GB-NI404b-e2e':
       case 'GB-NI406b-e2e':
       case 'GB-NI408b-e2e':
@@ -414,6 +461,18 @@ class DutyCalculatorPage {
     commonPage.verifyContains(this.elements.importDutyCalcTitle());
     this.verifyPageTitle(this.elements.importDutyCalcTitle());
     switch (commonPage.getTestCaseName()) {
+      case 'RoW-NI301-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [4, 5, 6, 7, 8, 9, 10]);
+        break;
+      case 'RoW-NI302-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [3, 4, 5, 6, 10, 11, 12]);
+        break;
+      case 'RoW-NI303a-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [3, 5, 6, 7, 10, 12]);
+        break;
+      case 'RoW-NI303b-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [3, 4, 6, 7, 10, 12]);
+        break;
       case 'GB-NI404b-e2e':
       case 'GB-NI406b-e2e':
       case 'GB-NI408a-e2e':

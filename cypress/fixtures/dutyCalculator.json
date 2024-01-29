@@ -3,12 +3,33 @@
         "Date of import": "Date",
         "originPage": {
             "1": "The duty you are charged may be dependent on the country from which the goods are coming.",
-            "2": "Where are the goods coming from?",
-            "3": "When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures."
+            "2": "England, Scotland or Wales (GB)",
+            "3": "Ireland or other EU member states",
+            "4": "Countries outside of GB and European Union",
+            "5": "Where are the goods coming from?",
+            "6": "When autocomplete results are available, use up and down arrows to review and enter to select. Touch device users, explore by touch or with swipe gestures."
+        },
+        "traderSchemePage": {
+            "1": "If you are moving goods into Northern Ireland which are for sale to, or final use by, end consumers located in the UK and you are authorised under the UK Internal Market Scheme, then you may declare your goods as being 'not at risk' where the requirements are met. A 'not at risk' good entering Northern Ireland from Great Britain will not be subject to duty.",
+            "2": "Yes, I am authorised under the UK Internal Market Scheme",
+            "3": "No, I am not authorised under the UK Internal Market Scheme",
+            "4": "If you are not yet authorised, then you can find out more about applying for authorisation for the UK Internal Market Scheme.",
+            "5": "About this commodity code",
+            "6": "Find out more about the Windsor Framework",
+            "7": "Apply for authorisation for the UK Internal Market Scheme"
+        },
+        "annualTurnOverPage": {
+            "1": "If the turnover of your company was less than £2,000,000 in the latest complete financial year, then your goods will not be considered to be subject to commercial processing. This influences whether or not the goods are seen to be 'at risk' of subsequently being moved into Ireland.",
+            "2": "My company's turnover was less than £2,000,000",
+            "3": "My company's turnover was £2,000,000 or more",
+            "4": "About this commodity code",
+            "5": "Explore the topic",
+            "6": "Check if you can declare goods you bring into Northern Ireland 'not at risk' of moving to the EU"
         },
         "euDutiesApplyPage": {
             "1": "As you have no valid proof of origin, imports of this commodity are subject to EU import duties.",
-            "2": "As this commodity attracts a trade defence measure, imports of this commodity are treated as 'at risk' under all circumstances."
+            "2": "As this commodity attracts a trade defence measure, imports of this commodity are treated as 'at risk'.",
+            "3": "As your goods are subject to commercial processing, imports of this commodity are treated as 'at risk'."
         },
         "meursingCodePage": {
             "1": "This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.",
@@ -22,6 +43,12 @@
             "3": "What is the value in GBP of the goods being imported?",
             "4": "Optionally, what is the shipping cost?",
             "5": "Optionally, what is the cost of insuring the goods?"
+        },
+        "additionalCodesPage": {
+            "1": "Select Additional code",
+            "2": "To trade this commodity in Northern Ireland, you need to specify an additional 4 digits, known as an additional code. This affects the definitive anti-dumping duty.",
+            "3": "Please select",
+            "4": "About this commodity code"
         },
         "importQuantityPage": {
             "1": "The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.",
@@ -46,6 +73,21 @@
             "4": "Zero rate",
             "5": "Tariff preference - United Kingdom (excluding Northern Ireland)",
             "6": "Claiming a waiver – Exchange rate"
+        },
+        "importDutyCalculationPageRoWToNI": {
+            "1": "Details of your trade",
+            "2": "Third-country duty",
+            "3": "Tariff preference - Israel",
+            "4": "Tariff preference - Morocco",
+            "5": "Tariff preference - Central America",
+            "6": "Tariff preference (UK)",
+            "7": "Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.",
+            "8": "Third-country duty (EU)",
+            "9": "A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available. It can also be referred to as the Most Favoured Nation (MFN) rate.",
+            "10": "EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.",
+            "11": "A tariff preference is the rate available if a free trade agreement or another arrangement is in place between the UK and an overseas country. Goods will need to comply with the rules of origin to benefit from this rate and you will need to provide evidence of compliance with your shipment.",
+            "12": "Product-specific rules for commodity",
+            "13": "Please note - the current page uses an exchange rate of"
         },
         "tradeOptionsOnImportDutyPage": {
             "1": "Option 1: Third-country duty",
@@ -98,6 +140,204 @@
         },
         "origin": {
             "$ref": "#NI-GB-101-e2e-uk/origin"
+        }
+    },
+    "RoW-NI301-e2e": {
+        "country": "xi",
+        "commodityCode": "1212210000",
+        "destination": "xi",
+        "origin": "Israel",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 100.00,
+            "insurance-cost": 250.00
+        },
+        "vatRate": {
+            "vat": 20
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1212 21 00 00",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Israel",
+            "Customs value": "£850.00",
+            "Applicable VAT rate": "Value added tax (20.0%)"
+        }
+    },
+    "RoW-NI302-e2e": {
+        "country": "uk",
+        "commodityCode": "8714911031",
+        "destination": "xi",
+        "origin": "China",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "pageURLAdditionalCode": "552",
+        "additionalCode": "8005",
+        "checkYourAnswersTableData": {
+            "Commodity code": "8714 91 10 31",
+            "Additional code(s)": "8005",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "China",
+            "Customs value": "£1,000.00"
+        },
+        "tradeOptions": {
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "4.70% * £1,000.00", "20.00% * £1,047.00"],
+                "Value": ["£1,000.00", "£47.00", "£209.40", "£256.40"]
+            }
+        }
+    },
+    "RoW-NI303a-e2e": {
+        "country": "xi",
+        "commodityCode": "0805102210",
+        "destination": "xi",
+        "origin": "Morocco",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "commercial-purposes",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 100.00,
+            "insurance-cost": 250.00
+        },
+        "importQuantity": {
+            "kgm": 100.00
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "0805 10 22 10",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Morocco",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Commercial purposes",
+            "Customs value": "£850.00",
+            "Import quantity": "kilograms100"
+        },
+        "tradeOptions": {
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Zero rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "", "0.00% * £850.00"],
+                "Value": ["£850.00", "£0.00", "£0.00", "£0.00"]
+            },
+            "Tariff preference - Morocco": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (UK)", "VAT Zero rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £850.00", "0.00% * £850.00"],
+                "Value": ["£850.00", "£0.00", "£0.00", "£0.00"]
+            }
+        }
+    },
+    "RoW-NI303b-e2e": {
+        "country": "xi",
+        "commodityCode": "1901100000",
+        "destination": "xi",
+        "origin": "Costa Rica",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "commercial-purposes",
+        "meursingAdditionalCode": {
+            "additionalCode": "000"
+        },
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 100.00,
+            "insurance-cost": 250.00
+        },
+        "importQuantity": {
+            "kgm": 230.98
+        },
+        "vatRate": {
+            "vat": 20
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1901 10 00 00",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Costa Rica",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Commercial purposes",
+            "Meursing Code": "000",
+            "Customs value": "£850.00",
+            "Import quantity": "kilograms230.98",
+            "Applicable VAT rate": "Value added tax (20.0%)"
+        },
+        "tradeOptions": {
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "7.60 % + EA7.60 % + 0.00 EUR / 100 kg", "20.00% * £914.60"],
+                "Value": ["£850.00", "£64.60", "£182.92", "£247.52"]
+            },
+            "Tariff preference - Morocco": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £850.00", "20.00% * £850.00"],
+                "Value": ["£850.00", "£0.00", "£170.00", "£170.00"]
+            }
+        }
+    },
+    "RoW-NI303c1-e2e": {
+        "country": "xi",
+        "commodityCode": "0702000099",
+        "destination": "xi",
+        "origin": "Morocco",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "yes",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 100.00,
+            "insurance-cost": 250.00
+        },
+        "importQuantity": {
+            "kgm": 230.98
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "0702 00 00 99",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Morocco",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "Less than £2,000,000",
+            "Customs value": "£850.00",
+            "Import quantity": "kilograms230.98"
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "1": "Option 1: Third-country duty",
+                "2": "Option 2: Tariff preference - Morocco",
+                "3": "Option 3: Preferential tariff quota 051104",
+                "4": "Option 4: Preferential tariff quota 051193"
+            },
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "7.60 % + EA7.60 % + 0.00 EUR / 100 kg", "20.00% * £914.60"],
+                "Value": ["£850.00", "£64.60", "£182.92", "£247.52"]
+            },
+            "Tariff preference - Morocco": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (EU)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £850.00", "20.00% * £850.00"],
+                "Value": ["£850.00", "£0.00", "£170.00", "£170.00"]
+            }
         }
     },
     "GB-NI401-e2e": {

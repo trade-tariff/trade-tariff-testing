@@ -100,14 +100,18 @@ class CommonPage {
   }
 
   getDutyPageTableDataAndCompare(element, data) {
-    const items = []; let itemStr; let splitData = []; const arrayObj1 = {}; const arrayObj2 = {};
-    const actualData = {}; const expectedData = {};
+    const items = []; let itemStr; let splitData = []; const arrayObj1 = {}; const arrayObj2 = {}; let dataKeySplit = [];
+    const actualData = {}; const expectedData = {}; let key1 = {}; let value1 = {}; let key2 = {}; let value2 = {}; const strContains = [];
     const dataKeys = Object.keys(data);
     const dataValues = Object.values(data);
-    const key1 = dataKeys[1]; const key2 = dataKeys[2];
-    const value1 = dataValues[1]; const value2 = dataValues[2];
-    const dataKeySplit = key2.split('-');
-    const strContains = [];
+    if (dataKeys.length == 1 || dataKeys.length == 2) {
+      key1 = dataKeys[0]; value1 = dataValues[0]; key2 = dataKeys[1]; value2 = dataValues[1];
+    } else {
+      key1 = dataKeys[1]; value1 = dataValues[1]; key2 = dataKeys[2]; value2 = dataValues[2];
+      if (key2 != null) {
+        dataKeySplit = key2.split('-');
+      }
+    }
     element.each(($li) => items.push($li.text())).then(() => {
       itemStr = items.join(':').toString().split(':');
       for (let i = 0; i < itemStr.length; i ++) {
@@ -138,7 +142,9 @@ class CommonPage {
         }
       }
       const dataToVerify = this.getTestCaseSpecificStaticData(data, [key1, key2]);
-      commonHelpers.verifyStaticContent(dataToVerify.tradeOptionsOnImportDutyPage);
+      if (JSON.stringify(dataToVerify).includes('tradeOptionsOnImportDutyPage')) {
+        commonHelpers.verifyStaticContent(dataToVerify.tradeOptionsOnImportDutyPage);
+      }
       expect(JSON.stringify(actualData)).to.be.equal(JSON.stringify(expectedData));
     });
   }

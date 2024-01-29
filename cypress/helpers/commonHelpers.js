@@ -87,31 +87,29 @@ class CommonHelpers {
     }
   }
   // NI to GB no duty page scenario steps
-  verifyNoDutyPageNIToGB(commodityCode, destination, originPage, origin, noDutyPageNIToGB) {
+  verifyNoDutyPageNIToGB(commodityCode, destination, origin, originPage, noDutyPageNIToGB) {
     commodityPage.clkDutyCalcLnk(commodityCode);
     dutyCalculatorPage.verifyWhenWillTheGoodsImportPage();
     dutyCalculatorPage.enterDateAndClkContinueBtn(true);
     dutyCalculatorPage.verifySelectDestinationPage();
     dutyCalculatorPage.selectDestinationAndClkContinue(destination);
-    this.verifyStaticContent(originPage);
-    dutyCalculatorPage.selectOriginFromListAndClkContinueBtn(origin);
+    dutyCalculatorPage.selectOriginFromListAndClkContinueBtn(origin, originPage);
     dutyCalculatorPage.verifyNoDutyPage(noDutyPageNIToGB);
     commonPage.clkBackLnk();
     dutyCalculatorPage.verifySelectOriginPage();
-    this.verifyStaticContent(originPage);
-    commonPage.clkContinueBtn();
+    dutyCalculatorPage.selectOriginFromListAndClkContinueBtn(origin, originPage);
     dutyCalculatorPage.clkStartAgainBtn();
   }
 
   // verfiy steps from when will the goods import page to select origin page - scenarios steps to run for before each method
-  verifyStepsFromGoodsImportPageToOriginSelectionPage(country, commodityCode, destination, origin) {
+  verifyStepsFromGoodsImportPageToOriginSelectionPage(country, commodityCode, destination, origin, originPage) {
     dutyCalculatorPage.goToDutyCalcURL(country, commodityCode);
     dutyCalculatorPage.verifyWhenWillTheGoodsImportPage();
     dutyCalculatorPage.enterDateAndClkContinueBtn(true);
     dutyCalculatorPage.verifySelectDestinationPage();
     dutyCalculatorPage.selectDestinationAndClkContinue(destination);
     dutyCalculatorPage.verifySelectOriginPage();
-    dutyCalculatorPage.selectOriginAndClkContinueBtn(origin);
+    dutyCalculatorPage.selectOriginAndClkContinueBtn(origin, originPage);
   }
 
   // GB to NI scenarios steps for no duty page
