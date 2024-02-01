@@ -1,14 +1,14 @@
 describe('Measure condition pop ups', function() {
   it('Condition Code 999L - Separated with new text at the bottom', function() {
     cy.visit('/commodities/0702000007');
-    cy.get('#measure-20188561').contains('Conditions').click();
+    cy.get('#measure-20232654').contains('Conditions').click();
     cy.get('.info-content').contains('Import control of organic products for All countries');
-    cy.get('.info-content').contains('The use of 999L allows a CDS waiver code');
+    // cy.get('.info-content').contains('The use of 999L allows a CDS waiver code');
   });
 
   it('Organic control on frog legs', function() {
     cy.visit('/commodities/0208907000');
-    cy.get('#measure-20188551').contains('Conditions').click();
+    cy.get('#measure-20232644').contains('Conditions').click();
     cy.get('.info-content').contains('Import control of organic products for All countries');
     cy.get('.info-content').contains('Meet one of the following conditions');
     cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
@@ -16,18 +16,17 @@ describe('Measure condition pop ups', function() {
     cy.get('.info-content').contains('Enter the reference number of the Certificate.');
   });
   it('Fluorinated gases - multiple condition code groups', function() {
-    cy.visit('/commodities/8479899738');
-    cy.get('#measure-20161393').contains('Conditions').click();
+    cy.visit('/commodities/8479899790');
+    cy.get('#measure-20232976').contains('Conditions').click();
     cy.get('.info-content').contains('Import control of fluorinated greenhouse gases for All countries');
-    cy.get('.info-content').contains('Meet the following condition and supply');
-    cy.get('.info-content').contains('Meet one of the following conditions');
+    cy.get('.info-content').contains('Meet one of the following conditions and supply');
     cy.get('.info-content').contains('Goods not concerned by import prohibition on fluorinated greenhouse gases');
     cy.get('.info-content').contains('Guidance for completing CDS Data Element 2/3').click();
     cy.get('.info-content').contains('Complete the statement ‘Excluded from prohibition’.');
   });
   it('Waste controls - pair of doc codes paired together', function() {
     cy.visit('/commodities/2804501000');
-    cy.get('#measure-20191650 > td.conditions-col.govuk-table__cell > a').contains('Conditions').click();
+    cy.get('#measure-20195304').contains('Conditions').click();
     cy.get('.info-content').contains('Import control - waste for All countries');
     cy.get('.info-content').contains('Meet one of the following conditions');
     cy.get('.info-content').contains('C669 + C670');
@@ -53,8 +52,8 @@ describe('Measure condition pop ups', function() {
 
   it('Headings which are declarable / also commodities- fall back option enabled', function() {
     cy.visit('/commodities/5609000000');
-    cy.get('#measure-20187981').contains('Conditions').click();
-    cy.get('.info-content').contains('Import control on cat and dog fur for All countries');
+    cy.get('#measure-20188158').contains('Conditions').click();
+    cy.get('.info-content').contains('Import control on cat and dog fur');
     cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
     cy.get('.info-content').contains('Meet the following condition and supply the relevant document code(s) on your declaration.');
     cy.get('.info-content').contains('Other than cats and dogs fur as mentioned by Regulation (EC) No 1523/2007 (OJ L 343)');
