@@ -58,6 +58,7 @@ class DutyCalculatorPage {
     documentCode: (country, docCode) => cy.get(`input[id="steps-document-code-document-code-${country}-${docCode}-field"]`),
     calculateImportDutiesBtn: () => cy.get('.govuk-button').contains(this.elements.captionTitle()),
     checkYourAnswers: () => cy.get('.govuk-summary-list > .govuk-summary-list__row'),
+    changeLnks: () => '.govuk-summary-list div dd.govuk-summary-list__actions .govuk-link',
     detailsOfYourTrade: () => 'Details of your trade',
     thirdCountryDutyOption1: () => '#main-content #third_country_tariff',
     thirdCountryDutyTableHeadData: () => cy.get('.govuk-table__head > .govuk-table__row'),
@@ -140,7 +141,7 @@ class DutyCalculatorPage {
   // Which country are the goods coming from? - select origin and click continue button
   selectOriginAndClkContinueBtn(originCountry, originPage) {
     if (originCountry == 'gb' || originCountry == 'eu') {
-      const dataToVerify = this.getTestCaseSpecificStaticData(originPage, [5, 6]);
+      const dataToVerify = commonPage.getTestCaseSpecificStaticData(originPage, [5, 6]);
       commonHelpers.verifyStaticContent(dataToVerify);
       this.elements.selectOrigin(originCountry).click();
     } else {
@@ -314,6 +315,7 @@ class DutyCalculatorPage {
         break;
       case 'RoW-NI303a-e2e':
       case 'RoW-NI303b-e2e':
+      case 'RoW-NI304b-delta-e2e':
         staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 2]);
         break;
       default:
@@ -366,6 +368,14 @@ class DutyCalculatorPage {
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.addtionalCodesTitle());
     this.verifyPageTitle(this.elements.addtionalCodesTitle());
+    switch (commonPage.getTestCaseName()) {
+      case 'RoW-NI302-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, 3);
+        break;
+      case 'RoW-NI304c2-delta-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, 2);
+        break;
+    }
     commonHelpers.verifyStaticContent(staticData);
   }
 
@@ -390,10 +400,15 @@ class DutyCalculatorPage {
       case 'RoW-NI303a-e2e':
       case 'RoW-NI303b-e2e':
       case 'RoW-NI303c1-e2e':
+      case 'RoW-NI303c2-e2e':
+      case 'RoW-NI304b-delta-e2e':
       case 'GB-NI404b-e2e':
       case 'GB-NI406b-e2e':
       case 'GB-NI408b-e2e':
         staticData = commonPage.getTestCaseSpecificStaticData(staticData, 2);
+        break;
+      case 'RoW-NI304d-delta-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [2, 4]);
         break;
     }
     commonHelpers.verifyStaticContent(staticData);
@@ -414,6 +429,11 @@ class DutyCalculatorPage {
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.vatRateApplicableTitle() + '?');
     this.verifyPageTitle(this.elements.vatRateApplicableTitle());
+    switch (commonPage.getTestCaseName()) {
+      case 'RoW-NI304c1-delta-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, 2);
+        break;
+    }
     commonHelpers.verifyStaticContent(staticData);
   }
 
@@ -443,14 +463,32 @@ class DutyCalculatorPage {
   }
 
   // Check your answers (confirm) page and click continue button
-  verifyCheckYourAnswersPageAndClkCalImportDutiesBtn(tableData) {
+  verifyCheckYourAnswersPageAndClkCalImportDutiesBtn(tableData, clkBackLnk) {
+    if (clkBackLnk == true) {
+      commonPage.clkBackLnk();
+    }
     commonPage.verifyUrlShudInclude('/confirm');
     commonPage.verifyBackLnk();
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.checkYourAnswersTitle());
     this.verifyPageTitle(this.elements.checkYourAnswersTitle());
     commonPage.getTableDataAndAssert(this.elements.checkYourAnswers(), tableData, 'Date', importDate);
-    this.elements.calculateImportDutiesBtn().click();
+    if (clkBackLnk != true) {
+      this.elements.calculateImportDutiesBtn().click();
+    }
+  }
+
+  // Click specific change link on the check your answers (confirm) page
+  clkSpecificChangeLnkOnCheckYourAnswersPage() {
+    commonPage.clkSpecificChangeLnk(this.elements.changeLnks(), 'additional-codes');
+  }
+
+  clkBtnToMoveFinalDutyPage(confirmPage) {
+    if (confirmPage == true) {
+      this.elements.calculateImportDutiesBtn().click();
+    } else {
+      commonPage.clkContinueBtn();
+    }
   }
 
   // Verify import duty calculation page
@@ -480,7 +518,9 @@ class DutyCalculatorPage {
         staticData = commonPage.getTestCaseSpecificStaticData(staticData, 4);
         break;
     }
-    commonHelpers.verifyStaticContent(staticData);
+    if (staticData != null) {
+      commonHelpers.verifyStaticContent(staticData);
+    }
   }
 
   // Verify import duty calculation page table calculation data

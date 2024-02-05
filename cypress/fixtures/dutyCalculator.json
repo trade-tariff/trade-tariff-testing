@@ -47,8 +47,9 @@
         "additionalCodesPage": {
             "1": "Select Additional code",
             "2": "To trade this commodity in Northern Ireland, you need to specify an additional 4 digits, known as an additional code. This affects the definitive anti-dumping duty.",
-            "3": "Please select",
-            "4": "About this commodity code"
+            "3": "To trade this commodity in Northern Ireland, you need to specify an additional 4 digits, known as an additional code. This affects the third country duty.",
+            "4": "Please select",
+            "5": "About this commodity code"
         },
         "importQuantityPage": {
             "1": "The duties payable on this commodity are dependent on the quantity, weight or volume of goods that you are importing. Enter the units of the goods that you are importing in the boxes below.",
@@ -63,8 +64,8 @@
         },
         "documentCodePage": {
             "1": "You may be able to reduce the duty applicable if you possess and can present one of the following documents.",
-            "2": "N990 - EUS - Authorisation for the use of end use procedure (Column 8c, Annex A of Delegated Regulation (EU) 2015/2446)",
-            "3": "None of the above"
+            "2": "None of the above",
+            "3": "About this commodity code"
         },
         "importDutyCalculationPage": {
             "1": "Details of your trade",
@@ -293,7 +294,7 @@
         }
     },
     "RoW-NI303c1-e2e": {
-        "country": "xi",
+        "country": "uk",
         "commodityCode": "0702000099",
         "destination": "xi",
         "origin": "Morocco",
@@ -329,14 +330,502 @@
                 "4": "Option 4: Preferential tariff quota 051193"
             },
             "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Zero rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "", "0.00% * £850.00"],
+                "Value": ["£850.00", "£0.00", "£0.00", "£0.00"]
+            },
+            "Tariff preference - Morocco": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (EU)", "VAT Zero rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "", "0.00% * £850.00"],
+                "Value": ["£850.00", "£0.00", "£0.00", "£0.00"]
+            }
+        }
+    },
+    "RoW-NI303c2-e2e": {
+        "country": "uk",
+        "commodityCode": "1905320500",
+        "destination": "xi",
+        "origin": "Norway",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "yes",
+        "meursingAdditionalCode": {
+            "additionalCode": "049"
+        },
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 100.00,
+            "insurance-cost": 250.00
+        },
+        "importQuantity": {
+            "kgm": 1000.00
+        },
+        "documentCodePage": {
+            "1": "You may be able to reduce the duty applicable if you possess and can present one of the following documents.",
+            "2": "Y020 - Request for preferential treatment for Norway",
+            "3": "Y021 - Request for EEA preferential treatment",
+            "4": "None of the above",
+            "5": "About this commodity code"
+        },
+        "documentCode": {
+            "xi": "y021"
+        },
+        "vatRate": {
+            "vat": 20
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1905 32 05 00",
+            "Document(s)": "Y021",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Norway",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "Less than £2,000,000",
+            "Meursing Code": "049",
+            "Customs value": "£850.00",
+            "Import quantity": "kilograms1000",
+            "Applicable VAT rate": "Value added tax (20.0%)"
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "1": "Option 1: Third-country duty",
+                "2": "Tariff preference - European Economic Area",
+                "3": "EU preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty exceeds 3% of the customs value of your trade.",
+                "4": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+                },
+                "5": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/10"
+                },
+                "6": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/11"
+                },
+                "7": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+                }
+            },
+            "Third-country duty": {
                 "Data": ["Valuation for import", "Import duty Third-country duty (EU)", "VAT Standard rate", "Duty Total"],
-                "Calculation": ["Value of goods + freight + insurance costs", "7.60 % + EA7.60 % + 0.00 EUR / 100 kg", "20.00% * £914.60"],
-                "Value": ["£850.00", "£64.60", "£182.92", "£247.52"]
+                "Calculation": ["Value of goods + freight + insurance costs", "9.00 % + EA MAX 20.70 % +ADFM9.00 % + 83.07 EUR / 100 kg MAX 20.70 % + 4.16 EUR / 100 kg", "20.00% * £1,061.41"],
+                "Value": ["£850.00", "£211.41", "£212.28", "£423.70"]
             },
             "Tariff preference - Morocco": {
                 "Data": ["Valuation for import", "Import duty Tariff preference (EU)", "VAT Standard rate", "Duty Total"],
-                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £850.00", "20.00% * £850.00"],
-                "Value": ["£850.00", "£0.00", "£170.00", "£170.00"]
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00 % + EAR MAX 20.70 % +ADFMR0.00 % + 83.07 EUR / 100 kg MAX 20.70 % + 3.34 EUR / 100 kg", "20.00% * £1,054.42"],
+                "Value": ["£850.00", "£204.42", "£210.88", "£415.31"]
+            }
+        }
+    },
+    "RoW-NI304a-delta1-e2e": {
+        "country": "xi",
+        "commodityCode": "9503002110",
+        "destination": "xi",
+        "origin": "Nepal",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "without-any-processing",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "9503 00 21 10",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Nepal",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Without any processing",
+            "Customs value": "£1,000.00"
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "1": "Option 1: Third-country duty",
+                "2": "Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences",
+                "3": "UK import duties apply, as the difference between the UK third country duty and the EU third country duty is lower than 3% of the customs value of your trade.",
+                "4": "UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.",
+                "5": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+                },
+                "6": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/11"
+                },
+                "7": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+                }
+            },
+            "Third-country duty": {
+                "Data": ["Valuation for import", "Import duty Third-country duty (UK)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "4.00% * £1,000.00", "20.00% * £1,040.00"],
+                "Value": ["£1,000.00", "£40.00", "£208.00", "£248.00"]
+            },
+            "Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences": {
+                "Data": ["Valuation for import", "Import duty Tariff preference (UK)", "VAT Standard rate", "Duty Total"],
+                "Calculation": ["Value of goods + freight + insurance costs", "0.00% * £1,000.00", "20.00% * £1,000.00"],
+                "Value": ["£1,000.00", "£0.00", "£200.00", "£200.00"]
+            }
+        }
+    },
+    "RoW-NI304a-delta2-e2e": {
+        "country": "xi",
+        "commodityCode": "9503002110",
+        "destination": "xi",
+        "origin": "Bhutan",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "without-any-processing",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "9503 00 21 10",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Bhutan",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Without any processing",
+            "Customs value": "£1,000.00"
+        },
+        "tradeOptions": {
+            "tradeOptionsOnImportDutyPage": {
+                "1": {
+                    "$ref": "#RoW-NI304a-delta1-e2e/tradeOptions/tradeOptionsOnImportDutyPage/1"
+                },
+                "2": {
+                    "$ref": "#RoW-NI304a-delta1-e2e/tradeOptions/tradeOptionsOnImportDutyPage/2"
+                },
+                "3": {
+                    "$ref": "#RoW-NI304a-delta1-e2e/tradeOptions/tradeOptionsOnImportDutyPage/3"
+                },
+                "4": {
+                    "$ref": "#RoW-NI304a-delta1-e2e/tradeOptions/tradeOptionsOnImportDutyPage/4"
+                },
+                "5": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+                },
+                "6": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/11"
+                },
+                "7": {
+                    "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+                }
+            },
+            "Third-country duty": {
+                "$ref": "#RoW-NI304a-delta1-e2e/tradeOptions/Third-country duty"
+            },
+            "Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences": {
+                "$ref": "#RoW-NI304a-delta1-e2e/tradeOptions/Tariff preference - Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences"
+            }
+        }
+    },
+    "RoW-NI304a-delta3-e2e": {
+        "country": "xi",
+        "commodityCode": "5905003000",
+        "destination": "xi",
+        "origin": "Sri lanka",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "without-any-processing",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "documentCode1": {
+            "uk": "c990"
+        },
+        "documentCode2": {
+            "uk": "c119"
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "5905 00 30 00",
+            "Document(s)": "C119, C990",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Sri Lanka",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Without any processing",
+            "Customs value": "£1,000.00"
+        },
+        "tradeOptions": {
+            "1": "Option 1: Third-country duty",
+            "2": "Option 2: Tariff preference - Developing Countries Trading Scheme (DCTS) - Enhanced Preferences",
+            "3": "Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms",
+            "4": "Option 4: Airworthiness tariff suspension",
+            "5": "EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.",
+            "6": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+            }
+        }
+    },
+    "RoW-NI304a-delta4-e2e": {
+        "country": "xi",
+        "commodityCode": "1302120000",
+        "destination": "xi",
+        "origin": "Thailand",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "without-any-processing",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "vatRate": {
+            "vatz": 0
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1302 12 00 00",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Thailand",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Without any processing",
+            "Customs value": "£1,000.00",
+            "Applicable VAT rate": "VAT zero rate"
+        },
+        "tradeOptions": {
+            "1": "Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.",
+            "2": "Option 1: Third-country duty",
+            "3": "EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.",
+            "4": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+            },
+            "5": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+            }
+        }
+    },
+    "RoW-NI304b-delta-e2e": {
+        "country": "xi",
+        "commodityCode": "1509200010",
+        "destination": "xi",
+        "origin": "Chile",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "commercial-purposes",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "importQuantity": {
+            "kgm": 230.98
+        },
+        "documentCode": {
+            "xi": "c990"
+        },
+        "vatRate": {
+            "vat": 20
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1509 20 00 10",
+            "Document(s)": "C990",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Chile",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Commercial purposes",
+            "Customs value": "£1,000.00",
+            "Import quantity": "kilograms230.98",
+            "Applicable VAT rate": "Value added tax (20.0%)"
+        },
+        "tradeOptions": {
+            "1": "Option 1: Third-country duty",
+            "2": "Option 2: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms",
+            "3": "Certain goods under this commodity code can benefit from a zero MFN – you'll need to claim this on your declaration.",
+            "4": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+            },
+            "5": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+            }
+        }
+    },  
+    "RoW-NI304c1-delta-e2e": {
+        "country": "xi",
+        "commodityCode": "6307909200",
+        "destination": "xi",
+        "origin": "Singapore",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "without-any-processing",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "pageURLAdditionalCode": "119",
+        "additionalCode": "2600",
+        "documentCode": {
+            "uk": "c119"
+        },
+        "vatRate": {
+            "vat": 20
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "6307 90 92 00",
+            "Document(s)": "C119",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "Singapore",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Without any processing",
+            "Customs value": "£1,000.00",
+            "Applicable VAT rate": "Value added tax (20.0%)"
+        },
+        "tradeOptions": {
+            "1": "Option 1: Tariff preference - Singapore",
+            "2": "Option 2: Airworthiness tariff suspension",
+            "3": "UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.",
+            "4": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+            }
+        }
+    },
+    "RoW-NI304c2-delta-e2e": {
+        "country": "xi",
+        "commodityCode": "2906110000",
+        "destination": "xi",
+        "origin": "San Marino",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "without-any-processing",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "pageURLAdditionalCode": "103",
+        "additionalCode1": "2501",
+        "additionalCode2": "2500",
+        "documentCode": {
+            "uk": "c990"
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "2906 11 00 00",
+            "Additional code(s)": "2501",
+            "Document(s)": "C990",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "San Marino",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Without any processing",
+            "Customs value": "£1,000.00"
+        },
+        "tradeOptions1": {
+            "1": "Option 1: Third-country duty",
+            "2": "Option 2: Tariff preference - San Marino",
+            "3": "Option 3: Suspension - goods for certain categories of ships, boats and other vessels and for drilling or production platforms",
+            "4": "EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.",
+            "5": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+            },
+            "6": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+            }
+        },
+        "tradeOptions2": {
+            "1": {
+                "$ref": "#RoW-NI304c2-delta-e2e/tradeOptions1/1"
+            },
+            "2": {
+                "$ref": "#RoW-NI304c2-delta-e2e/tradeOptions1/2"
+            },
+            "3": {
+                "$ref": "#RoW-NI304c2-delta-e2e/tradeOptions1/3"
+            },
+            "4": "UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.",
+            "5": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/9"
+            },
+            "6": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
+            }
+        }
+    },
+    "RoW-NI304d-delta-e2e": {
+        "country": "uk",
+        "commodityCode": "1701141000",
+        "destination": "xi",
+        "origin": "United Arab Emirates",
+        "traderScheme": "yes",
+        "finalUse": "yes",
+        "turnOver": "no",
+        "plannedOption": "without-any-processing",
+        "customsValue": {
+            "monetary-value": 500.00,
+            "shipping-cost": 250.00,
+            "insurance-cost": 250.00
+        },
+        "importQuantity": {
+            "kgm": 10000,
+            "dap": 1
+        },
+        "documentCode": {
+            "uk": "n990"
+        },
+        "checkYourAnswersTableData": {
+            "Commodity code": "1701 14 10 00",
+            "Document(s)": "N990",
+            "Date of import": {
+                "$ref": "#commonData/Date of import"
+            },
+            "Destination": "Northern Ireland",
+            "Coming from": "United Arab Emirates",
+            "Trader scheme": "Yes",
+            "Final use": "Yes",
+            "Annual turnover": "£2,000,000 or more",
+            "Processing": "Without any processing",
+            "Customs value": "£1,000.00",
+            "Import quantity": "tonnes10000decatonne, corrected according to polarisation (10,000 kg/polar)1"
+        },
+        "tradeOptions": {
+            "1": "Third-country duty will apply as there is no preferential agreement in place for the import of this commodity.",
+            "2": "Option 1: Third-country duty",
+            "3": "EU import duties apply, as the difference between the UK third country duty and the EU third country duty exceeds 3% of the customs value of your trade.",
+            "4": {
+                "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
             }
         }
     },

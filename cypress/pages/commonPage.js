@@ -172,6 +172,13 @@ class CommonPage {
             if (JSON.stringify(replaceDataValue).includes('$ref')) {
               this.returnDataByReplacingRefsDataWithActualValues(
                   dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, replaceDataValue);
+              const objRefsData = Object.values(replaceDataValue);
+              for (const [objKey, objValue] of Object.entries(objRefsData)) {
+                if (JSON.stringify(objValue).includes('$ref') && dataRefsKey == objValue.$ref) {
+                  this.returnDataByReplacingRefsDataWithActualValues(
+                      dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, objValue, objKey, objRefsData);
+                }
+              }
             }
           }
         }
@@ -183,10 +190,17 @@ class CommonPage {
     return data;
   }
 
-  returnDataByReplacingRefsDataWithActualValues(dataRefsKey, dataRefsValue, data, dataKey, dataValue, replaceDataKey, replaceDataValue) {
+  returnDataByReplacingRefsDataWithActualValues(dataRefsKey, dataRefsValue, data, dataKey,
+      dataValue, replaceDataKey, replaceDataValue, objKey, objRefsData) {
     if (dataRefsKey == replaceDataValue.$ref) {
-      dataValue[replaceDataKey] = dataRefsValue;
-      data[dataKey] = dataValue;
+      if (objKey != null) {
+        objRefsData[objKey] = dataRefsValue;
+        dataValue[replaceDataKey] = objRefsData;
+        data[dataKey] = dataValue;
+      } else {
+        dataValue[replaceDataKey] = dataRefsValue;
+        data[dataKey] = dataValue;
+      }
     }
     if (dataValue[replaceDataKey] == 'Date') {
       dataValue[replaceDataKey] = importDate;
@@ -329,6 +343,15 @@ class CommonPage {
 
   clkStartAgainBtn() {
     this.verifyTxtAndClk(this.elements.clkStartAgain());
+  }
+
+  clkSpecificChangeLnk(element, txtToVerify) {
+    cy.get(element).each(($el) => {
+      const href = $el.attr('href');
+      if (href.includes(txtToVerify)) {
+        cy.visit(href);
+      }
+    });
   }
 }
 
