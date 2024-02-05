@@ -24,13 +24,6 @@ describe('| relatedContentRoO - Related Content - links ', { tags: ['config', 'r
     cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(4) > a')
       .contains('Northern Ireland Protocol: application of EU preferential rules of origin');
 
-    // cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(6) > a')
-    //   .contains('The EU - Chile Association Agreement')
-    //  .click();
-    //to fix the staging regression failures commented below contains txt-HOTT-5061
-    //cy.contains('Agreement establishing an association between the European Community');
-    //cy.go('back');
-
     cy.get('nav[role=\'navigation\'] > ul > li:nth-of-type(5) > a')
       .contains('The EU\'s trading relationship with Chile')
       .click();
