@@ -1,7 +1,7 @@
 // NWO- DCTS Scheme_Insufficient processing
 // ONLY IMPORT JOURNEY
-describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insufficient processing |', {tags: ['notProduction']}, function() {
-  it('Importing - NWO + DCTS Scheme + insufficient processing - Bangladesh + PSR', function() {
+describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insufficient processing |', { tags: ['notProduction'] }, function () {
+  it('Importing - NWO + DCTS Scheme + insufficient processing - Bangladesh + PSR', function () {
     cy.visit('/commodities/5808100000?country=BD#rules-of-origin');
     cy.checkRoO();
     // Import
@@ -32,8 +32,7 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     // Origin requirements met
     cy.rooNotMetGSP('Bangladesh', '5808100000', 'Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
   });
-  
-  it('Importing - NWO + DCTS Scheme + General&Enhanced - BO + PSR', function() {
+  it('Importing - NWO + DCTS Scheme + General&Enhanced - BO + PSR', function () {
     cy.visit('/commodities/3903110000?country=BO#rules-of-origin');
     cy.checkRoO();
     // Import
@@ -58,8 +57,8 @@ describe('| 601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffi
     cy.go(-2);
     cy.minimalOps('Developing Countries Trading Scheme (DCTS)', 'yes');
     // Product subDivisions
-    cy.subDivision('3903110000', 
-    'Plastics and articles thereof; except for the goods specified in Column 2 of the entries for ex 3907, ex 3920 and ex 3921');
+    cy.subDivision('3903110000',
+        'Plastics and articles thereof; except for the goods specified in Column 2 of the entries for ex 3907, ex 3920 and ex 3921');
     // product specific rules?
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements met
