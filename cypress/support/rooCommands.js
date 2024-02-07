@@ -377,11 +377,6 @@ Cypress.Commands.add('subDivision', (code, subDiv)=>{
 Cypress.Commands.add('impDutyBox', (copy)=>{
   cy.get('.govuk-list.govuk-list--bullet').contains(`${copy}`);
 });
-Cypress.Commands.add('feebackSection', ()=>{
-  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('The rules of origin wizard is new functionality.');
-  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('Your feedback will help us to improve it.');
-  cy.get('.govuk-inset-text a[href^="/feedback"]').contains('feedback');
-});
 // Verify proofs of origin page
 Cypress.Commands.add('proofsOfOriginPage', (commCode, country, countryShortName) => {
   cy.url().should('include', `/rules_of_origin/${commCode}/${countryShortName}/proofs_of_origin`);
