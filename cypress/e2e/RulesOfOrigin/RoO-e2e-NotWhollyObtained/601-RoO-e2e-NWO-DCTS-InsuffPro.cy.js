@@ -59,6 +59,12 @@ describe('|601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffic
     // Product subDivisions
     cy.subDivision('3903110000',
         'Plastics and articles thereof; except for the goods specified in Column 2 of the entries for ex 3907, ex 3920 and ex 3921');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture from materials of any heading, except that of the good.');
+    // Origin requirements met
+    cy.originMet('Bolivia', '3903110000', 'Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
     // product specific rules?
     cy.prodSpecRules('Your goods do not meet any of these rules.');
     // Origin requirements met
