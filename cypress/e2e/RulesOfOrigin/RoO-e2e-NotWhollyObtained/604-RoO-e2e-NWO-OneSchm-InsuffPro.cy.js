@@ -197,4 +197,80 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     // Origin requirements NOT met
     cy.rooNotMet('Importing', 'Iceland', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
   });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Norway', function() {
+    cy.visit('/commodities/0511911000?country=NO#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Norway', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // what components
+    cy.whatComponents('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('iceland-norway', '0511911000', 'NO', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
+    // Product subDivisions
+    cy.subDivision('0511911000', 'Inedible fish eggs and roes');
+    // prodSpecRules
+    cy.prodSpecRules('All the eggs and roes are wholly obtained.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('0511911000', 'Any other product from heading 0511');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture from materials of any heading.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK', 'Norway');
+  });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Iceland', function() {
+    cy.visit('/commodities/0511919000?country=IS#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Iceland', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // what components
+    cy.whatComponents('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('iceland-norway', '0511919000', 'IS', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
+    // Product subDivisions
+    cy.subDivision('0511919000', 'Inedible fish eggs and roes');
+    // prodSpecRules
+    cy.prodSpecRules('All the eggs and roes are wholly obtained.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('0511919000', 'Any other product from heading 0511');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture from materials of any heading.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK', 'Iceland');
+  });
 });
