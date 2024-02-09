@@ -273,4 +273,156 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     // Origin requirements NOT met
     cy.rooNotMetEx('Exporting', 'the UK', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK', 'Iceland');
   });
+  it('Importing - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'import');
+    // How Originating is defined
+    cy.howOrginating('Mexico', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('Mexico', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('Mexico');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMet('Importing', 'Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+  });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement', 'Mexico');
+  });
+  it('Importing - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'import');
+    // How Originating is defined
+    cy.howOrginating('Mexico', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('Mexico', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('Mexico');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMet('Importing', 'Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+  });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement', 'Mexico');
+  });
 });
