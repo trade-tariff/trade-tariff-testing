@@ -18,6 +18,18 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
       cy.verifySearchReferencesHeading(service);
     });
 
+    it('verify import search references and click back button', function() {
+      cy.verifyImportSearchReferencesPageAndClkBackBtn(service);
+    });
+
+    it('verify import search references and click import references button', function() {
+      cy.verifyImportSearchReferencesPageAndClkImportRefsBtn(service);
+    });
+
+    it('verify export all search references as a CSV button', function() {
+      cy.verifyExportAllSearchReferencesAsCSVBtn(service);
+    });
+
     it('verify rollbacks', function() {
       cy.verifyRollbacks(service);
     });
@@ -64,6 +76,18 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
 
     it('verify search references heading', function() {
       cy.verifySearchReferencesHeading(service);
+    });
+
+    it('verify import search references and click back button', function() {
+      cy.verifyImportSearchReferencesPageAndClkBackBtn(service);
+    });
+
+    it('verify import search references and click import references button', function() {
+      cy.verifyImportSearchReferencesPageAndClkImportRefsBtn(service);
+    });
+
+    it('verify export all search references as a CSV button', function() {
+      cy.verifyExportAllSearchReferencesAsCSVBtn(service);
     });
 
     it('verify rollbacks', function() {
