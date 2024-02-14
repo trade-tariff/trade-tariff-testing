@@ -42,10 +42,10 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   it('China has definitive anti-dumping duties on Ceramics', function() {
     cy.visit('/xi/commodities/6907220000?country=CN#import');
 
-    cy.get('#measure-3703755 > td.measure-type-col')
+    cy.get('#measure-4043894 > td.measure-type-col')
         .contains('Definitive anti-dumping');
 
-    cy.get('#measure-3703755 > td.measure-type-col')
+    cy.get('#measure-4043894 > td.measure-type-col')
         .contains('Additional code: C505');
   });
 
