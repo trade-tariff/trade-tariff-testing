@@ -15,9 +15,10 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
     cy.contains('Leave feedback').click();
     cy.contains('Leave feedback or suggestions for improvements to this service.').click();
     cy.contains('Give feedback on Online Trade Tariff');
+    cy.contains('.govuk-link', 'feedback').should('not.exist')
   });
 
-  it('XI - Breadcrumbs on feedback/thanks page', function() {
+  it.only('XI - Breadcrumbs on feedback/thanks page', function() {
     cy.visit('/xi/feedback/thanks');
     cy.get('li:nth-of-type(2) > .govuk-breadcrumbs__link').contains('Help').click();
     cy.contains('Help on using the tariff');
@@ -30,5 +31,15 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
     cy.visit('/xi/find_commodity');
     cy.get('.govuk-footer__row');
     cy.contains('The UK has left the EU');
+  });
+
+  it('XI - All pages - Display new Feedback Banner @ top of OTT and excludes on Feedback Page', function() {
+    const pages = ['/xi/sections/1', '/xi/chapters/01', '/xi/headings/0101', '/xi/commodities/0101210000'];
+    for (let i = 0; i < pages.length; i++) {
+      cy.visit(`${pages[i]}`);
+      cy.get('.govuk-tag');
+      cy.contains('Feedback');
+      cy.contains('.govuk-link', 'feedback').should('exist')
+    }
   });
 });
