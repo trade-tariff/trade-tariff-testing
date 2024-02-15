@@ -15,7 +15,7 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
     cy.contains('Leave feedback').click();
     cy.contains('Leave feedback or suggestions for improvements to this service.').click();
     cy.contains('Give feedback on Online Trade Tariff');
-    cy.contains('.govuk-link', 'feedback').should('not.exist')
+    cy.contains('.govuk-link', 'feedback').should('not.exist');
   });
 
   it.only('XI - Breadcrumbs on feedback/thanks page', function() {
@@ -39,7 +39,7 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
       cy.visit(`${pages[i]}`);
       cy.get('.govuk-tag');
       cy.contains('Feedback');
-      cy.contains('.govuk-link', 'feedback').should('exist')
+      cy.contains('.govuk-link', 'feedback').should('exist');
     }
   });
 });
