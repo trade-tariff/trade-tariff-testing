@@ -1,5 +1,5 @@
 describe('🇪🇺 💡| feedback-XI | feedback link is available and user is able to send feedback)', function() {
-  it('XI - All pages- Feedback link available  ', function() {
+  it('XI - All pages- Feedback link available', function() {
     const pages = ['/xi/sections/1', '/xi/chapters/01', '/xi/headings/0101', '/xi/commodities/0101210000'];
 
     for (let i = 0; i < pages.length; i++) {
@@ -67,7 +67,7 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
     }
   });
   it('XI - All pages - Access Feedback page from feedback useful banner - No button @ bottom of OTT excludes Feedback Page', function() {
-    const pages = ['/xi/find_commodity', '/xi/browse', '/xi/a-z-index/a', '/xi/tools', '/xi/news', '/xi/help', '/xi/sections/1', 
+    const pages = ['/xi/find_commodity', '/xi/browse', '/xi/a-z-index/a', '/xi/tools', '/xi/news', '/xi/help', '/xi/sections/1',
       '/xi/chapters/01', '/xi/headings/0101', '/xi/commodities/0101210000'];
     for (let i = 0; i < pages.length; i++) {
       cy.visit(`${pages[i]}`);
@@ -80,27 +80,27 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
     }
   });
   it(`New Feedback Page Design`, function() {
-      cy.visit(`/xi/feedback`);
-      cy.contains('.govuk-tag', 'FEEDBACK').should('not.exist');
-      cy.contains('.govuk-link', 'feedback').should('not.exist');
-      cy.contains('Northern Ireland Online Tariff');
-      cy.contains('Give feedback on Online Trade Tariff');
-      cy.contains('Tell us how to improve our service. ');
-      cy.contains('Feedback is anonymous. Do not include any personal information. ');
-      cy.get('.form-hint > a:nth-of-type(1)').should('have.attr', 'href', '/xi/help');
-      cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 feedback ');
-      cy.get('form#new_feedback > .govuk-button').click();
-      cy.contains('Feedback submitted');
-      cy.contains('Thank you for your valuable feedback.');
-      cy.contains('What happens next');
-      cy.contains('We’ve sent your feedback to the Online Trade Tariff team');
-      cy.contains('.govuk-tag', 'FEEDBACK').should('exist');
-      cy.contains('.govuk-link', 'feedback').should('exist');
-      cy.contains('Tell us what you think - your feedback will help us improve.');
-      cy.get('.feedback-useful-banner');
-      cy.contains('is this page useful?');
-      cy.contains('div > li >.govuk-button', 'Yes').should('have.attr', 'href', '/xi/feedback?page_useful=yes');
-      cy.contains('div > li >.govuk-button', 'No').should('have.attr', 'href', '/xi/feedback?page_useful=no');
-      cy.contains('div > li >.govuk-button', 'Report a problem with this page').should('have.attr', 'href', '/xi/feedback');
+    cy.visit(`/xi/feedback`);
+    cy.contains('.govuk-tag', 'FEEDBACK').should('not.exist');
+    cy.contains('.govuk-link', 'feedback').should('not.exist');
+    cy.contains('Northern Ireland Online Tariff');
+    cy.contains('Give feedback on Online Trade Tariff');
+    cy.contains('Tell us how to improve our service. ');
+    cy.contains('Feedback is anonymous. Do not include any personal information. ');
+    cy.get('.form-hint > a:nth-of-type(1)').should('have.attr', 'href', '/xi/help');
+    cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 feedback ');
+    cy.get('form#new_feedback > .govuk-button').click();
+    cy.contains('Feedback submitted');
+    cy.contains('Thank you for your valuable feedback.');
+    cy.contains('What happens next');
+    cy.contains('We’ve sent your feedback to the Online Trade Tariff team');
+    cy.contains('.govuk-tag', 'FEEDBACK').should('exist');
+    cy.contains('.govuk-link', 'feedback').should('exist');
+    cy.contains('Tell us what you think - your feedback will help us improve.');
+    cy.get('.feedback-useful-banner');
+    cy.contains('is this page useful?');
+    cy.contains('div > li >.govuk-button', 'Yes').should('have.attr', 'href', '/xi/feedback?page_useful=yes');
+    cy.contains('div > li >.govuk-button', 'No').should('have.attr', 'href', '/xi/feedback?page_useful=no');
+    cy.contains('div > li >.govuk-button', 'Report a problem with this page').should('have.attr', 'href', '/xi/feedback');
   });
 });
