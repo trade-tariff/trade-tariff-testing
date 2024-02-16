@@ -1,0 +1,162 @@
+{
+    "commonData": {
+        "meursingLookupResult": {
+            "1": "Enter a 'Meursing code' to work out applicable duties",
+            "2": "This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.",
+            "3": "Enter the 3-digit additional code",
+            "4": "If you know the additional code for your commodity, enter it in the box below. If you do not know the code, then use the Meursing code finder to find the additional code. You will be able to return to this page once you have found the right Meursing additional code.",
+            "5": "Save code and update duties",
+            "6": "Clear additional code"
+        },
+        "meursingLookUpStartPage": {
+            "1": "Look up a Meursing code",
+            "2": "If you are moving a product into Northern Ireland or the European Union that is subject to duties which are dependent on the percentage content of sugar, flour, milk starch and milk solids, then you may be required to enter a 4-digit code (beginning with 7) called a 'Meursing code' on your import declaration.",
+            "3": "Use this service to help you to work out your Meursing code.",
+            "4": "What you need to know",
+            "5": "In order to correctly identify the Meursing code for your commodity, you will need to know the percentage content by weight of:",
+            "6": "milk fat",
+            "7": "milk proteins",
+            "8": "starch or glucose",
+            "9": "sucrose, invert sugar, isoglucose",
+            "10": "Documents to download",
+            "11": "Meursing table (PDF) [opens in new window]",
+            "12": "Meursing table (ODT) [opens in new window]"
+        },
+        "meursingLookUpStarchPage": {
+            "1": "How much starch or glucose does the product contain?",
+            "2": "The values represent % by weight",
+            "3": "0 - 4.99",
+            "4": "5 - 24.99",
+            "5": "25 - 49.99",
+            "6": "50 - 74.99",
+            "7": "75 or more",
+            "8": "Continue"
+        },
+        "meursingCodeFinalStepPage": {
+            "1": "What next",
+            "2": "Use these four digits together with the ten-digit commodity code from Trade Tariff to work out duties applicable to certain complex agri-foods on the Northern Ireland Tariff, when your import is considered to be 'at risk'.",
+            "3": "Start again"
+        }
+    },
+    "MeursingCalculations-EA/EAR": {
+        "commodityCode": "1901100000",
+        "country": "xi",
+        "tradePartnerCountry": "Costa Rica (CR)",
+        "countryShortCode": "CR",
+        "measureId": "2772105",
+        "dutyRateEA": "7.60% + EA",
+        "meursingInputPrefixCode": "7",
+        "additionalCode": "507",
+        "dutyRateEUR": "7.60 % + 99.88 EUR / 100 kg"
+    },
+    "MeursingCalculations-ASDZ/ASDZR": {
+        "commodityCode": "1806909019",
+        "country": "xi",
+        "tradePartnerCountry": "(IS)",
+        "countryShortCode": "IS",
+        "measureId1": "2051553",
+        "measureId2": "2972478",
+        "dutyRate1": "8.30% + EA MAX 18.70% +ADSZ",
+        "dutyRate2": "0.00% + EAR MAX 18.70% +ADSZR",
+        "dutyRate3": "8.30 % + 117.11 EUR / 100 kg MAX 18.70 % + 10.06 EUR / 100 kg",
+        "dutyRate4": "117.11 EUR / 100 kg MAX 18.70 % + 9.75 EUR / 100 kg",
+        "meursingInputPrefixCode": "7",
+        "additionalCode": "476"
+    },
+    "MeursingCalculations-ADFM/ADFMR": {
+        "commodityCode": "1905320500",
+        "country": "xi",
+        "tradePartnerCountry": "(NO)",
+        "countryShortCode": "NO",
+        "measureId1": "2544964",
+        "measureId2": "2972782",
+        "dutyRate1": "9.00% + EA MAX 20.70% +ADFM",
+        "dutyRate2": "0.00% + EAR MAX 20.70% +ADFMR",
+        "dutyRate3": "9.00 % + 117.11 EUR / 100 kg MAX 20.70 % + 13.99 EUR / 100 kg",
+        "dutyRate4": "0.00 % + 117.11 EUR / 100 kg MAX 20.70 % + 11.22 EUR / 100 kg",
+        "meursingInputPrefixCode": "7",
+        "additionalCode": "476"
+    },
+    "Validate old meursing links are removed": {
+        "commodityCode": "1905320500",
+        "country": "xi",
+        "noMeursingCode": "This commodity has a meursing code"
+    },
+    "meursing code e2e journeys - 4 options": {
+        "baseUrl": "/xi/meursing_lookup/steps/start",
+        "starch": ["0 - 4.99", "75 or more", "25 - 49.99", "0 - 4.99"],
+        "sugar": ["5 - 29.99", "5 or more", "30 - 49.99", "0 - 4.99"],
+        "milkfat": ["1.5 - 2.99", "18 - 25.99", "26 - 39.99", "0 - 1.49"],
+        "milkprotein": ["2.5 - 5.99", "0 - 5.99", "0 - 5.99", "0 - 2.49"],
+        "meursingCode": ["7121", "7979", "7992", "7000"]
+    },
+    "meursing code e2e journeys - 3 options": {
+        "baseUrl": "/xi/meursing_lookup/steps/start",
+        "starch": ["0 - 4.99", "5 - 24.99"],
+        "sugar": ["0 - 4.99", "5 - 29.99"],
+        "milkfat": ["85 or more", "85 or more"],
+        "meursingCode": ["7780", "7786"]
+    },
+    "Meursing - Store CommCode + MeursingCode in Session": {
+        "commodityCodes": ["1905311100", "1704906500", "1704909992"],
+        "country": "xi",
+        "starch": ["0 - 4.99"],
+        "sugar": ["5 - 29.99"],
+        "milkfat": ["1.5 - 2.99"],
+        "milkprotein": ["2.5 - 5.99"],
+        "meursingCode": ["7121"]
+    },
+    "meursing calculator link on commodity import section": {
+        "commodityCode": "1905311100",
+        "country": "xi",
+        "additionalCode": "000"
+    },
+    "iphone - meursing e2e journey": {
+        "viewPort": ["iphone-6", "landscape"],
+        "baseUrl": "/xi/meursing_lookup/steps/start",
+        "starch": ["0 - 4.99"],
+        "sugar": ["5 - 29.99"],
+        "milkfat": ["1.5 - 2.99"],
+        "milkprotein": ["2.5 - 5.99"],
+        "meursingCode": ["7121"]
+    },
+    "android - meursing e2e journey": {
+        "viewPort": "samsung-note9",
+        "baseUrl": "/xi/meursing_lookup/steps/start",
+        "starch": ["0 - 4.99"],
+        "sugar": ["5 - 29.99"],
+        "milkfat": ["1.5 - 2.99"],
+        "milkprotein": ["2.5 - 5.99"],
+        "meursingCode": ["7121"]
+    },
+    "Stach, Sucrose, Milk fat, Milk protein pages": {
+        "baseUrl": "/xi/tools",
+        "starch": "starch",
+        "sucrose": "sucrose",
+        "milkfat": "milk_fat",
+        "milkprotein": "milk_protein",
+        "meursingCode": "7979",
+        "reviewsAnswersLnk": "/xi/meursing_lookup/steps/review_answers",
+        "checkYourAnswersTableData": {
+            "1": "Starch or glucose content",
+            "2": "Sucrose, invert sugar or isoglucose content",
+            "3": "Milk fat content",
+            "4": "Milk protein content"
+        }
+    },
+    "Check answers and Change options": {
+        "baseUrl": "/xi/meursing_lookup/steps/start",
+        "starch": ["0 - 4.99"],
+        "sugar": ["5 - 29.99"],
+        "milkfat": ["1.5 - 2.99"],
+        "milkprotein": ["2.5 - 5.99"],
+        "meursingCode": ["7121"],
+        "reviewsAnswersLnk": "/xi/meursing_lookup/steps/review_answers",
+        "changeLnkData": {
+            "starch": "starch",
+            "sucrose": "sucrose",
+            "milkfat": "milk_fat",
+            "milkprotein": "milk_protein"
+        }
+    }
+}

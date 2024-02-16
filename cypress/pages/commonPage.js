@@ -16,8 +16,14 @@ class CommonPage {
     backLnk: () => cy.get('.govuk-back-link'),
     hrefLnk: () => cy.get('#main-content .govuk-link'),
     govUKBtn: () => cy.get('.govuk-button'),
-    clkContinue: () => 'Continue',
-    clkStartAgain: () => 'Start again',
+    continue: () => 'Continue',
+    startNow: () => 'Start now',
+    startAgain: () => 'Start again',
+    mobileMenu: () => cy.get('.govuk-header__menu-button'),
+    browse: () => cy.contains('Browse'),
+    aToz: () => cy.contains('A-Z'),
+    help: () => cy.contains('Help'),
+    tools: () => cy.contains('Tools'),
   };
 
   setTestData(fileName) {
@@ -337,12 +343,32 @@ class CommonPage {
     cy.go('back');
   }
 
+  clearCookies() {
+    cy.clearCookies();
+  }
+
+  clkToolsLnkInTheBanner() {
+    this.elements.tools().click();
+  }
+
+  clkAndVerifyMobileBannerMenuLnks() {
+    this.elements.mobileMenu().click();
+    this.elements.browse();
+    this.elements.aToz();
+    this.elements.help();
+    this.elements.tools();
+  }
+
   clkContinueBtn() {
-    this.verifyTxtAndClk(this.elements.clkContinue());
+    this.verifyTxtAndClk(this.elements.continue());
+  }
+
+  clkStartNowBtn() {
+    this.verifyTxtAndClk(this.elements.startNow());
   }
 
   clkStartAgainBtn() {
-    this.verifyTxtAndClk(this.elements.clkStartAgain());
+    this.verifyTxtAndClk(this.elements.startAgain());
   }
 
   clkSpecificChangeLnk(element, txtToVerify) {

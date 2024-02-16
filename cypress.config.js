@@ -10,8 +10,6 @@ module.exports = (on) => {
 };
 
 module.exports = defineConfig({
-  viewportWidth: 720,
-  viewportHeight: 640,
   e2e: {
     'baseUrl': 'https://staging.trade-tariff.service.gov.uk',
     setupNodeEvents(on, config) {
