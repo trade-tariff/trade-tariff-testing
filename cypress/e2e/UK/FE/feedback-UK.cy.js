@@ -14,6 +14,7 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     cy.contains('Leave feedback').click();
     cy.contains('Leave feedback or suggestions for improvements to this service.').click();
     cy.contains('Give feedback on Online Trade Tariff');
+    cy.contains('.govuk-link', 'feedback').should('not.exist');
   });
 
   it('UK - Breadcrumbs on feedback/thanks page', function() {
@@ -28,5 +29,14 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     cy.visit('/find_commodity');
     cy.get('.govuk-footer__row');
     cy.contains('The UK has left the EU');
+  });
+  it('UK - All pages - Display new Feedback Banner @ top of OTT and excludes on Feedback Page', function() {
+    const pages = ['/sections/1', '/chapters/01', '/headings/0101', '/commodities/0101210000'];
+    for (let i = 0; i < pages.length; i++) {
+      cy.visit(`${pages[i]}`);
+      cy.get('.govuk-tag');
+      cy.contains('Feedback');
+      cy.contains('.govuk-link', 'feedback').should('exist');
+    }
   });
 });
