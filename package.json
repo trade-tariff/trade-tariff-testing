@@ -17,7 +17,7 @@
     "cypress-otp": "^1.0.3",
     "cypress-tags": "^1.0.2",
     "cypress-utils": "^3.0.0",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.4.4",
     "eslint": "^8.56.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-cypress": "^2.15.1",
