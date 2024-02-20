@@ -96,6 +96,24 @@ Cypress.Commands.add('originMet', (country, code, agreement)=>{
   cy.contains('Obtaining and verifying proofs of origin');
   cy.get('.govuk-back-link').click();
 });
+// Product-specific rules met- export
+Cypress.Commands.add('originMetEx', (country, code, agreement)=>{
+  cy.contains('Product-specific rules met');
+  cy.contains(`Exporting commodity ${code} from ${country}`);
+  cy.contains(`Based on your responses, your product appears to meet the rules of origin requirements for the ${agreement}.`);
+  // links
+  cy.get('.govuk-list').contains('See valid proofs of origin').click();
+  cy.contains('Valid proofs of origin');
+  cy.get('.govuk-back-link').click();
+
+  cy.get('.govuk-list').contains('See detailed processes and requirements for proving the origin for goods').click();
+  cy.contains('Obtaining and verifying proofs of origin');
+  cy.get('.govuk-back-link').click();
+
+  cy.get('.govuk-list').contains('How proofs of origin are verified').click();
+  cy.contains('Obtaining and verifying proofs of origin');
+  cy.get('.govuk-back-link').click();
+});
 
 // proof verification
 Cypress.Commands.add('proofVerification', (country)=>{
@@ -376,11 +394,6 @@ Cypress.Commands.add('subDivision', (code, subDiv)=>{
 });
 Cypress.Commands.add('impDutyBox', (copy)=>{
   cy.get('.govuk-list.govuk-list--bullet').contains(`${copy}`);
-});
-Cypress.Commands.add('feebackSection', ()=>{
-  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('The rules of origin wizard is new functionality.');
-  cy.get('.govuk-inset-text.tariff-inset-meursing').contains('Your feedback will help us to improve it.');
-  cy.get('.govuk-inset-text a[href^="/feedback"]').contains('feedback');
 });
 // Verify proofs of origin page
 Cypress.Commands.add('proofsOfOriginPage', (commCode, country, countryShortName) => {

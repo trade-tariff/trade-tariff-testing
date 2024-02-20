@@ -121,4 +121,308 @@ describe('| RoO-e2e-NWO-OneSchm-InsuffPro.spec | NWO + One Scheme + insufficient
     cy.clkCumulationLnk();
     cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
   });
+  it('Importing - NWO + One Scheme + insufficient processing + cumulation - Norway', function() {
+    cy.visit('/commodities/0511911000?country=NO#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Norway', 'import');
+    // How Originating is defined
+    cy.howOrginating('Norway', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // what components
+    cy.whatComponents('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // Wholly Obtained ?
+    cy.whollyObtained('Norway', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('Norway');
+    // cumulation
+    cy.cumulation('iceland-norway', '0511911000', 'NO', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
+    // Product subDivisions
+    cy.subDivision('0511911000', 'Inedible fish eggs and roes');
+    // prodSpecRules
+    cy.prodSpecRules('All the eggs and roes are wholly obtained.');
+    // Origin requirements met
+    cy.originMet('Norway', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('0511911000', 'Any other product from heading 0511');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture from materials of any heading.');
+    // Origin requirements met
+    cy.originMet('Norway', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMet('Importing', 'Norway', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+  });
+  it('Importing - NWO + One Scheme + insufficient processing + cumulation - Iceland', function() {
+    cy.visit('/commodities/0511919000?country=IS#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Iceland', 'import');
+    // How Originating is defined
+    cy.howOrginating('Iceland', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // what components
+    cy.whatComponents('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // Wholly Obtained ?
+    cy.whollyObtained('Iceland', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('Iceland');
+    // cumulation
+    cy.cumulation('iceland-norway', '0511919000', 'IS', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
+    // Product subDivisions
+    cy.subDivision('0511919000', 'Inedible fish eggs and roes');
+    // prodSpecRules
+    cy.prodSpecRules('All the eggs and roes are wholly obtained.');
+    // Origin requirements met
+    cy.originMet('Iceland', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('0511919000', 'Any other product from heading 0511');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture from materials of any heading.');
+    // Origin requirements met
+    cy.originMet('Iceland', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMet('Importing', 'Iceland', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+  });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Norway', function() {
+    cy.visit('/commodities/0511911000?country=NO#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Norway', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // what components
+    cy.whatComponents('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('iceland-norway', '0511911000', 'NO', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
+    // Product subDivisions
+    cy.subDivision('0511911000', 'Inedible fish eggs and roes');
+    // prodSpecRules
+    cy.prodSpecRules('All the eggs and roes are wholly obtained.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('0511911000', 'Any other product from heading 0511');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture from materials of any heading.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '0511911000', 'Agreement on Trade in Goods between Iceland, Norway and the UK', 'Norway');
+  });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Iceland', function() {
+    cy.visit('/commodities/0511919000?country=IS#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Iceland', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // what components
+    cy.whatComponents('Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('iceland-norway', '0511919000', 'IS', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.minimalOps('Agreement on Trade in Goods between Iceland, Norway and the UK', 'yes');
+    // Product subDivisions
+    cy.subDivision('0511919000', 'Inedible fish eggs and roes');
+    // prodSpecRules
+    cy.prodSpecRules('All the eggs and roes are wholly obtained.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('0511919000', 'Any other product from heading 0511');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture from materials of any heading.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '0511919000', 'Agreement on Trade in Goods between Iceland, Norway and the UK', 'Iceland');
+  });
+  it('Importing - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'import');
+    // How Originating is defined
+    cy.howOrginating('Mexico', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('Mexico', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('Mexico');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMet('Importing', 'Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+  });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement', 'Mexico');
+  });
+  it('Importing - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'import');
+    // How Originating is defined
+    cy.howOrginating('Mexico', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('Mexico', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('Mexico');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMet('Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMet('Importing', 'Mexico', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+  });
+  it('Exporting - NWO + One Scheme + insufficient processing + cumulation - Mexico', function() {
+    cy.visit('/commodities/4411121000?country=MX#rules-of-origin');
+    // click Check Rules of Origin button
+    cy.checkRoO();
+    // Import
+    cy.impOrExp('Mexico', 'export');
+    // How Originating is defined
+    cy.howOrginating('United Kingdom', 'UK-Mexico Trade Continuity Agreement');
+    // How wholly obtained is defined
+    cy.howWhollyObtained('UK-Mexico Trade Continuity Agreement');
+    // what components
+    cy.whatComponents('UK-Mexico Trade Continuity Agreement');
+    // Wholly Obtained ?
+    cy.whollyObtained('the UK', 'no');
+    // Your goods are not wholly obtained
+    cy.notWhollyObtained('the UK');
+    // cumulation
+    cy.cumulation('mexico', '4411121000', 'MX', 'UK-Mexico Trade Continuity Agreement');
+    cy.minimalOps('UK-Mexico Trade Continuity Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('4411121000', 'Beadings and mouldings, including moulded skirting and other moulded boards');
+    // prodSpecRules
+    cy.prodSpecRules('Beading or moulding.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    cy.get('.govuk-back-link').click();
+    cy.get('.govuk-back-link').click();
+    cy.subDivision('4411121000', 'Any other product from heading 4411');
+    // prodSpecRules
+    cy.prodSpecRules('Manufacture in which all the materials used are classified within a heading other than that of the product.');
+    // Origin requirements met
+    cy.originMetEx('the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement');
+    // product specific rules?
+    cy.get('.govuk-back-link').click();
+    cy.prodSpecRules('Your goods do not meet any of these rules.');
+    // Origin requirements NOT met
+    cy.rooNotMetEx('Exporting', 'the UK', '4411121000', 'UK-Mexico Trade Continuity Agreement', 'Mexico');
+  });
 });

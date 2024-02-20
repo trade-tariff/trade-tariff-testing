@@ -84,6 +84,52 @@ Cypress.Commands.add('verifySearchReferencesHeading', (service) => {
   cy.get('#main-content > div.govuk-auto-classes > table').contains('Actions');
 });
 
+Cypress.Commands.add('verfiySearchReferences', (service) => {
+  cy.visit(`${adminUrl}/${service}/search_references/sections`);
+  cy.verifyService(service);
+  cy.contains('Import and Export search references');
+  cy.contains('Import multiple search references from a CSV file');
+  cy.contains('Import search references CSV');
+  cy.contains('Export all search references as a CSV file');
+  cy.contains('Export all search references as a CSV');
+});
+
+Cypress.Commands.add('verifyImportSearchReferencesPageAndClkBackBtn', (service) => {
+  cy.visit(`${adminUrl}/${service}/search_references/sections`);
+  cy.verifyService(service);
+  cy.verfiySearchReferences(service);
+  cy.contains('Import search references CSV').click();
+  cy.url().should('include', '/search_references/import');
+  cy.contains('Import search references');
+  cy.get('#new_import_task').contains('Sample CSV file:');
+  cy.contains('Upload CSV with search references. Search references are overriden if ID is provided');
+  cy.get('#import-task-file-field').should('be.visible');
+  cy.contains('Back').click();
+  cy.url().should('include', '/search_references/sections');
+  cy.verfiySearchReferences(service);
+});
+
+Cypress.Commands.add('verifyImportSearchReferencesPageAndClkImportRefsBtn', (service) => {
+  cy.visit(`${adminUrl}/${service}/search_references/sections`);
+  cy.verifyService(service);
+  cy.verfiySearchReferences(service);
+  cy.contains('Import search references CSV').click();
+  cy.url().should('include', '/search_references/import');
+  cy.contains('Import search references');
+  cy.get('#new_import_task').contains('Sample CSV file:');
+  cy.contains('Upload CSV with search references. Search references are overriden if ID is provided');
+  cy.get('#import-task-file-field').should('be.visible');
+  cy.contains('Back');
+  cy.contains('Import references from CSV').click();
+});
+
+Cypress.Commands.add('verifyExportAllSearchReferencesAsCSVBtn', (service) => {
+  cy.visit(`${adminUrl}/${service}/search_references/sections`);
+  cy.verifyService(service);
+  cy.verfiySearchReferences(service);
+  cy.contains('Export all search references as a CSV').click();
+});
+
 Cypress.Commands.add('createNewsItem', (service) => {
   cy.visit(`${adminUrl}/${service}/news_items`);
   cy.contains('Manage news stories');

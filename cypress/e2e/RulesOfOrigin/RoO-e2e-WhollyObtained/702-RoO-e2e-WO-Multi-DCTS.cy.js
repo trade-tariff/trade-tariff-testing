@@ -16,8 +16,6 @@ describe('| RoO-e2e-WO-Multiple-DCTS.spec | WO + Multiple Schemes + DCTS - Vietn
     cy.whatComponents('UK-Vietnam Free Trade Agreement');
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Vietnam', 'yes');
-    // Verify feeback section on product rules met screen
-    cy.feebackSection();
     // Origin requirements met
     cy.originMet('Vietnam', '0201100021', 'UK-Vietnam Free Trade Agreement');
   });
