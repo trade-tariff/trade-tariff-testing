@@ -151,15 +151,15 @@ class MeursingPage {
   checkAnswersAndChangeOptions(starch, sugar, milkfat, milkprotein, meursingCode, goToReviewAnswersPage, changeLnkData) {
     this.verifyLookUpMeursingCode();
     commonPage.clkStartNowBtn();
-    this.verifyAndSelectMeursingCodeLookUpOptions(starch, sugar, milkfat, milkprotein, meursingCode);
-    commonPage.goToUrl(goToReviewAnswersPage);
+    this.verifyAndSelectMeursingCodeLookUpOptions(starch, sugar, milkfat, milkprotein, meursingCode, true);
+    commonPage.clkBackLnk();
     this.clkChangeLnkAndClkContinueBtn(changeLnkData.starch, goToReviewAnswersPage);
     this.clkChangeLnkAndClkContinueBtn(changeLnkData.sucrose, goToReviewAnswersPage);
     this.clkChangeLnkAndClkContinueBtn(changeLnkData.milkfat, goToReviewAnswersPage);
     this.clkChangeLnkAndClkContinueBtn(changeLnkData.milkprotein, goToReviewAnswersPage);
   }
 
-  verifyAndSelectMeursingCodeLookUpOptions(starch, sugar, milkfat, milkprotein, meursingCode) {
+  verifyAndSelectMeursingCodeLookUpOptions(starch, sugar, milkfat, milkprotein, meursingCode, clkBackLnk) {
     let milkproteinTxtToVerify = {};
     commonPage.elements.backLnk().should('include.text', 'Back');
     const starchTxtToVerify = JSON.stringify(starch).split(',');
@@ -179,9 +179,11 @@ class MeursingPage {
       this.elements.checkYoursAnswers();
       commonPage.clkContinueBtn();
       this.verifyMeursingCodeFinalStep(this.getAMeursingCode(meursingCodeToVerify[i]));
-      commonPage.clkStartAgainBtn();
-      this.verifyLookUpMeursingCode();
-      commonPage.clkStartNowBtn();
+      if (clkBackLnk == null) {
+        commonPage.clkStartAgainBtn();
+        this.verifyLookUpMeursingCode();
+        commonPage.clkStartNowBtn();
+      }
     }
   }
 

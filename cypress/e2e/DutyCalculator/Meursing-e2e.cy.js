@@ -110,7 +110,7 @@ describe('| Meursing e2e Spec |', () => {
       meursingPage.clkBackLnkAndClkChangeLnkOptions(data.starch, data.sucrose, data.milkfat, data.milkprotein, data.reviewsAnswersLnk);
       meursingPage.clkBackLnkAndVerifyHeadingsOfMeursingPages();
     });
-    it.only('Check answers and Change options', () => {
+    it('Check answers and Change options', () => {
       commonPage.goToUrl(data.baseUrl);
       meursingPage.checkAnswersAndChangeOptions(data.starch, data.sugar, data.milkfat, data.milkprotein,
           data.meursingCode, data.reviewsAnswersLnk, data.changeLnkData);
