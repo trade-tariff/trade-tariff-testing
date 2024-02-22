@@ -22,8 +22,8 @@
         "csvLink": "/api/v2/exchange_rates/files/monthly_csv_"
     },
     "Verify right hand navigation on the monthly exchange rate": {
-        "goToURL": "/exchange_rates/monthly?year=2022",
-        "shudInclude": "/exchange_rates/monthly?year=2022",
+        "goToURL": "/exchange_rates/monthly?year=2023",
+        "shudInclude": "/exchange_rates/monthly?year=2023",
         "staticTxt": {
             "1": "Related information",
             "2": "Average rates",

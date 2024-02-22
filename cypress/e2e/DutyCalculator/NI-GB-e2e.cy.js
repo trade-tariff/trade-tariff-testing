@@ -19,7 +19,7 @@ describe('| NI-GB-e2e | Northern Ireland to GB United Kingdom |', () => {
   });
   context('| NI-GB-e2e.spec | NI to GB route 🚎 |', () => {
     it('NI-GB-101-e2e-uk', () => {
-      commodityPage.goToCommCodePage(data.commodityCode);
+      commodityPage.goToCommCodePage(data.commodityCode, data.country);
     });
     it('NI-GB-102-e2e-xi', () => {
       commodityPage.goToCommCodePage(data.commodityCode, data.country);

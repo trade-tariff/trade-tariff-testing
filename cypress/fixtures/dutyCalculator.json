@@ -28,8 +28,9 @@
         },
         "euDutiesApplyPage": {
             "1": "As you have no valid proof of origin, imports of this commodity are subject to EU import duties.",
-            "2": "As this commodity attracts a trade defence measure, imports of this commodity are treated as 'at risk'.",
-            "3": "As your goods are subject to commercial processing, imports of this commodity are treated as 'at risk'."
+            "2": "As this commodity attracts a trade defence measure, imports of this commodity are treated as 'at risk' under all circumstances.",
+            "3": "As this commodity attracts a trade defence measure, imports of this commodity are treated as 'at risk'.",
+            "4": "As your goods are subject to commercial processing, imports of this commodity are treated as 'at risk'."
         },
         "meursingCodePage": {
             "1": "This commodity code features duties which may be dependent on the sugar, flour, milk fat and milk protein content. To fully define the applicable duties, you need to specify the additional code that defines the content of these ingredients.",
@@ -130,6 +131,7 @@
     },
     "NI-GB-101-e2e-uk": {
         "commodityCode": "0702000007",
+        "country": "uk",
         "destination": "uk",
         "origin": "Northern Ireland"
     },
@@ -710,10 +712,11 @@
             "Applicable VAT rate": "Value added tax (20.0%)"
         },
         "tradeOptions": {
-            "1": "Option 1: Tariff preference - Singapore",
-            "2": "Option 2: Airworthiness tariff suspension",
-            "3": "UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.",
-            "4": {
+            "1": "Option 1: Third-country duty",
+            "2": "Option 2: Tariff preference - Singapore",
+            "3": "Option 3: Airworthiness tariff suspension",
+            "4": "UK preferential duties may be applied, as the difference between the UK preferential duty and the EU preferential duty is lower than 3% of the customs value of your trade.",
+            "5": {
                 "$ref": "#commonData/importDutyCalculationPageRoWToNI/13"
             }
         }

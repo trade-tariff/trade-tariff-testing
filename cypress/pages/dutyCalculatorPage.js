@@ -206,7 +206,9 @@ class DutyCalculatorPage {
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.traderSchemeTitle() + '?');
     this.verifyPageTitle(this.elements.traderSchemeTitle());
-    commonHelpers.verifyStaticContent(staticData);
+    if (staticData != null) {
+      commonHelpers.verifyStaticContent(staticData);
+    }
   }
 
   // Select trade scheme and click continue button
@@ -241,7 +243,9 @@ class DutyCalculatorPage {
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.annualTurnOverHeading());
     this.verifyPageTitle(this.elements.annualTurnOverTitle());
-    commonHelpers.verifyStaticContent(staticData);
+    if (staticData != null) {
+      commonHelpers.verifyStaticContent(staticData);
+    }
   }
 
   // Select annual turn over option and click continue button
@@ -309,17 +313,19 @@ class DutyCalculatorPage {
     }
     switch (commonPage.getTestCaseName()) {
       case 'RoW-NI302-e2e':
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 2, 4]);
+        break;
       case 'GB-NI409a-e2e':
       case 'GB-NI409b-e2e':
-        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 3]);
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 3, 4]);
         break;
       case 'RoW-NI303a-e2e':
       case 'RoW-NI303b-e2e':
       case 'RoW-NI304b-delta-e2e':
-        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 2]);
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [1, 2, 3]);
         break;
       default:
-        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [2, 3]);
+        staticData = commonPage.getTestCaseSpecificStaticData(staticData, [2, 3, 4]);
     }
     commonHelpers.verifyStaticContent(staticData);
     commonPage.clkContinueBtn();
@@ -332,7 +338,9 @@ class DutyCalculatorPage {
     commonPage.verifyContains(this.elements.captionTitle());
     commonPage.verifyContains(this.elements.meursingCodeHeading());
     this.verifyPageTitle(this.elements.meursingCodeTitle());
-    commonHelpers.verifyStaticContent(staticData);
+    if (staticData != null) {
+      commonHelpers.verifyStaticContent(staticData);
+    }
   }
 
   // Enter meusing additional code and click continue button

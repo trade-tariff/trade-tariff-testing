@@ -113,8 +113,10 @@ class CommonHelpers {
   }
 
   // GB to NI scenarios steps for no duty page
-  verifyGBToNIStepsForNoDutyPageScenarios(traderScheme, finalUse, turnOver, certOrigin, plannedOption, noDutyPageGBToNI) {
-    dutyCalculatorPage.verifyTraderSchemePage();
+  verifyGBToNIStepsForNoDutyPageScenarios(traderSchemePage, traderScheme, finalUse, turnOver, certOrigin, plannedOption, noDutyPageGBToNI) {
+    if (traderSchemePage != null) {
+      dutyCalculatorPage.verifyTraderSchemePage(traderSchemePage);
+    }
     dutyCalculatorPage.selectTraderSchemeAndClkContinueBtn(traderScheme);
     if (finalUse != null) {
       dutyCalculatorPage.verifyGoodsForSaleToOrFinalUsePage();

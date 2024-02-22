@@ -21,24 +21,24 @@ describe('| GB-NI-e2e.spec | GB to NI route', () => {
     });
     it('GB-NI402a-e2e', () => {
       commonHelpers.verifyGBToNIStepsForNoDutyPageScenarios(
-          data.traderScheme, data.finalUse, data.turnOver, null, null, data.noDutyPageGBToNI);
+          data.traderSchemePage, data.traderScheme, data.finalUse, data.turnOver, null, null, data.noDutyPageGBToNI);
     });
     it('GB-NI402b-e2e', () => {
       commonHelpers.verifyGBToNIStepsForNoDutyPageScenarios(
-          data.traderScheme, data.finalUse, data.turnOver, null, data.plannedOption, data.noDutyPageGBToNI);
+          data.traderSchemePage, data.traderScheme, data.finalUse, data.turnOver, null, data.plannedOption, data.noDutyPageGBToNI);
     });
     it('GB-NI402c-e2e', () => {
       commonHelpers.verifyGBToNIStepsForNoDutyPageScenarios(
-          data.traderScheme, data.finalUse, data.turnOver, null, data.plannedOption, data.noDutyPageGBToNI);
+          data.traderSchemePage, data.traderScheme, data.finalUse, data.turnOver, null, data.plannedOption, data.noDutyPageGBToNI);
     });
     it('GB-NI403-e2e', () => {
       commonHelpers.verifyGBToNIStepsForNoDutyPageScenarios(
-          data.traderScheme, data.finalUse, null, data.certOrigin, null, data.noDutyPageGBToNI);
+          data.traderSchemePage, data.traderScheme, data.finalUse, null, data.certOrigin, null, data.noDutyPageGBToNI);
     });
     it('GB-NI404a-e2e', () => {
-      commonHelpers.verifyGBTONIStepsForE2EScenario(data.traderScheme, data.finalUse, data.certOrigin, data.euDutiesApplyPage, null,
-          null, data.customsValuePage, data.customsValue, data.importQuantityPage, data.importQuantity, data.documentCodePage,
-          data.documentCode, null, null, data.checkYourAnswersTableData, data.importDutyCalculationPage, null);
+      commonHelpers.verifyGBTONIStepsForE2EScenario(data.traderScheme, data.finalUse, data.certOrigin,
+          data.euDutiesApplyPage, null, null, data.customsValuePage, data.customsValue, data.importQuantityPage, data.importQuantity,
+          data.documentCodePage, data.documentCode, null, null, data.checkYourAnswersTableData, data.importDutyCalculationPage, null);
     });
     it('GB-NI404b-e2e', () => {
       commonHelpers.verifyGBTONIStepsForE2EScenario(data.traderScheme, data.finalUse, data.certOrigin, data.euDutiesApplyPage,
@@ -47,8 +47,8 @@ describe('| GB-NI-e2e.spec | GB to NI route', () => {
           data.importDutyCalculationPage, null);
     });
     it('GB-NI405-e2e', () => {
-      commonHelpers.verifyGBToNIStepsForNoDutyPageScenarios(
-          data.traderScheme, data.finalUse, data.turnOver, data.certOrigin, data.plannedOption, data.noDutyPageGBToNI);
+      commonHelpers.verifyGBToNIStepsForNoDutyPageScenarios(data.traderSchemePage, data.traderScheme, data.finalUse, data.turnOver,
+          data.certOrigin, data.plannedOption, data.noDutyPageGBToNI);
     });
     it('GB-NI406a-e2e', () => {
       commonHelpers.verifyGBTONIStepsForE2EScenario(data.traderScheme, data.finalUse, data.certOrigin, data.euDutiesApplyPage,
@@ -63,7 +63,7 @@ describe('| GB-NI-e2e.spec | GB to NI route', () => {
     });
     it('GB-NI407-e2e', () => {
       commonHelpers.verifyGBToNIStepsForNoDutyPageScenarios(
-          data.traderScheme, null, null, data.certOrigin, null, data.noDutyPageGBToNI);
+          data.traderSchemePage, data.traderScheme, null, null, data.certOrigin, null, data.noDutyPageGBToNI);
     });
     it('GB-NI408a-e2e', () => {
       commonHelpers.verifyGBTONIStepsForE2EScenario(data.traderScheme, null, data.certOrigin, data.euDutiesApplyPage,

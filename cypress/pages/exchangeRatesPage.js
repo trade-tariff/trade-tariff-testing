@@ -39,7 +39,7 @@ class ExchangeRatesPage {
   }
 
   verifyHeading(ratesTxtToVerify) {
-    commonPage.verifyContains(`HMRC ${ratesTxtToVerify} currency exchange rates`);
+    commonPage.verifyContains(`HMRC currency exchange ${ratesTxtToVerify} rates`);
   }
 
   verifySubHeading(ratesTxtToVerify) {
@@ -57,7 +57,7 @@ class ExchangeRatesPage {
       year = previousYear;
       month = lastMonth;
     } else if (avgRatesMonthBoolean == true) {
-      year = currentYear;
+      year = previousYear;
       month = avgRatesMonth;
     } else if (currentMonthBoolean == true) {
       year = currentYear;
@@ -74,9 +74,9 @@ class ExchangeRatesPage {
 
   verifySecondaryTitle(titleToVerify) {
     if (titleToVerify == 'average') {
-      this.elements.secondaryTitleEle().contains(`${avgRatesMonthName} ${currentYear} average exchange rates`);
+      this.elements.secondaryTitleEle().contains(`${avgRatesMonthName} ${previousYear} average exchange rates`);
     } else if (titleToVerify == 'spot') {
-      this.elements.secondaryTitleEle().contains(`${avgRatesMonthName} ${currentYear} spot exchange rates`);
+      this.elements.secondaryTitleEle().contains(`${avgRatesMonthName} ${previousYear} spot exchange rates`);
     } else {
       this.elements.secondaryTitleEle().contains(`${currentMonthName} ${previousYear} monthly exchange rates`);
     }
