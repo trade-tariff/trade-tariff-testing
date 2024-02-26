@@ -1,19 +1,19 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@2.2.0
+  cypress: cypress-io/cypress@3.3.0
   slack: circleci/slack@4.1
 
 executors: # This is totally crazy but it's the only way to configure the environment: https://circleci.com/developer/orbs/orb/cypress-io/cypress#usage-env-vars
   custom_chrome:
     docker:
-      - image: "cypress/browsers:node16.13.2-chrome97-ff96"
+      - image: "cypress/browsers:node-20.11.0-chrome-121.0.6167.184-1-ff-123.0-edge-121.0.2277.128-1"
     environment:
       CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: "STAGING"
 jobs:
   linters:
     docker:
-      - image: cimg/node:16.13.2
+      - image: cimg/node:20.11.0
     resource_class: small
     steps:
       - checkout
