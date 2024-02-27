@@ -625,9 +625,7 @@ Cypress.Commands.add('getDataAndSortToCompare', (filePath) => {
 Cypress.Commands.add('verifyNewsItemOnNewsBulletin', () => {
   cy.url().then((url) => {
     cy.log('url', url);
-    if (url.includes('staging')) {
-      cy.get('.news-item').contains('2023');
-    } else if (url.includes('xi')) {
+    if (url.includes('staging') || url.includes('xi')) {
       cy.get('.news-item').contains('2023');
     } else {
       cy.get('.news-item').contains('2024');
