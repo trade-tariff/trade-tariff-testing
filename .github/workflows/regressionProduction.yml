@@ -49,7 +49,7 @@ jobs:
           echo "test-status-${{ matrix.containers }}=${{ steps.cypress.outcome }}" >> $GITHUB_OUTPUT
 
       - name: Upload E2E test reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-reports-${{ matrix.containers }}
           path: ./cypress/reports/
@@ -73,25 +73,25 @@ jobs:
         run: mkdir reports
 
       - name: Download test-reports-0
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-0
           path: reports/0
 
       - name: Download test-reports-1
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-1
           path: reports/1
 
       - name: Download test-reports-2
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-2
           path: reports/2
 
       - name: Download test-reports-3
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-3
           path: reports/3
@@ -114,13 +114,13 @@ jobs:
           npx marge --inline report/index.json -o report/
 
       - name: Upload report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: E2E Test Reports
           path: report/
 
       - name: Checkout reports repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: reports
           path: reports_repo
