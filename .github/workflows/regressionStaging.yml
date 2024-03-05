@@ -35,7 +35,7 @@ jobs:
       - run: date
 
       - name: Checkout repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Generate lists of specs
         id: speclist
@@ -46,7 +46,7 @@ jobs:
 
       - name: Run cypress tests with chrome
         id: cypress
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         continue-on-error: true
         with:
           spec: ${{ steps.speclist.outputs.specfiles }}
@@ -59,7 +59,7 @@ jobs:
           echo "test-status-${{ matrix.containers }}=${{ steps.cypress.outcome }}" >> $GITHUB_OUTPUT
 
       - name: Upload E2E test reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-reports-${{ matrix.containers }}
           path: ./cypress/reports/
@@ -73,35 +73,33 @@ jobs:
       date-output: ${{ steps.date.outputs.date }}
 
     steps:
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%d-%m-%Y')" >> $GITHUB_OUTPUT
+
       - name: Install dependencies
         run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
 
       - name: Create reports directory
         run: mkdir reports
 
-      - name: Checkout reports repo
-        uses: actions/checkout@v2
-        with:
-          ref: reports
-          path: reports_repo
-
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-0
           path: reports/0
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-1
           path: reports/1
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-2
           path: reports/2
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test-reports-3
           path: reports/3
@@ -123,10 +121,16 @@ jobs:
           npx marge --inline report/index.json -o report/
 
       - name: Upload report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: E2E Test Reports
           path: report/
+
+      - name: Checkout reports repo
+        uses: actions/checkout@v4
+        with:
+            ref: reports
+            path: reports_repo
 
       - name: Copy report into reports repo
         run: |
@@ -154,10 +158,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: reports
           directory: reports_repo
-
-      - name: Get current date
-        id: date
-        run: echo "date=$(date +'%d-%m-%Y')" >> $GITHUB_OUTPUT
 
   notify-slack:
     name: Send slack notification based on test results

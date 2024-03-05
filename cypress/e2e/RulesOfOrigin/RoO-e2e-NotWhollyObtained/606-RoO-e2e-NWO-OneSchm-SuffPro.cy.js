@@ -85,7 +85,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Provide more information about your product
     cy.moreInfoAboutProduct('1301200000', 'Lac; natural gums, resins, gum-resins and oleoresins (for example, balsams)');
     // product specific rules?
-    cy.prodSpecRules('Manufacture in which the value of all the materials of heading 1301 used does not exceed 50% of the ex-works price of the product.');
+    cy.prodSpecRules('Manufacture in which the value of all the materials of heading 1301 used does not exceed 50% of the ex-works price');
     // Origin requirements met
     cy.rooReqMet('Importing', 'Egypt', '1301200000', 'UK-Egypt Association Agreement');
     // Validate if product specific rules are met
@@ -147,9 +147,16 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // min Operations met ?
     cy.minimalOps('UK-South Korea Trade Agreement', 'yes');
     // Provide more information about your product
-    cy.moreInfoAboutProduct('1702201010', 'Sugars and sugar confectionery');
+    cy.moreInfoAboutProduct('1702201010', 'Chemically-pure maltose and fructose');
     // product specific rules?
-    cy.prodSpecRules('Manufacture from materials of any heading, except that of the product.');
+    cy.prodSpecRules('Manufacture from materials of any heading, including other materials of heading 1702.');
+    // Origin requirements met
+    cy.rooReqMet('Importing', 'South Korea', '1702201010', 'UK-South Korea Trade Agreement');
+    cy.go(-2);
+    // Provide more information about your product
+    cy.moreInfoAboutProduct('1702201010', 'Other sugars in solid form, containing added flavouring or colouring matter');
+    // product specific rules?
+    cy.prodSpecRules('Manufacture in which the value of all the materials of chapter 17 used does not exceed 30% of the ex-works price');
     // Origin requirements met
     cy.rooReqMet('Importing', 'South Korea', '1702201010', 'UK-South Korea Trade Agreement');
     // Validate if product specific rules are met
