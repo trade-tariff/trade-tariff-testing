@@ -1,6 +1,6 @@
 describe('certificate search', function() {
   context('when on the UK service', function() {
-    beforeEach(function () {
+    beforeEach(function() {
       cy.visit('/uk/certificate_search');
     });
     it('searches for a certificate by code', function() {
@@ -23,7 +23,7 @@ describe('certificate search', function() {
   });
 
   context('when on the XI service', function() {
-    beforeEach(function () {
+    beforeEach(function() {
       cy.visit('/xi/certificate_search');
     });
 
