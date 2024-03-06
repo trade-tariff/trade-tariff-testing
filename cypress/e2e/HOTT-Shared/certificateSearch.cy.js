@@ -3,13 +3,10 @@ describe('certificate search', function() {
     beforeEach(function() {
       cy.visit('/uk/certificate_search');
     });
-
     it('searches for a certificate by code', function() {
-      cy.get('input#certificate-search-form-code-field').type('D005');
-
+      cy.get('input#certificate-search-form-code-field').type('D008');
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-
       cy.contains('Using this certificate on CDS or CHIEF').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Plated or coated by hot dip galvanisation');
@@ -17,10 +14,8 @@ describe('certificate search', function() {
 
     it('searches for a certificate by description', function() {
       cy.get('input#certificate-search-form-description-field').type('invoice');
-
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-
       cy.contains('Using this certificate on CDS or CHIEF').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Plated or coated by hot dip galvanisation');
@@ -33,11 +28,9 @@ describe('certificate search', function() {
     });
 
     it('searches for a certificate by code', function() {
-      cy.get('input#certificate-search-form-code-field').type('D005');
-
+      cy.get('input#certificate-search-form-code-field').type('D008');
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-
       cy.contains('Using this certificate on CDS or CHIEF').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Citric acid');
@@ -45,10 +38,8 @@ describe('certificate search', function() {
 
     it('searches for a certificate by description', function() {
       cy.get('input#certificate-search-form-description-field').type('invoice');
-
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-
       cy.contains('Using this certificate on CDS or CHIEF').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Citric acid');
