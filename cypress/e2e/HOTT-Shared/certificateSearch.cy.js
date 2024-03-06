@@ -5,7 +5,7 @@ describe('certificate search', function() {
     });
 
     it('searches for a certificate by code', function() {
-      cy.get('input#certificate-search-form-code-field').type('D005');
+      cy.get('input#certificate-search-form-code-field').type('D008');
 
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
@@ -33,7 +33,7 @@ describe('certificate search', function() {
     });
 
     it('searches for a certificate by code', function() {
-      cy.get('input#certificate-search-form-code-field').type('D005');
+      cy.get('input#certificate-search-form-code-field').type('D008');
 
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
