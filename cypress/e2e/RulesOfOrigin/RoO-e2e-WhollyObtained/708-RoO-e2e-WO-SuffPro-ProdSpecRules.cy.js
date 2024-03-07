@@ -18,6 +18,8 @@ describe('| 708-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     // cumulation
     cy.cumulation('japan', '1602321110', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('1602321110', 'Subheading 160232');
     // product specific rules
     cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MAXNOM).', 'JP');
     // Origin requirements met

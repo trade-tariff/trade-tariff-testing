@@ -22,6 +22,8 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('6004100091', '6001-6006');
     // product specific rules?
     cy.prodSpecRules('Spinning of natural or man-made staple fibres combined with knitting or with crocheting.');
     // Origin requirements met
@@ -52,6 +54,8 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('6004100091', '6001-6006');
     // product specific rules?
     cy.prodSpecRules('Spinning of natural or man-made staple fibres combined with knitting or with crocheting.');
     // Origin requirements met
