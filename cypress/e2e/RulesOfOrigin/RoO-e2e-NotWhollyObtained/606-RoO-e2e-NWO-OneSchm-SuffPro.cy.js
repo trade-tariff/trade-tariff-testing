@@ -22,6 +22,8 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('6004100091', '6001-6006');
     // product specific rules?
     cy.prodSpecRules('Spinning of natural or man-made staple fibres combined with knitting or with crocheting.');
     // Origin requirements met
@@ -52,6 +54,8 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     cy.cumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
     // min Operations met ?
     cy.minimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'yes');
+    // Product subDivisions
+    cy.subDivision('6004100091', '6001-6006');
     // product specific rules?
     cy.prodSpecRules('Spinning of natural or man-made staple fibres combined with knitting or with crocheting.');
     // Origin requirements met
@@ -62,7 +66,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Origin requirements NOT met
     cy.rooNotMetEx('Exporting', 'the UK', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement', 'Japan');
   });
-  it('Importing - NWO + Sufficient processing - Yes + Egypt + Prod specific rules - Yes', function() {
+  it('Importing - NWO + Sufficient processing - Yes + Egypt + Prod specific rules - Yes', function () {
     cy.visit('/commodities/1301200000?country=EG#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
