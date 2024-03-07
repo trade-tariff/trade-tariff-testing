@@ -66,7 +66,7 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // Origin requirements NOT met
     cy.rooNotMetEx('Exporting', 'the UK', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement', 'Japan');
   });
-  it('Importing - NWO + Sufficient processing - Yes + Egypt + Prod specific rules - Yes', function () {
+  it('Importing - NWO + Sufficient processing - Yes + Egypt + Prod specific rules - Yes', function() {
     cy.visit('/commodities/1301200000?country=EG#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
