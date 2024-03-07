@@ -1,5 +1,5 @@
-describe('Reintroduce Product Specific Rules - RoO', function () {
-  it('UK | Verify navigation links on RoO page', function () {
+describe('Reintroduce Product Specific Rules - RoO', function() {
+  it('UK | Verify navigation links on RoO page', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
     cy.contains('Rules of origin').click();
     cy.contains('Preferential rules of origin for trading with France');
@@ -29,7 +29,7 @@ describe('Reintroduce Product Specific Rules - RoO', function () {
     cy.get('.rules-of-origin__non-preferential a[href]')
         .contains('The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020 (opens in new tab)');
   });
-  it('UK | Click reset all countries link and check RoO page content', function () {
+  it('UK | Click reset all countries link and check RoO page content', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
     cy.contains('Reset to all countries').click();
     cy.contains('Rules of origin').click();
@@ -43,7 +43,7 @@ describe('Reintroduce Product Specific Rules - RoO', function () {
     cy.get('.rules-of-origin__non-preferential a[href]')
         .contains('The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020 (opens in new tab)');
   });
-  it('UK | Reintroduce proofs of origin | Country does not have dual schemes', function () {
+  it('UK | Reintroduce proofs of origin | Country does not have dual schemes', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
     cy.contains('Rules of origin').click();
     cy.contains('Preferential rules of origin for trading with France');
@@ -63,7 +63,7 @@ describe('Reintroduce Product Specific Rules - RoO', function () {
     cy.get('#rules-of-origin-proofs').contains('Importer\'s knowledge').click();
     cy.get('h3#non-preferential-rules').contains('Non-preferential rules of origin');
   });
-  it('UK | Verify Proofs of origin page - RoO', function () {
+  it('UK | Verify Proofs of origin page - RoO', function() {
     cy.visit('/commodities/6004100091?country=JP#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
@@ -93,7 +93,7 @@ describe('Reintroduce Product Specific Rules - RoO', function () {
     // Verify proofs of origin page
     cy.proofsOfOriginPage('6004100091', 'Japan', 'JP');
   });
-  it('UK | Show all proofs on the single page', function () {
+  it('UK | Show all proofs on the single page', function() {
     cy.visit('/rules_of_origin/proofs');
     cy.contains('Proofs of origin for all trade agreements');
     cy.contains('UK / EU Trade and Co-operation Agreement').click();
@@ -104,7 +104,7 @@ describe('Reintroduce Product Specific Rules - RoO', function () {
     cy.get('h2#proofs-for-dcts-ldcs').contains('Developing Countries Trading Scheme (DCTS)');
     cy.get('h2#proofs-for-dcts-general-enhanced').contains('Developing Countries Trading Scheme (DCTS)');
   });
-  it('UK | Show all PSRs on the single page', function () {
+  it('UK | Show all PSRs on the single page', function() {
     cy.visit('/commodities/6210400000?country=CL#rules-of-origin');
     cy.contains('Product-specific rules').click();
     cy.get('h3#product-specific-rules').contains('Product-specific rules - trade with Chile');
