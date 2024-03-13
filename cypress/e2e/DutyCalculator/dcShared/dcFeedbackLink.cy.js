@@ -18,7 +18,7 @@ describe('| dcFeedbackLink | Feedback link on Duty Calculator page |', function(
 
       // first link
       cy.get('.form-hint > a:nth-of-type(1)')
-          .should('have.attr', 'href', '/help');
+          .should('have.attr', 'href', 'mailto:online.tariff.feedback@hmrc.gov.uk');
 
       // enter some feedback
       cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 DC feedback ');
