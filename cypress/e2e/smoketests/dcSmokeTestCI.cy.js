@@ -9,7 +9,6 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('Where are the goods coming from?');
     cy.contains('When autocomplete results are available');
     cy.originList({value: 'Northern Ireland'});
-
     cy.contains('There is no import duty to pay');
     cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.');
     cy.contains('Find out more about trading and moving goods in and out of Northern Ireland (opens in a new window).');
@@ -20,13 +19,11 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.get('.govuk-back-link').click();
     cy.contains('Which country are the goods coming from?');
     cy.contains('Continue').click();
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('When will the goods be imported?');
   });
-
   it('🚀 UK 🇬🇧 Duty Calculator - RoW to GB 🇦🇫 Afghanistan to 🇬🇧 GB | 204 |', function() {
     cy.visit('/duty-calculator/uk/3926909790/import-date');
-
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Afghanistan'});
@@ -45,7 +42,6 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('Suspension - goods for certain categories of ships');
     cy.contains('Airworthiness tariff suspension');
   });
-
   it('🚀 XI 🇪🇺 - Duty Calculator e2e - RoW 🇦🇩 (Andorra) - XI 304i | Meursing code 7000', function() {
     cy.visit('/duty-calculator/xi/1905311100/import-date');
     cy.validDate();
@@ -57,7 +53,6 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.planned('notprocessing');
     cy.meursingCode({value: '000'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
     cy.quantity({kgm: '1000'});
     cy.vat('20');
     cy.confirmPage();
@@ -66,16 +61,13 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('Third-country duty (UK)');
     cy.contains('8.00% * £1,000.00');
     cy.contains('A ‘Third country’ duty is the tariff charged');
-
     cy.contains('UK import duties apply, as the difference between the UK third country duty');
     cy.contains('Tariff preference - Andorra');
     cy.contains('Tariff preference (EU)');
-
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(9) > .govuk-summary-list__actions > .govuk-link').click();
     cy.meursingCode({value: '049'});
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
     cy.quantity({kgm: '1000'});
     cy.vat('20');
     cy.confirmPage();
@@ -87,16 +79,13 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('Tariff preference (EU)');
     cy.contains('9.00 % + EA MAX 24.20 % +ADSZ');
   });
-
   it('🚀 XI 🇪🇺 - Duty Calculator e2e - ( GB to NI ) | 406 |', function() {
     cy.visit('/duty-calculator/xi/1701141000/import-date');
-
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('gb');
     cy.traderScheme('yes');
     cy.finalUse('yes');
-
     cy.turnOver('more');
     cy.get('#steps-planned-processing-planned-processing-commercial-purposes-field').check();
     cy.contains('Continue').click();
@@ -122,15 +111,12 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.contains('United Kingdom');
     cy.contains('Commercial purposes');
     cy.contains('£10,002.24');
-
     cy.contains('23.98');
-    cy.get('.govuk-button').click();
-
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('Third-country duty');
     cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
     cy.contains('Claiming a waiver – Exchange rate');
   });
-
   it('🚀 XI 🇪🇺 - Duty Calculator e2e - ( EU to NI )', function() {
     cy.visit('/duty-calculator/xi/1212210000/import-date');
     cy.validDate();
@@ -138,11 +124,10 @@ describe('Duty Calculator smoke tests', {tags: ['smokeTest']}, function() {
     cy.selectOrigin('eu');
     cy.contains('There is no import duty to pay');
     cy.contains('There is no import duty to pay when importing goods into Northern Ireland from a European Union member state.');
-
     cy.get('.govuk-back-link').click();
     cy.contains('Which country are the goods coming from?');
     cy.contains('Continue').click();
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('When will the goods be imported?');
   });
 });

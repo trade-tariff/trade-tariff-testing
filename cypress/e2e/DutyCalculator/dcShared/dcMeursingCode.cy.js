@@ -26,34 +26,34 @@ describe('| dcMeursingCode.spec.js | Meursing Code page validations | ', functio
     // page link to meursing calculator
     //  cy.get('span#steps-meursing-additional-code-meursing-additional-code-hint > .govuk-link').should('have.attr', 'href', 'https://www.trade-tariff.service.gov.uk/xi/meursing_lookup/steps/start');
 
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     // Error Message Capture
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Specify a valid 3-digit Meursing additional code');
     cy.get('.govuk-error-message').contains('Specify a valid 3-digit Meursing additional code');
     cy.get('.govuk-back-link').click();
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     // text as meursing code
     cy.meursingCode({value: 'code'});
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     // Specify a valid 3-digit Meursing additional code
     // Error Message
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Specify a valid 3-digit Meursing additional code');
     cy.get('.govuk-error-message').contains('Specify a valid 3-digit Meursing additional code');
     cy.get('.govuk-back-link').click();
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     // enter invalid code
     // text as meursing code
     cy.meursingCode({value: '999'});
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     // Specify a valid 3-digit Meursing additional code
     // Error Message
     cy.get('.govuk-error-summary').contains('There is a problem');
     cy.contains('Enter a valid Meursing code');
     cy.get('.govuk-error-message').contains('Enter a valid Meursing code');
     cy.get('.govuk-back-link').click();
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     // enter a valid code
     cy.meursingCode({value: '000'});
     cy.contains('What is the customs value of this import?');

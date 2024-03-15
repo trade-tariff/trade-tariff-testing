@@ -31,10 +31,8 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.get('input#steps-customs-value-insurance-cost-field').clear();
     cy.get('input#steps-customs-value-insurance-cost-field').type('4545.987654');
     cy.contains('Continue').click();
-
     // confirm
-    cy.get('.govuk-button').click();
-
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     // duty page
     cy.contains('Import duty calculation');
     cy.contains('You are importing commodity');
@@ -56,7 +54,6 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains('Other');
     cy.contains(`${currentDate}`);
     cy.contains('£10,002.24');
-
     // information
     cy.contains('Third-country duty');
     cy.get('.govuk-table__row');
@@ -76,7 +73,6 @@ describe('🧮 | dcDutyPage | Duties Calculated - page |', function() {
     cy.contains('Duty Total');
     cy.contains('A ‘Third country’ duty is the tariff charged where there isn’t a trade agreement or a customs union available.');
     cy.contains('It can also be referred to as the Most Favoured Nation (MFN) rate.');
-
     cy.contains('Third-country duty');
     cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
     cy.contains('Claiming a waiver – Exchange rate');

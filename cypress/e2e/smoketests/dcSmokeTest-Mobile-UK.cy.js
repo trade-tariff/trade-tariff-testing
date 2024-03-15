@@ -28,7 +28,6 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       // ⬆️ turnover > £500,000
       cy.turnOver('more');
       cy.mobileMenu();
-
       // 🚫 Non processing - No - The goods will be processed for commercial purposes other than // 🚫 Non processing - No
       cy.planned('unacceptablecommercial');
       cy.mobileMenu();
@@ -38,7 +37,6 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       // interstitial page
       cy.euDutiesApply();
       cy.mobileMenu();
-
       // Monetary value page
       cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
       cy.mobileMenu();
@@ -52,9 +50,8 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       // Check your answers page
       cy.contains('Check your answers');
       cy.mobileMenu();
-
       cy.contains('Commodity code');
-      cy.get('.govuk-button').click();
+      cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
       cy.mobileMenu();
       // Final Page
       cy.contains('Third-country duty');
@@ -79,10 +76,8 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       cy.selectOrigin('other');
       cy.mobileMenu();
       // select country from list
-
       cy.otherOriginList({value: 'Canada'});
       cy.mobileMenu();
-
       // Trader Scheme
       cy.traderScheme('yes');
       cy.mobileMenu();
@@ -98,7 +93,6 @@ describe('Duty Calculator mobile smoke tests', {tags: ['smokeTest']}, function()
       // customs value
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
       cy.mobileMenu();
-
       // Import Quantity
       cy.quantity({kgm: '100'});
       cy.mobileMenu();

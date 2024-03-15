@@ -8,7 +8,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('5');
     cy.contains('VAT reduced rate 5%');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Reduced rate');
   });
@@ -21,7 +21,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('20');
     cy.contains('Value added tax (20.0%)');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Standard rate');
   });
@@ -34,7 +34,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('0');
     cy.contains('VAT zero rate');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
   });
@@ -47,7 +47,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('exempt');
     cy.contains('VAT exempt');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('VAT exempt');
   });
@@ -57,8 +57,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.selectDestination('gb');
     cy.originList({value: 'Greenland'});
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
-
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
     cy.get('.govuk-back-link').click();
@@ -75,7 +74,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '100.00', cost: '250.00'});
     cy.quantity({kgm: '230.98'});
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
   });
@@ -86,7 +85,6 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // origin
     cy.selectOrigin('other');
     // select country from list
-
     cy.otherOriginList({value: 'Israel'});
     // Trader Scheme
     cy.traderScheme('no');
@@ -95,7 +93,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('20');
     cy.contains('Value added tax (20.0%)');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Standard rate');
     cy.get('.govuk-back-link').click();
@@ -105,7 +103,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('0');
     cy.contains('VAT zero rate');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
     cy.get('.govuk-back-link').click();
@@ -115,7 +113,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('5');
     cy.contains('VAT reduced rate 5%');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Reduced rate');
   });
@@ -131,11 +129,8 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
     cy.finalUse('yes');
-
     cy.turnOver('more');
-
     cy.planned('unacceptablecommercial');
-
     // 🚫 Certified as UK Origin
     cy.certificate('no');
     // eu duties apply
@@ -145,7 +140,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('20');
     cy.contains('Value added tax (20.0%)');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Standard rate');
     cy.get('.govuk-back-link').click();
@@ -155,7 +150,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('0');
     cy.contains('VAT zero rate');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Zero rate');
     cy.get('.govuk-back-link').click();
@@ -165,10 +160,9 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     // VAT Page
     cy.vat('5');
     cy.contains('VAT reduced rate 5%');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Reduced rate');
-
     // Final Page
     cy.contains('Third-country duty');
     cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');

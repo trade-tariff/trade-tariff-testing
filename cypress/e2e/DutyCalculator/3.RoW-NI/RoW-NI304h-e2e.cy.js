@@ -27,7 +27,6 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.confirmPage();
     cy.dutyPage();
-
     cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply');
@@ -48,10 +47,8 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.finalUseNI('yes');
     // turnover <£500,000 = YES
     cy.turnOver('less');
-
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
     // Case 1 : Δ MFN < 3% - UK Tariffs - Import Quantity 1.0 gives UK tariffs
     // Import Quantity
     cy.quantity({kgm: '100.0'});
@@ -60,10 +57,9 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     // VAT Page
     cy.vat('20');
     cy.contains('Value added tax (20.0%)');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Standard rate');
-
     cy.contains('Third-country duty');
     cy.contains('Third-country duty (UK)');
     cy.contains('UK import duties apply, as the difference between');
@@ -76,14 +72,12 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     // doc code
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
-
     // VAT Page
     cy.vat('20');
     cy.contains('Value added tax (20.0%)');
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('VAT');
     cy.contains('Standard rate');
-
     cy.contains('Third-country duty');
     cy.contains('Third-country duty (EU)');
     cy.contains('EU import duties apply, as the difference between the');
@@ -106,10 +100,8 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     cy.finalUseNI('yes');
     // turnover <£500,000 - YES
     cy.turnOver('less');
-
     // customs value
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
-
     // Import Quantity
     cy.quantity({kgm: '100', dap: '1'});
     // doc code
@@ -121,12 +113,10 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     // doc code
     cy.docCode({uk: 'l001'});
     cy.contains('Continue').click();
-
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');
     cy.contains('UK import duties apply, as the difference');
-
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
@@ -140,7 +130,6 @@ describe('| Row-NI304h-delta.spec.js | Turnover < £500,000 | 🔼 Delta Route',
     // doc code
     cy.docCode({uk: 'l001'});
     cy.contains('Continue').click();
-
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');

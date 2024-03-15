@@ -16,12 +16,9 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
     cy.get('div:nth-of-type(3) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('Vietnam');
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('£1,000.00');
-
-    cy.get('.govuk-button').click();
-
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('Import duty calculation');
     cy.contains('You are importing commodity');
-
     cy.contains('Details of your trade').click();
     cy.get('.govuk-details__text');
     cy.contains('Origin:');
@@ -31,7 +28,6 @@ describe('| RoW-GB201--e2e.spec |🍅 - 🇻🇳 Vietnam to 🇬🇧 GB  | 201-e
     cy.contains('0703 10 19 00');
     cy.contains('other');
     cy.contains('£1,000.00');
-
     cy.contains('Details of your trade');
     cy.get('.govuk-table__row');
     cy.contains('Data');

@@ -23,7 +23,7 @@ describe('| *NI-GB102--e2e | XI to GB using Duty cal Link |', function() {
     cy.contains('Which country are the goods coming from?');
     cy.contains('Continue').click();
     // Start again button
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('When will the goods be imported?');
   });
 });
