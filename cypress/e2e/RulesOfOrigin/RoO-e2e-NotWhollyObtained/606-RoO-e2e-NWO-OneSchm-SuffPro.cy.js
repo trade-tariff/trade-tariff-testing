@@ -119,9 +119,16 @@ describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient pro
     // min Operations met ?
     cy.minimalOps('UK-Egypt Association Agreement', 'yes');
     // Provide more information about your product
-    cy.moreInfoAboutProduct('0502100000', 'Products of animal origin, not elsewhere specified or included');
+    cy.moreInfoAboutProduct('0502100000', 'Prepared pigs', ' hogs', 'or boars', 'bristles and hair');
     // product specific rules?
-    cy.prodSpecRules('Manufacture in which all the materials of');
+    cy.prodSpecRules('Cleaning, disinfecting, sorting and straightening of bristles and hair.');
+    // Origin requirements met
+    cy.rooReqMet('Importing', 'Egypt', '0502100000', 'UK-Egypt Association Agreement');
+    cy.go(-2);
+    // Provide more information about your product
+    cy.moreInfoAboutProduct('0502100000', 'Any other product from heading 0502');
+    // product specific rules?
+    cy.prodSpecRules('Manufacture in which all the materials of chapter 5 used are wholly obtained.');
     // Origin requirements met
     cy.rooReqMet('Importing', 'Egypt', '0502100000', 'UK-Egypt Association Agreement');
     // Validate if product specific rules are met
