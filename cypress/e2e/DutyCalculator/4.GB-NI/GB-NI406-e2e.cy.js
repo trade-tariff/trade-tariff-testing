@@ -46,7 +46,7 @@ describe('GB-NI406-e2e.spec|EU Duties|GB - NI route06-Trade Remedies-0% MFN EU-T
     cy.planned('unacceptablecommercial');
     cy.certificate('no');
     cy.euDutiesApply();
-    cy.meursingCode({ value: '000' });
+    cy.meursingCode({value: '000'});
     cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     cy.quantity({kgm: '23.98'});
     cy.vat('20');

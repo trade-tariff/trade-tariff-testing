@@ -4,7 +4,7 @@
 import dayjs from 'dayjs';
 const currentDate = dayjs().format('DD MMMM YYYY');
 describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Trader Scheme-Certified as UK origin', function() {
-  it('e2e GB to NI ', function () {
+  it('e2e GB to NI ', function() {
     // select future date
     cy.visit('/duty-calculator//uk/7202118000/import-date');
     cy.contains('UK Integrated Online Tariff');
