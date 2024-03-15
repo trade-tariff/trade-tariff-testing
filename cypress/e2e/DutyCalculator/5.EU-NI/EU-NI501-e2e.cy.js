@@ -9,7 +9,7 @@ describe('| EU-NI501-e2e.spec |EU to Northern Ireland |', function() {
     cy.get('.govuk-back-link').click();
     cy.contains('Which country are the goods coming from?');
     cy.contains('Continue').click();
-    cy.get('.govuk-button').click();
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('When will the goods be imported?');
   });
 });

@@ -21,28 +21,21 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
     cy.get('input#steps-customs-value-insurance-cost-field').clear();
     cy.get('input#steps-customs-value-insurance-cost-field').type('4545.987654');
     cy.contains('Continue').click();
-
     cy.additionalCode('B964');
-
     cy.contains('Check your answers');
     cy.contains('Commodity code');
     cy.contains('Date of import');
     cy.contains('Destination');
     cy.contains('Coming from');
     cy.contains('Customs value');
-
-
     cy.get('div:nth-of-type(1) > .govuk-summary-list__value').contains('0304 82 90 10');
     cy.get('div:nth-of-type(2) > .govuk-summary-list__value').contains('B964');
     cy.get('div:nth-of-type(4) > .govuk-summary-list__value').contains('England, Scotland or Wales (GB)');
     cy.get('div:nth-of-type(5) > .govuk-summary-list__value').contains('Turkey');
     cy.get('div:nth-of-type(6) > .govuk-summary-list__value').contains('£10,002.24');
-
-    cy.get('.govuk-button').click();
-
+    cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
     cy.contains('Import duty calculation');
     cy.contains('You are importing commodity');
-
     cy.get('.govuk-details > .govuk-details__summary');
     cy.contains('Details of your trade').click();
     cy.get('.govuk-details__text');
@@ -53,8 +46,6 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
     cy.contains('0304 82 90 10');
     cy.contains('0304 82 90 10 (B964) Of the species Oncorhynchus mykiss');
     cy.contains('£10,002.24');
-
-
     cy.get('.govuk-table__row');
     cy.contains('Data');
     cy.contains('Calculation');
@@ -64,10 +55,8 @@ describe('| RoW-GB202--e2e.spec |🇹🇷 Turkey to  🇬🇧 GB | 202-e2e.spec 
     cy.get('tr:nth-of-type(1) > td:nth-of-type(3)').contains('£10,002.24');
     cy.contains('Import duty Third-country duty (UK)');
     cy.contains('12.00% * £10,002.24');
-
     cy.get('tr:nth-of-type(3) > td:nth-of-type(3)').contains('£690.15');
     cy.contains('Duty Total');
-
     cy.contains('Import duty calculation');
     cy.contains('Third-country duty');
     cy.contains('Tariff preference - Turkey');
