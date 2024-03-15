@@ -1,5 +1,5 @@
 describe('| EU-NI501-e2e.spec |EU to Northern Ireland |', function() {
-  it(`e2e EU to NI`, function () {
+  it(`e2e EU to NI`, function() {
     cy.visit(`/duty-calculator/xi/1212210000/import-date`);
     cy.validDate();
     cy.selectDestination('xi');

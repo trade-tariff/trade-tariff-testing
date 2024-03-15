@@ -11,7 +11,7 @@ Cypress.Commands.add('dutyCalLink', (commCode) => {
   cy.contains('When will the goods be imported?');
 });
 Cypress.Commands.add('dcMainPage', () => {
-    cy.get('.govuk-header__navigation ');
+  cy.get('.govuk-header__navigation ');
   cy.contains('Browse');
   cy.contains('A-Z');
   cy.contains('Tools');
@@ -217,7 +217,7 @@ Cypress.Commands.add('exciseCode', (excode) => {
 Cypress.Commands.add('docCode', (dcode) => {
   for (const [key, value] of Object.entries(dcode)) {
     cy.get(
-      `input[id="steps-document-code-document-code-${key}-${value}-field"], \
+        `input[id="steps-document-code-document-code-${key}-${value}-field"], \
          input[id="steps-document-code-document-code-${key}-field-error"]`,
     ).check();
   }

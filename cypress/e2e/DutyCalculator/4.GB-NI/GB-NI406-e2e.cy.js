@@ -1,4 +1,4 @@
-describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-Trader Scheme-Use in NI-TO>£500k-NP-UK Origin', function () {
+describe('GB-NI406-e2e.spec|EU Duties|GB - NI route06-Trade Remedies-0% MFN EU-Trader Scheme-Use in NI-TO>£500k-NP-UK Origin', function() {
   it('e2e GB to NI', function() {
     cy.visit('/commodities/1701141000');
     cy.dutyCalLink('1701141000');
@@ -11,9 +11,9 @@ describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-
     cy.planned('unacceptablecommercial');
     cy.certificate('no');
     cy.euDutiesApply();
-    cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' });
-    cy.quantity({ kgm: '2398' });
-    cy.docCode({ xi: 'n990' });
+    cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
+    cy.quantity({kgm: '2398'});
+    cy.docCode({xi: 'n990'});
     cy.contains('Continue').click();
     cy.contains('Check your answers');
     cy.contains('Commodity code');
@@ -47,8 +47,8 @@ describe('GB-NI406-e2e.spec|EU Duties|GB to NI route06-Trade Remedies-0% MFN EU-
     cy.certificate('no');
     cy.euDutiesApply();
     cy.meursingCode({ value: '000' });
-    cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' });
-    cy.quantity({ kgm: '23.98' });
+    cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
+    cy.quantity({kgm: '23.98'});
     cy.vat('20');
     cy.contains('Check your answers');
     cy.contains('Commodity code');

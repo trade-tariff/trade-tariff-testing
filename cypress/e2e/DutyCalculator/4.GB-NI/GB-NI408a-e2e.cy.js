@@ -21,7 +21,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     // interstitial page
     cy.euDutiesApply();
     // Monetary value page
-    cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' });
+    cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     // Check your answers page
     cy.contains('Check your answers');
     cy.contains('Commodity code');
@@ -83,7 +83,7 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains('Tariff preference - United Kingdom (excluding Northern Ireland)');
     cy.contains('Claiming a waiver – Exchange rate');
   });
-  it('e2e GB to NI - Meursing code ', function () {
+  it('e2e GB to NI - Meursing code ', function() {
     // select future date
     cy.visit('/duty-calculator/xi/1905311100/import-date');
     cy.contains('Northern Ireland Online Tariff');
@@ -99,11 +99,11 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.certificate('no');
     // interstitial page
     cy.euDutiesApply();
-    cy.meursingCode({ value: '000' });
+    cy.meursingCode({value: '000'});
     // Monetary value page
-    cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' });
+    cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
     // Import Quantity
-    cy.quantity({ kgm: '1' });
+    cy.quantity({kgm: '1'});
     cy.vat('20');
     // Check your answers page
     cy.contains('Check your answers');
@@ -136,11 +136,11 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     // change meursing code to 7049
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(7) > .govuk-summary-list__actions > .govuk-link').click();
-    cy.meursingCode({ value: '049' });
+    cy.meursingCode({value: '049'});
     // customs value
-    cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' });
+    cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({ kgm: '1' });
+    cy.quantity({kgm: '1'});
     cy.vat('20');
     cy.confirmPage();
     cy.dutyPage();

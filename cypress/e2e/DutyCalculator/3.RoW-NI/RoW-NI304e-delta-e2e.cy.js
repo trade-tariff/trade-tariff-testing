@@ -10,7 +10,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     // destination
     cy.selectDestination('xi');
     // origin
-    cy.otherOriginList({ value: 'Canada' });
+    cy.otherOriginList({value: 'Canada'});
     // Trader Scheme
     cy.traderScheme('yes');
     // ✅  Final use in NI - Yes
@@ -20,9 +20,9 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     // Planned processing - acceptable1
     cy.planned('notprocessing');
     // customs value
-    cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' });
+    cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({ kgm: '10000' });
+    cy.quantity({kgm: '10000'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');
@@ -33,7 +33,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.contains('Tariff preference (UK)');
     cy.contains('UK preferential duties may be applied, as the difference between the UK preferential duty');
     cy.contains('and the EU preferential duty is lower than 3% of the customs value of your trade.');
-    cy.dcRooLink({ country: 'Canada' });
+    cy.dcRooLink({country: 'Canada'});
   });
   it('RoW 🇹🇷(Turkmenistan) - XI | UK - yes, EU - yes|Qty 1 => UK ,Qty 100 => EU | Row-NI304e-delta |', function() {
     cy.visit('/duty-calculator/xi/0102291010/import-date');
@@ -43,7 +43,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.selectDestination('xi');
     // origin
     // select country from list
-    cy.otherOriginList({ value: 'Turkmenistan' });
+    cy.otherOriginList({value: 'Turkmenistan'});
     // Trader Scheme
     cy.traderScheme('yes');
     // Final use in NI - Yes
@@ -53,9 +53,9 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     // Planned processing - acceptable1
     cy.planned('notprocessing');
     // customs value
-    cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' });
+    cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     // Import Quantity
-    cy.quantity({ kgm: '100' });
+    cy.quantity({kgm: '100'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');
@@ -66,7 +66,7 @@ describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK 
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(10) > .govuk-summary-list__actions > .govuk-link').click();
     // Import Quantity
-    cy.quantity({ kgm: '10000' });
+    cy.quantity({kgm: '10000'});
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');

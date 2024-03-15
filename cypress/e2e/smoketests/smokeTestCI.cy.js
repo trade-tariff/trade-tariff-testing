@@ -1,5 +1,5 @@
-describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, function() {
-  context('when on the UK service', function () {
+describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, function() {
+  context('when on the UK service', function() {
     it('Main Page Validation', function() {
       cy.visit('/find_commodity');
       cy.mainPageUK();
@@ -20,13 +20,13 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
       cy.get('a[href=\'/import_export_dates?day=21&month=12&year=2022\']').click();
-      cy.datePickerPage({ day: 22, month: 12, year: 2022 });
+      cy.datePickerPage({day: 22, month: 12, year: 2022});
       cy.contains('22 December 2022');
     });
     it('Main Page - Switching link to XI available & works', function() {
       cy.visit('/find_commodity');
       cy.get('.govuk-header')
-        .contains('UK Integrated Online Tariff');
+          .contains('UK Integrated Online Tariff');
       cy.get('.govuk-main-wrapper').contains('Northern Ireland Online Tariff').click();
       cy.get('.govuk-header').contains('Northern Ireland Online Tariff');
       cy.get('.govuk-main-wrapper');
@@ -66,14 +66,14 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.contains('Gherkins').click();
       cy.url().should('include', '/commodities/0707009000');
     });
-    it('Search Commodity by code', function () {
+    it('Search Commodity by code', function() {
       cy.visit('/find_commodity');
       cy.contains('Look up commodity codes, import duties, taxes and controls');
       cy.contains('Search for a commodity');
       cy.searchForCommodity('3808941000');
       cy.contains(/Commodity .*3808941000/i);
     });
-    it('Country Selection', function () {
+    it('Country Selection', function() {
       cy.visit('/commodities/0208909800');
       cy.searchForCountry('(XI)').contains('No results found');
       cy.searchForCountry('(AD)').contains('Andorra (AD)');
@@ -172,7 +172,7 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.request('/api/v2/commodities/5001000000').as('comments');
       cy.get('@comments').then(cy.validJsonAPIresponse);
     });
-    it('API V2 Health Check', function () {
+    it('API V2 Health Check', function() {
       cy.request('/api/v2/healthcheck').then((response) => {
         expect(response).to.have.property('status', 200);
         expect(response.body).to.have.property('sidekiq').to.eq(true);
@@ -183,7 +183,7 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.contains('UK Integrated Online Tariff');
       cy.validDate();
       cy.selectDestination('gb');
-      cy.originList({ value: 'Northern Ireland' });
+      cy.originList({value: 'Northern Ireland'});
       cy.contains('There is no import duty to pay');
       cy.contains('There are no import duties applicable to the movement of goods from Northern Ireland to England, Scotland and Wales.');
       cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
@@ -193,9 +193,9 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.visit('/duty-calculator/uk/2204210600/import-date');
       cy.validDate();
       cy.selectDestination('gb');
-      cy.originList({ value: 'Afghanistan' });
-      cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' });
-      cy.quantity({ ltr: '1', asv: '1', spr: '5' });
+      cy.originList({value: 'Afghanistan'});
+      cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+      cy.quantity({ltr: '1', asv: '1', spr: '5'});
       cy.exciseCode('301');
       cy.confirmPage();
       cy.dutyPage();
@@ -206,16 +206,16 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.visit('/duty-calculator/uk/1701141000/import-date');
       cy.validDate();
       cy.selectDestination('xi');
-      cy.otherOriginList({ value: 'United Arab Emirates' });
+      cy.otherOriginList({value: 'United Arab Emirates'});
       cy.traderScheme('yes');
       cy.finalUseNI('yes');
       cy.turnOver('more');
       cy.planned('notprocessing');
-      cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' });
-      cy.quantity({ kgm: '10000', dap: '1' });
-      cy.docCode({ uk: 'n990' });
+      cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+      cy.quantity({kgm: '10000', dap: '1'});
+      cy.docCode({uk: 'n990'});
       cy.contains('Continue').click();
-      cy.docCode({ uk: 'n990' });
+      cy.docCode({uk: 'n990'});
       cy.contains('Continue').click();
       cy.confirmPage();
       cy.dutyPage();
@@ -335,7 +335,7 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.request('xi/api/v2/commodities/5001000000').as('comments');
       cy.get('@comments').then(cy.validJsonAPIresponse);
     });
-    it('API V2 Health Check', function () {
+    it('API V2 Health Check', function() {
       cy.request('xi/api/v2/healthcheck').then((response) => {
         expect(response).to.have.property('status', 200);
         expect(response.body).to.have.property('sidekiq').to.eq(true);
@@ -346,13 +346,13 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.validDate();
       cy.selectDestination('xi');
       cy.selectOrigin('other');
-      cy.otherOriginList({ value: 'Canada' });
+      cy.otherOriginList({value: 'Canada'});
       cy.traderScheme('yes');
       cy.finalUseNI('yes');
       cy.turnOver('more');
       cy.planned('notprocessing');
-      cy.customsValue({ monetary: '500.00', shipping: '250.00', cost: '250.00' });
-      cy.quantity({ kgm: '10000' });
+      cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+      cy.quantity({kgm: '10000'});
       cy.confirmPage();
       cy.dutyPage();
       cy.contains('Third-country duty');
@@ -374,9 +374,9 @@ describe('Smoke tests to cover basic functionality', { tags: ['smokeTest'] }, fu
       cy.planned('unacceptablecommercial');
       cy.certificate('no');
       cy.euDutiesApply();
-      cy.meursingCode({ value: '000' });
-      cy.customsValue({ monetary: '5000.50', shipping: '455.7533', cost: '4545.987654' });
-      cy.quantity({ kgm: '23.98' });
+      cy.meursingCode({value: '000'});
+      cy.customsValue({monetary: '5000.50', shipping: '455.7533', cost: '4545.987654'});
+      cy.quantity({kgm: '23.98'});
       cy.vat('20');
       cy.contains('Check your answers');
       cy.contains('Commodity code');
