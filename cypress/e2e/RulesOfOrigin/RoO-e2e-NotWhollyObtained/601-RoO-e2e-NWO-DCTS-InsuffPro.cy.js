@@ -48,7 +48,7 @@ describe('|601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffic
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Bolivia');
     // cumulation
-    cy.cumulation('dcts-gnereal-enhanced', '3903110000', 'BO', 'Developing Countries Trading Scheme (DCTS)');
+    cy.cumulation('dcts-general-enhanced', '3903110000', 'BO', 'Developing Countries Trading Scheme (DCTS)');
     // Min Processing NO
     cy.minimalOps('Developing Countries Trading Scheme (DCTS)', 'no');
     // Origin requirements met
