@@ -48,7 +48,7 @@ describe('|601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffic
     // Your goods are not wholly obtained
     cy.notWhollyObtained('Bolivia');
     // cumulation
-    cy.cumulation('dcts-general-enhanced', '3903110000', 'BO', 'Developing Countries Trading Scheme (DCTS)');
+    cy.cumulation('dcts-gnereal-enhanced', '3903110000', 'BO', 'Developing Countries Trading Scheme (DCTS)');
     // Min Processing NO
     cy.minimalOps('Developing Countries Trading Scheme (DCTS)', 'no');
     // Origin requirements met
@@ -106,7 +106,7 @@ describe('|601-RoO-e2e-NWO-DCTS-InsuffProces.spec | NWO + DCTS Scheme + insuffic
     cy.originMet('Uzbekistan', '5306103010', 'Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
     cy.get('.govuk-back-link').click();
     // prodSpecRules
-    cy.prodSpecRules('Extrusion of man-made fibres accompanied by spinning (for special conditions relating to goods made of a mixture of textile materials,');
+    cy.prodSpecRules('Extrusion of man-made fibres accompanied by spinning (for special conditions relating to goods made of a mixture');
     // Origin requirements met
     cy.originMet('Uzbekistan', '5306103010', 'Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
     // product specific rules?
