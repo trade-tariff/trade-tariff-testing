@@ -84,7 +84,7 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     cy.contains('Give feedback on Online Trade Tariff');
     cy.contains('Tell us how to improve our service. ');
     cy.contains('Feedback is anonymous. Do not include any personal information. ');
-    cy.get('.form-hint > a:nth-of-type(1)').should('have.attr', 'href', '/help');
+    cy.get('.form-hint > a:nth-of-type(1)').should('have.attr', 'href', 'mailto:online.tariff.feedback@hmrc.gov.uk');
     cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 feedback ');
     cy.get('form#new_feedback > .govuk-button').click();
     cy.contains('Feedback submitted');
