@@ -28,8 +28,8 @@ describe('💷  | dcTraderScheme | UK Internal Market Scheme page |', function()
     cy.contains('If you are not yet authorised, then you can find out more about applying for ');
     cy.contains('authorisation for the UK Internal Market Scheme.');
     cy.get('p > .govuk-link').click();
-    cy.contains('Get authorised to declare goods you bring into Northern Ireland \'not at risk’ of of moving to the EU,');
-    cy.contains('so that EU duty will not be payable on those goods.');
+    cy.contains('Get authorised to declare goods you bring into Northern Ireland \'not at risk’ of moving to the EU,');
+    cy.contains('so that the applicable EU rate of duty will not be payable on those goods.');
     cy.go('back');
 
     // Select Yes, I am registered with the UK Internal Market Scheme
