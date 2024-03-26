@@ -1,6 +1,6 @@
 describe('practice test', function() {
   it('practice test', function() {
-    //look up commodity
+    // look up commodity
     cy.visit('/commodities/0702000007');
     cy.dutyCalLink('0702000007');
     // check it contains the text "UK Integrated Online Tariff"
