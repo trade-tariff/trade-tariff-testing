@@ -2,45 +2,31 @@
 describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('XI Country Selection -import ', function() {
     cy.visit('/xi/commodities/0208909800#import');
-    // XI
-    cy.get('input#trading_partner_country').click().clear().type('(XI)');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('No results found');
-    // Andora should be present
-    cy.get('input#trading_partner_country').click().clear().type('AD');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('Andorra (AD)');
-    //  GB Present
-    cy.get('input#trading_partner_country').click().clear().type('GB');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('United Kingdom (excluding Northern Ireland) (GB)');
+    //  XI
+    cy.verifyCountrySelection('(XI)', 'No results found');
+
+    // Andorra should be present
+    cy.verifyCountrySelection('AD', 'Andorra (AD)');
+
+    // no GB - United Kingdom (excluding Northern Ireland) (GB)
+    cy.verifyCountrySelection('(GB)', 'United Kingdom (excluding Northern Ireland) (GB)');
+
     // no XU
-    cy.get('input#trading_partner_country').click().clear().type('XU');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('No results found');
+    cy.verifyCountrySelection('XU', 'No results found');
   });
   it('XI Country Selection - export ', function() {
     cy.visit('/xi/commodities/0208909800#export');
-    // XI Present
-    cy.get('input#trading_partner_country').click().clear()
-        .type('(XI)');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('No results found');
+    //  XI
+    cy.verifyCountrySelection('(XI)', 'No results found');
 
-    // Andora should be present
-    cy.get('input#trading_partner_country').click().clear().type('AD');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('Andorra (AD)');
-    //  GB Present
-    cy.get('input#trading_partner_country').click().clear().type('GB');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('United Kingdom (excluding Northern Ireland) (GB)');
+    // Andorra should be present
+    cy.verifyCountrySelection('AD', 'Andorra (AD)');
 
+    // no GB - United Kingdom (excluding Northern Ireland) (GB)
+    cy.verifyCountrySelection('(GB)', 'United Kingdom (excluding Northern Ireland) (GB)');
 
     // no XU
-    cy.get('input#trading_partner_country').click().clear().type('XU');
-    cy.get('[id=\'trading_partner_country__listbox\']')
-        .contains('No results found');
+    cy.verifyCountrySelection('XU', 'No results found');
   });
   // XI Present
   // GB Present
@@ -48,7 +34,7 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
   it('XI Country selection page', function() {
     cy.visit('xi/commodities/0804100030');
     cy.get('a[href*="/xi/trading"]').contains('Change').click();
-    cy.contains('Filter measures against the selected country');
+    cy.contains('View EU and UK measures for the selected country');
     cy.contains('Northern Ireland Online Tariff');
     cy.title().should('eq', 'Northern Ireland Online Tariff - Set country filter - GOV.UK');
     cy.countryPickerpage({value: 'Argentina'});
@@ -67,7 +53,8 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
   it('XI Country selection page - No country selected ', function() {
     cy.visit('xi/commodities/0804100030');
     cy.get('a[href*="/xi/trading"]').contains('Change').click();
-    cy.contains('Select country').click();
+    cy.contains('View EU and UK measures for the selected country');
+    cy.contains('Continue').click();
     cy.get('.govuk-error-summary');
     cy.contains('There is a problem');
     cy.contains('Select a country');
