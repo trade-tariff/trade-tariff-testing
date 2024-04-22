@@ -41,7 +41,16 @@ Cypress.Commands.add('countryPickerpage', (country) => {
   cy.get('input#trading-partner-country-field').click();
   cy.get('input#trading-partner-country-field').clear();
   cy.get('input#trading-partner-country-field').type(country.value);
-  cy.contains('Select country').click();
+  cy.get('#trading-partner-country-field__listbox').contains(country.value).click();
+  cy.contains('Continue').click();
+});
+
+Cypress.Commands.add('verifyCountrySelection', (country, txt) => {
+  cy.get('input#trading_partner_country').click();
+  cy.get('input#trading_partner_country').clear();
+  cy.get('input#trading_partner_country').type(`${country}`);
+  cy.get('[id=\'trading_partner_country__listbox\']')
+      .contains(`${txt}`);
 });
 
 // validate commodity page heading
