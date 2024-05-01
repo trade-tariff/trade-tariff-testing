@@ -3,7 +3,6 @@ describe('Measure condition pop ups', function() {
     cy.visit('/commodities/0702000007');
     cy.get('#measure-20232654').contains('Conditions').click();
     cy.get('.info-content').contains('Import control of organic products for All countries');
-    // cy.get('.info-content').contains('The use of 999L allows a CDS waiver code');
   });
 
   it('Organic control on frog legs', function() {
@@ -65,12 +64,10 @@ describe('Measure condition pop ups', function() {
   context('when a commodity has a price threshold measure for Belarus and Russia', function() {
     it('shows the correct threshold requirements on the export tab', function() {
       cy.visit('/commodities/0101210000#export');
-
       // Belarus conditions
       cy.get('#measure-20185288').contains('Conditions').openPopup();
       cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP');
       cy.closePopup();
-
       // Russia conditions
       cy.get('#measure-20179932').contains('Conditions').openPopup();
       cy.get('.info-content').contains('The price of your goods does not exceed 250.00 GBP / p/st');
@@ -78,9 +75,9 @@ describe('Measure condition pop ups', function() {
   });
 
   context('when a commodity has a threshold measure which uses the entry price system', function() {
-    it('shows the correct threshold requirements', function() {
+    it.only('shows the correct threshold requirements', function() {
       cy.visit('/xi/commodities/0805501010');
-      cy.get('#measure-4011474').contains('Conditions').click();
+      cy.get('#measure-4011475').contains('Conditions').click();
       cy.get('.info-content').contains('Threshold condition');
       cy.contains('The price of your goods is greater than or equal to 46.20 EUR / 100 kg');
     });

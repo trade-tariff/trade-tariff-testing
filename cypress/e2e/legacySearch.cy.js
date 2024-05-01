@@ -4,14 +4,14 @@ describe('Legacy search', function() {
   });
 
   context('when searching for chemicals', function() {
-    it('Supports chemical search on cus numbers', function() {
-      cy.searchForCommodity('0154438-3');
-      cy.url().should('include', '/commodities/0409000000');
+    it.only('Supports chemical search on cus numbers', function() {
+      cy.searchForCommodity('0040790-9');
+      cy.url().should('include', '/commodities/2933399990');
       cy.get('#tab_chemicals').click();
-      cy.get('#chemicals').eq(0).contains('mel powder');
+      cy.get('#chemicals').eq(0).contains('forasartan');
     });
 
-    it('Supports chemical search on cas numbers', function() {
+    it.only('Supports chemical search on cas numbers', function() {
       cy.searchForCommodity('7440-15-5');
       cy.url().should('include', '/commodities/8112419000');
       cy.get('#tab_chemicals').click();

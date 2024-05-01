@@ -5,7 +5,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
   for (let j = 0; j < country.length; j++) {
     //   console.log(j)
     it(`${country[j]} - Duty calculator link to be suppressed on commodities which are also headings `, function() {
-      const comms = ['0409000000', '0510000000', '8804000000', '2509000000', '2802000000', '3101000000', '4004000000', '4812000000', '5001000000', '4112000000', '4705000000'];
+      const comms = ['1801000000', '0510000000', '8804000000', '2509000000', '2802000000', '3101000000', '4004000000', '4812000000', '5001000000', '4112000000', '4705000000'];
       for (let i=0; i<comms.length; i++) {
         cy.visit(`${country[j]}/sections`);
         cy.searchForCommodity(`${comms[i]}`);
@@ -14,7 +14,7 @@ describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on
       }
     });
     it(`${country[j]} - Duty calculator link to be suppressed on headings `, function() {
-      const headings = ['0409', '8804', '2509', '2802', '3101', '4004', '4812', '5001', '4112', '4705'];
+      const headings = ['1801', '8804', '2509', '2802', '3101', '4004', '4812', '5001', '4112', '4705'];
       for (let i=0; i<headings.length; i++) {
         cy.visit(`${country[j]}/headings/${headings[i]}`);
         cy.checkCommPage(`${headings[i]}000000`);
