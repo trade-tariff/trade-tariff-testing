@@ -4,7 +4,7 @@ describe('Legacy search', function() {
   });
 
   context('when searching for chemicals', function() {
-    it.only('Supports chemical search on cus numbers', function() {
+    it('Supports chemical search on cus numbers', function() {
       cy.searchForCommodity('0040790-9');
       cy.url().should('include', '/commodities/2933399990');
       cy.get('#tab_chemicals').click();

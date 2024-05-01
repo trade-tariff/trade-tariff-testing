@@ -20,7 +20,7 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection |', {tags: ['c
     cy.verifyCountrySelection('(GB)', 'No results found');
   });
 
-  it.only('UK Country selection page', function() {
+  it('UK Country selection page', function() {
     cy.visit('/commodities/0804100030');
     cy.get('a[href*="/trading"]').contains('Change').click();
     cy.contains('View UK measures for the selected country');

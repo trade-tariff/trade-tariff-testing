@@ -75,7 +75,7 @@ describe('Measure condition pop ups', function() {
   });
 
   context('when a commodity has a threshold measure which uses the entry price system', function() {
-    it.only('shows the correct threshold requirements', function() {
+    it('shows the correct threshold requirements', function() {
       cy.visit('/xi/commodities/0805501010');
       cy.get('#measure-4011475').contains('Conditions').click();
       cy.get('.info-content').contains('Threshold condition');
