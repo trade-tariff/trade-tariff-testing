@@ -11,7 +11,7 @@ describe('Legacy search', function() {
       cy.get('#chemicals').eq(0).contains('forasartan');
     });
 
-    it.only('Supports chemical search on cas numbers', function() {
+    it('Supports chemical search on cas numbers', function() {
       cy.searchForCommodity('7440-15-5');
       cy.url().should('include', '/commodities/8112419000');
       cy.get('#tab_chemicals').click();
