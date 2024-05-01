@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on headings -  UK services |', function() {
   const country = ['', 'xi'];
-  const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
   for (let j = 0; j < country.length; j++) {
     //   console.log(j)
     it(`${country[j]} - Duty calculator link to be suppressed on commodities which are also headings `, function() {
