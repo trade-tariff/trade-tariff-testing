@@ -122,6 +122,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - import tab', function() {
     cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
     cy.contains('Importing into the UK');
+    //added two lines
     cy.get('#import > :nth-child(2)').contains('Select a country to view country-specific import information.');
     cy.get('#import > :nth-child(3)')
         .contains('You will then be able to check in the Origin tab if preferential tariff treatments apply to this specific commodity.');
