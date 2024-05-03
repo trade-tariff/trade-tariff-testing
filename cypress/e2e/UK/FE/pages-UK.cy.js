@@ -123,7 +123,8 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
     cy.contains('Importing into the UK');
     cy.get('#import > :nth-child(2)').contains('Select a country to view country-specific import information.');
-    cy.get('#import > :nth-child(3)').contains('You will then be able to check in the Origin tab if preferential tariff treatments apply to this specific commodity.');
+    cy.get('#import > :nth-child(3)')
+       .contains('You will then be able to check in the Origin tab if preferential tariff treatments apply to this specific commodity.');
     cy.get('a[href^=\'/trading_partners\']').click();
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('.govuk-summary-list__value').contains('Argentina').should('be.visible');
