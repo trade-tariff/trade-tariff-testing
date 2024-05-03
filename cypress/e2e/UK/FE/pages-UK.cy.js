@@ -3,17 +3,14 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.visit('/find_commodity');
     cy.get('.govuk-header').should('be.visible', 'UK Integrated Online Tariff');
   });
-
   it('UK - GOV.UK logo ', function() {
     cy.visit('/find_commodity');
     cy.get('.govuk-header').should('be.visible', 'GOV.UK');
   });
-
   it('UK - find_commodity page', function() {
     cy.visit('/find_commodity');
     cy.mainPageUK();
   });
-
   it('UK - Browse page ', function() {
     cy.visit('/browse');
     cy.browsePage();
@@ -28,14 +25,12 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('.govuk-breadcrumbs__link').contains('Home').click();
     cy.contains('Look up commodity codes, import duties, taxes and controls');
   });
-
   it('UK - Sections page ', function() {
     cy.visit('/sections/12');
     cy.contains('UK Integrated Online Tariff');
     cy.contains('Section XII - Footwear');
     cy.contains('Section XII contains 4 chapters.');
   });
-
   it('UK - Chapter page ', function() {
     cy.visit('/chapters/97');
     cy.contains('Choose the heading that best matches your goods');
@@ -45,7 +40,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Chapter 97 contains 6 headings. Choose the heading that best matches your goods.');
     cy.contains('There are important notes for classifying your goods shown further down this page');
   });
-
   it('UK - Heading page', function() {
     const headings = ['4301', '4802'];
     const comms = ['5', '18'];
@@ -57,7 +51,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
       cy.contains(`There are ${comms[i]} commodities in this category.`);
     }
   });
-
   it('UK - Commodity page - with Supp units', function() {
     cy.visit('/commodities/6401929000');
     cy.get('.govuk-summary-list').contains('Commodity');
@@ -69,20 +62,17 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('.govuk-summary-list').contains('What are supplementary units?').click();
     cy.contains('Supplementary units are used');
   });
-
   it('UK - Search the Tariff section', function() {
     cy.visit('/find_commodity');
     cy.contains('Search the UK Integrated Online Tariff');
     cy.searchForCommodity('9919000060');
     cy.checkCommPage('9919000060');
   });
-
   it('UK - A-Z section', function() {
     cy.visit('/find_commodity');
     cy.get('li:nth-of-type(3) > .govuk-header__link').click();
     cy.contains('A–Z of Classified Goods');
   });
-
   it('UK - Tools section', function() {
     cy.visit('/find_commodity');
     cy.get('li:nth-of-type(4) > .govuk-header__link').click();
@@ -95,13 +85,11 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('.govuk-list').contains('Search the tariff for footnotes');
     cy.get('.govuk-list').contains('Search the tariff for chemicals');
   });
-
   it('UK - News section', function() {
     cy.visit('/find_commodity');
     cy.get('li:nth-of-type(5) > .govuk-header__link').click();
     cy.contains('Trade tariff news bulletin');
   });
-
   it('UK - Notes tab ', function() {
     cy.visit('/commodities/4101203000');
     // Footnotes Tab
@@ -110,30 +98,23 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('TN701');
     cy.should('not.contain', 'CD422');
   });
-
   it('UK - News Banner', function() {
     cy.visit('/find_commodity');
     cy.get('div.latest-news-banner h2').contains('Are you importing goods into Northern Ireland?');
     cy.get('div.latest-news-banner a').contains('of onward movement').click();
-    cy.url().should(
-        'eq',
+    cy.url().should('eq',
         'https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu',
     );
   });
-
   it('UK - export tab', function() {
     cy.visit('/commodities/0702000007?country=#export');
     // without selecting any country
     cy.contains('Exporting from the UK');
     cy.contains('The commodity code for exporting and Intrastat reporting is 0702 0000');
-
     // links on page
     cy.get('a[href^=\'https://www.gov.uk/intrastat\']').contains('Intrastat reporting');
-
     // EU country selected
     cy.searchForCountry('Italy').type('{enter}');
-    //  cy.contains('Measures for Italy');
-
     // Non EU country selected
     cy.searchForCountry('Andorra').type('{enter}');
     cy.contains('Exporting from the UK');
@@ -141,10 +122,13 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   it('UK - import tab', function() {
     cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
     cy.contains('Importing into the UK');
+    // added two lines
+    cy.get('#import > :nth-child(2)').contains('Select a country to view country-specific import information.');
+    cy.get('#import > :nth-child(3)')
+        .contains('You will then be able to check in the Origin tab if preferential tariff treatments apply to this specific commodity.');
     cy.get('a[href^=\'/trading_partners\']').click();
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('.govuk-summary-list__value').contains('Argentina').should('be.visible');
-
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     cy.get('a#tab_import').click();
   });
