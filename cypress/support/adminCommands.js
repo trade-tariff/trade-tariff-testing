@@ -429,6 +429,11 @@ Cypress.Commands.add('verifyNewCategoryAssessmentPage', (service) => {
   cy.get('#category-assessment-regulation-id-error').contains('Regulation is not present');
   cy.get('#category-assessment-regulation-role-error').contains('Regulation role is not present');
   cy.get('#category-assessment-theme-id-error').contains('Theme is not present');
+  //verify the Category Assessment hyperlink functionality
+  cy.get('.govuk-breadcrumbs__link').should("have.attr", "href", "/xi/green_lanes/category_assessments").click();
+  cy.url().should('include', '/xi/green_lanes/category_assessments');
+  cy.contains('Manage category assessments');
+  cy.contains('Add a Category Assessment').click();
   cy.contains('Back').click();
   cy.contains('Manage category assessments');
   cy.contains('Add a Category Assessment');
