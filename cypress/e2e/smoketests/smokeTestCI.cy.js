@@ -46,7 +46,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.contains('Non preferential tariff quota');
       cy.get('.table-line');
       cy.contains('054002').click();
-      cy.get('.tariff-info').contains('Rural Payments Agency');
+      cy.get('.tariff-info').contains('UK tariff rate quotas');
       cy.get('.close [href]').click();
     });
     it('Quota numbers - 057xxx Non-Licensed', function() {
