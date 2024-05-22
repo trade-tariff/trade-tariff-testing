@@ -15,8 +15,7 @@ describe('| RoW-NI302-e2e.spec | RoW to Northern Ireland ', function() {
       // customs value
       cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
       // additional code
-      cy.additionalCode('8005');
-
+      cy.additionalCode('8062');
       cy.confirmPage();
       cy.dutyPage();
       cy.contains('Third-country duty');
