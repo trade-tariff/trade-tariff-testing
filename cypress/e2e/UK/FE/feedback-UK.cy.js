@@ -44,7 +44,7 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     for (let i = 0; i < pages.length; i++) {
       cy.visit(`${pages[i]}`);
       cy.get('.feedback-useful-banner');
-      cy.contains('is this page useful?');
+      cy.contains('Is this page useful?');
       cy.contains('div > li >.govuk-button', 'Yes').should('have.attr', 'href', '/feedback?page_useful=yes');
       cy.contains('div > li >.govuk-button', 'No').should('have.attr', 'href', '/feedback?page_useful=no');
       cy.contains('div > li >.govuk-button', 'Report a problem with this page').should('have.attr', 'href', '/feedback');
@@ -56,11 +56,11 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     for (let i = 0; i < pages.length; i++) {
       cy.visit(`${pages[i]}`);
       cy.get('.feedback-useful-banner');
-      cy.contains('is this page useful?');
+      cy.contains('Is this page useful?');
       cy.contains('div > li >.govuk-button', 'Yes').should('have.attr', 'href', '/feedback?page_useful=yes').click();
       cy.contains('UK Integrated Online Tariff');
       cy.contains('Give feedback on Online Trade Tariff');
-      cy.contains('.feedback-useful-banner', 'is this page useful?').should('not.exist');
+      cy.contains('.feedback-useful-banner', 'Is this page useful?').should('not.exist');
     }
   });
   it('UK - All pages - Access Feedback page from feedback useful banner - No button @ bottom of OTT excludes Feedback Page', function() {
@@ -69,11 +69,11 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     for (let i = 0; i < pages.length; i++) {
       cy.visit(`${pages[i]}`);
       cy.get('.feedback-useful-banner');
-      cy.contains('is this page useful?');
+      cy.contains('Is this page useful?');
       cy.contains('div > li >.govuk-button', 'No').should('have.attr', 'href', '/feedback?page_useful=no').click();
       cy.contains('UK Integrated Online Tariff');
       cy.contains('Give feedback on Online Trade Tariff');
-      cy.contains('.feedback-useful-banner', 'is this page useful?').should('not.exist');
+      cy.contains('.feedback-useful-banner', 'Is this page useful?').should('not.exist');
     }
   });
   it(`New Feedback Page Design`, function() {
@@ -95,7 +95,7 @@ describe('🇬🇧 💡 | feedback-UK | feedback link is available and user is a
     cy.contains('.govuk-link', 'feedback').should('exist');
     cy.contains('Tell us what you think - your feedback will help us improve.');
     cy.get('.feedback-useful-banner');
-    cy.contains('is this page useful?');
+    cy.contains('Is this page useful?');
     cy.contains('div > li >.govuk-button', 'Yes').should('have.attr', 'href', '/feedback?page_useful=yes');
     cy.contains('div > li >.govuk-button', 'No').should('have.attr', 'href', '/feedback?page_useful=no');
     cy.contains('div > li >.govuk-button', 'Report a problem with this page').should('have.attr', 'href', '/feedback');
