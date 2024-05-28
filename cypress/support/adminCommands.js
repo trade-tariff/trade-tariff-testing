@@ -534,8 +534,7 @@ Cypress.Commands.add('exemptingCertificateOverrides', (service) => {
     cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`, {failOnStatusCode: false});
     cy.get('#navigation').should('not.contain', 'Exempting Certificate Overrides');
     cy.contains('Page not found');
-  } 
-  else {
+  } else {
     cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
     cy.get('#navigation').contains('Exempting Certificate Overrides');
     cy.contains('Manage exempting certificate overrides');
