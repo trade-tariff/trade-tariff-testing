@@ -528,3 +528,78 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service) => {
   cy.get('tbody').should('not.contain.value', '454');
   cy.get('tbody').contains('Edit').click();
 });
+
+Cypress.Commands.add('exemptingCertificateOverrides', (service) => {
+  if (service == 'uk') {
+    cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`, {failOnStatusCode: false});
+    cy.get('#navigation').should('not.contain', 'Exempting Certificate Overrides');
+    cy.contains('Page not found');
+  } 
+    else{
+      cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+      cy.get('#navigation').contains('Exempting Certificate Overrides');
+      cy.contains('Manage exempting certificate overrides');
+      cy.get('.govuk-auto-classes > table').contains('ID');
+      cy.get('.govuk-auto-classes > table').contains('Certificate Type Code');
+      cy.get('.govuk-auto-classes > table').contains('Certificate Code');
+      cy.get('.govuk-auto-classes > table').contains('Action');
+    }
+});
+
+Cypress.Commands.add('verifyNewExemptingCertificateOverrides', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override').click();
+  cy.url().should('include', '/xi/green_lanes/exempting_certificate_overrides/new');
+  cy.contains('Exempting Certificate Override');
+  cy.contains('New Exempting Certificate Override');
+  cy.contains('Certificate Type Code');
+  cy.get('#exempting-certificate-override-certificate-type-code-field').should('be.empty');
+  cy.contains('Certificate Code');
+  cy.get('#exempting-certificate-override-certificate-code-field').should('be.empty');
+  cy.contains('Create Exempting certificate override').click();
+  // submit form without entering values and checking errors
+  cy.get('.govuk-error-summary').contains('Certificate type code is not present');
+  cy.get('.govuk-error-summary').contains('Certificate code is not present');
+  cy.get('#exempting-certificate-override-certificate-type-code-error').contains('Certificate type code is not present');
+  cy.get('#exempting-certificate-override-certificate-code-error').contains('Certificate code is not present');
+  // verify the Exempting Certificate Override hyperlink functionality in New Exempting Certificate Override
+  cy.get('.govuk-breadcrumbs__link').should('have.attr', 'href', '/xi/green_lanes/exempting_certificate_overrides').click();
+  cy.url().should('include', '/xi/green_lanes/exempting_certificate_overrides');
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override').click();
+  cy.contains('Back').click();
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override')
+});
+
+Cypress.Commands.add('createNewExemptingCertificateOverride', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override').click();
+  cy.url().should('include', '/xi/green_lanes/exempting_certificate_overrides/new');
+  cy.contains('Exempting Certificate Override');
+  cy.contains('New Exempting Certificate Override');
+  cy.contains('Certificate Type Code');
+  cy.get('#exempting-certificate-override-certificate-type-code-field').type('Y');
+  cy.contains('Certificate Code');
+  cy.get('#exempting-certificate-override-certificate-code-field').type('100');
+  cy.contains('Back');
+  cy.contains('Create Exempting certificate override').click();
+});
+
+Cypress.Commands.add('removeNewExemptincertificateOverride', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+  cy.contains('Manage exempting certificate overrides');
+  cy.get('tbody').contains('100');
+  cy.get('tbody').contains('Remove').click();
+  cy.on('window:alert', ()=>{
+    expect('Are you sure?').to.contains('Are you sure?');
+  });
+  cy.on('window:confirm', () => true);
+  cy.contains('Success');
+  cy.contains('Exempting Certificate Override removed');
+  cy.get('tbody').should('not.contain.value', '100');
+});
+
+
