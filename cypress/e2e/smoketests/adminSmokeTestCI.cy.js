@@ -64,6 +64,9 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
     it('No access to Green Lanes Category Assessments', function() {
       cy.categoryAssessments(service);
     });
+    it('No access to Green Lanes exempting certificate overrides', function() {
+      cy.exemptingCertificateOverrides(service);
+    });
   });
 
   context('when on the XI service', function() {
