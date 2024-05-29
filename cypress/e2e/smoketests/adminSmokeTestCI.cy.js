@@ -61,6 +61,12 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
     it('quota - definitions and balances - unsuspension event', function() {
       cy.quotaDefinitionsBalances('090204', 'Unsuspension event', '1691');
     });
+    it('No access to Green Lanes Category Assessments', function() {
+      cy.categoryAssessments(service);
+    });
+    it('No access to Green Lanes exempting certificate overrides', function() {
+      cy.exemptingCertificateOverrides(service);
+    });
   });
 
   context('when on the XI service', function() {
@@ -100,6 +106,36 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
 
     it('reports', function() {
       cy.reports(service);
+    });
+    it('view green lanes category assessments page', function() {
+      cy.categoryAssessments(service);
+    });
+    it('verify new category assessment page - green lanes', function() {
+      cy.verifyNewCategoryAssessmentPage(service);
+    });
+    it('create new category assessment - green lanes', function() {
+      cy.createNewCategoryAssessment(service);
+    });
+    it('create new category assessment with exisiting category details - green lanes', function() {
+      cy.createNewCategoryAssessment(service, 'yes');
+    });
+    it('update new category assessment - green lanes', function() {
+      cy.updateNewCategoryAssessment(service);
+    });
+    it('remove new category assessment - green lanes', function() {
+      cy.removeNewCategoryAssessment(service);
+    });
+    it('View green lanes exempting certificate overrides page', function() {
+      cy.exemptingCertificateOverrides(service);
+    });
+    it('verify new exempting certificate overrides page - green lanes', function() {
+      cy.verifyNewExemptingCertificateOverrides(service);
+    });
+    it('create new exempting certificate overrides - green lanes', function() {
+      cy.createNewExemptingCertificateOverride(service);
+    });
+    it('remove new exempting certificate overrides - green lanes', function() {
+      cy.removeNewExemptincertificateOverride(service);
     });
   });
 });

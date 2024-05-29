@@ -373,3 +373,232 @@ Cypress.Commands.add('verifyTableData', () => {
     });
   });
 });
+
+Cypress.Commands.add('categoryAssessments', (service) => {
+  if (service == 'uk') {
+    cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`, {failOnStatusCode: false});
+    cy.get('#navigation').should('not.contain', 'Category assessments');
+    cy.contains('Page not found');
+  } else {
+    cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
+    cy.get('#navigation').contains('Category assessments');
+    // cy.get('.govuk-phase-banner__text.current-service').contains('You are currently using the XI service');
+    cy.contains('Manage category assessments');
+    cy.get('.govuk-auto-classes > table').contains('Measure type id');
+    cy.get('#green_lanes_category_assessment_94').contains('464');
+    cy.get('.govuk-pagination').contains('1');
+    cy.get('.govuk-pagination').contains('Next').click();
+    cy.url().should('include', '/category_assessments?page=2');
+    cy.get('.govuk-auto-classes > table').contains('Measure type id');
+    cy.get('#green_lanes_category_assessment_60').contains('277');
+    cy.get('.govuk-pagination').contains('5').click();
+    cy.url().should('include', '/category_assessments?page=5');
+    cy.get('.govuk-auto-classes > table').contains('Measure type id');
+    cy.get('#green_lanes_category_assessment_1').contains('481');
+    cy.get('.govuk-pagination').contains('Previous').click();
+    cy.url().should('include', '/category_assessments?page=4');
+    cy.get('.govuk-auto-classes > table').contains('Measure type id');
+    cy.get('#green_lanes_category_assessment_20').contains('465');
+    cy.get('.govuk-pagination').contains('Previous');
+    cy.get('.govuk-pagination').contains('Next');
+  }
+});
+
+Cypress.Commands.add('verifyNewCategoryAssessmentPage', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
+  cy.contains('Manage category assessments');
+  cy.contains('Add a Category Assessment').click();
+  cy.url().should('include', '/xi/green_lanes/category_assessments/new');
+  cy.contains('Category Assessments');
+  cy.contains('New Category Assessment');
+  cy.contains('Measure Type Id');
+  cy.get('#category-assessment-measure-type-id-field').should('be.empty');
+  cy.contains('Regulation Id');
+  cy.get('#category-assessment-regulation-id-field').should('be.empty');
+  cy.contains('Regulation Role');
+  cy.get('#category-assessment-regulation-role-field').should('be.empty');
+  cy.contains('Select Theme');
+  cy.get('#category-assessment-theme-id-field').select('Select Theme');
+  cy.contains('Create Category assessment').click();
+  // submit form without entering values and checking errors
+  cy.get('.govuk-error-summary').contains('Measure type is not present');
+  cy.get('.govuk-error-summary').contains('Theme is not present');
+  cy.get('.govuk-error-summary').contains('Regulation role is not present');
+  cy.get('.govuk-error-summary').contains('Regulation is not present');
+  cy.get('#category-assessment-measure-type-id-error').contains('Measure type is not present');
+  cy.get('#category-assessment-regulation-id-error').contains('Regulation is not present');
+  cy.get('#category-assessment-regulation-role-error').contains('Regulation role is not present');
+  cy.get('#category-assessment-theme-id-error').contains('Theme is not present');
+  // verify the Category Assessment hyperlink functionality in NewCategoryAssessmentPage
+  cy.get('.govuk-breadcrumbs__link').should('have.attr', 'href', '/xi/green_lanes/category_assessments').click();
+  cy.url().should('include', '/xi/green_lanes/category_assessments');
+  cy.contains('Manage category assessments');
+  cy.contains('Add a Category Assessment').click();
+  cy.contains('Back').click();
+  cy.contains('Manage category assessments');
+  cy.contains('Add a Category Assessment');
+  cy.get('.govuk-pagination').contains('1');
+  cy.get('.govuk-pagination').contains('Next');
+});
+
+Cypress.Commands.add('createNewCategoryAssessment', (service, duplicateCategory) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
+  cy.contains('Manage category assessments');
+  cy.contains('Add a Category Assessment').click();
+  cy.url().should('include', '/xi/green_lanes/category_assessments/new');
+  cy.contains('Category Assessments');
+  cy.contains('New Category Assessment');
+  cy.contains('Measure Type Id');
+  cy.get('#category-assessment-measure-type-id-field').type('454');
+  cy.contains('Regulation Id');
+  cy.get('#category-assessment-regulation-id-field').type('12');
+  cy.contains('Regulation Role');
+  cy.get('#category-assessment-regulation-role-field').type('2');
+  cy.contains('Select Theme');
+  cy.get('#category-assessment-theme-id-field').select('32');
+  cy.contains('Back');
+  cy.contains('Create Category assessment').click();
+  if (duplicateCategory == 'yes') {
+    cy.get('.govuk-error-summary').contains('There is a problem');
+    cy.get('.govuk-error-summary').contains('[:measure type id, :regulation id, :regulation role] is already taken');
+  } else {
+    cy.contains('Success');
+    cy.contains('Category Assessment created');
+    cy.get('tbody').contains('454');
+    cy.get('tbody').contains('Edit');
+  }
+});
+
+Cypress.Commands.add('updateNewCategoryAssessment', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
+  cy.contains('Manage category assessments');
+  cy.get('tbody').contains('454');
+  cy.get('tbody').contains('Edit').click();
+  cy.url().should('include', '/edit');
+  cy.contains('Category Assessments');
+  cy.contains('Edit Category Assessment');
+  cy.get('.govuk-form-group:has(label:contains("Measure Type Id"))').find('input')
+      .should('have.value', '454').and('id', 'category-assessment-measure-type-id-field');
+  cy.get('.govuk-form-group:has(label:contains("Regulation Id"))').find('input')
+      .should('have.value', '12').and('id', 'category-assessment-regulation-id-field');
+  cy.get('.govuk-form-group:has(label:contains("Regulation Role"))').find('input')
+      .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
+  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+      .should('have.value', '32').and('id', 'category-assessment-theme-id-field');
+  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+      .and('id', 'category-assessment-theme-id-field').select('35');
+  cy.contains('Back');
+  cy.contains('Update Category assessment').click();
+  cy.contains('Success');
+  cy.contains('Category Assessment updated');
+  cy.get('tbody').contains('454');
+});
+
+Cypress.Commands.add('removeNewCategoryAssessment', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
+  cy.contains('Manage category assessments');
+  cy.get('tbody').contains('454');
+  cy.get('tbody').contains('Edit').click();
+  cy.url().should('include', '/edit');
+  cy.contains('Category Assessments');
+  cy.contains('Edit Category Assessment');
+  cy.get('.govuk-form-group:has(label:contains("Measure Type Id"))').find('input')
+      .should('have.value', '454').and('id', 'category-assessment-measure-type-id-field');
+  cy.get('.govuk-form-group:has(label:contains("Regulation Id"))').find('input')
+      .should('have.value', '12').and('id', 'category-assessment-regulation-id-field');
+  cy.get('.govuk-form-group:has(label:contains("Regulation Role"))').find('input')
+      .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
+  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+      .should('have.value', '35').and('id', 'category-assessment-theme-id-field');
+  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+      .and('id', 'category-assessment-theme-id-field').select('35');
+  cy.contains('Back');
+  cy.contains('Update Category assessment');
+  cy.contains('Remove Category Assessment');
+  cy.contains('Remove this Category Assessment');
+  cy.get('#main-content > div.govuk-auto-classes > a').contains('Remove').click();
+  cy.on('window:alert', ()=>{
+    // Assertion
+    expect('Are you sure?').to.contains('Are you sure?');
+  });
+  cy.on('window:confirm', () => true);
+  cy.url().should('include', '/xi/green_lanes/category_assessments');
+  cy.contains('Success');
+  cy.contains('Category Assessment removed');
+  cy.get('tbody').should('not.contain.value', '454');
+  cy.get('tbody').contains('Edit').click();
+});
+
+Cypress.Commands.add('exemptingCertificateOverrides', (service) => {
+  if (service == 'uk') {
+    cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`, {failOnStatusCode: false});
+    cy.get('#navigation').should('not.contain', 'Exempting Certificate Overrides');
+    cy.contains('Page not found');
+  } else {
+    cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+    cy.get('#navigation').contains('Exempting Certificate Overrides');
+    cy.contains('Manage exempting certificate overrides');
+    cy.get('.govuk-auto-classes > table').contains('ID');
+    cy.get('.govuk-auto-classes > table').contains('Certificate Type Code');
+    cy.get('.govuk-auto-classes > table').contains('Certificate Code');
+    cy.get('.govuk-auto-classes > table').contains('Action');
+  }
+});
+
+Cypress.Commands.add('verifyNewExemptingCertificateOverrides', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override').click();
+  cy.url().should('include', '/xi/green_lanes/exempting_certificate_overrides/new');
+  cy.contains('Exempting Certificate Override');
+  cy.contains('New Exempting Certificate Override');
+  cy.contains('Certificate Type Code');
+  cy.get('#exempting-certificate-override-certificate-type-code-field').should('be.empty');
+  cy.contains('Certificate Code');
+  cy.get('#exempting-certificate-override-certificate-code-field').should('be.empty');
+  cy.contains('Create Exempting certificate override').click();
+  // submit form without entering values and checking errors
+  cy.get('.govuk-error-summary').contains('Certificate type code is not present');
+  cy.get('.govuk-error-summary').contains('Certificate code is not present');
+  cy.get('#exempting-certificate-override-certificate-type-code-error').contains('Certificate type code is not present');
+  cy.get('#exempting-certificate-override-certificate-code-error').contains('Certificate code is not present');
+  // verify the Exempting Certificate Override hyperlink functionality in New Exempting Certificate Override
+  cy.get('.govuk-breadcrumbs__link').should('have.attr', 'href', '/xi/green_lanes/exempting_certificate_overrides').click();
+  cy.url().should('include', '/xi/green_lanes/exempting_certificate_overrides');
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override').click();
+  cy.contains('Back').click();
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override');
+});
+
+Cypress.Commands.add('createNewExemptingCertificateOverride', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+  cy.contains('Manage exempting certificate overrides');
+  cy.contains('Add a Exempting Certificate Override').click();
+  cy.url().should('include', '/xi/green_lanes/exempting_certificate_overrides/new');
+  cy.contains('Exempting Certificate Override');
+  cy.contains('New Exempting Certificate Override');
+  cy.contains('Certificate Type Code');
+  cy.get('#exempting-certificate-override-certificate-type-code-field').type('Y');
+  cy.contains('Certificate Code');
+  cy.get('#exempting-certificate-override-certificate-code-field').type('100');
+  cy.contains('Back');
+  cy.contains('Create Exempting certificate override').click();
+});
+
+Cypress.Commands.add('removeNewExemptincertificateOverride', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`);
+  cy.contains('Manage exempting certificate overrides');
+  cy.get('tbody').contains('100');
+  cy.get('tbody').contains('Remove').click();
+  cy.on('window:alert', ()=>{
+    expect('Are you sure?').to.contains('Are you sure?');
+  });
+  cy.on('window:confirm', () => true);
+  cy.contains('Success');
+  cy.contains('Exempting Certificate Override removed');
+  cy.get('tbody').should('not.contain.value', '100');
+});
+
+

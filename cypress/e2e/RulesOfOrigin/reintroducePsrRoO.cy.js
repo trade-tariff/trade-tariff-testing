@@ -1,7 +1,7 @@
 describe('Reintroduce Product Specific Rules - RoO', function() {
   it('UK | Verify navigation links on RoO page', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.contains('Preferential rules of origin for trading with France');
     cy.contains('Related content');
     cy.get('#rules-of-origin__related-content a[href]').contains('Check your goods meet the rules of origin');
@@ -32,7 +32,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
   it('UK | Click reset all countries link and check RoO page content', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
     cy.contains('Reset to all countries').click();
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
     cy.contains('Find out more about preferential rules of origin:');
     cy.get('#rules-of-origin a[href^="https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin"]')
@@ -45,7 +45,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
   });
   it('UK | Reintroduce proofs of origin | Country does not have dual schemes', function() {
     cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.contains('Preferential rules of origin for trading with France');
     cy.contains('UK / EU Trade and Co-operation Agreement');
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');

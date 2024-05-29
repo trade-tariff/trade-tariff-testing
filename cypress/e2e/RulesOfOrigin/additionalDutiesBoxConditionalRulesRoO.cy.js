@@ -16,7 +16,7 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
   });
   it(`| UK | There is neither a preference nor a quota |`, function() {
     cy.visit(`/commodities/0201100029?country=ZA#rules_of_origin`);
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
     cy.get('.basic-third-country-duty').contains('Basic third country duty =');
@@ -28,7 +28,7 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
   });
   it(`| UK | Free Trade Agreement b/n UK and NZ |`, function() {
     cy.visit(`/commodities/2701121000?country=NZ#rules_of_origin`);
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.get('#rules-of-origin__intro--country-scheme').contains('Free Trade Agreement between the United Kingdom of Great Britain and Northern Ireland and New Zealand');
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
     cy.get('.basic-third-country-duty').contains('Basic third country duty =');
@@ -42,7 +42,7 @@ describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - 
   });
   it(`| UK | Free Trade Agreement b/n UK and AU |`, function() {
     cy.visit(`/commodities/2701121000?country=AU#rules_of_origin`);
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.get('#rules-of-origin__intro--country-scheme').contains('Free Trade Agreement between the United Kingdom of Great Britain and Northern Ireland and Australia');
     cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
     cy.get('.basic-third-country-duty').contains('Basic third country duty =');
