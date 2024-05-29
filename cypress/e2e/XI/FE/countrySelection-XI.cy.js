@@ -4,13 +4,10 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
     cy.visit('/xi/commodities/0208909800#import');
     //  XI
     cy.verifyCountrySelection('(XI)', 'No results found');
-
     // Andorra should be present
     cy.verifyCountrySelection('AD', 'Andorra (AD)');
-
     // no GB - United Kingdom (excluding Northern Ireland) (GB)
     cy.verifyCountrySelection('(GB)', 'United Kingdom (excluding Northern Ireland) (GB)');
-
     // no XU
     cy.verifyCountrySelection('XU', 'No results found');
   });
@@ -18,13 +15,10 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
     cy.visit('/xi/commodities/0208909800#export');
     //  XI
     cy.verifyCountrySelection('(XI)', 'No results found');
-
     // Andorra should be present
     cy.verifyCountrySelection('AD', 'Andorra (AD)');
-
     // no GB - United Kingdom (excluding Northern Ireland) (GB)
     cy.verifyCountrySelection('(GB)', 'United Kingdom (excluding Northern Ireland) (GB)');
-
     // no XU
     cy.verifyCountrySelection('XU', 'No results found');
   });
@@ -39,15 +33,13 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
     cy.title().should('eq', 'Northern Ireland Online Tariff - Set country filter - GOV.UK');
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('.govuk-summary-list').contains('Argentina');
-
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     // Typing the country code
     cy.get('a[href*="/xi/trading"]').contains('Change').click();
     cy.countryPickerpage({value: '(DE)'});
     cy.get('.govuk-summary-list').contains('Germany');
-
     // reset to all countries
-    cy.get('.reset-country-picker').click();
+    cy.get('a[href*="/commodities/"]').contains('Reset to all countries').click();
     cy.get('.govuk-summary-list').contains('All countries');
   });
   it('XI Country selection page - No country selected ', function() {

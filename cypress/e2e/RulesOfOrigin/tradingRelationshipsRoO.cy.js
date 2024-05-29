@@ -7,7 +7,7 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
     cy.get('input#trading_partner_country').clear();
     cy.get('input#trading_partner_country').type('Chile');
     cy.get('input#trading_partner_country').type('{enter}');
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.get('#rules-of-origin__intro--country-scheme > :nth-child(1) > strong').should('have.text', 'UK-Chile Association Agreement');
     cy.contains('Preferential rules of origin for trading with Chile');
   });
@@ -17,7 +17,7 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
     cy.get('input#trading_partner_country').clear();
     cy.get('input#trading_partner_country').type('Chile');
     cy.get('input#trading_partner_country').type('{enter}');
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.contains('Trading relationship with Chile').should('not.exist');
     cy.contains('UK-Chile association agreement').should('not.exist');
     cy.contains('EU - Chile Association Agreement');
@@ -29,7 +29,7 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
     cy.get('input#trading_partner_country').clear();
     cy.get('input#trading_partner_country').type('Vietnam');
     cy.get('input#trading_partner_country').type('{enter}');
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.contains('Preferential rules of origin for trading with Vietnam');
     cy.contains('UK-Vietnam Free Trade Agreement');
   });

@@ -3,7 +3,7 @@ describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'ro
   it('| XI Service - EU Trading relations with Chile - Related Content |', function() {
     cy.visit('xi/commodities/0702000007');
     cy.pickTradingPartner('Chile');
-    cy.contains('Rules of origin').click();
+    cy.contains('Origin').click();
     cy.contains('EU - Chile Association Agreement');
     cy.contains('Related content');
     cy.contains('Check your goods meet the rules of origin').click();
