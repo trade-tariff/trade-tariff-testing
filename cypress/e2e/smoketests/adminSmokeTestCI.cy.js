@@ -64,6 +64,9 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
     it('No access to Green Lanes Category Assessments', function() {
       cy.categoryAssessments(service);
     });
+    it('No access to Green Lanes exempting certificate overrides', function() {
+      cy.exemptingCertificateOverrides(service);
+    });
   });
 
   context('when on the XI service', function() {
@@ -121,6 +124,18 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
     });
     it('remove new category assessment - green lanes', function() {
       cy.removeNewCategoryAssessment(service);
+    });
+    it('View green lanes exempting certificate overrides page', function() {
+      cy.exemptingCertificateOverrides(service);
+    });
+    it('verify new exempting certificate overrides page - green lanes', function() {
+      cy.verifyNewExemptingCertificateOverrides(service);
+    });
+    it('create new exempting certificate overrides - green lanes', function() {
+      cy.createNewExemptingCertificateOverride(service);
+    });
+    it('remove new exempting certificate overrides - green lanes', function() {
+      cy.removeNewExemptincertificateOverride(service);
     });
   });
 });
