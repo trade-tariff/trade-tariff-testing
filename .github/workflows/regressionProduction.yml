@@ -10,6 +10,7 @@ jobs:
       CYPRESS_BASE_URL: "https://www.trade-tariff.service.gov.uk"
       CYPRESS_SPACE: "PRODUCTION"
       CYPRESS_grepTags: "-devOnly+-smokeTest+-notProduction+-adminOnly"
+      CYPRESS_VERIFY_TIMEOUT: 60000
     name: "🚦 Regression Tests - UK and XI"
     runs-on: ubuntu-22.04
     strategy:
