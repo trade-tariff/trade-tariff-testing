@@ -1,6 +1,6 @@
 describe('RoW-NI303a', function() {
   it('RoW 🇲🇦 (Morocco) to Northern Ireland', function() {
-    cy.visit('/duty-calculator/xi/0805102210/import-date');
+    cy.visit('/duty-calculator/xi/0708200080/import-date');
     cy.validDate();
     cy.selectDestination('xi');
     cy.otherOriginList({value: 'Morocco'});
