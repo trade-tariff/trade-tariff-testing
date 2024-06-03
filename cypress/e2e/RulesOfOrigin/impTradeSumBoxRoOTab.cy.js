@@ -1,7 +1,7 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-/* eslint-disable new-cap */
-/* eslint-disable max-len */
+ 
+ 
+ 
+ 
 describe('| impTradeSumBoxRoOTab.spec.spec - Rules of Origin tab - Logic for duties box', {tags: ['config', 'roo-tag', 'notProduction']}, function() {
   it(`| UK | Preference + Quota |`, function() {
     cy.visit(`commodities/0203111000?country=PE#rules-of-origin`);

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 // Meursing code page validations
 describe('| dcMeursingCode.spec.js | Meursing Code page validations | ', function() {
   it('Meursing code page validations |', function() {

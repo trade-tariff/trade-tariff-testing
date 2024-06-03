@@ -1,7 +1,7 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-unused-vars */
-/* eslint-disable new-cap */
-/* eslint-disable max-len */
+ 
+ 
+ 
+ 
 describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['config', 'roo-tag']}, function() {
   it('Check RoO tab preserves anchor', function() {
     // given we're on the roo tab

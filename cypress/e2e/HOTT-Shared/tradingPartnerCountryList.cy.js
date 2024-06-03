@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe('Validating trading partner countries', function() {
   it(`Autocomplete excluded countries list`, function() {
     const expectedMissingCountries = [

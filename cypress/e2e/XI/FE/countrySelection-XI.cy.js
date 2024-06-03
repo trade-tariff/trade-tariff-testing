@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+ 
 describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('XI Country Selection -import ', function() {
     cy.visit('/xi/commodities/0208909800#import');

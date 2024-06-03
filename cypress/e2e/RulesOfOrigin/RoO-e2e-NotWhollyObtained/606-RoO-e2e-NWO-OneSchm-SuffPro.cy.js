@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 // NWO-One Scheme_Insufficient processing
 // WO - one scheme
 describe('| RoO-e2e-NWO-OneSchm-SuffPro.spec | NWO + One Scheme + Sufficient processing |', {tags: ['notProduction']}, function() {

@@ -1,5 +1,5 @@
-/* eslint-disable new-cap */
-/* eslint-disable max-len */
+ 
+ 
 // Preferential Tariff rates
 // 1701141000 -
 describe('| Row-NI304e-delta.spec.js | 🔼 Delta Route | preferential rates UK and EU  | ', function() {

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 // More than one Measure amounts
 // Delta Route - not be subject to processing - route 1️⃣
 describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 |', function() {

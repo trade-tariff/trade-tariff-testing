@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
   const country = ['xi', 'uk'];
   for (let i=0; i<country.length; i++) {

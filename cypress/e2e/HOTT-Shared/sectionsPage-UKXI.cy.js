@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe('🇬🇧 💡 🔍  | sectionsPage.spec-UK | Sections page content validation |', function() {
   const country = ['uk', 'xi'];
   for (let i = 0; i < country.length; i++) {

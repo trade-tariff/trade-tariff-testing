@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe('globalSearch.spec| global search function on UK and XI service ** Unreleased **', {tags: ['config', 'unreleased-tag']}, {tags: ['config', 'xbrowser-tag']}, function() {
   it('Availabilty all pages', function() {
     // search for commodity by number

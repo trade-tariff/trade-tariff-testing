@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe(' 🇪🇺 💡 |pageLinks-XI.spec| Terms and Conditions, Cookies ,Privacy links - XI ', function() {
 //  HOTT-192
   it('XI - Terms and Conditions-navigates to right UK page ', function() {
