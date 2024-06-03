@@ -30,7 +30,7 @@
     "parse-markdown-table": "^0.0.6",
     "postcss": "^8.4.38",
     "set-value": "^4.1.0",
-    "validator": "^13.11.0"
+    "validator": "^13.12.0"
   },
   "scripts": {
     "open:dev": "CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk CYPRESS_SPACE=DEVELOPMENT npx cypress open",
