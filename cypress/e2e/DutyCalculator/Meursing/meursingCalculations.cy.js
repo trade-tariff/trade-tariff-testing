@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 /*
 EA,EA(R)     - AC
 ASDZ,ASDZ(R) - SD

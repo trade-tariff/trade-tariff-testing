@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
   const country = ['uk', 'xi'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 // Suspensions in delta route - old commodity 2903898045
 // 2904990055
 

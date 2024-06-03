@@ -117,7 +117,7 @@ describe('validate /exchange_rates', function() {
       cy.downloadFile(`${baseURL}${csvHref}`, 'cypress/downloads', 'monthly_csv.csv');
 
       // new folder absolute path
-      // eslint-disable-next-line no-undef
+       
       const dirPath = dirpath.join(__dirname, '/monthly_csv.csv');
       const filePath = dirPath.replace('e2e/UK/FE', 'downloads');
       cy.getDataAndSortToCompare(filePath);

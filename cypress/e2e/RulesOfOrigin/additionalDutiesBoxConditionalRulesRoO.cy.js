@@ -1,5 +1,5 @@
-/* eslint-disable max-len */
-// eslint-disable-next-line max-len
+ 
+ 
 describe('| additionalDutiesBoxConditionalRulesRoO.spec - Rules of Origin tab - additional duties box conditional rules', {tags: ['notProduction']}, function() {
   it(`| UK | Third country duty (MFN) is 0.0%, and there is a preference or a quota |`, function() {
     cy.visit(`/commodities/0102211000?country=ZA#rules-of-origin`);

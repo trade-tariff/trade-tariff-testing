@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "E2E testing of the Online Trade Tariff",
+  "type": "module",
   "dependencies": {
     "@cypress/grep": "^4.0.1",
     "allure-commandline": "^2.29.0",

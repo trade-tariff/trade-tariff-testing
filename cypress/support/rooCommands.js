@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 // page title , dynamic content - agreements ,ticket number
 
 

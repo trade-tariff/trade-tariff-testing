@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe('importExportPageRoO.spec | Rules of Origin Import/Export , Import only page', {tags: ['notProduction']}, function() {
   it('UK - Page validations - Japan - Import/Export page', function() {
     cy.visit('/commodities/6004100091?country=JP#rules-of-origin');

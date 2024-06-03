@@ -1,5 +1,5 @@
-/* eslint-disable camelcase */
-/* eslint-disable max-len */
+ 
+ 
 // WO + Duty Drawback
 describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', {tags: ['notProduction']}, function() {
   it('Import - WO + Duty Drawback - Chile', function() {

@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 describe('💡 | dcDutyCalculatorLink | Duty Cal link on Comcodes + supressed on headings -  UK services |', function() {
   const country = ['', 'xi'];
   for (let j = 0; j < country.length; j++) {

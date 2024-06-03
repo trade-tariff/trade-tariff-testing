@@ -1,5 +1,5 @@
-/* eslint-disable camelcase */
-/* eslint-disable max-len */
+ 
+ 
 describe('| RoO-e2e-WhollyObtained-NonAlteration.spec | WO + Non Alteration |', {tags: ['notProduction']}, function() {
   it('Import - WO + Non Alteration - Japan', function() {
     cy.visit('/commodities/1602321110?country=JP#rules-of-origin');

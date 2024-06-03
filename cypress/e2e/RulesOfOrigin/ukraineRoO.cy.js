@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 // Interim mods to RoO for Ukraine - include additional text
 describe('🇺🇦 | ukraineRoO.spec |', function() {
   const countries = [''];
