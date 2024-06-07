@@ -19,16 +19,15 @@ Cypress.Commands.add('RoORelatedContent', ()=>{
 });
 Cypress.Commands.add('roOTab', ()=>{
   cy.contains('Non-preferential rules of origin');
-  cy.contains('Non-preferential rules of origin allows the implementation of several commercial policy measures such as:');
-  cy.contains('The Customs (Origin of Chargeable Goods) (EU Exit) Regulations 2020 (opens in new tab)');
-  cy.get('p:nth-of-type(1) > a[target=\'blank\']').should('have.attr', 'href', 'https://www.gov.uk/government/publications/reference-document-for-the-customs-origin-of-chargeable-goods-eu-exit-regulations-2020');
+  cy.contains('Products with non-preferential rules of origin may incur commercial policy measures, such as:');
+  cy.contains('View rules for determining non-preferential origin (opens in new tab)');
+  cy.get('.rules-of-origin__non-preferential > p:nth-of-type(2) > a').should('have.attr', 'href', 'https://www.gov.uk/government/publications/reference-document-for-the-customs-origin-of-chargeable-goods-eu-exit-regulations-2020');
   cy.contains('anti-dumping duties');
   cy.contains('countervailing duties');
   cy.contains('trade embargoes');
   cy.contains('safeguarding measures');
   cy.contains('quantitative restrictions');
   cy.contains('tariff quotas');
-  cy.contains('They are also used for trade statistics, public tenders and origin marking.');
 });
 // import or export
 Cypress.Commands.add('impOrExp', (country, selection)=>{

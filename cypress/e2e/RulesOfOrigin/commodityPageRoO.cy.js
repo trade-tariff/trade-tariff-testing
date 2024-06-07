@@ -21,13 +21,9 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.visit(`/commodities/0702000007`);
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
-    cy.contains(`To view rules of origin, select a country with which the UK has a trade agreement from the list above`);
+    cy.contains(`Products which meet all preferential rules of origin (for countries where the UK has trade agreements in place)`)+ 
+               (`may be eligible for reduced or zero duty rates.`);
     // links
-    cy.contains('Check your goods meet the rules of origin');
-    cy.get('li:nth-of-type(1) > a[target=\'blank\']').should('have.attr', 'href', 'https://www.gov.uk/guidance/check-your-goods-meet-the-rules-of-origin');
-    cy.contains('Pay less Customs Duty on goods from a country with a UK trade agreement (opens in new tab)');
-    cy.get('li:nth-of-type(2) > a[target=\'blank\']').should('have.attr', 'href', 'https://www.gov.uk/guidance/import-and-export-goods-using-preference-agreements');
-    cy.contains('Pay less Customs Duty on goods from a country with a UK trade agreement (opens in new tab)');
     cy.roOTab();
   });
   it(`Chile 🇨🇱 - Service_urls with which there is a singular (1 to 1) trade agreement (e.g. Chile, which has an agreement on its own, not as part of a bloc) |`, function() {
@@ -55,7 +51,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('Preferential rules of origin for trading with The Bahamas');
     cy.contains('Origin').click();
     cy.get('img[alt=\'Flag for The Bahamas\']').should('be.visible');
-    cy.contains('You do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
+    cy.contains('Note, you do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
     cy.RoOContent({commCode: '0702000007', country: 'The Bahamas'});
     cy.contains('Non-preferential rules of origin');
   });

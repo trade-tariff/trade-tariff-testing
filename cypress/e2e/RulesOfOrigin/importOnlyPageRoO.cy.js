@@ -2,8 +2,10 @@
 describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', {tags: ['notProduction']}, function() {
   it('UK - Page validations - Afghanistan - Import only page', function() {
     cy.visit('/commodities/6004100091?country=AF#rules-of-origin');
-    cy.contains('Work out if your goods meet the rules of origin');
-    cy.contains('Check rules of origin').click();
+    cy.contains('Preferential rules of origin for trading with Afghanistan');
+    cy.get('#rules-of-origin > .govuk-inset-text').contains('Check eligibility for preferential duty rates');
+    cy.get('#rules-of-origin > .govuk-inset-text > p').should('include.text','Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
+    cy.get('form > .govuk-button').should('be.visible').should('contain.text', 'Start now').click();
     cy.contains('Trading commodity 6004100091 with Afghanistan');
     // importing
     cy.contains('Importing goods into the United Kingdom from countries which belong to unilateral preference schemes');
@@ -19,7 +21,7 @@ describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', {tags: 
     cy.get('.govuk-back-link').click();
     cy.contains('Preferential rules of origin for trading with Afghanistan');
     // click continue
-    cy.contains('Check rules of origin').click();
+    cy.contains('Start now').click();
     cy.get('.govuk-button').contains('Continue').click();
     cy.contains('How to work out if your goods are classed as \'originating\' in United Kingdom');
     cy.get('.govuk-back-link').click();
