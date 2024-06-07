@@ -7,7 +7,7 @@ describe('| impTradeSumBoxRoOTab.spec.spec - Rules of Origin tab - Logic for dut
     cy.visit(`commodities/0203111000?country=PE#rules-of-origin`);
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
-    cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
+    cy.get('.import-trade-summary').contains('Preferential import duty rates');
     cy.impDutyBox('Basic third country duty =');
     cy.impDutyBox('Preferential tariff duty =');
     cy.impDutyBox('Preferential quota duty =');
@@ -16,7 +16,7 @@ describe('| impTradeSumBoxRoOTab.spec.spec - Rules of Origin tab - Logic for dut
     cy.visit(`/commodities/0103911000?country=ZA#rules_of_origin`);
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
-    cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
+    cy.get('.import-trade-summary').contains('Preferential import duty rates');
     cy.impDutyBox('Basic third country duty =');
     cy.impDutyBox('Preferential tariff duty =');
   });
@@ -24,7 +24,7 @@ describe('| impTradeSumBoxRoOTab.spec.spec - Rules of Origin tab - Logic for dut
     cy.visit(`/commodities/0402109100?country=ZA#rules_of_origin`);
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
-    cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
+    cy.get('.import-trade-summary').contains('Preferential import duty rates');
     cy.impDutyBox('Basic third country duty');
     cy.impDutyBox('Preferential quota duty =');
   });
@@ -32,7 +32,7 @@ describe('| impTradeSumBoxRoOTab.spec.spec - Rules of Origin tab - Logic for dut
     cy.visit(`/commodities/0201100029?country=ZA#rules_of_origin`);
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
-    cy.get('.govuk-inset-text').contains('How rules of origin could affect the import duty payable');
+    cy.get('.import-trade-summary').contains('Preferential import duty rates');
     cy.impDutyBox('Basic third country duty =');
   });
 });

@@ -8,7 +8,7 @@ describe('| tradingRelationsRoO - to exist only on UK service ', {tags: ['config
     cy.get('input#trading_partner_country').type('Chile');
     cy.get('input#trading_partner_country').type('{enter}');
     cy.contains('Origin').click();
-    cy.get('#rules-of-origin__intro--country-scheme > :nth-child(1) > strong').should('have.text', 'UK-Chile Association Agreement');
+    cy.get('#rules-of-origin__intro--country-scheme_uk > :nth-child(2)').should('include.text', 'UK-Chile Association Agreement');
     cy.contains('Preferential rules of origin for trading with Chile');
   });
   it('| Trading relations with Chile - EU - Chile association agreement |', function() {
