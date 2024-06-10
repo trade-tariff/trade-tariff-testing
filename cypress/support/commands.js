@@ -38,14 +38,15 @@ Cypress.Commands.add('datePickerPage', (date) => {
 
 Cypress.Commands.add('countryPickerpage', (country) => {
   cy.contains('Select a country');
-  cy.get('input#trading-partner-country-field').click();
-  cy.get('input#trading-partner-country-field').clear();
-  cy.get('input#trading-partner-country-field').type(country.value);
-  cy.get('#trading-partner-country-field__listbox').contains(country.value).click();
-  cy.contains('Continue').click();
+
+  cy.get('input#trading_partner_country').click();
+  cy.get('input#trading_partner_country').clear();
+  cy.get('input#trading_partner_country').type(country.value);
+  cy.get('[id=\'trading_partner_country__listbox\']').contains(country.value).click();
 });
 
 Cypress.Commands.add('verifyCountrySelection', (country, txt) => {
+  cy.contains('Select a country');
   cy.get('input#trading_partner_country').click();
   cy.get('input#trading_partner_country').clear();
   cy.get('input#trading_partner_country').type(`${country}`);

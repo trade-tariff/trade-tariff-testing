@@ -22,33 +22,28 @@ describe('🇬🇧 💡 | countrySelection-UK | Country Selection |', {tags: ['c
 
   it('UK Country selection page', function() {
     cy.visit('/commodities/0804100030');
-    cy.get('a[href*="/trading"]').contains('Change').click();
-    cy.contains('View UK measures for the selected country');
-    cy.contains('UK Integrated Online Tariff');
-    cy.title().should('eq', 'UK Integrated Online Tariff - Set country filter - GOV.UK');
+    cy.contains('You are currently using the UK Integrated Online Tariff');
+    cy.contains('Select or enter a country name to view UK measures');
     cy.countryPickerpage({value: 'Argentina'});
-    cy.get('.govuk-summary-list').contains('Argentina');
     cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
     // Typing the country code
-    cy.get('a[href*="/trading"]').contains('Change').click();
+    cy.get('input#trading_partner_country').click();
     cy.countryPickerpage({value: '(DE)'});
-    cy.get('.govuk-summary-list').contains('Germany');
+    cy.get('.autocomplete__wrapper').contains('Germany (DE)');
     // reset to all countries
     cy.get('a[href*="/commodities/"]').contains('Reset to all countries').click();
-    cy.get('.govuk-summary-list').contains('All countries');
+    cy.get('.autocomplete__wrapper').contains('All countries');
   });
   it('UK Country selection page - No country selected ', function() {
     cy.visit('/commodities/0804100030');
-    cy.get('a[href*="/trading"]').contains('Change').click();
-    cy.contains('View UK measures for the selected country');
-    cy.contains('Continue').click();
-    cy.get('.govuk-error-summary');
-    cy.contains('There is a problem');
-    cy.contains('Select a country');
-    cy.get('.govuk-error-message')
-        .contains('Select a country');
+    cy.contains('You are currently using the UK Integrated Online Tariff');
+    cy.contains('Select or enter a country name to view UK measures');
+    cy.get('#tab_rules-of-origin').click();
+    cy.get('.govuk-grid-column-full > .govuk-warning-text > .govuk-warning-text__text').contains('Select a country to check which tariff treatments apply.');
+    cy.get('input#trading_partner_country').click();
+    cy.countryPickerpage({value: '(DE)'});
     // Reset all countries
     cy.get('.govuk-link').contains('Reset to all countries').click();
-    cy.get('.govuk-summary-list').contains('All countries');
+    cy.get('.autocomplete__wrapper').contains('All countries');
   });
 });
