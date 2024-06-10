@@ -126,10 +126,9 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.get('#import > :nth-child(2)').contains('Select a country to view country-specific import information.');
     cy.get('#import > :nth-child(3)')
         .contains('You will then be able to check in the Origin tab if preferential tariff treatments apply to this specific commodity.');
-    cy.get('a[href^=\'/trading_partners\']').click();
+    cy.get('input#trading_partner_country').click();
     cy.countryPickerpage({value: 'Argentina'});
-    cy.get('.govuk-summary-list__value').contains('Argentina').should('be.visible');
-    cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
+    cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('Argentina (AR)');
     cy.get('a#tab_import').click();
   });
   it('UK - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {

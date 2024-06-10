@@ -25,11 +25,11 @@ describe('commodity supplementary units', function() {
       // when I select a country that has a supplementary unit
       cy.visit('/uk/commodities/1704909912?country=CR');
       // then I should see the supplementary unit
-      cy.get('.govuk-summary-list__value').contains('Costa Rica');
+      cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('Costa Rica');
       cy.contains('Kilogram (kg/raw sugar)');
       // when I select no country
       cy.visit('/uk/commodities/1704909912');
-      cy.get('.govuk-summary-list__value').contains('All countries');
+      cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('All countries');
       // then I should see the no supplementary unit message
       cy.contains('There are no supplementary units globally assigned to this commodity. Select a country of import / export to check');
       cy.contains('on supplementary units for a specific country, or scroll down to the import duties section.');
@@ -67,11 +67,11 @@ describe('commodity supplementary units', function() {
       // when I select a country that has a supplementary unit
       cy.visit('/xi/commodities/1704909912?country=CR');
       // then I should see the supplementary unit
-      cy.get('.govuk-summary-list__value').contains('Costa Rica');
+      cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('Costa Rica');
       cy.contains('Kilogram (kg/raw sugar)');
       // when I select no country
       cy.visit('/xi/commodities/1704909912');
-      cy.get('.govuk-summary-list__value').contains('All countries');
+      cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('All countries');
       // then I should see the no supplementary unit message
       cy.contains('There are no supplementary units globally assigned to this commodity. Select a country of import / export to check');
       cy.contains('on supplementary units for a specific country, or scroll down to the import duties section.');
