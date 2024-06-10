@@ -128,7 +128,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
         .contains('You will then be able to check in the Origin tab if preferential tariff treatments apply to this specific commodity.');
     cy.get('input#trading_partner_country').click();
     cy.countryPickerpage({value: 'Argentina'});
-    cy.get('.autocomplete__wrapper').contains('Argentina (AR)');
+    cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('Argentina (AR)');
     cy.get('a#tab_import').click();
   });
   it('UK - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
