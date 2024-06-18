@@ -601,4 +601,109 @@ Cypress.Commands.add('removeNewExemptincertificateOverride', (service) => {
   cy.get('tbody').should('not.contain.value', '100');
 });
 
+Cypress.Commands.add('exemptions', (service) => {
+  if (service == 'uk') {
+    cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`, {failOnStatusCode: false});
+    cy.get('#navigation').should('not.contain', 'Exemptions');
+    cy.contains('Page not found');
+  } else {
+    cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`);
+    cy.get('#navigation').contains('Exemptions');
+    cy.contains('Manage Green Lanes Exemptions');
+    cy.get('.govuk-auto-classes > table').contains('Code');
+    cy.get('.govuk-auto-classes > table').contains('Description');
+    cy.get('.govuk-auto-classes > table').contains('Action');
+  }
+});
+
+Cypress.Commands.add('verifyNewExemptionPage', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`);
+  cy.contains('Manage Green Lanes Exemptions');
+  cy.contains('Add a Exemption').click();
+  cy.url().should('include', '/xi/green_lanes/exemptions/new');
+  cy.contains('Exemption');
+  cy.contains('New Exemption');
+  cy.contains('Code');
+  cy.get('#exemption-code-field').should('be.empty');
+  cy.contains('Description');
+  cy.get('#exemption-description-field').should('be.empty');
+  cy.contains('Create Exemption').click();
+  // submit form without entering values and checking errors
+  cy.get('.govuk-error-summary').contains('Code is not present');
+  cy.get('.govuk-error-summary').contains('Description is not present');
+  cy.get('#exemption-code-error').contains('Code is not present');
+  cy.get('#exemption-description-error').contains('Description is not present');
+  // verify the Exemption hyperlink functionality in New Exemption
+  cy.get('.govuk-breadcrumbs__link').should('have.attr', 'href', '/xi/green_lanes/exemptions').click();
+  cy.url().should('include', '/xi/green_lanes/exemptions');
+  cy.contains('Manage Green Lanes Exemptions');
+  cy.contains('Add a Exemption').click();
+  cy.contains('Back').click();
+  cy.contains('Manage Green Lanes Exemptions');
+  cy.contains('Add a Exemption')
+});
+
+Cypress.Commands.add('createExemption', (service, duplicateCategory) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`);
+  cy.contains('Manage Green Lanes Exemptions');
+  cy.contains('Add a Exemption').click();
+  cy.url().should('include', '/xi/green_lanes/exemptions/new');
+  cy.contains('New Exemption');
+  cy.contains('Code');
+  cy.get('#exemption-code-field').type('1');
+  cy.contains('Description');
+  cy.get('#exemption-description-field').type('test1');
+  cy.contains('Back');
+  cy.contains('Create Exemption').click();
+  if (duplicateCategory == 'yes') {
+    cy.get('.govuk-error-summary').contains('There is a problem');
+    cy.get('.govuk-error-summary').contains('[:code, :code] is already taken');
+  } else {
+    cy.contains('Success');
+    cy.contains('Exemption created');
+    cy.get('tbody').contains('1');
+    cy.get('tbody').contains('Edit');
+  }
+});
+
+Cypress.Commands.add('updateExemption', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`);
+  cy.contains('Manage Green Lanes Exemptions');
+  cy.get('tbody').contains('1');
+  cy.get('tbody').contains('Edit').click();
+  cy.url().should('include', '/edit');
+  cy.contains('Exemptions');
+  cy.get('.govuk-form-group:has(label:contains("Code"))').find('input')
+      .should('have.value', '1').and('id', 'exemption-code-field');
+  cy.get('.govuk-form-group:has(label:contains("Description"))').find('input')
+      .should('have.value', 'test1').and('id', 'exemption-description-field');
+  cy.contains('Back');
+  cy.get('.govuk-form-group:has(label:contains("Description"))').find('input').clear().type('testUpdated');
+  cy.contains('Update Exemption').click();
+  cy.contains('Success');
+  cy.contains('Exemption updated');
+  cy.get('tbody').contains('1');
+});
+
+Cypress.Commands.add('removeExemption', (service) => {
+  cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`);
+  cy.contains('Manage Green Lanes Exemptions');
+  cy.get('tbody').contains('1');
+  cy.get('tbody').contains('Edit').click();
+  cy.url().should('include', '/edit');
+  cy.contains('Remove Exemption');
+  cy.contains('Remove this Exemption');
+  cy.get('.govuk-button').contains('Remove').click();
+  cy.on('window:alert', ()=>{
+    expect('Are you sure?').to.contains('Are you sure?');
+  });
+  cy.on('window:confirm', () => true);
+  cy.contains('Success');
+  cy.contains('Exemption removed');
+  cy.get('tbody').should('not.contain.value', '1');
+});
+
+  
+
+
 
