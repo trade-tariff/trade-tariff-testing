@@ -609,7 +609,6 @@ Cypress.Commands.add('exemptions', (service) => {
   } else {
     cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`);
     cy.get('#navigation').contains('Exemptions');
-    // cy.get('.govuk-phase-banner__text.current-service').contains('You are currently using the XI service');
     cy.contains('Manage Green Lanes Exemptions');
     cy.get('.govuk-auto-classes > table').contains('Code');
     cy.get('.govuk-auto-classes > table').contains('Description');
