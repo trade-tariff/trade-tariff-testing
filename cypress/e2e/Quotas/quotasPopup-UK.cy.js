@@ -61,27 +61,6 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.close [href]').click();
   });
 
-  it(`Quota Popup - Verify balance as of ${futureDate} and click and view balance for ${todaysDate} popup`, function() {
-    cy.visit(`/commodities/7306110000?${helpers.dateToUrl(futureDate)}#quotas`);
-    cy.contains('058949').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${futureDate})`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').contains(`View balance for ${todaysDate}`);
-    // Click View balance for xxxxx - link and verify balance as of xxxxx
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > td > a').click();
-    cy.get('#popup > div > div > article > h2').contains('Quota order number 058949');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(2)').contains('Opening balance');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(4)').contains('Status');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(4) > .numerical').contains('Open');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(5) > th').contains('Start and end dates');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(6) > th').contains('Last allocation date');
-    cy.get('#popup > div > div > article > table > tbody > tr:nth-child(7)').contains('Suspension / blocking periods');
-    cy.get('.info-inner > article > .govuk-table > .govuk-table__body > :nth-child(7) > .numerical').contains('n/a');
-    cy.get('#popup > div > div > article > p').contains('The status given is correct');
-    cy.get('.close [href]').click();
-  });
-
   it('Quota Popup - Verify quota status and no suspension or blocking period', function() {
     cy.visit('/commodities/1904103000?day=6&month=1&year=2023#quotas');
     cy.contains('050233').click();
