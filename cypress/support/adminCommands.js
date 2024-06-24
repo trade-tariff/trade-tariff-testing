@@ -385,20 +385,20 @@ Cypress.Commands.add('categoryAssessments', (service) => {
     // cy.get('.govuk-phase-banner__text.current-service').contains('You are currently using the XI service');
     cy.contains('Manage category assessments');
     cy.get('.govuk-auto-classes > table').contains('Measure type id');
-    cy.get('#green_lanes_category_assessment_94').contains('464');
+    cy.get('#green_lanes_category_assessment_2').contains('481');
     cy.get('.govuk-pagination').contains('1');
     cy.get('.govuk-pagination').contains('Next').click();
     cy.url().should('include', '/category_assessments?page=2');
     cy.get('.govuk-auto-classes > table').contains('Measure type id');
-    cy.get('#green_lanes_category_assessment_60').contains('277');
+    cy.get('#green_lanes_category_assessment_24').contains('277');
     cy.get('.govuk-pagination').contains('5').click();
     cy.url().should('include', '/category_assessments?page=5');
     cy.get('.govuk-auto-classes > table').contains('Measure type id');
-    cy.get('#green_lanes_category_assessment_1').contains('481');
+    cy.get('#green_lanes_category_assessment_82').contains('762');
     cy.get('.govuk-pagination').contains('Previous').click();
     cy.url().should('include', '/category_assessments?page=4');
     cy.get('.govuk-auto-classes > table').contains('Measure type id');
-    cy.get('#green_lanes_category_assessment_20').contains('465');
+    cy.get('#green_lanes_category_assessment_62').contains('465');
     cy.get('.govuk-pagination').contains('Previous');
     cy.get('.govuk-pagination').contains('Next');
   }

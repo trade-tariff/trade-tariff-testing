@@ -67,7 +67,7 @@ describe('Smoke tests for dev', function() {
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
-      cy.get('a[href=\'/xi/import_export_dates?day=21&month=12&year=2022\']').click();
+      cy.get('a[href=\'/xi/import_export_dates?day=21&goods_nomenclature_code=3808941000&month=12&year=2022\']').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
 
       cy.contains('22 December 2022');

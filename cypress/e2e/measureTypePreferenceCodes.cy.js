@@ -7,13 +7,13 @@ describe('measure type preference codes', function() {
         .should(
             'have.attr',
             'href',
-            '/measure_types/103/preference_codes/100?geographical_area_id=1011',
+            '/measure_types/103/preference_codes/100?geographical_area_id=1011&goods_nomenclature_code=1516209821',
         )
         .click();
 
     cy.url().should(
         'include',
-        '/measure_types/103/preference_codes/100?geographical_area_id=1011',
+        '/measure_types/103/preference_codes/100?geographical_area_id=1011&goods_nomenclature_code=1516209821',
     );
   });
   it('UK - Preference code - show 140 when country is selected as china', function() {
@@ -24,7 +24,7 @@ describe('measure type preference codes', function() {
         .should(
             'have.attr',
             'href',
-            '/measure_types/103/preference_codes/140?country=CN&geographical_area_id=1011',
+            '/measure_types/103/preference_codes/140?country=CN&geographical_area_id=1011&goods_nomenclature_code=8714995019',
         )
         .click();
     cy.get('#content > a').contains('8714995019');
@@ -39,7 +39,7 @@ describe('measure type preference codes', function() {
         .should(
             'have.attr',
             'href',
-            '/measure_types/103/preference_codes/100?geographical_area_id=1011',
+            '/measure_types/103/preference_codes/100?geographical_area_id=1011&goods_nomenclature_code=8714995019',
         )
         .click();
     cy.get('#content > a').contains('8714995019');
@@ -54,7 +54,7 @@ describe('measure type preference codes', function() {
         .should(
             'have.attr',
             'href',
-            '/measure_types/103/preference_codes/100?country=AD&geographical_area_id=1011',
+            '/measure_types/103/preference_codes/100?country=AD&geographical_area_id=1011&goods_nomenclature_code=8714995019',
         )
         .click();
     cy.get('#content > a').contains('8714995019');

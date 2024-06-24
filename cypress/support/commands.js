@@ -251,7 +251,7 @@ Cypress.Commands.add('verifySuspensions', (country, commCode, titles, measureTyp
       cy.get('#measure-3223900 > .measure-type-col > .table-line > a').should(
           'have.attr',
           'href',
-          `/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=XC`,
+          `/${country}/measure_types/${measureTypeId}/preference_codes/${prefCode}?geographical_area_id=XC&goods_nomenclature_code=${commCode}`,
       ).contains('Preferential suspension');
     }
   });

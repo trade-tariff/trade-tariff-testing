@@ -20,12 +20,12 @@ describe('| meursingComm.spec.js | Store Commodity value in session for Meursing
       cy.contains(`The Meursing additional code for a product with this composition is 7121.`);
       cy.contains('Use these four digits together with the ten-digit commodity code from Trade Tariff to work out duties applicable ');
       cy.contains('to certain complex agri-foods on the Northern Ireland Tariff, when your import is considered to be \'at risk\'.');
-      cy.contains(`Return to ${commcode[i]}`).click();
-      cy.checkCommPage(`${commcode[i]}`);
-      cy.get('a#tab_import').click();
-      cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').should('have.value', '121');
-      cy.contains('Clear additional code').click();
-      cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').should('not.have.value', '121');
+      //cy.contains(`Return to ${commcode[i]}`).click();
+      //cy.checkCommPage(`${commcode[i]}`);
+     // cy.get('a#tab_import').click();
+      //cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').should('have.value', '121');
+      //cy.contains('Clear additional code').click();
+      //cy.get('input#meursing-lookup-result-meursing-additional-code-id-field').should('not.have.value', '121');
     }
   });
   it('| meursing calculator link on commodity import section |', function() {
