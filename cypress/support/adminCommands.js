@@ -471,8 +471,7 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
   cy.contains('Manage category assessments');
   let found;
   cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').then(($pageLinks) => {
-    let noOfPages = $pageLinks.length;
-    for (let i = 1; i < noOfPages; i++) {
+    for (let i = 1; i < $pageLinks.length; i++) {
       cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($measureVal) => {
         if ($measureVal.text() == measure && !found) {
           cy.get('tbody > tr >td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
@@ -493,10 +492,10 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
           cy.contains('Update Category assessment').click();
           cy.contains('Success');
           cy.contains('Category Assessment updated');
-          found = true
+          found = true;
         }
         else {
-          found = false
+          found = false;
         }
       })
       cy.get('.govuk-pagination__next').click();
@@ -509,8 +508,7 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
   cy.contains('Manage category assessments');
   let found;
   cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').then(($pageLinks) => {
-    let noOfPages = $pageLinks.length;
-    for (let i = 0; i < noOfPages; i++) {
+    for (let i = 0; i < $pageLinks.length; i++) {
       cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($measureVal) => {
         if ($measureVal.text() == measure && !found) {
           cy.get('tbody > tr >td:nth-child(2)').contains('81').siblings().contains('a', 'Edit').click();
@@ -540,10 +538,10 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
           cy.contains('Success');
           cy.contains('Category Assessment removed');
           cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').should('not.contain.value', '81');
-          found = true
+          found = true;
         }
         else {
-          found = false
+          found = false;
         }
       })
       cy.get('.govuk-pagination__next').click();
