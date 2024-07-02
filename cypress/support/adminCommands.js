@@ -343,7 +343,6 @@ Cypress.Commands.add('verifyService', (service) => {
   cy.get('.current-service').contains(`You are currently using the ${service.toUpperCase()} service`);
 });
 
-
 Cypress.Commands.add('removeNewsItemIfExists', (matchingText) => {
   cy.get('table').find('tr').each(($row) => {
     // Find the text in the row
@@ -504,7 +503,6 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
     }
   })
 });
-
 
 Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
