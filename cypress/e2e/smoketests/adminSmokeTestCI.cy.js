@@ -120,10 +120,10 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
       cy.createNewCategoryAssessment(service, 'yes');
     });
     it('update new category assessment - green lanes', function() {
-      cy.updateNewCategoryAssessment(service);
+      cy.updateNewCategoryAssessment(service, '81');
     });
     it('remove new category assessment - green lanes', function() {
-      cy.removeNewCategoryAssessment(service);
+      cy.removeNewCategoryAssessment(service, '81');
     });
     it('View green lanes exempting certificate overrides page', function() {
       cy.exemptingCertificateOverrides(service);
