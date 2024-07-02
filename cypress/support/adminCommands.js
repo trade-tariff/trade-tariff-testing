@@ -467,15 +467,13 @@ Cypress.Commands.add('createNewCategoryAssessment', (service, duplicateCategory)
     cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').each(($valuePage) => {
     cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($value) => {
   })
-  if($valuePage.last()){cy.get('tbody').contains('81');}
     })
-  }
+     }
 });
 
 Cypress.Commands.add('updateNewCategoryAssessment', (service) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
   cy.contains('Manage category assessments');
-
   function maybeClickNext() {
     let found;
   cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').each(($valuePage) => {
