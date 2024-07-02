@@ -222,7 +222,7 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
     if (t.includes('Automated Test - Sample')) {
       // assertion
       expect(t).to.contains('Automated Test - Sample');
-      cy.get('tbody > tr > td:nth-child(2)').eq(index).next().then(function(d) {
+      cy.get('tbody > tr > td:nth-child(2)').eq(index).next().then(function (d) {
         const r = d.text();
         // assertion
         expect(r).to.contains(datePrefixFormat);
@@ -291,7 +291,7 @@ Cypress.Commands.add('quotaDefinitionsBalances', (quotaOrderNumber, eventType, d
   cy.contains('Additional events');
   cy.contains(`${eventType}`);
   cy.get(`.govuk-accordion__section-content a[href^="/quotas/${definitionID}?order_number=${quotaOrderNumber}"]`)
-      .contains('See the graph of quota balance events').click();
+    .contains('See the graph of quota balance events').click();
   cy.get(`.govuk-auto-classes a[href^="/quotas/search?quota_search%5Border_number%5D=${quotaOrderNumber}"]`).contains('Back');
   cy.contains(`Quota ${quotaOrderNumber}`);
   cy.contains('Changes to quota balance for quota definition');
@@ -376,7 +376,7 @@ Cypress.Commands.add('verifyTableData', () => {
 
 Cypress.Commands.add('categoryAssessments', (service) => {
   if (service == 'uk') {
-    cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`, {failOnStatusCode: false});
+    cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`, { failOnStatusCode: false });
     cy.get('#navigation').should('not.contain', 'Category assessments');
     cy.contains('Page not found');
   } else {
@@ -464,104 +464,98 @@ Cypress.Commands.add('createNewCategoryAssessment', (service, duplicateCategory)
   } else {
     cy.contains('Success');
     cy.contains('Category Assessment created');
-    cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').each(($valuePage) => {
-    cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($value) => {
-  })
-    })
-     }
+  }
 });
 
-Cypress.Commands.add('updateNewCategoryAssessment', (service) => {
+Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
   cy.contains('Manage category assessments');
-  function maybeClickNext() {
-    let found;
-  cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').each(($valuePage) => {
-  cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($value) => {
-  if($value.text()==81 && !found)
-   {
-  cy.get('tbody > tr >td:nth-child(2)').contains('81').siblings().contains('a','Edit').click();
-  cy.url().should('include', '/edit');
-  cy.contains('Category Assessments');
-  cy.contains('Edit Category Assessment');
-  cy.get('.govuk-form-group:has(label:contains("Measure Type Id"))').find('input')
-      .should('have.value', '81').and('id', 'category-assessment-measure-type-id-field');
-  cy.get('.govuk-form-group:has(label:contains("Regulation Id"))').find('input')
-      .should('have.value', '12').and('id', 'category-assessment-regulation-id-field');
-  cy.get('.govuk-form-group:has(label:contains("Regulation Role"))').find('input')
-      .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
-  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
-      .should('have.value', '32').and('id', 'category-assessment-theme-id-field');
-  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
-      .and('id', 'category-assessment-theme-id-field').select('33');
-  cy.contains('Back');
-  cy.contains('Update Category assessment').click();
-  cy.contains('Success');
-  cy.contains('Category Assessment updated');
-  found=true
-  }
- else{
- found=false
-   }
+  let found;
+  cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').then(($pageLinks) => {
+    let noOfPages = $pageLinks.length;
+    for (let i = 1; i < noOfPages; i++) {
+      cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($measureVal) => {
+        if ($measureVal.text() == measure && !found) {
+          cy.get('tbody > tr >td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
+          cy.url().should('include', '/edit');
+          cy.contains('Category Assessments');
+          cy.contains('Edit Category Assessment');
+          cy.get('.govuk-form-group:has(label:contains("Measure Type Id"))').find('input')
+            .should('have.value', '81').and('id', 'category-assessment-measure-type-id-field');
+          cy.get('.govuk-form-group:has(label:contains("Regulation Id"))').find('input')
+            .should('have.value', '12').and('id', 'category-assessment-regulation-id-field');
+          cy.get('.govuk-form-group:has(label:contains("Regulation Role"))').find('input')
+            .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
+          cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+            .should('have.value', '32').and('id', 'category-assessment-theme-id-field');
+          cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+            .and('id', 'category-assessment-theme-id-field').select('33');
+          cy.contains('Back');
+          cy.contains('Update Category assessment').click();
+          cy.contains('Success');
+          cy.contains('Category Assessment updated');
+          found = true
+        }
+        else {
+          found = false
+        }
+      })
+      cy.get('.govuk-pagination__next').click();
+    }
   })
-    cy.get('.govuk-pagination__next').click();
-  })
-
-  }
-    maybeClickNext()
 });
 
 
-Cypress.Commands.add('removeNewCategoryAssessment', (service) => {
+Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
   cy.contains('Manage category assessments');
-  function maybeClickNext() {
-    let found;
-  cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').each(($valuePage) => {
-  cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($value) => {
-  if($value.text()==81 && !found){
-  cy.get('tbody > tr >td:nth-child(2)').contains('81').siblings().contains('a','Edit').click();
-  cy.url().should('include', '/edit');
-  cy.contains('Category Assessments');
-  cy.contains('Edit Category Assessment');
-  cy.get('.govuk-form-group:has(label:contains("Measure Type Id"))').find('input')
-      .should('have.value', '81').and('id', 'category-assessment-measure-type-id-field');
-  cy.get('.govuk-form-group:has(label:contains("Regulation Id"))').find('input')
-      .should('have.value', '12').and('id', 'category-assessment-regulation-id-field');
-  cy.get('.govuk-form-group:has(label:contains("Regulation Role"))').find('input')
-      .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
-  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
-      .should('have.value', '33').and('id', 'category-assessment-theme-id-field');
-  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
-          .and('id', 'category-assessment-theme-id-field').select('33');
-  cy.contains('Back');
-  cy.contains('Update Category assessment');
-  cy.contains('Remove Category Assessment');
-  cy.contains('Remove this Category Assessment');
-  cy.get('#main-content > div.govuk-auto-classes > a').contains('Remove').click();
-  cy.on('window:alert', ()=>{
-        expect('Are you sure?').to.contains('Are you sure?');
-      });
-  cy.on('window:confirm', () => true);
-  cy.url().should('include', '/xi/green_lanes/category_assessments');
-  cy.contains('Success');
-  cy.contains('Category Assessment removed');
-  cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').should('not.contain.value','81');
-    found=true
+  let found;
+  cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').then(($pageLinks) => {
+    let noOfPages = $pageLinks.length;
+    for (let i = 0; i < noOfPages; i++) {
+      cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($measureVal) => {
+        if ($measureVal.text() == measure && !found) {
+          cy.get('tbody > tr >td:nth-child(2)').contains('81').siblings().contains('a', 'Edit').click();
+          cy.url().should('include', '/edit');
+          cy.contains('Category Assessments');
+          cy.contains('Edit Category Assessment');
+          cy.get('.govuk-form-group:has(label:contains("Measure Type Id"))').find('input')
+            .should('have.value', measure).and('id', 'category-assessment-measure-type-id-field');
+          cy.get('.govuk-form-group:has(label:contains("Regulation Id"))').find('input')
+            .should('have.value', '12').and('id', 'category-assessment-regulation-id-field');
+          cy.get('.govuk-form-group:has(label:contains("Regulation Role"))').find('input')
+            .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
+          cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+            .should('have.value', '32').and('id', 'category-assessment-theme-id-field');
+          cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+            .and('id', 'category-assessment-theme-id-field').select('32');
+          cy.contains('Back');
+          cy.contains('Update Category assessment');
+          cy.contains('Remove Category Assessment');
+          cy.contains('Remove this Category Assessment');
+          cy.get('#main-content > div.govuk-auto-classes > a').contains('Remove').click();
+          cy.on('window:alert', () => {
+            expect('Are you sure?').to.contains('Are you sure?');
+          });
+          cy.on('window:confirm', () => true);
+          cy.url().should('include', '/xi/green_lanes/category_assessments');
+          cy.contains('Success');
+          cy.contains('Category Assessment removed');
+          cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').should('not.contain.value', '81');
+          found = true
+        }
+        else {
+          found = false
+        }
+      })
+      cy.get('.govuk-pagination__next').click();
     }
-    else{
-    found=false
-     }
-    })
-    cy.get('.govuk-pagination__next').click();
-    })       
-    }
-    maybeClickNext()
+  })
 });
-  
+
 Cypress.Commands.add('exemptingCertificateOverrides', (service) => {
   if (service == 'uk') {
-    cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`, {failOnStatusCode: false});
+    cy.visit(`${adminUrl}/${service}/green_lanes/exempting_certificate_overrides`, { failOnStatusCode: false });
     cy.get('#navigation').should('not.contain', 'Exempting Certificate Overrides');
     cy.contains('Page not found');
   } else {
@@ -622,7 +616,7 @@ Cypress.Commands.add('removeNewExemptincertificateOverride', (service) => {
   cy.contains('Manage exempting certificate overrides');
   cy.get('tbody').contains('100');
   cy.get('tbody').contains('Remove').click();
-  cy.on('window:alert', ()=>{
+  cy.on('window:alert', () => {
     expect('Are you sure?').to.contains('Are you sure?');
   });
   cy.on('window:confirm', () => true);
@@ -633,7 +627,7 @@ Cypress.Commands.add('removeNewExemptincertificateOverride', (service) => {
 
 Cypress.Commands.add('exemptions', (service) => {
   if (service == 'uk') {
-    cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`, {failOnStatusCode: false});
+    cy.visit(`${adminUrl}/${service}/green_lanes/exemptions`, { failOnStatusCode: false });
     cy.get('#navigation').should('not.contain', 'Exemptions');
     cy.contains('Page not found');
   } else {
@@ -704,9 +698,9 @@ Cypress.Commands.add('updateExemption', (service) => {
   cy.url().should('include', '/edit');
   cy.contains('Exemptions');
   cy.get('.govuk-form-group:has(label:contains("Code"))').find('input')
-      .should('have.value', '1').and('id', 'exemption-code-field');
+    .should('have.value', '1').and('id', 'exemption-code-field');
   cy.get('.govuk-form-group:has(label:contains("Description"))').find('input')
-      .should('have.value', 'test1').and('id', 'exemption-description-field');
+    .should('have.value', 'test1').and('id', 'exemption-description-field');
   cy.contains('Back');
   cy.get('.govuk-form-group:has(label:contains("Description"))').find('input').clear().type('testUpdated');
   cy.contains('Update Exemption').click();
@@ -724,7 +718,7 @@ Cypress.Commands.add('removeExemption', (service) => {
   cy.contains('Remove Exemption');
   cy.contains('Remove this Exemption');
   cy.get('.govuk-button').contains('Remove').click();
-  cy.on('window:alert', ()=>{
+  cy.on('window:alert', () => {
     expect('Are you sure?').to.contains('Are you sure?');
   });
   cy.on('window:confirm', () => true);
@@ -733,7 +727,7 @@ Cypress.Commands.add('removeExemption', (service) => {
   cy.get('tbody').should('not.contain.value', '1');
 });
 
-  
+
 
 
 
