@@ -532,34 +532,30 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service) => {
       .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
   cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
       .should('have.value', '33').and('id', 'category-assessment-theme-id-field');
-      cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
+  cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
           .and('id', 'category-assessment-theme-id-field').select('33');
-      cy.contains('Back');
-      cy.contains('Update Category assessment');
-      cy.contains('Remove Category Assessment');
-      cy.contains('Remove this Category Assessment');
-      cy.get('#main-content > div.govuk-auto-classes > a').contains('Remove').click();
-      cy.on('window:alert', ()=>{
+  cy.contains('Back');
+  cy.contains('Update Category assessment');
+  cy.contains('Remove Category Assessment');
+  cy.contains('Remove this Category Assessment');
+  cy.get('#main-content > div.govuk-auto-classes > a').contains('Remove').click();
+  cy.on('window:alert', ()=>{
         expect('Are you sure?').to.contains('Are you sure?');
       });
-      cy.on('window:confirm', () => true);
-      cy.url().should('include', '/xi/green_lanes/category_assessments');
-      cy.contains('Success');
-      cy.contains('Category Assessment removed');
-      cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').should('not.contain.value','81');
-  found=true
-  
-}
-    else{
- found=false
+  cy.on('window:confirm', () => true);
+  cy.url().should('include', '/xi/green_lanes/category_assessments');
+  cy.contains('Success');
+  cy.contains('Category Assessment removed');
+  cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').should('not.contain.value','81');
+    found=true
     }
-
+    else{
+    found=false
+     }
     })
- 
     cy.get('.govuk-pagination__next').click();
-    })
-
-  }
+    })       
+    }
     maybeClickNext()
 });
   
