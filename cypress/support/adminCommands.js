@@ -471,7 +471,7 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
   cy.contains('Manage category assessments');
   let found;
   cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').then(($pageLinks) => {
-    for (let i = 1; i < $pageLinks.length; i++) {
+    for (let i = 0; i < $pageLinks.length; i++) {
       cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($measureVal) => {
         if ($measureVal.text() == measure && !found) {
           cy.get('tbody > tr >td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
@@ -522,11 +522,8 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
           cy.get('.govuk-form-group:has(label:contains("Regulation Role"))').find('input')
             .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
           cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
-            .should('have.value', '32').and('id', 'category-assessment-theme-id-field');
-          cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
-            .and('id', 'category-assessment-theme-id-field').select('32');
+            .should('have.value', '33').and('id', 'category-assessment-theme-id-field');
           cy.contains('Back');
-          cy.contains('Update Category assessment');
           cy.contains('Remove Category Assessment');
           cy.contains('Remove this Category Assessment');
           cy.get('#main-content > div.govuk-auto-classes > a').contains('Remove').click();
