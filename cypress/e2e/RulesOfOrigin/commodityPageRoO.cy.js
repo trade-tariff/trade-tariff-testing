@@ -29,10 +29,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
   it(`Chile 🇨🇱 - Service_urls with which there is a singular (1 to 1) trade agreement (e.g. Chile, which has an agreement on its own, not as part of a bloc) |`, function() {
     cy.visit('/commodities/0702000007');
     // Select Chile from All countries list', () => {
-    cy.get('input#trading_partner_country').click();
-    cy.get('input#trading_partner_country').clear();
-    cy.get('input#trading_partner_country').type('Chile');
-    cy.get('input#trading_partner_country').type('{enter}');
+    cy.pickTradingPartner('CL', `${cy.url()}`);
     cy.contains('Origin').click();
     cy.get('img[alt=\'Flag for Chile\']').should('be.visible');
     cy.contains('Preferential rules of origin for trading with Chile');
@@ -42,12 +39,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
   });
   it(`Bahamas (Cariforum) 🇧🇸 - Countries with which there is an agreement with a bloc - EU (France) |`, function() {
     cy.visit('/commodities/0702000007');
-    cy.contains('Origin').click();
-    // Select USA from All countries list
-    cy.get('input#trading_partner_country').click();
-    cy.get('input#trading_partner_country').clear();
-    cy.get('input#trading_partner_country').type('The Bahamas');
-    cy.get('input#trading_partner_country').type('{enter}');
+    // Select Bahamas from All countries list
+    cy.pickTradingPartner('BS', `${cy.url()}`);
     cy.contains('Preferential rules of origin for trading with The Bahamas');
     cy.contains('Origin').click();
     cy.get('img[alt=\'Flag for The Bahamas\']').should('be.visible');
@@ -57,12 +50,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
   });
   it(`Moldova 🇲🇩 - Countries with which there is an agreement Generalised Scheme of Preferences (GSP) |`, function() {
     cy.visit('/commodities/0702000007');
-    cy.contains('Origin').click();
-    // Select USA from All countries list
-    cy.get('input#trading_partner_country').click();
-    cy.get('input#trading_partner_country').clear();
-    cy.get('input#trading_partner_country').type('Moldova');
-    cy.get('input#trading_partner_country').type('{enter}');
+    // Select Moldova from All countries list
+    cy.pickTradingPartner('MD', `${cy.url()}`);
     cy.contains('Preferential rules of origin for trading with Moldova');
     cy.contains('Origin').click();
     cy.get('img[alt=\'Flag for Moldova\']').should('be.visible');
@@ -71,12 +60,8 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
   });
   it('India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP)', function() {
     cy.visit('/commodities/0702000007');
-    cy.contains('Origin').click();
-    // Select USA from All countries list
-    cy.get('input#trading_partner_country').click();
-    cy.get('input#trading_partner_country').clear();
-    cy.get('input#trading_partner_country').type('India');
-    cy.get('input#trading_partner_country').type('{enter}');
+    // Select India from All countries list
+    cy.pickTradingPartner('IN', `${cy.url()}`);
     cy.contains('Preferential rules of origin for trading with India');
     cy.contains('Origin').click();
     cy.get('img[alt=\'Flag for India\']').should('be.visible');

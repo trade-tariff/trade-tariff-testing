@@ -2,7 +2,7 @@
 describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']}, function() {
   it('| XI Service - EU Trading relations with Chile - Related Content |', function() {
     cy.visit('xi/commodities/0702000007');
-    cy.pickTradingPartner('Chile');
+    cy.pickTradingPartner('CL', `${cy.url()}`);
     cy.contains('Origin').click();
     cy.contains('EU - Chile Association Agreement');
     cy.contains('Related content');
