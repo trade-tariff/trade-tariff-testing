@@ -9,9 +9,10 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.quantity({kgm: '1'});
     cy.additionalCode('B999');
     cy.additionalCode('B999');
+    cy.docCode({xi: 'y155'});
+    cy.contains('Continue').click();
     cy.docCode({xi: 'c990'});
     cy.contains('Continue').click();
-
     cy.vat('0');
     cy.contains('VAT zero rate');
     cy.contains('Additional code(s)');
@@ -20,17 +21,17 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.contains('C990');
     cy.confirmPage();
     cy.dutyPage();
-
     cy.contains('Third-country duty');
-    cy.contains('10.90% * £1,000.00');
-    cy.contains('0.00% * £1,109.35');
+    cy.contains('50.00% * £1,000.00');
+    cy.contains('0.00% * £1,000.00');
     cy.contains('Suspension');
     cy.contains('0.00% * £1,000.00');
     cy.contains('0.00% * £1,000.35');
     cy.get('.govuk-back-link').click();
     cy.get('a[href^="/duty-calculator/document-codes"]').contains('Change').click();
     cy.contains('Do you have any of the following documents?');
-
+    cy.docCode({xi: 'none'});
+    cy.contains('Continue').click();
     cy.docCode({xi: 'none'});
     cy.contains('Continue').click();
     cy.vat('0');
@@ -41,7 +42,6 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.contains('n/a');
     cy.confirmPage();
     cy.dutyPage();
-
     cy.contains('Third-country duty');
     cy.contains('10.90% * £1,000.00');
     cy.contains('Import duty (B999)');
