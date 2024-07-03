@@ -267,11 +267,14 @@ Cypress.Commands.add('closePopup', () => {
   cy.get('#mask').should('not.exist'); // wait for popup to close
 });
 
-Cypress.Commands.add('pickTradingPartner', (tradingPartner) => {
+Cypress.Commands.add('pickTradingPartner', (tradingPartner, urlValue) => {
   cy.get('input#trading_partner_country').click();
   cy.get('input#trading_partner_country').clear();
   cy.get('input#trading_partner_country').type(tradingPartner);
   cy.get('input#trading_partner_country').type('{enter}');
+  cy.url().then(urlValue => {
+  cy.visit(urlValue + `?country=${tradingPartner}`);
+ })
 });
 
 Cypress.Commands.add('checkValidityPeriodsCount', (expectedCount) => {
