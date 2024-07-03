@@ -4,7 +4,6 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('other');
-
     cy.otherOriginList({value: 'Indonesia'});
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
@@ -50,13 +49,41 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
 
   it('🛢️  RoW 🇱🇮 (Liechtenstein) - XI  | 6.fuels or various types - White oils, liquid paraffin |', function() {
     cy.visit('/duty-calculator/uk/3811210027/import-date');
-
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('other');
-
     cy.otherOriginList({value: 'Liechtenstein'});
+    cy.traderScheme('yes');
+    cy.finalUseNI('yes');
+    cy.turnOver('more');
+    cy.planned('unacceptablecommercial');
+    cy.euDutiesApply();
+    cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
+    cy.docCode({xi: 'n990'});
+    cy.contains('Continue').click();
+    cy.docCode({xi: 'c119'});
+    cy.contains('Continue').click();
+    cy.docCode({xi: 'y021'});
+    cy.contains('Continue').click();
+    cy.confirmPage();
+    cy.dutyPage();
+    cy.contains('Third-country duty');
+    cy.contains('Tariff preference - European Economic Area');
+    cy.contains('Autonomous suspension under end-use');
+    cy.contains('Airworthiness tariff suspension');
+    cy.get('.govuk-back-link').click();
+    cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
+    cy.docCode({xi: 'none'});
+    cy.contains('Continue').click();
+    cy.dcStoppingPage();
+  });
 
+  it('🛢️  RoW 🇱🇮 (Liechtenstein) - XI  | 6.fuels or various types - White oils, liquid paraffin | with Excise code', function() {
+    cy.visit('/duty-calculator/uk/2710198500/import-date');
+    cy.validDate();
+    cy.selectDestination('xi');
+    cy.selectOrigin('other');
+    cy.otherOriginList({value: 'Liechtenstein'});
     cy.traderScheme('yes');
     cy.finalUseNI('yes');
     cy.turnOver('more');
@@ -64,9 +91,7 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.euDutiesApply();
     cy.customsValue({monetary: '500.00', shipping: '250.00', cost: '250.00'});
     cy.quantity({ltr: '100'});
-    cy.docCode({xi: 'n990'});
-    cy.contains('Continue').click();
-    cy.docCode({xi: 'c119'});
+    cy.docCode({xi: 'c990'});
     cy.contains('Continue').click();
     cy.docCode({xi: 'y021'});
     cy.contains('Continue').click();
@@ -74,16 +99,13 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.exciseCode('520');
     cy.contains('Excise additional code');
     cy.contains('520');
-    cy.contains('C119, N990, Y021');
+    cy.contains('C990, Y021');
     cy.confirmPage();
-
     cy.dutyPage();
     cy.contains('Third-country duty');
     cy.contains('520 - Light oil: unrebated (unmarked) – other unrebated light oil');
     cy.contains('Tariff preference - European Economic Area');
-    cy.contains('Autonomous suspension under end-use');
-    cy.contains('Airworthiness tariff suspension');
-
+    cy.contains('Suspension').should('exist');
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(12) > .govuk-summary-list__actions > .govuk-link').click();
     cy.contains('Which class of excise is applicable to your trade?');
@@ -92,11 +114,18 @@ describe('🛃 | dcExciseCode.spec.js | Validate excise code on duty calculator 
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('520 - Light oil: unrebated (unmarked) – other unrebated light oil').should('not.exist');
-
     cy.get('.govuk-back-link').click();
     cy.get('div:nth-of-type(2) > .govuk-summary-list__actions > .govuk-link').click();
     cy.docCode({xi: 'none'});
     cy.contains('Continue').click();
-    cy.dcStoppingPage();
+    cy.docCode({xi: 'none'});
+    cy.contains('Continue').click();
+    cy.contains('Continue').click();
+    cy.contains('n/a');
+    cy.confirmPage();
+    cy.dutyPage();
+    cy.contains('Third-country duty');
+    cy.contains('3.70% * £1,000.00');
+    cy.contains('Suspension').should('not.exist');
   });
 });

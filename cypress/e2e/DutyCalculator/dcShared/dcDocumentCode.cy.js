@@ -20,7 +20,8 @@ describe('validate document codes step and outcomes', function() {
     cy.contains('There is a problem');
     cy.contains('Specify a valid option');
     cy.get('.govuk-error-message').contains('Specify a valid option');
-
+    cy.docCode({xi: 'y155'})
+    cy.contains('Continue').click();
     // when we pick a positive case for a document code which will filter in a suspension measure
     cy.docCode({xi: 'c990'});
     cy.contains('Continue').click();
@@ -39,6 +40,8 @@ describe('validate document codes step and outcomes', function() {
     cy.get('.govuk-back-link').click();
     cy.get('a[href^="/duty-calculator/document-codes"]').contains('Change').click();
     cy.contains('Do you have any of the following documents?');
+    cy.docCode({xi: 'none'});
+    cy.contains('Continue').click();
     cy.docCode({xi: 'none'});
     cy.contains('Continue').click();
     cy.docCode({xi: 'none'});

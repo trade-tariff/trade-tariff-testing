@@ -42,7 +42,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
   });
   it('UK - Heading page', function() {
     const headings = ['4301', '4802'];
-    const comms = ['5', '18'];
+    const comms = ['5', '23'];
     for ( let i=0; i<headings.length; i++) {
       cy.visit(`/headings/${headings[i]}`);
       cy.get('.govuk-summary-list').contains('Heading');
