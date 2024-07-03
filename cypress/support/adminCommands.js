@@ -508,7 +508,7 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
   cy.contains('Manage category assessments');
   let found;
   cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item').then(($pageLinks) => {
-    for (let i = 1; i < $pageLinks.length; i++) {
+    for (let i = 0; i < $pageLinks.length; i++) {
       cy.get('.govuk-auto-classes >table > tbody >tr>td:nth-child(2)').each(($measureVal) => {
         if ($measureVal.text() == measure && !found) {
           cy.get('tbody > tr >td:nth-child(2)').contains('81').siblings().contains('a', 'Edit').click();
