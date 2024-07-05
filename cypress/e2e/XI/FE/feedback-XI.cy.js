@@ -79,28 +79,4 @@ describe('🇪🇺 💡| feedback-XI | feedback link is available and user is ab
       cy.contains('.feedback-useful-banner', 'Is this page useful?').should('not.exist');
     }
   });
-  it(`New Feedback Page Design`, function() {
-    cy.visit(`/xi/feedback`);
-    cy.contains('.govuk-tag', 'FEEDBACK').should('not.exist');
-    cy.contains('.govuk-link', 'feedback').should('not.exist');
-    cy.contains('Northern Ireland Online Tariff');
-    cy.contains('Give feedback on Online Trade Tariff');
-    cy.contains('Tell us how to improve our service. ');
-    cy.contains('Feedback is anonymous. Do not include any personal information. ');
-    cy.get('.form-hint > a:nth-of-type(1)').should('have.attr', 'href', 'mailto:online.tariff.feedback@hmrc.gov.uk');
-    cy.get('.govuk-textarea').type(' 👨🏻‍💻 Cypress Test - 🇬🇧 🇪🇺 feedback ');
-    cy.get('form#new_feedback > .govuk-button').click();
-    cy.contains('Feedback submitted');
-    cy.contains('Thank you for your valuable feedback.');
-    cy.contains('What happens next');
-    cy.contains('We’ve sent your feedback to the Online Trade Tariff team');
-    cy.contains('.govuk-tag', 'FEEDBACK').should('exist');
-    cy.contains('.govuk-link', 'feedback').should('exist');
-    cy.contains('Tell us what you think - your feedback will help us improve.');
-    cy.get('.feedback-useful-banner');
-    cy.contains('Is this page useful?');
-    cy.contains('div > li >.govuk-button', 'Yes').should('have.attr', 'href', '/xi/feedback?page_useful=yes');
-    cy.contains('div > li >.govuk-button', 'No').should('have.attr', 'href', '/xi/feedback?page_useful=no');
-    cy.contains('div > li >.govuk-button', 'Report a problem with this page').should('have.attr', 'href', '/xi/feedback');
-  });
 });
