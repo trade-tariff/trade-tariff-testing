@@ -135,7 +135,7 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
       cy.createNewExemptingCertificateOverride(service);
     });
     it('remove new exempting certificate overrides - green lanes', function() {
-      cy.removeNewExemptincertificateOverride(service);
+      cy.removeNewExemptincertificateOverride(service, '100');
     });
     it('view manage green lanes exemptions page', function() {
       cy.exemptions(service);
