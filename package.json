@@ -11,7 +11,7 @@
     "cypress": "13.10.0",
     "cypress-dark": "^1.7.14",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
-    "cypress-downloadfile": "^1.2.3",
+    "cypress-downloadfile": "^1.2.4",
     "cypress-file-upload": "^5.0.8",
     "cypress-fill-command": "^1.0.1",
     "cypress-otp": "^1.0.3",
