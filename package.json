@@ -4,7 +4,7 @@
   "license": "MIT",
   "description": "E2E testing of the Online Trade Tariff",
   "dependencies": {
-    "@cypress/grep": "^4.0.1",
+    "@cypress/grep": "^4.1.0",
     "allure-commandline": "^2.29.0",
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.2.1",
