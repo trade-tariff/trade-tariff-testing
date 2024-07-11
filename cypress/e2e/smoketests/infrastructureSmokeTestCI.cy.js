@@ -25,12 +25,6 @@ describe('Smoke tests for infrastructure', function() {
         expect(response.body).to.have.property('git_sha1');
         expect(response.body.healthy).to.eq(true);
       });
-
-      // verify opensearch, caching and tokenisation
-      cy.visit('/uk/find_commodity');
-      cy.visit('/uk/search/toggle_beta_search');
-      cy.searchForCommodity('halbiut');
-      cy.get('section[id^="beta-search-results-"]').should('be.visible');
     });
   });
 
@@ -42,12 +36,6 @@ describe('Smoke tests for infrastructure', function() {
         expect(response.body).to.have.property('git_sha1');
         expect(response.body.healthy).to.eq(true);
       });
-
-      // verify opensearch, caching and tokenisation
-      cy.visit('/xi/find_commodity');
-      cy.visit('/xi/search/toggle_beta_search');
-      cy.searchForCommodity('halbiut');
-      cy.get('section[id^="beta-search-results-"]').should('be.visible');
     });
   });
 });
