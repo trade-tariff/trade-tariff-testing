@@ -469,7 +469,7 @@ Cypress.Commands.add('createNewCategoryAssessment', (service, duplicateCategory)
 Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
   cy.contains('Manage category assessments');
-  cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item > .govuk-pagination__link').last().click();
+  cy.get('.govuk-pagination__item > .govuk-pagination__link').last().click();
   cy.get('.govuk-auto-classes >table > tbody > tr').each(($row) => {
     if ($row.find('td:nth-child(2)').text() == measure) {
       cy.log('loop inside');
@@ -498,10 +498,9 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
 Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/category_assessments`);
   cy.contains('Manage category assessments');
-  cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item > .govuk-pagination__link').last().click();
+  cy.get('.govuk-pagination__item > .govuk-pagination__link').last().click();
   cy.get('.govuk-auto-classes >table > tbody > tr').each(($row) => {
     if ($row.find('td:nth-child(2)').text() == measure) {
-      cy.log('loop inside');
       cy.get('.govuk-auto-classes >table > tbody > tr > td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
       cy.url().should('include', '/edit');
       cy.contains('Category Assessments');
@@ -525,7 +524,7 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
       cy.url().should('include', '/xi/green_lanes/category_assessments');
       cy.contains('Success');
       cy.contains('Category Assessment removed');
-      cy.get('.govuk-pagination > .govuk-pagination__list > .govuk-pagination__item > .govuk-pagination__link').last().click();
+      cy.get('.govuk-pagination__item > .govuk-pagination__link').last().click();
       cy.get('.govuk-auto-classes >table > tbody > tr > td:nth-child(2)').should('not.contain.value', measure);
 
     }
