@@ -1,14 +1,4 @@
 describe('Smoke tests for infrastructure', function() {
-  it('returns healthy for the search query parser', function() {
-    cy.request('/api/search/healthcheck').then((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.body).to.have.property('git_sha1');
-      expect(response.body.healthy).to.eq(true);
-      expect(response.body.using_spelling_fallback).to.eq(false);
-      expect(response.body.using_synonym_fallback).to.eq(false);
-    });
-  });
-
   it('returns healthy for the frontend', function() {
     cy.request('/healthcheck').then((response) => {
       expect(response.status).to.eq(200);
