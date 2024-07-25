@@ -540,20 +540,17 @@ Cypress.Commands.add('exemptingCertificateOverrides', (service) => {
     cy.visit(`${adminUrl}/${service}/green_lanes/exempting_overrides`);
     cy.get('#navigation').contains('Exempting Overrides');
     cy.contains('Manage exempting certificate overrides');
-    cy.get('.govuk-auto-classes').then(($data) => {
-      if (!Cypress.dom.isDetached($data.find('table:nth-of-type(1)')) && Cypress.dom.isDetached($data.find('.govuk-inset-text').text()
-        .match('No Exempting Certificate Override'))) {
-        cy.get('.govuk-auto-classes > table').contains('ID');
-        cy.get('.govuk-auto-classes > table').contains('Certificate Type Code');
-        cy.get('.govuk-auto-classes > table').contains('Certificate Code');
-        cy.get('.govuk-auto-classes > table').contains('Action');
-      }
-      else {
-        cy.get('.govuk-inset-text').contains('No Exempting Certificate Override');
-      }
-    });
+    cy.get('.govuk-auto-classes > table').contains('ID');
+    cy.get('.govuk-auto-classes > table').contains('Certificate Type Code');
+    cy.get('.govuk-auto-classes > table').contains('Certificate Code');
+    cy.get('.govuk-auto-classes > table').contains('Action');
+    cy.get('.govuk-auto-classes > table').contains('ID');
+    cy.get('.govuk-auto-classes > table').contains('Additional Code Type');
+    cy.get('.govuk-auto-classes > table').contains('Additional Code');
+    cy.get('.govuk-auto-classes > table').contains('Action');
   }
 });
+
 
 Cypress.Commands.add('verifyNewExemptingCertificateOverrides', (service) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/exempting_overrides`);

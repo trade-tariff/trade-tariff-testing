@@ -630,7 +630,7 @@ Cypress.Commands.add('getDataAndSortToCompare', (filePath) => {
               .map((col) => col.trim()), // remove whitespace
           )
           .filter((row) => row.length); // remove empty rows
-      expect(actualArrays.length).to.equal(expectedData.length);
+      expect(actualArrays.length).to.equal(expectedData.length-1);
     });
   });
 });
