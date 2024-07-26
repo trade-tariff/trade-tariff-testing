@@ -485,7 +485,7 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
       cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
         .should('have.value', '1').and('id', 'category-assessment-theme-id-field');
       cy.contains('Back');
-      // submit form without entering values and checking errors
+      // submit form without entering values for GN and checking errors
       cy.get('.new_measure > button.govuk-button').contains('Add').click();
       cy.get('.govuk-error-summary').contains('Product Line Suffix cannot be blank');
       cy.get('.govuk-error-summary').contains('Goods Nomenclature Item Id cannot be blank');
@@ -500,7 +500,7 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
       cy.get('.govuk-auto-classes > table').contains('Goods Nomenclature Description');
       cy.get('.govuk-auto-classes > table').contains('Product Line Suffix');
       cy.get('.govuk-auto-classes > table').contains('Action');
-      // submit form without entering values and checking errors
+      // submit form without entering values for exemption and checking errors
       cy.get('.new_cae > button.govuk-button').contains('Add').click();
       cy.get('.govuk-error-summary').contains('Exemption cannot be blank');
       cy.get('#cae-exemption-id-error').contains('Exemption cannot be blank');
