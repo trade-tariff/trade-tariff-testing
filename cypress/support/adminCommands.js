@@ -472,8 +472,7 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
   cy.get('.govuk-pagination__item > .govuk-pagination__link').last().click();
   cy.get('.govuk-auto-classes >table > tbody > tr').each(($row) => {
     if ($row.find('td:nth-child(2)').text() == measure) {
-      cy.log('loop inside');
-      cy.get('.govuk-auto-classes >table > tbody > tr > td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
+      cy.get('td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
       cy.url().should('include', '/edit');
       cy.contains('Category Assessments');
       cy.contains('Edit Category Assessment');
@@ -485,6 +484,31 @@ Cypress.Commands.add('updateNewCategoryAssessment', (service, measure) => {
         .should('have.value', '2').and('id', 'category-assessment-regulation-role-field');
       cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
         .should('have.value', '1').and('id', 'category-assessment-theme-id-field');
+      cy.contains('Back');
+      // submit form without entering values and checking errors
+      cy.get('.new_measure > button.govuk-button').contains('Add').click();
+      cy.get('.govuk-error-summary').contains('Product Line Suffix cannot be blank');
+      cy.get('.govuk-error-summary').contains('Goods Nomenclature Item Id cannot be blank');
+      cy.get('#measure-goods-nomenclature-item-id-error').contains('Goods Nomenclature Item Id cannot be blank');
+      cy.get('#measure-productline-suffix-error').contains('Product Line Suffix cannot be blank');
+      cy.get('#measure-goods-nomenclature-item-id-field-error').type('2710120000');
+      cy.get('#measure-productline-suffix-field-error').type('80');
+      cy.get('.new_measure > button.govuk-button').contains('Add').click();
+      cy.contains('Success');
+      cy.contains('Goods Nomenclature assigned successfully');
+      cy.get('.govuk-auto-classes > table').contains('Goods Nomenclature Item Id');
+      cy.get('.govuk-auto-classes > table').contains('Goods Nomenclature Description');
+      cy.get('.govuk-auto-classes > table').contains('Product Line Suffix');
+      cy.get('.govuk-auto-classes > table').contains('Action');
+      // submit form without entering values and checking errors
+      cy.get('.new_cae > button.govuk-button').contains('Add').click();
+      cy.get('.govuk-error-summary').contains('Exemption cannot be blank');
+      cy.get('#cae-exemption-id-error').contains('Exemption cannot be blank');
+      cy.get('.govuk-form-group:has(label:contains("Select an Exemption"))').find('select')
+        .and('id', 'cae-exemption-id-field-error').select('2');
+      cy.get('.new_cae > button.govuk-button').contains('Add').click();
+      cy.contains('Success');
+      cy.contains('Exemption assigned successfully');
       cy.get('.govuk-form-group:has(label:contains("Select Theme"))').find('select')
         .and('id', 'category-assessment-theme-id-field').select('2');
       cy.contains('Back');
@@ -501,7 +525,7 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
   cy.get('.govuk-pagination__item > .govuk-pagination__link').last().click();
   cy.get('.govuk-auto-classes >table > tbody > tr').each(($row) => {
     if ($row.find('td:nth-child(2)').text() == measure) {
-      cy.get('.govuk-auto-classes >table > tbody > tr > td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
+      cy.get('td:nth-child(2)').contains(measure).siblings().contains('a', 'Edit').click();
       cy.url().should('include', '/edit');
       cy.contains('Category Assessments');
       cy.contains('Edit Category Assessment');
@@ -516,6 +540,12 @@ Cypress.Commands.add('removeNewCategoryAssessment', (service, measure) => {
       cy.contains('Back');
       cy.contains('Remove Category Assessment');
       cy.contains('Remove this Category Assessment');
+      cy.get('td > a:nth-child(1)').contains('Remove').click();
+      cy.contains('Success');
+      cy.contains('Goods Nomenclature removed successfully');
+      cy.get('table:nth-of-type(1)> tbody>tr>td >a').contains('Remove').click();
+      cy.contains('Success');
+      cy.contains('Exemption removed successfully');
       cy.get('#main-content > div.govuk-auto-classes > a').contains('Remove').click();
       cy.on('window:alert', () => {
         expect('Are you sure?').to.contains('Are you sure?');
@@ -550,7 +580,6 @@ Cypress.Commands.add('exemptingCertificateOverrides', (service) => {
     cy.get('.govuk-auto-classes > table').contains('Action');
   }
 });
-
 
 Cypress.Commands.add('verifyNewExemptingCertificateOverrides', (service) => {
   cy.visit(`${adminUrl}/${service}/green_lanes/exempting_overrides`);
