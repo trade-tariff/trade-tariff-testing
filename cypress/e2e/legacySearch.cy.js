@@ -39,7 +39,7 @@ describe('Legacy search', function() {
     it('Search suggestions are displayed and work for chemical names', function() {
       cy.validateAutocompleteNthItem(
           'insulin',
-          2,
+          3,
           'insulin, human',
           '/commodities/2937120000',
           '0036941-5',
