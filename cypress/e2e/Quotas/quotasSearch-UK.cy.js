@@ -55,9 +55,9 @@ describe('🇬🇧 💡 | quotasSearch-UK | QuotasSearch using comm codes and qu
     cy.contains('Quota search results');
     cy.get('.govuk-table__row').contains('057140');
     cy.contains('Colombia (CO)');
-    cy.contains('01 August 2023');
-    cy.contains('31 July 2024');
-    cy.contains('2,043.000 Tonne (1000 kg)');
+    cy.contains('01 August 2024');
+    cy.contains('31 July 2025');
+    cy.contains('2,043,000.000 Kilogram');
   });
 
   it('Quotas Search - Critical state', function() {
