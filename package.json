@@ -8,8 +8,8 @@
     "allure-commandline": "^2.29.0",
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.2.1",
-    "cypress": "13.10.0",
-    "cypress-dark": "^1.7.14",
+    "axe-core": "^4.10.0",
+    "cypress-dark": "^1.1.0",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
     "cypress-downloadfile": "^1.2.3",
     "cypress-file-upload": "^5.0.8",
@@ -69,5 +69,9 @@
     "dev-tariff-duty-calculator-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/dcSmokeTestCI.cy.js",
     "dev-tariff-admin-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/adminSmokeTestCI.cy.js",
     "dev-tariff-infrastructure-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/infrastructureSmokeTestCI.cy.js"
+  },
+  "devDependencies": {
+    "cypress": "^13.13.1",
+    "cypress-axe": "^1.5.0"
   }
 }

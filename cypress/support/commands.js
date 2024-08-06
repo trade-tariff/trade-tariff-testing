@@ -20,6 +20,28 @@ const months = [
 
 const goodsNomenclatureLinkRegex = /\/(headings|subheadings|commodities)\/[0-9]{4}(?:-[0-9]{2})?/;
 
+
+
+// Add custom command to run axe
+Cypress.Commands.add('injectAndCheckA11y', (context = 'body', options = null, violationCallback = null, skipFailures = false) => {
+  cy.injectAxe();
+  cy.checkA11y(context, options, violationCallback, skipFailures);
+});
+
+Cypress.Commands.add('disableAnimations', () => {
+  const css = `
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  `;
+  cy.document().then((doc) => {
+    const style = doc.createElement('style');
+    style.appendChild(doc.createTextNode(css));
+    doc.head.appendChild(style);
+  });
+});
+
 Cypress.Commands.add('datePickerPage', (date) => {
   const importDateInput = (index) => `input[name='import_export_date[import_date(${index}i)]']`;
 
