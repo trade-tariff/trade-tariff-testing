@@ -4,7 +4,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.visit('/find_commodity');
       cy.mainPageUK();
     });
-    it('verify date pickers are working', function() {
+    it('Verify date pickers are working', function() {
       cy.visit('/find_commodity');
       cy.get('.govuk-details__summary').click();
       cy.get('#tariff_date_day').click();
@@ -407,6 +407,94 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.contains('Continue').click();
       cy.get('.govuk-button:not(.govuk-button--secondary):not(.report-problem').click();
       cy.contains('When will the goods be imported?');
+    });
+  });
+  context('when on the UK service - SPIMM - E2E journeys', function() {
+    beforeEach('Navigates to SPIMM journey start page', () => {
+      cy.visit('/green_lanes/start/new');
+    });
+    it('Verify - Green lanes - UK to NI - Standard Category - Scenario - 1', function() {
+      const data = ['9603909100', 'BY', 'standard', 'yes']
+      // SPIMM process start page
+      cy.verifySpimmPage();
+      // Start now button
+      cy.clkBtnToContinue();
+      // Answer eligibility questions page
+      cy.verifyEligibilityNewPage(data[3]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Check the category of your goods page
+      cy.checkCategoryOfYourGoods();
+      // Continue button
+      cy.clkBtnToContinue();
+      // Tell us about your goods
+      cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Check your answers page
+      cy.checkYourAnswersPage(data[0], data[1]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Results Page
+      cy.verifyResultsPage(data[0], data[1], data[2]);
+    });
+    it.skip('Verify - Green lanes - UK to NI - Standard Category - Scenario - 2', function() {
+      const data = ['2009120090', 'UA', 'standard', 'yes', 'y170', 'y058', 'y900']
+      // SPIMM process start page
+      cy.verifySpimmPage();
+      // Start now button
+      cy.clkBtnToContinue();
+      // Answer eligibility questions page
+      cy.verifyEligibilityNewPage(data[3]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Check the category of your goods page
+      cy.checkCategoryOfYourGoods();
+      // Continue button
+      cy.clkBtnToContinue();
+      // Tell us about your goods
+      cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Tell us if your goods meet any exemptions - cat 2 and select at least one exception from each exceptions list.
+      cy.category2ExceptionsPage(data[0], data[1], data[4], data[5], data[6]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Check your answers page
+      cy.checkYourAnswersPage(data[0], data[1], true);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Results Page
+      cy.verifyResultsPage(data[0], data[1], data[2]);
+    });
+    it('Verify - Green lanes - UK to NI - Standard Category - Scenario - 3', function() {
+      const data = ['1602509590', 'FO', 'standard', 'yes', 'y170', 'y058', 'y900']
+      // SPIMM process start page
+      cy.verifySpimmPage();
+      // Start now button
+      cy.clkBtnToContinue();
+      // Answer eligibility questions page
+      cy.verifyEligibilityNewPage(data[3]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Check the category of your goods page
+      cy.checkCategoryOfYourGoods();
+      // Continue button
+      cy.clkBtnToContinue();
+      // Tell us about your goods
+      cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Tell us if your goods meet any exemptions - cat 2 and select at least one exception from each exceptions list.
+      cy.category2ExceptionsPage(data[0], data[1], data[4], data[5], data[6]);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Check your answers page
+      cy.checkYourAnswersPage(data[0], data[1], true);
+      // Continue button
+      cy.clkBtnToContinue();
+      // Results Page
+      cy.verifyResultsPage(data[0], data[1], data[2]);
     });
   });
 });
