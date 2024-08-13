@@ -459,7 +459,7 @@ Cypress.Commands.add('createNewCategoryAssessment', (service, duplicateCategory)
   cy.contains('Create Category assessment').click();
   if (duplicateCategory == 'yes') {
     cy.get('.govuk-error-summary').contains('There is a problem');
-    cy.get('.govuk-error-summary').contains('[:measure type id, :regulation id, :regulation role] is already taken');
+    cy.get('.govuk-error-summary').contains('[:measure type id, :regulation id, :regulation role, :theme id] is already taken');
   } else {
     cy.contains('Success');
     cy.contains('Category Assessment created');
