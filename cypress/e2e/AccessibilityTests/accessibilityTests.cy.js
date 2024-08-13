@@ -61,25 +61,25 @@ describe('Accessibility Test Suite', () => {
         cy.injectAndCheckA11y();
     });
     it('Duty calculator page - Northern Ireland to GB United Kingdom - Accessibility Test', () => {
-      cy.visit('/commodities/6004100091'); 
-      cy.dutyCalLink('6004100091');
-      cy.axeValidDate();
-      cy.axeSelectDestination('gb');
-      cy.axeOriginList({value: 'Northern Ireland'});
-      cy.axeNoDuty();
+        cy.visit('/commodities/6004100091'); 
+        cy.dutyCalLink('6004100091');
+        cy.axeValidDate();
+        cy.axeSelectDestination('gb');
+        cy.axeOriginList({value: 'Northern Ireland'});
+        cy.axeNoDuty();
     });
     it.only('ROO - importing goods into the UK from Japan - Not Wholely Obtained + One Scheme + Insufficient processing - Japan - Accessibility Test', () => {
-      cy.visit('/commodities/6004100091?country=JP#rules-of-origin'); 
-      cy.axeCheckRoO();
-      cy.axeImpOrExp('Japan', 'import');
-      cy.axeHowOrginating('Japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
-      cy.axeHowWhollyObtained('UK-Japan Comprehensive Economic Partnership Agreement');
-      cy.axeWhatComponents('UK-Japan Comprehensive Economic Partnership Agreement');
-      cy.axeWhollyObtained('Japan', 'no');
-      cy.axeNotWhollyObtained('Japan');
-      cy.axeCumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
-      cy.axeMinimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
-      cy.axeRooNotMet('Importing', 'Japan', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement');
+        cy.visit('/commodities/6004100091?country=JP#rules-of-origin'); 
+        cy.axeCheckRoO();
+        cy.axeImpOrExp('Japan', 'import');
+        cy.axeHowOrginating('Japan', 'UK-Japan Comprehensive Economic Partnership Agreement');
+        cy.axeHowWhollyObtained('UK-Japan Comprehensive Economic Partnership Agreement');
+        cy.axeWhatComponents('UK-Japan Comprehensive Economic Partnership Agreement');
+        cy.axeWhollyObtained('Japan', 'no');
+        cy.axeNotWhollyObtained('Japan');
+        cy.axeCumulation('japan', '6004100091', 'JP', 'UK-Japan Comprehensive Economic Partnership Agreement');
+        cy.axeMinimalOps('UK-Japan Comprehensive Economic Partnership Agreement', 'no');
+        cy.axeRooNotMet('Importing', 'Japan', '6004100091', 'UK-Japan Comprehensive Economic Partnership Agreement');
     });
   });
   context('when on the XI service', function() {
