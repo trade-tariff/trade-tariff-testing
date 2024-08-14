@@ -143,12 +143,7 @@ Cypress.Commands.add('axeMinimalOps', (scheme, selection)=>{
 Cypress.Commands.add('axeRooNotMet', (tradetype, country, code, scheme)=>{
   cy.contains(`${tradetype} commodity ${code} from ${country}`);
   cy.contains('Product-specific rules not met');
-  // tolerance link
-  
-  
-  // No duty drawback link
   cy.should('not.have.text', 'Find out about duty drawback');
-  
   cy.get('.govuk-warning-text__text').contains('obtaining and verifying proofs of origin').click();
   cy.contains('Valid proofs of origin');
   cy.go('back');
