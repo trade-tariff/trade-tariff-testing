@@ -73,16 +73,16 @@ describe('validate /exchange_rates', function () {
     cy.visit(path + '/average');
     cy.url().should('include', '/exchange_rates/average');
     cy.get('.gem-c-related-navigation__link-list').contains('Currency exchange monthly rates');
-    cy.get('h1').contains('Check foreign currency exchange rates');
-    cy.contains('Average exchange rates');
+    cy.get('h1').contains('HMRC currency exchange average rates');
+    cy.contains('Check the official HMRC foreign currency exchange average rates.');
   });
 
   it('Verify download CSV file on average rates page', function () {
     cy.visit(path + '/average');
     cy.url().should('include', '/exchange_rates/average');
     cy.get('.gem-c-related-navigation__link-list').contains('Currency exchange monthly rates');
-    cy.get('h1').contains('Check foreign currency exchange rates');
-    cy.contains('Average exchange rates');
+    cy.get('h1').contains('HMRC currency exchange average rates');
+    cy.contains('Check the official HMRC foreign currency exchange average rates.');
     cy.get('.attachment-details').contains(`${avgRatesMonthName} ${previousYear} average exchange rates`);
     cy.contains('CSV');
     cy.request(`/api/v2/exchange_rates/files/average_csv_${previousYear}-${avgRatesMonth}.csv`).then((response) => {
@@ -94,8 +94,8 @@ describe('validate /exchange_rates', function () {
     cy.visit(path + '/spot');
     cy.url().should('include', '/exchange_rates/spot');
     cy.get('.gem-c-related-navigation__link-list').contains('Currency exchange monthly rates');
-    cy.get('h1').contains('Check foreign currency exchange rates');
-    cy.contains('Spot exchange rates');
+    cy.get('h1').contains('HMRC currency exchange spot rates');
+    cy.contains('Check the official HMRC foreign currency exchange spot rates.');
   });
 
   it('Download CSV file in mentioned directory and verify number of records', function () {
