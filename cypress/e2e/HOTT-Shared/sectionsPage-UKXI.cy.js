@@ -5,7 +5,7 @@ describe('🇬🇧 💡 🔍  | sectionsPage.spec-UK | Sections page content val
     it(`${country[i]} Search the tariff text/box visible`, function() {
       cy.visit(`${country[i]}/sections`);
       cy.get('.govuk-label').should('be.visible');
-      cy.get('.js-commodity-picker-select.js-show  input#q').should('be.visible');
+      cy.get('[data-controller="commodity-select-box"] input#q').should('be.visible');
     });
     it(`${country[i]} Browse Page - All 21 sections titles displayed `, function() {
       cy.visit(`${country[i]}/browse`);

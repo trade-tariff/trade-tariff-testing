@@ -20,6 +20,7 @@ import './dutyCommands';
 import './apiCommands';
 import './rooCommands';
 import './accessibilityCommands';
+import './glCommands';
 import 'cypress-fill-command';
 import 'cypress-axe';
 require('@cypress/grep')();

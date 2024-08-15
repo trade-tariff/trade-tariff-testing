@@ -8,6 +8,7 @@ describe('tools', function() {
       cy.contains('Tariff tools');
       cy.get('.govuk-header').contains('Tools');
 
+      cy.get('a[href="/exchange_rates"]');
       cy.get('a[href="/simplified_procedure_value"]');
       cy.get('a[href="/quota_search"]');
       cy.get('a[href="/certificate_search"]');
@@ -33,8 +34,8 @@ describe('tools', function() {
       cy.get('a[href="/xi/footnote_search"]');
       cy.get('a[href="/xi/chemical_search"]');
       cy.get('a[href="/xi/meursing_lookup/steps/start"]');
-
       cy.get('a[href="/xi/quota_search"]').should('not.exist');
+      cy.get('a[href="/exchange_rates"]').should('not.exist');
     });
   });
 });

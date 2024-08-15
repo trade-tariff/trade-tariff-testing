@@ -145,13 +145,13 @@ Cypress.Commands.add('contextSelector', () => {
 });
 
 Cypress.Commands.add('searchForCommodity', (searchString) => {
-  cy.get('.js-commodity-picker-select:last').click();
-  cy.get('.js-commodity-picker-select:last').type(`${searchString}{enter}`);
+  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').click();
+  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').type(`${searchString}{enter}`);
 });
 
 Cypress.Commands.add('searchForCommodity2', (searchString) => {
-  cy.get('.js-commodity-picker-select:last').click();
-  cy.get('.js-commodity-picker-select:last').type(searchString);
+  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').click();
+  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').type(searchString);
   return cy.get('input[name=\'new_search\']').click();
 });
 
