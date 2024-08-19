@@ -70,9 +70,5 @@
     "dev-tariff-duty-calculator-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/dcSmokeTestCI.cy.js",
     "dev-tariff-admin-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/adminSmokeTestCI.cy.js",
     "dev-tariff-infrastructure-smoketests": "CYPRESS_SPACE=DEVELOPMENT CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk yarn run cypress run --spec cypress/e2e/smoketests/infrastructureSmokeTestCI.cy.js"
-  },
-  "devDependencies": {
-    "cypress": "^13.13.1",
-    "cypress-axe": "^1.5.0"
   }
 }
