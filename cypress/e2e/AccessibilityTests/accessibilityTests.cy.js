@@ -68,7 +68,7 @@ describe('Accessibility Test Suite', () => {
         cy.axeOriginList({value: 'Northern Ireland'});
         cy.axeNoDuty();
     });
-    it.only('ROO - importing goods into the UK from Japan - Not Wholely Obtained + One Scheme + Insufficient processing - Japan - Accessibility Test', () => {
+    it('ROO - importing goods into the UK from Japan - Not Wholely Obtained + One Scheme + Insufficient processing - Japan - Accessibility Test', () => {
         cy.visit('/commodities/6004100091?country=JP#rules-of-origin'); 
         cy.axeCheckRoO();
         cy.axeImpOrExp('Japan', 'import');
