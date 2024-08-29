@@ -129,7 +129,7 @@ Cypress.Commands.add('sortCat2ExemptionList', (documentCodes, category) => {
     let cat2UrlParams = new String();
     cy.getCategoryExemptions(documentCodes, category);
     cy.get('@cat').then(($cat2Exemptions) => {
-        onlyCat2Exemptions = Object.values($cat2Exemptions);
+        onlyCat2Exemptions = Object.values($cat2Exemptions).reverse().sort();
         for (var i = 0; i < onlyCat2Exemptions.length; i++) {
             if (!cat2UrlParams.includes(onlyCat2Exemptions[i])) {
                 cat2UrlParams += onlyCat2Exemptions[i];
