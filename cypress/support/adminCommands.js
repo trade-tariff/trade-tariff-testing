@@ -762,7 +762,3 @@ Cypress.Commands.add('removeExemption', (service) => {
   cy.contains('Exemption removed');
   cy.get('tbody').should('not.contain.value', '1');
 });
-
-
-
-
