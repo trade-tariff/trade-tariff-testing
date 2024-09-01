@@ -34,24 +34,24 @@ describe('importOnlyPageRoO.spec.js | Rules of Origin Import only page', {tags: 
     // DCTS - Comprehensive Preferences
     cy.get('#measure-20205188').contains('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences (1062)');
     cy.get('#measure-20205188').contains('Conditions').click();
-    cy.get('#popup > div > div').contains('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
-    cy.get('#popup > div > div').contains('Declaring your proof of origin');
-    cy.get('#popup > div > p').contains('Close').click();
+    cy.get('.info-inner > article').contains('Developing Countries Trading Scheme (DCTS) - Comprehensive Preferences');
+    cy.get('.info-inner > article').contains('Declaring your proof of origin');
+    cy.get('.info-content> p').contains('Close').click();
     cy.reload();
 
     // DCTS - Enhanced Preferences
     cy.get('#measure-20213585').contains('Developing Countries Trading Scheme (DCTS) - Enhanced Preferences (1061)');
     cy.get('#measure-20213585').contains('Conditions').click();
-    cy.get('#popup > div > div').contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
-    cy.get('#popup > div > div').contains('Declaring your proof of origin');
-    cy.get('#popup > div > p').contains('Close').click();
+    cy.get('.info-inner > article').contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
+    cy.get('.info-inner > article').contains('Declaring your proof of origin');
+    cy.get('.info-content> p').contains('Close').click();
     cy.reload();
 
     // DCTS - Standard Preferences
     cy.get('#measure-20211687').contains('Developing Countries Trading Scheme (DCTS) - Standard Preferences (1060)');
     cy.get('#measure-20211687').contains('Conditions').click();
-    cy.get('#popup > div > div').contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
-    cy.get('#popup > div > div').contains('Declaring your proof of origin');
-    cy.get('#popup > div > p').contains('Close').click();
+    cy.get('.info-inner > article').contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
+    cy.get('.info-inner > article').contains('Declaring your proof of origin');
+    cy.get('.info-content> p').contains('Close').click();
   });
 });

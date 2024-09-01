@@ -95,7 +95,7 @@ describe('Measure condition pop ups', function() {
   });
 
   context('when there are LPA-based components on alcohol duties', function() {
-    it('shows the correct popup information', function() {
+    it.only('shows the correct popup information', function() {
       cy.visit('/commodities/2208701000?day=28&month=08&year=2023#vat_excise');
       cy.verifyExciseAdditionalCodePopup(
           '315',

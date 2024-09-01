@@ -4,17 +4,26 @@ describe('UK 🇬🇧 XI 🇪🇺 | suspensions.cy.js | validate suspensions on 
   for (let i = 0; i < country.length; i++) {
     it(`${country[i]} Suspensions - Verify document code - C990`, function() {
       const commCode = ['2710198130', '2710198140'];
-      const measureId = ['measure-20121823', 'measure-3491882'];
+      let measureId;
+      if (`${country[i]}` === 'xi') {
+        cy.log('inside');
+         measureId = ['measure-4034476', 'measure-3491882'];
+        
+      }
+      else{
+         measureId = ['measure-20121823', 'measure-20124052'];
+      }
+      
       cy.visit(`${country[i]}/commodities/${commCode[i]}#suspensions`);
       cy.contains(`${titles[i]}`);
       cy.contains('Suspensions').click();
       cy.get('#suspensions').contains('Suspensions');
       cy.get(`#${measureId[i]}`).contains('Conditions').click();
-      cy.get('#popup').contains('Suspension - goods for certain categories of ships');
-      cy.get('#popup').contains('Meet one of the following conditions');
-      cy.get('#popup').contains('C990');
-      cy.get('#popup').contains('Guidance for completing CDS Data Element 2/3').click();
-      cy.get('#popup > div > div > article > div > details').contains('C990');
+      cy.get('.info-inner > article').contains('Suspension - goods for certain categories of ships');
+      cy.get('.info-inner > article').contains('Meet one of the following conditions');
+      cy.get('.info-inner > article').contains('C990');
+      cy.get('.info-inner > article').contains('Guidance for completing CDS Data Element 2/3').click();
+      cy.get('.info-inner >  article > .permutation-group > table >tbody >tr:nth-child(1) >td:nth-child(1)').contains('C990');
     });
     it(`${country[i]} - Verify suspensions for measure type - 112`, function() {
       const commCode = ['2903590020', '0403204939'];
