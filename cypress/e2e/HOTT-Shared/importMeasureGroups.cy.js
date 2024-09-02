@@ -28,14 +28,14 @@ describe('UK 🇬🇧 XI 🇪🇺 | importMeasureGrouping - UK & XI | validate i
     cy.get('li:nth-of-type(4) > .govuk-link').contains('Trade remedies, safeguards and retaliatory duties');
     cy.get('#measure-20186730').contains('Russia (RU)');
     cy.get('#measure-20186730').contains('Additional duties');
-    cy.get('#measure-20186730 > td.conditions-col.govuk-table__cell > a').click();
-    cy.get('#popup').contains('Additional duties for Russia');
-    cy.get('#popup > div > div > article > div > details > summary').contains('Guidance for completing CDS Data Element 2/3').click();
-    cy.get('#popup > div > div > article > div > details > div > table').contains('Document code');
-    cy.get('#popup > div > div > article > div > details > div > table').contains('CDS guidance');
-    cy.get('#popup > div > div > article > div > details > div > table').contains('9018');
-    cy.get('#popup > div > div > article > div > details > div > table').contains('Complete the statement:');
-    cy.get('#popup > div > div > article > div > details > div > table').contains('No document status code is required.');
+    cy.get('#measure-20186730 > td:nth-child(4) > div > a').click();
+    cy.get('.info-inner').contains('Additional duties for Russia');
+    cy.get('.info-inner > article > div > details > summary').contains('Guidance for completing CDS Data Element 2/3').click();
+    cy.get('.info-inner > article > div > details > div >table >  thead > tr > th:nth-child(1)').contains('Document code');//.info-inner > article > div > table >  thead > tr > th:nth-child(1)
+    cy.get('.info-inner > article > div > details > div >table >  thead > tr > th:nth-child(2)').contains('CDS guidance');
+    cy.get('.info-inner > article > div > details > div >table > tbody > tr > td:nth-child(1)').contains('9018');
+    cy.get('.info-inner > article > div > details > div >table > tbody > tr > td:nth-child(2) > ul > li:nth-child(1)').contains('Complete the statement:');
+    cy.get('.info-inner > article > div > details > div >table > tbody > tr > td:nth-child(2) > ul > li:nth-child(6)').contains('No document status code is required.');
   });
   it('UK - Update the display of additional codes for measures', function() {
     cy.visit('/commodities/3921139000');

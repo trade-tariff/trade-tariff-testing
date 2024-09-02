@@ -532,65 +532,65 @@ Cypress.Commands.add('verifyExciseMeasureType', (exciseAdditionalCode) => {
 Cypress.Commands.add('verfiyCDSDeclarationForExciseAdditionalCodes', (exciseAdditionalCode) =>{
   switch (exciseAdditionalCode) {
     case 'X301':
-      cy.get('#popup').contains('Applies to low alcohol products, with an ABV not exceeding 1.2%.');
+      cy.get('.info-inner').contains('Applies to low alcohol products, with an ABV not exceeding 1.2%.');
       break;
     case 'X313':
-      cy.get('#popup').contains('Applies to wine with an ABV less than 3.5%.');
+      cy.get('.info-inner').contains('Applies to wine with an ABV less than 3.5%.');
       break;
     case 'X315':
-      cy.get('#popup').contains('Applies to spirits with an ABV less than 3.5%.');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV less than 3.5%.');
       break;
     case 'X324':
-      cy.get('#popup').contains('Applies to other fermented products with an ABV at least 3.5% but ');
-      cy.get('#popup').contains('less than 8.5% and sparkling cider exceeding 5.5% but less than 8.5%');
+      cy.get('.info-inner').contains('Applies to other fermented products with an ABV at least 3.5% but ');
+      cy.get('.info-inner').contains('less than 8.5% and sparkling cider exceeding 5.5% but less than 8.5%');
       break;
     case 'X325':
-      cy.get('#popup').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5%.');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5%.');
       break;
     case 'X333':
-      cy.get('#popup').contains('Applies to wine with an ABV at least 8.5% but not exceeding 22%.');
+      cy.get('.info-inner').contains('Applies to wine with an ABV at least 8.5% but not exceeding 22%.');
       break;
     case 'X335':
-      cy.get('#popup').contains('Applies to spirits with an ABV at least 8.5% but not exceeding 22%.');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV at least 8.5% but not exceeding 22%.');
       break;
     case 'X345':
-      cy.get('#popup').contains('Applies to spirits with an ABV exceeding 22%.');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV exceeding 22%.');
       break;
     case 'X353':
-      cy.get('#popup').contains('Applies to wine with an ABV less than 3.5% and eligible for DR (Draught Relief).');
+      cy.get('.info-inner').contains('Applies to wine with an ABV less than 3.5% and eligible for DR (Draught Relief).');
       break;
     case 'X355':
-      cy.get('#popup').contains('Applies to spirits with an ABV less than 3.5% and eligible for DR (Draught Relief).');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV less than 3.5% and eligible for DR (Draught Relief).');
       break;
     case 'X360':
-      cy.get('#popup').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5% and eligible for DR (Draught Relief).');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5% and eligible for DR (Draught Relief).');
       break;
     case 'X365':
-      cy.get('#popup').contains('Applies to spirits with an ABV less than 3.5% and eligible for SPR (Small Producer Relief).');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV less than 3.5% and eligible for SPR (Small Producer Relief).');
       break;
     case 'X369':
-      cy.get('#popup').contains('Applies to other fermented products with an ABV at least 3.5% but less than 8.5% and sparkling ');
-      cy.get('#popup').contains('cider with an ABV exceeding 5.5% but less than 8.5% and eligible for SPR (Small Producer Relief).');
+      cy.get('.info-inner').contains('Applies to other fermented products with an ABV at least 3.5% but less than 8.5% and sparkling ');
+      cy.get('.info-inner').contains('cider with an ABV exceeding 5.5% but less than 8.5% and eligible for SPR (Small Producer Relief).');
       break;
     case 'X370':
-      cy.get('#popup').contains('Applies to spirits at least 3.5% but less than 8.5% and eligible for SPR (Small Producer Relief).');
+      cy.get('.info-inner').contains('Applies to spirits at least 3.5% but less than 8.5% and eligible for SPR (Small Producer Relief).');
       break;
     case 'X375':
-      cy.get('#popup')
+      cy.get('.info-inner')
           .contains('Applies to spirits with an ABV less than 3.5% and eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
       break;
     case 'X378':
-      cy.get('#popup').contains('Applies to wine with an ABV at least 3.5% but less than 8.5% and ');
-      cy.get('#popup').contains('eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
+      cy.get('.info-inner').contains('Applies to wine with an ABV at least 3.5% but less than 8.5% and ');
+      cy.get('.info-inner').contains('eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
       break;
     case 'X379':
-      cy.get('#popup').contains('Applies to other fermented products with an ABV at least 3.5% but less than 8.5% ');
-      cy.get('#popup').contains('and sparkling cider with an ABV exceeding 5.5% but less than 8.5% and eligible for ');
-      cy.get('#popup').contains('SPR (Small Producer Relief) and DR (Draught Relief).');
+      cy.get('.info-inner').contains('Applies to other fermented products with an ABV at least 3.5% but less than 8.5% ');
+      cy.get('.info-inner').contains('and sparkling cider with an ABV exceeding 5.5% but less than 8.5% and eligible for ');
+      cy.get('.info-inner').contains('SPR (Small Producer Relief) and DR (Draught Relief).');
       break;
     case 'X380':
-      cy.get('#popup').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5% and ');
-      cy.get('#popup').contains('eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
+      cy.get('.info-inner').contains('Applies to spirits with an ABV at least 3.5% but less than 8.5% and ');
+      cy.get('.info-inner').contains('eligible for SPR (Small Producer Relief) and DR (Draught Relief).');
       break;
   }
 });
@@ -601,11 +601,11 @@ Cypress.Commands.add('verifyExciseAdditionalCodePopup', (exciseCode, dutyAmount)
       cy.contains('Additional code: X' + exciseCode);
       cy.verifyExciseMeasureType('X' + exciseCode);
       cy.wrap($row).contains('Conditions').click();
-      cy.get('#popup').contains('Apply the duty');
-      cy.get('#popup').contains(dutyAmount);
+      cy.get('.info-inner').contains('Apply the duty');
+      cy.get('.info-inner').contains(dutyAmount);
       cy.verfiyCDSDeclarationForExciseAdditionalCodes('X' + exciseCode);
-      cy.get('#popup').contains('Taric additional code / national additional code');
-      cy.get('#popup').contains('X' + exciseCode);
+      cy.get('.info-inner').contains('Taric additional code / national additional code');
+      cy.get('.info-inner').contains('X' + exciseCode);
       cy.closePopup();
     }
   });
