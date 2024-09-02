@@ -48,7 +48,7 @@ describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
     cy.get('.info-inner > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${previousDate})`);
     // Click View balance for xxxxx - link and verify balance as of xxxxx
     cy.get('.info-inner > article > table > tbody > tr:nth-child(1) > td > a').click();
-     //OTT-348(OTT-488) - issue exist with popup when we click on verify balance as of xxxxx to skip this for now used the below statement
+    //OTT-348(OTT-488) - issue exist with popup when we click on verify balance as of xxxxx to skip this for now used the below statement
     cy.contains('058041').click();
     cy.get('.info-inner > article > h2').contains('Quota order number 058041');
     cy.get('.info-inner > article > table > tbody > tr:nth-child(1) > th').contains(`Balance (as of ${todaysDate})`);
