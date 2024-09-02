@@ -28,7 +28,7 @@
     "mochawesome-report-generator": "^6.0.1",
     "nanoid": "^5.0.7",
     "parse-markdown-table": "^0.0.6",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.43",
     "set-value": "^4.1.0",
     "validator": "^13.12.0"
   },
