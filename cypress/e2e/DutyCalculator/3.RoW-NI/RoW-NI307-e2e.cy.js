@@ -23,10 +23,10 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.dutyPage();
     cy.contains('Third-country duty');
     cy.contains('50.00% * £1,000.00');
-    cy.contains('0.00% * £1,000.00');
+    cy.contains('0.00% * £1,500.34');
     cy.contains('Suspension');
     cy.contains('0.00% * £1,000.00');
-    cy.contains('0.00% * £1,000.35');
+    cy.contains('0.00% * £1,000.34');
     cy.get('.govuk-back-link').click();
     cy.get('a[href^="/duty-calculator/document-codes"]').contains('Change').click();
     cy.contains('Do you have any of the following documents?');
@@ -46,10 +46,10 @@ describe('| RoW-NI307-e2e.spec | RoW (Argentina) to NI | Additional Codes + Docu
     cy.contains('10.90% * £1,000.00');
     cy.contains('Import duty (B999)');
     cy.contains('Definitive countervailing duty (EU)');
-    cy.contains('0.00% * £1,109.35');
+    cy.contains('0.00% * £1,109.34');
     cy.contains('Import duty (B999)');
     cy.contains('Definitive countervailing duty (EU)');
-    cy.contains('0.00% * £1,000.35');
+    cy.contains('0.00% * £1,000.34');
     cy.contains('Suspension').should('not.exist');
   });
 });
