@@ -26,7 +26,7 @@ Cypress.Commands.add('clkBtnToContinue', () => {
 
 // Answer eligibility questions page
 Cypress.Commands.add('verifyEligibilityNewPage', (answer) => {
-    cy.url().should('include', 'check_spimm_eligibility/your_movement');
+    cy.url().should('include', '/check_spimm_eligibility/your_movement');
     cy.contains('Tell us about the movement of goods');
     cy.contains('Are you moving goods from Great Britain to Northern Ireland?');
     cy.get(`#green-lanes-eligibility-form-moving-goods-gb-to-ni-${answer}-field`).click();
@@ -41,7 +41,7 @@ Cypress.Commands.add('verifyEligibilityNewPage', (answer) => {
 
 // Check the category of your goods page
 Cypress.Commands.add('checkCategoryOfYourGoods', () => {
-    cy.url().should('include', 'check_spimm_eligibility/eligibility?end_consumers_in_uk=yes&free_circulation_in_uk=yes&moving_goods_gb_to_ni=yes&ukims=yes');
+    cy.url().should('include', '/check_spimm_eligibility/eligibility?end_consumers_in_uk=yes&free_circulation_in_uk=yes&moving_goods_gb_to_ni=yes&ukims=yes');
     cy.contains('Check the category of your goods');
     cy.contains('‘not at risk’ of onward movement to the EU (opens in new tab)');
     cy.get('.govuk-grid-column-two-thirds > p:nth-child(2) > a').should('have.attr', 'href',) +
