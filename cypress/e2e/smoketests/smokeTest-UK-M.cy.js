@@ -1,4 +1,9 @@
+import dayjs from 'dayjs';
+import helpers from '../../lib/helpers';
+
 describe('smoke test to cover basic mobile functionality on UK services |', {tags: ['smokeTest']}, function() {
+  const currentYear = dayjs().format('YYYY');
+  const futureYear = dayjs().add(1, 'year').format('YYYY');
   beforeEach(function() {
     cy.viewport('iphone-x');
   });
@@ -211,7 +216,7 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
     cy.get('.tariff-info').contains('Quota order number');
     cy.get('.tariff-info').contains('057140');
     cy.get('.tariff-info').contains('Start and end dates');
-    cy.get('.tariff-info').contains('1 August 2023 to 31 July 2024');
+    cy.get('.tariff-info').contains(`1 August ${currentYear} to 31 July ${futureYear}`);
     cy.get('.close [href]').click();
   });
 });
