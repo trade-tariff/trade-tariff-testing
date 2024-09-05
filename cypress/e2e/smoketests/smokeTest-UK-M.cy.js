@@ -211,7 +211,7 @@ describe('smoke test to cover basic mobile functionality on UK services |', {tag
     cy.get('.tariff-info').contains('Quota order number');
     cy.get('.tariff-info').contains('057140');
     cy.get('.tariff-info').contains('Start and end dates');
-    cy.get('.tariff-info').contains('1 August 2023 to 31 July 2024');
+    cy.get('.tariff-info').contains('1 August 2024 to 31 July 2025');
     cy.get('.close [href]').click();
   });
 });
