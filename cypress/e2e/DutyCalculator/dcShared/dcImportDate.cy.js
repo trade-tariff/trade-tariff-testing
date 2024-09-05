@@ -55,7 +55,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.get('input[name=\'steps_import_date[import_date(2i)]\']').type('02');
       cy.get('input[name=\'steps_import_date[import_date(1i)]\']').click();
       cy.get('input[name=\'steps_import_date[import_date(1i)]\']').clear();
-      cy.get('input[name=\'steps_import_date[import_date(1i)]\']').type('3024');
+      cy.get('input[name=\'steps_import_date[import_date(1i)]\']').type('2024');
       cy.contains('Continue').click();
       cy.contains('Which part of the UK are you importing into?');
     });
