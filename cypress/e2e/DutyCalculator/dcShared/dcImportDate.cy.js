@@ -1,10 +1,10 @@
- 
-describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
+
+describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
   const country = ['uk', 'xi'];
   const pagetitles = ['UK Integrated Online Tariff', 'Northern Ireland Online Tariff'];
 
   for (let i = 0; i < country.length; i++) {
-    it(`📅 Valid Date ${country[i]}`, function() {
+    it(`📅 Valid Date ${country[i]}`, function () {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
 
       cy.contains(`${pagetitles[i]}`);
@@ -21,7 +21,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.contains('Which part of the UK are you importing into?');
     });
 
-    it(`📅 Invalid date - Past Date -> Date persists -> enter valid date ${country[i]}`, function() {
+    it(`📅 Invalid date - Past Date -> Date persists -> enter valid date ${country[i]}`, function () {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.get('#steps_import_date_import_date_3i').click();
@@ -38,7 +38,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.contains('There is a problem');
       cy.contains('Enter a valid date, no earlier than 1st January 2021');
       cy.get('.govuk-error-message')
-          .contains('Enter a valid date, no earlier than 1st January 2021');
+        .contains('Enter a valid date, no earlier than 1st January 2021');
 
       // 30th February ?
       // date entered persists after error message only if valid format date and in past *
@@ -55,11 +55,11 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.get('input[name=\'steps_import_date[import_date(2i)]\']').type('02');
       cy.get('input[name=\'steps_import_date[import_date(1i)]\']').click();
       cy.get('input[name=\'steps_import_date[import_date(1i)]\']').clear();
-      cy.get('input[name=\'steps_import_date[import_date(1i)]\']').type('3024');
+      cy.get('input[name=\'steps_import_date[import_date(1i)]\']').type('2024');
       cy.contains('Continue').click();
       cy.contains('Which part of the UK are you importing into?');
     });
-    it(`📅 No Date ${country[i]}`, function() {
+    it(`📅 No Date ${country[i]}`, function () {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.contains('Continue').click();
@@ -69,7 +69,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.get('.govuk-error-message');
       cy.contains('Enter a valid date, no earlier than 1st January 2021');
     });
-    it(`📅 Invalid date - Text ${country[i]} `, function() {
+    it(`📅 Invalid date - Text ${country[i]} `, function () {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.get('#steps_import_date_import_date_3i').click();
@@ -88,15 +88,15 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.get('.govuk-error-message');
       cy.contains('Enter a valid date, no earlier than 1st January 2021');
     });
-    it(`🔗 Verify Page links ${country[i]}`, function() {
+    it(`🔗 Verify Page links ${country[i]}`, function () {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
 
       cy.get('.govuk-header__link')
-          .contains('Search').click();
+        .contains('Search').click();
 
       cy.contains(`${pagetitles[i]}`);
       cy.get('.govuk-header__link')
-          .contains('Browse').click();
+        .contains('Browse').click();
 
       cy.contains(`${pagetitles[i]}`);
       cy.get('.govuk-header__navigation');
@@ -111,7 +111,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function() {
       cy.get('.govuk-header').contains(`${pagetitles[i]}`);
       cy.contains('Tariff tools');
     });
-    it(`🔖 Commodity Details ${country[i]}`, function() {
+    it(`🔖 Commodity Details ${country[i]}`, function () {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
 
       cy.contains(`${pagetitles[i]}`);
