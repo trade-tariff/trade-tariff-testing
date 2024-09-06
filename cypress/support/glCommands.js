@@ -83,7 +83,7 @@ Cypress.Commands.add('getListOfExceptionCodesAndSelectThatApply', (documentCodes
         if (!temp.includes(checkboxIdSplit[3])) {
             temp.push(checkboxIdSplit[3]);
         }
-    
+
         for (var i = 0; i < documentCodes.length; i++) {
             if (temp.length == documentCodes.length) {
                 const unquieCheckBoxId = `exemptions-category-assessment-${temp[i]}-${documentCodes[i]}-field`;
@@ -177,10 +177,11 @@ Cypress.Commands.add('category1ExemptionsPage', (commodityCode, originCountry, d
     cy.contains('View EU Regulation document');
     cy.contains('Select all that apply');
 
-    cy.getListOfExceptionCodesAndSelectThatApply(documentCodes);
-
-    // Get Exemptions list required to build url params based on exemption document codes
-    cy.sortCat1ExemptionList(documentCodes, '1');
+    if (documentCodes != null) {
+        cy.getListOfExceptionCodesAndSelectThatApply(documentCodes);
+        // Get Exemptions list required to build url params based on exemption document codes
+        cy.sortCat1ExemptionList(documentCodes, '1');
+    }
 });
 
 // Tell us if your goos meet any excemptions - Category 2 Exemptions
@@ -207,9 +208,24 @@ Cypress.Commands.add('category2ExemptionsPage', (commodityCode, originCountry, d
     cy.contains('Select all that apply');
 
     cy.getListOfExceptionCodesAndSelectThatApply(documentCodes);
-
     // Get Exemptions list required to build url params for check your answers page based on exemption document codes
     cy.sortCat2ExemptionList(documentCodes, '2');
+});
+
+Cypress.Commands.add('verifyErrorMessageOnExemptionPage', (commodityCode, originCountry, category) => {
+    if (category == 'Category 1') {
+        cy.url().should('include',
+            `/check_spimm_eligibility/category_exemptions?&category=1&${urlContains(commodityCode, originCountry)}`);
+    } else {
+        cy.url().should('include',
+            `/check_spimm_eligibility/category_exemptions?&category=2&${urlContains(commodityCode, originCountry)}`);
+    }
+
+    cy.contains('We need more information about your goods');
+    cy.contains(`Your goods may be ${category}. Tell us more about your goods so that we can determine their category.`);
+    cy.get('.govuk-error-summary').contains('Select if any exemptions apply');
+    cy.get('.govuk-list > li a').should('have.attr', 'href');
+    cy.get('.govuk-error-message').contains('Select if any exemptions apply');
 });
 
 Cypress.Commands.add('verifyExemptionsMet', (documentCodes, exemptMetOrCertNeed) => {
@@ -232,7 +248,6 @@ Cypress.Commands.add('verifyExemptionsMet', (documentCodes, exemptMetOrCertNeed)
 
 Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode, originCountry, cat1DocCodes,
     cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
-
     // Verify about goods table
     cy.get('.govuk-summary-card__content').contains(`${commodityCode}`);
     cy.get('.govuk-summary-card__content').contains(`${originCountry}`);

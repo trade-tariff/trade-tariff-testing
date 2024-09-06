@@ -94,5 +94,32 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             // Results Page
             cy.verifyResultsPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2]);
         });
+        // Sceanrio 4 - Select Cat1 exemptions page - skip exemption selection and click continue button to validate error messages.
+        it('Verify - Green lanes - UK to NI - Cat1 - Scenario 4', function () {
+            const data = ['8708219000', 'GB', 'Category 1', 'yes'];
+            const cat1DocCodes = null;
+            // SPIMM process start page
+            cy.verifySpimmPage();
+            // Start now button
+            cy.clkBtnToContinue();
+            // Answer eligibility questions page
+            cy.verifyEligibilityNewPage(data[3]);
+            // Continue button
+            cy.clkBtnToContinue();
+            // Check the category of your goods page
+            cy.checkCategoryOfYourGoods();
+            // Continue button
+            cy.clkBtnToContinue();
+            // Tell us about your goods
+            cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+            // Continue button
+            cy.clkBtnToContinue();
+            // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list.
+            cy.category1ExemptionsPage(data[0], data[1], cat1DocCodes);
+            // Continue button
+            cy.clkBtnToContinue();
+            // Verify User still on the exemptions page and should see error messages
+            cy.verifyErrorMessageOnExemptionPage(data[0], data[1], data[2]);
+        });
     });
 });
