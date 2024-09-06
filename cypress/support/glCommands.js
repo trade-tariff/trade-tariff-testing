@@ -77,13 +77,18 @@ Cypress.Commands.add('tellUsAboutYourGoodsPage', (commodityCode, originCountry) 
 
 // Get list of exception codes available on the exception page, compare with data and click to select that apply including 'None' exemptions.
 Cypress.Commands.add('getListOfExceptionCodesAndSelectThatApply', (documentCodes) => {
+    let temp = [];
     cy.get('#content .govuk-checkboxes input[type="checkbox"]').each(($checkbox) => {
+        const checkboxIdSplit = $checkbox.attr('id').split('-');
+        if (!temp.includes(checkboxIdSplit[3])) {
+            temp.push(checkboxIdSplit[3]);
+        }
+    
         for (var i = 0; i < documentCodes.length; i++) {
-            if ($checkbox.attr('id').includes(documentCodes[i])) {
-                cy.get('#' + $checkbox.attr('id')).as('checkboxes');
-                cy.get('@checkboxes').each(($checkboxElem, index) => {
-                    cy.get('#content .govuk-checkboxes').find($checkboxElem[index]).check({ multiple: true }).should('be.checked');
-                });
+            if (temp.length == documentCodes.length) {
+                const unquieCheckBoxId = `exemptions-category-assessment-${temp[i]}-${documentCodes[i]}-field`;
+                cy.log('unquieChecBoxID', unquieCheckBoxId);
+                cy.get('#' + `${unquieCheckBoxId}`).check().should('be.checked');
             }
         }
     });
@@ -93,9 +98,14 @@ Cypress.Commands.add('getListOfExceptionCodesAndSelectThatApply', (documentCodes
 Cypress.Commands.add('getCategoryExemptions', (documentCodes, category) => {
     let captureUrlParams = new Array();
     let caseDocCode = '';
+    let temp = [];
     cy.get('form > div > fieldset > div input').each(($checkBox) => {
+        const checkboxIdSplit = $checkBox.attr('id').split('-');
+        if (!temp.includes(checkboxIdSplit[3])) {
+            temp.push(checkboxIdSplit[3]);
+        }
         for (var i = 0; i < documentCodes.length; i++) {
-            if ($checkBox.attr('id').includes(documentCodes[i])) {
+            if ($checkBox.attr('id').includes(documentCodes[i]) && $checkBox.attr('id').includes(temp[i])) {
                 const strSplit = $checkBox.attr('id').split('-');
                 if (documentCodes[i] == 'none') {
                     caseDocCode = documentCodes[i];
@@ -116,6 +126,7 @@ Cypress.Commands.add('sortCat1ExemptionList', (documentCodes, category) => {
     cy.get('@cat').then(($cat1Exemptions) => {
         onlyCat1Exemptions = Object.values($cat1Exemptions).reverse().sort();
         for (var i = 0; i < onlyCat1Exemptions.length; i++) {
+            cy.log('onlyCat1Exemptions.length', onlyCat1Exemptions.length);
             if (!cat1UrlParams.includes(onlyCat1Exemptions[i])) {
                 cat1UrlParams += onlyCat1Exemptions[i];
             }
@@ -203,7 +214,7 @@ Cypress.Commands.add('category2ExemptionsPage', (commodityCode, originCountry, d
 
 Cypress.Commands.add('verifyExemptionsMet', (documentCodes, exemptMetOrCertNeed) => {
     cy.get('.govuk-summary-card .govuk-summary-list .govuk-summary-list__row').each(($row) => {
-        if (documentCodes == 'none' || documentCodes == null) {
+        if (!Object.values(documentCodes).includes(documentCodes)) {
             if ($row.text().includes(exemptMetOrCertNeed)) {
                 cy.contains(exemptMetOrCertNeed).should('be.visible');
             }
@@ -249,7 +260,7 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
         cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat2ExemptOrHaveMet);
         cy.should('not.contain', exemptMetOrCertNeed);
     }
-    if (exemptMetOrCertNeed != null) {
+    if (documentCodes != null && exemptMetOrCertNeed != null) {
         cy.verifyExemptionsMet(documentCodes, exemptMetOrCertNeed);
     }
 });
@@ -261,7 +272,7 @@ Cypress.Commands.add('checkYourAnswersPage',
         let c1exValue; let c2exValue;
         if (onlyCat2Exemptions == true) {
             if (cat2DocCodes != 'none' || cat2DocCodes == 'none') {
-                if (cat2DocCodes != 'none') {
+                if (!Object.values(cat2DocCodes).includes('none')) {
                     c2exValue = true;
                 }
                 else {
@@ -277,10 +288,9 @@ Cypress.Commands.add('checkYourAnswersPage',
                     `/check_spimm_eligibility/check_your_answers?&c2ex=true&category=2&${urlContains(commodityCode, originCountry)}`);
             }
         } else if (onlyCat1Exemptions == true) {
-            if (cat1DocCodes != 'none') {
+            if (!Object.values(cat1DocCodes).includes('none')) {
                 c1exValue = true;
-            }
-            else {
+            } else {
                 c1exValue = false;
             }
             cy.get('@cat1').then((cat1ExemptionsUrlParams) => {
@@ -346,7 +356,7 @@ Cypress.Commands.add('verifyResultsPage', (commodityCode, originCountry, categor
     } else {
         cy.contains('Become an authorised trader under the UK Internal Market Scheme (UKIMS) (opens in a new tab)');
         cy.get('ol.govuk-list > li:nth-child(1)> a').should('have.attr', 'href',) +
-        ('https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-internal-market-scheme-if-you-bring-goods-into-northern-ireland')
+            ('https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-internal-market-scheme-if-you-bring-goods-into-northern-ireland')
         cy.contains('Trader Support Service (TSS) (opens in a new tab).');
         cy.get('ol.govuk-list > li:nth-child(3)> a').should('have.attr', 'href', 'https://www.gov.uk/guidance/trader-support-service')
     }

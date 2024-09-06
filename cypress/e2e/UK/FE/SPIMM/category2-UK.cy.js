@@ -3,7 +3,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
         'Your Category 1 exemptions', 'Your Category 2 exemptions', 'Certificate needed'];
     const assertData2 = ['Why your goods are category 1', 'Why your goods are category 2', 'Exemption not met']
     beforeEach('Navigates to SPIMM journey start page', () => {
-        cy.visit('/check_spimm_eligibility/start/new');
+        cy.visit('/check_spimm_eligibility');
     });
     // Category 2 scenarios
     // Scenario 1 - Direct to check your answers to Cat 2 results page
@@ -35,7 +35,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
     // Scenario 2 - Cat2 exemptions to check your answers to Cat 2 results page
     it('Verify - Green lanes - UK to NI - Category 2 - Scenario 2', function () {
         const data = ['1602320000', 'GL', 'Category 2', 'yes']
-        const cat2DocCodes = 'none';
+        const cat2DocCodes = ['none', 'none'];
         // SPIMM process start page
         cy.verifySpimmPage();
         // Start now button
