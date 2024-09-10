@@ -319,13 +319,13 @@ Cypress.Commands.add('checkYourAnswersPage',
 Cypress.Commands.add('verifyResultsPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
     cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
     if (`${categoryResult}` == 'standard') {
-        cy.url().should('include', '/check_spimm_eligibility/results?category=standard');
+        cy.url().should('include', '/check_spimm_eligibility/result?category=standard');
         cy.contains('Standard Category');
     } else if (`${categoryResult}` == 'Category 2') {
-        cy.url().should('include', '/check_spimm_eligibility/results?category=2');
+        cy.url().should('include', '/check_spimm_eligibility/result?category=2');
         cy.contains('Category 2');
     } else if (`${categoryResult}` == 'Category 1') {
-        cy.url().should('include', '/check_spimm_eligibility/results?category=1');
+        cy.url().should('include', '/check_spimm_eligibility/result?category=1');
         cy.contains('Category 1');
         cy.contains('Goods are not eligible to move through the simplified process for internal market movements (SPIMM)');
     }
