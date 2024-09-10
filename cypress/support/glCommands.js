@@ -227,7 +227,7 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
     cy.get('.govuk-summary-card__content').contains(`${originCountry}`);
     cy.get('.govuk-summary-card__content').contains(`${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`);
 
-    // Verify exemptions have met category section on the results page
+    // Verify exemptions have met category section on the result page
     let documentCodes;
     if (typeof (cat1DocCodes) == 'string' && typeof (cat2DocCodes) == 'string') {
         cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
@@ -315,8 +315,8 @@ Cypress.Commands.add('checkYourAnswersPage',
             cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed);
     });
 
-// Results Page
-Cypress.Commands.add('verifyResultsPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
+// Result Page
+Cypress.Commands.add('verifyResultPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
     cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
     if (`${categoryResult}` == 'standard') {
         cy.url().should('include', '/check_spimm_eligibility/result?category=standard');
