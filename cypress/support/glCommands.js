@@ -253,7 +253,7 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
     cy.get('.govuk-summary-card__content').contains(`${originCountry}`);
     cy.get('.govuk-summary-card__content').contains(`${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`);
 
-    // Verify exemptions have met category section on the results page
+    // Verify exemptions have met category section on the result page
     let documentCodes;
     if (typeof (cat1DocCodes) == 'string' && typeof (cat2DocCodes) == 'string') {
         cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
@@ -340,17 +340,17 @@ Cypress.Commands.add('checkYourAnswersPage',
             cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed);
     });
 
-// Results Page
-Cypress.Commands.add('verifyResultsPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
+// Result Page
+Cypress.Commands.add('verifyResultPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
     cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
     if (`${categoryResult}` == 'standard') {
-        cy.url().should('include', '/check_spimm_eligibility/results?category=standard');
+        cy.url().should('include', '/check_spimm_eligibility/result?category=standard');
         cy.contains('Standard Category');
     } else if (`${categoryResult}` == 'Category 2') {
-        cy.url().should('include', '/check_spimm_eligibility/results?category=2');
+        cy.url().should('include', '/check_spimm_eligibility/result?category=2');
         cy.contains('Category 2');
     } else if (`${categoryResult}` == 'Category 1') {
-        cy.url().should('include', '/check_spimm_eligibility/results?category=1');
+        cy.url().should('include', '/check_spimm_eligibility/result?category=1');
         cy.contains('Category 1');
         cy.contains('Goods are not eligible to move through the simplified process for internal market movements (SPIMM)');
     }
