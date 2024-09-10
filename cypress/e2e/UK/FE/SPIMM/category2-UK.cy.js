@@ -30,7 +30,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
         // Continue button
         cy.clkBtnToContinue();
         // Results Page
-        cy.verifyResultsPage(data[0], data[1], data[2]);
+        cy.verifyResultPage(data[0], data[1], data[2]);
     });
     // Scenario 2 - Cat2 exemptions to check your answers to Cat 2 results page
     it('Verify - Green lanes - UK to NI - Category 2 - Scenario 2', function () {
@@ -62,7 +62,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
         // Continue button
         cy.clkBtnToContinue();
         // Results Page
-        cy.verifyResultsPage(data[0], data[1], data[2], null, cat2DocCodes, null, assertData2[1], assertData2[2]);
+        cy.verifyResultPage(data[0], data[1], data[2], null, cat2DocCodes, null, assertData2[1], assertData2[2]);
     });
     // Scenario 2 - Cat1 exemptions and Cat2 'none' to check your answers to Cat 2 results page
     it('Verify - Green lanes - UK to NI - Category 2 - Scenario 3', function () {
@@ -101,7 +101,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
         // Continue button
         cy.clkBtnToContinue();
         // Results Page
-        cy.verifyResultsPage(data[0], data[1], data[2], cat1DocCodes, cat2DocCodes, assertData[3], assertData2[1], null);
+        cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, cat2DocCodes, assertData[3], assertData2[1], null);
     });
 
 });

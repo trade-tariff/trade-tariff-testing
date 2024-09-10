@@ -30,7 +30,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             // Continue button
             cy.clkBtnToContinue();
             // Results Page
-            cy.verifyResultsPage(data[0], data[1], data[2], null, null, assertData[3], assertData[4], assertData[5]);
+            cy.verifyResultPage(data[0], data[1], data[2], null, null, assertData[3], assertData[4], assertData[5]);
         });
         // Sceanrio 2 - Select Cat1 exemption 'none' to get Cat1 results page
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 2', function () {
@@ -61,7 +61,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             // Continue button
             cy.clkBtnToContinue();
             // Results Page
-            cy.verifyResultsPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2]);
+            cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2]);
         });
         // Sceanrio 3 - Select Cat1 exemptions page - select one exemption and one 'none' from available exemptions to get Cat1 results page
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 3', function () {
@@ -92,7 +92,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             // Continue button
             cy.clkBtnToContinue();
             // Results Page
-            cy.verifyResultsPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2]);
+            cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2]);
         });
         // Sceanrio 4 - Select Cat1 exemptions page - skip exemption selection and click continue button to validate error messages.
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 4', function () {
