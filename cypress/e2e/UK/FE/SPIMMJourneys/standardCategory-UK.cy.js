@@ -1,12 +1,13 @@
 context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() {
-    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Exemption met', 
-      'Your Category 1 exemptions', 'Your Category 2 exemptions', 'Certificate needed'];
-    const assertData2 = ['Why your goods are category 1', 'Why your goods are category 2', 'Exemption not met']
+    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met', 
+      'Your goods are exempt from Category 1 because you meet these conditions', 
+      'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
+    const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met']
     beforeEach('Navigates to SPIMM journey start page', () => {
       cy.visit('/check_spimm_eligibility');
     });
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario - 1', function() {
-      const data = ['9603909100', 'BY', 'standard', 'yes']
+      const data = ['9603909100', 'BY', 'Standard goods', 'yes']
       // SPIMM process start page
       cy.verifySpimmPage();
       // Start now button
@@ -24,7 +25,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
       // Continue button
       cy.clkBtnToContinue();
       // Check your answers page
-      cy.checkYourAnswersPage(data[0], data[1]);
+      cy.checkYourAnswersPage(data[0], data[1], false);
       // Continue button
       cy.clkBtnToContinue();
       // Results Page
@@ -32,7 +33,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
     });
     // Scenario 2 - Cat2 exemptions to Standard category results page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 2', function() {
-      const data = ['1602509590', 'FO', 'standard', 'yes'];
+      const data = ['1602509590', 'FO', 'Standard goods', 'yes'];
       const cat2DocCodes = ['y170', 'y058', 'y900'];
       // SPIMM process start page
       cy.verifySpimmPage();
@@ -56,7 +57,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
       // Continue button
       cy.clkBtnToContinue();
       // Check your answers page
-      cy.checkYourAnswersPage(data[0], data[1], false, true, false, null, cat2DocCodes, null, assertData[1], assertData[2]);
+      cy.checkYourAnswersPage(data[0], data[1], false, false, true, false, null, cat2DocCodes, null, assertData[1], assertData[2]);
       // Continue button
       cy.clkBtnToContinue();
       // Results Page
@@ -64,7 +65,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
     });
     // Scenario 3 - Cat1 exemptions to Standard category results page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 3', function() {
-      const data = ['2009120090', 'UA', 'standard', 'yes'];
+      const data = ['2009120090', 'UA', 'Standard goods', 'yes'];
       const cat1DocCodes = ['y997', 'y984'];
       // SPIMM process start page
       cy.verifySpimmPage();
@@ -87,7 +88,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
       // Continue button
       cy.clkBtnToContinue();
       // Check your answers page
-      cy.checkYourAnswersPage(data[0], data[1], true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
+      cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
       // Continue button
       cy.clkBtnToContinue();
       // Results Page
@@ -95,7 +96,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
     });
     // Scenario 4 - Cat1 and Cat2 exemptions to Standard category results page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 4', function() {
-      const data = ['6913909890', 'UA', 'standard', 'yes'];
+      const data = ['6913909890', 'UA', 'Standard goods', 'yes'];
       const cat1DocCodes = ['y922', 'y997', 'y984'];
       const cat2DocCodes = ['y923'];
       // SPIMM process start page
@@ -123,7 +124,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
       // Continue button
       cy.clkBtnToContinue();
       // Check your answers page
-      cy.checkYourAnswersPage(data[0], data[1], false, false, true, cat1DocCodes, cat2DocCodes, assertData[0], assertData[1], assertData[2]);
+      cy.checkYourAnswersPage(data[0], data[1], false, false, false, true, cat1DocCodes, cat2DocCodes, assertData[0], assertData[1], assertData[2]);
       // Continue button
       cy.clkBtnToContinue();
       // Results Page

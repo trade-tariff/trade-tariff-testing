@@ -1,7 +1,8 @@
 describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', function () {
-    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Exemption met',
-        'Your Category 1 exemptions', 'Your Category 2 exemptions', 'Certificate needed'];
-    const assertData2 = ['Why your goods are category 1', 'Why your goods are category 2', 'Exemption not met']
+    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met', 
+        'Your goods are exempt from Category 1 because you meet these conditions', 
+        'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
+    const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met'];
     beforeEach('Navigates to SPIMM journey start page', () => {
         cy.visit('/check_spimm_eligibility');
     });
@@ -26,7 +27,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             // Continue button
             cy.clkBtnToContinue();
             // Check your answers page
-            cy.checkYourAnswersPage(data[0], data[1], false, false, false, null, null, assertData[0], assertData[1], assertData[2]);
+            cy.checkYourAnswersPage(data[0], data[1], false, false, false, false, null, null, assertData[0], assertData[1], assertData[2]);
             // Continue button
             cy.clkBtnToContinue();
             // Results Page
@@ -57,7 +58,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             // Continue button
             cy.clkBtnToContinue();
             // Check your answers page
-            cy.checkYourAnswersPage(data[0], data[1], true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
+            cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
             // Continue button
             cy.clkBtnToContinue();
             // Results Page
@@ -88,7 +89,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             // Continue button
             cy.clkBtnToContinue();
             // Check your answers page
-            cy.checkYourAnswersPage(data[0], data[1], true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
+            cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
             // Continue button
             cy.clkBtnToContinue();
             // Results Page
@@ -120,6 +121,17 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
             cy.clkBtnToContinue();
             // Verify User still on the exemptions page and should see error messages
             cy.verifyErrorMessageOnExemptionPage(data[0], data[1], data[2]);
+        });
+        // Sceanrio 5 - Select Cat1 exemptions page and select an exemption and continue to until CYA and results page, 
+        // and click Back Link to back to 'Tell us about your goods' page to see everything works as expected w.r.t back link functionality.
+        it('Verify - Green lanes - UK to NI - Cat1 - Scenario 5', function () {
+            const data = ['8708219000', 'GB', 'Category 1', 'yes'];
+            const cat1DocCodes = ['y160', 'none'];
+            const globalAssertData = [assertData[0], assertData[2]]; const globalAssertData2 = [assertData2[0], assertData2[2]];
+            // Start page to cat1 result page
+            cy.navigateToCat1ResultPage(data, cat1DocCodes, globalAssertData, globalAssertData2);
+            // click Back link on the result page
+            cy.clkBackLink();
         });
     });
 });

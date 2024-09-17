@@ -1,7 +1,8 @@
 context('when on the UK service - SPIMM - E2E journeys -Test Suite', function () {
-    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Exemption met',
-        'Your Category 1 exemptions', 'Your Category 2 exemptions', 'Certificate needed'];
-    const assertData2 = ['Why your goods are category 1', 'Why your goods are category 2', 'Exemption not met']
+    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met', 
+        'Your goods are exempt from Category 1 because you meet these conditions', 
+        'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
+    const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met']
     beforeEach('Navigates to SPIMM journey start page', () => {
         cy.visit('/check_spimm_eligibility');
     });
@@ -26,7 +27,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
         // Continue button
         cy.clkBtnToContinue();
         // Check your answers page
-        cy.checkYourAnswersPage(data[0], data[1]);
+        cy.checkYourAnswersPage(data[0], data[1], false);
         // Continue button
         cy.clkBtnToContinue();
         // Results Page
@@ -58,7 +59,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
         cy.clkBtnToContinue();
         // Check your answers page
         // Only one excemption is showing in the url params instead of two or three based on user selection hence skipping this test until it is resolved.
-        cy.checkYourAnswersPage(data[0], data[1], false, true, false, null, cat2DocCodes, null, assertData[1], assertData2[2]);
+        cy.checkYourAnswersPage(data[0], data[1], false, false, true, false, null, cat2DocCodes, null, assertData[1], assertData2[2]);
         // Continue button
         cy.clkBtnToContinue();
         // Results Page
@@ -97,7 +98,7 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function ()
         cy.clkBtnToContinue();
         // Check your answers page
         // Need to pass false and true to capture and build correct category url params values
-        cy.checkYourAnswersPage(data[0], data[1], false, false, true, cat1DocCodes, cat2DocCodes, assertData[0], assertData[1], assertData[2]);
+        cy.checkYourAnswersPage(data[0], data[1], false, false, false, true, cat1DocCodes, cat2DocCodes, assertData[0], assertData[1], assertData[2]);
         // Continue button
         cy.clkBtnToContinue();
         // Results Page
