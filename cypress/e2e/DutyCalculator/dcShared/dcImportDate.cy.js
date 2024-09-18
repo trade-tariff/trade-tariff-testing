@@ -62,6 +62,12 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
     it(`📅 No Date ${country[i]}`, function () {
       cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
       cy.contains(`${pagetitles[i]}`);
+      cy.get('input[name=\'steps_import_date[import_date(3i)]\']').click();
+      cy.get('input[name=\'steps_import_date[import_date(3i)]\']').clear();
+      cy.get('input[name=\'steps_import_date[import_date(2i)]\']').click();
+      cy.get('input[name=\'steps_import_date[import_date(2i)]\']').clear();
+      cy.get('input[name=\'steps_import_date[import_date(1i)]\']').click();
+      cy.get('input[name=\'steps_import_date[import_date(1i)]\']').clear();
       cy.contains('Continue').click();
       cy.get('.govuk-error-summary');
       cy.contains('There is a problem');
