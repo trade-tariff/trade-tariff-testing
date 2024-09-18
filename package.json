@@ -8,7 +8,7 @@
     "allure-commandline": "^2.29.0",
     "ansi-regex": "^6.0.1",
     "ansi-styles": "^6.2.1",
-    "cypress": "13.10.0",
+    "cypress": "13.14.2",
     "cypress-dark": "^1.7.14",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
     "cypress-downloadfile": "^1.2.4",
