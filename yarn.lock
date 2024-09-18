@@ -222,6 +222,11 @@
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.20.2.tgz#d1b9000752b18d0877cff85a5c376ce5c3121629"
   integrity sha512-8RvlJG2mj4huQ4pZ+rU9lqKi9ZKiRmuvGuM2HlWmkmgOhbs6zEAw6IEiJ5cQqGbDzGZOhwuOQNtZMi/ENLjZoQ==
 
+"@babel/helper-plugin-utils@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.24.7.tgz#98c84fe6fe3d0d3ae7bfc3a5e166a46844feb2a0"
+  integrity sha512-Rq76wjt7yz9AAc1KnlRKNAi/dMSVWgDRx43FHoJEbcYU6xOWaE2dVPwcdTukJrjxS65GITyfbvEYHvkirZ6uEg==
+
 "@babel/helper-remap-async-to-generator@^7.18.9":
   version "7.18.9"
   resolved "https://registry.yarnpkg.com/@babel/helper-remap-async-to-generator/-/helper-remap-async-to-generator-7.18.9.tgz#997458a0e3357080e54e1d79ec347f8a8cd28519"
@@ -334,7 +339,7 @@
     chalk "^2.4.2"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.16.5", "@babel/parser@^7.20.7":
+"@babel/parser@^7.20.7":
   version "7.20.13"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.20.13.tgz#ddf1eb5a813588d2fb1692b70c6fce75b945c088"
   integrity sha512-gFDLKMfpiXCsjt4za2JA9oTMn70CeseCehb11kRZgvd7+F67Hih3OHOK24cRrWECJ/ljfPGac6ygXAs/C8kIvw==
@@ -343,6 +348,11 @@
   version "7.23.0"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.23.0.tgz#da950e622420bf96ca0d0f2909cdddac3acd8719"
   integrity sha512-vvPKKdMemU85V9WE/l5wZEmImpCtLqbnTvqDS2U1fJ96KrxoW7KrXhNsNCblQlg8Ck4b85yxdTyelsMUgFUXiw==
+
+"@babel/parser@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.24.7.tgz#9a5226f92f0c5c8ead550b750f5608e766c8ce85"
+  integrity sha512-9uUYRm6OqQrCqQdG1iCBwBPZgN8ciDBro2nIOFaiRz1/BCxaI7CNvQbDHvsArAC7Tw9Hda/B3U+6ui9u4HWXPw==
 
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.18.6":
   version "7.18.6"
@@ -544,6 +554,13 @@
   integrity sha512-6mmljtAedFGTWu2p/8WIORGwy+61PLgOMPOdazc7YoJ9ZCWUyFy3A6CpPkRKLKD1ToAesxX8KGEViAiLo9N+7Q==
   dependencies:
     "@babel/helper-plugin-utils" "^7.18.6"
+
+"@babel/plugin-syntax-jsx@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.24.7.tgz#39a1fa4a7e3d3d7f34e2acc6be585b718d30e02d"
+  integrity sha512-6ddciUPe/mpMnOKv/U+RSd2vvVy+Yw/JfBB0ZHYjEZt9NLHmCUylNYlsbqCCS1Bffjlb0fCwC9Vqz+sBz6PsiQ==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.24.7"
 
 "@babel/plugin-syntax-logical-assignment-operators@^7.10.4":
   version "7.10.4"
@@ -1104,13 +1121,13 @@
     through2 "^2.0.0"
     watchify "^4.0.0"
 
-"@cypress/grep@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@cypress/grep/-/grep-4.0.1.tgz#bce679f85da286c4979bb9ffc79b2782dc5b75c6"
-  integrity sha512-i3mWy4mG6nxF7m93W0nzsMZkl0PflGa4+SygA9P92tELayYYAaRKlr07I4fo5PnwoPk1H9IEbXoMFJkhfTMxtg==
+"@cypress/grep@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@cypress/grep/-/grep-4.1.0.tgz#77dba973f0023ce01f5d2481a257f3e55c8f73ee"
+  integrity sha512-yUscMiUgM28VDPrNxL19/BhgHZOVrAPrzVsuEcy6mqPqDYt8H8fIaHeeGQPW4CbMu/ry9sehjH561WDDBIXOIg==
   dependencies:
     debug "^4.3.4"
-    find-test-names "^1.19.0"
+    find-test-names "^1.28.18"
     globby "^11.0.4"
 
 "@cypress/request@^3.0.0":
@@ -2815,12 +2832,13 @@ fill-range@^7.1.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-find-test-names@^1.19.0:
-  version "1.25.1"
-  resolved "https://registry.yarnpkg.com/find-test-names/-/find-test-names-1.25.1.tgz#31bddfc38255255624339dd0e518591ab386f812"
-  integrity sha512-IOJt7X3wQsuSwmj+AopHdIHo7kxg3rCD/loR5BpL8pb7mx7/cjp0yXU/DnTus4ch3EkfW1hYJ2DHuF9icrUYjQ==
+find-test-names@^1.28.18:
+  version "1.28.22"
+  resolved "https://registry.yarnpkg.com/find-test-names/-/find-test-names-1.28.22.tgz#c7156bcc6c9e60e55bc32df54fd00cf4fdf752b0"
+  integrity sha512-cnQaOMvA75FZF4BYfr9DbxxUcoATlRpzcorgkf7It7JLLdD1G5ZBU6PSaDYR8Ssj/ugJH2BvWZwnDPbRLWMI/g==
   dependencies:
-    "@babel/parser" "^7.16.5"
+    "@babel/parser" "^7.24.7"
+    "@babel/plugin-syntax-jsx" "^7.24.7"
     acorn-walk "^8.2.0"
     debug "^4.3.3"
     globby "^11.0.4"
