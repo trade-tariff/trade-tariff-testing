@@ -20,6 +20,10 @@ Cypress.Commands.add('verifySpimmPage', () => {
     cy.get('.govuk-list > li:nth-child(2) > a').should('have.attr', 'href', 'https://www.trade-tariff.service.gov.uk/howto/origin');
 });
 
+Cypress.Commands.add('clkBackLink', () => {
+    cy.get('.govuk-back-link').contains('Back').click();
+});
+
 Cypress.Commands.add('clkBtnToContinue', () => {
     cy.get('[type="submit"]').click();
 });
@@ -36,18 +40,18 @@ Cypress.Commands.add('verifyEligibilityNewPage', (answer) => {
     cy.get(`#green-lanes-eligibility-form-end-consumers-in-uk-${answer}-field`).click();
     cy.contains('Are you authorised to trade under the UK Internal Market Scheme (UKIMS)?');
     cy.get(`#green-lanes-eligibility-form-ukims-${answer}-field`).click();
-    cy.contains('If you need help using this tool');
 });
 
 // Check the category of your goods page
 Cypress.Commands.add('checkCategoryOfYourGoods', () => {
-    cy.url().should('include', '/check_spimm_eligibility/eligibility?end_consumers_in_uk=yes&free_circulation_in_uk=yes&moving_goods_gb_to_ni=yes&ukims=yes');
+    cy.url().should('include', '/check_spimm_eligibility/eligibility?end_consumers_in_uk=yes&free_circulation_in_uk=yes&moving_goods_gb_to_ni=yes&t=');
+    cy.url().should('include', 'ukims=yes');
     cy.contains('Check the category of your goods');
-    cy.contains('‘not at risk’ of onward movement to the EU (opens in new tab)');
-    cy.get('.govuk-grid-column-two-thirds > p:nth-child(2) > a').should('have.attr', 'href',) +
+    cy.contains('\'not at risk’ of moving to the EU (opens in new tab)');
+    cy.get('.govuk-list li a').should('have.attr', 'href',) +
         ('https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu');
-    cy.contains('UK Internal Market Scheme (UKIMS) authorised traders (opens in new tab)');
-    cy.get('.govuk-grid-column-two-thirds > p:nth-child(3)> a').should('have.attr', 'href',) +
+    cy.contains('UK Internal Market Scheme (UKIMS) authorised trader (opens in new tab)');
+    cy.get('.govuk-list li a').should('have.attr', 'href',) +
         ('https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-internal-market-scheme-if-you-bring-goods-into-northern-ireland');
 });
 
@@ -77,13 +81,18 @@ Cypress.Commands.add('tellUsAboutYourGoodsPage', (commodityCode, originCountry) 
 
 // Get list of exception codes available on the exception page, compare with data and click to select that apply including 'None' exemptions.
 Cypress.Commands.add('getListOfExceptionCodesAndSelectThatApply', (documentCodes) => {
+    let temp = [];
     cy.get('#content .govuk-checkboxes input[type="checkbox"]').each(($checkbox) => {
+        const checkboxIdSplit = $checkbox.attr('id').split('-');
+        if (!temp.includes(checkboxIdSplit[3])) {
+            temp.push(checkboxIdSplit[3]);
+        }
+
         for (var i = 0; i < documentCodes.length; i++) {
-            if ($checkbox.attr('id').includes(documentCodes[i])) {
-                cy.get('#' + $checkbox.attr('id')).as('checkboxes');
-                cy.get('@checkboxes').each(($checkboxElem, index) => {
-                    cy.get('#content .govuk-checkboxes').find($checkboxElem[index]).check({ multiple: true }).should('be.checked');
-                });
+            if (temp.length == documentCodes.length) {
+                const unquieCheckBoxId = `exemptions-category-assessment-${temp[i]}-${documentCodes[i]}-field`;
+                cy.log('unquieChecBoxID', unquieCheckBoxId);
+                cy.get('#' + `${unquieCheckBoxId}`).check().should('be.checked');
             }
         }
     });
@@ -93,9 +102,14 @@ Cypress.Commands.add('getListOfExceptionCodesAndSelectThatApply', (documentCodes
 Cypress.Commands.add('getCategoryExemptions', (documentCodes, category) => {
     let captureUrlParams = new Array();
     let caseDocCode = '';
+    let temp = [];
     cy.get('form > div > fieldset > div input').each(($checkBox) => {
+        const checkboxIdSplit = $checkBox.attr('id').split('-');
+        if (!temp.includes(checkboxIdSplit[3])) {
+            temp.push(checkboxIdSplit[3]);
+        }
         for (var i = 0; i < documentCodes.length; i++) {
-            if ($checkBox.attr('id').includes(documentCodes[i])) {
+            if ($checkBox.attr('id').includes(documentCodes[i]) && $checkBox.attr('id').includes(temp[i])) {
                 const strSplit = $checkBox.attr('id').split('-');
                 if (documentCodes[i] == 'none') {
                     caseDocCode = documentCodes[i];
@@ -116,6 +130,7 @@ Cypress.Commands.add('sortCat1ExemptionList', (documentCodes, category) => {
     cy.get('@cat').then(($cat1Exemptions) => {
         onlyCat1Exemptions = Object.values($cat1Exemptions).reverse().sort();
         for (var i = 0; i < onlyCat1Exemptions.length; i++) {
+            cy.log('onlyCat1Exemptions.length', onlyCat1Exemptions.length);
             if (!cat1UrlParams.includes(onlyCat1Exemptions[i])) {
                 cat1UrlParams += onlyCat1Exemptions[i];
             }
@@ -159,17 +174,18 @@ Cypress.Commands.add('category1ExemptionsPage', (commodityCode, originCountry, d
         `/check_spimm_eligibility/category_exemptions?category=1&${urlContains(commodityCode, originCountry)}`);
 
     cy.contains('We need more information about your goods');
-    cy.contains('Your goods may be Category 1. Tell us more about your goods so that we can determine their category.');
+    cy.contains('Your goods will be Category 1, unless you meet sufficient conditions.');
 
     // Select one exception from each category that apply
-    cy.contains('Do your goods meet any of these Category 1 exemptions?');
+    cy.contains('Do your goods meet any of these conditions?');
     cy.contains('View EU Regulation document');
     cy.contains('Select all that apply');
 
-    cy.getListOfExceptionCodesAndSelectThatApply(documentCodes);
-
-    // Get Exemptions list required to build url params based on exemption document codes
-    cy.sortCat1ExemptionList(documentCodes, '1');
+    if (documentCodes != null) {
+        cy.getListOfExceptionCodesAndSelectThatApply(documentCodes);
+        // Get Exemptions list required to build url params based on exemption document codes
+        cy.sortCat1ExemptionList(documentCodes, '1');
+    }
 });
 
 // Tell us if your goos meet any excemptions - Category 2 Exemptions
@@ -187,81 +203,43 @@ Cypress.Commands.add('category2ExemptionsPage', (commodityCode, originCountry, d
             `/check_spimm_eligibility/category_exemptions?category=2&${urlContains(commodityCode, originCountry)}`);
     }
 
-    cy.contains('Tell us if your goods meet any exemptions');
-    cy.contains('Your goods may be Category 2. Tell us more about your goods so that we can determine their category.');
+    cy.contains('We need more information about your goods');
+    cy.contains('Your goods will be Category 2, unless you meet sufficient conditions.');
 
     // Select one exception from each category that apply
-    cy.contains('Do your goods meet any of these Category 2 exemptions?');
+    cy.contains('Do your goods meet any of these conditions?');
     cy.contains('View EU Regulation document');
     cy.contains('Select all that apply');
 
     cy.getListOfExceptionCodesAndSelectThatApply(documentCodes);
-
     // Get Exemptions list required to build url params for check your answers page based on exemption document codes
     cy.sortCat2ExemptionList(documentCodes, '2');
 });
 
-Cypress.Commands.add('verifyExemptionsMet', (documentCodes, exemptMetOrCertNeed) => {
-    cy.get('.govuk-summary-card .govuk-summary-list .govuk-summary-list__row').each(($row) => {
-        if (documentCodes == 'none' || documentCodes == null) {
-            if ($row.text().includes(exemptMetOrCertNeed)) {
-                cy.contains(exemptMetOrCertNeed).should('be.visible');
-            }
-        } else {
-            for (var i = 0; i < documentCodes.length; i++) {
-                const upperCaseDocCode = documentCodes[i].toUpperCase();
-                if ($row.text().includes(upperCaseDocCode)) {
-                    cy.wrap($row.text()).should('include', upperCaseDocCode);
-                    cy.wrap($row.text()).should('include', exemptMetOrCertNeed);
-                }
-            }
-        }
-    });
-});
-
-Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode, originCountry, cat1DocCodes,
-    cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
-
-    // Verify about goods table
-    cy.get('.govuk-summary-card__content').contains(`${commodityCode}`);
-    cy.get('.govuk-summary-card__content').contains(`${originCountry}`);
-    cy.get('.govuk-summary-card__content').contains(`${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`);
-
-    // Verify exemptions have met category section on the result page
-    let documentCodes;
-    if (typeof (cat1DocCodes) == 'string' && typeof (cat2DocCodes) == 'string') {
-        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
-        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat2ExemptOrHaveMet);
-        cy.should('not.contain', exemptMetOrCertNeed);
-    } else if (cat1DocCodes != null && cat2DocCodes != null) {
-        documentCodes = cat1DocCodes.concat(cat2DocCodes);
-        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat1ExemptOrHaveMet);
-        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat2ExemptOrHaveMet);
-    } else if (cat1DocCodes != null || cat1DocCodes == 'none') {
-        documentCodes = cat1DocCodes;
-        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat1ExemptOrHaveMet);
-    } else if (cat2DocCodes != null || cat2DocCodes == 'none') {
-        documentCodes = cat2DocCodes;
-        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat2ExemptOrHaveMet);
-
+Cypress.Commands.add('verifyErrorMessageOnExemptionPage', (commodityCode, originCountry, category) => {
+    if (category == 'Category 1') {
+        cy.url().should('include',
+            `/check_spimm_eligibility/category_exemptions?&category=1&${urlContains(commodityCode, originCountry)}`);
     } else {
-        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
-        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat2ExemptOrHaveMet);
-        cy.should('not.contain', exemptMetOrCertNeed);
+        cy.url().should('include',
+            `/check_spimm_eligibility/category_exemptions?&category=2&${urlContains(commodityCode, originCountry)}`);
     }
-    if (exemptMetOrCertNeed != null) {
-        cy.verifyExemptionsMet(documentCodes, exemptMetOrCertNeed);
-    }
+
+    cy.contains('We need more information about your goods');
+    cy.contains(`Your goods will be ${category}, unless you meet sufficient conditions.`);
+    cy.get('.govuk-error-summary').contains('Select if any exemptions apply');
+    cy.get('.govuk-list > li a').should('have.attr', 'href');
+    cy.get('.govuk-error-message').contains('Select if any exemptions apply');
 });
 
 // Check your answers page
 Cypress.Commands.add('checkYourAnswersPage',
-    (commodityCode, originCountry, onlyCat1Exemptions, onlyCat2Exemptions, withExemptions,
+    (commodityCode, originCountry, categoryResult, onlyCat1Exemptions, onlyCat2Exemptions, withExemptions,
         cat1DocCodes, cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
         let c1exValue; let c2exValue;
         if (onlyCat2Exemptions == true) {
             if (cat2DocCodes != 'none' || cat2DocCodes == 'none') {
-                if (cat2DocCodes != 'none') {
+                if (!Object.values(cat2DocCodes).includes('none')) {
                     c2exValue = true;
                 }
                 else {
@@ -277,10 +255,9 @@ Cypress.Commands.add('checkYourAnswersPage',
                     `/check_spimm_eligibility/check_your_answers?&c2ex=true&category=2&${urlContains(commodityCode, originCountry)}`);
             }
         } else if (onlyCat1Exemptions == true) {
-            if (cat1DocCodes != 'none') {
+            if (!Object.values(cat1DocCodes).includes('none')) {
                 c1exValue = true;
-            }
-            else {
+            } else {
                 c1exValue = false;
             }
             cy.get('@cat1').then((cat1ExemptionsUrlParams) => {
@@ -311,14 +288,16 @@ Cypress.Commands.add('checkYourAnswersPage',
         cy.get('.govuk-summary-card__title-wrapper h2').contains('About your goods');
 
         // Verify Categories exemptions met
-        cy.VerifyAboutGoodsAndCategorisationOfGoods(commodityCode, originCountry, cat1DocCodes,
-            cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed);
+        if (cat1ExemptOrHaveMet != null && cat2ExemptOrHaveMet != null) {
+            cy.VerifyAboutGoodsAndCategorisationOfGoods(commodityCode, originCountry, categoryResult, cat1DocCodes,
+                cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed);
+        }
     });
 
 // Result Page
 Cypress.Commands.add('verifyResultPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
-    cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
-    if (`${categoryResult}` == 'standard') {
+    cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed, clkCheckCategoryOfGoodsBtn) => {
+    if (`${categoryResult}` == 'Standard goods') {
         cy.url().should('include', '/check_spimm_eligibility/result?category=standard');
         cy.contains('Standard Category');
     } else if (`${categoryResult}` == 'Category 2') {
@@ -332,29 +311,121 @@ Cypress.Commands.add('verifyResultPage', (commodityCode, originCountry, category
     if (`${categoryResult}` == 'Category 2' || `${categoryResult}` == 'standard') {
         cy.contains('Goods are eligible to move through the simplified process for internal market movements (SPIMM)');
     }
-    cy.contains('Find out more about SPIMM');
-    cy.get('.tariff > #content > p:nth-child(5) > a').should('have.attr', 'href',) +
-        ('https://www.figma.com/proto/k0Vb4ZCE5gjcsevbke0R6Q/Online-Tariff-Tool-%2F-GL?page-id=8705%3A50327&node-id=8677-13921&') +
-        ('viewport=833%2C310%2C0.47&t=MoxrxfJbs0nHWIt5-1&scaling=min-zoom&content-scaling=fixed')
     cy.contains('What you should do next');
     if (`${categoryResult}` == 'Category 1') {
         cy.contains('Category 1 goods cannot continue through SPIMM.');
-        cy.contains('Find out more about trading and moving goods in and out of Northern Ireland (opens in a new tab)');
-        cy.get('.tariff > #content > p:nth-child(9) > a').should('have.attr', 'href',) +
+        const lnkText = 'Find out more about trading and moving goods in and out of Northern Ireland (opens in a new tab)';
+        cy.contains(`${lnkText}`).should('have.attr', 'href',) +
             ('https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland');
 
     } else {
         cy.contains('Become an authorised trader under the UK Internal Market Scheme (UKIMS) (opens in a new tab)');
-        cy.get('ol.govuk-list > li:nth-child(1)> a').should('have.attr', 'href',) +
-        ('https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-internal-market-scheme-if-you-bring-goods-into-northern-ireland')
+        cy.get('.govuk-list li a').should('have.attr', 'href',) +
+            ('https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-internal-market-scheme-if-you-bring-goods-into-northern-ireland')
         cy.contains('Trader Support Service (TSS) (opens in a new tab).');
         cy.get('ol.govuk-list > li:nth-child(3)> a').should('have.attr', 'href', 'https://www.gov.uk/guidance/trader-support-service')
     }
     cy.contains('About the categorisation of your goods');
 
     // Verify Categories exemptions have met and Certification needed
-    cy.VerifyAboutGoodsAndCategorisationOfGoods(commodityCode, originCountry, cat1DocCodes,
-        cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed);
+    cy.VerifyAboutGoodsAndCategorisationOfGoods(commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
+        cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed);
 
-    cy.contains('Check the category of other goods').click();
+    if (clkCheckCategoryOfGoodsBtn != true && clkCheckCategoryOfGoodsBtn == null) {
+        cy.contains('Check the category of other goods').click();
+    }
+});
+
+Cypress.Commands.add('verifyExemptionsMet', (documentCodes, exemptMetOrCertNeed) => {
+    cy.get('.govuk-summary-card .govuk-summary-list .govuk-summary-list__row').each(($row) => {
+        if (!Object.values(documentCodes).includes(documentCodes)) {
+            if ($row.text().includes(exemptMetOrCertNeed)) {
+                cy.contains(exemptMetOrCertNeed).should('be.visible');
+            }
+        } else {
+            for (var i = 0; i < documentCodes.length; i++) {
+                const upperCaseDocCode = documentCodes[i].toUpperCase();
+                if ($row.text().includes(upperCaseDocCode)) {
+                    cy.wrap($row.text()).should('include', upperCaseDocCode);
+                    cy.wrap($row.text()).should('include', exemptMetOrCertNeed);
+                }
+            }
+        }
+    });
+});
+
+Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode, originCountry, categoryResult, cat1DocCodes,
+    cat2DocCodes, cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed) => {
+    // Verify about goods table
+    cy.get('.govuk-summary-card__content').contains(`${commodityCode}`);
+    cy.get('.govuk-summary-card__content').contains(`${originCountry}`);
+    cy.get('.govuk-summary-card__content').contains(`${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`);
+    if (categoryResult != false && categoryResult != 'Standard goods') {
+        cy.get('.govuk-summary-card__content').contains(`${categoryResult}`);
+    }
+
+    // Verify exemptions have met category section on the result page
+    let documentCodes;
+    if (typeof (cat1DocCodes) == 'string' && typeof (cat2DocCodes) == 'string') {
+        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
+        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat2ExemptOrHaveMet);
+        cy.should('not.contain', exemptMetOrCertNeed);
+    } else if (cat1DocCodes != null && cat2DocCodes != null) {
+        documentCodes = cat1DocCodes.concat(cat2DocCodes);
+        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat1ExemptOrHaveMet);
+        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat2ExemptOrHaveMet);
+    } else if (cat1DocCodes != null || cat1DocCodes == 'none') {
+        documentCodes = cat1DocCodes;
+        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat1ExemptOrHaveMet);
+    } else if (cat2DocCodes != null || cat2DocCodes == 'none') {
+        documentCodes = cat2DocCodes;
+        cy.get('.govuk-summary-card__title-wrapper h2').contains(cat2ExemptOrHaveMet);
+
+    } else {
+        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
+        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat2ExemptOrHaveMet);
+        cy.should('not.contain', exemptMetOrCertNeed);
+    }
+    if (documentCodes != null && exemptMetOrCertNeed != null) {
+        cy.verifyExemptionsMet(documentCodes, exemptMetOrCertNeed);
+    }
+});
+
+Cypress.Commands.add('navigateToTellsUsAbtYourGoodsPage', (data) => {
+    // SPIMM process start page
+    cy.verifySpimmPage();
+    // Start now button
+    cy.clkBtnToContinue();
+    // Answer eligibility questions page
+    cy.verifyEligibilityNewPage(data[3]);
+    // Continue button
+    cy.clkBtnToContinue();
+    // Check the category of your goods page
+    cy.checkCategoryOfYourGoods();
+    // Continue button
+    cy.clkBtnToContinue();
+    // Tell us about your goods
+    cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+    // Continue button
+    cy.clkBtnToContinue();
+});
+
+Cypress.Commands.add('navigateToCat1ResultPage', (data, cat1DocCodes, assertData, assertData2) => {
+    // Navigates to directly to Tells Us About Your Goods Page
+    cy.navigateToTellsUsAbtYourGoodsPage(data);
+    // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+    cy.category1ExemptionsPage(data[0], data[1], cat1DocCodes);
+    // Continue button
+    cy.clkBtnToContinue();
+    // Check your answers page
+    cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
+    // Continue button
+    cy.clkBtnToContinue();
+    // Results Page
+    cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2], true);
+});
+
+Cypress.Commands.add('verifyPageURLsAndHeadingsByClickingBackLink', (data, cat1DocCodes) => {
+    // Check your answers page
+    cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null);
 });
