@@ -299,7 +299,7 @@ Cypress.Commands.add('verifyResultPage', (commodityCode, originCountry, category
     cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed, clkCheckCategoryOfGoodsBtn) => {
     if (`${categoryResult}` == 'Standard goods') {
         cy.url().should('include', '/check_spimm_eligibility/result?category=standard');
-        cy.contains('Standard Category');
+        cy.contains('Standard goods');
     } else if (`${categoryResult}` == 'Category 2') {
         cy.url().should('include', '/check_spimm_eligibility/result?category=2');
         cy.contains('Category 2');
@@ -359,7 +359,7 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
     // Verify about goods table
     cy.get('.govuk-summary-card__content').contains(`${commodityCode}`);
     cy.get('.govuk-summary-card__content').contains(`${originCountry}`);
-    cy.get('.govuk-summary-card__content').contains(`${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`);
+    cy.get('.govuk-summary-card__content').contains(`${todaysDate[2]} ${dayjs(todaysDate[1]).format('MMMM')} ${todaysDate[0]}`);
     if (categoryResult != false && categoryResult != 'Standard goods') {
         cy.get('.govuk-summary-card__content').contains(`${categoryResult}`);
     }
