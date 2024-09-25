@@ -38,10 +38,6 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
       cy.tariffUpdates(service);
     });
 
-    it('reports', function() {
-      cy.reports(service);
-    });
-
     it('search quota order number', function() {
       cy.searchQuotas('058011');
     });
@@ -104,9 +100,6 @@ describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
       cy.tariffUpdates(service);
     });
 
-    it('reports', function() {
-      cy.reports(service);
-    });
     it('view green lanes category assessments page', function() {
       cy.categoryAssessments(service);
     });

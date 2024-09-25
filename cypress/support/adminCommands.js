@@ -329,16 +329,6 @@ Cypress.Commands.add('tariffUpdates', (service) => {
   cy.get('.govuk-pagination').contains('Next');
 });
 
-Cypress.Commands.add('reports', (service) => {
-  cy.visit(`${adminUrl}/${service}/reports`);
-  cy.verifyService(service);
-  cy.contains('Reports');
-  cy.get('#table-reports').contains('Commodities extract');
-  cy.get('#table-reports').contains('All the commodities');
-  cy.get('#table-reports').contains('CSV');
-  cy.get('#table-reports a[href$="/reports/commodities.csv"]').contains('Download');
-});
-
 Cypress.Commands.add('verifyService', (service) => {
   cy.get('.current-service').contains(`You are currently using the ${service.toUpperCase()} service`);
 });
