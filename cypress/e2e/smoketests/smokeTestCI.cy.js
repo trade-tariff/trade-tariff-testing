@@ -6,8 +6,8 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
     it('Verify date pickers are working', function() {
       cy.visit('/find_commodity');
-      cy.get(':nth-child(1) > .govuk-form-group > .govuk-label').click();
-      //cy.get('[name="day"]').click();
+      cy.get('.govuk-details__summary').click();
+      cy.get('#tariff_date_day').click();
       cy.get('#tariff_date_day').clear();
       cy.get('#tariff_date_day').type(21);
       cy.get('#tariff_date_month').click();
