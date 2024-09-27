@@ -505,7 +505,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     // Scenario 2 - Cat2 exemptions to check your answers to Cat 2 result page
     it('Verify - Green lanes - UK to NI - Category 2 - Scenario 2', function() {
       const data = ['1602320000', 'GL', 'Category 2', 'yes']
-      const cat2DocCodes = ['none', 'none'];
+      const cat2DocCodes = ['none', 'none', 'none'];
       // SPIMM process start page
       cy.verifySpimmPage();
       // Start now button
@@ -603,7 +603,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     // Scenario 2 - Cat2 exemptions to Standard category result page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 2', function() {
       const data = ['1602509590', 'FO', 'Standard goods', 'yes'];
-      const cat2DocCodes = ['y170', 'y058', 'y900'];
+      const cat2DocCodes = ['y170', 'y058', 'y900', 'y929'];
       // SPIMM process start page
       cy.verifySpimmPage();
       // Start now button
@@ -634,8 +634,8 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
     // Scenario 3 - Cat1 exemptions to Standard category result page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 3', function() {
-      const data = ['2009120090', 'UA', 'Standard goods', 'yes'];
-      const cat1DocCodes = ['y997', 'y984'];
+      const data = ['7606119989', 'RU', 'Standard goods', 'yes'];
+      const cat1DocCodes = ['y874'];
       // SPIMM process start page
       cy.verifySpimmPage();
       // Start now button
