@@ -3,8 +3,13 @@ import dayjs from 'dayjs';
 const dateToTrade = dayjs().format('YYYY/MM/DD');
 const todaysDate = dateToTrade.split('/');
 
+const dateWithFullMonth = dayjs().format('DD MMMM YYYY').split(' ');
+
 // build url query param based on the number of exception documents user selected dynamically
-const urlContains = (commodityCode, originCountry) => `commodity_code=${commodityCode}&country_of_origin=${originCountry}&moving_date=${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`;
+const urlContains = (commodityCode, originCountry) => {
+    const urlStr = `commodity_code=${commodityCode}&country_of_origin=${originCountry}&`;
+    return `${urlStr}moving_date=${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`;
+};
 
 // SPIMM - Simplified process for internal market movements from Great Britain to Northern Ireland.
 
@@ -56,10 +61,14 @@ Cypress.Commands.add('checkCategoryOfYourGoods', () => {
 });
 
 // Tell us about your goods
-Cypress.Commands.add('tellUsAboutYourGoodsPage', (commodityCode, originCountry) => {
+Cypress.Commands.add('tellUsAboutYourGoodsPage', (commodityCode, originCountry, dateBooleanVal) => {
     const movingDate = (index) => `#green_lanes_moving_requirements_form_moving_date_${index}`;
 
-    cy.url().should('include', '/check_spimm_eligibility/your_goods?commit=Continue');
+    if (dateBooleanVal == true) {
+        cy.url().should('include', `/check_spimm_eligibility/your_goods/new?${urlContains(commodityCode, originCountry, dateBooleanVal)}`);
+    } else {
+        cy.url().should('include', '/check_spimm_eligibility/your_goods?commit=Continue');
+    }
     cy.contains('Tell us about your goods');
     // enter commodity code
     cy.contains('What is the commodity code?');
@@ -166,12 +175,17 @@ Cypress.Commands.add('getCategoriesAlias', () => {
 });
 
 // We need more information about your goods
-Cypress.Commands.add('category1ExemptionsPage', (commodityCode, originCountry, documentCodes) => {
+Cypress.Commands.add('category1ExemptionsPage', (commodityCode, originCountry, documentCodes, dateBooleanVal) => {
     if (typeof (documentCodes) == 'string') {
         documentCodes = JSON.parse("[\"" + documentCodes + "\"]");
     }
-    cy.url().should('include',
-        `/check_spimm_eligibility/category_exemptions?category=1&${urlContains(commodityCode, originCountry)}`);
+    if (dateBooleanVal == true) {
+        cy.url().should('include',
+            `/category_exemptions/new?category=1&${urlContains(commodityCode, originCountry, dateBooleanVal)}`);
+    } else {
+        cy.url().should('include',
+            `/check_spimm_eligibility/category_exemptions?category=1&${urlContains(commodityCode, originCountry)}`);
+    }
 
     cy.contains('We need more information about your goods');
     cy.contains('Your goods will be Category 1, unless you meet sufficient conditions.');
@@ -359,7 +373,7 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
     // Verify about goods table
     cy.get('.govuk-summary-card__content').contains(`${commodityCode}`);
     cy.get('.govuk-summary-card__content').contains(`${originCountry}`);
-    cy.get('.govuk-summary-card__content').contains(`${todaysDate[2]} ${dayjs(todaysDate[1]).format('MMMM')} ${todaysDate[0]}`);
+    cy.get('.govuk-summary-card__content').contains(`${dateWithFullMonth[0]} ${dateWithFullMonth[1]} ${dateWithFullMonth[2]}`);
     if (categoryResult != false && categoryResult != 'Standard goods') {
         cy.get('.govuk-summary-card__content').contains(`${categoryResult}`);
     }
@@ -380,7 +394,6 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
     } else if (cat2DocCodes != null || cat2DocCodes == 'none') {
         documentCodes = cat2DocCodes;
         cy.get('.govuk-summary-card__title-wrapper h2').contains(cat2ExemptOrHaveMet);
-
     } else {
         cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
         cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat2ExemptOrHaveMet);
@@ -413,19 +426,56 @@ Cypress.Commands.add('navigateToTellsUsAbtYourGoodsPage', (data) => {
 Cypress.Commands.add('navigateToCat1ResultPage', (data, cat1DocCodes, assertData, assertData2) => {
     // Navigates to directly to Tells Us About Your Goods Page
     cy.navigateToTellsUsAbtYourGoodsPage(data);
-    // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
-    cy.category1ExemptionsPage(data[0], data[1], cat1DocCodes);
-    // Continue button
-    cy.clkBtnToContinue();
-    // Check your answers page
-    cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
-    // Continue button
-    cy.clkBtnToContinue();
-    // Results Page
-    cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2], true);
+    if (cat1DocCodes != null ) {
+        // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+        cy.category1ExemptionsPage(data[0], data[1], cat1DocCodes);
+        // Continue button
+        cy.clkBtnToContinue();
+        // Check your answers page
+        cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
+        // Continue button
+        cy.clkBtnToContinue();
+        // Results Page
+        cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2], true);
+    } else {
+        // Check your answers page
+        cy.checkYourAnswersPage(data[0], data[1], false, false, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
+        // Continue button
+        cy.clkBtnToContinue();
+        // Results Page
+        cy.verifyResultPage(data[0], data[1], data[2], 'none', null, assertData2[0], null, assertData2[2], true);
+    }
 });
 
-Cypress.Commands.add('verifyPageURLsAndHeadingsByClickingBackLink', (data, cat1DocCodes) => {
-    // Check your answers page
-    cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, cat1DocCodes, null);
+Cypress.Commands.add('verifyPageURLsAndHeadingsByClickingBackLink', (data, docCodes, assertData, pageToVerify) => {
+    if (pageToVerify == 'CYA') {
+        // Check your answers page
+        cy.checkYourAnswersPage(data[0], data[1], false, true, false, false, docCodes, null, assertData[0], null, assertData[2], false);
+    } else if (pageToVerify == 'Cat1Exempt') {
+        // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+        cy.category1ExemptionsPage(data[0], data[1], docCodes, true);
+    } else if (pageToVerify == 'YourGoods') {
+        // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+        cy.tellUsAboutYourGoodsPage(data[0], data[1], true);
+    } else if (pageToVerify == 'SPIMMStart') {
+        // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+        cy.verifySpimmPage();
+    }
+});
+
+Cypress.Commands.add('verifyPages', (data, cat1DocCodes, globalAssertData, pageNamesToVerify) => {
+    const pageNames = Object.values(pageNamesToVerify);
+    for (var i = 0; i < pageNames.length; i ++) {
+        // verify CYA page url and headings
+        cy.verifyPageURLsAndHeadingsByClickingBackLink(data, cat1DocCodes, globalAssertData, pageNames[i]);
+        // click Back link on the CYA page
+        cy.clkBackLink();
+    }
+});
+
+Cypress.Commands.add('verifyResultsPageCategoryExemptions', (resultsToVerify) => {
+    const results = Object.values(resultsToVerify);
+    for (var i = 0; i < results.length; i ++) {
+        cy.contains(results[i]);
+    }
 });
