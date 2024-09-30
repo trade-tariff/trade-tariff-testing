@@ -408,7 +408,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.contains('When will the goods be imported?');
     });
   });
-  context.only('when on the UK service - SPIMM - E2E journeys - Happy Path - Smoke Suite', function() {
+  context('when on the UK service - SPIMM - E2E journeys - Happy Path - Smoke Suite', function() {
     const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met', 
       'Your goods are exempt from Category 1 because you meet these conditions', 
       'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];

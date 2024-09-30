@@ -9,17 +9,15 @@ describe('Smoke tests for dev', function() {
 
     it('verify date pickers are working', function() {
       cy.visit('/find_commodity');
-
-      cy.get('.govuk-details__summary').click();
-      cy.get('#tariff_date_day').click();
-      cy.get('#tariff_date_day').clear();
-      cy.get('#tariff_date_day').type(21);
-      cy.get('#tariff_date_month').click();
-      cy.get('#tariff_date_month').clear();
-      cy.get('#tariff_date_month').type(12);
-      cy.get('#tariff_date_year').click();
-      cy.get('#tariff_date_year').clear();
-      cy.get('#tariff_date_year').type(2022);
+      cy.get('input[name="day"]').click();
+      cy.get('input[name="day"]').clear();
+      cy.get('input[name="day"]').type(21);
+      cy.get('input[name="month"]').click();
+      cy.get('input[name="month"]').clear();
+      cy.get('input[name="month"]').type(12);
+      cy.get('input[name="year"]').click();
+      cy.get('input[name="year"]').clear();
+      cy.get('input[name="year"]').type(2022);
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
@@ -53,21 +51,19 @@ describe('Smoke tests for dev', function() {
 
     it('verify date pickers are working', function() {
       cy.visit('/xi/find_commodity');
-
-      cy.get('.govuk-details__summary').click();
-      cy.get('#tariff_date_day').click();
-      cy.get('#tariff_date_day').clear();
-      cy.get('#tariff_date_day').type(21);
-      cy.get('#tariff_date_month').click();
-      cy.get('#tariff_date_month').clear();
-      cy.get('#tariff_date_month').type(12);
-      cy.get('#tariff_date_year').click();
-      cy.get('#tariff_date_year').clear();
-      cy.get('#tariff_date_year').type(2022);
+      cy.get('input[name="day"]').click();
+      cy.get('input[name="day"]').clear();
+      cy.get('input[name="day"]').type(21);
+      cy.get('input[name="month"]').click();
+      cy.get('input[name="month"]').clear();
+      cy.get('input[name="month"]').type(12);
+      cy.get('input[name="year"]').click();
+      cy.get('input[name="year"]').clear();
+      cy.get('input[name="year"]').type(2022);
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
-      cy.get('a[href=\'/xi/import_export_dates?day=21&goods_nomenclature_code=3808941000&month=12&year=2022\']').click();
+      cy.get('a[href=\'/xi/import_export_dates?goods_nomenclature_code=3808941000').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
 
       cy.contains('22 December 2022');
@@ -92,15 +88,15 @@ describe('Smoke tests for dev', function() {
   it('Change date and verify if the data shown is same for both XI and UK', function() {
     cy.visit('/find_commodity');
     cy.get('.govuk-details__summary').click();
-    cy.get('#tariff_date_day').click();
-    cy.get('#tariff_date_day').clear();
-    cy.get('#tariff_date_day').type(21);
-    cy.get('#tariff_date_month').click();
-    cy.get('#tariff_date_month').clear();
-    cy.get('#tariff_date_month').type(12);
-    cy.get('#tariff_date_year').click();
-    cy.get('#tariff_date_year').clear();
-    cy.get('#tariff_date_year').type(2023);
+    cy.get('input[name="day"]').click();
+    cy.get('input[name="day"]').clear();
+    cy.get('input[name="day"]').type(21);
+    cy.get('input[name="month"]').click();
+    cy.get('input[name="month"]').clear();
+    cy.get('input[name="month"]').type(12);
+    cy.get('input[name="year"]').click();
+    cy.get('input[name="year"]').clear();
+    cy.get('input[name="year"]').type(2023);
 
     cy.searchForCommodity('3808941000');
     cy.contains(/Commodity .*3808941000/i);
