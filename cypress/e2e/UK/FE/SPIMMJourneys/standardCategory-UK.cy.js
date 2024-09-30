@@ -3,23 +3,23 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
       'Your goods are exempt from Category 1 because you meet these conditions', 
       'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
     const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met']
-    beforeEach('Navigates to SPIMM journey start page', () => {
+    beforeEach('Navigates from SPIMM start page to your goods page', () => {
       cy.visit('/check_spimm_eligibility');
-    });
-    it('Verify - Green lanes - UK to NI - Standard Category - Scenario - 1', function() {
-      const data = ['9603909100', 'BY', 'Standard goods', 'yes']
       // SPIMM process start page
       cy.verifySpimmPage();
       // Start now button
       cy.clkBtnToContinue();
       // Answer eligibility questions page
-      cy.verifyEligibilityNewPage(data[3]);
+      cy.verifyEligibilityNewPage('yes');
       // Continue button
       cy.clkBtnToContinue();
       // Check the category of your goods page
       cy.checkCategoryOfYourGoods();
       // Continue button
       cy.clkBtnToContinue();
+    });
+    it('Verify - Green lanes - UK to NI - Standard Category - Scenario 1', function() {
+      const data = ['9603909100', 'BY', 'Standard goods']
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
@@ -33,20 +33,8 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
     });
     // Scenario 2 - Cat2 exemptions to Standard category results page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 2', function() {
-      const data = ['1602509590', 'FO', 'Standard goods', 'yes'];
-      const cat2DocCodes = ['y170', 'y058', 'y900'];
-      // SPIMM process start page
-      cy.verifySpimmPage();
-      // Start now button
-      cy.clkBtnToContinue();
-      // Answer eligibility questions page
-      cy.verifyEligibilityNewPage(data[3]);
-      // Continue button
-      cy.clkBtnToContinue();
-      // Check the category of your goods page
-      cy.checkCategoryOfYourGoods();
-      // Continue button
-      cy.clkBtnToContinue();
+      const data = ['1602509590', 'FO', 'Standard goods'];
+      const cat2DocCodes = ['y170', 'y058', 'y900', 'y929'];
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
@@ -65,20 +53,8 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
     });
     // Scenario 3 - Cat1 exemptions to Standard category results page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 3', function() {
-      const data = ['2009120090', 'UA', 'Standard goods', 'yes'];
-      const cat1DocCodes = ['y997', 'y984'];
-      // SPIMM process start page
-      cy.verifySpimmPage();
-      // Start now button
-      cy.clkBtnToContinue();
-      // Answer eligibility questions page
-      cy.verifyEligibilityNewPage(data[3]);
-      // Continue button
-      cy.clkBtnToContinue();
-      // Check the category of your goods page
-      cy.checkCategoryOfYourGoods();
-      // Continue button
-      cy.clkBtnToContinue();
+      const data = ['8113009010', 'IR', 'Standard goods'];
+      const cat1DocCodes = ['y949', 'y949', 'y966'];
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
@@ -96,21 +72,9 @@ context('when on the UK service - SPIMM - E2E journeys -Test Suite', function() 
     });
     // Scenario 4 - Cat1 and Cat2 exemptions to Standard category results page
     it('Verify - Green lanes - UK to NI - Standard Category - Scenario 4', function() {
-      const data = ['6913909890', 'UA', 'Standard goods', 'yes'];
+      const data = ['6913909890', 'UA', 'Standard goods'];
       const cat1DocCodes = ['y922', 'y997', 'y984'];
       const cat2DocCodes = ['y923'];
-      // SPIMM process start page
-      cy.verifySpimmPage();
-      // Start now button
-      cy.clkBtnToContinue();
-      // Answer eligibility questions page
-      cy.verifyEligibilityNewPage(data[3]);
-      // Continue button
-      cy.clkBtnToContinue();
-      // Check the category of your goods page
-      cy.checkCategoryOfYourGoods();
-      // Continue button
-      cy.clkBtnToContinue();
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
