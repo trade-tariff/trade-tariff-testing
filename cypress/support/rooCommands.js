@@ -206,12 +206,12 @@ Cypress.Commands.add('prodSpecificRules', (rule, countryShortName)=>{
   cy.contains('CC: All non-originating materials used in the production of the good have undergone a change in tariff classification at the 2-digit level (chapter) except from chapter 2.');
   cy.get('a[href^="/chapters/02"]');
   cy.contains('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MAXNOM).');
-  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a').should('have.attr', 'href', `/glossary/exw?country=${countryShortName}`);
-  cy.get(`a[href^="/glossary/exw?country=${countryShortName}"]`);
+  cy.get('div.govuk-radios > div:nth-child(2) > label > p > a').should('have.attr', 'href', `/glossary/exw`);
+  cy.get(`a[href^="/glossary/exw`);
   cy.contains('Your goods contain a Regional Value Content (RVC) of at least 45% of the Free on Board (FOB) cost of the goods.');
-  cy.get(`a[href^="/glossary/exw?country=${countryShortName}"]`);
-  cy.get(`a[href^="/glossary/rvc?country=${countryShortName}"]`);
-  cy.get(`a[href^="/glossary/fob?country=${countryShortName}"]`);
+  cy.get(`a[href^="/glossary/exw`);
+  cy.get(`a[href^="/glossary/rvc`);
+  cy.get(`a[href^="/glossary/fob`);
   cy.contains('Your goods do not meet any of these rules.');
   cy.contains('Introductory notes to the product-specific rules');
   cy.contains('About this commodity code');

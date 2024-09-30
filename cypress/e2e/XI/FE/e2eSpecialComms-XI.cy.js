@@ -74,8 +74,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
   });
   it('excise duties on Cigars', function() {
     cy.visit('/xi/commodities/2402100000#import');
-    cy.get('#measure--1012049813 > td.measure-type-col').contains('Excises');
-    cy.get('#measure--1012049813 > td.measure-type-col').contains('Additional code: X615');
+    cy.get('.measure-type-col').contains('Excises');
+    cy.get('.measure-type-col').contains('Additional code: X615');
   });
   it('prohibition measure on plastics', function() {
     cy.visit('/xi/commodities/3921139000');

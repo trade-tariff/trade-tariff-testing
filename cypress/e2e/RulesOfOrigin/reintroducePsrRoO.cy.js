@@ -89,7 +89,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
   it('UK | Show all PSRs on the single page', function() {
     cy.visit('/commodities/6210400000?country=CL#rules-of-origin');
     cy.contains('View valid proofs of origin for all trade agreements').click();
-    cy.url().should('include', '/rules_of_origin/proofs?country=CL');
+    cy.url().should('include', '/rules_of_origin/proofs');
     cy.contains('UK / EU Trade and Co-operation Agreement').click();
     cy.contains('UK-Chile Association Agreement').click();
     cy.get('h2#proofs-for-chile').contains('UK-Chile Association Agreement');

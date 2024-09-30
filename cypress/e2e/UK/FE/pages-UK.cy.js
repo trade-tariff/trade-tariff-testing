@@ -125,7 +125,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     // added two lines
     cy.get('#import > :nth-child(2)').contains('Select a country to view country-specific import information.');
     cy.get('#import > :nth-child(3)')
-        .contains('You will then be able to check in the Origin tab if preferential tariff treatments apply to this specific commodity.');
+        .contains('You can check if preferential tariff treatments apply to the import of this specific product in the Origin tab');
     cy.get('input#trading_partner_country').click();
     cy.countryPickerpage({value: 'Argentina'});
     cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('Argentina (AR)');

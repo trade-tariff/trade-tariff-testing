@@ -21,7 +21,7 @@ describe('| 708-RoO-e2e-WO-SuffPro-ProdSpecRules | WO + SuffPro + Product Specfi
     // Product subDivisions
     cy.subDivision('1602321110', 'Subheading 160232');
     // product specific rules
-    cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MAXNOM).', 'JP');
+    cy.prodSpecificRules('A maximum of 60% of the ex-works price (EXW) is made up of non-originating parts (MAXNOM).');
     // Origin requirements met
     cy.originMet('Japan', '1602321110', 'UK-Japan Comprehensive Economic Partnership Agreement');
   });
