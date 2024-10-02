@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 const dateToTrade = dayjs().format('YYYY/MM/DD');
 const todaysDate = dateToTrade.split('/');
 
-const dateWithFullMonth = dayjs().format('DD MMMM YYYY').split(' ');
+const dateWithFullMonth = dayjs().format('D MMMM YYYY').split(' ');
 
 // build url query param based on the number of exception documents user selected dynamically
 const urlContains = (commodityCode, originCountry) => {
@@ -377,7 +377,6 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
     if (categoryResult != false && categoryResult != 'Standard goods') {
         cy.get('.govuk-summary-card__content').contains(`${categoryResult}`);
     }
-
     // Verify exemptions have met category section on the result page
     let documentCodes;
     if (typeof (cat1DocCodes) == 'string' && typeof (cat2DocCodes) == 'string') {
