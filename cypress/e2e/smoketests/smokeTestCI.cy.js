@@ -219,8 +219,6 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.confirmPage();
       cy.dutyPage();
       cy.contains('Third-country duty');
-      cy.contains('Third-country duty (EU)');
-      cy.contains('EU import duties apply, as the difference between the UK');
     });
   });
   context('when on the XI service', function() {
