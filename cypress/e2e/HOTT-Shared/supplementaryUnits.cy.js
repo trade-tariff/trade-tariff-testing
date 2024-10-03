@@ -6,8 +6,8 @@ describe('commodity supplementary units', function() {
     });
 
     it('shows the correct excise units supplementary unit', function() {
-      cy.visit('/uk/commodities/0710809550');
-      cy.contains('(1000 items, retail price)');
+      cy.visit('/uk/commodities/8906100000');
+      cy.contains('Number of items (p/st)');
     });
 
     it('shows the correct duty units supplementary unit', function() {
@@ -48,8 +48,8 @@ describe('commodity supplementary units', function() {
     });
 
     it('shows the correct excise units supplementary unit', function() {
-      cy.visit('/xi/commodities/0710809550');
-      cy.contains('(1000 items, retail price)');
+      cy.visit('/xi/commodities/8906100000');
+      cy.contains('Number of items (p/st)');
     });
 
     it('shows the correct no units supplementary unit', function() {
