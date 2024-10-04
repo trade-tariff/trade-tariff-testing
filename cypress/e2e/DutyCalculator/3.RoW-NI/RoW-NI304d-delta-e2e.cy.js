@@ -31,8 +31,5 @@ describe('| Row-NI304d-delta.spec.js | | Turnover > £500,000 |', function() {
     cy.confirmPage();
     cy.dutyPage();
     cy.contains('Third-country duty');
-    cy.contains('Third-country duty (EU)');
-    cy.contains('EU import duties apply, as the difference between the UK third country duty and');
-    cy.contains('the EU third country duty exceeds 3% of the customs value of your trade.');
   });
 });

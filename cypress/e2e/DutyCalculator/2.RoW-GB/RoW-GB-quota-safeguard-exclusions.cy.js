@@ -8,6 +8,8 @@ describe('Non preferential quota options from Taiwan to UK', function() {
     cy.customsValue({monetary: '2000.00', shipping: '0.00', cost: '0.00'});
     cy.docCode({uk: 'c990'});
     cy.contains('Continue').click();
+    cy.docCode({uk: 'n990'});
+    cy.contains('Continue').click();
     cy.confirmPage();
     cy.dutyPage();
 
