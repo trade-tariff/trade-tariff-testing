@@ -8,7 +8,7 @@ describe('🇪🇺 💡 legalBaseColumn-XI | Legal base Column XI ', function() 
     cy.contains('Legal base').should('exist');
     // eu regulation
     cy.contains('R2658/87');
-    cy.get('a[title=\'NC - 1988 (UTS)\']').should('have.attr', 'href', 'http://eur-lex.europa.eu/search.html?instInvStatus=ALL&or0=DN%3D31987R2658*,DN-old%3D31987R2658*&DTC=false&type=advanced');
+    cy.get('a[title=\'NC - 1988 (UTS)\']').should('have.attr', 'href', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A31987R2658');
     // // uk regulation
 
     // // hover over to see text
@@ -20,7 +20,7 @@ describe('🇪🇺 💡 legalBaseColumn-XI | Legal base Column XI ', function() 
     cy.get('.govuk-tabs__panel');
     cy.contains('Legal base').should('exist');
     cy.contains('R2658/87');
-    cy.get('a[title=\'NC - 1988 (UTS)\']').should('have.attr', 'href', 'http://eur-lex.europa.eu/search.html?instInvStatus=ALL&or0=DN%3D31987R2658*,DN-old%3D31987R2658*&DTC=false&type=advanced');
+    cy.get('a[title=\'NC - 1988 (UTS)\']').should('have.attr', 'href', 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A31987R2658');
   });
 
   it('🚫 3.Binding Tariff Information link - not visible', function() {
