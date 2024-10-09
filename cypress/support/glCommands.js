@@ -394,7 +394,7 @@ Cypress.Commands.add('VerifyAboutGoodsAndCategorisationOfGoods', (commodityCode,
         documentCodes = cat2DocCodes;
         cy.get('.govuk-summary-card__title-wrapper h2').contains(cat2ExemptOrHaveMet);
     } else {
-        cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat1ExemptOrHaveMet);
+        cy.get('.govuk-summary-card__content').should('not.contain', cat1ExemptOrHaveMet);
         cy.get('.govuk-summary-card__title-wrapper h2').should('not.contain', cat2ExemptOrHaveMet);
         cy.should('not.contain', exemptMetOrCertNeed);
     }
@@ -422,10 +422,10 @@ Cypress.Commands.add('navigateToTellsUsAbtYourGoodsPage', (data) => {
     cy.clkBtnToContinue();
 });
 
-Cypress.Commands.add('navigateToCat1ResultPage', (data, cat1DocCodes, assertData, assertData2) => {
+Cypress.Commands.add('navigateToCatResultPage', (data, cat1DocCodes, cat2DocCodes, assertData, assertData2) => {
     // Navigates to directly to Tells Us About Your Goods Page
     cy.navigateToTellsUsAbtYourGoodsPage(data);
-    if (cat1DocCodes != null ) {
+    if (cat1DocCodes != null && cat2DocCodes == null) {
         // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
         cy.category1ExemptionsPage(data[0], data[1], cat1DocCodes);
         // Continue button
@@ -436,7 +436,38 @@ Cypress.Commands.add('navigateToCat1ResultPage', (data, cat1DocCodes, assertData
         cy.clkBtnToContinue();
         // Results Page
         cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, null, assertData2[0], null, assertData2[2], true);
-    } else {
+    }
+    else if (cat2DocCodes != null && cat1DocCodes == null) {
+        // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+        cy.category2ExemptionsPage(data[0], data[1], cat2DocCodes);
+        // Continue button
+        cy.clkBtnToContinue();
+        // Check your answers page
+        cy.checkYourAnswersPage(data[0], data[1], false, false, true, false, null, cat2DocCodes, null, assertData[1], assertData[2]);
+        // Continue button
+        cy.clkBtnToContinue();
+       // Cypress.Commands.add('verifyResultPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
+           // cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed, clkCheckCategoryOfGoodsBtn)
+        // Results Page
+        cy.verifyResultPage(data[0], data[1], data[2], null, cat2DocCodes, null, assertData2[0],assertData2[1], true);
+    }
+    else if (cat1DocCodes != null && cat2DocCodes != null) {
+        // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+        cy.category1ExemptionsPage(data[0], data[1], cat1DocCodes);
+        // Continue button
+        cy.clkBtnToContinue();
+       // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list
+       cy.category2ExemptionsPage(data[0], data[1], cat2DocCodes, true);
+       // Continue button
+       cy.clkBtnToContinue();
+        // Check your answers page
+        cy.checkYourAnswersPage(data[0], data[1], false, false, false, true, cat1DocCodes, cat2DocCodes, assertData[0], assertData[1], assertData[2]);
+        // Continue button
+        cy.clkBtnToContinue();
+        // Results Page
+        cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, cat2DocCodes, assertData[3], assertData2[0], assertData2[1], true);
+    }
+     else {
         // Check your answers page
         cy.checkYourAnswersPage(data[0], data[1], false, false, false, false, cat1DocCodes, null, assertData[0], null, assertData[2]);
         // Continue button
