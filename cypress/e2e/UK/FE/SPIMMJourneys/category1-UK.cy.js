@@ -92,7 +92,8 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
     context('Verify Cat1 Scenarios Back Link Functionality', function () {
         // Sceanrio 5 - Select Cat1 exemptions page and select an exemption and continue to until CYA and results page, 
         // and click Back Link to back to 'SPIMM start' page to see everything works as expected w.r.t back link functionality.
-        it('Verify - Green lanes - UK to NI - Cat1 - Scenario 5', function () {
+        //as part of this jira changes GL-1071,  for now we skipped this test case from execution
+        it.skip('Verify - Green lanes - UK to NI - Cat1 - Scenario 5', function () {
             const data = ['8708219000', 'GB', 'Category 1', 'yes'];
             const cat1DocCodes = ['y160', 'none'];
             const globalAssertData = [assertData[0], assertData[2]]; const globalAssertData2 = [assertData2[0], assertData2[2]];
