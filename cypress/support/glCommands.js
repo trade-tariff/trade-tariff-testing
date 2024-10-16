@@ -7,6 +7,7 @@ const dateWithFullMonth = dayjs().format('D MMMM YYYY').split(' ');
 
 // build url query param based on the number of exception documents user selected dynamically
 const urlContains = (commodityCode, originCountry) => {
+    originCountry = originCountry.replace(/\s+/g, '+').replace(/’/g, '%E2%80%99').replace(/\(/g, '%28').replace(/\)/g, '%29');
     const urlStr = `commodity_code=${commodityCode}&country_of_origin=${originCountry}&`;
     return `${urlStr}moving_date=${todaysDate[0]}-${todaysDate[1]}-${todaysDate[2]}`;
 };
@@ -295,6 +296,7 @@ Cypress.Commands.add('checkYourAnswersPage',
         } else {
             cy.url().should('include',
                 `/check_spimm_eligibility/check_your_answers?${urlContains(commodityCode, originCountry)}`);
+                
         }
 
         // Verify the check your answers table
