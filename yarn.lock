@@ -1384,10 +1384,10 @@ ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-allure-commandline@^2.30.0:
-  version "2.30.0"
-  resolved "https://registry.yarnpkg.com/allure-commandline/-/allure-commandline-2.30.0.tgz#c121021d263cad2474ec0fd7490de4d3c65a06f3"
-  integrity sha512-qSaGG/I8P38q8gufnxvEog+IrIeCick+PJxxoTp5Vh/L8kviymIfv3A7fvYWziOqZ/oDywyOuNFMEfPZiiKwAA==
+allure-commandline@^2.32.0:
+  version "2.32.0"
+  resolved "https://registry.yarnpkg.com/allure-commandline/-/allure-commandline-2.32.0.tgz#59826c454756563776658a829cf9732063413d71"
+  integrity sha512-W03ors+ks8uy0SgQILHQvtvR0iadAfDYmTFC3p8Pk4pi8KXUW1cF+z8FN2+7deH3FE2cuYgjhhA+CdLdJfzOMQ==
 
 allure-js-commons@^1.3.2:
   version "1.3.2"
