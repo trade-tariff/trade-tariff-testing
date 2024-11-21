@@ -2,7 +2,7 @@ describe('when on the UK service - SPIMM - E2E journeys -Standard goods Scenario
   const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met',
     'Your goods are exempt from Category 1 because you meet these conditions',
     'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
-  const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met']
+  const assertData2 = ['Your Category 1 result is based on the following regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met']
   beforeEach('Navigates from SPIMM start page to your goods page', () => {
     cy.visit('/check_spimm_eligibility');
   });

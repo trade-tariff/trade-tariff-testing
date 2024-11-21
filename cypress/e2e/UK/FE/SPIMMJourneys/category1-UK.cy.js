@@ -2,7 +2,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
     const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met',
         'Your goods are exempt from Category 1 because you meet these conditions',
         'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
-    const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met'];
+    const assertData2 = ['Your Category 1 result is based on the following regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met'];
     beforeEach('Navigates from SPIMM start page to your goods page', () => {
         cy.visit('/check_spimm_eligibility');
     });
@@ -23,9 +23,9 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         });
         // Sceanrio 1 - Direct to check your answers to Cat1 results page
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 1', function () {
-            const data = ['0804500089', 'KP', 'Category 1'];
+            const data = ['0804500089', 'KP', 'Category 1', 'North Korea (Democratic People’s Republic of Korea) (KP)'];
             // Tell us about your goods
-            cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+            cy.tellUsAboutYourGoodsPage(data[0], data[1], false, data[3]);
             // Continue button
             cy.clkBtnToContinue();
             // Check your answers page
@@ -37,10 +37,10 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         });
         // Sceanrio 2 - Select Cat1 exemption 'none' to get Cat1 results page
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 2', function () {
-            const data = ['8708999790', 'UA', 'Category 1'];
+            const data = ['8708999790', 'UA', 'Category 1', 'Ukraine (UA)'];
             const cat1DocCodes = ['none', 'none', 'none', 'none'];
             // Tell us about your goods
-            cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+            cy.tellUsAboutYourGoodsPage(data[0], data[1], false,data[3]);
             // Continue button
             cy.clkBtnToContinue();
             // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list.
@@ -56,10 +56,10 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         });
         // Sceanrio 3 - Select Cat1 exemptions page - select one exemption and one 'none' from available exemptions to get Cat1 results page
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 3', function () {
-            const data = ['8708219000', 'GB', 'Category 1'];
+            const data = ['8708219000', 'GB', 'Category 1', 'United Kingdom (excluding Northern Ireland) (GB)'];
             const cat1DocCodes = ['y160', 'none'];
             // Tell us about your goods
-            cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+            cy.tellUsAboutYourGoodsPage(data[0], data[1], false, data[3]);
             // Continue button
             cy.clkBtnToContinue();
             // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list.
@@ -75,10 +75,10 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         });
         // Sceanrio 4 - Select Cat1 exemptions page - skip exemption selection and click continue button to validate error messages.
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 4', function () {
-            const data = ['8708219000', 'GB', 'Category 1'];
+            const data = ['8708219000', 'GB', 'Category 1', 'United Kingdom (excluding Northern Ireland) (GB)'];
             const cat1DocCodes = null;
             // Tell us about your goods
-            cy.tellUsAboutYourGoodsPage(data[0], data[1]);
+            cy.tellUsAboutYourGoodsPage(data[0], data[1], false, data[3]);
             // Continue button
             cy.clkBtnToContinue();
             // We need more information about your goods - cat 1 and select at least one exception from each Exemptions list.
