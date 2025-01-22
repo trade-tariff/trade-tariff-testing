@@ -52,7 +52,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('VAT exempt');
   });
   it(`UK service - No Option available - one rate  🇮🇱 RoW-GB`, function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.validDate();
     cy.selectDestination('gb');
     cy.originList({value: 'Greenland'});
@@ -65,7 +65,7 @@ describe('| 🛄 dcVAT-e2e | VAT final page calculations |', function() {
     cy.contains('What is the customs value of this import?');
   });
   it('XI service - No Option available - one rate GB-NI', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('other');

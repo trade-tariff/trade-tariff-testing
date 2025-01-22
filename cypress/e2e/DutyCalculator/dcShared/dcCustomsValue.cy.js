@@ -1,6 +1,6 @@
 describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', function() {
   it('Page Validation', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     //   cy.visit('/duty-calculator/uk/0407191900/import-date')
     cy.validDate();
     cy.selectDestination('xi');
@@ -34,7 +34,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
   });
   // error messages - nothing is entered
   it('No Values Entered', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('gb');
@@ -64,7 +64,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
 
   // enter characters in shipping /insurance costs and leave Goods value as blank
   it('Enter  non-numeric values in shipping cost and insurance cost', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('gb');
@@ -112,7 +112,7 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.contains('Enter a insurance cost value greater than or equal to zero');
   });
   it('Enter valid goods value + £0.00 shipping and insurance costs', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('gb');
@@ -131,4 +131,3 @@ describe('🛃 | dcCustomsValue | Customs / Monetary Value calculation page |', 
     cy.contains('Enter import quantity');
   });
 });
-

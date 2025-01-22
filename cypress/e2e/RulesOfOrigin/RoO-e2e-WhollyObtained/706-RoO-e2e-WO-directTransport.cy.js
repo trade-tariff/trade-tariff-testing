@@ -1,5 +1,5 @@
- 
- 
+
+
 describe('| RoO-e2e-WhollyObtained-DirectTransport.spec | WO + Direct Transport |', {tags: ['notProduction']}, function() {
   it('Import - WO + Direct Transport - Chile', function() {
     cy.visit('/commodities/0701909090?country=CL#rules-of-origin');
@@ -21,7 +21,7 @@ describe('| RoO-e2e-WhollyObtained-DirectTransport.spec | WO + Direct Transport 
     cy.directTransport('UK-Chile Association Agreement');
   });
   it('Export - WO + Direct Transport - Albania', function() {
-    cy.visit('/commodities/0702000007?country=AL#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=AL#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -35,12 +35,12 @@ describe('| RoO-e2e-WhollyObtained-DirectTransport.spec | WO + Direct Transport 
     // Wholly Obtained yes/no ?
     cy.whollyObtained('the UK', 'yes');
     // Origin requirements met for export
-    cy.rooReqMetEx('Exporting', 'the UK', '0702000007', 'UK-Albania Partnership, Trade and Cooperation Agreement');
+    cy.rooReqMetEx('Exporting', 'the UK', '0702001007', 'UK-Albania Partnership, Trade and Cooperation Agreement');
     // Verify Direct Transport link
     cy.directTransport('UK-Albania Partnership, Trade and Cooperation Agreement');
   });
   it('Import - No Direct Transport link on RoO not met screen and valid proofs of origin pages - Iceland', function() {
-    cy.visit('/commodities/0702000007?country=IS#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=IS#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -54,12 +54,12 @@ describe('| RoO-e2e-WhollyObtained-DirectTransport.spec | WO + Direct Transport 
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Iceland', 'no');
     // Origin requirements not met for import
-    cy.rooNotMetImp('Importing', 'Iceland', '0702000007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.rooNotMetImp('Importing', 'Iceland', '0702001007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     // Verify Direct Transport link
     cy.should('not.contain.text', 'Find out about the direct transport rule');
   });
   it('Export - No Direct Transport link on RoO not met screen and valid proofs of origin pages - Iceland', function() {
-    cy.visit('/commodities/0702000007?country=IS#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=IS#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -73,7 +73,7 @@ describe('| RoO-e2e-WhollyObtained-DirectTransport.spec | WO + Direct Transport 
     // Wholly Obtained yes/no ?
     cy.whollyObtained('the UK', 'no');
     // Origin requirements not met for exporting
-    cy.rooNotMetImp('Exporting', 'the UK', '0702000007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.rooNotMetImp('Exporting', 'the UK', '0702001007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     // Verify Direct Transport link
     cy.should('not.contain.text', 'Find out about the direct transport rule');
   });

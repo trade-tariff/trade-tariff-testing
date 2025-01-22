@@ -1,6 +1,6 @@
 describe('| GB-NI405-e2e.spec | GB to NI route 🚐 05', function() {
   it('e2e GB to NI', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
 
     cy.validDate();
     cy.selectDestination('xi');

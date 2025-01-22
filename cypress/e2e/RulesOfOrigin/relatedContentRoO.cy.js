@@ -1,7 +1,7 @@
 // HOTT- 954
 describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'roo-tag']}, function() {
   it('| XI Service - EU Trading relations with Chile - Related Content |', function() {
-    cy.visit('xi/commodities/0702000007');
+    cy.visit('xi/commodities/0702001007');
     cy.pickTradingPartner('CL', `${cy.url()}`);
     cy.contains('Origin').click();
     cy.contains('EU - Chile Association Agreement');
@@ -54,7 +54,7 @@ describe('| relatedContentRoO - Related Content - links ', {tags: ['config', 'ro
     cy.contains('Build-Up Method');
   });
   it('UK - Remove Somoa(WS) from DCTS General & Enhanced Framework', function() {
-    cy.visit('/rules_of_origin/0702000007?country=IN#rules-for-dcts-general-enhanced');
+    cy.visit('/rules_of_origin/0702001007?country=IN#rules-for-dcts-general-enhanced');
     cy.contains('Developing Countries Trading Scheme (DCTS) - Standard and Enhanced Preferences');
     cy.should('not.contain', 'Somoa');
   });

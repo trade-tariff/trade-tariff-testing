@@ -1,6 +1,6 @@
 describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page |', function() {
   it('ESW (GB) ', function() {
-    cy.visit(`duty-calculator/uk/0702000007/import-date`);
+    cy.visit(`duty-calculator/uk/0702001007/import-date`);
 
     cy.contains('UK Integrated Online Tariff');
     cy.validDate();
@@ -23,7 +23,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     cy.contains('Continue').click();
   });
   it('Northern Ireland ', function() {
-    cy.visit(`duty-calculator/uk/0702000007/import-date`);
+    cy.visit(`duty-calculator/uk/0702001007/import-date`);
     cy.contains('UK Integrated Online Tariff');
     cy.validDate();
 
@@ -48,7 +48,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     // Placeholder for next page
   });
   it('RoW Option', function() {
-    cy.visit(`duty-calculator/uk/0702000007/import-date`);
+    cy.visit(`duty-calculator/uk/0702001007/import-date`);
     cy.contains('UK Integrated Online Tariff');
     cy.validDate();
     // destination
@@ -62,7 +62,7 @@ describe('🧮 | dcOriginCountry | Duty Calculator Origin Country selection page
     cy.otherOriginList({value: 'Israel'});
   });
   it('No country selected ', function() {
-    cy.visit(`duty-calculator/uk/0702000007/import-date`);
+    cy.visit(`duty-calculator/uk/0702001007/import-date`);
     cy.contains('UK Integrated Online Tariff');
     cy.validDate();
 

@@ -1,5 +1,5 @@
- 
- 
+
+
 // WO + Duty Drawback
 describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', {tags: ['notProduction']}, function() {
   it('Import - WO + Duty Drawback - Chile', function() {
@@ -22,7 +22,7 @@ describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', {t
     cy.dutyDrawback('Chile', 'UK-Chile Association Agreement');
   });
   it('Export - WO + Duty Drawback - Albania', function() {
-    cy.visit('/commodities/0702000007?country=AL#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=AL#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -36,12 +36,12 @@ describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', {t
     // Wholly Obtained yes/no ?
     cy.whollyObtained('the UK', 'yes');
     // Origin requirements met for export
-    cy.rooReqMetEx('Exporting', 'the UK', '0702000007', 'UK-Albania Partnership, Trade and Cooperation Agreement');
+    cy.rooReqMetEx('Exporting', 'the UK', '0702001007', 'UK-Albania Partnership, Trade and Cooperation Agreement');
     // Verify duty drawback link
     cy.dutyDrawback('Albania', 'UK-Albania Partnership, Trade and Cooperation Agreement');
   });
   it('Import - No Duty Drawback Link on RoO not met screen and duty drawback link on validate proofs of origin - Iceland', function() {
-    cy.visit('/commodities/0702000007?country=IS#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=IS#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -55,12 +55,12 @@ describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', {t
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Iceland', 'no');
     // Origin requirements not met for import
-    cy.rooNotMetImp('Importing', 'Iceland', '0702000007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.rooNotMetImp('Importing', 'Iceland', '0702001007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     // Verify duty drawback link on validate proofs of origin
     cy.dutyDrawback('Iceland', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
   });
   it('Export - No Duty Drawback Link on RoO not met screen and duty drawback link on validate proofs of origin - Iceland', function() {
-    cy.visit('/commodities/0702000007?country=IS#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=IS#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -74,7 +74,7 @@ describe('| RoO-e2e-WhollyObtained-DutyDrawback.spec | WO + Duty Drawback |', {t
     // Wholly Obtained yes/no ?
     cy.whollyObtained('the UK', 'no');
     // Origin requirements not met for exporting
-    cy.rooNotMetImp('Exporting', 'the UK', '0702000007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.rooNotMetImp('Exporting', 'the UK', '0702001007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     // Verify duty drawback link on validate proofs of origin
     cy.dutyDrawback('Iceland', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
   });

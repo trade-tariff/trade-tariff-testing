@@ -1,6 +1,6 @@
 describe('🧮 | dcFinalUse | Final Use - page |', function() {
   it('UK - Page Validation', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.validDate();
     cy.selectDestination('xi');
     cy.selectOrigin('gb');

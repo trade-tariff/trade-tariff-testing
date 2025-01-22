@@ -1,7 +1,7 @@
 describe('💷  | dcTraderScheme | UK Internal Market Scheme page |', function() {
   it('RoW - GB Page Validation', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
-    //    cy.visit(`/import-date?referred_service=uk&commodity_code=0702000007`)
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
+    //    cy.visit(`/import-date?referred_service=uk&commodity_code=0702001007`)
     cy.contains('UK Integrated Online Tariff');
     cy.dcMainPage();
     cy.validDate();
@@ -68,7 +68,7 @@ describe('💷  | dcTraderScheme | UK Internal Market Scheme page |', function()
     cy.contains('Windsor Framework unveiled to fix problems of the Northern Ireland Protocol');
   });
   it('RoW - NI Page Validation', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     // date
     cy.validDate();
     // destination
@@ -119,7 +119,7 @@ describe('💷  | dcTraderScheme | UK Internal Market Scheme page |', function()
     cy.contains('Windsor Framework unveiled to fix problems of the Northern Ireland Protocol');
   });
   it('NI - Page Validation for UKIMS or UKTS before 30 Sept 2023', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.enterDate({day: '19', month: '09', year: '2023'});
     cy.contains('Continue').click();
 

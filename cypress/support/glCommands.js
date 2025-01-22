@@ -16,8 +16,7 @@ const urlContains = (commodityCode, originCountry) => {
 
 // SPIMM process start page
 Cypress.Commands.add('verifySpimmPage', () => {
-    cy.contains('Check if you are eligible for the simplified process for internal market movements') +
-        ('from Great Britain to Northern Ireland (SPIMM)');
+  cy.contains('Check if you are eligible for the simplified processes for Internal Market Movements from Great Britain to Northern Ireland');
     cy.contains('Categorisation of goods');
     cy.contains('Before you start');
     cy.contains('the commodity code for your goods');
@@ -36,7 +35,7 @@ Cypress.Commands.add('clkBtnToContinue', () => {
 
 // Answer eligibility questions page
 Cypress.Commands.add('verifyEligibilityNewPage', (answer) => {
-    cy.url().should('include', '/check_spimm_eligibility/your_movement');
+    cy.url().should('include', '/check_simplified_processes_eligibility/your_movement');
     cy.contains('Tell us about the movement of goods');
     cy.contains('Are you moving goods from Great Britain to Northern Ireland?');
     cy.get(`#green-lanes-eligibility-form-moving-goods-gb-to-ni-${answer}-field`).click();
@@ -50,7 +49,7 @@ Cypress.Commands.add('verifyEligibilityNewPage', (answer) => {
 
 // Check the category of your goods page
 Cypress.Commands.add('checkCategoryOfYourGoods', () => {
-    cy.url().should('include', '/check_spimm_eligibility/eligibility?end_consumers_in_uk=yes&free_circulation_in_uk=yes&moving_goods_gb_to_ni=yes&t=');
+    cy.url().should('include', '/check_simplified_processes_eligibility/eligibility?end_consumers_in_uk=yes&free_circulation_in_uk=yes&moving_goods_gb_to_ni=yes&t=');
     cy.url().should('include', 'ukims=yes');
     cy.contains('Check the category of your goods');
     cy.contains('\'not at risk’ of moving to the EU (opens in new tab)');
@@ -58,7 +57,7 @@ Cypress.Commands.add('checkCategoryOfYourGoods', () => {
         ('https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu');
     cy.contains('UK Internal Market Scheme (UKIMS) authorised trader (opens in new tab)');
     cy.get('.govuk-list li a').should('have.attr', 'href',) +
-        ('https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-internal-market-scheme-if-you-bring-goods-into-northern-ireland');
+        ('http://www.gov.uk/guidance/internal-market-movements-from-great-britain-to-northern-ireland');
 });
 
 // Tell us about your goods
@@ -66,9 +65,9 @@ Cypress.Commands.add('tellUsAboutYourGoodsPage', (commodityCode, originCountry, 
     const movingDate = (index) => `#green_lanes_moving_requirements_form_moving_date_${index}`;
 
     if (dateBooleanVal == true) {
-        cy.url().should('include', `/check_spimm_eligibility/your_goods/new?${urlContains(commodityCode, originCountry, dateBooleanVal)}`);
+        cy.url().should('include', `/check_simplified_processes_eligibility/your_goods/new?${urlContains(commodityCode, originCountry, dateBooleanVal)}`);
     } else {
-        cy.url().should('include', '/check_spimm_eligibility/your_goods?commit=Continue');
+        cy.url().should('include', '/check_simplified_processes_eligibility/your_goods?commit=Continue');
     }
     cy.contains('Tell us about your goods');
     // enter commodity code
@@ -185,7 +184,7 @@ Cypress.Commands.add('category1ExemptionsPage', (commodityCode, originCountry, d
             `/category_exemptions/new?category=1&${urlContains(commodityCode, originCountry, dateBooleanVal)}`);
     } else {
         cy.url().should('include',
-            `/check_spimm_eligibility/category_exemptions?category=1&${urlContains(commodityCode, originCountry)}`);
+            `/check_simplified_processes_eligibility/category_exemptions?category=1&${urlContains(commodityCode, originCountry)}`);
     }
 
     cy.contains('We need more information about your goods');
@@ -193,7 +192,7 @@ Cypress.Commands.add('category1ExemptionsPage', (commodityCode, originCountry, d
 
     // Select one exception from each category that apply
     cy.contains('Do your goods meet any of these conditions?');
-    cy.contains('View EU Regulation document');
+    cy.contains('View Regulation document');
     cy.contains('Select all that apply');
 
     if (documentCodes != null) {
@@ -211,11 +210,11 @@ Cypress.Commands.add('category2ExemptionsPage', (commodityCode, originCountry, d
     if (withExemptions == true) {
         cy.get('@cat1').then((cat1ExemptionsUrlParams) => {
             cy.url().should('include',
-                `/check_spimm_eligibility/category_exemptions?${cat1ExemptionsUrlParams}c1ex=true&category=2&${urlContains(commodityCode, originCountry)}`);
+                `/check_simplified_processes_eligibility/category_exemptions?${cat1ExemptionsUrlParams}c1ex=true&category=2&${urlContains(commodityCode, originCountry)}`);
         });
     } else {
         cy.url().should('include',
-            `/check_spimm_eligibility/category_exemptions?category=2&${urlContains(commodityCode, originCountry)}`);
+            `/check_simplified_processes_eligibility/category_exemptions?category=2&${urlContains(commodityCode, originCountry)}`);
     }
 
     cy.contains('We need more information about your goods');
@@ -223,7 +222,7 @@ Cypress.Commands.add('category2ExemptionsPage', (commodityCode, originCountry, d
 
     // Select one exception from each category that apply
     cy.contains('Do your goods meet any of these conditions?');
-    cy.contains('View EU Regulation document');
+    cy.contains('View Regulation docu');
     cy.contains('Select all that apply');
 
     cy.getListOfExceptionCodesAndSelectThatApply(documentCodes);
@@ -234,10 +233,10 @@ Cypress.Commands.add('category2ExemptionsPage', (commodityCode, originCountry, d
 Cypress.Commands.add('verifyErrorMessageOnExemptionPage', (commodityCode, originCountry, category) => {
     if (category == 'Category 1') {
         cy.url().should('include',
-            `/check_spimm_eligibility/category_exemptions?&category=1&${urlContains(commodityCode, originCountry)}`);
+            `/check_simplified_processes_eligibility/category_exemptions?&category=1&${urlContains(commodityCode, originCountry)}`);
     } else {
         cy.url().should('include',
-            `/check_spimm_eligibility/category_exemptions?&category=2&${urlContains(commodityCode, originCountry)}`);
+            `/check_simplified_processes_eligibility/category_exemptions?&category=2&${urlContains(commodityCode, originCountry)}`);
     }
 
     cy.contains('We need more information about your goods');
@@ -263,11 +262,11 @@ Cypress.Commands.add('checkYourAnswersPage',
                 cy.log('c2exValue', c2exValue);
                 cy.get('@cat2').then((cat2ExemptionsUrlParams) => {
                     cy.url().should('include',
-                        `/check_spimm_eligibility/check_your_answers?${cat2ExemptionsUrlParams}c2ex=${c2exValue}&category=2&${urlContains(commodityCode, originCountry)}`);
+                        `/check_simplified_processes_eligibility/check_your_answers?${cat2ExemptionsUrlParams}c2ex=${c2exValue}&category=2&${urlContains(commodityCode, originCountry)}`);
                 });
             } else {
                 cy.url().should('include',
-                    `/check_spimm_eligibility/check_your_answers?&c2ex=true&category=2&${urlContains(commodityCode, originCountry)}`);
+                    `/check_simplified_processes_eligibility/check_your_answers?&c2ex=true&category=2&${urlContains(commodityCode, originCountry)}`);
             }
         } else if (onlyCat1Exemptions == true) {
             if (!Object.values(cat1DocCodes).includes('none')) {
@@ -277,7 +276,7 @@ Cypress.Commands.add('checkYourAnswersPage',
             }
             cy.get('@cat1').then((cat1ExemptionsUrlParams) => {
                 cy.url().should('include',
-                    `/check_spimm_eligibility/check_your_answers?${cat1ExemptionsUrlParams}c1ex=${c1exValue}&category=1&${urlContains(commodityCode, originCountry)}`);
+                    `/check_simplified_processes_eligibility/check_your_answers?${cat1ExemptionsUrlParams}c1ex=${c1exValue}&category=1&${urlContains(commodityCode, originCountry)}`);
             });
         } else if (withExemptions == true) {
             if (cat2DocCodes != 'none') {
@@ -291,12 +290,12 @@ Cypress.Commands.add('checkYourAnswersPage',
                 let categoriesData = Object.values(categoriesDataDict).toString();
                 categoriesData = categoriesData.replace(',', '');
                 cy.url().should('include',
-                    `/check_spimm_eligibility/check_your_answers?${categoriesData}c1ex=${c1exValue}&c2ex=${c2exValue}&category=2&${urlContains(commodityCode, originCountry)}`);
+                    `/check_simplified_processes_eligibility/check_your_answers?${categoriesData}c1ex=${c1exValue}&c2ex=${c2exValue}&category=2&${urlContains(commodityCode, originCountry)}`);
             });
         } else {
             cy.url().should('include',
-                `/check_spimm_eligibility/check_your_answers?${urlContains(commodityCode, originCountry)}`);
-                
+                `/check_simplified_processes_eligibility/check_your_answers?${urlContains(commodityCode, originCountry)}`);
+
         }
 
         // Verify the check your answers table
@@ -314,32 +313,28 @@ Cypress.Commands.add('checkYourAnswersPage',
 Cypress.Commands.add('verifyResultPage', (commodityCode, originCountry, categoryResult, cat1DocCodes, cat2DocCodes,
     cat1ExemptOrHaveMet, cat2ExemptOrHaveMet, exemptMetOrCertNeed, clkCheckCategoryOfGoodsBtn) => {
     if (`${categoryResult}` == 'Standard goods') {
-        cy.url().should('include', '/check_spimm_eligibility/result?category=standard');
+        cy.url().should('include', '/check_simplified_processes_eligibility/result?category=standard');
         cy.contains('Standard goods');
     } else if (`${categoryResult}` == 'Category 2') {
-        cy.url().should('include', '/check_spimm_eligibility/result?category=2');
+        cy.url().should('include', '/check_simplified_processes_eligibility/result?category=2');
         cy.contains('Category 2');
     } else if (`${categoryResult}` == 'Category 1') {
-        cy.url().should('include', '/check_spimm_eligibility/result?category=1');
+        cy.url().should('include', '/check_simplified_processes_eligibility/result?category=1');
         cy.contains('Category 1');
-        cy.contains('Goods are not eligible to move through the simplified process for internal market movements (SPIMM)');
+        cy.contains('Goods are not eligible to move using the simplified processes for Internal Market Movements');
     }
     if (`${categoryResult}` == 'Category 2' || `${categoryResult}` == 'standard') {
-        cy.contains('Goods are eligible to move through the simplified process for internal market movements (SPIMM)');
+        cy.contains('Goods are eligible to move using the simplified processes for Internal Market Movements');
     }
-    cy.contains('What you should do next');
     if (`${categoryResult}` == 'Category 1') {
-        cy.contains('Category 1 goods cannot continue through SPIMM.');
+        cy.contains('Category 1 goods cannot move using simplified processes.');
         const lnkText = 'Find out more about trading and moving goods in and out of Northern Ireland (opens in a new tab)';
         cy.contains(`${lnkText}`).should('have.attr', 'href',) +
             ('https://www.gov.uk/guidance/trading-and-moving-goods-in-and-out-of-northern-ireland');
 
     } else {
-        cy.contains('Become an authorised trader under the UK Internal Market Scheme (UKIMS) (opens in a new tab)');
-        cy.get('.govuk-list li a').should('have.attr', 'href',) +
-            ('https://www.gov.uk/guidance/apply-for-authorisation-for-the-uk-internal-market-scheme-if-you-bring-goods-into-northern-ireland')
-        cy.contains('Trader Support Service (TSS) (opens in a new tab).');
-        cy.get('ol.govuk-list > li:nth-child(3)> a').should('have.attr', 'href', 'https://www.gov.uk/guidance/trader-support-service')
+        cy.contains('Find out more about Internal Market Movements (opens in a new tab)').should('have.attr', 'href',) +
+            ('http://www.gov.uk/guidance/internal-market-movements-from-great-britain-to-northern-ireland');
     }
     cy.contains('About the categorisation of your goods');
 

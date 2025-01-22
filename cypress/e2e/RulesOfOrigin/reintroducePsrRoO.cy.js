@@ -1,6 +1,6 @@
 describe('Reintroduce Product Specific Rules - RoO', function() {
   it('UK | Verify navigation links on RoO page', function() {
-    cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
+    cy.visit('/commodities/0702001007?country=FR#non-preferential-rules');
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin for trading with France');
     cy.contains('Further information on trade with France');
@@ -18,7 +18,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
         .contains('View rules for determining non-preferential origin (opens in new tab)');
   });
   it('UK | Click reset all countries link and check RoO page content', function() {
-    cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
+    cy.visit('/commodities/0702001007?country=FR#non-preferential-rules');
     cy.contains('Reset to all countries').click();
     cy.contains('Origin').click();
     cy.contains('Select a country to check which tariff treatments apply.');
@@ -31,7 +31,7 @@ describe('Reintroduce Product Specific Rules - RoO', function() {
         .contains('View rules for determining non-preferential origin (opens in new tab)');
   });
   it('UK | Reintroduce proofs of origin | Country does not have dual schemes', function() {
-    cy.visit('/commodities/0702000007?country=FR#non-preferential-rules');
+    cy.visit('/commodities/0702001007?country=FR#non-preferential-rules');
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin for trading with France');
     cy.contains('UK / EU Trade and Co-operation Agreement');

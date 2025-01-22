@@ -2,7 +2,7 @@
 describe('| RoW-NI306-e2e.spec | 🚫 Trade Remedies - 🚫 0% MFN EU tariff - 🚫 UK Trader Scheme |', function() {
   //
   it('RoW 🇬🇱 Greenland to NI', function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     // date
     cy.validDate();
     // destination

@@ -2,9 +2,9 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
     const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met',
         'Your goods are exempt from Category 1 because you meet these conditions',
         'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
-    const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met'];
+    const assertData2 = ['Your Category 1 result is based on the following regulations', 'Your Category 2 result is based on the following regulations', 'Condition not met'];
     beforeEach('Navigates from SPIMM start page to your goods page', () => {
-        cy.visit('/check_spimm_eligibility');
+        cy.visit('/check_simplified_processes_eligibility');
     });
     context('When on the UK service - Cat1 Scenarios', function () {
         beforeEach('Navigates from SPIMM start page to your goods page', () => {
@@ -23,7 +23,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         });
         // Sceanrio 1 - Direct to check your answers to Cat1 results page
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 1', function () {
-            const data = ['0804500089', 'KP', 'Category 1'];
+            const data = ['0804500089', 'North Korea (Democratic People’s Republic of Korea) (KP)', 'Category 1'];
             // Tell us about your goods
             cy.tellUsAboutYourGoodsPage(data[0], data[1]);
             // Continue button
@@ -37,7 +37,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         });
         // Sceanrio 2 - Select Cat1 exemption 'none' to get Cat1 results page
         it('Verify - Green lanes - UK to NI - Cat1 - Scenario 2', function () {
-            const data = ['8708999790', 'UA', 'Category 1'];
+            const data = ['8708999790', 'Ukraine (UA)', 'Category 1'];
             const cat1DocCodes = ['none', 'none', 'none', 'none'];
             // Tell us about your goods
             cy.tellUsAboutYourGoodsPage(data[0], data[1]);
@@ -90,7 +90,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         });
     });
     context('Verify Cat1 Scenarios Back Link Functionality', function () {
-        // Sceanrio 5 - Select Cat1 exemptions page and select an exemption and continue to until CYA and results page, 
+        // Sceanrio 5 - Select Cat1 exemptions page and select an exemption and continue to until CYA and results page,
         // and click Back Link to back to 'SPIMM start' page to see everything works as expected w.r.t back link functionality.
         //as part of this jira changes GL-1071,  for now we skipped this test case from execution
         it.skip('Verify - Green lanes - UK to NI - Cat1 - Scenario 5', function () {
@@ -111,7 +111,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         it('Cat1 - Theme 1.1 - Sanctions', function () {
             const data = ['8113009010', 'IR', 'Category 1', 'yes'];
             const cat1DocCodes = ['y949', 'y949', 'none'];
-            const cat1Results = ['Annex IV of the Windsor Framework: "1.1 restrictive measures in force based on Article 215 Treaty on the Functioning of the European Union, insofar as they relate to trade in goods between the Union and third countries;"', 'View EU Regulation document', 'Exemptions not met']
+            const cat1Results = ['Annex IV of the Windsor Framework: "1.1 restrictive measures in force based on Article 215 Treaty on the Functioning of the European Union, insofar as they relate to trade in goods between the Union and third countries;"', 'View Regulation document', 'Exemptions not met']
             // Start page to cat1 result page
             cy.navigateToCatResultPage(data, cat1DocCodes, null, globalAssertData, globalAssertData2);
             // verify cat1 exemptions not available on the results page
@@ -120,7 +120,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         // Need to update No exemptions available to Exemptions not met when the bug is fixed
         it('Cat1 - Theme 1.2 - Bans and prohibitions', function () {
             const data = ['0307111010', 'TR', 'Category 1', 'yes'];
-            const cat1Results = ['Annex IV of the Windsor Framework: "1.2 total bans and prohibitions;"', 'View EU Regulation document', 'No exemptions available']
+            const cat1Results = ['Annex IV of the Windsor Framework: "1.2 total bans and prohibitions;"', 'View Regulation document', 'No exemptions available']
             // Start page to cat1 result page
             cy.navigateToCatResultPage(data, null, null, globalAssertData, globalAssertData2);
             // verify cat1 exemptions not available on the results page
@@ -129,7 +129,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         // Need to update No exemptions available to Exemptions not met when the bug is fixed
         it('Cat1 - Theme 1.3 - Trade Remedies', function () {
             const data = ['1516209822', 'TR', 'Category 1', 'yes'];
-            const cat1Results = ['Annex IV of the Windsor Framework: "1.3 trade defence instruments as set out in section 5 of Annex 2 to the Protocol;"', 'View EU Regulation document', 'No exemptions available']
+            const cat1Results = ['Annex IV of the Windsor Framework: "1.3 trade defence instruments as set out in section 5 of Annex 2 to the Protocol;"', 'View Regulation document', 'No exemptions available']
             // Start page to cat1 result page
             cy.navigateToCatResultPage(data, null, null,  globalAssertData, globalAssertData2);
             // verify cat1 exemptions not available on the results page
@@ -138,7 +138,7 @@ describe('When on the UK service - SPIMM - E2E journeys - Cat1 Scenarios', funct
         it('Cat1 - Theme 1.5 - Union quotas other than tariff rate quotas', function () {
             const data = ['8708219000', 'GB', 'Category 1', 'yes'];
             const cat1DocCodes = ['y160', 'none'];
-            const cat1Results = ['Annex IV of the Windsor Framework: "1.5 Union quotas other than tariff rate quotas."', 'View EU Regulation document', 'Exemptions not met']
+            const cat1Results = ['Annex IV of the Windsor Framework: "1.5 Union quotas other than tariff rate quotas."', 'View Regulation document', 'Exemptions not met']
             // Start page to cat1 result page
             cy.navigateToCatResultPage(data, cat1DocCodes, null, globalAssertData, globalAssertData2);
             // verify cat1 exemptions not available on the results page

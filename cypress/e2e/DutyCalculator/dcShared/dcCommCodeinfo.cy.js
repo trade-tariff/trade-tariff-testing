@@ -1,15 +1,15 @@
 describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages consistent |', function() {
   // check comm code information on every page is rendered correctly
   it(`Commodity Information on all pages is consistent `, function() {
-    cy.visit('/duty-calculator/uk/0702000007/import-date');
+    cy.visit('/duty-calculator/uk/0702001007/import-date');
     cy.get('.govuk-details > .govuk-details__summary');
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details__text');
     cy.contains('Commodity code');
-    cy.contains('0702000007');
+    cy.contains('0702001007');
     cy.contains('Cherry tomatoes');
     cy.get('.govuk-details  .govuk-link').click();
-    cy.checkCommPage('0702000007');
+    cy.checkCommPage('0702001007');
     cy.go('back');
 
     cy.validDate();
@@ -17,10 +17,10 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details__text');
     cy.contains('Commodity code');
-    cy.contains('0702000007');
+    cy.contains('0702001007');
     cy.contains('Cherry tomatoes');
     cy.get('.govuk-details  .govuk-link').click();
-    cy.checkCommPage('0702000007');
+    cy.checkCommPage('0702001007');
     cy.go('back');
 
     cy.selectDestination('xi');
@@ -28,10 +28,10 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details__text');
     cy.contains('Commodity code');
-    cy.contains('0702000007');
+    cy.contains('0702001007');
     cy.contains('Cherry tomatoes');
     cy.get('.govuk-details  .govuk-link').click();
-    cy.checkCommPage('0702000007');
+    cy.checkCommPage('0702001007');
     cy.go('back');
 
 
@@ -40,10 +40,10 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details__text');
     cy.contains('Commodity code');
-    cy.contains('0702000007');
+    cy.contains('0702001007');
     cy.contains('Cherry tomatoes');
     cy.get('.govuk-details  .govuk-link').click();
-    cy.checkCommPage('0702000007');
+    cy.checkCommPage('0702001007');
     cy.go('back');
 
     cy.traderScheme('no');
@@ -51,10 +51,10 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details__text');
     cy.contains('Commodity code');
-    cy.contains('0702000007');
+    cy.contains('0702001007');
     cy.contains('Cherry tomatoes');
     cy.get('.govuk-details  .govuk-link').click();
-    cy.checkCommPage('0702000007');
+    cy.checkCommPage('0702001007');
     cy.go('back');
 
 
@@ -67,10 +67,10 @@ describe('🧮 🔖 | dcCommCodeinfo | Commodity code information on all pages c
     cy.contains('About this commodity code').click();
     cy.get('.govuk-details__text');
     cy.contains('Commodity code');
-    cy.contains('0702000007');
+    cy.contains('0702001007');
     cy.contains('Cherry tomatoes');
     cy.get('.govuk-details  .govuk-link').click();
-    cy.checkCommPage('0702000007');
+    cy.checkCommPage('0702001007');
     cy.go('back');
 
     cy.quantity({kgm: '23.98'});
