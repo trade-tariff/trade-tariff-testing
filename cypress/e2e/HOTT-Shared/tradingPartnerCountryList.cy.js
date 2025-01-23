@@ -1,4 +1,4 @@
- 
+
 describe('Validating trading partner countries', function() {
   it(`Autocomplete excluded countries list`, function() {
     const expectedMissingCountries = [
@@ -20,7 +20,7 @@ describe('Validating trading partner countries', function() {
       'Danish Continental Shelf',
       'Belgian Continental Shelf',
     ];
-    cy.visit(`/commodities/0702000007`);
+    cy.visit(`/commodities/0702001007`);
 
     for (let i = 0; i < expectedMissingCountries.length; i++) {
       cy.get('input#trading_partner_country').clear().type(`${expectedMissingCountries[i]}`);

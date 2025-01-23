@@ -107,7 +107,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     );
   });
   it('UK - export tab', function() {
-    cy.visit('/commodities/0702000007?country=#export');
+    cy.visit('/commodities/0702001007?country=#export');
     // without selecting any country
     cy.contains('Exporting from the UK');
     cy.contains('The commodity code for exporting and Intrastat reporting is 0702 0000');
@@ -120,7 +120,7 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
     cy.contains('Exporting from the UK');
   });
   it('UK - import tab', function() {
-    cy.visit('commodities/0702000007?day=10&month=12&year=2022#import');
+    cy.visit('commodities/0702001007?day=10&month=12&year=2022#import');
     cy.contains('Importing into the UK');
     // added two lines
     cy.get('#import > :nth-child(2)').contains('Select a country to view country-specific import information.');

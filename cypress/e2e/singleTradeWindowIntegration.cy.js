@@ -31,15 +31,15 @@ describe.skip('STW integration', function() {
   context('when the commodity has no prohibitive or conditionally prohibitive measures', function() {
     it('shows STW link', function() {
       // given a commodity with a conditionally prohibitive measure
-      cy.visit('/commodities/0702000007');
+      cy.visit('/commodities/0702001007');
       // when no country is selected (the default)
       // then no country is selected message shows
-      cy.contains('To check how to import commodity 0702000007');
+      cy.contains('To check how to import commodity 0702001007');
       // when we pick a country where conditionally prohibitive measures apply
       cy.pickTradingPartner('AN');
       // then we show the STW link
 
-      cy.get('.tariff-inset-information > a').contains('Check how to import commodity 0702000007 from Andorra (opens in a new tab).');
+      cy.get('.tariff-inset-information > a').contains('Check how to import commodity 0702001007 from Andorra (opens in a new tab).');
     });
   });
 });

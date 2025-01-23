@@ -18,7 +18,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
-      cy.get('a[href=\'/import_export_dates?goods_nomenclature_code=3808941000').click();
+      cy.get('a[href^=\'/import_export_dates\']').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
       cy.contains('22 December 2022');
     });
@@ -178,7 +178,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       });
     });
     it('Duty Calculator e2e - ( NI to GB ) | 101 |', function() {
-      cy.visit('/duty-calculator/uk/0702000007/import-date');
+      cy.visit('/duty-calculator/uk/0702001007/import-date');
       cy.contains('UK Integrated Online Tariff');
       cy.validDate();
       cy.selectDestination('gb');
@@ -214,6 +214,8 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.quantity({kgm: '10000', dap: '1'});
       cy.docCode({uk: 'n990'});
       cy.contains('Continue').click();
+      cy.docCode({uk: 'l001'});
+      cy.contains('Continue').click();
       cy.docCode({uk: 'n990'});
       cy.contains('Continue').click();
       cy.confirmPage();
@@ -241,7 +243,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.searchForCommodity('3808941000');
       cy.get('.govuk-heading-l.commodity-header').contains(/Commodity .*3808941000/i);
       cy.contains('21 December 2022');
-      cy.get('a[href=\'/xi/import_export_dates?goods_nomenclature_code=3808941000').click();
+      cy.get('a[href^=\'/xi/import_export_dates\']').click();
       cy.datePickerPage({day: 22, month: 12, year: 2022});
       cy.contains('22 December 2022');
     });
@@ -407,12 +409,12 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
   });
   context('when on the UK service - SPIMM - E2E journeys - Happy Path - Smoke Suite', function() {
-    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met', 
-      'Your goods are exempt from Category 1 because you meet these conditions', 
+    const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met',
+      'Your goods are exempt from Category 1 because you meet these conditions',
       'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
-    const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met']
+    const assertData2 = ['Your Category 1 result is based on the following regulations', 'Your Category 2 result is based on the following regulations', 'Condition not met']
     beforeEach('Navigate from SPIMM journey start page to your goods page', () => {
-      cy.visit('/check_spimm_eligibility');
+      cy.visit('/check_simplified_processes_eligibility');
       // SPIMM process start page
       cy.verifySpimmPage();
       // Start now button
@@ -429,7 +431,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     // Category 1 scenarios
     // Sceanrio 1 - Direct to check your answers to Cat1 result page
     it('Verify - Green lanes - UK to NI - Category 1 - Scenario 1', function() {
-      const data = ['0804500089', 'KP', 'Category 1'];
+      const data = ['0804500089', 'North Korea (Democratic People’s Republic of Korea) (KP)', 'Category 1'];
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
@@ -443,7 +445,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
     // Sceanrio 2 - Select Cat1 exemption 'none' to get Cat1 result page
     it('Verify - Green lanes - UK to NI - Category 1 - Scenario 2', function() {
-      const data = ['8708999790', 'UA', 'Category 1'];
+      const data = ['8708999790', 'Ukraine (UA)', 'Category 1'];
       const cat1DocCodes = ['none', 'none', 'none', 'none'];
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
@@ -463,7 +465,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     // Category 2 scenarios
     // Scenario 1 - Direct to check your answers to Cat 2 result page
     it('Verify - Green lanes - UK to NI - Category 2 - Scenario 1', function() {
-      const data = ['7606119989', 'BY', 'Category 2']
+      const data = ['7606119989', 'Belarus (BY)', 'Category 2']
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
@@ -477,8 +479,8 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
     // Scenario 2 - Cat2 exemptions to check your answers to Cat 2 result page
     it('Verify - Green lanes - UK to NI - Category 2 - Scenario 2', function() {
-      const data = ['1602320000', 'GL', 'Category 2']
-      const cat2DocCodes = ['none', 'none', 'none'];
+      const data = ['0101210000', 'Greenland (GL)', 'Category 2']
+      const cat2DocCodes = ['none', 'none'];
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
@@ -495,9 +497,9 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       // Result Page
       cy.verifyResultPage(data[0], data[1], data[2], null, cat2DocCodes, null, assertData2[1], assertData2[2]);
     });
-    // Scenario 2 - Cat1 exemptions and Cat2 'none' to check your answers to Cat 2 result page
+    // Scenario 3 - Cat1 exemptions and Cat2 'none' to check your answers to Cat 2 result page
     it('Verify - Green lanes - UK to NI - Category 2 - Scenario 3', function() {
-      const data = ['6913909890', 'UA', 'Category 2'];
+      const data = ['6913909890', 'Ukraine (UA)', 'Category 2'];
       // Exception codes that need to select to get the desire result page
       const cat1DocCodes = ['y922', 'y997', 'y984'];
       const cat2DocCodes = 'none';
@@ -525,7 +527,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     // Standard Goods scenarios
     // Scenario 1 - Direct to check your answers to Standard Goods result page
     it('Verify - Green lanes - UK to NI - Standard Goods - Scenario 1', function() {
-      const data = ['9603909100', 'BY', 'Standard goods']
+      const data = ['7205210000', 'Greenland (GL)', 'Standard goods'];
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
@@ -539,8 +541,8 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
     // Scenario 2 - Cat2 exemptions to Standard Goods result page
     it('Verify - Green lanes - UK to NI - Standard Goods - Scenario 2', function() {
-      const data = ['1602509590', 'FO', 'Standard goods'];
-      const cat2DocCodes = ['y170', 'y058', 'y900', 'y929'];
+      const data = ['3104201000', 'Faroe Islands (FO)', 'Standard goods'];
+      const cat2DocCodes = ['y923'];
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
       // Continue button
       cy.clkBtnToContinue();
@@ -558,7 +560,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
     // Scenario 3 - Cat1 exemptions to Standard Goods result page
     it('Verify - Green lanes - UK to NI - Standard Goods - Scenario 3', function() {
-      const data = ['7606119989', 'RU', 'Standard goods'];
+      const data = ['7606119989', 'Russian Federation (RU)', 'Standard goods'];
       const cat1DocCodes = ['y874'];
       // Tell us about your goods
       cy.tellUsAboutYourGoodsPage(data[0], data[1]);
@@ -577,7 +579,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
     });
     // Scenario 4 - Cat1 and Cat2 exemptions to Standard Goods result page
     it('Verify - Green lanes - UK to NI - Standard Goods - Scenario 4', function() {
-      const data = ['6913909890', 'UA', 'Standard goods'];
+      const data = ['6913909890', 'Ukraine (UA)', 'Standard goods'];
       const cat1DocCodes = ['y922', 'y997', 'y984'];
       const cat2DocCodes = ['y923'];
       // Tell us about your goods

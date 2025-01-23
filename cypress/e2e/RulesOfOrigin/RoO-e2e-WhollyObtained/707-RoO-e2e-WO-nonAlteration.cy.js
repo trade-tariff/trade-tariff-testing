@@ -1,5 +1,5 @@
- 
- 
+
+
 describe('| RoO-e2e-WhollyObtained-NonAlteration.spec | WO + Non Alteration |', {tags: ['notProduction']}, function() {
   it('Import - WO + Non Alteration - Japan', function() {
     cy.visit('/commodities/1602321110?country=JP#rules-of-origin');
@@ -40,7 +40,7 @@ describe('| RoO-e2e-WhollyObtained-NonAlteration.spec | WO + Non Alteration |', 
     cy.nonAlteration('Japan');
   });
   it('Import - No Non Alteration link on RoO not met screen and valid proofs of origin pages - Iceland', function() {
-    cy.visit('/commodities/0702000007?country=IS#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=IS#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -54,12 +54,12 @@ describe('| RoO-e2e-WhollyObtained-NonAlteration.spec | WO + Non Alteration |', 
     // Wholly Obtained yes/no ?
     cy.whollyObtained('Iceland', 'no');
     // Origin requirements not met for import
-    cy.rooNotMetImp('Importing', 'Iceland', '0702000007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.rooNotMetImp('Importing', 'Iceland', '0702001007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     // Verify Non Alteration link
     cy.should('not.contain.text', 'Find out about the non-alternation rule');
   });
   it('Export - No Non Alteration link on RoO not met screen and valid proofs of origin pages - Iceland', function() {
-    cy.visit('/commodities/0702000007?country=IS#rules-of-origin');
+    cy.visit('/commodities/0702001007?country=IS#rules-of-origin');
     // click Check Rules of Origin button
     cy.checkRoO();
     // Import
@@ -73,7 +73,7 @@ describe('| RoO-e2e-WhollyObtained-NonAlteration.spec | WO + Non Alteration |', 
     // Wholly Obtained yes/no ?
     cy.whollyObtained('the UK', 'no');
     // Origin requirements not met for exporting
-    cy.rooNotMetImp('Exporting', 'the UK', '0702000007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
+    cy.rooNotMetImp('Exporting', 'the UK', '0702001007', 'Agreement on Trade in Goods between Iceland, Norway and the UK');
     // Verify Non Alteration link
     cy.should('not.contain.text', 'Find out about the non-alternation rule');
   });

@@ -1,11 +1,11 @@
- 
- 
- 
- 
+
+
+
+
 describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['config', 'roo-tag']}, function() {
   it('Check RoO tab preserves anchor', function() {
     // given we're on the roo tab
-    cy.visit(`/commodities/0702000007`);
+    cy.visit(`/commodities/0702001007`);
     cy.contains('Origin').click();
     cy.url().should('include', '#rules-of-origin');
     // when we change the trading partner
@@ -18,16 +18,16 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
   });
   // RoO tab exists and links work
   it(`Check RoO tab exists on commodity page + links |`, function() {
-    cy.visit(`/commodities/0702000007`);
+    cy.visit(`/commodities/0702001007`);
     cy.contains('Origin').click();
     cy.contains('Preferential rules of origin');
-    cy.contains(`Products which meet all preferential rules of origin (for countries where the UK has trade agreements in place)`)+ 
+    cy.contains(`Products which meet all preferential rules of origin (for countries where the UK has trade agreements in place)`)+
                (`may be eligible for reduced or zero duty rates.`);
     // links
     cy.roOTab();
   });
   it(`Chile 🇨🇱 - Service_urls with which there is a singular (1 to 1) trade agreement (e.g. Chile, which has an agreement on its own, not as part of a bloc) |`, function() {
-    cy.visit('/commodities/0702000007');
+    cy.visit('/commodities/0702001007');
     // Select Chile from All countries list', () => {
     cy.pickTradingPartner('CL', `${cy.url()}`);
     cy.contains('Origin').click();
@@ -38,18 +38,18 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     // proving originating status + claiming pref treatment links
   });
   it(`Bahamas (Cariforum) 🇧🇸 - Countries with which there is an agreement with a bloc - EU (France) |`, function() {
-    cy.visit('/commodities/0702000007');
+    cy.visit('/commodities/0702001007');
     // Select Bahamas from All countries list
     cy.pickTradingPartner('BS', `${cy.url()}`);
     cy.contains('Preferential rules of origin for trading with The Bahamas');
     cy.contains('Origin').click();
     cy.get('img[alt=\'Flag for The Bahamas\']').should('be.visible');
     cy.contains('Note, you do not need to apply for a preferential tariff (or comply with preferential rules of origin) if the MFN duty for your product is zero.');
-    cy.RoOContent({commCode: '0702000007', country: 'The Bahamas'});
+    cy.RoOContent({commCode: '0702001007', country: 'The Bahamas'});
     cy.contains('Non-preferential rules of origin');
   });
   it(`Moldova 🇲🇩 - Countries with which there is an agreement Generalised Scheme of Preferences (GSP) |`, function() {
-    cy.visit('/commodities/0702000007');
+    cy.visit('/commodities/0702001007');
     // Select Moldova from All countries list
     cy.pickTradingPartner('MD', `${cy.url()}`);
     cy.contains('Preferential rules of origin for trading with Moldova');
@@ -59,7 +59,7 @@ describe('| commodityPageRoO - Rules of Origin - copy and links ', {tags: ['conf
     cy.contains('Non-preferential rules of origin');
   });
   it('India 🇮🇳 - Countries with which there is an agreement - Generalised Scheme of Preferences (GSP)', function() {
-    cy.visit('/commodities/0702000007');
+    cy.visit('/commodities/0702001007');
     // Select India from All countries list
     cy.pickTradingPartner('IN', `${cy.url()}`);
     cy.contains('Preferential rules of origin for trading with India');

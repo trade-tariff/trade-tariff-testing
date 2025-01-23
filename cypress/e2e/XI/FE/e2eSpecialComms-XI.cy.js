@@ -51,8 +51,8 @@ describe('🇪🇺 💡 | e2eSpecialComms-XI.spec | XI - Select Commodities and 
     cy.contains('9.00% + EA MAX 24.20% +ADSZ');
   });
   it('third country measure on cherry tomatoes', function() {
-    cy.visit('/xi/commodities/0702000007');
-    cy.checkCommPage('0702000007');
+    cy.visit('/xi/commodities/0702001007');
+    cy.checkCommPage('0702001007');
     cy.get('.govuk-header__content').contains('Northern Ireland Online Tariff');
     cy.contains('Third country duty');
     cy.get('#measure-4011407').contains('Conditions').click();

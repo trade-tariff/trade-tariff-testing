@@ -53,8 +53,8 @@ describe('🇬🇧 💡 | e2eSpecialComms-UK | Select Commodities and measure de
   });
 
   it(' 🍅 Cherry Tomatoes 🇲🇦 \n- Check that Israel has a preferential tariff quota', function() {
-    cy.visit('/commodities/0702000007?country=IL');
-    cy.checkCommPage('0702000007');
+    cy.visit('/commodities/0702001007?country=IL');
+    cy.checkCommPage('0702001007');
     cy.get('.govuk-header__content')
         .contains('UK Integrated Online Tariff');
     cy.contains('Third country duty');

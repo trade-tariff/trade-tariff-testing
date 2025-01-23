@@ -1,7 +1,7 @@
 describe('| NI-GB101--e2e | Northern Ireland to GB United Kingdom |', function() {
   it('e2e NI to GB | 101 |', function() {
-    cy.visit('/commodities/0702000007');
-    cy.dutyCalLink('0702000007');
+    cy.visit('/commodities/0702001007');
+    cy.dutyCalLink('0702001007');
     cy.contains('UK Integrated Online Tariff');
     cy.validDate();
     // select England ,Scotland or Wales (GB)

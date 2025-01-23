@@ -5,7 +5,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
 
   for (let i = 0; i < country.length; i++) {
     it(`📅 Valid Date ${country[i]}`, function () {
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
 
       cy.contains(`${pagetitles[i]}`);
       cy.dcMainPage();
@@ -22,7 +22,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
     });
 
     it(`📅 Invalid date - Past Date -> Date persists -> enter valid date ${country[i]}`, function () {
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.get('#steps_import_date_import_date_3i').click();
       cy.get('#steps_import_date_import_date_3i').clear();
@@ -60,7 +60,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
       cy.contains('Which part of the UK are you importing into?');
     });
     it(`📅 No Date ${country[i]}`, function () {
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.get('input[name=\'steps_import_date[import_date(3i)]\']').click();
       cy.get('input[name=\'steps_import_date[import_date(3i)]\']').clear();
@@ -76,7 +76,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
       cy.contains('Enter a valid date, no earlier than 1st January 2021');
     });
     it(`📅 Invalid date - Text ${country[i]} `, function () {
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.get('#steps_import_date_import_date_3i').click();
       cy.get('#steps_import_date_import_date_3i').clear();
@@ -95,7 +95,7 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
       cy.contains('Enter a valid date, no earlier than 1st January 2021');
     });
     it(`🔗 Verify Page links ${country[i]}`, function () {
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
 
       cy.get('.govuk-header__link')
         .contains('Search').click();
@@ -111,32 +111,32 @@ describe('🧮 📅 | dcImportDate | Duty Calculator main page |', function () {
       cy.contains('A–Z of Classified Goods');
       cy.get('.govuk-header').contains(`${pagetitles[i]}`);
       // DC main page
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
       cy.contains(`${pagetitles[i]}`);
       cy.contains('Tools').click();
       cy.get('.govuk-header').contains(`${pagetitles[i]}`);
       cy.contains('Tariff tools');
     });
     it(`🔖 Commodity Details ${country[i]}`, function () {
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
 
       cy.contains(`${pagetitles[i]}`);
       // Back button - GDS style back link
       cy.contains('Back').click();
       // Validate commodity page
-      cy.checkCommPage('0702000007');
-      cy.visit(`duty-calculator/${country[i]}/0702000007/import-date`);
+      cy.checkCommPage('0702001007');
+      cy.visit(`duty-calculator/${country[i]}/0702001007/import-date`);
       // About this commodity code
       cy.get('.govuk-details > .govuk-details__summary');
       cy.contains('About this commodity code').click();
       cy.get('.govuk-details__text');
       cy.contains('Commodity code');
-      cy.contains('0702000007');
+      cy.contains('0702001007');
       cy.contains('Cherry tomatoes');
 
-      cy.contains('View commodity 0702000007').click();
+      cy.contains('View commodity 0702001007').click();
       // ☀️ Validate commodity page
-      cy.checkCommPage('0702000007');
+      cy.checkCommPage('0702001007');
       cy.get('.govuk-header').contains(`${pagetitles[i]}`);
       cy.go('back');
       cy.contains('When will the goods be imported?');

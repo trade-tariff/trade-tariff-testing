@@ -123,13 +123,13 @@ Cypress.Commands.add('contextSelector', () => {
 });
 
 Cypress.Commands.add('searchForCommodity', (searchString) => {
-  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').click();
-  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').type(`${searchString}{enter}`);
+  cy.get('#autocomplete input').click();
+  cy.get('#autocomplete input').type(`${searchString}`).wait(500).type(`{enter}`)
 });
 
 Cypress.Commands.add('searchForCommodity2', (searchString) => {
-  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').click();
-  cy.get('[data-controller="commodity-select-box"] .autocomplete__input--default').type(searchString);
+  cy.get('#autocomplete input').debug().click();
+  cy.get('#autocomplete input').debug().type(searchString);
   return cy.get('input[name=\'new_search\']').click();
 });
 

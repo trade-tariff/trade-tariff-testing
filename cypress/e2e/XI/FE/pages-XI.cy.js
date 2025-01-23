@@ -96,7 +96,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
   });
 
   it('XI - export tab', function() {
-    cy.visit('xi/commodities/0702000007?country=#export');
+    cy.visit('xi/commodities/0702001007?country=#export');
     // without selecting any country
     cy.contains('Exporting from Northern Ireland');
     cy.contains('The commodity code for exporting and Intrastat reporting is 0702 0000');

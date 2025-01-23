@@ -2,9 +2,9 @@ describe('when on the UK service - SPIMM - E2E journeys - Cat2 Scenarios', funct
     const assertData = ['Category 1 exemptions', 'Category 2 exemptions', 'Condition met',
         'Your goods are exempt from Category 1 because you meet these conditions',
         'Your goods are exempt from Category 2 because you meet these conditions', 'Certificate needed'];
-    const assertData2 = ['Your Category 1 result is based on EU regulations', 'Your Category 2 result is based on EU regulations', 'Condition not met', 'Exemptions not met']
+    const assertData2 = ['Your Category 1 result is based on the following regulations', 'Your Category 2 result is based on the following regulations', 'Condition not met', 'Exemptions not met']
     beforeEach('Navigates from SPIMM start page to your goods page', () => {
-        cy.visit('/check_spimm_eligibility');
+        cy.visit('/check_simplified_processes_eligibility');
     });
     context('When on the UK service - Cat2 Scenarios', function () {
         beforeEach('Navigates from SPIMM start page to your goods page', () => {
@@ -38,7 +38,7 @@ describe('when on the UK service - SPIMM - E2E journeys - Cat2 Scenarios', funct
         });
         // Scenario 2 - Cat2 exemptions to check your answers to Cat 2 results page
         it('Verify - Green lanes - UK to NI - Category 2 - Scenario 2', function () {
-            const data = ['1602320000', 'GL', 'Category 2']
+            const data = ['1602320000', 'Greenland (GL)', 'Category 2']
             const cat2DocCodes = ['none', 'none', 'none'];
             // Tell us about your goods
             cy.tellUsAboutYourGoodsPage(data[0], data[1]);
@@ -58,7 +58,7 @@ describe('when on the UK service - SPIMM - E2E journeys - Cat2 Scenarios', funct
         });
         // Scenario 3 - Cat1 exemptions and Cat2 'none' to check your answers to Cat 2 results page
         it('Verify - Green lanes - UK to NI - Category 2 - Scenario 3', function () {
-            const data = ['6913909890', 'UA', 'Category 2'];
+            const data = ['6913909890', 'Ukraine (UA)', 'Category 2'];
             // Exception codes that need to select to get the desire result page
             const cat1DocCodes = ['y922', 'y997', 'y984'];
             const cat2DocCodes = 'none';
@@ -84,14 +84,14 @@ describe('when on the UK service - SPIMM - E2E journeys - Cat2 Scenarios', funct
             cy.verifyResultPage(data[0], data[1], data[2], cat1DocCodes, cat2DocCodes, assertData[3], assertData2[1], null);
         });
     });
-  
+
     context('Cat2 - E2E Test Cases', function () {
         const globalAssertData = [assertData[0], assertData[1], assertData[2], assertData[3]]; const globalAssertData2 = [assertData2[1], assertData2[3]];
         it('Cat2 - Theme 2.4 - Waste', function () {
-            const data = ['6913909890', 'UA', 'Category 2', 'yes'];
+            const data = ['6913909890', 'Ukraine (UA)', 'Category 2', 'yes'];
             const cat1DocCodes = ['y922', 'y997', 'y984'];
             const cat2DocCodes = ['none'];
-            const cat2Results = ['Annex IV of the Windsor Framework: "2.4 Regulation (EC) No 1013/2006 of the European Parliament and of the Council of 14 June 2006 on shipments of waste"', 'View EU Regulation document', 'Exemptions not met']
+            const cat2Results = ['Annex IV of the Windsor Framework: "2.4 Regulation (EC) No 1013/2006 of the European Parliament and of the Council of 14 June 2006 on shipments of waste"', 'View Regulation document', 'Exemptions not met']
             // Start page to cat2 result page
             cy.navigateToCatResultPage(data, cat1DocCodes, cat2DocCodes, globalAssertData, globalAssertData2);
             // verify cat2 result page
@@ -116,4 +116,3 @@ describe('when on the UK service - SPIMM - E2E journeys - Cat2 Scenarios', funct
         });
     });
 });
-

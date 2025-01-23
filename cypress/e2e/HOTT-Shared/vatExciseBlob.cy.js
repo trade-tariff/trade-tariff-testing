@@ -1,4 +1,4 @@
- 
+
 describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
   const country = ['xi', 'uk'];
   for (let i=0; i<country.length; i++) {
@@ -29,7 +29,7 @@ describe('| vatExciseBlob.spec | VAT and Excise blob on UK |', function() {
       cy.contains('UK Trade Tariff: excise duties, reliefs, drawbacks and allowances');
     });
     it(`${country[i]} Single VAT rate, but no excise`, function() {
-      cy.visit(`${country[i]}/commodities/0702000007`);
+      cy.visit(`${country[i]}/commodities/0702001007`);
       cy.get('h3#vat_excise').contains('Import VAT and excise');
       cy.get('.measure-inset.vat-excise-panel').contains('Goods are subject to an import VAT rate of 0.00%');
       cy.get('.measure-inset.vat-excise-panel').contains('Excise duties are not chargeable on this commodity.');
