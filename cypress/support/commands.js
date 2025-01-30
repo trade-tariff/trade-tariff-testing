@@ -124,13 +124,7 @@ Cypress.Commands.add('contextSelector', () => {
 
 Cypress.Commands.add('searchForCommodity', (searchString) => {
   cy.get('#autocomplete input').click();
-  cy.get('#autocomplete input').type(`${searchString}`).wait(500).type(`{enter}`)
-});
-
-Cypress.Commands.add('searchForCommodity2', (searchString) => {
-  cy.get('#autocomplete input').debug().click();
-  cy.get('#autocomplete input').debug().type(searchString);
-  return cy.get('input[name=\'new_search\']').click();
+  cy.get('#autocomplete input').type(searchString).wait(500).type(`{enter}`)
 });
 
 Cypress.Commands.add('searchWithSearchField', (searchString) => {
@@ -336,15 +330,12 @@ Cypress.Commands.add('fetchCookie', (name) => {
   });
 });
 
-Cypress.Commands.add('validateAutocompleteNthItem', (
-    inputText,
-    nthItem,
-    expectedText,
-    expectedUrl,
-    resourceId = null,
-    suggestionType = null,
-) => {
-  cy.get('#q').type(inputText);
+Cypress.Commands.add('validateSearchAutocomplete', (inputText, nthItem, expectedText, expectedUrl) => {
+  const input =  cy.get('#autocomplete input').should('be.visible');
+
+  input.type(inputText);
+
+  cy.waitForSearchingToFinish();
 
   cy.get('.autocomplete__menu')
       .should('be.visible')
@@ -353,14 +344,21 @@ Cypress.Commands.add('validateAutocompleteNthItem', (
       .as('nthRow')
       .invoke('text')
       .then((nthRowText) => {
-        if (resourceId && suggestionType) {
-          cy.get('@nthRow').find(`span[data-resource-id="${resourceId}"][data-suggestion-type="${suggestionType}"]`);
-        }
+        console.log(nthRowText);
         expect(nthRowText).to.contain(expectedText);
         cy.get('@nthRow').click();
       });
 
   cy.url().should('include', expectedUrl);
+});
+
+Cypress.Commands.add('validateDirectSearch', (text, expectedPath) => {
+      const input = cy.get('#autocomplete input').should('be.visible');
+      input.type(text);
+
+      cy.waitForSearchingToFinish();
+      input.type('{enter}')
+      cy.url().should('include', expectedPath);
 });
 
 Cypress.Commands.add('clickAndVerifySVPCodeCommCodeLink', (code) => {
@@ -383,6 +381,15 @@ Cypress.Commands.add('clickAndVerifySVPCodeCommCodeLink', (code) => {
       });
     }
   });
+});
+
+Cypress.Commands.add('waitForSearchingToFinish', () => {
+  cy.get('.autocomplete__option')
+      .first()
+      .should(
+        'not.contain',
+        'Searching...'
+      );
 });
 
 Cypress.Commands.add('verifySPVCodePage', (code) => {
