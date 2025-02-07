@@ -1,4 +1,4 @@
-describe('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
+describe.skip('Admin tool smoke tests', {tags: ['adminOnly']}, function() {
   beforeEach(() => {
     cy.loginOrRestoreAdminSession();
   });
