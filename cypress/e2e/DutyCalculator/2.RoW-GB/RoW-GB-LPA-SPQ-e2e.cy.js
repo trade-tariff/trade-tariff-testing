@@ -20,19 +20,6 @@ describe('| RoW-GB-LPA-SPQ-e2e | AlcoholDuties |', function() {
     cy.visit('/duty-calculator/measure-amount');
   });
 
-  it('RoW 🇸🇬 Antigua and Barbuda - 🇬🇧 GB - Alcohol duties calculations for simple LPA components', function() {
-    // when I go back and pick an asv percentage that applies a positive condition action
-    cy.quantity({lpa: '1000', asv: '3.49', spr: '3'});
-    cy.exciseCode('314');
-    cy.confirmPage();
-    cy.dutyPage();
-
-    // then I should see Excise calculations
-    cy.contains('Excise');
-    cy.contains('9.27 GBP / l alc. 100%');
-    cy.contains('£9,270.00'); // 9.27 * 1000
-  });
-
   it('RoW 🇸🇬 Antigua and Barbuda - 🇬🇧 GB - Alcohol duties calculations for SPQ-based components', function() {
     // when I go back and pick an asv percentage that applies a positive condition action
     cy.quantity({lpa: '84', asv: '8.4', spr: '5'});

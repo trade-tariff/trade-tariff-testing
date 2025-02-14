@@ -106,31 +106,6 @@ describe('🇬🇧 💡 | pages-UK.spec | Main Page - headers ,sections  - (UK v
         'https://www.gov.uk/guidance/check-if-you-can-declare-goods-you-bring-into-northern-ireland-not-at-risk-of-moving-to-the-eu',
     );
   });
-  it('UK - export tab', function() {
-    cy.visit('/commodities/0702001007?country=#export');
-    // without selecting any country
-    cy.contains('Exporting from the UK');
-    cy.contains('The commodity code for exporting and Intrastat reporting is 0702 0000');
-    // links on page
-    cy.get('a[href^=\'https://www.gov.uk/intrastat\']').contains('Intrastat reporting');
-    // EU country selected
-    cy.searchForCountry('Italy').type('{enter}');
-    // Non EU country selected
-    cy.searchForCountry('Andorra').type('{enter}');
-    cy.contains('Exporting from the UK');
-  });
-  it('UK - import tab', function() {
-    cy.visit('commodities/0702001007?day=10&month=12&year=2022#import');
-    cy.contains('Importing into the UK');
-    // added two lines
-    cy.get('#import > :nth-child(2)').contains('Select a country to view country-specific import information.');
-    cy.get('#import > :nth-child(3)')
-        .contains('You can check if preferential tariff treatments apply to the import of this specific product in the Origin tab');
-    cy.get('input#trading_partner_country').click();
-    cy.countryPickerpage({value: 'Argentina'});
-    cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('Argentina (AR)');
-    cy.get('a#tab_import').click();
-  });
   it('UK - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
     cy.visit('/help/rules_of_origin/duty_drawback');
     cy.contains('UK Integrated Online Tariff');

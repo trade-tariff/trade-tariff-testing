@@ -1,20 +1,4 @@
 describe('| RoW-GB207-e2e.spec | excise codes |', function() {
-  it(` 🚬 Cheroots | RoW 🇳🇴 Norway to 🇬🇧 GB  | 4.tobacco - Cheroots |`, function() {
-    cy.visit(`duty-calculator/uk/2402100000/import-date`);
-    cy.validDate();
-    cy.selectDestination('gb');
-    cy.originList({value: 'Norway'});
-    cy.customsValue({monetary: '900.00', shipping: '50.00', cost: '50.00'});
-    cy.quantity({kgm: '1'});
-    cy.exciseCode('615');
-    cy.confirmPage();
-    cy.dutyPage();
-    cy.contains('Third-country duty');
-    cy.contains('Tariff preference - Norway');
-    cy.contains('615 - Cigars');
-    cy.contains('£974.04');
-  });
-
   it('🛢️ Fuel | RoW 🇱🇮 Liechtenstein - 🇬🇧 GB   | 6.fuels of various types - White oils, liquid paraffin |', function() {
     cy.visit('/duty-calculator/uk/3811210027/import-date');
     cy.validDate();

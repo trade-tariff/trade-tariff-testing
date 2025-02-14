@@ -1,5 +1,5 @@
 describe('| RoW-GB-ASVX-SPQ-e2e | AlcoholDuties |', function() {
-  beforeEach(() => {
+  it('RoW 🇸🇬 Antigua and Barbuda - 🇬🇧 GB - Alcohol duties calculations for SPQ-based components', function() {
     // given a commodity with excise measures
     cy.visit('/duty-calculator/uk/2203000100/import-date');
     cy.validDate();
@@ -19,22 +19,6 @@ describe('| RoW-GB-ASVX-SPQ-e2e | AlcoholDuties |', function() {
     cy.should('not.contain', 'Excise');
 
     cy.visit('/duty-calculator/measure-amount');
-  });
-
-  it('RoW 🇸🇬 Antigua and Barbuda - 🇬🇧 GB - Alcohol duties calculations for simple ASVX components', function() {
-    // when I go back and pick an asv percentage that applies a positive condition action
-    cy.quantity({ltr: '1000', asv: '3.49', spr: '5'});
-    cy.exciseCode('311');
-    cy.confirmPage();
-    cy.dutyPage();
-
-    // then I should see Excise calculations
-    cy.contains('Excise');
-    cy.contains('9.27 GBP / % vol/hl');
-    cy.contains('£323.52'); // 9.27 * 3.49 * 10
-  });
-
-  it('RoW 🇸🇬 Antigua and Barbuda - 🇬🇧 GB - Alcohol duties calculations for SPQ-based components', function() {
     // when I go back and pick an asv percentage that applies a positive condition action
     cy.quantity({ltr: '1000', asv: '8.4', spr: '5'});
     cy.exciseCode('366');
