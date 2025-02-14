@@ -4,7 +4,6 @@ import helpers from '../../lib/helpers';
 describe('🇬🇧 💡 | quotasPopup-UK | Verify quota dialogs |', function() {
   const todaysDate = dayjs().format('D MMM YYYY');
   const previousDate = dayjs().subtract(1, 'd').format('D MMM YYYY');
-  const futureDate = dayjs().add(7, 'day').format('D MMM YYYY');
 
   it('Quota Popup - Verify change the title to quota order number', function() {
     cy.visit('/commodities/7306110000#quotas');

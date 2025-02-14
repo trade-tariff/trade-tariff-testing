@@ -71,7 +71,7 @@ describe('Smoke tests to cover basic functionality', {tags: ['smokeTest']}, func
       cy.get('@comments').then(cy.validJsonAPIresponse);
     });
     it('API V2 - Heading - validate response headers,status,content', function() {
-      cy.request('/api/v2/commodities/5001000000').as('comments');
+      cy.request('/api/v2/headings/5001').as('comments');
       cy.get('@comments').then(cy.validJsonAPIresponse);
     });
     it('API V2 Health Check', function() {

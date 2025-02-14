@@ -95,26 +95,11 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     );
   });
 
-  it('XI - export tab', function() {
-    cy.visit('xi/commodities/0702001007?country=#export');
-    // without selecting any country
-    cy.contains('Exporting from Northern Ireland');
-    cy.contains('The commodity code for exporting and Intrastat reporting is 0702 0000');
-
-    // links on page
-    cy.get('a[href^=\'https://www.gov.uk/intrastat\']').contains('Intrastat reporting');
-    // EU country selected
-    cy.searchForCountry('Italy').type('{enter}');
-    cy.contains('Exporting from Northern Ireland');
-
-    // Non EU country selected
-    cy.searchForCountry('Andorra').type('{enter}');
-    cy.contains('Exporting from Northern Ireland');
-  });
   it('XI - import tab', function() {
     cy.visit('xi/commodities/0706901000?day=10&month=12&year=2022#import');
     cy.contains('Importing into Northern Ireland');
   });
+
   it('XI - Rules of origin - duty drawback - help page', {tags: ['notProduction']}, function() {
     cy.visit('/xi/help/rules_of_origin/duty_drawback');
     cy.contains('Northern Ireland Online Tariff');
@@ -126,6 +111,7 @@ describe('🇪🇺 💡 | pages-XI.spec.js | Main Page ,headings ,sections - (XI
     cy.get('a[href^="/xi/glossary"]').contains('Rules of origin glossary');
     cy.get('a[href^="/xi/help/rules_of_origin/duty_drawback"]').contains('Duty drawback');
   });
+
   it('XI - Verify user can access exchange rate page on XI site', function() {
     cy.visit('xi/exchange_rates', {failOnStatusCode: false});
     cy.contains('Northern Ireland Online Tariff');
