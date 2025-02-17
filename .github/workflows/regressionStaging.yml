@@ -21,7 +21,7 @@ jobs:
       CYPRESS_grepTags: "-smokeTest+-notStaging"
       CYPRESS_VERIFY_TIMEOUT: 60000
     name: "RegressionTests - Staging"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
