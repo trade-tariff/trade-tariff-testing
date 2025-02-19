@@ -1,4 +1,4 @@
-describe('Measure condition popup CHIEF/CDS guidance', function() {
+describe('Measure condition popup CDS guidance', function() {
   context('when on the UK service', function() {
     it('shows guidance', function() {
       cy.visit('/commodities/6403990510#import');

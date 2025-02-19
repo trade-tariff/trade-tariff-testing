@@ -185,12 +185,10 @@ Cypress.Commands.add('certificateSearch', () => {
 
 Cypress.Commands.add('commodityImportGuidance', () => {
   cy.get('#import-measure-references').should('contain', 'CDS guidance');
-  cy.get('#import-measure-references').should('not.contain', 'CHIEF guidance');
 });
 
 Cypress.Commands.add('commodityExportGuidance', () => {
   cy.get('#export-measure-references').should('contain', 'CDS guidance');
-  cy.get('#export-measure-references').should('contain', 'CHIEF guidance');
 });
 
 // Validate API Document page
