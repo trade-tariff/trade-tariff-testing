@@ -7,7 +7,7 @@ describe('certificate search', function() {
       cy.get('input#certificate-search-form-code-field').type('D008');
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-      cy.contains('Using this certificate on CDS or CHIEF').click();
+      cy.contains('Using this certificate on CDS').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Plated or coated by hot dip galvanisation');
     });
@@ -16,7 +16,7 @@ describe('certificate search', function() {
       cy.get('input#certificate-search-form-description-field').type('invoice');
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-      cy.contains('Using this certificate on CDS or CHIEF').click();
+      cy.contains('Using this certificate on CDS').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Plated or coated by hot dip galvanisation');
     });
@@ -31,7 +31,7 @@ describe('certificate search', function() {
       cy.get('input#certificate-search-form-code-field').type('D008');
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-      cy.contains('Using this certificate on CDS or CHIEF').click();
+      cy.contains('Using this certificate on CDS').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Citric acid');
     });
@@ -40,7 +40,7 @@ describe('certificate search', function() {
       cy.get('input#certificate-search-form-description-field').type('invoice');
       cy.get('#certificate-submit').click();
       cy.get('article.search-results');
-      cy.contains('Using this certificate on CDS or CHIEF').click();
+      cy.contains('Using this certificate on CDS').click();
       cy.contains('Commodity codes that require this certificate').click();
       cy.contains('Citric acid');
     });
