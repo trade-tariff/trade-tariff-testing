@@ -1,0 +1,44 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/reports'
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node-22.14.0-chrome-133.0.6943.53-1-ff-135.0-edge-133.0.3065.59-1
+    env:
+      CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
+      CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
+      CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
+      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: "dev"
+      CYPRESS_STAGING_ADMIN_SUFFIX: "staging"
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - name: restore_cache
+      uses: actions/cache@v3.3.2
+      with:
+        key: v2-test-deps-{{ checksum "yarn.lock" }}
+        path: |-
+          node_modules
+          /root/.cache/Cypress
+        restore-keys: v2-test-deps-{{ checksum "yarn.lock" }}
+    - run: yarn install
+    - name: Cypress Smoke tests
+      run: |-
+        yarn run cypress run \
+          --spec \
+          $(git diff --name-only --diff-filter=ACM $(git merge-base main HEAD)..HEAD | grep 'cypress/e2e/' | grep '.cy.js' | tr -s '\n' ',')cypress/e2e/smoketests/smokeTestCI.cy.js
+  linters:
+    if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/reports'
+    runs-on: ubuntu-latest
+    container:
+      image: node:23.7.0
+    steps:
+    - uses: actions/checkout@v4.1.0
+    - run: yarn install
+    - name: Lint changed files
+      run: yarn run eslint $(git diff --name-only --diff-filter=ACM $(git merge-base main HEAD)..HEAD | egrep '\.js' | grep -v json)
