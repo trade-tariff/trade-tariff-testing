@@ -1,4 +1,4 @@
-name: "| Rotate All Regression Reports |"
+name: "Rotate All Regression Reports"
 
 on:
   schedule:
