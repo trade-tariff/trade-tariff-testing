@@ -217,7 +217,7 @@ Cypress.Commands.add('exciseCode', (excode) => {
 Cypress.Commands.add('docCode', (dcode) => {
   for (const [key, value] of Object.entries(dcode)) {
     cy.get(
-        `input[id="steps-document-code-document-code-${key}-${value}-field"], \
+      `input[id="steps-document-code-document-code-${key}-${value}-field"], \
          input[id="steps-document-code-document-code-${key}-field-error"]`,
     ).check();
   }
@@ -255,11 +255,6 @@ Cypress.Commands.add('dcRooLink', (options) => {
   cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
   cy.contains(`originating in the UK or ${options.country}.`);
   cy.contains('If there are alternative rules, your product needs to comply with only one of them.');
-});
-Cypress.Commands.add('dcRooLink2', (_options) => {
-  cy.contains(`Product-specific rules for commodity`);
-  cy.get('details:nth-of-type(2)  .govuk-details__summary-text').click();
-  cy.contains(`There are no product-specific rules for commodity`);
 });
 Cypress.Commands.add('dcStoppingPage', (_options) => {
   cy.title().should('eq', 'Declared subheading not allowed - Online Tariff Duty calculator');
