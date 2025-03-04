@@ -8,9 +8,7 @@ This repository is responsible for validating integrations between different app
 
 There are currently three enviornments we might run end-to-end tests against:
 
-- development
 - staging
-- production
 
 Regression suites for each of these environments are configured using github actions
 
