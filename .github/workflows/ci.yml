@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4.1.0
     - name: restore_cache
-      uses: actions/cache@v3.3.2
+      uses: actions/cache@v4
       with:
         key: v2-test-deps-{{ checksum "yarn.lock" }}
         path: |-
