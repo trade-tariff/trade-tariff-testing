@@ -5,31 +5,24 @@ on:
     - cron: "00 00 * * *"
   workflow_dispatch:
     inputs:
-          test-url:
-            description: 'URL to run tests against'
-            required: false
-            options:
-              - https://dev.trade-tariff.service.gov.uk
-              - https://staging.trade-tariff.service.gov.uk
-              - https://www.trade-tariff.service.gov.uk
-            default: 'https://staging.trade-tariff.service.gov.uk'
-          admin-test-url:
-            description: 'URL to run tests against'
-            required: false
-            options:
-              - https://admin.dev.trade-tariff.service.gov.uk
-              - https://admin.staging.trade-tariff.service.gov.uk
-              - https://admin.trade-tariff.service.gov.uk
-            default: 'https://admin.staging.trade-tariff.service.gov.uk'
-          environment:
-            description: 'Environment to run tests against'
-            required: true
-            type: choice
-            options:
-              - development
-              - staging
-              - production
-            default: 'staging'
+      test-url:
+        description: 'URL to run tests against'
+        required: false
+        default: 'https://staging.trade-tariff.service.gov.uk'
+      admin-test-url:
+        description: 'Admin URL to run tests against'
+        required: false
+        default: 'https://admin.staging.trade-tariff.service.gov.uk'
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+        default: 'staging'
+
 jobs:
   cypress-run:
     environment: trade-tariff
@@ -55,17 +48,14 @@ jobs:
 
     steps:
       - run: date
-
       - name: Checkout repository code
         uses: actions/checkout@v4
-
       - name: Generate lists of specs
         id: speclist
         run: |
           find cypress/e2e -type f -name '*.cy.js' > all_specs.txt
           split -n l/4 -d -a 1 all_specs.txt spec_group_
           echo "specfiles=$(paste -d, -s spec_group_${{ matrix.containers }})" >> $GITHUB_OUTPUT
-
       - name: Run cypress tests with chrome
         id: cypress
         uses: cypress-io/github-action@v6
@@ -74,12 +64,10 @@ jobs:
           spec: ${{ steps.speclist.outputs.specfiles }}
           quiet: true
           browser: chrome
-
       - name: Cypress test outcome
         id: cypress-outcome
         run: |
           echo "test-status-${{ matrix.containers }}=${{ steps.cypress.outcome }}" >> $GITHUB_OUTPUT
-
       - name: Upload E2E test reports
         uses: actions/upload-artifact@v4
         with:
@@ -93,18 +81,14 @@ jobs:
     runs-on: ubuntu-22.04
     outputs:
       date-output: ${{ steps.date.outputs.date }}
-
     steps:
       - name: Get current date
         id: date
         run: echo "date=$(date +'%d-%m-%Y')" >> $GITHUB_OUTPUT
-
       - name: Install dependencies
         run: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
-
       - name: Create reports directory
         run: mkdir reports
-
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
@@ -125,7 +109,6 @@ jobs:
         with:
           name: test-reports-3
           path: reports/3
-
       - name: Move reports to mochawesome-report directory
         run: |
           mkdir -p mochawesome-report
@@ -135,45 +118,40 @@ jobs:
               mv "$file" mochawesome-report/$(basename "$file" .json)-"$container".json
             done
           done
-
       - name: Merge and generate reports
         run: |
           mkdir report
           npx mochawesome-merge mochawesome-report/*.json > report/index.json
           npx marge --inline report/index.json -o report/
-
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
           name: E2E Test Reports
           path: report/
-
       - name: Checkout reports repo
         uses: actions/checkout@v4
         with:
-            ref: reports
-            path: reports_repo
-
+          ref: reports
+          path: reports_repo
       - name: Copy report into reports repo
         run: |
           cd reports_repo
           DATE=$(date +%d-%m-%Y)
-          [ -e docs/staging/$DATE ] && rm -rf docs/staging/$DATE
-          cp -a ../report/  docs/staging/$DATE
-          pushd docs/staging/$DATE
+          ENV=${{ inputs.environment || 'staging' }}
+          [ -e docs/$ENV/$DATE ] && rm -rf docs/$ENV/$DATE
+          cp -a ../report/  docs/$ENV/$DATE
+          pushd docs/$ENV/$DATE
           rm -rf assets
           rm -rf screenshots
           ln -s ../../assets/
           popd
           git add docs .
-
       - name: Commit todays report to reports branch
         run: |
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "${{ inputs.environment || 'staging' }} report for $(date +%d-%m-%Y)" -a
-
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
@@ -186,7 +164,6 @@ jobs:
     needs: [cypress-run, gen-report]
     if: always()
     runs-on: ubuntu-22.04
-
     steps:
       - name: Determine test outcome
         id: determine-outcome
@@ -196,7 +173,6 @@ jobs:
           else
             echo "result=failure" >> $GITHUB_OUTPUT
           fi
-
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -206,4 +182,4 @@ jobs:
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ steps.determine-outcome.outputs.result }}
           SLACK_TITLE: Cypress finished with - ${{ steps.determine-outcome.outputs.result }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ inputs.environment || "staging" }}/${{ needs.gen-report.outputs.date-output }}/
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ inputs.environment || 'staging' }}/${{ needs.gen-report.outputs.date-output }}/
