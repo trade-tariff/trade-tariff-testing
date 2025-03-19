@@ -53,7 +53,7 @@ jobs:
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
       CYPRESS_grepTags: "-smokeTest+-notStaging"
       CYPRESS_VERIFY_TIMEOUT: 60000
-    name: "RegressionTests - ${{ inputs.environment || staging }}"
+    name: "RegressionTests - ${{ inputs.environment || 'staging' }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
