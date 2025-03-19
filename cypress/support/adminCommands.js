@@ -2,9 +2,7 @@ import dayjs from 'dayjs';
 
 const todaysDate = dayjs().format('YYYY/MM/DD');
 const datePrefixFormat = dayjs().format('DD/MM/YYYY');
-const space = Cypress.env('SPACE');
-const adminSuffix = Cypress.env(`${space}_ADMIN_SUFFIX`);
-const adminUrl = `https://admin.${adminSuffix}.trade-tariff.service.gov.uk`;
+const adminUrl = Cypress.env('ADMIN_URL')
 
 Cypress.Commands.add('loginOrRestoreAdminSession', () => {
   cy.session('adminLogin', () => {
@@ -222,7 +220,7 @@ Cypress.Commands.add('verifyAndUpdateNewsItem', (service) => {
     if (t.includes('Automated Test - Sample')) {
       // assertion
       expect(t).to.contains('Automated Test - Sample');
-      cy.get('tbody > tr > td:nth-child(2)').eq(index).next().then(function (d) {
+      cy.get('tbody > tr > td:nth-child(2)').eq(index).next().then(function(d) {
         const r = d.text();
         // assertion
         expect(r).to.contains(datePrefixFormat);

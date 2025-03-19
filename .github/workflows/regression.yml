@@ -1,26 +1,47 @@
-name: "Staging | Regression Pack"
+name: "Regression Pack"
 
 on:
   schedule:
     - cron: "00 00 * * *"
   workflow_dispatch:
-
+    inputs:
+          test-url:
+            description: 'URL to run tests against'
+            required: false
+            options:
+              - https://dev.trade-tariff.service.gov.uk
+              - https://staging.trade-tariff.service.gov.uk
+              - https://www.trade-tariff.service.gov.uk
+            default: 'https://staging.trade-tariff.service.gov.uk'
+          admin-test-url:
+            description: 'URL to run tests against'
+            required: false
+            options:
+              - https://admin.dev.trade-tariff.service.gov.uk
+              - https://admin.staging.trade-tariff.service.gov.uk
+              - https://admin.trade-tariff.service.gov.uk
+            default: 'https://admin.staging.trade-tariff.service.gov.uk'
+          environment:
+            description: 'Environment to run tests against'
+            required: true
+            type: choice
+            options:
+              - development
+              - staging
+              - production
+            default: 'staging'
 jobs:
   cypress-run:
     environment: trade-tariff
     env:
-      CYPRESS_BASE_URL: "https://staging.trade-tariff.service.gov.uk"
+      CYPRESS_BASE_URL: ${{ inputs.test-url || "https://staging.trade-tariff.service.gov.uk" }}
+      CYPRESS_ADMIN_URL: ${{ inputs.admin-test-url || "https://admin.staging.trade-tariff.service.gov.uk" }}
       CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
-      CYPRESS_STAGING_ADMIN_SUFFIX: "staging"
-      CYPRESS_SPACE: "STAGING"
-      CYPRESS_STAGING_BASIC_AUTH: ${{ secrets.CYPRESS_STAGING_BASIC_AUTH }}
-      CYPRESS_STAGING_BASIC_PASSWORD: ${{ secrets.CYPRESS_STAGING_BASIC_PASSWORD }}
-      CYPRESS_STAGING_BASIC_USERNAME: ${{ secrets.CYPRESS_STAGING_BASIC_USERNAME }}
       CYPRESS_grepTags: "-smokeTest+-notStaging"
       CYPRESS_VERIFY_TIMEOUT: 60000
-    name: "RegressionTests - Staging"
+    name: "RegressionTests - ${{ inputs.environment || 'staging' }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -151,7 +172,7 @@ jobs:
           cd reports_repo
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "Staging report for $(date +%d-%m-%Y)" -a
+          git commit -m "${{ inputs.environment || 'staging' }} report for $(date +%d-%m-%Y)" -a
 
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -180,9 +201,9 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: "tariffs-regression"
-          SLACK_USERNAME: "Staging Regression"
+          SLACK_USERNAME: "${{ inputs.environment || 'staging' }} Regression"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_ICON_EMOJI: ":alphabet-yellow-s:"
           SLACK_COLOR: ${{ steps.determine-outcome.outputs.result }}
           SLACK_TITLE: Cypress finished with - ${{ steps.determine-outcome.outputs.result }}
-          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/staging/${{ needs.gen-report.outputs.date-output }}/
+          SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ inputs.environment || "staging" }}/${{ needs.gen-report.outputs.date-output }}/
