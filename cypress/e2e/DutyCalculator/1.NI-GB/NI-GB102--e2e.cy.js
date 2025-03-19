@@ -1,4 +1,4 @@
- 
+
 describe('| *NI-GB102--e2e | XI to GB using Duty cal Link |', function() {
   it('e2e NI to GB | 102 |', function() {
     cy.visit('/commodities/1516209821');

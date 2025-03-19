@@ -151,5 +151,3 @@ describe(' 🇬🇧 💡 | pageLinks-UK | Terms and Conditions, Cookies ,Privacy
     cy.contains('Importing into the UK');
   });
 });
-
-

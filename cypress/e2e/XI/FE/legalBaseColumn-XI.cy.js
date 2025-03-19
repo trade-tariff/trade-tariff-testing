@@ -1,4 +1,4 @@
- 
+
 describe('🇪🇺 💡 legalBaseColumn-XI | Legal base Column XI ', function() {
 // HOT-58 Suppressing Legal Base Column for XI
   // front end

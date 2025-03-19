@@ -1,4 +1,4 @@
- 
+
 describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['config', 'xbrowser-tag']}, function() {
   it('XI Country Selection -import ', function() {
     cy.visit('/xi/commodities/0208909800#import');
@@ -44,7 +44,7 @@ describe('🇪🇺 💡 | countrySelection-XI | Country Selection |', {tags: ['c
     cy.contains('You are currently using the Northern Ireland Online Tariff');
     cy.contains('Select or enter a country name to view EU and UK measures');
     cy.get('#tab_rules-of-origin').click();
-    cy.contains('#rules-of-origin', 'Select a country to check which tariff treatments apply.').should('not.exist');  
+    cy.contains('#rules-of-origin', 'Select a country to check which tariff treatments apply.').should('not.exist');
     // Reset all countries
     cy.get('.govuk-link').contains('Reset to all countries').click();
     cy.get('.autocomplete__wrapper > ul >li.autocomplete__option').contains('All countries');

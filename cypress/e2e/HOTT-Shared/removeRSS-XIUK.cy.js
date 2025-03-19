@@ -11,5 +11,3 @@ describe(' 🇪🇺 🇬🇧 💡 remove RSS feed functionality - XI service ', 
     cy.get('.govuk-main-wrapper').should('not.have.value', 'Changes');
   });
 });
-
-

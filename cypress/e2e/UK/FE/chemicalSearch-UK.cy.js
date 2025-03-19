@@ -1,4 +1,4 @@
- 
+
 describe('🇬🇧 💡 | chemicalSearch-UK | Chemical Search 🧪  UK services |', function() {
   it('UK Chemical Search -using CAS number', function() {
     cy.visit('/chemical_search');

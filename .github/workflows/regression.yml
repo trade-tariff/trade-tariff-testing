@@ -5,14 +5,6 @@ on:
     - cron: "00 00 * * *"
   workflow_dispatch:
     inputs:
-      test-url:
-        description: 'URL to run tests against'
-        required: false
-        default: 'https://staging.trade-tariff.service.gov.uk'
-      admin-test-url:
-        description: 'Admin URL to run tests against'
-        required: false
-        default: 'https://admin.staging.trade-tariff.service.gov.uk'
       environment:
         description: 'Environment to run tests against'
         required: true
@@ -24,17 +16,44 @@ on:
         default: 'staging'
 
 jobs:
+  load-vars:
+    name: From the input environment, pick the variables for future jobs
+    runs-on: ubuntu-latest
+    steps:
+      - id: load-vars
+        run: |
+          environment=${{ github.event.inputs.environment }}
+          case $environment in
+            development)
+              echo "export CYPRESS_BASE_URL=https://dev.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              echo "export CYPRESS_ADMIN_URL=https://admin.dev.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              ;;
+            staging)
+              echo "export CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              echo "export CYPRESS_ADMIN_URL=https://admin.staging.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              ;;
+            production)
+              echo "export CYPRESS_BASE_URL=https://www.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              echo "export CYPRESS_ADMIN_URL=https://admin.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              ;;
+            *)
+              echo "export CYPRESS_BASE_URL=https://staging.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              echo "export CYPRESS_ADMIN_URL=https://admin.staging.trade-tariff.service.gov.uk" >> $GITHUB_ENV
+              ;;
+          esac
+
   cypress-run:
+    needs: load-vars
     environment: trade-tariff
     env:
-      CYPRESS_BASE_URL: ${{ inputs.test-url || "https://staging.trade-tariff.service.gov.uk" }}
-      CYPRESS_ADMIN_URL: ${{ inputs.admin-test-url || "https://admin.staging.trade-tariff.service.gov.uk" }}
+      CYPRESS_BASE_URL: ${{ needs.load-vars.outputs.CYPRESS_BASE_URL }}
+      CYPRESS_ADMIN_URL: ${{ needs.load-vars.outputs.CYPRESS_ADMIN_URL }}
       CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
       CYPRESS_grepTags: "-smokeTest+-notStaging"
       CYPRESS_VERIFY_TIMEOUT: 60000
-    name: "RegressionTests - ${{ inputs.environment || 'staging' }}"
+    name: "RegressionTests - ${{ inputs.environment || staging }}"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

@@ -58,7 +58,6 @@ yarn run open:staging
 yarn run open:prod
 ```
 
-
 ### Handy tips when running tests
 
 [Cypress API Docs](https://docs.cypress.io/api/table-of-contents)
@@ -76,4 +75,3 @@ Setting the timeout in headed mode to give yourself time to analyse the page
 
 _Place this at the top of your test_
 `cy.config('defaultCommandTimeout', 100000);`
-

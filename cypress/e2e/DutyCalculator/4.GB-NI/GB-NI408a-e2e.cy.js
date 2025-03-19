@@ -152,5 +152,3 @@ describe('GB-NI408a-e2e.spec|GB to NI route08-Trade Remedies-0% MFN EU tariff-Tr
     cy.contains('and you will need to provide evidence of compliance with your shipment.');
   });
 });
-
-
