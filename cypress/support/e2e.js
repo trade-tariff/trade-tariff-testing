@@ -21,7 +21,6 @@ import './apiCommands';
 import './glCommands';
 import 'cypress-fill-command';
 require('@cypress/grep')();
-require('cypress-downloadfile/lib/downloadFileCommand');
 
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false;

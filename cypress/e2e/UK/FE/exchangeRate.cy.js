@@ -8,8 +8,8 @@ const lastMonth = 12;
 const path = '/exchange_rates';
 
 
-describe('validate /exchange_rates', function () {
-  it('returns the latest monthly exchange rates', function () {
+describe('validate /exchange_rates', function() {
+  it('returns the latest monthly exchange rates', function() {
     // Visit page
     cy.visit(path);
     cy.contains('UK Integrated Online Tariff');
@@ -30,7 +30,7 @@ describe('validate /exchange_rates', function () {
     });
   });
 
-  it('displays exchange rates for previous years', function () {
+  it('displays exchange rates for previous years', function() {
     // given I am on the exchange rates page
     cy.visit(path);
     // then I expect to see the current year in the title
