@@ -19,7 +19,6 @@ import './adminCommands';
 import './dutyCommands';
 import './apiCommands';
 import './glCommands';
-import 'cypress-fill-command';
 require('@cypress/grep')();
 
 Cypress.on('uncaught:exception', (err, runnable) => {

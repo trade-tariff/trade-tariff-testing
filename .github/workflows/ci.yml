@@ -14,8 +14,7 @@ jobs:
       CYPRESS_ADMIN_OTP_SECRET: ${{ secrets.ADMIN_OTP_SECRET }}
       CYPRESS_ADMIN_PASSWORD: ${{ secrets.CYPRESS_ADMIN_PASSWORD }}
       CYPRESS_ADMIN_USERNAME: ${{ secrets.CYPRESS_ADMIN_USERNAME }}
-      CYPRESS_DEVELOPMENT_ADMIN_SUFFIX: "dev"
-      CYPRESS_STAGING_ADMIN_SUFFIX: "staging"
+      CYPRESS_ADMIN_URL: https://admin.staging.trade-tariff.service.gov.uk
     steps:
     - uses: actions/checkout@v4.1.0
     - name: restore_cache
