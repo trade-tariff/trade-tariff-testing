@@ -1,4 +1,4 @@
-describe('Smoke tests for infrastructure', function() {
+describe('Smoke tests for infrastructure', { tags: ['smokeTest'] }, function() {
   it('returns healthy for our import apps', function() {
     cy.request('/healthcheck').then((response) => {
       expect(response.status).to.eq(200);
