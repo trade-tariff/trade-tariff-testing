@@ -204,7 +204,6 @@ jobs:
           SLACK_MESSAGE: https://trade-tariff.github.io/trade-tariff-testing/${{ inputs.environment || 'staging' }}/${{ needs.gen-report.outputs.date-output }}/
 
       - name: Finalise the workflow
-        needs: [cypress-run, gen-report]
         run: |
           echo "Workflow finished with ${{ steps.determine-outcome.outputs.result }} status"
           if [[ "${{ steps.determine-outcome.outputs.result }}" == "failure" ]]; then
