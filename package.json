@@ -5,7 +5,7 @@
   "description": "E2E testing of the Online Trade Tariff",
   "dependencies": {
     "@cypress/grep": "^4.1.0",
-    "cypress": "^14.2.1",
+    "cypress": "^14.3.0",
     "cypress-dotenv": "https://github.com/morficus/cypress-dotenv",
     "cypress-otp": "^1.0.3",
     "dotenv": "^16.4.7",
